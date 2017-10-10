@@ -1,0 +1,145 @@
+## Update a user's settings
+
+Update a user's settings
+
+> Definition
+
+```shell
+PATCH https://api.zoom.us/v2/users/{userId}/settings
+```
+
+> Example Request
+
+```shell
+$ curl https://api.zoom.us/v2/users/{userId}/settings \
+   -d '{
+    "scheduled_meeting": {
+        "host_video": "boolean",
+        "participants_video": "boolean",
+        "audio_type": "string",
+        "join_before_host": "boolean",
+        "enforce_login": "boolean",
+        "not_store_meeting_topic": "boolean",
+        "force_pmi_jbh_password": "boolean",
+        "pstn_password_protected": "boolean"
+    },
+    "in_meeting": {
+        "e2e_encryption": "boolean",
+        "chat": "boolean",
+        "private_chat": "boolean",
+        "auto_saving_chat": "boolean",
+        "entry_exit_chime": "string",
+        "record_play_voice": "boolean",
+        "file_transfer": "boolean",
+        "feedback": "boolean",
+        "co_host": "boolean",
+        "polling": "boolean",
+        "attendee_on_hold": "boolean",
+        "annotation": "boolean",
+        "non_verbal_feedback": "boolean",
+        "breakout_room": "boolean",
+        "remote_support": "boolean",
+        "closed_caption": "boolean",
+        "group_hd": "boolean",
+        "virtual_background": "boolean",
+        "far_end_camera_control": "boolean",
+        "share_dual_camera": "boolean",
+        "attention_tracking": "boolean",
+        "waiting_room": "boolean",
+        "manage_zr": "boolean"
+    },
+    "email_notification": {
+        "jbh_reminder": "boolean",
+        "cancel_meeting_reminder": "boolean",
+        "alternative_host_reminder": "boolean"
+    },
+    "recording": {
+        "local_recording": "boolean",
+        "cloud_recording": "boolean",
+        "record_speaker_view": "boolean",
+        "record_gallery_view": "boolean",
+        "record_audio_file": "boolean",
+        "save_chat_text": "boolean",
+        "show_timestamp": "boolean",
+        "auto_recording": "string",
+        "auto_delete_cmr": "boolean"
+    },
+    "telephony": {
+        "third_party_audio": "boolean",
+        "audio_conference_info": "string",
+        "show_international_numbers_link": "boolean"
+    },
+    "feature": {
+        "meeting_capacity": "integer",
+        "large_meeting": "boolean",
+        "large_meeting_capacity": "integer",
+        "webinar": "boolean",
+        "webinar_capacity": "boolean"
+    }
+}'
+```
+
+> Example Response
+
+```text
+204 No Content
+```
+
+Path Arguments | &nbsp;
+--- | ---
+userId **required** | The user ID
+
+Body Arguments | &nbsp;
+--- | ---
+scheduled_meeting.host_video | Host video
+scheduled_meeting.participants_video | Participants video
+scheduled_meeting.audio_type | Meeting audio<div class="enum">`both` Telephony and VoIP<br/>`telephony` Audio PSTN telephony only<br/>`voip` VoIP only<br/>`thirdParty` 3rd party audio conference<br/>`none` Disabled<br/></div>
+scheduled_meeting.join_before_host | Join before host
+scheduled_meeting.enforce_login | Only signed-in users can join meetings
+scheduled_meeting.not_store_meeting_topic | Always display "Zoom Meeting" as the meeting topic
+scheduled_meeting.force_pmi_jbh_password | Require a password for Personal Meetings if attendees can join before host
+scheduled_meeting.pstn_password_protected | Generate and require password for participants joining by phone
+in_meeting.e2e_encryption | End-to-end encryption
+in_meeting.chat | Chat
+in_meeting.private_chat | Private chat
+in_meeting.auto_saving_chat | Auto saving chats
+in_meeting.entry_exit_chime | Play sound on join/leave<div class="enum">`host` when host joins/leaves<br/>`all` when any participant joins/leaves<br/>`none` no join/leave sound<br/></div>
+in_meeting.record_play_voice | Record and play their own voice
+in_meeting.file_transfer | File transfer
+in_meeting.feedback | Feedback to Zoom
+in_meeting.co_host | Co-host
+in_meeting.polling | Polling
+in_meeting.attendee_on_hold | Allow host to put attendee on hold
+in_meeting.annotation | Annotation
+in_meeting.non_verbal_feedback | Non-verbal feedback
+in_meeting.breakout_room | Breakout room
+in_meeting.remote_support | Remote support
+in_meeting.closed_caption | Closed caption
+in_meeting.group_hd | Group HD video
+in_meeting.virtual_background | Virtual background
+in_meeting.far_end_camera_control | Far end camera control
+in_meeting.share_dual_camera | Share dual camera
+in_meeting.attention_tracking | Attention tracking
+in_meeting.waiting_room | Waiting room
+in_meeting.manage_zr | Manage Zoom Rooms
+email_notification.jbh_reminder | When attendees join meeting before host
+email_notification.cancel_meeting_reminder | When a meeting is cancelled
+email_notification.alternative_host_reminder | When an alternative host is set or removed from a meeting
+recording.local_recording | Local recording
+recording.cloud_recording | Cloud recording
+recording.record_speaker_view | Record the active speaker view
+recording.record_gallery_view | Record the gallery view
+recording.record_audio_file | Record an audio only file
+recording.save_chat_text | Save chat text from the meeting
+recording.show_timestamp | Show timestamp on video
+recording.auto_recording | Automatic recording<div class="enum">`Record on local` local<br/>`Record on cloud` cloud<br/>`Disabled` none<br/></div>
+recording.auto_delete_cmr | Auto delete cloud recordings
+telephony.third_party_audio | 3rd party audio conference
+telephony.audio_conference_info | 3rd party audio conference info
+telephony.show_international_numbers_link | Show international numbers link on the invitation email
+feature.meeting_capacity | User’s meeting capacity.
+feature.large_meeting | Large meting feature
+feature.large_meeting_capacity | Large meeting capacity, can be 100, 200, 300 or 500, depends on if having related large meeting capacity plan subscription or not.
+feature.webinar | Webinar feature
+feature.webinar_capacity | Webinar capacity, can be 100, 500, 1000, 3000, 5000 or 10000, depends on if having related webinar capacity plan subscription or not.
+

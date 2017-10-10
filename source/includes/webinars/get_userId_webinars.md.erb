@@ -1,0 +1,81 @@
+## List webinars
+
+List webinars for a user
+
+> Definition
+
+```shell
+GET https://api.zoom.us/v2/users/{userId}/webinars
+```
+
+> Example Request
+
+```shell
+$ curl https://api.zoom.us/v2/users/{userId}/webinars
+```
+
+> Example Response
+
+```text
+200 OK
+```
+
+```json
+{
+    "page_count": "integer",
+    "page_number": "integer",
+    "page_size": "integer",
+    "total_records": "integer",
+    "meetings": [
+        {
+            "uuid": "string",
+            "id": "string",
+            "host_id": "string",
+            "topic": "string",
+            "type": "integer",
+            "start_time": "string",
+            "duration": "integer",
+            "timezone": "string",
+            "password": "string",
+            "description": "string",
+            "recurrence": {
+                "type": "integer",
+                "repeat_interval": "integer",
+                "weekly_days": "integer",
+                "monthly_day": "integer",
+                "monthly_week": "integer",
+                "monthly_week_day": "integer",
+                "end_times": "integer",
+                "end_date_time": "string"
+            },
+            "settings": {
+                "host_video": "boolean",
+                "participant_video": "boolean",
+                "cn_meeting": "boolean",
+                "in_meeting": "boolean",
+                "join_before_host": "boolean",
+                "mute_upon_entry": "boolean",
+                "watermark": "boolean",
+                "use_pmi": "boolean",
+                "approval_type": "integer",
+                "registration_type": "integer",
+                "audio": "string",
+                "auto_recording": "string",
+                "enforce_login": "boolean",
+                "enforce_login_domains": "boolean",
+                "alternatice_hosts": "boolean"
+            }
+        }
+    ]
+}
+```
+
+Path Arguments | &nbsp;
+--- | ---
+userId **required** | The user ID
+
+Query Arguments | &nbsp;
+--- | ---
+page_size | Number of items returned per page
+page_number | Page number of results returned
+

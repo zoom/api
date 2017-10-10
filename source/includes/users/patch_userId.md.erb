@@ -1,0 +1,49 @@
+## Update a user
+
+Update a user on your account
+
+> Definition
+
+```shell
+PATCH https://api.zoom.us/v2/users/{userId}
+```
+
+> Example Request
+
+```shell
+$ curl https://api.zoom.us/v2/users/{userId} \
+   -d '{
+    "email": "string",
+    "type": "integer",
+    "first_name": "string",
+    "last_name": "string",
+    "timezone": "string",
+    "dept": "string",
+    "vanity_url": "string",
+    "host_key": "string",
+    "cms_user_id": "string"
+}'
+```
+
+> Example Response
+
+```text
+204 No Content
+```
+
+Path Arguments | &nbsp;
+--- | ---
+userId **required** | The user ID
+
+Body Arguments | &nbsp;
+--- | ---
+email **required** | User's email address.
+type **required** | User's type<div class="enum">`1` basic<br/>`2` pro<br/>`3` corp<br/></div>
+first_name | User's first name.
+last_name | User's last name.
+timezone | The time zone id for user profile
+dept | Department for user profile, used for reports.
+vanity_url | Personal meeting room name
+host_key | Host Key, should be 6-digit number
+cms_user_id | Kaltura User Id
+

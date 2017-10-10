@@ -1,0 +1,68 @@
+## List a meeting's registrants
+
+List registrants of a meeting
+
+> Definition
+
+```shell
+GET https://api.zoom.us/v2/meetings/{meetingId}/registrants
+```
+
+> Example Request
+
+```shell
+$ curl https://api.zoom.us/v2/meetings/{meetingId}/registrants
+```
+
+> Example Response
+
+```text
+200 OK
+```
+
+```json
+{
+    "page_count": "integer",
+    "page_number": "integer",
+    "page_size": "integer",
+    "total_records": "integer",
+    "registrants": [
+        {
+            "email": "string",
+            "first_name": "string",
+            "last_name": "string",
+            "address": "string",
+            "city": "string",
+            "country": "string",
+            "zip": "string",
+            "state": "string",
+            "phone": "string",
+            "industry": "string",
+            "org": "string",
+            "job_title": "string",
+            "purchasing_time_frame": "string",
+            "role_in_purchase_process": "string",
+            "no_of_employees": "string",
+            "comments": "string",
+            "custom_questions": [
+                {
+                    "title": "string",
+                    "value": "string"
+                }
+            ]
+        }
+    ]
+}
+```
+
+Path Arguments | &nbsp;
+--- | ---
+meetingId **required** | The meeting ID
+
+Query Arguments | &nbsp;
+--- | ---
+occurrence_id | The the meeting occurence ID
+status | The registrant status<div class="enum">`approved` registrants status is approved<br/>`pending` registrants status is pending<br/>`denied` registrants status is denied<br/></div>
+page_size | Number of items returned per page
+page_number | Page number of results returned
+

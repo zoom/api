@@ -1,0 +1,110 @@
+/*
+Copyright 2008-2013 Concur Technologies, Inc.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may
+not use this file except in compliance with the License. You may obtain
+a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+License for the specific language governing permissions and limitations
+under the License.
+*/
+
+
+////////////////////////////////////////////////////////////////////////////////
+// CUSTOMIZE SLATE
+////////////////////////////////////////////////////////////////////////////////
+// Use these settings to help adjust the appearance of Slate
+
+
+// BACKGROUND COLORS
+////////////////////
+
+// nav (left)
+$nav-bg: #fafafa !default;
+$nav-subitem-bg: #fff !default;
+$nav-active-bg: #2D8CFF !default;
+$main-bg: #fff !default;
+
+// code side (right)
+$examples-bg: #2d3134 !default;
+$lang-select-bg: #242729 !default;
+$code-bg: #292929 !default;
+$code-annotation-bg: #1c1c1c !default;
+$lang-select-active-bg: #2D8CFF !default; // feel free to change this to blue or something
+$lang-select-border: #bada55 !default;
+$lang-select-pressed-bg: #111 !default; // color of language tab bg when mouse is pressed
+
+
+$aside-notice-bg: #eaf3fe !default;
+$aside-warning-bg: #feeaf3 !default;
+$aside-success-bg: #f3feea !default;
+$search-notice-bg: #feeaf3 !default;
+
+
+// TEXT COLORS
+////////////////////
+$main-text: #505050 !default; // main content text color
+$nav-text: #505050 !default;
+$nav-active-text: #fff !default;
+$lang-select-text: #fff !default; // color of unselected language tab text
+$lang-select-active-text: #fff !default; // color of selected language tab text
+$lang-select-pressed-text: #fff !default; // color of language tab text when mouse is pressed
+
+
+// SIZES
+////////////////////
+$nav-width: 230px !default; // width of the navbar
+$examples-width: 45% !default; // portion of the screen taken up by code examples
+$logo-margin: 20px !default; // margin between nav items and logo, ignored if search is active
+$main-padding: 28px !default; // padding to left and right of content & examples
+$nav-padding: 15px !default; // padding to left and right of navbar
+$nav-v-padding: 10px !default; // padding used vertically around search boxes and results
+$nav-indent: 10px !default; // extra padding for ToC subitems
+$h1-margin-bottom: 21px !default; // padding under the largest header tags
+$tablet-width: 768px !default; // min width before reverting to tablet size
+$phone-width: $tablet-width - $nav-width !default; // min width before reverting to mobile size
+
+
+// FONTS
+////////////////////
+%default-font {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+}
+
+%header-font {
+  @extend %default-font;
+  font-weight: 500;
+}
+
+%code-font {
+  font-family: Consolas, Menlo, Monaco, "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace, serif;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+
+// OTHER
+////////////////////
+$nav-active-shadow: transparent !default;
+$nav-footer-border-color: #666 !default;
+$nav-embossed-border-top: transparent !default;
+$nav-embossed-border-bottom: transparent !default;
+$main-embossed-text-shadow: none !default;
+$search-box-border-color: #666 !default;
+
+
+////////////////////////////////////////////////////////////////////////////////
+// INTERNAL
+////////////////////////////////////////////////////////////////////////////////
+// These settings are probably best left alone.
+
+%break-words {
+    word-break: break-all;
+    hyphens: auto;
+}

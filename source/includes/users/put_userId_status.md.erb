@@ -1,0 +1,30 @@
+## Update a user's status
+
+Update a user's status
+
+> Definition
+
+```shell
+PUT https://api.zoom.us/v2/users/{userId}/status
+```
+
+> Example Request
+
+```shell
+$ curl https://api.zoom.us/v2/users/{userId}/status
+```
+
+> Example Response
+
+```text
+204 No Content
+```
+
+Path Arguments | &nbsp;
+--- | ---
+userId **required** | The user ID
+
+Body Arguments | &nbsp;
+--- | ---
+status | <div class="enum">`active` set users status to active<br/>`deactive` set users status to deactive<br/></div>
+

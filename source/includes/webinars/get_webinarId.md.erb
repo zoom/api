@@ -1,0 +1,68 @@
+## Retrieve a webinar
+
+Retrieve a webinar
+
+> Definition
+
+```shell
+GET https://api.zoom.us/v2/webinars/{webinarId}
+```
+
+> Example Request
+
+```shell
+$ curl https://api.zoom.us/v2/webinars/{webinarId}
+```
+
+> Example Response
+
+```text
+200 OK
+```
+
+```json
+{
+    "uuid": "string",
+    "id": "string",
+    "host_id": "string",
+    "topic": "string",
+    "type": "integer",
+    "start_time": "string",
+    "duration": "integer",
+    "timezone": "string",
+    "password": "string",
+    "description": "string",
+    "recurrence": {
+        "type": "integer",
+        "repeat_interval": "integer",
+        "weekly_days": "integer",
+        "monthly_day": "integer",
+        "monthly_week": "integer",
+        "monthly_week_day": "integer",
+        "end_times": "integer",
+        "end_date_time": "string"
+    },
+    "settings": {
+        "host_video": "boolean",
+        "participant_video": "boolean",
+        "cn_meeting": "boolean",
+        "in_meeting": "boolean",
+        "join_before_host": "boolean",
+        "mute_upon_entry": "boolean",
+        "watermark": "boolean",
+        "use_pmi": "boolean",
+        "approval_type": "integer",
+        "registration_type": "integer",
+        "audio": "string",
+        "auto_recording": "string",
+        "enforce_login": "boolean",
+        "enforce_login_domains": "boolean",
+        "alternatice_hosts": "boolean"
+    }
+}
+```
+
+Path Arguments | &nbsp;
+--- | ---
+webinarId **required** | The webinar ID
+

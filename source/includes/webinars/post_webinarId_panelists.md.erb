@@ -1,0 +1,35 @@
+## Add a webinar panelist
+
+Add panelist to webinar
+
+> Definition
+
+```shell
+POST https://api.zoom.us/v2/webinars/{webinarId}/panelists
+```
+
+> Example Request
+
+```shell
+$ curl https://api.zoom.us/v2/webinars/{webinarId}/panelists \
+   -d '{
+    "email": "string",
+    "name": "string"
+}'
+```
+
+> Example Response
+
+```text
+201 Created
+```
+
+Path Arguments | &nbsp;
+--- | ---
+webinarId **required** | The webinar ID
+
+Body Arguments | &nbsp;
+--- | ---
+email | Panelist's email
+name | Panelist's full name
+

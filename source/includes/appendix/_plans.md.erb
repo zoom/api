@@ -1,0 +1,101 @@
+# Plans
+
+> Additional Plan. Should be JSON format as below
+
+```json
+{
+  "type": "large200_monthly",
+  "hosts": 20
+}
+```
+
+## Base Plans
+
+Plan | Description
+--- | ---
+trial | Free Trial
+monthly | Pro Monthly Plan
+yearly | Pro Yearly Plan
+business_monthly | Business Monthly Plan
+business_yearly | Business Yearly Plan
+edu20 | Education
+zroom_monthly | Zoom Rooms Monthly Plan
+zroom_yearly | Zoom Rooms Yearly Plan
+
+## Zoom Room Plans 
+
+Plan | Description
+--- | ---
+zroom_monthly | Additional Zoom Rooms Monthly Plan
+zroom_yearly | Additional Zoom Rooms Yearly Plan
+
+## H.323/SIP Device Room Connector Plans 
+
+Plan | Description
+--- | ---
+roomconnector_monthly | Additional H.323/SIP Room Connector Monthly Plan
+roomconnector_yearly | Additional H.323/SIP Room Connector Yearly Plan
+
+## Large Meeting Plans 
+
+Plan | Description
+--- | ---
+large100_monthly | Additional Large Meeting(100-Participants) Monthly Plan
+large100_yearly | Additional Large Meeting(100-Participants) Yearly Plan
+large200_monthly | Additional Large Meeting(200-Participants) Monthly Plan
+large200_yearly | Additional Large Meeting(200-Participants) Yearly Plan
+large300_monthly | Additional Large Meeting(300-Participants) Monthly Plan
+large300_yearly | Additional Large Meeting(300-Participants) Yearly Plan
+large500_monthly | Additional Large Meeting(500-Participants) Monthly Plan
+large500_yearly | Additional Large Meeting(500-Participants) Yearly Plan
+
+## Webinar Plans 
+
+Plan | Description
+--- | ---
+webinar100_monthly | Additional Webinar(100-Participants) Monthly Plan
+webinar100_yearly | Additional Webinar(100-Participants) Yearly Plan
+webinar500_monthly | Additional Webinar(500-Participants) Monthly Plan
+webinar500_yearly | Additional Webinar(500-Participants) Yearly Plan
+webinar1000_monthly | Additional Webinar(1000-Participants) Monthly Plan
+webinar1000_yearly | Additional Webinar(1000-Participants) Yearly Plan
+webinar3000_monthly | Additional Webinar(3000-Participants) Monthly Plan
+webinar3000_yearly | Additional Webinar(3000-Participants) Yearly Plan
+webinar5000_monthly | Additional Webinar(5000-Participants) Monthly Plan
+webinar5000_yearly | Additional Webinar(5000-Participants) Yearly Plan
+webinar10000_monthly | Additional Webinar(10000-Participants) Monthly Plan
+webinar10000_yearly | Additional Webinar(10000-Participants) Yearly Plan
+
+## Cloud Recording Plans 
+
+Plan | Description
+--- | ---
+cmr_monthly_commitment_40 | Additional Cloud Recording Monthly $40 Plan
+cmr_monthly_commitment_100 | Additional Cloud Recording Monthly $100 Plan
+cmr_monthly_commitment_500 | Additional Cloud Recording Monthly $500 Plan
+
+
+> For Additional Audio Conferencing Plan, should be JSON format as below
+
+```json
+{
+  "type": "tollfree_monthly_commitment_100",
+  "tollfree_country": "AU,AT",
+  "premium_country": "TW,TH",
+  "callout": 1,
+  "ddi_numbers":10
+}
+```
+
+## Audio Conferencing Plans 
+
+Plan | Description
+--- | ---
+tollfree_payongo | Additional Audio Conferencing Pay As You Go Plan
+tollfree_monthly_commitment_100 | Additional Audio Conferencing Monthly $100 Plan
+tollfree_monthly_commitment_500 | Additional Audio Conferencing Monthly $500 Plan
+
+* "tollfree_country": Toll-free countries, multiple value separated by comma. For this parameter value please refer to the id value in [tollfree countries list](#tollfree-countries)
+* "premium_country": Premium countries, multiple value separated by comma. For this parameter value please refer to the id value in [premium countries list](#premium-countries)
+* "callout": Call-out type: 1 means US-only Call-out, 2 means US and International Call-out
+* "ddi_numbers": Dedicated Dial-In Numbers.

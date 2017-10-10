@@ -1,0 +1,35 @@
+## Add a group member
+
+Add a member to a group under your account
+
+> Definition
+
+```shell
+POST https://api.zoom.us/v2/groups/{groupId}/members
+```
+
+> Example Request
+
+```shell
+$ curl https://api.zoom.us/v2/groups/{groupId}/members \
+   -d '{
+    "id": "string",
+    "email": "string"
+}'
+```
+
+> Example Response
+
+```text
+204 No Content
+```
+
+Path Arguments | &nbsp;
+--- | ---
+groupId **required** | The group ID
+
+Body Arguments | &nbsp;
+--- | ---
+id | User ID.
+email | User email. If ID given, email is ignored.
+

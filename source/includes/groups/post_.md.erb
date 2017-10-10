@@ -1,0 +1,29 @@
+## Create a group
+
+Create a group under your account
+
+> Definition
+
+```shell
+POST https://api.zoom.us/v2/groups
+```
+
+> Example Request
+
+```shell
+$ curl https://api.zoom.us/v2/groups \
+   -d '{
+    "name": "string"
+}'
+```
+
+> Example Response
+
+```text
+201 Created
+```
+
+Body Arguments | &nbsp;
+--- | ---
+name | Group name.
+

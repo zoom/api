@@ -1,0 +1,55 @@
+## List Users
+
+List users on your account
+
+> Definition
+
+```shell
+GET https://api.zoom.us/v2/users
+```
+
+> Example Request
+
+```shell
+$ curl https://api.zoom.us/v2/users
+```
+
+> Example Response
+
+```text
+200 OK
+```
+
+```json
+{
+    "page_count": "integer",
+    "page_number": "integer",
+    "page_size": "integer",
+    "total_records": "integer",
+    "users": [
+        {
+            "id": "string",
+            "email": "string",
+            "type": "integer",
+            "first_name": "string",
+            "last_name": "string",
+            "created_at": "string",
+            "dept": "string",
+            "last_client_version": "string",
+            "last_login_time": "string",
+            "pic_url": "string",
+            "pmi": "string",
+            "timezone": "string",
+            "vanity_url": "string",
+            "verified": "boolean"
+        }
+    ]
+}
+```
+
+Query Arguments | &nbsp;
+--- | ---
+status | User status<div class="enum">`active` users with active status<br/>`inactive` users with inactive status<br/>`pending` users with pending status<br/></div>
+page_size | Number of items returned per page
+page_number | Page number of results returned
+

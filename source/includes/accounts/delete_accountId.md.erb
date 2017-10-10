@@ -1,0 +1,27 @@
+## Delete an account
+
+Delete a sub account under the master account
+
+> Definition
+
+```shell
+DELETE https://api.zoom.us/v2/accounts/{accountId}
+```
+
+> Example Request
+
+```shell
+$ curl https://api.zoom.us/v2/accounts/{accountId} \
+    -X DELETE
+```
+
+> Example Response
+
+```text
+204 No Content
+```
+
+Path Arguments | &nbsp;
+--- | ---
+accountId **required** | The account ID
+

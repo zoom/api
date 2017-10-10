@@ -1,0 +1,30 @@
+## Add a user's assistant
+
+Add an assistant to a user
+
+> Definition
+
+```shell
+POST https://api.zoom.us/v2/users/{userId}/assistants
+```
+
+> Example Request
+
+```shell
+$ curl https://api.zoom.us/v2/users/{userId}/assistants
+```
+
+> Example Response
+
+```text
+201 Created
+```
+
+Path Arguments | &nbsp;
+--- | ---
+userId **required** | The user ID
+
+Body Arguments | &nbsp;
+--- | ---
+email_or_id | ID or Email of assistant
+

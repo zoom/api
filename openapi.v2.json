@@ -1,0 +1,4716 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Zoom API",
+        "description": "API Description",
+        "contact": {
+            "name": "Zoom Developers",
+            "url": "https://developer.zoom.us/",
+            "email": "developer@zoom.us"
+        },
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        },
+        "version": "2.0.0"
+    },
+    "host": "api.zoom.us",
+    "basePath": "/v2",
+    "schemes": [
+        "https"
+    ],
+    "consumes": [
+        "application/json",
+        "multipart/form-data"
+    ],
+    "produces": [
+        "application/json",
+        "application/xml"
+    ],
+    "paths": {
+        "/accounts": {
+            "get": {
+                "summary" : "List accounts",
+                "description" : "List the sub accounts under the master account",
+                "tags": [
+                    "Accounts"
+                ],
+                "operationId": "accounts",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/PageSize"
+                    },
+                    {
+                        "$ref": "#/parameters/PageNumber"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Account list returned",
+                        "schema": {
+                            "$ref": "#/definitions/AccountList"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create an account",
+                "description" : "Create a sub account under the master account <aside>Your account must be a master account and have this privilege to create sub account. Zoom only assign this privilege to trusted partner. The created user will not receive the confirmation email.</aside>",
+                "tags": [
+                    "Accounts"
+                ],
+                "operationId": "accountCreate",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "description": "Account",
+                        "schema": {
+                            "$ref": "#/definitions/Account"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Account Created",
+                        "headers": {
+                            "Content-Location": {
+                                "description": "Location of created Account",
+                                "type": "string"
+                            }
+                        },
+                        "schema": {
+                            "properties": {
+                                "id": {
+                                    "type": "string",
+                                    "description": "Account ID"
+                                }
+                            }
+                        }
+                    },
+                    "409": {
+                        "description": "Account with that email already exists"
+                    }
+                }
+            }
+        },
+        "/accounts/{accountId}": {
+            "get": {
+                "summary": "Retrieve an account",
+                "description" : "Retrieve a sub account under the master account <aside>Your account must be a master account and have this privilege to get sub account. Zoom only assign this privilege to trusted partner</aside>",
+                "tags": [
+                    "Accounts"
+                ],
+                "operationId": "account",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/AccountId"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Account object returned",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "properties": {
+                                        "id": {
+                                            "type": "string",
+                                            "description": "Account ID"
+                                        },
+                                        "owner_id": {
+                                            "type": "string",
+                                            "description": "Account Owner ID"
+                                        },
+                                        "owner_email": {
+                                            "type": "string",
+                                            "description": "Account Owner email"
+                                        },
+                                        "created_at": {
+                                            "type": "string",
+                                            "format": "dateTime",
+                                            "description": "Account creation date/time"
+                                        },
+                                        "options": {
+                                            "$ref": "#/definitions/AccountOptions"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete an account",
+                "description" : "Delete a sub account under the master account",
+                "tags": [
+                    "Accounts"
+                ],
+                "operationId": "accountDelete",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/AccountId"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Account deleted"
+                    },
+                    "404": {
+                        "description": "Account not found"
+                    }
+                }
+            }
+        },
+        "/accounts/{accountId}/options": {
+            "patch": {
+                "summary": "Update an account's options",
+                "description" : "Update a sub account's options under the master account",
+                "tags": [
+                    "Accounts"
+                ],
+                "operationId": "accountOptionsUpdate",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/AccountId"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/AccountOptions"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Account options updated"
+                    },
+                    "404": {
+                        "description": "Account not found"
+                    }
+                }
+            }
+        },
+        "/accounts/{accountId}/settings": {
+            "get": {
+                "summary": "Retrieve an account's settings",
+                "description" : "Retrieve a sub account's settings under the master account",
+                "tags": [
+                    "Accounts"
+                ],
+                "operationId": "accountSettings",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/AccountId"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Account settings returned",
+                        "schema": {
+                            "$ref": "#/definitions/AccountSettings"
+                        }
+                    },
+                    "404": {
+                        "description": "Account not found"
+                    }
+                }
+            },
+            "patch": {
+                "summary": "Update an account's settings",
+                "description" : "Update a sub account's settings under the master account",
+                "tags": [
+                    "Accounts"
+                ],
+                "operationId": "accountSettingsUpdate",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/AccountId"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/AccountSettings"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Account settings updated"
+                    },
+                    "404": {
+                        "description": "Account not found"
+                    }
+                }
+            }
+        },
+        "/accounts/{accountId}/billing": {
+            "get": {
+                "summary": "Retrieve an account's billing information",
+                "description" : "Retrieve a sub account's billing information under the master account",
+                "tags": [
+                    "Accounts"
+                ],
+                "operationId": "accountBilling",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/AccountId"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Account billing contact information returned",
+                        "schema": {
+                            "$ref": "#/definitions/BillingContact"
+                        }
+                    },
+                    "404": {
+                        "description": "Account not found"
+                    }
+                }
+            },
+            "patch": {
+                "summary": "Update an account's billing information",
+                "description" : "Update a sub account's billing information under the master account <aside>Only for the sub account which is paid by master account</aside>",
+                "tags": [
+                    "Accounts"
+                ],
+                "operationId": "accountBillingUpdate",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/AccountId"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/BillingContact"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Account billing contact information updated"
+                    },
+                    "404": {
+                        "description": "Account not found"
+                    }
+                }
+            }
+        },
+        "/accounts/{accountId}/plans": {
+            "get": {
+                "summary": "Retrieve an account's plans",
+                "description" : "Retrieve a sub account's plans under the master account  <aside>Only for the sub account which is paid by master account</aside>",
+                "tags": [
+                    "Accounts"
+                ],
+                "operationId": "accountPlans",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/AccountId"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Account plans returned",
+                        "schema": {
+                            "$ref": "#/definitions/AccountPlans"
+                        }
+                    },
+                    "404": {
+                        "description": "Account not fond"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Add to an account's plans",
+                "description" : "Add a plan to sub account under the master account <aside>Can only subscribe plans for the sub account which is a free account and paid by master account</aside><aside>Can only add an Additional plan for the sub account which is a paid account and paid by master account</aside>",
+                "tags": [
+                    "Accounts"
+                ],
+                "operationId": "accountPlanCreate",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/AccountId"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "schema": {
+                            "allOf" : [
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "contact": {
+                                            "$ref": "#/definitions/BillingContact"
+                                        }
+                                    }
+                                },
+                                {
+                                    "$ref": "#/definitions/AccountPlans"
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Account plans updated"
+                    }
+                }
+            }
+        },
+        "/accounts/{accountId}/plans/base": {
+            "put": {
+                "summary": "Update an account's base plan",
+                "description" : "Update a base plan for a sub account <aside>Can only subscribe plans for the sub account which is a free account and paid by master account</aside><aside>Can only add an Additional plan for the sub account which is a paid account and paid by master account</aside>",
+                "tags": [
+                    "Accounts"
+                ],
+                "operationId": "accountPlanBaseUpdate",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/AccountId"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/AccountPlan"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Account plans updated"
+                    }
+                }
+            }
+        },
+        "/accounts/{accountId}/plans/addons": {
+            "post": {
+                "summary": "Add an account add on plan",
+                "description" : "Add an add on plan for a sub account <aside>Can only subscribe plans for the sub account which is a free account and paid by master account</aside><aside>Can only add an Additional plan for the sub account which is a paid account and paid by master account</aside>",
+                "tags": [
+                    "Accounts"
+                ],
+                "operationId": "accountPlanAddonCreate",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/AccountId"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/AccountPlan"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Account plans updated"
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update an account's add on plans",
+                "description" : "Update as add on plan for a sub account <aside>Can only subscribe plans for the sub account which is a free account and paid by master account</aside><aside>Can only add an Additional plan for the sub account which is a paid account and paid by master account</aside>",
+                "tags": [
+                    "Accounts"
+                ],
+                "operationId": "accountPlanAddonUpdate",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/AccountId"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/AccountPlan"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Account plans updated"
+                    }
+                }
+            }
+        },
+        "/groups": {
+            "get": {
+                "summary": "List groups",
+                "description" : "List groups under your account",
+                "tags": [
+                    "Groups"
+                ],
+                "operationId": "groups",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/PageSize"
+                    },
+                    {
+                        "$ref": "#/parameters/PageNumber"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of groups returned.",
+                        "schema": {
+                            "$ref": "#/definitions/GroupList"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create a group",
+                "description" : "Create a group under your account",
+                "tags": [
+                    "Groups"
+                ],
+                "operationId": "groupCreate",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "schema": {
+                            "properties": {
+                                "name": {
+                                    "type": "string",
+                                    "description": "Group name."
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Group created.",
+                        "headers": {
+                            "Content-Location": {
+                                "description": "Location of created group",
+                                "type": "string"
+                            }
+                        },
+                        "schema": {
+                            "properties": {
+                                "id": {
+                                    "type": "string",
+                                    "description": "User ID"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/groups/{groupId}": {
+            "get": {
+                "summary": "Retrieve a group",
+                "description" : "Retrieve a group under your account",
+                "tags": [
+                    "Groups"
+                ],
+                "operationId": "group",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/GroupId"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Group object returned",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "properties": {
+                                        "id": {
+                                            "type": "string",
+                                            "description": "Group ID"
+                                        }
+                                    }
+                                },
+                                {
+                                    "$ref": "#/definitions/Group"
+                                }
+                            ]
+                        }
+                    },
+                    "404": {
+                        "description": "Group not found"
+                    }
+                }
+            },
+            "patch": {
+                "summary": "Update a group",
+                "description" : "Update a group under your account",
+                "tags": [
+                    "Groups"
+                ],
+                "operationId": "groupUpdate",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/GroupId"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "schema": {
+                            "properties": {
+                                "name": {
+                                    "type": "string",
+                                    "description": "Group name."
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Group updated."
+                    },
+                    "404": {
+                        "description": "Group not found"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete a group",
+                "description" : "Delete a group under your account",
+                "tags": [
+                    "Groups"
+                ],
+                "operationId": "groupDelete",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/GroupId"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Group deleted."
+                    },
+                    "404": {
+                        "description": "Group not found"
+                    }
+                }
+            }
+        },
+        "/groups/{groupId}/members": {
+            "get": {
+                "summary": "List a group's members",
+                "description" : "List a group's members under your account",
+                "tags": [
+                    "Groups"
+                ],
+                "operationId": "groupMembers",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/GroupId"
+                    },
+                    {
+                        "$ref": "#/parameters/PageSize"
+                    },
+                    {
+                        "$ref": "#/parameters/PageNumber"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Group member list returned",
+                        "schema": {
+                            "$ref": "#/definitions/GroupMemberList"
+                        }
+                    },
+                    "404": {
+                        "description": "Group not found"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Add a group member",
+                "description" : "Add a member to a group under your account",
+                "tags": [
+                    "Groups"
+                ],
+                "operationId": "groupMembersCreate",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/GroupId"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "schema": {
+                            "properties": {
+                                "id": {
+                                    "type": "string",
+                                    "description": "User ID."
+                                },
+                                "email": {
+                                    "type": "string",
+                                    "description": "User email. If ID given, email is ignored."
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Member added."
+                    },
+                    "404": {
+                        "description": "Group not found"
+                    }
+                }
+            }
+        },
+        "/groups/{groupId}/members/{userId}": {
+            "delete": {
+                "summary": "Delete a group member",
+                "description" : "Delete a member from a group under your account",
+                "tags": [
+                    "Groups"
+                ],
+                "operationId": "groupMembersDelete",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/GroupId"
+                    },
+                    {
+                        "$ref": "#/parameters/UserId"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Group member deleted."
+                    },
+                    "404": {
+                        "description": "Group or Group member not found"
+                    }
+                }
+            }
+        },
+        "/im_groups": {
+            "get": {
+                "summary": "List IM Groups",
+                "description" : "List IM groups under your account",
+                "tags": [
+                    "IM Groups"
+                ],
+                "operationId": "imGroups",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/PageSize"
+                    },
+                    {
+                        "$ref": "#/parameters/PageNumber"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of IM Groups returned.",
+                        "schema": {
+                            "$ref": "#/definitions/IMGroupList"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create an IM Group",
+                "description" : "Create a IM Group under your account",
+                "tags": [
+                    "IM Groups"
+                ],
+                "operationId": "imGroupCreate",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "schema": {
+                            "properties": {
+                                "name": {
+                                    "type": "string",
+                                    "description": "Group name, must be unique in one account",
+                                    "maxLength": 128
+                                },
+                                "type": {
+                                    "type": "string",
+                                    "description": "IM Group type",
+                                    "enum" : [
+                                        "normal",
+                                        "shared",
+                                        "restricted"
+                                    ],
+                                    "x-enum-descriptions" : [
+                                        "Only members can see the group automatically. Other people can search members in the group",
+                                        "All people in the account can see the group and members automatically",
+                                        "Nobody can see the group or search members except the members in the group"
+                                    ]
+                                },
+                                "search_by_domain": {
+                                    "type": "boolean",
+                                    "description": "Members can search others in the same email domain"
+                                },
+                                "search_by_account": {
+                                    "type": "boolean",
+                                    "description": "Members can search others under same account"
+                                },
+                                "search_by_ma_account": {
+                                    "type": "boolean",
+                                    "description": "Members can search others under same master account, including all sub accounts"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "IM Group created.",
+                        "headers": {
+                            "Content-Location": {
+                                "description": "Location of created IM Group",
+                                "type": "string"
+                            }
+                        },
+                        "schema": {
+                            "properties": {
+                                "id": {
+                                    "type": "string",
+                                    "description": "User ID"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/im_groups/{groupId}": {
+            "get": {
+                "summary": "Retrieve an IM Group",
+                "description" : "Retrieve an IM Group under your account",
+                "tags": [
+                    "IM Groups"
+                ],
+                "operationId": "imGroup",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/GroupId"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "IM Group object returned",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "properties": {
+                                        "id": {
+                                            "type": "string",
+                                            "description": "Group ID"
+                                        }
+                                    }
+                                },
+                                {
+                                    "$ref": "#/definitions/IMGroup"
+                                }
+                            ]
+                        }
+                    },
+                    "404": {
+                        "description": "IM Group not found"
+                    }
+                }
+            },
+            "patch": {
+                "summary": "Update an IM Group",
+                "description" : "Update an IM Group under your account",
+                "tags": [
+                    "IM Groups"
+                ],
+                "operationId": "imGroupUpdate",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/GroupId"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "schema": {
+                            "properties": {
+                                "name": {
+                                    "type": "string",
+                                    "description": "Group name, must be unique in one account",
+                                    "maxLength": 128
+                                },
+                                "type": {
+                                    "type": "string",
+                                    "description": "IM Group type",
+                                    "enum" : [
+                                        "normal",
+                                        "shared",
+                                        "restricted"
+                                    ],
+                                    "x-enum-descriptions" : [
+                                        "Only members can see the group automatically. Other people can search members in the group",
+                                        "All people in the account can see the group and members automatically",
+                                        "Nobody can see the group or search members except the members in the group"
+                                    ]
+                                },
+                                "search_by_domain": {
+                                    "type": "boolean",
+                                    "description": "Members can search others in the same email domain"
+                                },
+                                "search_by_account": {
+                                    "type": "boolean",
+                                    "description": "Members can search others under same account"
+                                },
+                                "search_by_ma_account": {
+                                    "type": "boolean",
+                                    "description": "Members can search others under same master account, including all sub accounts"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "IM Group updated."
+                    },
+                    "404": {
+                        "description": "IM Group not found"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete an IM Group",
+                "description" : "Delete an IM Group under your account",
+                "tags": [
+                    "IM Groups"
+                ],
+                "operationId": "imGroupDelete",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/GroupId"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "IM Group deleted."
+                    },
+                    "404": {
+                        "description": "IM Group not found"
+                    }
+                }
+            }
+        },
+        "/im_groups/{groupId}/members": {
+            "get": {
+                "summary": "List an IM Group's members",
+                "description" : "List an IM Group's members under your account",
+                "tags": [
+                    "IM Groups"
+                ],
+                "operationId": "imGroupMembers",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/GroupId"
+                    },
+                    {
+                        "$ref": "#/parameters/PageSize"
+                    },
+                    {
+                        "$ref": "#/parameters/PageNumber"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "IM Group member list returned",
+                        "schema": {
+                            "$ref": "#/definitions/GroupMemberList"
+                        }
+                    },
+                    "404": {
+                        "description": "IM Group not found"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Add an IM Group member",
+                "description" : "Add a member to an IM Group under your account",
+                "tags": [
+                    "IM Groups"
+                ],
+                "operationId": "imGroupMembersCreate",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/GroupId"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "schema": {
+                            "properties": {
+                                "id": {
+                                    "type": "string",
+                                    "description": "User ID."
+                                },
+                                "email": {
+                                    "type": "string",
+                                    "description": "User email. If ID given, email is ignored."
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Member added."
+                    },
+                    "404": {
+                        "description": "IM Group not found"
+                    }
+                }
+            }
+        },
+        "/im_groups/{groupId}/members/{userId}": {
+            "delete": {
+                "summary": "Delete an IM Group member",
+                "description" : "Delete a member from an IM Group under your account",
+                "tags": [
+                    "IM Groups"
+                ],
+                "operationId": "imGroupMembersDelete",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/GroupId"
+                    },
+                    {
+                        "$ref": "#/parameters/UserId"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "IM Group member deleted."
+                    },
+                    "404": {
+                        "description": "IM Group or IM Group member not found"
+                    }
+                }
+            }
+        },
+        "/users/{userId}/meetings": {
+            "get": {
+                "summary": "List meetings",
+                "description": "List meetings for a user",
+                "tags": [
+                    "Meetings"
+                ],
+                "operationId": "meetings",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/UserId"
+                    },
+                    {
+                        "$ref": "#/parameters/MeetingType"
+                    },
+                    {
+                        "$ref": "#/parameters/PageSize"
+                    },
+                    {
+                        "$ref": "#/parameters/PageNumber"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of Meeting objects returned",
+                        "schema": {
+                            "$ref": "#/definitions/MeetingList"
+                        }
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create a meeting",
+                "description": "Create a meeting for a user",
+                "tags": [
+                    "Meetings"
+                ],
+                "operationId": "meetingCreate",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/UserId"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "description": "User",
+                        "schema": {
+                            "$ref": "#/definitions/Meeting"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Meeting Created",
+                        "headers": {
+                            "Content-Location": {
+                                "description": "Location of created Meeting",
+                                "type": "string"
+                            }
+                        },
+                        "schema": {
+                            "properties": {
+                                "id": {
+                                    "type": "string",
+                                    "description": "Meeting ID"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                }
+            }
+        },
+        "/meetings/{meetingId}": {
+            "get": {
+                "summary": "Retrieve a meeting",
+                "description": "Retrieve a meeting's details",
+                "tags": [
+                    "Meetings"
+                ],
+                "operationId": "meeting",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/MeetingID"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Meeting object returned",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "uuid": {
+                                            "type": "string",
+                                            "description": "Meeting unique ID"
+                                        },
+                                        "id": {
+                                            "type": "string",
+                                            "description": "Meeting ID, also know as meeting number"
+                                        },
+                                        "host_id": {
+                                            "type": "string",
+                                            "description": "ID of the user set as host of meeting"
+                                        }
+                                    }
+                                },
+                                {
+                                    "$ref": "#/definitions/Meeting"
+                                }
+                            ]
+                        }
+                    },
+                    "404": {
+                        "description": "Meeting not found"
+                    }
+                }
+            },
+            "patch": {
+                "summary": "Update a meeting",
+                "description": "Update a meeting's details",
+                "tags": [
+                    "Meetings"
+                ],
+                "operationId": "meetingUpdate",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/MeetingID"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "description": "Meeting",
+                        "schema": {
+                            "$ref": "#/definitions/Meeting"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Meeting Updated"
+                    },
+                    "404": {
+                        "description": "Meeting not found"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete a meeting",
+                "description": "Delete a meeting",
+                "tags": [
+                    "Meetings"
+                ],
+                "operationId": "meetingDelete",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/MeetingID"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Meeting deleted"
+                    },
+                    "404": {
+                        "description": "Meeting not found"
+                    }
+                }
+            }
+        },
+        "/meetings/{meetingId}/status": {
+            "put": {
+                "summary": "Update a meeting's status",
+                "description": "Update a meeting's status",
+                "tags": [
+                    "Meetings"
+                ],
+                "operationId": "meetingStatus",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/MeetingID"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "schema": {
+                            "properties": {
+                                "status": {
+                                    "type": "string",
+                                    "enum": [
+                                        "end"
+                                    ],
+                                    "x-enum-descriptions": [
+                                        "end a meeting"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Meeting updated"
+                    },
+                    "404": {
+                        "description": "Meeting not found"
+                    }
+                }
+            }
+        },
+        "/meetings/{meetingId}/registrants": {
+            "get": {
+                "summary": "List a meeting's registrants",
+                "description": "List registrants of a meeting",
+                "tags": [
+                    "Meetings"
+                ],
+                "operationId": "meetingRegistrants",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/MeetingID"
+                    },
+                    {
+                        "$ref": "#/parameters/OccurenceId"
+                    },
+                    {
+                        "$ref": "#/parameters/RegistrantStatus"
+                    },
+                    {
+                        "$ref": "#/parameters/PageSize"
+                    },
+                    {
+                        "$ref": "#/parameters/PageNumber"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/MeetingRegistrantList"
+                        }
+                    },
+                    "404": {
+                        "description": "Meeting not found"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Add a meeting registrant",
+                "description": "Register a participant for a meeting",
+                "tags": [
+                    "Meetings"
+                ],
+                "operationId": "meetingRegistrantCreate",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/MeetingID"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/MeetingRegistrant"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Registration created",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "string",
+                                    "description": "Registrant ID"
+                                },
+                                "join_url": {
+                                    "type": "string",
+                                    "description": "Join URL for this registrant"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Meeting not found"
+                    }
+                }
+            }
+        },
+        "/meetings/{meetingId}/registrants/{registrantId}/status": {
+            "put": {
+                "summary": "Update a meeting registrant's status",
+                "description": "Update  a registrants status for a meeting",
+                "tags": [
+                    "Meetings"
+                ],
+                "operationId": "meetingRegistrantStatus",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/MeetingID"
+                    },
+                    {
+                        "$ref": "#/parameters/RegistrantId"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "schema": {
+                            "properties": {
+                                "status": {
+                                    "type": "string",
+                                    "enum": [
+                                        "pending",
+                                        "approved",
+                                        "denied"
+                                    ],
+                                    "x-enum-descriptions": [
+                                        "set registrant status to pending",
+                                        "set registrant status to approved",
+                                        "set registrant status to denied"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Registrant status updated"
+                    },
+                    "404": {
+                        "description": "Meeting or Registrant not found"
+                    }
+                }
+            }
+        },
+        "/users": {
+            "get": {
+                "summary": "List Users",
+                "description": "List users on your account",
+                "tags": [
+                    "Users"
+                ],
+                "operationId": "users",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "status",
+                        "description": "User status",
+                        "type": "string",
+                        "default": "active",
+                        "enum": [
+                            "active",
+                            "inactive",
+                            "pending"
+                        ],
+                        "x-enum-descriptions": [
+                            "users with active status",
+                            "users with inactive status",
+                            "users with pending status"
+                        ]
+                    },
+                    {
+                        "$ref": "#/parameters/PageSize"
+                    },
+                    {
+                        "$ref": "#/parameters/PageNumber"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User list returned",
+                        "schema": {
+                            "$ref": "#/definitions/UserList"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create a user",
+                "description": "Create a user on your account",
+                "tags": [
+                    "Users"
+                ],
+                "operationId": "userCreate",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "description": "User",
+                        "schema" : {
+                            "type": "object",
+                            "properties": {
+                                "action": {
+                                    "type": "string",
+                                    "description": "Action to take for user creation",
+                                    "enum": [
+                                        "create",
+                                        "custCreate",
+                                        "autoCreate",
+                                        "ssoCreate"
+                                    ],
+                                    "x-enum-descriptions": [
+                                        "User will get an email sent from Zoom. There is a confirmation link in this email. User will then need to click this link to activate their account to the Zoom service. The user can set or change their password in Zoom. <br/>",
+                                        "This action is provided for enterprise customer who has a managed domain. This feature is disabled by default because of the security risk involved in creating a user who does not belong to your domain without notifying the user. <br/>",
+                                        "This action is provided for API partner only. User created in this way has no password and is not able to log into the Zoom web site or client. <br/>",
+                                        "This action is provided for enabled \"Pre-provisioning SSO User\" option. User created in this way has no password. If it is not a basic user, will generate a Personal Vanity URL using user name (no domain) of the provisioning email. If user name or pmi is invalid or occupied, will use random number/random personal vanity URL. <br/>"
+                                    ]
+                                },
+                                "user_info": {
+                                    "$ref": "#/definitions/User"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "User Created",
+                        "headers": {
+                            "Content-Location": {
+                                "description": "Location of created User",
+                                "type": "string"
+                            }
+                        },
+                        "schema": {
+                            "properties": {
+                                "id": {
+                                    "type": "string",
+                                    "description": "User ID"
+                                }
+                            }
+                        }
+                    },
+                    "409": {
+                        "description": "User with that email already exists"
+                    }
+                }
+            }
+        },
+        "/users/{userId}": {
+            "get": {
+                "summary": "Retrieve a user",
+                "description": "Retrieve a user on your account",
+                "tags": [
+                    "Users"
+                ],
+                "operationId": "user",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/UserId"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User object returned",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "properties": {
+                                        "id": {
+                                            "type": "string",
+                                            "description": "User ID"
+                                        }
+                                    }
+                                },
+                                {
+                                    "$ref": "#/definitions/User"
+                                },
+                                {
+                                    "$ref": "#/definitions/UserDetails"
+                                }
+                            ]
+                        }
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                }
+            },
+            "patch": {
+                "summary": "Update a user",
+                "description": "Update a user on your account",
+                "tags": [
+                    "Users"
+                ],
+                "operationId": "userUpdate",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/UserId"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "description": "User",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/User"
+                                },
+                                {
+                                    "$ref": "#/definitions/UserUpdate"
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "User updated"
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete a user",
+                "description": "Delete a user on your account",
+                "tags": [
+                    "Users"
+                ],
+                "operationId": "userDelete",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/UserId"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "User deleted"
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                }
+            }
+        },
+        "/users/{userId}/assistants": {
+            "get": {
+                "summary": "List a user's assistants",
+                "description": "List a user's assistants",
+                "tags": [
+                    "Users"
+                ],
+                "operationId": "userAssistants",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/UserId"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "properties": {
+                                "assistants": {
+                                    "type": "array",
+                                    "description": "List of User assistants.",
+                                    "items": {
+                                        "allOf": [
+                                            {
+                                                "properties": {
+                                                    "email_or_id": {
+                                                        "type": "string",
+                                                        "description": "Assistant Email or ID"
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Add a user's assistant",
+                "description": "Add an assistant to a user",
+                "tags": [
+                    "Users"
+                ],
+                "operationId": "userAssistantCreate",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/UserId"
+                    },
+                    {
+                        "name": "body",
+                        "description": "User assistant",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "email_or_id": {
+                                    "type": "string",
+                                    "description": "ID or Email of assistant"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Assitant Added",
+                        "headers": {
+                            "Content-Location": {
+                                "description": "Location of created assistant",
+                                "type": "string"
+                            }
+                        },
+                        "schema": {
+                            "properties": {
+                                "email_or_id": {
+                                    "type": "string",
+                                    "description": "User ID"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete a user's assistants",
+                "description": "Delete all of a user'sassitants",
+                "tags": [
+                    "Users"
+                ],
+                "operationId": "userAssistantsDelete",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/UserId"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Assitants deleted."
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                }
+            }
+        },
+        "/users/{userId}/assistants/{assistantId}": {
+            "delete": {
+                "summary": "Delete a user's assistant",
+                "description": "Delete one of a user's assistants",
+                "tags": [
+                    "Users"
+                ],
+                "operationId": "userAssistantDelete",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/UserId"
+                    },
+                    {
+                        "name": "assistantId",
+                        "description": "Assistant's ID",
+                        "in": "path",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Assitant deleted."
+                    },
+                    "404": {
+                        "description": "User or Assistant not found"
+                    }
+                }
+            }
+        },
+        "/users/{userId}/picture": {
+            "put": {
+                "summary": "Update a user's picture",
+                "description": "Update a user's profile picture",
+                "tags": [
+                    "Users"
+                ],
+                "operationId": "userPicture",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/UserId"
+                    },
+                    {
+                        "name": "body",
+                        "description": "User picture file, must be a jpg/jpeg file",
+                        "in": "formData",
+                        "type": "file",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Picture Added",
+                        "headers": {
+                            "Content-Location": {
+                                "description": "Location of user's picture",
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "Picture Updated",
+                        "headers": {
+                            "Content-Location": {
+                                "description": "Location of user's picture",
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                }
+            }
+        },
+        "/users/{userId}/settings": {
+            "get": {
+                "summary": "Retrieve a user's settings",
+                "description": "Retrieve a user's settings",
+                "tags": [
+                    "Users"
+                ],
+                "operationId": "userSettings",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/UserId"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User settings returned",
+                        "schema": {
+                            "$ref": "#/definitions/UserSettings"
+                        }
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                }
+            },
+            "patch": {
+                "summary": "Update a user's settings",
+                "description": "Update a user's settings",
+                "tags": [
+                    "Users"
+                ],
+                "operationId": "userSettingsUpdate",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/UserId"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "description": "User Settings",
+                        "schema": {
+                            "$ref": "#/definitions/UserSettings"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "User setting's updated"
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                }
+            }
+        },
+        "/users/{userId}/status": {
+            "put": {
+                "summary": "Update a user's status",
+                "description": "Update a user's status",
+                "tags": [
+                    "Users"
+                ],
+                "operationId": "userStatus",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/UserId"
+                    },
+                    {
+                        "name": "body",
+                        "description": "User status",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "type": "string",
+                                    "enum": [
+                                        "active",
+                                        "deactive"
+                                    ],
+                                    "x-enum-descriptions": [
+                                        "set users status to active",
+                                        "set users status to deactive"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Status updated"
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                }
+            }
+        },
+        "/users/{userId}/ssoToken": {
+            "delete": {
+                "summary": "Revoke a user's SSO token",
+                "description": "Revoke a user's SSO token",
+                "tags": [
+                    "Users"
+                ],
+                "operationId": "userSSOTokenDelete",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/UserId"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Token deleted"
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                }
+            }
+        },
+        "/users/{userId}/tsp": {
+            "get": {
+                "summary": "List user's TSP config",
+                "description": "List user's TSP config",
+                "tags": [
+                    "TSP"
+                ],
+                "operationId": "userTSPs",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/UserId"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "TSP Config list returned"
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Add a user's TSP config",
+                "description": "Add a user's TSP config",
+                "tags": [
+                    "TSP"
+                ],
+                "operationId": "userTSPCreate",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/UserId"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "description": "TSP Config",
+                        "schema": {
+                            "$ref": "#/definitions/TSPConfig"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "TSP Config added"
+                    }
+                }
+            }
+        },
+        "/users/{userId}/tsp/{tspId}": {
+            "get": {
+                "summary": "Retrieve a user's TSP config",
+                "description": "Retrieve a user's TSP config",
+                "tags": [
+                    "TSP"
+                ],
+                "operationId": "userTSP",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/UserId"
+                    },
+                    {
+                        "$ref": "#/parameters/TSPId"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "TSP Config returned"
+                    }
+                }
+            },
+            "patch": {
+                "summary": "Update a TSP config",
+                "description": "Update a user's TSP config",
+                "tags": [
+                    "TSP"
+                ],
+                "operationId": "userTSPUpdate",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/UserId"
+                    },
+                    {
+                        "$ref": "#/parameters/TSPId"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "description": "TSP Config",
+                        "schema": {
+                            "$ref": "#/definitions/TSPConfig"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "TSP Config updated"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete a TSP config",
+                "description": "Delete a user's TSP config",
+                "tags": [
+                    "TSP"
+                ],
+                "operationId": "userTSPDelete",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/UserId"
+                    },
+                    {
+                        "$ref": "#/parameters/TSPId"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "TSP Config deleted"
+                    }
+                }
+            }
+        },
+        "/users/{userId}/token": {
+            "get": {
+                "summary": "Retrieve a user's token",
+                "description": "Retrieve a user's token",
+                "tags": [
+                    "Users"
+                ],
+                "operationId": "userToken",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/UserId"
+                    },
+                    {
+                        "name": "type",
+                        "description": "User token",
+                        "in": "query",
+                        "type": "string",
+                        "enum": [
+                            "token",
+                            "zpk"
+                        ],
+                        "x-enum-descriptions": [
+                            "used for starting meeting with client SDK",
+                            "used for generating the start meeting url"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Token returned",
+                        "schema": {
+                            "properties": {
+                                "token": {
+                                    "type": "string",
+                                    "description": "User Token"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                }
+            }
+        },
+        "/users/{userId}/zpk": {
+            "get": {
+                "summary": "Verify a user's zpk",
+                "description": "Check if the zpk is expired. The zpk is used to authenticate a user.",
+                "tags": [
+                    "Users"
+                ],
+                "operationId": "userZPK",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/UserId"
+                    },
+                    {
+                        "name": "type",
+                        "description": "User zpk",
+                        "in": "query",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/users/{userId}/webinars": {
+            "get": {
+                "summary": "List webinars",
+                "description": "List webinars for a user",
+                "tags": [
+                    "Webinars"
+                ],
+                "operationId": "webinars",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/UserId"
+                    },
+                    {
+                        "$ref": "#/parameters/PageSize"
+                    },
+                    {
+                        "$ref": "#/parameters/PageNumber"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of Webinar objects returned",
+                        "schema": {
+                            "$ref": "#/definitions/WebinarList"
+                        }
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create a webinar",
+                "description": "Create a webinars for a user",
+                "tags": [
+                    "Webinars"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/UserId"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "description": "User",
+                        "schema": {
+                            "$ref": "#/definitions/Webinar"
+                        }
+                    }
+                ],
+                "operationId": "webinarCreate",
+                "responses": {
+                    "201": {
+                        "description": "Webinar Created",
+                        "headers": {
+                            "Content-Location": {
+                                "description": "Location of created Webinar",
+                                "type": "string"
+                            }
+                        },
+                        "schema": {
+                            "properties": {
+                                "id": {
+                                    "type": "string",
+                                    "description": "Webinar ID"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                }
+            }
+        },
+        "/webinars/{webinarId}": {
+            "get": {
+                "summary": "Retrieve a webinar",
+                "description": "Retrieve a webinar",
+                "tags": [
+                    "Webinars"
+                ],
+                "operationId": "webinar",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/WebinarNumber"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Webinar object returned",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "uuid": {
+                                            "type": "string",
+                                            "description": "Webinar unique ID"
+                                        },
+                                        "id": {
+                                            "type": "string",
+                                            "description": "Webinar ID, also know as webinar number"
+                                        },
+                                        "host_id": {
+                                            "type": "string",
+                                            "description": "ID of the user set as host of webinar"
+                                        }
+                                    }
+                                },
+                                {
+                                    "$ref": "#/definitions/Webinar"
+                                }
+                            ]
+                        }
+                    },
+                    "404": {
+                        "description": "Webinar not found"
+                    }
+                }
+            },
+            "patch": {
+                "summary": "Update a webinar",
+                "description": "Update a webinar",
+                "tags": [
+                    "Webinars"
+                ],
+                "operationId": "webinarUpdate",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/WebinarNumber"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "description": "Webinar",
+                        "schema": {
+                            "$ref": "#/definitions/Webinar"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Webinar Updated"
+                    },
+                    "404": {
+                        "description": "Webinar not found"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete a webinar",
+                "description": "Delete a webinar",
+                "tags": [
+                    "Webinars"
+                ],
+                "operationId": "webinarDelete",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/WebinarNumber"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Webinar deleted"
+                    },
+                    "404": {
+                        "description": "Webinar not found"
+                    }
+                }
+            }
+        },
+        "/webinars/{webinarId}/status": {
+            "put": {
+                "summary": "Update a webinar's status",
+                "description": "Update a webinar's status",
+                "tags": [
+                    "Webinars"
+                ],
+                "operationId": "webinarStatus",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/WebinarNumber"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "schema": {
+                            "properties": {
+                                "status": {
+                                    "type": "string",
+                                    "enum": [
+                                        "end"
+                                    ],
+                                    "x-enum-descriptions": [
+                                        "end a webinar"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Webinar updated"
+                    },
+                    "404": {
+                        "description": "Webinar not found"
+                    }
+                }
+            }
+        },
+        "/webinars/{webinarId}/panelists": {
+            "get": {
+                "summary": "List a webinar's panelists",
+                "description": "List panelists for a webinar",
+                "tags": [
+                    "Webinars"
+                ],
+                "operationId": "webinarPanelists",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/WebinarNumber"
+                    },
+                    {
+                        "$ref": "#/parameters/OccurenceId"
+                    },
+                    {
+                        "$ref": "#/parameters/PageSize"
+                    },
+                    {
+                        "$ref": "#/parameters/PageNumber"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/WebinarPanelistList"
+                        }
+                    },
+                    "404": {
+                        "description": "Webinar not found"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Add a webinar panelist",
+                "description": "Add panelist to webinar",
+                "tags": [
+                    "Webinars"
+                ],
+                "operationId": "webinarPanelistCreate",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/WebinarNumber"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/WebinarPanelist"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Panelist created",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "string",
+                                    "description": "Panelist ID"
+                                },
+                                "join_url": {
+                                    "type": "string",
+                                    "description": "Join URL for this panelist"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Webinar not found"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Remove a webinar's panelists",
+                "description": "Remove all panelists from a webinar",
+                "tags": [
+                    "Webinars"
+                ],
+                "operationId": "webinarPanelistsDelete",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/WebinarNumber"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Panelists removed"
+                    },
+                    "404": {
+                        "description": "Webinar not found"
+                    }
+                }
+            }
+        },
+        "/webinars/{webinarId}/panelists/{panelistId}": {
+            "delete": {
+                "summary": "Remove a webinar panelist",
+                "description": "Remove a panelist from a webinar",
+                "tags": [
+                    "Webinars"
+                ],
+                "operationId": "webinarPanelistDelete",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/WebinarNumber"
+                    },
+                    {
+                        "in": "path",
+                        "name": "panelistId",
+                        "description": "The panelist ID",
+                        "type": "integer",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Panelists removed"
+                    },
+                    "404": {
+                        "description": "Webinar or Panelist not found"
+                    }
+                }
+            }
+        },
+        "/webinars/{webinarId}/registrants": {
+            "get": {
+                "summary": "List a webinar's registrants",
+                "description": "List registrants for a webinar",
+                "tags": [
+                    "Webinars"
+                ],
+                "operationId": "webinarRegistrants",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/WebinarNumber"
+                    },
+                    {
+                        "$ref": "#/parameters/OccurenceId"
+                    },
+                    {
+                        "$ref": "#/parameters/RegistrantStatus"
+                    },
+                    {
+                        "$ref": "#/parameters/PageSize"
+                    },
+                    {
+                        "$ref": "#/parameters/PageNumber"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/WebinarRegistrantList"
+                        }
+                    },
+                    "404": {
+                        "description": "Webinar not found"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Add a webinar registrant",
+                "description": "Add a registrant for a webinar",
+                "tags": [
+                    "Webinars"
+                ],
+                "operationId": "webinarRegistrantCreate",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/WebinarNumber"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/WebinarRegistrant"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Registration created",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "string",
+                                    "description": "Registrant ID"
+                                },
+                                "join_url": {
+                                    "type": "string",
+                                    "description": "Join URL for this registrant"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Webinar not found"
+                    }
+                }
+            }
+        },
+        "/webinars/{webinarId}/registrants/{registrantId}/status": {
+            "put": {
+                "summary": "Update a webinar registrant's status",
+                "description": "Update a webinar registrant's status",
+                "tags": [
+                    "Webinars"
+                ],
+                "operationId": "webinarRegistrantStatus",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/WebinarNumber"
+                    },
+                    {
+                        "$ref": "#/parameters/RegistrantId"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "schema": {
+                            "properties": {
+                                "status": {
+                                    "type": "string",
+                                    "enum": [
+                                        "pending",
+                                        "approved",
+                                        "denied"
+                                    ],
+                                    "x-enum-descriptions": [
+                                        "set registrant status to pending",
+                                        "set registrant status to approved",
+                                        "set registrant status to denied"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Registrant status updated"
+                    },
+                    "404": {
+                        "description": "Webinar or Registrant not found"
+                    }
+                }
+            }
+        }
+    },
+    "parameters": {
+        "AccountId": {
+            "in": "path",
+            "name": "accountId",
+            "description" : "The account ID",
+            "type": "string",
+            "required": true
+        },
+        "GroupId": {
+            "in": "path",
+            "name": "groupId",
+            "description" : "The group ID",
+            "type": "string",
+            "required": true
+        },
+        "MeetingID": {
+            "in": "path",
+            "name": "meetingId",
+            "description" : "The meeting ID",
+            "type": "integer",
+            "required": true
+        },
+        "MeetingType": {
+            "in": "query",
+            "name": "type",
+            "description" : "The meeting type",
+            "type": "string",
+            "enum": [
+                "scheduled",
+                "live"
+            ],
+            "x-enum-descriptions" : [
+                "all the scheduled meetings",
+                "all the live meetings"
+            ]
+        },
+        "OccurenceId": {
+            "in": "query",
+            "name": "occurrence_id",
+            "description" : "The the meeting occurence ID",
+            "type": "string"
+        },
+        "PageNumber": {
+            "in": "query",
+            "name": "page_number",
+            "description": "Page number of results returned",
+            "type": "integer",
+            "default": 1
+        },
+        "PageSize": {
+            "in": "query",
+            "name": "page_size",
+            "description": "Number of items returned per page",
+            "type": "integer",
+            "default": 30
+        },
+        "RegistrantId": {
+            "in": "path",
+            "name": "registrantId",
+            "description" : "The registrant ID",
+            "type": "string",
+            "required": true
+        },
+        "RegistrantStatus": {
+            "in": "query",
+            "name": "status",
+            "description" : "The registrant status",
+            "type": "string",
+            "default": "approved",
+            "enum": [
+                "approved",
+                "pending",
+                "denied"
+            ],
+            "x-enum-descriptions" : [
+                "registrants status is approved",
+                "registrants status is pending",
+                "registrants status is denied"
+            ]
+        },
+        "TSPId" : {
+            "name": "tspId",
+            "description": "TSP ID",
+            "in": "path",
+            "type": "string",
+            "required": true
+        },
+        "UserId": {
+            "in": "path",
+            "name": "userId",
+            "description" : "The user ID",
+            "type": "string",
+            "required": true
+        },
+        "WebinarNumber": {
+            "in": "path",
+            "name": "webinarId",
+            "description" : "The webinar ID",
+            "type": "integer",
+            "required": true
+        }
+    },
+    "definitions": {
+        "Account": {
+            "type": "object",
+            "description": "Account object",
+            "required" : [
+                "email",
+                "first_name",
+                "last_name",
+                "password"
+            ],
+            "properties": {
+                "email": {
+                    "type": "string",
+                    "description": "User's email address."
+                },
+                "first_name": {
+                    "type": "string",
+                    "description": "User's first name."
+                },
+                "last_name": {
+                    "type": "string",
+                    "description": "User's last name."
+                },
+                "password": {
+                    "type": "string",
+                    "description": "User's password."
+                },
+                "options": {
+                    "$ref": "#/definitions/AccountOptions"
+                }
+            }
+        },
+        "AccountList": {
+            "type": "object",
+            "title": "Account List",
+            "description": "List of Accounts",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/Pagination"
+                },
+                {
+                    "properties": {
+                        "accounts": {
+                            "type": "array",
+                            "description": "List of Account objects.",
+                            "items": {
+                                "allOf": [
+                                    {
+                                        "properties": {
+                                            "id": {
+                                                "type": "string",
+                                                "description": "Account ID"
+                                            },
+                                            "owner_email": {
+                                                "type": "string",
+                                                "description": "Account Owner email"
+                                            },
+                                            "created_at": {
+                                                "type": "string",
+                                                "format": "dateTime",
+                                                "description": "Account creation date/time"
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "AccountOptions": {
+            "type": "object",
+            "description": "Account options object",
+            "properties": {
+                "share_rc": {
+                    "type": "boolean",
+                    "description": "Enable Share Virtual Room Connector.",
+                    "default": false
+                },
+                "room_connectors": {
+                    "type": "string",
+                    "description": "Virtual Room Connector, multiple value separated by comma."
+                },
+                "share_mc": {
+                    "type": "boolean",
+                    "description": "Enable Share Meeting Connector.",
+                    "default": false
+                },
+                "meeting_conntectors": {
+                    "type": "string",
+                    "description": "Meeting Connector, multiple value separated by comma."
+                },
+                "pay_mode": {
+                    "type": "string",
+                    "description": "User's password.",
+                    "enum": [
+                        "master",
+                        "sub"
+                    ],
+                    "x-enum-descriptions": [
+                        "Master Account holder pays",
+                        "Sub Account holders pays"
+                    ],
+                    "default": "master"
+                }
+            }
+        },
+        "AccountPlan": {
+            "type": "object",
+            "description": "Account plan object",
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "description": "Account plan type"
+                },
+                "hosts": {
+                    "type": "integer",
+                    "description": "Account plan number of hosts"
+                }
+            }
+        },
+        "AccountPlans": {
+            "type": "object",
+            "description": "Account Plans object",
+            "properties": {
+                "plan_base": {
+                    "$ref": "#/definitions/AccountPlan"
+                },
+                "plan_zoom_rooms": {
+                    "$ref": "#/definitions/AccountPlan"
+                },
+                "plan_room_connector": {
+                    "$ref": "#/definitions/AccountPlan"
+                },
+                "plan_large_meeting": {
+                    "type": "array",
+                    "description" : "Additional Large Meeting Plans",
+                    "items": {
+                        "$ref": "#/definitions/AccountPlan"
+                    }
+                },
+                "plan_webinar": {
+                    "type": "array",
+                    "description": "Additional Webinar Plans",
+                    "items": {
+                        "$ref": "#/definitions/AccountPlan"
+                    }
+                },
+                "plan_recording": {
+                    "type": "string",
+                    "description" : "Additional Cloud Recording Plan"
+                },
+                "plan_audio": {
+                    "type": "object",
+                    "description" : "Additional Audio Conferencing Plan type",
+                    "properties": {
+                        "type": {
+                            "type": "string",
+                            "description" : "Additional Audio Conferencing Plan type"
+                        },
+                        "tollfree_country": {
+                            "type": "string",
+                            "description" : "Toll-free countries, multiple value separated by comma"
+                        },
+                        "premium_country": {
+                            "type": "string",
+                            "description" : "Premium countries, multiple value separated by comma"
+                        },
+                        "callout": {
+                            "type": "boolean",
+                            "description": "Call-out type",
+                            "enum" : [
+                                1,
+                                2
+                            ],
+                            "x-enum-descriptions" : [
+                                "US-only",
+                                "US and International"
+                            ]
+                        },
+                        "ddi_numbers": {
+                            "type": "integer",
+                            "description": "Dedicated Dial-In Numbers"
+                        }
+                    }
+                }
+            }
+        },
+        "AccountSettings": {
+            "title": "Account settings",
+            "type": "object",
+            "properties": {
+                "schedule_meting": {
+                    "$ref": "#/definitions/AccountSettingsScheduleMeeting"
+                },
+                "in_meeting": {
+                    "$ref": "#/definitions/AccountSettingsInMeeting"
+                },
+                "email_notification": {
+                    "$ref": "#/definitions/AccountSettingsEmailNotification"
+                },
+                "zoom_rooms": {
+                    "$ref": "#/definitions/AccountSettingsZoomRooms"
+                },
+                "_security" : {
+                    "$ref": "#/definitions/AccountSettingsSecurity"
+                },
+                "recording": {
+                    "$ref": "#/definitions/AccountSettingsRecording"
+                },
+                "telephony" : {
+                    "$ref": "#/definitions/AccountSettingsTelephony"},
+                "integration": {
+                    "$ref": "#/definitions/AccountSettingsIntegration"
+                },
+                "feature": {
+                    "$ref": "#/definitions/AccountSettingsFeature"
+                }
+            }
+        },
+        "AccountSettingsScheduleMeeting": {
+            "type": "object",
+            "description": "Account Settings: Schedule Meeting",
+            "properties": {
+                "host_video": {
+                    "type": "boolean",
+                    "description": "Host Video",
+                    "default": false
+                },
+                "participant_video": {
+                    "type": "boolean",
+                    "description": "Participants Video",
+                    "default": false
+                },
+                "audio_type" : {
+                    "type" : "string",
+                    "description": "Audio Type",
+                    "default" : "both"
+                },
+                "join_before_host": {
+                    "type": "boolean",
+                    "description": "Join Before Host",
+                    "default": false
+                },
+                "enforce_login": {
+                    "type": "boolean",
+                    "description": "Required user to be logged in",
+                    "default": false
+                },
+                "enforce_login_with_domains": {
+                    "type": "boolean",
+                    "description": "Logged in user must be part of domain",
+                    "default": false
+                },
+                "enforce_login_domains": {
+                    "type": "boolean",
+                    "description": "PList of domains accepted",
+                    "default": false
+                },
+                "not_store_meeting_topic": {
+                    "type": "boolean",
+                    "description": "Always display 'Zoom Meeting' as the meeting topic",
+                    "default": false
+                },
+                "force_pmi_jbh_password": {
+                    "type": "boolean",
+                    "description": "Require a password for Personal Meetings if attendees can join before host",
+                    "default": false
+                }
+            }
+        },
+        "AccountSettingsInMeeting": {
+            "type": "object",
+            "description": "Account Settings: In Meeting",
+            "properties": {
+                "e2e_encryption": {
+                    "type": "boolean",
+                    "description": "End-to-End Encryption",
+                    "default": false
+                },
+                "chat": {
+                    "type": "boolean",
+                    "description": "Chat",
+                    "default": false
+                },
+                "private_chat": {
+                    "type": "boolean",
+                    "description": "Private Chat",
+                    "default": false
+                },
+                "auto_saving_chat": {
+                    "type": "boolean",
+                    "description": "Auto Saving Chats",
+                    "default": false
+                },
+                "file_transfer": {
+                    "type": "boolean",
+                    "description": "File transfer",
+                    "default": true
+                },
+                "feedback": {
+                    "type": "boolean",
+                    "description": "Feedback to Zoom",
+                    "default": false
+                },
+                "post_meeting_feedback": {
+                    "type": "boolean",
+                    "description": "Display end-of-meeting experience feedback survey",
+                    "default": false
+                },
+                "co_host": {
+                    "type": "boolean",
+                    "description": "Co-Host",
+                    "default": false
+                },
+                "polling": {
+                    "type": "boolean",
+                    "description": "Polling",
+                    "default": false
+                },
+                "attendee_on_hold": {
+                    "type": "boolean",
+                    "description": "Allow host to put attendee on hold",
+                    "default": false
+                },
+                "show_meeting_control_toolbar": {
+                    "type": "boolean",
+                    "description": "Always show meeting control toolbar",
+                    "default": false
+                },
+                "allow_show_zoom_windows": {
+                    "type": "boolean",
+                    "description": "Allow to share Zoom windows in desktop sharing",
+                    "default": false
+                },
+                "annotation": {
+                    "type": "boolean",
+                    "description": "Allow to share Zoom windows in desktop sharing",
+                    "default": false
+                },
+                "whiteboard": {
+                    "type": "boolean",
+                    "description": "Allow to share Zoom windows in desktop sharing",
+                    "default": false
+                },
+                "webinar_question_answer": {
+                    "type": "boolean",
+                    "description": "Q&A in webinar",
+                    "default": false
+                },
+                "anonymous_question_answer": {
+                    "type": "boolean",
+                    "description": "Allow Anonymous Q&A in Webinar",
+                    "default": false
+                },
+                "breakout_room": {
+                    "type": "boolean",
+                    "description": "Breakout room",
+                    "default": false
+                },
+                "closed_caption": {
+                    "type": "boolean",
+                    "description": "Closed caption",
+                    "default": false
+                },
+                "far_end_camera_control": {
+                    "type": "boolean",
+                    "description": "Far end camera control",
+                    "default": false
+                },
+                "group_hd": {
+                    "type": "boolean",
+                    "description": "Group HD video",
+                    "default": false
+                },
+                "virtual_background": {
+                    "type": "boolean",
+                    "description": "Virtual background",
+                    "default": false
+                },
+                "watermark": {
+                    "type": "boolean",
+                    "description": "Alert internal participants when a guest joins a meeting",
+                    "default": false
+                },
+                "alert_guest_join": {
+                    "type": "boolean",
+                    "description": "Alert internal participants when a guest joins a meeting",
+                    "default": false
+                },
+                "auto_answer": {
+                    "type": "boolean",
+                    "description": "Peer to Peer connection while only 2 people in a meeting Learn More",
+                    "default": false
+                },
+                "p2p_connetion": {
+                    "type": "boolean",
+                    "description": "Peer to Peer connection while only 2 people in a meeting Learn More",
+                    "default": false
+                },
+                "p2p_ports": {
+                    "type": "string",
+                    "description": "Listening ports range, separated by comma, such as 55,56"
+                },
+                "ports_range": {
+                    "type": "string",
+                    "description": "Peer to Peer connection while only 2 people in a meeting Learn More",
+                    "default": ""
+                },
+                "sending_default_email_invites": {
+                    "type": "boolean",
+                    "description": "Only show default email when sending email invites",
+                    "default": false
+                },
+                "use_html_format_email": {
+                    "type": "boolean",
+                    "description": "Only show default email when sending email invites",
+                    "default": false
+                },
+                "dscp_marking": {
+                    "type": "boolean",
+                    "description": "DSCP marking",
+                    "default": true
+                },
+                "dscp_audio": {
+                    "type": "integer",
+                    "description": "DSCP Audio"
+                },
+                "dscp_video": {
+                    "type": "integer",
+                    "description": "DSCP Video"
+                },
+                "stereo_audio": {
+                    "type": "boolean",
+                    "description": "DSCP Video",
+                    "default": false
+                },
+                "original_audio": {
+                    "type": "boolean",
+                    "description": "DSCP Video",
+                    "default": false
+                },
+                "screen_sharing": {
+                    "type": "boolean",
+                    "description": "DSCP Video",
+                    "default": false
+                },
+                "remote_control": {
+                    "type": "boolean",
+                    "description": "DSCP Video",
+                    "default": false
+                },
+                "attention_tracking": {
+                    "type": "boolean",
+                    "description": "DSCP Video",
+                    "default": false
+                }
+            }
+        },
+        "AccountSettingsEmailNotification": {
+            "type": "object",
+            "description": "Account Settings: Notification",
+            "properties": {
+                "cloud_recording_avaliable_reminder": {
+                    "type": "boolean",
+                    "description": "Allow keep recording from being automatically deleted",
+                    "default": false
+                },
+                "jbh_reminder": {
+                    "type": "boolean",
+                    "description": "When attendees join meeting before host",
+                    "default": false
+                },
+                "cancel_meeting_reminder": {
+                    "type": "boolean",
+                    "description": "When a meeting is cancelled",
+                    "default": false
+                },
+                "low_host_count_reminder": {
+                    "type": "boolean",
+                    "description": "When host count is low",
+                    "default": false
+                },
+                "alternative_host_reminder": {
+                    "type": "boolean",
+                    "description": "When an alternative host is set or removed from a meeting",
+                    "default": false
+                }
+            }
+        },
+        "AccountSettingsZoomRooms": {
+            "type": "object",
+            "description": "Account Settings: Zoom Rooms",
+            "properties": {
+                "upcoming_meeting_alert": {
+                    "type": "boolean",
+                    "description": "Upcoming meeting alert",
+                    "default": false
+                },
+                "start_airplay_manually": {
+                    "type": "boolean",
+                    "description": "Start AirPlay service manually",
+                    "default": false
+                },
+                "weekly_system_restart": {
+                    "type": "boolean",
+                    "description": "Weekly system restart",
+                    "default": false
+                },
+                "list_meetings_with_calendar": {
+                    "type": "boolean",
+                    "description": "Display meeting list with calendar integration",
+                    "default": false
+                },
+                "zr_post_meeting_feedback": {
+                    "type": "boolean",
+                    "description": "Display meeting list with calendar integration",
+                    "default": false
+                },
+                "ultrasonic": {
+                    "type": "boolean",
+                    "description": "Automatic direct sharing using ultrasonic proximity signal",
+                    "default": false
+                },
+                "force_private_meeting": {
+                    "type": "boolean",
+                    "description": "Transform all meetings to private",
+                    "default": false
+                },
+                "hide_host_information": {
+                    "type": "boolean",
+                    "description": "Hide host and meeting ID from private meetings",
+                    "default": false
+                },
+                "cmr_for_instant_meeting": {
+                    "type": "boolean",
+                    "description": "Cloud recording for instant meetings",
+                    "default": false
+                },
+                "auto_start_stop_scheduled_meetings": {
+                    "type": "boolean",
+                    "description": "Automatic start/stop scheduled meetings",
+                    "default": false
+                }
+            }
+        },
+        "AccountSettingsSecurity": {
+            "type": "object",
+            "description": "Account Settings: Feature",
+            "properties": {
+                "import_photos_from_devices": {
+                    "type": "boolean",
+                    "description": "",
+                    "default": true
+                },
+                "hide_billing_info": {
+                    "type": "boolean",
+                    "description": "",
+                    "default": true
+                }
+            }
+        },
+        "AccountSettingsRecording": {
+            "type": "object",
+            "description": "Account Settings: Recording",
+            "properties": {
+                "local_recording": {
+                    "type": "boolean",
+                    "description": "Local recording",
+                    "default": false
+                },
+                "cloud_recording": {
+                    "type": "boolean",
+                    "description": "Cloud recording",
+                    "default": false
+                },
+                "auto_recording": {
+                    "type": "boolean",
+                    "description": "Automatic recording",
+                    "default": false
+                },
+                "cloud_recording_download": {
+                    "type": "boolean",
+                    "description": "Cloud Recording Downloads",
+                    "default": false
+                },
+                "cloud_recording_download_host": {
+                    "type": "boolean",
+                    "description": "Only the host can download cloud recordings",
+                    "default": false
+                },
+                "account_user_access_recording": {
+                    "type": "boolean",
+                    "description": "Only users on my account can access cloud recordings",
+                    "default": false
+                },
+                "auto_delete_cmr": {
+                    "type": "boolean",
+                    "description": "Auto delete cloud recordings after days",
+                    "default": false
+                }
+            }
+        },
+        "AccountSettingsTelephony": {
+            "type": "object",
+            "description": "Account Settings: Feature",
+            "properties": {
+                "third_party_audio": {
+                    "type": "boolean",
+                    "description": "",
+                    "default": true
+                },
+                "audio_conference_info": {
+                    "type": "string",
+                    "description": ""
+                }
+            }
+        },
+        "AccountSettingsIntegration": {
+            "type": "object",
+            "description": "Account Settings: Integration",
+            "properties": {
+                "google_calendar": {
+                    "type": "boolean",
+                    "description": "Google Calendar",
+                    "default": false
+                },
+                "google_drive": {
+                    "type": "boolean",
+                    "description": "Google Drive",
+                    "default": false
+                },
+                "dropbox": {
+                    "type": "boolean",
+                    "description": "Dropbox",
+                    "default": false
+                },
+                "box": {
+                    "type": "boolean",
+                    "description": "Box",
+                    "default": false
+                },
+                "microsoft_one_drive": {
+                    "type": "boolean",
+                    "description": "Microsoft OneDrive",
+                    "default": false
+                },
+                "kubi": {
+                    "type": "boolean",
+                    "description": "Kubi",
+                    "default": false
+                }
+            }
+        },
+        "AccountSettingsFeature": {
+            "type": "object",
+            "description": "Account Settings: Feature",
+            "properties": {
+                "meeting_capacity": {
+                    "type": "integer",
+                    "description": "Meeting capacity",
+                    "default": 100
+                }
+            }
+        },
+        "BillingContact": {
+            "type": "object",
+            "description": "Billing Contact object",
+            "properties": {
+                "first_name": {
+                    "type": "string",
+                    "description": "Billing Contact's first name."
+                },
+                "last_name": {
+                    "type": "string",
+                    "description": "Billing Contact's last name."
+                },
+                "email": {
+                    "type": "string",
+                    "description": "Billing Contact's email address."
+                },
+                "phone_number": {
+                    "type": "string",
+                    "description": "Billing Contact's phone number."
+                },
+                "address": {
+                    "type": "string",
+                    "description": "Billing Contact's address."
+                },
+                "apt": {
+                    "type": "string",
+                    "description": "Billing Contact's apartment/suite."
+                },
+                "city": {
+                    "type": "string",
+                    "description": "Billing Contact's city."
+                },
+                "state": {
+                    "type": "string",
+                    "description": "Billing Contact's state."
+                },
+                "zip": {
+                    "type": "string",
+                    "description": "Billing Contact's zip/postal code."
+                },
+                "country": {
+                    "type": "string",
+                    "description": "Billing Contact's country."
+                }
+            }
+        },
+        "CustomQuestion": {
+            "type": "object",
+            "description": "Custom Question",
+            "properties": {
+                "title": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "Group": {
+            "type": "object",
+            "description": "Group object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Group name"
+                },
+                "total_members": {
+                    "type": "integer",
+                    "description": "Total number of members in this group."
+                }
+            }
+        },
+        "GroupList": {
+            "type": "object",
+            "title": "Group List",
+            "description": "List of Groups",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/Pagination"
+                },
+                {
+                    "properties": {
+                        "groups": {
+                            "type": "array",
+                            "description": "List of Group objects.",
+                            "items": {
+                                "allOf": [
+                                    {
+                                        "properties": {
+                                            "id": {
+                                                "type": "string",
+                                                "description": "Group ID"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "$ref": "#/definitions/Group"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "GroupMember": {
+            "type": "object",
+            "description": "Group member object",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "User ID"
+                },
+                "email": {
+                    "type": "string",
+                    "description": "User email"
+                },
+                "first_name": {
+                    "type": "string",
+                    "description": "User first name"
+                },
+                "last_name": {
+                    "type": "string",
+                    "description": "User last name"
+                },
+                "type": {
+                    "type": "integer",
+                    "description": "User type"
+                }
+            }
+        },
+        "GroupMemberList": {
+            "type": "object",
+            "title": "Group Member List",
+            "description": "List of Group Members",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/Pagination"
+                },
+                {
+                    "properties": {
+                        "members": {
+                            "type": "array",
+                            "description": "List of Group member objects.",
+                            "items": {
+                                "$ref": "#/definitions/GroupMember"
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "IMGroup": {
+            "type": "object",
+            "description": "IM Group object",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/Group"
+                },
+                {
+                    "properties": {
+                        "type": {
+                            "type": "string"
+                        },
+                        "search_by_domain": {
+                            "type": "boolean"
+                        },
+                        "search_by_account": {
+                            "type": "boolean"
+                        },
+                        "search_by_ma_account": {
+                            "type": "boolean"
+                        }
+                    }
+                }
+            ]
+        },
+        "IMGroupList": {
+            "type": "object",
+            "title": "IM Group List",
+            "description": "List of IM Groups",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/Pagination"
+                },
+                {
+                    "properties": {
+                        "groups": {
+                            "type": "array",
+                            "description": "List of Group objects.",
+                            "items": {
+                                "allOf": [
+                                    {
+                                        "properties": {
+                                            "id": {
+                                                "type": "string",
+                                                "description": "IM Group ID"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "$ref": "#/definitions/IMGroup"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "Meeting": {
+            "type": "object",
+            "description": "Meeting object",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/Session"
+                }
+            ]
+        },
+        "MeetingList": {
+            "type": "object",
+            "title": "Group List",
+            "description": "List of Meetings",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/Pagination"
+                },
+                {
+                    "properties": {
+                        "meetings": {
+                            "type": "array",
+                            "description": "List of Meeting objects.",
+                            "items": {
+                                "allOf": [
+                                    {
+                                        "type": "object",
+                                        "properties": {
+                                            "uuid": {
+                                                "type": "string",
+                                                "description": "Meeting unique ID"
+                                            },
+                                            "id": {
+                                                "type": "string",
+                                                "description": "Meeting ID, also know as meeting number"
+                                            },
+                                            "host_id": {
+                                                "type": "string",
+                                                "description": "ID of the user set as host of meeting"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "$ref": "#/definitions/Meeting"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "MeetingSettings": {
+            "type": "object",
+            "description": "Meeting Settings",
+            "properties": {
+                "host_video": {
+                    "type": "boolean",
+                    "description" : "Start video when host join meeting",
+                    "default": true
+                },
+                "participant_video": {
+                    "type": "boolean",
+                    "description": "Start video when participants join meeting",
+                    "default": true
+                },
+                "cn_meeting": {
+                    "type": "boolean",
+                    "description": "Host meeting in China",
+                    "default": false
+                },
+                "in_meeting": {
+                    "type": "boolean",
+                    "description": "Host meeting in India",
+                    "default": false
+                },
+                "join_before_host": {
+                    "type": "boolean",
+                    "description": "Join meeting before host start the meeting. Only used for scheduled or recurring meetings",
+                    "default": false
+                },
+                "mute_upon_entry": {
+                    "type": "boolean",
+                    "description": "Mute participants upon entry",
+                    "default": false
+                },
+                "watermark": {
+                    "type": "boolean",
+                    "description": "Enable watermark when viewing the shared screen",
+                    "default": false
+                },
+                "use_pmi": {
+                    "type": "boolean",
+                    "description": "Use Personal Meeting ID. Only used for scheduled meetings and recurring meetings with no fixed time",
+                    "default": false
+                },
+                "approval_type": {
+                    "type": "integer",
+                    "default": 2,
+                    "enum": [
+                        0,
+                        1,
+                        2
+                    ],
+                    "x-enum-descriptions": [
+                        "Automatically Approve",
+                        "Manually Approve",
+                        "No Registration Required"
+                    ]
+                },
+                "registration_type": {
+                    "type": "integer",
+                    "description" : "Registration type. Used for recurring meeting with fixed time only.",
+                    "default": 1,
+                    "enum": [
+                        1,
+                        2,
+                        3
+                    ],
+                    "x-enum-descriptions": [
+                        "Attendees register once and can attend any of the occurrences",
+                        "Attendees need to register for each occurrence to attend",
+                        "Attendees register once and can choose one or more occurrences to attend"
+                    ]
+                },
+                "audio": {
+                    "type": "string",
+                    "description"  : "Meeting audio options",
+                    "default": "both",
+                    "enum": [
+                        "both",
+                        "telephony",
+                        "voip"
+                    ],
+                    "x-enum-descriptions": [
+                        "Both Telephony and VoIP",
+                        "Telephony only",
+                        "VoIP only"
+                    ]
+                },
+                "auto_recording": {
+                    "type": "string",
+                    "default": "none",
+                    "enum": [
+                        "local",
+                        "cloud",
+                        "none"
+                    ],
+                    "x-enum-descriptions": [
+                        "Record to local device",
+                        "Record to cloud",
+                        "No Recording"
+                    ]
+                },
+                "enforce_login": {
+                    "type": "boolean",
+                    "description": "Only signed-in users can join this meeting"
+                },
+                "enforce_login_domains": {
+                    "type": "boolean",
+                    "description": "Only signed-in users with specified domains can join meetings"
+                },
+                "alternatice_hosts": {
+                    "type": "boolean",
+                    "description": "Alternative hosts emails or IDs. Multiple value separated by comma."
+                }
+            }
+        },
+        "MeetingRegistrant": {
+            "type": "object",
+            "description": "Meeting registrant",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/Registrant"
+                }
+            ]
+        },
+        "MeetingRegistrantList": {
+            "type": "object",
+            "title": "Registration List",
+            "description": "List of Users",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/RegistrantList"
+                }
+            ]
+        },
+        "Pagination": {
+            "type": "object",
+            "description": "Pagination Object",
+            "properties": {
+                "page_count": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "The number of items returned on this page."
+                },
+                "page_number": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "The page number of current results."
+                },
+                "page_size": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "The number of items per page."
+                },
+                "total_records": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "The number of all records available across pages."
+                }
+            }
+        },
+        "Panelist": {
+            "type": "object",
+            "description": "Panelist base object",
+            "properties": {
+                "email": {
+                    "type": "string",
+                    "description": "Panelist's email"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Panelist's full name"
+                }
+            }
+        },
+        "PanelistList": {
+            "type": "object",
+            "title": "Panelist List",
+            "description": "List of Panelist",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/Pagination"
+                },
+                {
+                    "properties": {
+                        "registrants": {
+                            "type": "array",
+                            "description": "List of Panelist objects.",
+                            "items": {
+                                "$ref": "#/definitions/Panelist"
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "Recurrence": {
+            "type": "object",
+            "description": "Recurrence object",
+            "properties": {
+                "type": {
+                    "type": "integer",
+                    "description" : "Recurrence meeting type",
+                    "enum" : [
+                        1,
+                        2,
+                        3
+                    ],
+                    "x-enum-descriptions" : [
+                        "Daily",
+                        "Weekly",
+                        "Monthly"
+                    ]
+                },
+                "repeat_interval": {
+                    "type": "integer",
+                    "description" : "Recurrence meeting repeat interval. For a Daily Meeting, max of 90. For a Weekly Meeting, max of 12. For a Monthly Meeting, max of 3."
+                },
+                "weekly_days": {
+                    "type": "integer",
+                    "description" : "Recurrence Meeting Occurs on week days, multiple value separated by comma",
+                    "enum": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7
+                    ],
+                    "x-enum-descriptions": [
+                        "Sunday",
+                        "Monday",
+                        "Tuesday",
+                        "Wednesday",
+                        "Thursday",
+                        "Friday",
+                        "Saturday"
+                    ]
+                },
+                "monthly_day": {
+                    "type": "integer",
+                    "description" : "Recurrence Meeting Occurs on a month day. The value range is from 1 to 31"
+                },
+                "monthly_week": {
+                    "type": "integer",
+                    "description": "Recurrence Meeting Occurs on the week of a month.",
+                    "enum" : [
+                        -1,
+                        1,
+                        2,
+                        3,
+                        4
+                    ],
+                    "x-enum-descriptions" : [
+                        "Last week",
+                        "First week",
+                        "Second week",
+                        "Third week",
+                        "Fourth week"
+                    ]
+                },
+                "monthly_week_day": {
+                    "type": "integer",
+                    "description" : "Recurrence Meeting Occurs on the week day of a month",
+                    "enum" : [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7
+                    ],
+                    "x-enum-descriptions": [
+                        "Sunday",
+                        "Monday",
+                        "Tuesday",
+                        "Wednesday",
+                        "Thursday",
+                        "Friday",
+                        "Saturday"
+                    ]
+                },
+                "end_times": {
+                    "type": "integer",
+                    "description" : "Recurrence Meeting End occurrences times",
+                    "default" : 1,
+                    "maximum": 50
+                },
+                "end_date_time": {
+                    "type": "string",
+                    "description": "Recurrence Meeting End Date. Should be UTC time, such as 2017-11-25T12:00:00Z.",
+                    "format": "dateTime"
+                }
+            }
+        },
+        "Registrant": {
+            "type": "object",
+            "description": "Registrant base object",
+            "required": [
+                "email",
+                "first_name",
+                "last_name"
+            ],
+            "properties": {
+                "email": {
+                    "type": "string",
+                    "description": "A valid email address"
+                },
+                "first_name": {
+                    "type": "string",
+                    "description": "User’s first name"
+                },
+                "last_name": {
+                    "type": "string",
+                    "description": "User’s last name"
+                },
+                "address": {
+                    "type": "string",
+                    "description": "Address"
+                },
+                "city": {
+                    "type": "string",
+                    "description": "City"
+                },
+                "country": {
+                    "type": "string",
+                    "description": "Country"
+                },
+                "zip": {
+                    "type": "string",
+                    "description": "Zip/Postal Code"
+                },
+                "state": {
+                    "type": "string",
+                    "description": "State/Province"
+                },
+                "phone": {
+                    "type": "string",
+                    "description": "Phone"
+                },
+                "industry": {
+                    "type": "string",
+                    "description": "Industry"
+                },
+                "org": {
+                    "type": "string",
+                    "description": "Organization"
+                },
+                "job_title": {
+                    "type": "string",
+                    "description": "Job Title"
+                },
+                "purchasing_time_frame": {
+                    "type": "string",
+                    "description": "Purchasing Time Frame",
+                    "enum" : [
+                        "Within a month",
+                        "1-3 months",
+                        "4-6 months",
+                        "More than 6 months",
+                        "No timeframe"
+                    ]
+                },
+                "role_in_purchase_process": {
+                    "type": "string",
+                    "description": "Role in Purchase Process",
+                    "enum" : [
+                        "Decision Maker",
+                        "Evaluator/Recommender",
+                        "Influencer",
+                        "Not involved"
+                    ]
+                },
+                "no_of_employees": {
+                    "type": "string",
+                    "description": "Number of Employees",
+                    "enum" : [
+                        "1-20",
+                        "21-50",
+                        "51-100",
+                        "101-500",
+                        "500-1,000",
+                        "1,001-5,000",
+                        "5,001-10,000",
+                        "More than 10,000"
+
+                    ]
+                },
+                "comments": {
+                    "type": "string",
+                    "description": "Questions & Comments"
+                },
+                "custom_questions": {
+                    "type": "array",
+                    "description": "Custom Questions",
+                    "items": {
+                        "$ref" : "#/definitions/CustomQuestion"
+                    }
+                }
+            }
+        },
+        "RegistrantList": {
+            "type": "object",
+            "title": "Registration List",
+            "description": "List of Users",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/Pagination"
+                },
+                {
+                    "properties": {
+                        "registrants": {
+                            "type": "array",
+                            "description": "List of Registrant objects.",
+                            "items": {
+                                "$ref": "#/definitions/MeetingRegistrant"
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "Session": {
+            "type": "object",
+            "description": "Base object for sessions",
+            "properties": {
+                "topic": {
+                    "type": "string",
+                    "description": "Meeting topic"
+                },
+                "type": {
+                    "type": "integer",
+                    "description": "Meeting Type",
+                    "enum": [
+                        1,
+                        2,
+                        3,
+                        8
+                    ],
+                    "x-enum-descriptions": [
+                        "Instant Meeting",
+                        "Scheduled Meeting",
+                        "Recurring Meeting with no fixed time",
+                        "Recurring Meeting with fixed time"
+                    ]
+                },
+                "start_time": {
+                    "type": "string",
+                    "format": "dateTime",
+                    "description": "Meeting start time"
+                },
+                "duration": {
+                    "type": "integer",
+                    "description": "Meeting duration"
+                },
+                "timezone": {
+                    "type": "string",
+                    "description": "Timezone to format start_time"
+                },
+                "password": {
+                    "type": "string",
+                    "description": "Password to join the meeting"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Meeting description"
+                },
+                "recurrence": {
+                    "$ref": "#/definitions/Recurrence"
+                },
+                "settings": {
+                    "$ref": "#/definitions/MeetingSettings"
+                }
+            }
+        },
+        "TSPConfig" : {
+            "type" : "object",
+            "description": "TSP Configuration object",
+            "properties" : {
+                "conference_code" : {
+                    "type": "string",
+                    "description": "Conference code, length is less than 16."
+                },
+                "leader_pin" : {
+                    "type": "string",
+                    "description": "Leader PIN, length is less than 16."
+                },
+                "dial_in_numbers" : {
+                    "type": "object",
+                    "description": "Dial In Numbers object",
+                    "properties": {
+                        "id" : {
+                            "type" : "string",
+                            "description" : "Country ID"
+                        },
+                        "code" : {
+                            "type" : "string",
+                            "description" : "Country Code"
+                        },
+                        "number" : {
+                            "type" : "string",
+                            "description" : "Dial-in number, length is less than 16."
+                        }
+                    }
+                }
+            }
+        },
+        "User": {
+            "type": "object",
+            "description": "User object",
+            "required" : [
+                "email",
+                "type"
+            ],
+            "properties": {
+                "email": {
+                    "type": "string",
+                    "description": "User's email address."
+                },
+                "type": {
+                    "type": "integer",
+                    "enum": [
+                        1,
+                        2,
+                        3
+                    ],
+                    "x-enum-descriptions" : [
+                        "basic",
+                        "pro",
+                        "corp"
+                    ],
+                    "description": "User's type"
+                },
+                "first_name": {
+                    "type": "string",
+                    "description": "User's first name."
+                },
+                "last_name": {
+                    "type": "string",
+                    "description": "User's last name."
+                }
+            }
+        },
+        "UserList": {
+            "type": "object",
+            "title": "User List",
+            "description": "List of Users",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/Pagination"
+                },
+                {
+                    "properties": {
+                        "users": {
+                            "type": "array",
+                            "description": "List of User objects.",
+                            "items": {
+                                "allOf": [
+                                    {
+                                        "properties": {
+                                            "id": {
+                                                "type": "string",
+                                                "description": "User ID"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "$ref": "#/definitions/User"
+                                    },
+                                    {
+                                        "$ref": "#/definitions/UserDetails"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "UserDetails": {
+            "title": "User object with details",
+            "description": "Reference to a User object with details.",
+            "type": "object",
+            "properties": {
+                "created_at": {
+                    "type": "string",
+                    "format": "dateTime"
+                },
+                "dept": {
+                    "type": "string"
+                },
+                "last_client_version": {
+                    "type": "string"
+                },
+                "last_login_time": {
+                    "type": "string",
+                    "format": "dateTime"
+                },
+                "pic_url": {
+                    "type": "string"
+                },
+                "pmi": {
+                    "type": "string"
+                },
+                "timezone": {
+                    "type": "string"
+                },
+                "vanity_url": {
+                    "type": "string"
+                },
+                "verified": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "UserSettings": {
+            "title": "User settings",
+            "type": "object",
+            "properties": {
+                "scheduled_meeting": {
+                    "$ref": "#/definitions/UserSettingsScheduledMeeting"
+                },
+                "in_meeting": {
+                    "$ref": "#/definitions/UserSettingsInMeeting"
+                },
+                "email_notification": {
+                    "$ref": "#/definitions/UserSettingsEmailNotification"
+                },
+                "recording": {
+                    "$ref": "#/definitions/UserSettingsRecording"
+                },
+                "telephony": {
+                    "$ref": "#/definitions/UserSettingsTelephony"
+                },
+                "feature": {
+                    "$ref": "#/definitions/UserSettingsFeature"
+                }
+            }
+        },
+        "UserSettingsScheduledMeeting": {
+            "title": "User settings: Meeting settings",
+            "description": "",
+            "type": "object",
+            "properties": {
+                "host_video": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Host video"
+                },
+                "participants_video": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Participants video"
+                },
+                "audio_type": {
+                    "type": "string",
+                    "default": "voip",
+                    "description": "Meeting audio",
+                    "enum" : [
+                        "both",
+                        "telephony",
+                        "voip",
+                        "thirdParty",
+                        "none"
+                    ],
+                    "x-enum-descriptions" : [
+                        "Telephony and VoIP",
+                        "Audio PSTN telephony only",
+                        "VoIP only",
+                        "3rd party audio conference",
+                        "Disabled"
+                    ]
+                },
+                "join_before_host": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Join before host"
+                },
+                "enforce_login": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Only signed-in users can join meetings"
+                },
+                "not_store_meeting_topic": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Always display \"Zoom Meeting\" as the meeting topic"
+                },
+                "force_pmi_jbh_password": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Require a password for Personal Meetings if attendees can join before host"
+                },
+                "pstn_password_protected": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Generate and require password for participants joining by phone"
+                }
+            }
+        },
+        "UserSettingsInMeeting": {
+            "title": "User settings: Meeting settings",
+            "description": "",
+            "type": "object",
+            "properties": {
+                "e2e_encryption": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "End-to-end encryption"
+                },
+                "chat": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Chat"
+                },
+                "private_chat": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Private chat"
+                },
+                "auto_saving_chat": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Auto saving chats"
+                },
+                "entry_exit_chime": {
+                    "type": "string",
+                    "default": "a''",
+                    "description": "Play sound on join/leave",
+                    "enum" : [
+                        "host",
+                        "all",
+                        "none"
+                    ],
+                    "x-enum-descriptions" : [
+                        "when host joins/leaves",
+                        "when any participant joins/leaves",
+                        "no join/leave sound"
+                    ]
+                },
+                "record_play_voice": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Record and play their own voice"
+                },
+                "file_transfer": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "File transfer"
+                },
+                "feedback": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Feedback to Zoom"
+                },
+                "co_host": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Co-host"
+                },
+                "polling": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Polling"
+                },
+                "attendee_on_hold": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Allow host to put attendee on hold"
+                },
+                "annotation": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Annotation"
+                },
+                "non_verbal_feedback": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Non-verbal feedback"
+                },
+                "breakout_room": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Breakout room"
+                },
+                "remote_support": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Remote support"
+                },
+                "closed_caption": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Closed caption"
+                },
+                "group_hd": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Group HD video"
+                },
+                "virtual_background": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Virtual background"
+                },
+                "far_end_camera_control": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Far end camera control"
+                },
+                "share_dual_camera": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Share dual camera"
+                },
+                "attention_tracking": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Attention tracking"
+                },
+                "waiting_room": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Waiting room"
+                },
+                "manage_zr": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Manage Zoom Rooms"
+                }
+            }
+        },
+        "UserSettingsEmailNotification": {
+            "title": "User settings: Notification settings",
+            "description": "",
+            "type": "object",
+            "properties": {
+                "jbh_reminder": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "When attendees join meeting before host"
+                },
+                "cancel_meeting_reminder": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "When a meeting is cancelled"
+                },
+                "alternative_host_reminder": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "When an alternative host is set or removed from a meeting"
+                }
+            }
+        },
+        "UserSettingsRecording": {
+            "title": "User settings: Recording settings",
+            "description": "",
+            "type": "object",
+            "properties": {
+                "local_recording": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Local recording"
+                },
+                "cloud_recording": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Cloud recording"
+                },
+                "record_speaker_view": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Record the active speaker view"
+                },
+                "record_gallery_view": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Record the gallery view"
+                },
+                "record_audio_file": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Record an audio only file"
+                },
+                "save_chat_text": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Save chat text from the meeting"
+                },
+                "show_timestamp": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Show timestamp on video"
+                },
+                "auto_recording": {
+                    "type": "string",
+                    "default": "local",
+                    "description": "Automatic recording",
+                    "enum" : [
+                        "Record on local",
+                        "Record on cloud",
+                        "Disabled"
+                    ],
+                    "x-enum-descriptions" : [
+                        "local",
+                        "cloud",
+                        "none"
+                    ]
+                },
+                "auto_delete_cmr": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Auto delete cloud recordings"
+                }
+            }
+        },
+        "UserSettingsTelephony": {
+            "title": "User settings: Meeting settings",
+            "description": "",
+            "type": "object",
+            "properties": {
+                "third_party_audio": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "3rd party audio conference"
+                },
+                "audio_conference_info": {
+                    "type": "string",
+                    "default": "",
+                    "description": "3rd party audio conference info"
+                },
+                "show_international_numbers_link": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Show international numbers link on the invitation email"
+                }
+            }
+        },
+        "UserSettingsFeature": {
+            "title": "User settings: Feature settings",
+            "description": "",
+            "type": "object",
+            "properties": {
+                "meeting_capacity": {
+                    "type": "integer",
+                    "default": 100,
+                    "description": "User’s meeting capacity."
+                },
+                "large_meeting": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Large meting feature"
+                },
+                "large_meeting_capacity": {
+                    "type": "integer",
+                    "default": 100,
+                    "description": "Large meeting capacity, can be 100, 200, 300 or 500, depends on if having related large meeting capacity plan subscription or not."
+                },
+                "webinar": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Webinar feature"
+                },
+                "webinar_capacity": {
+                    "type": "boolean",
+                    "default": 100,
+                    "description": "Webinar capacity, can be 100, 500, 1000, 3000, 5000 or 10000, depends on if having related webinar capacity plan subscription or not."
+                }
+            }
+        },
+        "UserUpdate": {
+            "title": "User object with details",
+            "description": "Reference to a User object with details.",
+            "type": "object",
+            "properties": {
+                "timezone": {
+                    "type": "string",
+                    "description": "The time zone id for user profile"
+                },
+                "dept": {
+                    "type": "string",
+                    "description": "Department for user profile, used for reports."
+                },
+                "vanity_url": {
+                    "type": "string",
+                    "description": "Personal meeting room name"
+                },
+                "host_key": {
+                    "type": "string",
+                    "description": "Host Key, should be 6-digit number"
+                },
+                "cms_user_id": {
+                    "type": "string",
+                    "description": "Kaltura User Id"
+                }
+            }
+        },
+        "Webinar": {
+            "type": "object",
+            "description": "Webinar object",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/Session"
+                }
+            ]
+        },
+        "WebinarList": {
+            "type": "object",
+            "title": "User List",
+            "description": "List of Webinars",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/Pagination"
+                },
+                {
+                    "properties": {
+                        "meetings": {
+                            "type": "array",
+                            "description": "List of Webinar objects.",
+                            "items": {
+                                "allOf": [
+                                    {
+                                        "type": "object",
+                                        "properties": {
+                                            "uuid": {
+                                                "type": "string",
+                                                "description": "Webinar unique ID"
+                                            },
+                                            "id": {
+                                                "type": "string",
+                                                "description": "Webinar ID, also know as webinar number"
+                                            },
+                                            "host_id": {
+                                                "type": "string",
+                                                "description": "ID of the user set as host of webinar"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "$ref": "#/definitions/Webinar"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "WebinarPanelist": {
+            "type": "object",
+            "description": "Webinar panelist",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/Panelist"
+                }
+            ]
+        },
+        "WebinarPanelistList": {
+            "type": "object",
+            "description": "Webinar panelist",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/PanelistList"
+                }
+            ]
+        },
+        "WebinarRegistrant": {
+            "type": "object",
+            "description": "Meeting registrant",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/Registrant"
+                }
+            ]
+        },
+        "WebinarRegistrantList": {
+            "type": "object",
+            "title": "Registration List",
+            "description": "List of Users",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/RegistrantList"
+                }
+            ]
+        }
+    },
+    "tags": [
+        {
+            "name": "Accounts",
+            "description": "Account operations"
+        },
+        {
+            "name": "Users",
+            "description": "User operations"
+        },
+        {
+            "name": "Meetings",
+            "description": "Meeting operations"
+        },
+        {
+            "name": "Webinars",
+            "description": "Webinar operations"
+        },
+        {
+            "name": "Groups",
+            "description": "Group operations"
+        },
+        {
+            "name": "IM Groups",
+            "description": "IM Group operations"
+        },
+        {
+            "name": "TSP",
+            "description": "TSP operations"
+        }
+    ],
+    "externalDocs": {
+        "description": "Zoom API Documentation",
+        "url": "https://zoom.github.io/api"
+    },
+    "securityDefinitions": {
+        "global": {
+            "type": "apiKey",
+            "name": "access_token",
+            "in": "query"
+        }
+    },
+    "security": [
+        {
+            "global": []
+        }
+    ]
+}

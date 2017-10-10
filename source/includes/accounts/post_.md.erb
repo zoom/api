@@ -1,0 +1,47 @@
+## Create an account
+
+Create a sub account under the master account <aside>Your account must be a master account and have this privilege to create sub account. Zoom only assign this privilege to trusted partner. The created user will not receive the confirmation email.</aside>
+
+> Definition
+
+```shell
+POST https://api.zoom.us/v2/accounts
+```
+
+> Example Request
+
+```shell
+$ curl https://api.zoom.us/v2/accounts \
+   -d '{
+    "email": "string",
+    "first_name": "string",
+    "last_name": "string",
+    "password": "string",
+    "options": {
+        "share_rc": "boolean",
+        "room_connectors": "string",
+        "share_mc": "boolean",
+        "meeting_conntectors": "string",
+        "pay_mode": "string"
+    }
+}'
+```
+
+> Example Response
+
+```text
+201 Created
+```
+
+Body Arguments | &nbsp;
+--- | ---
+email **required** | User's email address.
+first_name **required** | User's first name.
+last_name **required** | User's last name.
+password **required** | User's password.
+options.share_rc | Enable Share Virtual Room Connector.
+options.room_connectors | Virtual Room Connector, multiple value separated by comma.
+options.share_mc | Enable Share Meeting Connector.
+options.meeting_conntectors | Meeting Connector, multiple value separated by comma.
+options.pay_mode | User's password.<div class="enum">`master` Master Account holder pays<br/>`sub` Sub Account holders pays<br/></div>
+

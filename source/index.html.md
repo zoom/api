@@ -1,0 +1,118 @@
+---
+title: Zoom API
+
+search: true
+
+language_tabs:
+  - shell: curl
+
+toc_footers:
+  - <a href='https://developer.zoom.us/'>Zoom Developers</a>
+  - <a href='https://github.com/zoom/api/issues'>Report An Issue</a>
+
+includes:
+  - reference/index
+  - reference/authentication
+  - reference/errors
+  - reference/webhooks
+  - reference/rate_limits
+  - reference/before_core
+
+  - accounts/index
+  - accounts/get_
+  - accounts/post_
+  - accounts/get_accountId
+  - accounts/delete_accountId
+  - accounts/patch_accountId_options
+  - accounts/get_accountId_settings
+  - accounts/patch_accountId_settings
+  - accounts/get_accountId_billing
+  - accounts/patch_accountId_billing
+  - accounts/get_accountId_plans
+  - accounts/post_accountId_plans
+  - accounts/put_accountId_plans_base
+  - accounts/post_accountId_plans_addons
+  - accounts/put_accountId_plans_addons
+
+  - users/index
+  - users/get_
+  - users/post_
+  - users/get_userId
+  - users/patch_userId
+  - users/delete_userId
+  - users/get_userId_assistants
+  - users/post_userId_assistants
+  - users/delete_userId_assistants
+  - users/delete_userId_assistants_assistantId
+  - users/put_userId_picture
+  - users/get_userId_settings
+  - users/patch_userId_settings
+  - users/put_userId_status
+  - users/delete_userId_ssoToken
+  - users/get_userId_token
+  - users/get_userId_zpk
+
+  - meetings/index
+  - meetings/get_userId_meetings
+  - meetings/post_userId_meetings
+  - meetings/get_meetingId
+  - meetings/patch_meetingId
+  - meetings/delete_meetingId
+  - meetings/put_meetingId_status
+  - meetings/get_meetingId_registrants
+  - meetings/post_meetingId_registrants
+  - meetings/put_meetingId_registrants_registrantId_status
+
+  - webinars/index
+  - webinars/get_userId_webinars
+  - webinars/post_userId_webinars
+  - webinars/get_webinarId
+  - webinars/patch_webinarId
+  - webinars/delete_webinarId
+  - webinars/put_webinarId_status
+  - webinars/get_webinarId_panelists
+  - webinars/post_webinarId_panelists
+  - webinars/delete_webinarId_panelists
+  - webinars/delete_webinarId_panelists_panelistId
+  - webinars/get_webinarId_registrants
+  - webinars/post_webinarId_registrants
+  - webinars/put_webinarId_registrants_registrantId_status
+
+  - groups/index
+  - groups/get_
+  - groups/post_
+  - groups/get_groupId
+  - groups/patch_groupId
+  - groups/delete_groupId
+  - groups/get_groupId_members
+  - groups/post_groupId_members
+  - groups/delete_groupId_members_userId
+
+  - im_groups/index
+  - im_groups/get_
+  - im_groups/post_
+  - im_groups/get_groupId
+  - im_groups/patch_groupId
+  - im_groups/delete_groupId
+  - im_groups/get_groupId_members
+  - im_groups/post_groupId_members
+  - im_groups/delete_groupId_members_userId
+
+  - tsp/index
+  - tsp/get_userId_tsp
+  - tsp/post_userId_tsp
+  - tsp/get_userId_tsp_tspId
+  - tsp/patch_userId_tsp_tspId
+  - tsp/delete_userId_tsp_tspId
+
+  - appendix/index
+  - appendix/recurrence
+  - appendix/plans
+  - appendix/lists/index
+  - appendix/lists/state
+  - appendix/lists/country
+  - appendix/lists/timezone
+  - appendix/lists/tollfree_countries
+  - appendix/lists/premium_countries
+
+---

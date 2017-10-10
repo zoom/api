@@ -1,0 +1,99 @@
+## Add to an account's plans
+
+Add a plan to sub account under the master account <aside>Can only subscribe plans for the sub account which is a free account and paid by master account</aside><aside>Can only add an Additional plan for the sub account which is a paid account and paid by master account</aside>
+
+> Definition
+
+```shell
+POST https://api.zoom.us/v2/accounts/{accountId}/plans
+```
+
+> Example Request
+
+```shell
+$ curl https://api.zoom.us/v2/accounts/{accountId}/plans \
+   -d '{
+    "contact": {
+        "first_name": "string",
+        "last_name": "string",
+        "email": "string",
+        "phone_number": "string",
+        "address": "string",
+        "apt": "string",
+        "city": "string",
+        "state": "string",
+        "zip": "string",
+        "country": "string"
+    },
+    "plan_base": {
+        "type": "string",
+        "hosts": "integer"
+    },
+    "plan_zoom_rooms": {
+        "type": "string",
+        "hosts": "integer"
+    },
+    "plan_room_connector": {
+        "type": "string",
+        "hosts": "integer"
+    },
+    "plan_large_meeting": [
+        {
+            "type": "string",
+            "hosts": "integer"
+        }
+    ],
+    "plan_webinar": [
+        {
+            "type": "string",
+            "hosts": "integer"
+        }
+    ],
+    "plan_recording": "string",
+    "plan_audio": {
+        "type": "string",
+        "tollfree_country": "string",
+        "premium_country": "string",
+        "callout": "boolean",
+        "ddi_numbers": "integer"
+    }
+}'
+```
+
+> Example Response
+
+```text
+204 No Content
+```
+
+Path Arguments | &nbsp;
+--- | ---
+accountId **required** | The account ID
+
+Body Arguments | &nbsp;
+--- | ---
+contact.first_name | Billing Contact's first name.
+contact.last_name | Billing Contact's last name.
+contact.email | Billing Contact's email address.
+contact.phone_number | Billing Contact's phone number.
+contact.address | Billing Contact's address.
+contact.apt | Billing Contact's apartment/suite.
+contact.city | Billing Contact's city.
+contact.state | Billing Contact's state.
+contact.zip | Billing Contact's zip/postal code.
+contact.country | Billing Contact's country.
+plan_base.type | Account plan type
+plan_base.hosts | Account plan number of hosts
+plan_zoom_rooms.type | Account plan type
+plan_zoom_rooms.hosts | Account plan number of hosts
+plan_room_connector.type | Account plan type
+plan_room_connector.hosts | Account plan number of hosts
+plan_large_meeting | Additional Large Meeting Plans
+plan_webinar | Additional Webinar Plans
+plan_recording | Additional Cloud Recording Plan
+plan_audio.type | Additional Audio Conferencing Plan type
+plan_audio.tollfree_country | Toll-free countries, multiple value separated by comma
+plan_audio.premium_country | Premium countries, multiple value separated by comma
+plan_audio.callout | Call-out type<div class="enum">`1` US-only<br/>`2` US and International<br/></div>
+plan_audio.ddi_numbers | Dedicated Dial-In Numbers
+
