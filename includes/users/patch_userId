@@ -1,0 +1,85 @@
+<h2 id="update-a-user">Update a user</h2>
+
+<p>Update a user on your account</p>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>PATCH https://api.zoom.us/v2/users/<span class="o">{</span>userId<span class="o">}</span>
+</code></pre>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/users/<span class="o">{</span>userId<span class="o">}</span> <span class="se">\</span>
+   -d <span class="s1">'{
+    "email": "string",
+    "type": "integer",
+    "first_name": "string",
+    "last_name": "string",
+    "timezone": "string",
+    "dept": "string",
+    "vanity_url": "string",
+    "host_key": "string",
+    "cms_user_id": "string"
+}'</span>
+</code></pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>204 No Content
+</code></pre>
+<table><thead>
+<tr>
+<th>Path Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>userId <strong>required</strong></td>
+<td>The user ID</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Body Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email <strong>required</strong></td>
+<td>User&rsquo;s email address.</td>
+</tr>
+<tr>
+<td>type <strong>required</strong></td>
+<td>User&rsquo;s type<div class="enum"><code class="prettyprint">1</code> basic<br/><code class="prettyprint">2</code> pro<br/><code class="prettyprint">3</code> corp<br/></div></td>
+</tr>
+<tr>
+<td>first_name</td>
+<td>User&rsquo;s first name.</td>
+</tr>
+<tr>
+<td>last_name</td>
+<td>User&rsquo;s last name.</td>
+</tr>
+<tr>
+<td>timezone</td>
+<td>The time zone id for user profile</td>
+</tr>
+<tr>
+<td>dept</td>
+<td>Department for user profile, used for reports.</td>
+</tr>
+<tr>
+<td>vanity_url</td>
+<td>Personal meeting room name</td>
+</tr>
+<tr>
+<td>host_key</td>
+<td>Host Key, should be 6-digit number</td>
+</tr>
+<tr>
+<td>cms_user_id</td>
+<td>Kaltura User Id</td>
+</tr>
+</tbody></table>

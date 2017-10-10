@@ -1,0 +1,67 @@
+<h2 id="add-a-users-tsp-config">Add a user&rsquo;s TSP config</h2>
+
+<p>Add a user&rsquo;s TSP config</p>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>POST https://api.zoom.us/v2/users/<span class="o">{</span>userId<span class="o">}</span>/tsp
+</code></pre>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/users/<span class="o">{</span>userId<span class="o">}</span>/tsp <span class="se">\</span>
+   -d <span class="s1">'{
+    "conference_code": "string",
+    "leader_pin": "string",
+    "dial_in_numbers": {
+        "id": "string",
+        "code": "string",
+        "number": "string"
+    }
+}'</span>
+</code></pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>201 Created
+</code></pre>
+<table><thead>
+<tr>
+<th>Path Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>userId <strong>required</strong></td>
+<td>The user ID</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Body Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>conference_code</td>
+<td>Conference code, length is less than 16.</td>
+</tr>
+<tr>
+<td>leader_pin</td>
+<td>Leader PIN, length is less than 16.</td>
+</tr>
+<tr>
+<td>dial_in_numbers.id</td>
+<td>Country ID</td>
+</tr>
+<tr>
+<td>dial_in_numbers.code</td>
+<td>Country Code</td>
+</tr>
+<tr>
+<td>dial_in_numbers.number</td>
+<td>Dial-in number, length is less than 16.</td>
+</tr>
+</tbody></table>

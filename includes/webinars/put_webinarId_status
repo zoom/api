@@ -1,0 +1,45 @@
+<h2 id="update-a-webinars-status">Update a webinar&rsquo;s status</h2>
+
+<p>Update a webinar&rsquo;s status</p>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>PUT https://api.zoom.us/v2/webinars/<span class="o">{</span>webinarId<span class="o">}</span>/status
+</code></pre>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/webinars/<span class="o">{</span>webinarId<span class="o">}</span>/status <span class="se">\</span>
+   -d <span class="s1">'{
+    "status": "string"
+}'</span>
+</code></pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>204 No Content
+</code></pre>
+<table><thead>
+<tr>
+<th>Path Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>webinarId <strong>required</strong></td>
+<td>The webinar ID</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Body Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>status</td>
+<td><div class="enum"><code class="prettyprint">end</code> end a webinar<br/></div></td>
+</tr>
+</tbody></table>

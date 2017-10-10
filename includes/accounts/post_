@@ -1,0 +1,75 @@
+<h2 id="create-an-account">Create an account</h2>
+
+<p>Create a sub account under the master account <aside>Your account must be a master account and have this privilege to create sub account. Zoom only assign this privilege to trusted partner. The created user will not receive the confirmation email.</aside></p>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>POST https://api.zoom.us/v2/accounts
+</code></pre>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/accounts <span class="se">\</span>
+   -d <span class="s1">'{
+    "email": "string",
+    "first_name": "string",
+    "last_name": "string",
+    "password": "string",
+    "options": {
+        "share_rc": "boolean",
+        "room_connectors": "string",
+        "share_mc": "boolean",
+        "meeting_conntectors": "string",
+        "pay_mode": "string"
+    }
+}'</span>
+</code></pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>201 Created
+</code></pre>
+<table><thead>
+<tr>
+<th>Body Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email <strong>required</strong></td>
+<td>User&rsquo;s email address.</td>
+</tr>
+<tr>
+<td>first_name <strong>required</strong></td>
+<td>User&rsquo;s first name.</td>
+</tr>
+<tr>
+<td>last_name <strong>required</strong></td>
+<td>User&rsquo;s last name.</td>
+</tr>
+<tr>
+<td>password <strong>required</strong></td>
+<td>User&rsquo;s password.</td>
+</tr>
+<tr>
+<td>options.share_rc</td>
+<td>Enable Share Virtual Room Connector.</td>
+</tr>
+<tr>
+<td>options.room_connectors</td>
+<td>Virtual Room Connector, multiple value separated by comma.</td>
+</tr>
+<tr>
+<td>options.share_mc</td>
+<td>Enable Share Meeting Connector.</td>
+</tr>
+<tr>
+<td>options.meeting_conntectors</td>
+<td>Meeting Connector, multiple value separated by comma.</td>
+</tr>
+<tr>
+<td>options.pay_mode</td>
+<td>User&rsquo;s password.<div class="enum"><code class="prettyprint">master</code> Master Account holder pays<br/><code class="prettyprint">sub</code> Sub Account holders pays<br/></div></td>
+</tr>
+</tbody></table>

@@ -1,0 +1,31 @@
+<h2 id="revoke-a-users-sso-token">Revoke a user&rsquo;s SSO token</h2>
+
+<p>Revoke a user&rsquo;s SSO token</p>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>DELETE https://api.zoom.us/v2/users/<span class="o">{</span>userId<span class="o">}</span>/ssoToken
+</code></pre>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/users/<span class="o">{</span>userId<span class="o">}</span>/ssoToken <span class="se">\</span>
+    -X DELETE
+</code></pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>204 No Content
+</code></pre>
+<table><thead>
+<tr>
+<th>Path Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>userId <strong>required</strong></td>
+<td>The user ID</td>
+</tr>
+</tbody></table>

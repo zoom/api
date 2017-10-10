@@ -1,0 +1,35 @@
+<h2 id="delete-a-tsp-config">Delete a TSP config</h2>
+
+<p>Delete a user&rsquo;s TSP config</p>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>DELETE https://api.zoom.us/v2/users/<span class="o">{</span>userId<span class="o">}</span>/tsp/<span class="o">{</span>tspId<span class="o">}</span>
+</code></pre>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/users/<span class="o">{</span>userId<span class="o">}</span>/tsp/<span class="o">{</span>tspId<span class="o">}</span> <span class="se">\</span>
+    -X DELETE
+</code></pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>204 No Content
+</code></pre>
+<table><thead>
+<tr>
+<th>Path Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>userId <strong>required</strong></td>
+<td>The user ID</td>
+</tr>
+<tr>
+<td>tspId <strong>required</strong></td>
+<td>TSP ID</td>
+</tr>
+</tbody></table>

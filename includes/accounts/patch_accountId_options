@@ -1,0 +1,65 @@
+<h2 id="update-an-accounts-options">Update an account&rsquo;s options</h2>
+
+<p>Update a sub account&rsquo;s options under the master account</p>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>PATCH https://api.zoom.us/v2/accounts/<span class="o">{</span>accountId<span class="o">}</span>/options
+</code></pre>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/accounts/<span class="o">{</span>accountId<span class="o">}</span>/options <span class="se">\</span>
+   -d <span class="s1">'{
+    "share_rc": "boolean",
+    "room_connectors": "string",
+    "share_mc": "boolean",
+    "meeting_conntectors": "string",
+    "pay_mode": "string"
+}'</span>
+</code></pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>204 No Content
+</code></pre>
+<table><thead>
+<tr>
+<th>Path Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>accountId <strong>required</strong></td>
+<td>The account ID</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Body Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>share_rc</td>
+<td>Enable Share Virtual Room Connector.</td>
+</tr>
+<tr>
+<td>room_connectors</td>
+<td>Virtual Room Connector, multiple value separated by comma.</td>
+</tr>
+<tr>
+<td>share_mc</td>
+<td>Enable Share Meeting Connector.</td>
+</tr>
+<tr>
+<td>meeting_conntectors</td>
+<td>Meeting Connector, multiple value separated by comma.</td>
+</tr>
+<tr>
+<td>pay_mode</td>
+<td>User&rsquo;s password.<div class="enum"><code class="prettyprint">master</code> Master Account holder pays<br/><code class="prettyprint">sub</code> Sub Account holders pays<br/></div></td>
+</tr>
+</tbody></table>

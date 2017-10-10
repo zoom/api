@@ -1,0 +1,55 @@
+<h2 id="create-a-user">Create a user</h2>
+
+<p>Create a user on your account</p>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>POST https://api.zoom.us/v2/users
+</code></pre>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/users <span class="se">\</span>
+   -d <span class="s1">'{
+    "action": "string",
+    "user_info": {
+        "email": "string",
+        "type": "integer",
+        "first_name": "string",
+        "last_name": "string"
+    }
+}'</span>
+</code></pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>201 Created
+</code></pre>
+<table><thead>
+<tr>
+<th>Body Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>action</td>
+<td>Action to take for user creation<div class="enum"><code class="prettyprint">create</code> User will get an email sent from Zoom. There is a confirmation link in this email. User will then need to click this link to activate their account to the Zoom service. The user can set or change their password in Zoom. <br/><br/><code class="prettyprint">custCreate</code> This action is provided for enterprise customer who has a managed domain. This feature is disabled by default because of the security risk involved in creating a user who does not belong to your domain without notifying the user. <br/><br/><code class="prettyprint">autoCreate</code> This action is provided for API partner only. User created in this way has no password and is not able to log into the Zoom web site or client. <br/><br/><code class="prettyprint">ssoCreate</code> This action is provided for enabled &ldquo;Pre-provisioning SSO User&rdquo; option. User created in this way has no password. If it is not a basic user, will generate a Personal Vanity URL using user name (no domain) of the provisioning email. If user name or pmi is invalid or occupied, will use random number/random personal vanity URL. <br/><br/></div></td>
+</tr>
+<tr>
+<td>user_info.email <strong>required</strong></td>
+<td>User&rsquo;s email address.</td>
+</tr>
+<tr>
+<td>user_info.type <strong>required</strong></td>
+<td>User&rsquo;s type<div class="enum"><code class="prettyprint">1</code> basic<br/><code class="prettyprint">2</code> pro<br/><code class="prettyprint">3</code> corp<br/></div></td>
+</tr>
+<tr>
+<td>user_info.first_name</td>
+<td>User&rsquo;s first name.</td>
+</tr>
+<tr>
+<td>user_info.last_name</td>
+<td>User&rsquo;s last name.</td>
+</tr>
+</tbody></table>

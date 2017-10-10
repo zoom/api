@@ -1,0 +1,30 @@
+<h2 id="list-users-tsp-config">List user&rsquo;s TSP config</h2>
+
+<p>List user&rsquo;s TSP config</p>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>GET https://api.zoom.us/v2/users/<span class="o">{</span>userId<span class="o">}</span>/tsp
+</code></pre>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/users/<span class="o">{</span>userId<span class="o">}</span>/tsp
+</code></pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>200 OK
+</code></pre>
+<table><thead>
+<tr>
+<th>Path Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>userId <strong>required</strong></td>
+<td>The user ID</td>
+</tr>
+</tbody></table>

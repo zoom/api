@@ -1,0 +1,64 @@
+<h2 id="retrieve-an-accounts-plans">Retrieve an account&rsquo;s plans</h2>
+
+<p>Retrieve a sub account&rsquo;s plans under the master account  <aside>Only for the sub account which is paid by master account</aside></p>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>GET https://api.zoom.us/v2/accounts/<span class="o">{</span>accountId<span class="o">}</span>/plans
+</code></pre>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/accounts/<span class="o">{</span>accountId<span class="o">}</span>/plans
+</code></pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>200 OK
+</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"plan_base"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"hosts"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"plan_zoom_rooms"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"hosts"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"plan_room_connector"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"hosts"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"plan_large_meeting"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"hosts"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"plan_webinar"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"hosts"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"plan_recording"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"plan_audio"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tollfree_country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"premium_country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"callout"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ddi_numbers"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Path Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>accountId <strong>required</strong></td>
+<td>The account ID</td>
+</tr>
+</tbody></table>

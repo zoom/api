@@ -1,0 +1,50 @@
+<h2 id="add-a-group-member">Add a group member</h2>
+
+<p>Add a member to a group under your account</p>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>POST https://api.zoom.us/v2/groups/<span class="o">{</span>groupId<span class="o">}</span>/members
+</code></pre>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/groups/<span class="o">{</span>groupId<span class="o">}</span>/members <span class="se">\</span>
+   -d <span class="s1">'{
+    "id": "string",
+    "email": "string"
+}'</span>
+</code></pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>204 No Content
+</code></pre>
+<table><thead>
+<tr>
+<th>Path Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>groupId <strong>required</strong></td>
+<td>The group ID</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Body Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>User ID.</td>
+</tr>
+<tr>
+<td>email</td>
+<td>User email. If ID given, email is ignored.</td>
+</tr>
+</tbody></table>

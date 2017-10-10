@@ -1,0 +1,194 @@
+<h2 id="update-a-webinar">Update a webinar</h2>
+
+<p>Update a webinar</p>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>PATCH https://api.zoom.us/v2/webinars/<span class="o">{</span>webinarId<span class="o">}</span>
+</code></pre>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/webinars/<span class="o">{</span>webinarId<span class="o">}</span> <span class="se">\</span>
+   -d <span class="s1">'{
+    "topic": "string",
+    "type": "integer",
+    "start_time": "string",
+    "duration": "integer",
+    "timezone": "string",
+    "password": "string",
+    "description": "string",
+    "recurrence": {
+        "type": "integer",
+        "repeat_interval": "integer",
+        "weekly_days": "integer",
+        "monthly_day": "integer",
+        "monthly_week": "integer",
+        "monthly_week_day": "integer",
+        "end_times": "integer",
+        "end_date_time": "string"
+    },
+    "settings": {
+        "host_video": "boolean",
+        "participant_video": "boolean",
+        "cn_meeting": "boolean",
+        "in_meeting": "boolean",
+        "join_before_host": "boolean",
+        "mute_upon_entry": "boolean",
+        "watermark": "boolean",
+        "use_pmi": "boolean",
+        "approval_type": "integer",
+        "registration_type": "integer",
+        "audio": "string",
+        "auto_recording": "string",
+        "enforce_login": "boolean",
+        "enforce_login_domains": "boolean",
+        "alternatice_hosts": "boolean"
+    }
+}'</span>
+</code></pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>204 No Content
+</code></pre>
+<table><thead>
+<tr>
+<th>Path Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>webinarId <strong>required</strong></td>
+<td>The webinar ID</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Body Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>topic</td>
+<td>Meeting topic</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Meeting Type<div class="enum"><code class="prettyprint">1</code> Instant Meeting<br/><code class="prettyprint">2</code> Scheduled Meeting<br/><code class="prettyprint">3</code> Recurring Meeting with no fixed time<br/><code class="prettyprint">8</code> Recurring Meeting with fixed time<br/></div></td>
+</tr>
+<tr>
+<td>start_time</td>
+<td>Meeting start time</td>
+</tr>
+<tr>
+<td>duration</td>
+<td>Meeting duration</td>
+</tr>
+<tr>
+<td>timezone</td>
+<td>Timezone to format start_time</td>
+</tr>
+<tr>
+<td>password</td>
+<td>Password to join the meeting</td>
+</tr>
+<tr>
+<td>description</td>
+<td>Meeting description</td>
+</tr>
+<tr>
+<td>recurrence.type</td>
+<td>Recurrence meeting type<div class="enum"><code class="prettyprint">1</code> Daily<br/><code class="prettyprint">2</code> Weekly<br/><code class="prettyprint">3</code> Monthly<br/></div></td>
+</tr>
+<tr>
+<td>recurrence.repeat_interval</td>
+<td>Recurrence meeting repeat interval. For a Daily Meeting, max of 90. For a Weekly Meeting, max of 12. For a Monthly Meeting, max of 3.</td>
+</tr>
+<tr>
+<td>recurrence.weekly_days</td>
+<td>Recurrence Meeting Occurs on week days, multiple value separated by comma<div class="enum"><code class="prettyprint">1</code> Sunday<br/><code class="prettyprint">2</code> Monday<br/><code class="prettyprint">3</code> Tuesday<br/><code class="prettyprint">4</code> Wednesday<br/><code class="prettyprint">5</code> Thursday<br/><code class="prettyprint">6</code> Friday<br/><code class="prettyprint">7</code> Saturday<br/></div></td>
+</tr>
+<tr>
+<td>recurrence.monthly_day</td>
+<td>Recurrence Meeting Occurs on a month day. The value range is from 1 to 31</td>
+</tr>
+<tr>
+<td>recurrence.monthly_week</td>
+<td>Recurrence Meeting Occurs on the week of a month.<div class="enum"><code class="prettyprint">-1</code> Last week<br/><code class="prettyprint">1</code> First week<br/><code class="prettyprint">2</code> Second week<br/><code class="prettyprint">3</code> Third week<br/><code class="prettyprint">4</code> Fourth week<br/></div></td>
+</tr>
+<tr>
+<td>recurrence.monthly_week_day</td>
+<td>Recurrence Meeting Occurs on the week day of a month<div class="enum"><code class="prettyprint">1</code> Sunday<br/><code class="prettyprint">2</code> Monday<br/><code class="prettyprint">3</code> Tuesday<br/><code class="prettyprint">4</code> Wednesday<br/><code class="prettyprint">5</code> Thursday<br/><code class="prettyprint">6</code> Friday<br/><code class="prettyprint">7</code> Saturday<br/></div></td>
+</tr>
+<tr>
+<td>recurrence.end_times</td>
+<td>Recurrence Meeting End occurrences times</td>
+</tr>
+<tr>
+<td>recurrence.end_date_time</td>
+<td>Recurrence Meeting End Date. Should be UTC time, such as 2017-11-25T12:00:00Z.</td>
+</tr>
+<tr>
+<td>settings.host_video</td>
+<td>Start video when host join meeting</td>
+</tr>
+<tr>
+<td>settings.participant_video</td>
+<td>Start video when participants join meeting</td>
+</tr>
+<tr>
+<td>settings.cn_meeting</td>
+<td>Host meeting in China</td>
+</tr>
+<tr>
+<td>settings.in_meeting</td>
+<td>Host meeting in India</td>
+</tr>
+<tr>
+<td>settings.join_before_host</td>
+<td>Join meeting before host start the meeting. Only used for scheduled or recurring meetings</td>
+</tr>
+<tr>
+<td>settings.mute_upon_entry</td>
+<td>Mute participants upon entry</td>
+</tr>
+<tr>
+<td>settings.watermark</td>
+<td>Enable watermark when viewing the shared screen</td>
+</tr>
+<tr>
+<td>settings.use_pmi</td>
+<td>Use Personal Meeting ID. Only used for scheduled meetings and recurring meetings with no fixed time</td>
+</tr>
+<tr>
+<td>settings.approval_type</td>
+<td><div class="enum"><code class="prettyprint">0</code> Automatically Approve<br/><code class="prettyprint">1</code> Manually Approve<br/><code class="prettyprint">2</code> No Registration Required<br/></div></td>
+</tr>
+<tr>
+<td>settings.registration_type</td>
+<td>Registration type. Used for recurring meeting with fixed time only.<div class="enum"><code class="prettyprint">1</code> Attendees register once and can attend any of the occurrences<br/><code class="prettyprint">2</code> Attendees need to register for each occurrence to attend<br/><code class="prettyprint">3</code> Attendees register once and can choose one or more occurrences to attend<br/></div></td>
+</tr>
+<tr>
+<td>settings.audio</td>
+<td>Meeting audio options<div class="enum"><code class="prettyprint">both</code> Both Telephony and VoIP<br/><code class="prettyprint">telephony</code> Telephony only<br/><code class="prettyprint">voip</code> VoIP only<br/></div></td>
+</tr>
+<tr>
+<td>settings.auto_recording</td>
+<td><div class="enum"><code class="prettyprint">local</code> Record to local device<br/><code class="prettyprint">cloud</code> Record to cloud<br/><code class="prettyprint">none</code> No Recording<br/></div></td>
+</tr>
+<tr>
+<td>settings.enforce_login</td>
+<td>Only signed-in users can join this meeting</td>
+</tr>
+<tr>
+<td>settings.enforce_login_domains</td>
+<td>Only signed-in users with specified domains can join meetings</td>
+</tr>
+<tr>
+<td>settings.alternatice_hosts</td>
+<td>Alternative hosts emails or IDs. Multiple value separated by comma.</td>
+</tr>
+</tbody></table>

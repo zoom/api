@@ -1,0 +1,453 @@
+<h2 id="update-an-accounts-settings">Update an account&rsquo;s settings</h2>
+
+<p>Update a sub account&rsquo;s settings under the master account</p>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>PATCH https://api.zoom.us/v2/accounts/<span class="o">{</span>accountId<span class="o">}</span>/settings
+</code></pre>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/accounts/<span class="o">{</span>accountId<span class="o">}</span>/settings <span class="se">\</span>
+   -d <span class="s1">'{
+    "schedule_meting": {
+        "host_video": "boolean",
+        "participant_video": "boolean",
+        "audio_type": "string",
+        "join_before_host": "boolean",
+        "enforce_login": "boolean",
+        "enforce_login_with_domains": "boolean",
+        "enforce_login_domains": "boolean",
+        "not_store_meeting_topic": "boolean",
+        "force_pmi_jbh_password": "boolean"
+    },
+    "in_meeting": {
+        "e2e_encryption": "boolean",
+        "chat": "boolean",
+        "private_chat": "boolean",
+        "auto_saving_chat": "boolean",
+        "file_transfer": "boolean",
+        "feedback": "boolean",
+        "post_meeting_feedback": "boolean",
+        "co_host": "boolean",
+        "polling": "boolean",
+        "attendee_on_hold": "boolean",
+        "show_meeting_control_toolbar": "boolean",
+        "allow_show_zoom_windows": "boolean",
+        "annotation": "boolean",
+        "whiteboard": "boolean",
+        "webinar_question_answer": "boolean",
+        "anonymous_question_answer": "boolean",
+        "breakout_room": "boolean",
+        "closed_caption": "boolean",
+        "far_end_camera_control": "boolean",
+        "group_hd": "boolean",
+        "virtual_background": "boolean",
+        "watermark": "boolean",
+        "alert_guest_join": "boolean",
+        "auto_answer": "boolean",
+        "p2p_connetion": "boolean",
+        "p2p_ports": "string",
+        "ports_range": "string",
+        "sending_default_email_invites": "boolean",
+        "use_html_format_email": "boolean",
+        "dscp_marking": "boolean",
+        "dscp_audio": "integer",
+        "dscp_video": "integer",
+        "stereo_audio": "boolean",
+        "original_audio": "boolean",
+        "screen_sharing": "boolean",
+        "remote_control": "boolean",
+        "attention_tracking": "boolean"
+    },
+    "email_notification": {
+        "cloud_recording_avaliable_reminder": "boolean",
+        "jbh_reminder": "boolean",
+        "cancel_meeting_reminder": "boolean",
+        "low_host_count_reminder": "boolean",
+        "alternative_host_reminder": "boolean"
+    },
+    "zoom_rooms": {
+        "upcoming_meeting_alert": "boolean",
+        "start_airplay_manually": "boolean",
+        "weekly_system_restart": "boolean",
+        "list_meetings_with_calendar": "boolean",
+        "zr_post_meeting_feedback": "boolean",
+        "ultrasonic": "boolean",
+        "force_private_meeting": "boolean",
+        "hide_host_information": "boolean",
+        "cmr_for_instant_meeting": "boolean",
+        "auto_start_stop_scheduled_meetings": "boolean"
+    },
+    "_security": {
+        "import_photos_from_devices": "boolean",
+        "hide_billing_info": "boolean"
+    },
+    "recording": {
+        "local_recording": "boolean",
+        "cloud_recording": "boolean",
+        "auto_recording": "boolean",
+        "cloud_recording_download": "boolean",
+        "cloud_recording_download_host": "boolean",
+        "account_user_access_recording": "boolean",
+        "auto_delete_cmr": "boolean"
+    },
+    "telephony": {
+        "third_party_audio": "boolean",
+        "audio_conference_info": "string"
+    },
+    "integration": {
+        "google_calendar": "boolean",
+        "google_drive": "boolean",
+        "dropbox": "boolean",
+        "box": "boolean",
+        "microsoft_one_drive": "boolean",
+        "kubi": "boolean"
+    },
+    "feature": {
+        "meeting_capacity": "integer"
+    }
+}'</span>
+</code></pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>204 No Content
+</code></pre>
+<table><thead>
+<tr>
+<th>Path Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>accountId <strong>required</strong></td>
+<td>The account ID</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Body Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>schedule_meting.host_video</td>
+<td>Host Video</td>
+</tr>
+<tr>
+<td>schedule_meting.participant_video</td>
+<td>Participants Video</td>
+</tr>
+<tr>
+<td>schedule_meting.audio_type</td>
+<td>Audio Type</td>
+</tr>
+<tr>
+<td>schedule_meting.join_before_host</td>
+<td>Join Before Host</td>
+</tr>
+<tr>
+<td>schedule_meting.enforce_login</td>
+<td>Required user to be logged in</td>
+</tr>
+<tr>
+<td>schedule_meting.enforce_login_with_domains</td>
+<td>Logged in user must be part of domain</td>
+</tr>
+<tr>
+<td>schedule_meting.enforce_login_domains</td>
+<td>PList of domains accepted</td>
+</tr>
+<tr>
+<td>schedule_meting.not_store_meeting_topic</td>
+<td>Always display &lsquo;Zoom Meeting&rsquo; as the meeting topic</td>
+</tr>
+<tr>
+<td>schedule_meting.force_pmi_jbh_password</td>
+<td>Require a password for Personal Meetings if attendees can join before host</td>
+</tr>
+<tr>
+<td>in_meeting.e2e_encryption</td>
+<td>End-to-End Encryption</td>
+</tr>
+<tr>
+<td>in_meeting.chat</td>
+<td>Chat</td>
+</tr>
+<tr>
+<td>in_meeting.private_chat</td>
+<td>Private Chat</td>
+</tr>
+<tr>
+<td>in_meeting.auto_saving_chat</td>
+<td>Auto Saving Chats</td>
+</tr>
+<tr>
+<td>in_meeting.file_transfer</td>
+<td>File transfer</td>
+</tr>
+<tr>
+<td>in_meeting.feedback</td>
+<td>Feedback to Zoom</td>
+</tr>
+<tr>
+<td>in_meeting.post_meeting_feedback</td>
+<td>Display end-of-meeting experience feedback survey</td>
+</tr>
+<tr>
+<td>in_meeting.co_host</td>
+<td>Co-Host</td>
+</tr>
+<tr>
+<td>in_meeting.polling</td>
+<td>Polling</td>
+</tr>
+<tr>
+<td>in_meeting.attendee_on_hold</td>
+<td>Allow host to put attendee on hold</td>
+</tr>
+<tr>
+<td>in_meeting.show_meeting_control_toolbar</td>
+<td>Always show meeting control toolbar</td>
+</tr>
+<tr>
+<td>in_meeting.allow_show_zoom_windows</td>
+<td>Allow to share Zoom windows in desktop sharing</td>
+</tr>
+<tr>
+<td>in_meeting.annotation</td>
+<td>Allow to share Zoom windows in desktop sharing</td>
+</tr>
+<tr>
+<td>in_meeting.whiteboard</td>
+<td>Allow to share Zoom windows in desktop sharing</td>
+</tr>
+<tr>
+<td>in_meeting.webinar_question_answer</td>
+<td>Q&amp;A in webinar</td>
+</tr>
+<tr>
+<td>in_meeting.anonymous_question_answer</td>
+<td>Allow Anonymous Q&amp;A in Webinar</td>
+</tr>
+<tr>
+<td>in_meeting.breakout_room</td>
+<td>Breakout room</td>
+</tr>
+<tr>
+<td>in_meeting.closed_caption</td>
+<td>Closed caption</td>
+</tr>
+<tr>
+<td>in_meeting.far_end_camera_control</td>
+<td>Far end camera control</td>
+</tr>
+<tr>
+<td>in_meeting.group_hd</td>
+<td>Group HD video</td>
+</tr>
+<tr>
+<td>in_meeting.virtual_background</td>
+<td>Virtual background</td>
+</tr>
+<tr>
+<td>in_meeting.watermark</td>
+<td>Alert internal participants when a guest joins a meeting</td>
+</tr>
+<tr>
+<td>in_meeting.alert_guest_join</td>
+<td>Alert internal participants when a guest joins a meeting</td>
+</tr>
+<tr>
+<td>in_meeting.auto_answer</td>
+<td>Peer to Peer connection while only 2 people in a meeting Learn More</td>
+</tr>
+<tr>
+<td>in_meeting.p2p_connetion</td>
+<td>Peer to Peer connection while only 2 people in a meeting Learn More</td>
+</tr>
+<tr>
+<td>in_meeting.p2p_ports</td>
+<td>Listening ports range, separated by comma, such as 55,56</td>
+</tr>
+<tr>
+<td>in_meeting.ports_range</td>
+<td>Peer to Peer connection while only 2 people in a meeting Learn More</td>
+</tr>
+<tr>
+<td>in_meeting.sending_default_email_invites</td>
+<td>Only show default email when sending email invites</td>
+</tr>
+<tr>
+<td>in_meeting.use_html_format_email</td>
+<td>Only show default email when sending email invites</td>
+</tr>
+<tr>
+<td>in_meeting.dscp_marking</td>
+<td>DSCP marking</td>
+</tr>
+<tr>
+<td>in_meeting.dscp_audio</td>
+<td>DSCP Audio</td>
+</tr>
+<tr>
+<td>in_meeting.dscp_video</td>
+<td>DSCP Video</td>
+</tr>
+<tr>
+<td>in_meeting.stereo_audio</td>
+<td>DSCP Video</td>
+</tr>
+<tr>
+<td>in_meeting.original_audio</td>
+<td>DSCP Video</td>
+</tr>
+<tr>
+<td>in_meeting.screen_sharing</td>
+<td>DSCP Video</td>
+</tr>
+<tr>
+<td>in_meeting.remote_control</td>
+<td>DSCP Video</td>
+</tr>
+<tr>
+<td>in_meeting.attention_tracking</td>
+<td>DSCP Video</td>
+</tr>
+<tr>
+<td>email_notification.cloud_recording_avaliable_reminder</td>
+<td>Allow keep recording from being automatically deleted</td>
+</tr>
+<tr>
+<td>email_notification.jbh_reminder</td>
+<td>When attendees join meeting before host</td>
+</tr>
+<tr>
+<td>email_notification.cancel_meeting_reminder</td>
+<td>When a meeting is cancelled</td>
+</tr>
+<tr>
+<td>email_notification.low_host_count_reminder</td>
+<td>When host count is low</td>
+</tr>
+<tr>
+<td>email_notification.alternative_host_reminder</td>
+<td>When an alternative host is set or removed from a meeting</td>
+</tr>
+<tr>
+<td>zoom_rooms.upcoming_meeting_alert</td>
+<td>Upcoming meeting alert</td>
+</tr>
+<tr>
+<td>zoom_rooms.start_airplay_manually</td>
+<td>Start AirPlay service manually</td>
+</tr>
+<tr>
+<td>zoom_rooms.weekly_system_restart</td>
+<td>Weekly system restart</td>
+</tr>
+<tr>
+<td>zoom_rooms.list_meetings_with_calendar</td>
+<td>Display meeting list with calendar integration</td>
+</tr>
+<tr>
+<td>zoom_rooms.zr_post_meeting_feedback</td>
+<td>Display meeting list with calendar integration</td>
+</tr>
+<tr>
+<td>zoom_rooms.ultrasonic</td>
+<td>Automatic direct sharing using ultrasonic proximity signal</td>
+</tr>
+<tr>
+<td>zoom_rooms.force_private_meeting</td>
+<td>Transform all meetings to private</td>
+</tr>
+<tr>
+<td>zoom_rooms.hide_host_information</td>
+<td>Hide host and meeting ID from private meetings</td>
+</tr>
+<tr>
+<td>zoom_rooms.cmr_for_instant_meeting</td>
+<td>Cloud recording for instant meetings</td>
+</tr>
+<tr>
+<td>zoom_rooms.auto_start_stop_scheduled_meetings</td>
+<td>Automatic start/stop scheduled meetings</td>
+</tr>
+<tr>
+<td>_security.import_photos_from_devices</td>
+<td></td>
+</tr>
+<tr>
+<td>_security.hide_billing_info</td>
+<td></td>
+</tr>
+<tr>
+<td>recording.local_recording</td>
+<td>Local recording</td>
+</tr>
+<tr>
+<td>recording.cloud_recording</td>
+<td>Cloud recording</td>
+</tr>
+<tr>
+<td>recording.auto_recording</td>
+<td>Automatic recording</td>
+</tr>
+<tr>
+<td>recording.cloud_recording_download</td>
+<td>Cloud Recording Downloads</td>
+</tr>
+<tr>
+<td>recording.cloud_recording_download_host</td>
+<td>Only the host can download cloud recordings</td>
+</tr>
+<tr>
+<td>recording.account_user_access_recording</td>
+<td>Only users on my account can access cloud recordings</td>
+</tr>
+<tr>
+<td>recording.auto_delete_cmr</td>
+<td>Auto delete cloud recordings after days</td>
+</tr>
+<tr>
+<td>telephony.third_party_audio</td>
+<td></td>
+</tr>
+<tr>
+<td>telephony.audio_conference_info</td>
+<td></td>
+</tr>
+<tr>
+<td>integration.google_calendar</td>
+<td>Google Calendar</td>
+</tr>
+<tr>
+<td>integration.google_drive</td>
+<td>Google Drive</td>
+</tr>
+<tr>
+<td>integration.dropbox</td>
+<td>Dropbox</td>
+</tr>
+<tr>
+<td>integration.box</td>
+<td>Box</td>
+</tr>
+<tr>
+<td>integration.microsoft_one_drive</td>
+<td>Microsoft OneDrive</td>
+</tr>
+<tr>
+<td>integration.kubi</td>
+<td>Kubi</td>
+</tr>
+<tr>
+<td>feature.meeting_capacity</td>
+<td>Meeting capacity</td>
+</tr>
+</tbody></table>

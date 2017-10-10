@@ -1,0 +1,90 @@
+<h2 id="update-an-accounts-billing-information">Update an account&rsquo;s billing information</h2>
+
+<p>Update a sub account&rsquo;s billing information under the master account <aside>Only for the sub account which is paid by master account</aside></p>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>PATCH https://api.zoom.us/v2/accounts/<span class="o">{</span>accountId<span class="o">}</span>/billing
+</code></pre>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/accounts/<span class="o">{</span>accountId<span class="o">}</span>/billing <span class="se">\</span>
+   -d <span class="s1">'{
+    "first_name": "string",
+    "last_name": "string",
+    "email": "string",
+    "phone_number": "string",
+    "address": "string",
+    "apt": "string",
+    "city": "string",
+    "state": "string",
+    "zip": "string",
+    "country": "string"
+}'</span>
+</code></pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>204 No Content
+</code></pre>
+<table><thead>
+<tr>
+<th>Path Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>accountId <strong>required</strong></td>
+<td>The account ID</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Body Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>first_name</td>
+<td>Billing Contact&rsquo;s first name.</td>
+</tr>
+<tr>
+<td>last_name</td>
+<td>Billing Contact&rsquo;s last name.</td>
+</tr>
+<tr>
+<td>email</td>
+<td>Billing Contact&rsquo;s email address.</td>
+</tr>
+<tr>
+<td>phone_number</td>
+<td>Billing Contact&rsquo;s phone number.</td>
+</tr>
+<tr>
+<td>address</td>
+<td>Billing Contact&rsquo;s address.</td>
+</tr>
+<tr>
+<td>apt</td>
+<td>Billing Contact&rsquo;s apartment/suite.</td>
+</tr>
+<tr>
+<td>city</td>
+<td>Billing Contact&rsquo;s city.</td>
+</tr>
+<tr>
+<td>state</td>
+<td>Billing Contact&rsquo;s state.</td>
+</tr>
+<tr>
+<td>zip</td>
+<td>Billing Contact&rsquo;s zip/postal code.</td>
+</tr>
+<tr>
+<td>country</td>
+<td>Billing Contact&rsquo;s country.</td>
+</tr>
+</tbody></table>

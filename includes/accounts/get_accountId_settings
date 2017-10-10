@@ -1,0 +1,129 @@
+<h2 id="retrieve-an-accounts-settings">Retrieve an account&rsquo;s settings</h2>
+
+<p>Retrieve a sub account&rsquo;s settings under the master account</p>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>GET https://api.zoom.us/v2/accounts/<span class="o">{</span>accountId<span class="o">}</span>/settings
+</code></pre>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/accounts/<span class="o">{</span>accountId<span class="o">}</span>/settings
+</code></pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>200 OK
+</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"schedule_meting"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"host_video"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"participant_video"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"audio_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"join_before_host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"enforce_login"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"enforce_login_with_domains"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"enforce_login_domains"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"not_store_meeting_topic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"force_pmi_jbh_password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"in_meeting"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"e2e_encryption"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"chat"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"private_chat"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"auto_saving_chat"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"file_transfer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"feedback"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"post_meeting_feedback"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"co_host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"polling"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"attendee_on_hold"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"show_meeting_control_toolbar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"allow_show_zoom_windows"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"annotation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"whiteboard"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"webinar_question_answer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"anonymous_question_answer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"breakout_room"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"closed_caption"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"far_end_camera_control"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"group_hd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"virtual_background"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"watermark"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"alert_guest_join"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"auto_answer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"p2p_connetion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"p2p_ports"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ports_range"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sending_default_email_invites"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"use_html_format_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"dscp_marking"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"dscp_audio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"dscp_video"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"stereo_audio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"original_audio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"screen_sharing"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"remote_control"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"attention_tracking"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"email_notification"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"cloud_recording_avaliable_reminder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"jbh_reminder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"cancel_meeting_reminder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"low_host_count_reminder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"alternative_host_reminder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"zoom_rooms"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"upcoming_meeting_alert"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"start_airplay_manually"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"weekly_system_restart"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"list_meetings_with_calendar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"zr_post_meeting_feedback"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ultrasonic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"force_private_meeting"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"hide_host_information"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"cmr_for_instant_meeting"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"auto_start_stop_scheduled_meetings"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"_security"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"import_photos_from_devices"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"hide_billing_info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"recording"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"local_recording"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"cloud_recording"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"auto_recording"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"cloud_recording_download"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"cloud_recording_download_host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"account_user_access_recording"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"auto_delete_cmr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"telephony"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"third_party_audio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"audio_conference_info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"integration"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"google_calendar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"google_drive"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"dropbox"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"box"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"microsoft_one_drive"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"kubi"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"feature"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"meeting_capacity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Path Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>accountId <strong>required</strong></td>
+<td>The account ID</td>
+</tr>
+</tbody></table>
