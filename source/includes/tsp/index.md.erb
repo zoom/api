@@ -1,1 +1,25 @@
 # TSP
+
+## The TSP object
+TSP Configuration object
+
+```json
+{
+    "conference_code": "string",
+    "leader_pin": "string",
+    "dial_in_numbers": {
+        "id": "string",
+        "code": "string",
+        "number": "string"
+    }
+}
+```
+
+Property | Description
+--- | ---
+conference_code *string* | Conference code, length is less than 16.
+leader_pin *string* | Leader PIN, length is less than 16.
+dial_in_numbers.id *string* | Country ID
+dial_in_numbers.code *string* | Country Code
+dial_in_numbers.number *string* | Dial-in number, length is less than 16.
+

@@ -514,7 +514,7 @@
                             "properties": {
                                 "id": {
                                     "type": "string",
-                                    "description": "User ID"
+                                    "description": "Group ID"
                                 }
                             }
                         }
@@ -1443,7 +1443,34 @@
                                     ]
                                 },
                                 "user_info": {
-                                    "$ref": "#/definitions/User"
+                                    "properties": {
+                                        "email": {
+                                            "type": "string",
+                                            "description": "User's email address."
+                                        },
+                                        "type": {
+                                            "type": "integer",
+                                            "enum": [
+                                                1,
+                                                2,
+                                                3
+                                            ],
+                                            "x-enum-descriptions" : [
+                                                "basic",
+                                                "pro",
+                                                "corp"
+                                            ],
+                                            "description": "User's type"
+                                        },
+                                        "first_name": {
+                                            "type": "string",
+                                            "description": "User's first name."
+                                        },
+                                        "last_name": {
+                                            "type": "string",
+                                            "description": "User's last name."
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -1501,9 +1528,6 @@
                                 },
                                 {
                                     "$ref": "#/definitions/User"
-                                },
-                                {
-                                    "$ref": "#/definitions/UserDetails"
                                 }
                             ]
                         }
@@ -1530,14 +1554,7 @@
                         "required": true,
                         "description": "User",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/User"
-                                },
-                                {
-                                    "$ref": "#/definitions/UserUpdate"
-                                }
-                            ]
+                            "$ref": "#/definitions/User"
                         }
                     }
                 ],
@@ -1922,7 +1939,7 @@
                         "required": true,
                         "description": "TSP Config",
                         "schema": {
-                            "$ref": "#/definitions/TSPConfig"
+                            "$ref": "#/definitions/TSP"
                         }
                     }
                 ],
@@ -1975,7 +1992,7 @@
                         "required": true,
                         "description": "TSP Config",
                         "schema": {
-                            "$ref": "#/definitions/TSPConfig"
+                            "$ref": "#/definitions/TSP"
                         }
                     }
                 ],
@@ -2640,7 +2657,7 @@
         "UserId": {
             "in": "path",
             "name": "userId",
-            "description" : "The user ID",
+            "description" : "The user ID or email address",
             "type": "string",
             "required": true
         },
@@ -2655,7 +2672,7 @@
     "definitions": {
         "Account": {
             "type": "object",
-            "description": "Account object",
+            "description": "The account object represents an account on zoom. The person who created the account, or who the account was created for, is referred to as the Account owner. You can read more about the Zoom account structure <a href='https://developer.zoom.us/blog/a-brief-look-at-zoom-account-structures/' target='_blank'>here</a>.",
             "required" : [
                 "email",
                 "first_name",
@@ -4056,7 +4073,7 @@
                 }
             }
         },
-        "TSPConfig" : {
+        "TSP" : {
             "type" : "object",
             "description": "TSP Configuration object",
             "properties" : {
@@ -4090,7 +4107,7 @@
         },
         "User": {
             "type": "object",
-            "description": "User object",
+            "description": "The user object represents a User on Zoom.",
             "required" : [
                 "email",
                 "type"
@@ -4121,50 +4138,7 @@
                 "last_name": {
                     "type": "string",
                     "description": "User's last name."
-                }
-            }
-        },
-        "UserList": {
-            "type": "object",
-            "title": "User List",
-            "description": "List of Users",
-            "allOf": [
-                {
-                    "$ref": "#/definitions/Pagination"
                 },
-                {
-                    "properties": {
-                        "users": {
-                            "type": "array",
-                            "description": "List of User objects.",
-                            "items": {
-                                "allOf": [
-                                    {
-                                        "properties": {
-                                            "id": {
-                                                "type": "string",
-                                                "description": "User ID"
-                                            }
-                                        }
-                                    },
-                                    {
-                                        "$ref": "#/definitions/User"
-                                    },
-                                    {
-                                        "$ref": "#/definitions/UserDetails"
-                                    }
-                                ]
-                            }
-                        }
-                    }
-                }
-            ]
-        },
-        "UserDetails": {
-            "title": "User object with details",
-            "description": "Reference to a User object with details.",
-            "type": "object",
-            "properties": {
                 "created_at": {
                     "type": "string",
                     "format": "dateTime"
@@ -4193,8 +4167,49 @@
                 },
                 "verified": {
                     "type": "boolean"
+                },
+                "cms_user_id": {
+                    "type": "string",
+                    "description": "CMS User Id"
+                },
+                "host_key": {
+                    "type": "string",
+                    "description": "Host Key, should be 6-digit number"
                 }
             }
+        },
+        "UserList": {
+            "type": "object",
+            "title": "User List",
+            "description": "List of Users",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/Pagination"
+                },
+                {
+                    "properties": {
+                        "users": {
+                            "type": "array",
+                            "description": "List of User objects.",
+                            "items": {
+                                "allOf": [
+                                    {
+                                        "properties": {
+                                            "id": {
+                                                "type": "string",
+                                                "description": "User ID"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "$ref": "#/definitions/User"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
         },
         "UserSettings": {
             "title": "User settings",
@@ -4548,33 +4563,6 @@
                     "type": "boolean",
                     "default": 100,
                     "description": "Webinar capacity, can be 100, 500, 1000, 3000, 5000 or 10000, depends on if having related webinar capacity plan subscription or not."
-                }
-            }
-        },
-        "UserUpdate": {
-            "title": "User object with details",
-            "description": "Reference to a User object with details.",
-            "type": "object",
-            "properties": {
-                "timezone": {
-                    "type": "string",
-                    "description": "The time zone id for user profile"
-                },
-                "dept": {
-                    "type": "string",
-                    "description": "Department for user profile, used for reports."
-                },
-                "vanity_url": {
-                    "type": "string",
-                    "description": "Personal meeting room name"
-                },
-                "host_key": {
-                    "type": "string",
-                    "description": "Host Key, should be 6-digit number"
-                },
-                "cms_user_id": {
-                    "type": "string",
-                    "description": "Kaltura User Id"
                 }
             }
         },

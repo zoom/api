@@ -3,7 +3,7 @@
 
 class OpenAPI2Slate {
 
-	private $output_dir, $api_host, $index_file, $prepend_includes, $append_includes;
+	private $output_dir, $api_host, $index_file, $prepend_includes, $append_includes, $reference_objects;
 
 	private $file_structure = [];
 
@@ -31,6 +31,8 @@ class OpenAPI2Slate {
 			$this->openapi = $openapi;
 		}
 
+		$this->reference_objects = [];
+
 		//set api_host
 		$this->api_host = $openapi->schemes[0] . "://" . $openapi->host . $openapi->basePath;
 
@@ -48,9 +50,9 @@ class OpenAPI2Slate {
 
 		$this->init_file_structure();
 
-		$this->create_index();
-
 		$this->process_spec();
+
+		$this->create_index();
 	}
 
 	private function init_file_structure() {
@@ -75,7 +77,6 @@ class OpenAPI2Slate {
 
 			//go over each method for each path
 			foreach ( $details as $method => $spec ) {
-
 				$root = str_replace( " ", "_", strtolower( $spec->tags[0] ) );
 
 				//create base file name
@@ -93,7 +94,6 @@ class OpenAPI2Slate {
 					$fh = fopen( $spec->writeTo, "w" );
 					fclose( $fh );
 				}
-
 				$this->file_structure[ $spec->tags[0] ][ $path ][ $method ] = $spec;
 			}
 		}
@@ -125,13 +125,28 @@ class OpenAPI2Slate {
 		// insert includes
 		foreach ( $this->file_structure as $tag => $paths ) {
 
-			//create an index for this tag if it doesn't exist, don't want to overwrite existing doc
+			//create an index for this tag
 			$base = str_replace( " ", "_", strtolower( $tag ) ) . "/index";
-			if ( ! file_exists( $this->output_dir . $base . ".md.erb" ) ) {
-				$index = fopen( $this->output_dir . $base . ".md.erb", "w" );
-				fputs( $index, "# " . $tag . "\r\n" );
-				fclose( $index );
+			$index = fopen( $this->output_dir . $base . ".md.erb", "w" );
+			fputs( $index, "# " . $tag . "\r\n\r\n" );
+
+
+			//add reference object to index file
+			$object_name = $tag;
+			if(substr($object_name, -1) === 's'){
+				$object_name = substr($object_name, 0,-1);
 			}
+
+			$tmp = $this->openapi->definitions->{str_replace(" ", "", $object_name)};
+			$schema = $this->get_schema( $tmp );
+			if($schema){
+				fputs( $index, "## The " . $object_name . " object\r\n" );
+				fputs( $index, $tmp->description . "\r\n\r\n" );
+				$this->object_ref($index, $schema);
+			}
+
+			fclose( $index );
+
 
 			//add this tag index to includes
 			fputs( $fh, "  - " . $base . "\r\n" );
@@ -163,7 +178,6 @@ class OpenAPI2Slate {
 		foreach ( $this->file_structure as $tag => $paths ) {
 			foreach ( $paths as $path => $methods ) {
 				foreach ( $methods as $method => $spec ) {
-
 					//open, truncate file
 					$fh = fopen( $spec->writeTo, "w" );
 
@@ -267,7 +281,7 @@ class OpenAPI2Slate {
 		foreach ( $responses as $status => $response ) {
 			switch ( $status ) {
 				case '200':
-
+				case '201':
 					$this->header_response( $fh, '200 OK' );
 
 					if ( ! $response->schema ) {
@@ -285,10 +299,6 @@ class OpenAPI2Slate {
 					fputs( $fh, "```json\r\n" );
 					fputs( $fh, $ex . "\r\n" );
 					fputs( $fh, "```\r\n\r\n" );
-					break;
-
-				case '201':
-					$this->header_response( $fh, '201 Created' );
 					break;
 				case '204':
 					$this->header_response( $fh, '204 No Content' );
@@ -528,6 +538,49 @@ class OpenAPI2Slate {
 
 		return $json_encode ? json_encode( $tmp, JSON_PRETTY_PRINT ) : $tmp;
 	}
+
+	private function object_ref( $fh, $params ) {
+
+		$ex     = $this->convert_schema_to_json( $params );
+		//json response
+		fputs( $fh, "```json\r\n" );
+		fputs( $fh, $ex . "\r\n" );
+		fputs( $fh, "```\r\n\r\n" );
+
+
+		fputs( $fh, "Property | Description\r\n" );
+		fputs( $fh, "--- | ---\r\n" );
+		foreach ( $params as $name => $param ) {
+			$this->object_ref_params( $fh, $name, $param );
+		}
+
+		fputs( $fh, "\r\n" );
+	}
+
+	private function object_ref_params( $fh, $name, $param, $parent = '' ) {
+
+		//support nested objects
+		if ( ! property_exists( $param, 'type' ) || is_object( $param->type ) ) {
+			foreach ( $param as $child => $p ) {
+				$this->object_ref_params( $fh, $child, $p, $name . "." );
+			}
+		} else {
+			$txt = $parent . $name;
+			$txt .= " *" . $param->type . "*";
+			$txt .= " | " . $param->description;
+
+			//display possible values if enum
+			if($param->enum){
+				$txt .= '<div class="enum">';
+				foreach($param->enum as $i => $enum) {
+					$txt .= '`'. $enum .'` ' . $param->{'x-enum-descriptions'}[$i] . "<br/>";
+				}
+				$txt .= '</div>';
+			}
+
+			fputs( $fh, $txt . "\r\n" );
+		}
+	}
 }
 
 //options for openapi2slate
@@ -537,7 +590,6 @@ $options = array(
 		'reference/index',
 		'reference/authentication',
 		'reference/errors',
-		'reference/webhooks',
 		'reference/rate_limits',
 		'reference/before_core'
 	),

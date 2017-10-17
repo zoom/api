@@ -8,8 +8,12 @@ The Zoom API helps manage the pre-meeting experience such as creating, editing a
 
 Subscribe to the Zoom API announce mailing list to stay informed on all new features and changes.
 
-### Endpoint
+## Endpoint
 
 `<%= config[:api_host] %>`
 
 The Zoom API endpoint is pretty straight forward. We require that you send all requests via https, requests sent to http will receive a 302 HTTP response code. The base URL is api.zoom.us followed by the version number of the API, currently at version 2.
+
+## Webhooks
+
+Webhooks can be used as notifications to keep your systems in sync with actions inside Zoom. Find more information about webhooks on the [Developer Portal](https://developer.zoom.us/docs/webhooks/)

@@ -14,7 +14,6 @@ includes:
   - reference/index
   - reference/authentication
   - reference/errors
-  - reference/webhooks
   - reference/rate_limits
   - reference/before_core
 

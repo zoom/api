@@ -17,11 +17,17 @@ $ curl https://api.zoom.us/v2/users/{userId} \
     "type": "integer",
     "first_name": "string",
     "last_name": "string",
-    "timezone": "string",
+    "created_at": "string",
     "dept": "string",
+    "last_client_version": "string",
+    "last_login_time": "string",
+    "pic_url": "string",
+    "pmi": "string",
+    "timezone": "string",
     "vanity_url": "string",
-    "host_key": "string",
-    "cms_user_id": "string"
+    "verified": "boolean",
+    "cms_user_id": "string",
+    "host_key": "string"
 }'
 ```
 
@@ -33,7 +39,7 @@ $ curl https://api.zoom.us/v2/users/{userId} \
 
 Path Arguments | &nbsp;
 --- | ---
-userId **required** | The user ID
+userId **required** | The user ID or email address
 
 Body Arguments | &nbsp;
 --- | ---
@@ -41,9 +47,15 @@ email **required** | User's email address.
 type **required** | User's type<div class="enum">`1` basic<br/>`2` pro<br/>`3` corp<br/></div>
 first_name | User's first name.
 last_name | User's last name.
-timezone | The time zone id for user profile
-dept | Department for user profile, used for reports.
-vanity_url | Personal meeting room name
+created_at | 
+dept | 
+last_client_version | 
+last_login_time | 
+pic_url | 
+pmi | 
+timezone | 
+vanity_url | 
+verified | 
+cms_user_id | CMS User Id
 host_key | Host Key, should be 6-digit number
-cms_user_id | Kaltura User Id
 

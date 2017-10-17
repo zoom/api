@@ -1,1 +1,77 @@
 # Meetings
+
+## The Meeting object
+Meeting object
+
+```json
+{
+    "topic": "string",
+    "type": "integer",
+    "start_time": "string",
+    "duration": "integer",
+    "timezone": "string",
+    "password": "string",
+    "description": "string",
+    "recurrence": {
+        "type": "integer",
+        "repeat_interval": "integer",
+        "weekly_days": "integer",
+        "monthly_day": "integer",
+        "monthly_week": "integer",
+        "monthly_week_day": "integer",
+        "end_times": "integer",
+        "end_date_time": "string"
+    },
+    "settings": {
+        "host_video": "boolean",
+        "participant_video": "boolean",
+        "cn_meeting": "boolean",
+        "in_meeting": "boolean",
+        "join_before_host": "boolean",
+        "mute_upon_entry": "boolean",
+        "watermark": "boolean",
+        "use_pmi": "boolean",
+        "approval_type": "integer",
+        "registration_type": "integer",
+        "audio": "string",
+        "auto_recording": "string",
+        "enforce_login": "boolean",
+        "enforce_login_domains": "boolean",
+        "alternatice_hosts": "boolean"
+    }
+}
+```
+
+Property | Description
+--- | ---
+topic *string* | Meeting topic
+type *integer* | Meeting Type<div class="enum">`1` Instant Meeting<br/>`2` Scheduled Meeting<br/>`3` Recurring Meeting with no fixed time<br/>`8` Recurring Meeting with fixed time<br/></div>
+start_time *string* | Meeting start time
+duration *integer* | Meeting duration
+timezone *string* | Timezone to format start_time
+password *string* | Password to join the meeting
+description *string* | Meeting description
+recurrence.type *integer* | Recurrence meeting type<div class="enum">`1` Daily<br/>`2` Weekly<br/>`3` Monthly<br/></div>
+recurrence.repeat_interval *integer* | Recurrence meeting repeat interval. For a Daily Meeting, max of 90. For a Weekly Meeting, max of 12. For a Monthly Meeting, max of 3.
+recurrence.weekly_days *integer* | Recurrence Meeting Occurs on week days, multiple value separated by comma<div class="enum">`1` Sunday<br/>`2` Monday<br/>`3` Tuesday<br/>`4` Wednesday<br/>`5` Thursday<br/>`6` Friday<br/>`7` Saturday<br/></div>
+recurrence.monthly_day *integer* | Recurrence Meeting Occurs on a month day. The value range is from 1 to 31
+recurrence.monthly_week *integer* | Recurrence Meeting Occurs on the week of a month.<div class="enum">`-1` Last week<br/>`1` First week<br/>`2` Second week<br/>`3` Third week<br/>`4` Fourth week<br/></div>
+recurrence.monthly_week_day *integer* | Recurrence Meeting Occurs on the week day of a month<div class="enum">`1` Sunday<br/>`2` Monday<br/>`3` Tuesday<br/>`4` Wednesday<br/>`5` Thursday<br/>`6` Friday<br/>`7` Saturday<br/></div>
+recurrence.end_times *integer* | Recurrence Meeting End occurrences times
+recurrence.end_date_time *string* | Recurrence Meeting End Date. Should be UTC time, such as 2017-11-25T12:00:00Z.
+settings.host_video *boolean* | Start video when host join meeting
+settings.participant_video *boolean* | Start video when participants join meeting
+settings.cn_meeting *boolean* | Host meeting in China
+settings.in_meeting *boolean* | Host meeting in India
+settings.join_before_host *boolean* | Join meeting before host start the meeting. Only used for scheduled or recurring meetings
+settings.mute_upon_entry *boolean* | Mute participants upon entry
+settings.watermark *boolean* | Enable watermark when viewing the shared screen
+settings.use_pmi *boolean* | Use Personal Meeting ID. Only used for scheduled meetings and recurring meetings with no fixed time
+settings.approval_type *integer* | <div class="enum">`0` Automatically Approve<br/>`1` Manually Approve<br/>`2` No Registration Required<br/></div>
+settings.registration_type *integer* | Registration type. Used for recurring meeting with fixed time only.<div class="enum">`1` Attendees register once and can attend any of the occurrences<br/>`2` Attendees need to register for each occurrence to attend<br/>`3` Attendees register once and can choose one or more occurrences to attend<br/></div>
+settings.audio *string* | Meeting audio options<div class="enum">`both` Both Telephony and VoIP<br/>`telephony` Telephony only<br/>`voip` VoIP only<br/></div>
+settings.auto_recording *string* | <div class="enum">`local` Record to local device<br/>`cloud` Record to cloud<br/>`none` No Recording<br/></div>
+settings.enforce_login *boolean* | Only signed-in users can join this meeting
+settings.enforce_login_domains *boolean* | Only signed-in users with specified domains can join meetings
+settings.alternatice_hosts *boolean* | Alternative hosts emails or IDs. Multiple value separated by comma.
+
