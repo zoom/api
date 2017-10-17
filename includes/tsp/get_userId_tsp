@@ -25,6 +25,6 @@
 </thead><tbody>
 <tr>
 <td>userId <strong>required</strong></td>
-<td>The user ID</td>
+<td>The user ID or email address</td>
 </tr>
 </tbody></table>

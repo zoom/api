@@ -16,11 +16,17 @@
     "type": "integer",
     "first_name": "string",
     "last_name": "string",
-    "timezone": "string",
+    "created_at": "string",
     "dept": "string",
+    "last_client_version": "string",
+    "last_login_time": "string",
+    "pic_url": "string",
+    "pmi": "string",
+    "timezone": "string",
     "vanity_url": "string",
-    "host_key": "string",
-    "cms_user_id": "string"
+    "verified": "boolean",
+    "cms_user_id": "string",
+    "host_key": "string"
 }'</span>
 </code></pre>
 <blockquote>
@@ -36,7 +42,7 @@
 </thead><tbody>
 <tr>
 <td>userId <strong>required</strong></td>
-<td>The user ID</td>
+<td>The user ID or email address</td>
 </tr>
 </tbody></table>
 
@@ -63,23 +69,47 @@
 <td>User&rsquo;s last name.</td>
 </tr>
 <tr>
-<td>timezone</td>
-<td>The time zone id for user profile</td>
+<td>created_at</td>
+<td></td>
 </tr>
 <tr>
 <td>dept</td>
-<td>Department for user profile, used for reports.</td>
+<td></td>
+</tr>
+<tr>
+<td>last_client_version</td>
+<td></td>
+</tr>
+<tr>
+<td>last_login_time</td>
+<td></td>
+</tr>
+<tr>
+<td>pic_url</td>
+<td></td>
+</tr>
+<tr>
+<td>pmi</td>
+<td></td>
+</tr>
+<tr>
+<td>timezone</td>
+<td></td>
 </tr>
 <tr>
 <td>vanity_url</td>
-<td>Personal meeting room name</td>
+<td></td>
+</tr>
+<tr>
+<td>verified</td>
+<td></td>
+</tr>
+<tr>
+<td>cms_user_id</td>
+<td>CMS User Id</td>
 </tr>
 <tr>
 <td>host_key</td>
 <td>Host Key, should be 6-digit number</td>
-</tr>
-<tr>
-<td>cms_user_id</td>
-<td>Kaltura User Id</td>
 </tr>
 </tbody></table>

@@ -15,8 +15,11 @@
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre class="highlight plaintext"><code>201 Created
-</code></pre>
+<pre class="highlight plaintext"><code>200 OK
+</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"email_or_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <table><thead>
 <tr>
 <th>Path Arguments</th>
@@ -25,7 +28,7 @@
 </thead><tbody>
 <tr>
 <td>userId <strong>required</strong></td>
-<td>The user ID</td>
+<td>The user ID or email address</td>
 </tr>
 </tbody></table>
 

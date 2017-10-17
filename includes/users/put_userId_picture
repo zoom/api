@@ -15,8 +15,7 @@
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre class="highlight plaintext"><code>201 Created
-</code></pre><pre class="highlight plaintext"><code>204 No Content
+<pre class="highlight plaintext"><code>200 OK
 </code></pre>
 <table><thead>
 <tr>
@@ -26,6 +25,6 @@
 </thead><tbody>
 <tr>
 <td>userId <strong>required</strong></td>
-<td>The user ID</td>
+<td>The user ID or email address</td>
 </tr>
 </tbody></table>

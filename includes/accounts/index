@@ -1,1 +1,62 @@
 <h1 id="accounts">Accounts</h1>
+
+<h2 id="the-account-object">The Account object</h2>
+
+<p>The account object represents an account on zoom. The person who created the account, or who the account was created for, is referred to as the Account owner. You can read more about the Zoom account structure <a href='https://developer.zoom.us/blog/a-brief-look-at-zoom-account-structures/' target='_blank'>here</a>.</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"share_rc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"room_connectors"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"share_mc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"meeting_conntectors"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pay_mode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email <em>string</em></td>
+<td>User&rsquo;s email address.</td>
+</tr>
+<tr>
+<td>first_name <em>string</em></td>
+<td>User&rsquo;s first name.</td>
+</tr>
+<tr>
+<td>last_name <em>string</em></td>
+<td>User&rsquo;s last name.</td>
+</tr>
+<tr>
+<td>password <em>string</em></td>
+<td>User&rsquo;s password.</td>
+</tr>
+<tr>
+<td>options.share_rc <em>boolean</em></td>
+<td>Enable Share Virtual Room Connector.</td>
+</tr>
+<tr>
+<td>options.room_connectors <em>string</em></td>
+<td>Virtual Room Connector, multiple value separated by comma.</td>
+</tr>
+<tr>
+<td>options.share_mc <em>boolean</em></td>
+<td>Enable Share Meeting Connector.</td>
+</tr>
+<tr>
+<td>options.meeting_conntectors <em>string</em></td>
+<td>Meeting Connector, multiple value separated by comma.</td>
+</tr>
+<tr>
+<td>options.pay_mode <em>string</em></td>
+<td>User&rsquo;s password.<div class="enum"><code class="prettyprint">master</code> Master Account holder pays<br/><code class="prettyprint">sub</code> Sub Account holders pays<br/></div></td>
+</tr>
+</tbody></table>
