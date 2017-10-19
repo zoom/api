@@ -1,0 +1,36 @@
+## Retrieve webinar detail
+
+Retrieve live  or past webinars detail
+
+> Definition
+
+```shell
+GET https://api.zoom.us/v2/metrics/webinars/{webinarId}
+```
+
+> Example Request
+
+```shell
+$ curl https://api.zoom.us/v2/metrics/webinars/{webinarId}
+```
+
+> Example Response
+
+```text
+200 OK
+```
+
+```json
+{
+    "$ref": null
+}
+```
+
+Path Arguments | &nbsp;
+--- | ---
+webinarId **required** | The webinar ID
+
+Query Arguments | &nbsp;
+--- | ---
+type | The meeting type<div class="enum">`past` all the past meetings<br/>`live` all the live meetings<br/></div>
+

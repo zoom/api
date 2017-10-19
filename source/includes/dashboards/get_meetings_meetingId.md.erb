@@ -1,0 +1,52 @@
+## Retrieve meeting detail
+
+Retrieve live  or past meetings detail
+
+> Definition
+
+```shell
+GET https://api.zoom.us/v2/metrics/meetings/{meetingId}
+```
+
+> Example Request
+
+```shell
+$ curl https://api.zoom.us/v2/metrics/meetings/{meetingId}
+```
+
+> Example Response
+
+```text
+200 OK
+```
+
+```json
+{
+    "uuid": "string",
+    "id": "integer",
+    "topic": "string",
+    "host": "string",
+    "email": "string",
+    "user_type": "string",
+    "start_time": "string",
+    "end_time": "string",
+    "duration": "string",
+    "participants": "integer",
+    "has_pstn": "boolean",
+    "has_voip": "boolean",
+    "has_3rd_party_audio": "boolean",
+    "has_video": "boolean",
+    "has_screen_share": "boolean",
+    "has_recording": "boolean",
+    "has_sip": "boolean"
+}
+```
+
+Path Arguments | &nbsp;
+--- | ---
+meetingId **required** | The meeting ID
+
+Query Arguments | &nbsp;
+--- | ---
+type | The meeting type<div class="enum">`past` all the past meetings<br/>`live` all the live meetings<br/></div>
+

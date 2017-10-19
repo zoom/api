@@ -1,0 +1,63 @@
+## Retrieve IM
+
+Retrieve metrics of Zoom IM
+
+> Definition
+
+```shell
+GET https://api.zoom.us/v2/metrics/im
+```
+
+> Example Request
+
+```shell
+$ curl https://api.zoom.us/v2/metrics/im
+```
+
+> Example Response
+
+```text
+200 OK
+```
+
+```json
+{
+    "from": "string",
+    "to": "string",
+    "page_count": "integer",
+    "page_number": "integer",
+    "page_size": "integer",
+    "total_records": "integer",
+    "users": [
+        {
+            "user_id": "string",
+            "user_name": "string",
+            "email": "string",
+            "total_send": "integer",
+            "total_receive": "integer",
+            "group_send": "integer",
+            "group_receive": "integer",
+            "calls_send": "integer",
+            "calls_receive": "integer",
+            "files_send": "integer",
+            "files_receive": "integer",
+            "images_send": "integer",
+            "images_receive": "integer",
+            "voice_send": "integer",
+            "voice_receive": "integer",
+            "videos_send": "integer",
+            "videos_receive": "integer",
+            "emoji_send": "integer",
+            "emoji_receive": "integer"
+        }
+    ]
+}
+```
+
+Query Arguments | &nbsp;
+--- | ---
+from | Start Date
+to | End Date
+page_size | Number of items returned per page
+page_number | Page number of results returned
+

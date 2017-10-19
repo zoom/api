@@ -1,0 +1,54 @@
+## Retrieve telephone report
+
+Retrieve telephone report for a specified period
+
+> Definition
+
+```shell
+GET https://api.zoom.us/v2/report/telephone
+```
+
+> Example Request
+
+```shell
+$ curl https://api.zoom.us/v2/report/telephone
+```
+
+> Example Response
+
+```text
+200 OK
+```
+
+```json
+{
+    "from": "string",
+    "to": "string",
+    "page_count": "integer",
+    "page_number": "integer",
+    "page_size": "integer",
+    "total_records": "integer",
+    "telephony_usage": [
+        {
+            "meeting_id": "integer",
+            "phone_number": "string",
+            "host_name": "string",
+            "host_email": "string",
+            "dept": "string",
+            "start_time": "string",
+            "end_time": "string",
+            "duration": "integer",
+            "total": "number"
+        }
+    ]
+}
+```
+
+Query Arguments | &nbsp;
+--- | ---
+type | Audio type<div class="enum">`1` Toll-free Call-in & Call-out<br/>`2` Toll<br/></div>
+from | Start Date
+to | End Date
+page_size | Number of items returned per page
+page_number | Page number of results returned
+

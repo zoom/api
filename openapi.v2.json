@@ -30,8 +30,8 @@
     "paths": {
         "/accounts": {
             "get": {
-                "summary" : "List accounts",
-                "description" : "List the sub accounts under the master account",
+                "summary": "List accounts",
+                "description": "List the sub accounts under the master account",
                 "tags": [
                     "Accounts"
                 ],
@@ -55,7 +55,7 @@
             },
             "post": {
                 "summary": "Create an account",
-                "description" : "Create a sub account under the master account <aside>Your account must be a master account and have this privilege to create sub account. Zoom only assign this privilege to trusted partner. The created user will not receive the confirmation email.</aside>",
+                "description": "Create a sub account under the master account <aside>Your account must be a master account and have this privilege to create sub account. Zoom only assign this privilege to trusted partner. The created user will not receive the confirmation email.</aside>",
                 "tags": [
                     "Accounts"
                 ],
@@ -98,7 +98,7 @@
         "/accounts/{accountId}": {
             "get": {
                 "summary": "Retrieve an account",
-                "description" : "Retrieve a sub account under the master account <aside>Your account must be a master account and have this privilege to get sub account. Zoom only assign this privilege to trusted partner</aside>",
+                "description": "Retrieve a sub account under the master account <aside>Your account must be a master account and have this privilege to get sub account. Zoom only assign this privilege to trusted partner</aside>",
                 "tags": [
                     "Accounts"
                 ],
@@ -147,7 +147,7 @@
             },
             "delete": {
                 "summary": "Delete an account",
-                "description" : "Delete a sub account under the master account",
+                "description": "Delete a sub account under the master account",
                 "tags": [
                     "Accounts"
                 ],
@@ -170,7 +170,7 @@
         "/accounts/{accountId}/options": {
             "patch": {
                 "summary": "Update an account's options",
-                "description" : "Update a sub account's options under the master account",
+                "description": "Update a sub account's options under the master account",
                 "tags": [
                     "Accounts"
                 ],
@@ -201,7 +201,7 @@
         "/accounts/{accountId}/settings": {
             "get": {
                 "summary": "Retrieve an account's settings",
-                "description" : "Retrieve a sub account's settings under the master account",
+                "description": "Retrieve a sub account's settings under the master account",
                 "tags": [
                     "Accounts"
                 ],
@@ -225,7 +225,7 @@
             },
             "patch": {
                 "summary": "Update an account's settings",
-                "description" : "Update a sub account's settings under the master account",
+                "description": "Update a sub account's settings under the master account",
                 "tags": [
                     "Accounts"
                 ],
@@ -256,7 +256,7 @@
         "/accounts/{accountId}/billing": {
             "get": {
                 "summary": "Retrieve an account's billing information",
-                "description" : "Retrieve a sub account's billing information under the master account",
+                "description": "Retrieve a sub account's billing information under the master account",
                 "tags": [
                     "Accounts"
                 ],
@@ -280,7 +280,7 @@
             },
             "patch": {
                 "summary": "Update an account's billing information",
-                "description" : "Update a sub account's billing information under the master account <aside>Only for the sub account which is paid by master account</aside>",
+                "description": "Update a sub account's billing information under the master account <aside>Only for the sub account which is paid by master account</aside>",
                 "tags": [
                     "Accounts"
                 ],
@@ -311,7 +311,7 @@
         "/accounts/{accountId}/plans": {
             "get": {
                 "summary": "Retrieve an account's plans",
-                "description" : "Retrieve a sub account's plans under the master account  <aside>Only for the sub account which is paid by master account</aside>",
+                "description": "Retrieve a sub account's plans under the master account  <aside>Only for the sub account which is paid by master account</aside>",
                 "tags": [
                     "Accounts"
                 ],
@@ -335,7 +335,7 @@
             },
             "post": {
                 "summary": "Add to an account's plans",
-                "description" : "Add a plan to sub account under the master account <aside>Can only subscribe plans for the sub account which is a free account and paid by master account</aside><aside>Can only add an Additional plan for the sub account which is a paid account and paid by master account</aside>",
+                "description": "Add a plan to sub account under the master account <aside>Can only subscribe plans for the sub account which is a free account and paid by master account</aside><aside>Can only add an Additional plan for the sub account which is a paid account and paid by master account</aside>",
                 "tags": [
                     "Accounts"
                 ],
@@ -349,7 +349,7 @@
                         "name": "body",
                         "required": true,
                         "schema": {
-                            "allOf" : [
+                            "allOf": [
                                 {
                                     "type": "object",
                                     "properties": {
@@ -375,7 +375,7 @@
         "/accounts/{accountId}/plans/base": {
             "put": {
                 "summary": "Update an account's base plan",
-                "description" : "Update a base plan for a sub account <aside>Can only subscribe plans for the sub account which is a free account and paid by master account</aside><aside>Can only add an Additional plan for the sub account which is a paid account and paid by master account</aside>",
+                "description": "Update a base plan for a sub account <aside>Can only subscribe plans for the sub account which is a free account and paid by master account</aside><aside>Can only add an Additional plan for the sub account which is a paid account and paid by master account</aside>",
                 "tags": [
                     "Accounts"
                 ],
@@ -403,7 +403,7 @@
         "/accounts/{accountId}/plans/addons": {
             "post": {
                 "summary": "Add an account add on plan",
-                "description" : "Add an add on plan for a sub account <aside>Can only subscribe plans for the sub account which is a free account and paid by master account</aside><aside>Can only add an Additional plan for the sub account which is a paid account and paid by master account</aside>",
+                "description": "Add an add on plan for a sub account <aside>Can only subscribe plans for the sub account which is a free account and paid by master account</aside><aside>Can only add an Additional plan for the sub account which is a paid account and paid by master account</aside>",
                 "tags": [
                     "Accounts"
                 ],
@@ -429,7 +429,7 @@
             },
             "put": {
                 "summary": "Update an account's add on plans",
-                "description" : "Update as add on plan for a sub account <aside>Can only subscribe plans for the sub account which is a free account and paid by master account</aside><aside>Can only add an Additional plan for the sub account which is a paid account and paid by master account</aside>",
+                "description": "Update as add on plan for a sub account <aside>Can only subscribe plans for the sub account which is a free account and paid by master account</aside><aside>Can only add an Additional plan for the sub account which is a paid account and paid by master account</aside>",
                 "tags": [
                     "Accounts"
                 ],
@@ -457,7 +457,7 @@
         "/groups": {
             "get": {
                 "summary": "List groups",
-                "description" : "List groups under your account",
+                "description": "List groups under your account",
                 "tags": [
                     "Groups"
                 ],
@@ -481,7 +481,7 @@
             },
             "post": {
                 "summary": "Create a group",
-                "description" : "Create a group under your account",
+                "description": "Create a group under your account",
                 "tags": [
                     "Groups"
                 ],
@@ -525,7 +525,7 @@
         "/groups/{groupId}": {
             "get": {
                 "summary": "Retrieve a group",
-                "description" : "Retrieve a group under your account",
+                "description": "Retrieve a group under your account",
                 "tags": [
                     "Groups"
                 ],
@@ -561,7 +561,7 @@
             },
             "patch": {
                 "summary": "Update a group",
-                "description" : "Update a group under your account",
+                "description": "Update a group under your account",
                 "tags": [
                     "Groups"
                 ],
@@ -595,7 +595,7 @@
             },
             "delete": {
                 "summary": "Delete a group",
-                "description" : "Delete a group under your account",
+                "description": "Delete a group under your account",
                 "tags": [
                     "Groups"
                 ],
@@ -618,7 +618,7 @@
         "/groups/{groupId}/members": {
             "get": {
                 "summary": "List a group's members",
-                "description" : "List a group's members under your account",
+                "description": "List a group's members under your account",
                 "tags": [
                     "Groups"
                 ],
@@ -648,7 +648,7 @@
             },
             "post": {
                 "summary": "Add a group member",
-                "description" : "Add a member to a group under your account",
+                "description": "Add a member to a group under your account",
                 "tags": [
                     "Groups"
                 ],
@@ -688,7 +688,7 @@
         "/groups/{groupId}/members/{userId}": {
             "delete": {
                 "summary": "Delete a group member",
-                "description" : "Delete a member from a group under your account",
+                "description": "Delete a member from a group under your account",
                 "tags": [
                     "Groups"
                 ],
@@ -714,7 +714,7 @@
         "/im_groups": {
             "get": {
                 "summary": "List IM Groups",
-                "description" : "List IM groups under your account",
+                "description": "List IM groups under your account",
                 "tags": [
                     "IM Groups"
                 ],
@@ -738,7 +738,7 @@
             },
             "post": {
                 "summary": "Create an IM Group",
-                "description" : "Create a IM Group under your account",
+                "description": "Create a IM Group under your account",
                 "tags": [
                     "IM Groups"
                 ],
@@ -758,12 +758,12 @@
                                 "type": {
                                     "type": "string",
                                     "description": "IM Group type",
-                                    "enum" : [
+                                    "enum": [
                                         "normal",
                                         "shared",
                                         "restricted"
                                     ],
-                                    "x-enum-descriptions" : [
+                                    "x-enum-descriptions": [
                                         "Only members can see the group automatically. Other people can search members in the group",
                                         "All people in the account can see the group and members automatically",
                                         "Nobody can see the group or search members except the members in the group"
@@ -809,7 +809,7 @@
         "/im_groups/{groupId}": {
             "get": {
                 "summary": "Retrieve an IM Group",
-                "description" : "Retrieve an IM Group under your account",
+                "description": "Retrieve an IM Group under your account",
                 "tags": [
                     "IM Groups"
                 ],
@@ -845,7 +845,7 @@
             },
             "patch": {
                 "summary": "Update an IM Group",
-                "description" : "Update an IM Group under your account",
+                "description": "Update an IM Group under your account",
                 "tags": [
                     "IM Groups"
                 ],
@@ -868,12 +868,12 @@
                                 "type": {
                                     "type": "string",
                                     "description": "IM Group type",
-                                    "enum" : [
+                                    "enum": [
                                         "normal",
                                         "shared",
                                         "restricted"
                                     ],
-                                    "x-enum-descriptions" : [
+                                    "x-enum-descriptions": [
                                         "Only members can see the group automatically. Other people can search members in the group",
                                         "All people in the account can see the group and members automatically",
                                         "Nobody can see the group or search members except the members in the group"
@@ -906,7 +906,7 @@
             },
             "delete": {
                 "summary": "Delete an IM Group",
-                "description" : "Delete an IM Group under your account",
+                "description": "Delete an IM Group under your account",
                 "tags": [
                     "IM Groups"
                 ],
@@ -929,7 +929,7 @@
         "/im_groups/{groupId}/members": {
             "get": {
                 "summary": "List an IM Group's members",
-                "description" : "List an IM Group's members under your account",
+                "description": "List an IM Group's members under your account",
                 "tags": [
                     "IM Groups"
                 ],
@@ -959,7 +959,7 @@
             },
             "post": {
                 "summary": "Add an IM Group member",
-                "description" : "Add a member to an IM Group under your account",
+                "description": "Add a member to an IM Group under your account",
                 "tags": [
                     "IM Groups"
                 ],
@@ -999,7 +999,7 @@
         "/im_groups/{groupId}/members/{userId}": {
             "delete": {
                 "summary": "Delete an IM Group member",
-                "description" : "Delete a member from an IM Group under your account",
+                "description": "Delete a member from an IM Group under your account",
                 "tags": [
                     "IM Groups"
                 ],
@@ -1111,7 +1111,7 @@
                 "operationId": "meeting",
                 "parameters": [
                     {
-                        "$ref": "#/parameters/MeetingID"
+                        "$ref": "#/parameters/MeetingId"
                     }
                 ],
                 "responses": {
@@ -1156,7 +1156,7 @@
                 "operationId": "meetingUpdate",
                 "parameters": [
                     {
-                        "$ref": "#/parameters/MeetingID"
+                        "$ref": "#/parameters/MeetingId"
                     },
                     {
                         "in": "body",
@@ -1186,7 +1186,7 @@
                 "operationId": "meetingDelete",
                 "parameters": [
                     {
-                        "$ref": "#/parameters/MeetingID"
+                        "$ref": "#/parameters/MeetingId"
                     }
                 ],
                 "responses": {
@@ -1209,7 +1209,7 @@
                 "operationId": "meetingStatus",
                 "parameters": [
                     {
-                        "$ref": "#/parameters/MeetingID"
+                        "$ref": "#/parameters/MeetingId"
                     },
                     {
                         "in": "body",
@@ -1250,10 +1250,10 @@
                 "operationId": "meetingRegistrants",
                 "parameters": [
                     {
-                        "$ref": "#/parameters/MeetingID"
+                        "$ref": "#/parameters/MeetingId"
                     },
                     {
-                        "$ref": "#/parameters/OccurenceId"
+                        "$ref": "#/parameters/OccurrenceId"
                     },
                     {
                         "$ref": "#/parameters/RegistrantStatus"
@@ -1286,7 +1286,7 @@
                 "operationId": "meetingRegistrantCreate",
                 "parameters": [
                     {
-                        "$ref": "#/parameters/MeetingID"
+                        "$ref": "#/parameters/MeetingId"
                     },
                     {
                         "in": "body",
@@ -1330,7 +1330,7 @@
                 "operationId": "meetingRegistrantStatus",
                 "parameters": [
                     {
-                        "$ref": "#/parameters/MeetingID"
+                        "$ref": "#/parameters/MeetingId"
                     },
                     {
                         "$ref": "#/parameters/RegistrantId"
@@ -1364,6 +1364,1730 @@
                     },
                     "404": {
                         "description": "Meeting or Registrant not found"
+                    }
+                }
+            }
+        },
+        "/metrics/meetings": {
+            "get": {
+                "summary": "List meetings",
+                "description": "List live meetings or past meetings for a specified period",
+                "tags": [
+                    "Dashboards"
+                ],
+                "operationId": "dashboardMeetings",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/MeetingTypePast"
+                    },
+                    {
+                        "$ref": "#/parameters/FromDate"
+                    },
+                    {
+                        "$ref": "#/parameters/ToDate"
+                    },
+                    {
+                        "$ref": "#/parameters/PageSize"
+                    },
+                    {
+                        "$ref": "#/parameters/PageNumber"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Meetings Returned",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "properties": {
+                                        "from": {
+                                            "type": "string",
+                                            "format": "date",
+                                            "description": "Start date for this report"
+                                        },
+                                        "to": {
+                                            "type": "string",
+                                            "format": "date",
+                                            "description": "End date for this report"
+                                        }
+                                    }
+                                },
+                                {
+                                    "$ref": "#/definitions/Pagination"
+                                },
+                                {
+                                    "properties": {
+                                        "meetings": {
+                                            "type": "array",
+                                            "description": "Array of meeting objects",
+                                            "items": {
+                                                "$ref": "#/definitions/MeetingMetric"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/metrics/meetings/{meetingId}": {
+            "get": {
+                "summary": "Retrieve meeting detail",
+                "description": "Retrieve live  or past meetings detail",
+                "tags": [
+                    "Dashboards"
+                ],
+                "operationId": "dashboardMeetingDetail",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/MeetingId"
+                    },
+                    {
+                        "$ref": "#/parameters/MeetingTypePast"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Meeting Returned",
+                        "schema": {
+                            "$ref": "#/definitions/MeetingMetric"
+                        }
+                    }
+                }
+            }
+        },
+        "/metrics/meetings/{meetingId}/participants": {
+            "get": {
+                "summary": "Retrieve meeting participants",
+                "description": "Retrieve live or past meetings participants",
+                "tags": [
+                    "Dashboards"
+                ],
+                "operationId": "dashboardMeetingParticipants",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/MeetingId"
+                    },
+                    {
+                        "$ref": "#/parameters/MeetingTypePast"
+                    },
+                    {
+                        "$ref": "#/parameters/PageSize"
+                    },
+                    {
+                        "$ref": "#/parameters/PageNumber"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Meeting Participants Returned",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/Pagination"
+                                },
+                                {
+                                    "properties": {
+                                        "participants": {
+                                            "type": "array",
+                                            "description": "Array of user objects",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "string",
+                                                        "format": "uuid",
+                                                        "description": "Participant UUID"
+                                                    },
+                                                    "user_id": {
+                                                        "type": "string",
+                                                        "format": "uuid",
+                                                        "description": "Participant ID"
+                                                    },
+                                                    "user_name": {
+                                                        "type": "string",
+                                                        "description": "Participant display name"
+                                                    },
+                                                    "device": {
+                                                        "type": "string",
+                                                        "description": "Participant device"
+                                                    },
+                                                    "ip_address": {
+                                                        "type": "string",
+                                                        "description": "Participant IP Address"
+                                                    },
+                                                    "location": {
+                                                        "type": "string",
+                                                        "description": "Participant location"
+                                                    },
+                                                    "network_type": {
+                                                        "type": "string",
+                                                        "description": "Participant network type"
+                                                    },
+                                                    "join_time": {
+                                                        "type": "string",
+                                                        "format": "date-time",
+                                                        "description": "Participant join time"
+                                                    },
+                                                    "leave_time": {
+                                                        "type": "string",
+                                                        "format": "date-time",
+                                                        "description": "Participant leave time"
+                                                    },
+                                                    "share_application": {
+                                                        "type": "boolean",
+                                                        "description": "Did participant share application"
+                                                    },
+                                                    "share_desktop": {
+                                                        "type": "boolean",
+                                                        "description": "Did participant share desktop"
+                                                    },
+                                                    "share_whiteboard": {
+                                                        "type": "boolean",
+                                                        "description": "Did participant share whiteboard"
+                                                    },
+                                                    "recording": {
+                                                        "type": "boolean",
+                                                        "description": "Participant record"
+                                                    },
+                                                    "pc_name": {
+                                                        "type": "string",
+                                                        "description": "Participant PC name"
+                                                    },
+                                                    "domain": {
+                                                        "type": "string",
+                                                        "description": "Participant domain"
+                                                    },
+                                                    "mac_addr": {
+                                                        "type": "string",
+                                                        "description": "Participant MAC Address"
+                                                    },
+                                                    "harddisk_id": {
+                                                        "type": "string",
+                                                        "description": "Participant hard disk id"
+                                                    },
+                                                    "version": {
+                                                        "type": "string",
+                                                        "description": "Participant version"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/metrics/meetings/{meetingId}/participants/{participantId}/qos": {
+            "get": {
+                "summary": "Retrieve meeting participant QOS",
+                "description": "Retrieve live or past meetings participant quality of service",
+                "tags": [
+                    "Dashboards"
+                ],
+                "operationId": "dashboardMeetingParticipantQOS",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/MeetingId"
+                    },
+                    {
+                        "$ref": "#/parameters/ParticipantId"
+                    },
+                    {
+                        "$ref": "#/parameters/MeetingTypePast"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Meeting Participant QOS Returned",
+                        "schema": {
+                            "$ref": "#/definitions/QOSParticipant"
+                        }
+                    }
+                }
+            }
+        },
+        "/metrics/meetings/{meetingId}/participants/qos": {
+            "get": {
+                "summary": "List meeting participant QOS",
+                "description": "Retrieve list of live or past meetings participant quality of service",
+                "tags": [
+                    "Dashboards"
+                ],
+                "operationId": "dashboardMeetingParticipantsQOS",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/MeetingId"
+                    },
+                    {
+                        "$ref": "#/parameters/MeetingTypePast"
+                    },
+                    {
+                        "$ref": "#/parameters/PageSize"
+                    },
+                    {
+                        "$ref": "#/parameters/PageNumber"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Meeting Participants Returned",
+                        "schema": {
+                            "$ref": "#/definitions/QOSParticipantList"
+                        }
+                    }
+                }
+            }
+        },
+        "/metrics/meetings/{meetingId}/participants/{participantId}/sharing": {
+            "get": {
+                "summary": "Retrieve sharing/recording details of meeting participant",
+                "description": "Retrieve sharing/recording details of live or past meetings participant",
+                "tags": [
+                    "Dashboards"
+                ],
+                "operationId": "dashboardMeetingParticipantShare",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/MeetingId"
+                    },
+                    {
+                        "$ref": "#/parameters/MeetingTypePast"
+                    },
+                    {
+                        "$ref": "#/parameters/PageSize"
+                    },
+                    {
+                        "$ref": "#/parameters/PageNumber"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Meeting Participants Returned",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/Pagination"
+                                },
+                                {
+                                    "properties": {
+                                        "participants": {
+                                            "type": "array",
+                                            "description": "Array of participants",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "string",
+                                                        "description": "Participant UUID"
+                                                    },
+                                                    "user_id": {
+                                                        "type": "string",
+                                                        "description": "Participant ID"
+                                                    },
+                                                    "user_name": {
+                                                        "type": "string",
+                                                        "description": "Participant display name"
+                                                    },
+                                                    "details": {
+                                                        "type": "array",
+                                                        "description": "Array of sharing and recording details",
+                                                        "items": {
+                                                            "properties": {
+                                                                "content": {
+                                                                    "type": "string",
+                                                                    "description": "Type of content shared"
+                                                                },
+                                                                "start_time": {
+                                                                    "type": "string",
+                                                                    "description": "Start time of sharing"
+                                                                },
+                                                                "end_time": {
+                                                                    "type": "string",
+                                                                    "description": "End time of sharing"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/metrics/webinars": {
+            "get": {
+                "summary": "List webinars",
+                "description": "List live webinars or past webinars for a specified period",
+                "tags": [
+                    "Dashboards"
+                ],
+                "operationId": "dashboardWebinars",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/MeetingTypePast"
+                    },
+                    {
+                        "$ref": "#/parameters/FromDate"
+                    },
+                    {
+                        "$ref": "#/parameters/ToDate"
+                    },
+                    {
+                        "$ref": "#/parameters/PageSize"
+                    },
+                    {
+                        "$ref": "#/parameters/PageNumber"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Meetings Returned",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "properties": {
+                                        "from": {
+                                            "type": "string",
+                                            "format": "date",
+                                            "description": "Start date for this report"
+                                        },
+                                        "to": {
+                                            "type": "string",
+                                            "format": "date",
+                                            "description": "End date for this report"
+                                        }
+                                    }
+                                },
+                                {
+                                    "$ref": "#/definitions/Pagination"
+                                },
+                                {
+                                    "properties": {
+                                        "webinars": {
+                                            "type": "array",
+                                            "description": "Array of webinar objects",
+                                            "items": {
+                                                "$ref": "#/definitions/WebinarMetric"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/metrics/webinars/{webinarId}": {
+            "get": {
+                "summary": "Retrieve webinar detail",
+                "description": "Retrieve live  or past webinars detail",
+                "tags": [
+                    "Dashboards"
+                ],
+                "operationId": "dashboardWebinarDetail",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/WebinarId"
+                    },
+                    {
+                        "$ref": "#/parameters/MeetingTypePast"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Webinar Returned",
+                        "schema": {
+                            "properties": {
+                                "$ref": "#/definitions/WebinarMetric"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/metrics/webinars/{webinarId}/participants": {
+            "get": {
+                "summary": "Retrieve webinar participants",
+                "description": "Retrieve live or past webinar participants",
+                "tags": [
+                    "Dashboards"
+                ],
+                "operationId": "dashboardWebinarParticipants",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/WebinarId"
+                    },
+                    {
+                        "$ref": "#/parameters/MeetingTypePast"
+                    },
+                    {
+                        "$ref": "#/parameters/PageSize"
+                    },
+                    {
+                        "$ref": "#/parameters/PageNumber"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Webinar Participants Returned",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/Pagination"
+                                },
+                                {
+                                    "properties": {
+                                        "participants": {
+                                            "type": "array",
+                                            "description": "Array of user objects",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "string",
+                                                        "format": "uuid",
+                                                        "description": "Participant UUID"
+                                                    },
+                                                    "user_id": {
+                                                        "type": "string",
+                                                        "format": "uuid",
+                                                        "description": "Participant ID"
+                                                    },
+                                                    "user_name": {
+                                                        "type": "string",
+                                                        "description": "Participant display name"
+                                                    },
+                                                    "device": {
+                                                        "type": "string",
+                                                        "description": "Participant device"
+                                                    },
+                                                    "ip_address": {
+                                                        "type": "string",
+                                                        "description": "Participant IP Address"
+                                                    },
+                                                    "location": {
+                                                        "type": "string",
+                                                        "description": "Participant location"
+                                                    },
+                                                    "network_type": {
+                                                        "type": "string",
+                                                        "description": "Participant network type"
+                                                    },
+                                                    "join_time": {
+                                                        "type": "string",
+                                                        "format": "date-time",
+                                                        "description": "Participant join time"
+                                                    },
+                                                    "leave_time": {
+                                                        "type": "string",
+                                                        "format": "date-time",
+                                                        "description": "Participant leave time"
+                                                    },
+                                                    "share_application": {
+                                                        "type": "boolean",
+                                                        "description": "Did participant share application"
+                                                    },
+                                                    "share_desktop": {
+                                                        "type": "boolean",
+                                                        "description": "Did participant share desktop"
+                                                    },
+                                                    "share_whiteboard": {
+                                                        "type": "boolean",
+                                                        "description": "Did participant share whiteboard"
+                                                    },
+                                                    "recording": {
+                                                        "type": "boolean",
+                                                        "description": "Participant record"
+                                                    },
+                                                    "pc_name": {
+                                                        "type": "string",
+                                                        "description": "Participant PC name"
+                                                    },
+                                                    "domain": {
+                                                        "type": "string",
+                                                        "description": "Participant domain"
+                                                    },
+                                                    "mac_addr": {
+                                                        "type": "string",
+                                                        "description": "Participant MAC Address"
+                                                    },
+                                                    "harddisk_id": {
+                                                        "type": "string",
+                                                        "description": "Participant hard disk id"
+                                                    },
+                                                    "version": {
+                                                        "type": "string",
+                                                        "description": "Participant version"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/metrics/webinars/{webinarId}/participants/{participantId}/qos": {
+            "get": {
+                "summary": "Retrieve webinar participant QOS",
+                "description": "Retrieve live or past webinar participant quality of service",
+                "tags": [
+                    "Dashboards"
+                ],
+                "operationId": "dashboardWebinarParticipantQOS",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/WebinarId"
+                    },
+                    {
+                        "$ref": "#/parameters/ParticipantId"
+                    },
+                    {
+                        "$ref": "#/parameters/MeetingTypePast"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Webinar Participant QOS Returned",
+                        "schema": {
+                            "$ref": "#/definitions/QOSParticipant"
+                        }
+                    }
+                }
+            }
+        },
+        "/metrics/webinars/{webinarId}/participants/qos": {
+            "get": {
+                "summary": "List webinar participant QOS",
+                "description": "Retrieve list of live or past webinar participants quality of service",
+                "tags": [
+                    "Dashboards"
+                ],
+                "operationId": "dashboardWebinarParticipantsQOS",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/WebinarId"
+                    },
+                    {
+                        "$ref": "#/parameters/MeetingTypePast"
+                    },
+                    {
+                        "$ref": "#/parameters/PageSize"
+                    },
+                    {
+                        "$ref": "#/parameters/PageNumber"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Webinar Participants Returned",
+                        "schema": {
+                            "$ref": "#/definitions/QOSParticipantList"
+                        }
+                    }
+                }
+            }
+        },
+        "/metrics/webinars/{webinarId}/participants/{participantId}/sharing": {
+            "get": {
+                "summary": "Retrieve sharing/recording details of webinar participant",
+                "description": "Retrieve sharing/recording details of live or past webinar participant",
+                "tags": [
+                    "Dashboards"
+                ],
+                "operationId": "dashboardWebinarParticipantShare",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/WebinarId"
+                    },
+                    {
+                        "$ref": "#/parameters/MeetingTypePast"
+                    },
+                    {
+                        "$ref": "#/parameters/PageSize"
+                    },
+                    {
+                        "$ref": "#/parameters/PageNumber"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Webinar Participants Returned",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/Pagination"
+                                },
+                                {
+                                    "properties": {
+                                        "participants": {
+                                            "type": "array",
+                                            "description": "Array of participants",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "string",
+                                                        "description": "Participant UUID"
+                                                    },
+                                                    "user_id": {
+                                                        "type": "string",
+                                                        "description": "Participant ID"
+                                                    },
+                                                    "user_name": {
+                                                        "type": "string",
+                                                        "description": "Participant display name"
+                                                    },
+                                                    "details": {
+                                                        "type": "array",
+                                                        "description": "Array of sharing and recording details",
+                                                        "items": {
+                                                            "properties": {
+                                                                "content": {
+                                                                    "type": "string",
+                                                                    "description": "Type of content shared"
+                                                                },
+                                                                "start_time": {
+                                                                    "type": "string",
+                                                                    "description": "Start time of sharing"
+                                                                },
+                                                                "end_time": {
+                                                                    "type": "string",
+                                                                    "description": "End time of sharing"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/metrics/zoomrooms": {
+            "get": {
+                "summary": "List Zoom Rooms",
+                "description": "List all zoom rooms on account",
+                "tags": [
+                    "Dashboards"
+                ],
+                "operationId": "dashboardZoomRooms",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/PageSize"
+                    },
+                    {
+                        "$ref": "#/parameters/PageNumber"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of Zoom Rooms returned",
+                        "schema": {
+                            "$ref": "#/definitions/ZoomRoomList"
+                        }
+                    }
+                }
+            }
+        },
+        "/metrics/zoomrooms/{zoomroomId}": {
+            "get": {
+                "summary": "Retrieve Zoom Room",
+                "description": "Retrieve zoom room on account",
+                "tags": [
+                    "Dashboards"
+                ],
+                "operationId": "dashboardZoomRoom",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/ZoomRoomId"
+                    },
+                    {
+                        "$ref": "#/parameters/FromDate"
+                    },
+                    {
+                        "$ref": "#/parameters/ToDate"
+                    },
+                    {
+                        "$ref": "#/parameters/PageSize"
+                    },
+                    {
+                        "$ref": "#/parameters/PageNumber"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Zoom Room returned",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/ZoomRoom"
+                                },
+                                {
+                                    "properties": {
+                                        "live_meeting": {
+                                            "$ref": "#/definitions/MeetingMetric"
+                                        },
+                                        "past_meetings": {
+                                            "type": "object",
+                                            "allOf": [
+                                                {
+                                                    "properties": {
+                                                        "from": {
+                                                            "type": "string",
+                                                            "format": "date",
+                                                            "description": "Start date for this report"
+                                                        },
+                                                        "to": {
+                                                            "type": "string",
+                                                            "format": "date",
+                                                            "description": "End date for this report"
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "$ref": "#/definitions/Pagination"
+                                                },
+                                                {
+                                                    "properties": {
+                                                        "meetings": {
+                                                            "type": "array",
+                                                            "description": "Array of meeting objects",
+                                                            "items": {
+                                                                "$ref": "#/definitions/MeetingMetric"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/metrics/crc": {
+            "get": {
+                "summary": "Retrieve CRC Port Usage",
+                "description": "Get CRC Port usage hour by hour for a specified time period <aside class='notice'>We will report a maximum of one month. For example, if \"from\" is set to \"2015-08-05\" and \"to\" is \"2015-10-10\" we will adjust \"from\" to \"2015-09-10\"</aside>",
+                "tags": [
+                    "Dashboards"
+                ],
+                "operationId": "dashboardCRC",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/FromDate"
+                    },
+                    {
+                        "$ref": "#/parameters/ToDate"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "CRC Usage returned",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "properties": {
+                                        "from": {
+                                            "type": "string",
+                                            "format": "date",
+                                            "description": "Start date for this report"
+                                        },
+                                        "to": {
+                                            "type": "string",
+                                            "format": "date",
+                                            "description": "End date for this report"
+                                        }
+                                    }
+                                },
+                                {
+                                    "properties": {
+                                        "crc_ports_usage": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "date_time": {
+                                                        "type": "string",
+                                                        "description": "Date and time"
+                                                    },
+                                                    "crc_ports_hour_usage": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "properties": {
+                                                                "hour": {
+                                                                    "type": "string"
+                                                                },
+                                                                "max_usage": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "total_usage": {
+                                                                    "type": "integer"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/metrics/im": {
+            "get": {
+                "summary": "Retrieve IM",
+                "description": "Retrieve metrics of Zoom IM",
+                "tags": [
+                    "Dashboards"
+                ],
+                "operationId": "dashboardIM",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/FromDate"
+                    },
+                    {
+                        "$ref": "#/parameters/ToDate"
+                    },
+                    {
+                        "$ref": "#/parameters/PageSize"
+                    },
+                    {
+                        "$ref": "#/parameters/PageNumber"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "IM setails returned",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "properties": {
+                                        "from": {
+                                            "type": "string",
+                                            "format": "date",
+                                            "description": "Start date for this report"
+                                        },
+                                        "to": {
+                                            "type": "string",
+                                            "format": "date",
+                                            "description": "End date for this report"
+                                        }
+                                    }
+                                },
+                                {
+                                    "$ref" : "#/definitions/Pagination"
+                                },
+                                {
+                                    "properties": {
+                                        "users": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "user_id": {
+                                                        "type": "string",
+                                                        "description": "User ID"
+                                                    },
+                                                    "user_name": {
+                                                        "type": "string",
+                                                        "description": "User display name"
+                                                    },
+                                                    "email": {
+                                                        "type": "string",
+                                                        "description": "User email"
+                                                    },
+                                                    "total_send": {
+                                                        "type": "integer"
+                                                    },
+                                                    "total_receive": {
+                                                        "type": "integer"
+                                                    },
+                                                    "group_send": {
+                                                        "type": "integer"
+                                                    },
+                                                    "group_receive": {
+                                                        "type": "integer"
+                                                    },
+                                                    "calls_send": {
+                                                        "type": "integer"
+                                                    },
+                                                    "calls_receive": {
+                                                        "type": "integer"
+                                                    },
+                                                    "files_send": {
+                                                        "type": "integer"
+                                                    },
+                                                    "files_receive": {
+                                                        "type": "integer"
+                                                    },
+                                                    "images_send": {
+                                                        "type": "integer"
+                                                    },
+                                                    "images_receive": {
+                                                        "type": "integer"
+                                                    },
+                                                    "voice_send": {
+                                                        "type": "integer"
+                                                    },
+                                                    "voice_receive": {
+                                                        "type": "integer"
+                                                    },
+                                                    "videos_send": {
+                                                        "type": "integer"
+                                                    },
+                                                    "videos_receive": {
+                                                        "type": "integer"
+                                                    },
+                                                    "emoji_send": {
+                                                        "type": "integer"
+                                                    },
+                                                    "emoji_receive": {
+                                                        "type": "integer"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/report/daily": {
+            "get": {
+                "summary": "Retrieve daily report",
+                "description": "Retrieve daily report for one month, can only get daily report for recent 6 months.",
+                "tags": [
+                    "Reports"
+                ],
+                "operationId": "reportDaily",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "year",
+                        "description": "Year for this report",
+                        "type": "integer"
+                    },
+                    {
+                        "in": "query",
+                        "name": "month",
+                        "description": "Month for this report",
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Daily Report Returned",
+                        "schema": {
+                            "properties": {
+                                "year": {
+                                    "type": "integer",
+                                    "description": "Year for this report"
+                                },
+                                "month": {
+                                    "type": "integer",
+                                    "description": "Month for this report"
+                                },
+                                "dates": {
+                                    "type": "object",
+                                    "description": "Array of date objects",
+                                    "properties": {
+                                        "date": {
+                                            "type": "string",
+                                            "format": "date",
+                                            "description": "Date for this object"
+                                        },
+                                        "new_users": {
+                                            "type": "integer",
+                                            "description": "Number of new users on this date"
+                                        },
+                                        "meetings": {
+                                            "type": "integer",
+                                            "description": "Number of meetings on this date"
+                                        },
+                                        "participants": {
+                                            "type": "integer",
+                                            "description": "Number of participants on this date"
+                                        },
+                                        "meeting_minutes": {
+                                            "type": "integer",
+                                            "description": "Number of meeting minutes on this date"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/report/users": {
+            "get": {
+                "summary": "Retrieve hosts report",
+                "description": "Retrieve active or inactive hosts report for a specified period",
+                "tags": [
+                    "Reports"
+                ],
+                "operationId": "reportUsers",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "type",
+                        "description": "Active hosts or inactive hosts",
+                        "type": "string",
+                        "enum": [
+                            "active",
+                            "inactive"
+                        ],
+                        "x-enum-descriptions": [
+                            "Active hosts",
+                            "Inactive hosts"
+                        ]
+                    },
+                    {
+                        "$ref": "#/parameters/FromDate"
+                    },
+                    {
+                        "$ref": "#/parameters/ToDate"
+                    },
+                    {
+                        "$ref": "#/parameters/PageSize"
+                    },
+                    {
+                        "$ref": "#/parameters/PageNumber"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Active/Inactive Hosts Report Returned",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "properties": {
+                                        "from": {
+                                            "type": "string",
+                                            "format": "date",
+                                            "description": "Start date for this report"
+                                        },
+                                        "to": {
+                                            "type": "string",
+                                            "format": "date",
+                                            "description": "End date for this report"
+                                        }
+                                    }
+                                },
+                                {
+                                    "$ref": "#/definitions/Pagination"
+                                },
+                                {
+                                    "properties": {
+                                        "total_meetings": {
+                                            "type": "integer",
+                                            "description": "Number of meetings for this range"
+                                        },
+                                        "total_participants": {
+                                            "type": "integer",
+                                            "description": "Number of participants for this range"
+                                        },
+                                        "total_meeting_minutes": {
+                                            "type": "integer",
+                                            "description": "Number of meeting minutes for this range"
+                                        },
+                                        "users": {
+                                            "type": "array",
+                                            "description": "Array of user objects",
+                                            "items": {
+                                                "properties": {
+                                                    "user_id": {
+                                                        "type": "string",
+                                                        "format": "uuid",
+                                                        "description": "User ID"
+                                                    },
+                                                    "email": {
+                                                        "type": "string",
+                                                        "description": "User email"
+                                                    },
+                                                    "user_name": {
+                                                        "type": "string",
+                                                        "description": "User display name"
+                                                    },
+                                                    "type": {
+                                                        "type": "integer",
+                                                        "description": "User type"
+                                                    },
+                                                    "dept": {
+                                                        "type": "string",
+                                                        "description": "User department"
+                                                    },
+                                                    "meetings": {
+                                                        "type": "integer",
+                                                        "description": "Number of meetings for user"
+                                                    },
+                                                    "participants": {
+                                                        "type": "integer",
+                                                        "description": "Number of participants in meetings for user"
+                                                    },
+                                                    "meeting_minutes": {
+                                                        "type": "integer",
+                                                        "description": "Number of meeting minutes for user"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/report/users/{userId}/meetings": {
+            "get": {
+                "summary": "Retrieve meetings report",
+                "description": "Retrieve ended meetings report for a specified period",
+                "tags": [
+                    "Reports"
+                ],
+                "operationId": "reportMeetings",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/UserId"
+                    },
+                    {
+                        "$ref": "#/parameters/FromDate"
+                    },
+                    {
+                        "$ref": "#/parameters/ToDate"
+                    },
+                    {
+                        "$ref": "#/parameters/PageSize"
+                    },
+                    {
+                        "$ref": "#/parameters/PageNumber"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Active/Inactive Hosts Report Returned",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "properties": {
+                                        "from": {
+                                            "type": "string",
+                                            "format": "date",
+                                            "description": "Start date for this report"
+                                        },
+                                        "to": {
+                                            "type": "string",
+                                            "format": "date",
+                                            "description": "End date for this report"
+                                        }
+                                    }
+                                },
+                                {
+                                    "$ref": "#/definitions/Pagination"
+                                },
+                                {
+                                    "properties": {
+                                        "meetings": {
+                                            "type": "array",
+                                            "description": "Array of meeting objects",
+                                            "items": {
+                                                "properties": {
+                                                    "user_id": {
+                                                        "type": "string",
+                                                        "format": "uuid",
+                                                        "description": "Meeting UUID"
+                                                    },
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "description": "Meeting ID"
+                                                    },
+                                                    "type": {
+                                                        "type": "integer",
+                                                        "description": "Meeting type"
+                                                    },
+                                                    "topic": {
+                                                        "type": "string",
+                                                        "description": "Meeting topic"
+                                                    },
+                                                    "user_name": {
+                                                        "type": "string",
+                                                        "description": "User display name"
+                                                    },
+                                                    "user_email": {
+                                                        "type": "string",
+                                                        "description": "User email"
+                                                    },
+                                                    "start_time": {
+                                                        "type": "string",
+                                                        "format": "date-time",
+                                                        "description": "Meeting start time"
+                                                    },
+                                                    "end_time": {
+                                                        "type": "string",
+                                                        "format": "date-time",
+                                                        "description": "Meeting end time"
+                                                    },
+                                                    "duration": {
+                                                        "type": "integer",
+                                                        "description": "Meeting duration"
+                                                    },
+                                                    "total_minutes": {
+                                                        "type": "integer",
+                                                        "description": "Number of meeting minutes"
+                                                    },
+                                                    "participant_count": {
+                                                        "type": "integer",
+                                                        "description": "Number of meeting participants"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                }
+            }
+        },
+        "/report/meetings/{meetingId}/participants": {
+            "get": {
+                "summary": "Retrieve meeting participants report",
+                "description": "Retrieve ended meeting participants report",
+                "tags": [
+                    "Reports"
+                ],
+                "operationId": "reportMeetingParticipants",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/MeetingId"
+                    },
+                    {
+                        "$ref": "#/parameters/PageSize"
+                    },
+                    {
+                        "$ref": "#/parameters/PageNumber"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Meeting Participants Report Returned",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/Pagination"
+                                },
+                                {
+                                    "properties": {
+                                        "participants": {
+                                            "type": "array",
+                                            "description": "Array of meeting participant objects",
+                                            "items": {
+                                                "properties": {
+                                                    "name": {
+                                                        "type": "string",
+                                                        "description": "Participant display name"
+                                                    },
+                                                    "user_email": {
+                                                        "type": "string",
+                                                        "description": "Participant email"
+                                                    },
+                                                    "join_time": {
+                                                        "type": "string",
+                                                        "format": "date-time",
+                                                        "description": "Participant join time"
+                                                    },
+                                                    "leave_time": {
+                                                        "type": "string",
+                                                        "format": "date-time",
+                                                        "description": "Participant leave time"
+                                                    },
+                                                    "duration": {
+                                                        "type": "integer",
+                                                        "description": "Participant duration"
+                                                    },
+                                                    "attentiveness_score": {
+                                                        "type": "integer",
+                                                        "description": "Participant attentiveness score"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "404": {
+                        "description": "Meeting not found"
+                    }
+                }
+            }
+        },
+        "/report/webinars/{webinarId}/participants": {
+            "get": {
+                "summary": "Retrieve webinar participants report",
+                "description": "Retrieve ended webinar participants report",
+                "tags": [
+                    "Reports"
+                ],
+                "operationId": "reportWebinarParticipants",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/WebinarId"
+                    },
+                    {
+                        "$ref": "#/parameters/PageSize"
+                    },
+                    {
+                        "$ref": "#/parameters/PageNumber"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Meeting Participants Report Returned",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/Pagination"
+                                },
+                                {
+                                    "properties": {
+                                        "participants": {
+                                            "type": "array",
+                                            "description": "Array of webinar participant objects",
+                                            "items": {
+                                                "properties": {
+                                                    "name": {
+                                                        "type": "string",
+                                                        "description": "Participant display name"
+                                                    },
+                                                    "user_email": {
+                                                        "type": "string",
+                                                        "description": "Participant email"
+                                                    },
+                                                    "join_time": {
+                                                        "type": "string",
+                                                        "format": "date-time",
+                                                        "description": "Participant join time"
+                                                    },
+                                                    "leave_time": {
+                                                        "type": "string",
+                                                        "format": "date-time",
+                                                        "description": "Participant leave time"
+                                                    },
+                                                    "duration": {
+                                                        "type": "integer",
+                                                        "description": "Participant duration"
+                                                    },
+                                                    "attentiveness_score": {
+                                                        "type": "integer",
+                                                        "description": "Participant attentiveness score"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "404": {
+                        "description": "Webinar not found"
+                    }
+                }
+            }
+        },
+        "/report/webinars/{webinarId}/polls": {
+            "get": {
+                "summary": "Retrieve webinar polls report",
+                "description": "Retrieve ended webinar polls report",
+                "tags": [
+                    "Reports"
+                ],
+                "operationId": "reportWebinarPolls",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/WebinarId"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Webinar Polls Report Returned",
+                        "schema": {
+                            "properties": {
+                                "id": {
+                                    "type": "integer",
+                                    "description": "Webinar ID"
+                                },
+                                "uuid": {
+                                    "type": "string",
+                                    "format": "uuid",
+                                    "description": "Webinar UUID"
+                                },
+                                "start_time": {
+                                    "type": "string",
+                                    "format": "date-time",
+                                    "description": "Webinar start time"
+                                },
+                                "questions": {
+                                    "type": "array",
+                                    "description": "Array of webinar question objects",
+                                    "items": {
+                                        "properties": {
+                                            "name": {
+                                                "type": "string",
+                                                "description": "Participant display name"
+                                            },
+                                            "email": {
+                                                "type": "string",
+                                                "description": "Participant email"
+                                            },
+                                            "question_details": {
+                                                "type": "array",
+                                                "description": "Array of questions from user",
+                                                "items": {
+                                                    "properties": {
+                                                        "question": {
+                                                            "type": "string",
+                                                            "description": "Asked question"
+                                                        },
+                                                        "answer": {
+                                                            "type": "string",
+                                                            "description": "Given answer"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Webinar not found"
+                    }
+                }
+            }
+        },
+        "/report/webinars/{webinarId}/qa": {
+            "get": {
+                "summary": "Retrieve webinar Q&A report",
+                "description": "Retrieve ended webinar Q&A report",
+                "tags": [
+                    "Reports"
+                ],
+                "operationId": "reportWebinarQA",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/WebinarId"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Webinar Q&A Report Returned",
+                        "schema": {
+                            "properties": {
+                                "id": {
+                                    "type": "integer",
+                                    "description": "Webinar ID"
+                                },
+                                "uuid": {
+                                    "type": "string",
+                                    "format": "uuid",
+                                    "description": "Webinar UUID"
+                                },
+                                "start_time": {
+                                    "type": "string",
+                                    "format": "date-time",
+                                    "description": "Webinar start time"
+                                },
+                                "questions": {
+                                    "type": "array",
+                                    "description": "Array of webinar question objects",
+                                    "items": {
+                                        "properties": {
+                                            "name": {
+                                                "type": "string",
+                                                "description": "Participant display name"
+                                            },
+                                            "email": {
+                                                "type": "string",
+                                                "description": "Participant email"
+                                            },
+                                            "question_details": {
+                                                "type": "array",
+                                                "description": "Array of questions from user",
+                                                "items": {
+                                                    "properties": {
+                                                        "question": {
+                                                            "type": "string",
+                                                            "description": "Asked question"
+                                                        },
+                                                        "answer": {
+                                                            "type": "string",
+                                                            "description": "Given answer"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Webinar not found"
+                    }
+                }
+            }
+        },
+        "/report/telephone": {
+            "get": {
+                "summary": "Retrieve telephone report",
+                "description": "Retrieve telephone report for a specified period",
+                "tags": [
+                    "Reports"
+                ],
+                "operationId": "reportTelephone",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "type",
+                        "description": "Audio type",
+                        "type": "string",
+                        "enum": [
+                            1,
+                            2
+                        ],
+                        "x-enum-descriptions": [
+                            "Toll-free Call-in & Call-out",
+                            "Toll"
+                        ],
+                        "default": 1
+                    },
+                    {
+                        "$ref": "#/parameters/FromDate"
+                    },
+                    {
+                        "$ref": "#/parameters/ToDate"
+                    },
+                    {
+                        "$ref": "#/parameters/PageSize"
+                    },
+                    {
+                        "$ref": "#/parameters/PageNumber"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Telephone Report Returned",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "properties": {
+                                        "from": {
+                                            "type": "string",
+                                            "format": "date",
+                                            "description": "Start date for this report"
+                                        },
+                                        "to": {
+                                            "type": "string",
+                                            "format": "date",
+                                            "description": "End date for this report"
+                                        }
+                                    }
+                                },
+                                {
+                                    "$ref": "#/definitions/Pagination"
+                                },
+                                {
+                                    "properties": {
+                                        "telephony_usage": {
+                                            "type": "array",
+                                            "description": "Array of telephony objects",
+                                            "items": {
+                                                "properties": {
+                                                    "meeting_id": {
+                                                        "type": "integer",
+                                                        "description": "Meeting ID"
+                                                    },
+                                                    "phone_number": {
+                                                        "type": "string",
+                                                        "description": "Telephone Number"
+                                                    },
+                                                    "host_name": {
+                                                        "type": "string",
+                                                        "description": "User display name"
+                                                    },
+                                                    "host_email": {
+                                                        "type": "string",
+                                                        "description": "User email"
+                                                    },
+                                                    "dept": {
+                                                        "type": "string",
+                                                        "description": "User department"
+                                                    },
+                                                    "start_time": {
+                                                        "type": "string",
+                                                        "format": "date-time",
+                                                        "description": "Meeting start time"
+                                                    },
+                                                    "end_time": {
+                                                        "type": "string",
+                                                        "format": "date-time",
+                                                        "description": "Meeting end time"
+                                                    },
+                                                    "duration": {
+                                                        "type": "integer",
+                                                        "description": "Meeting duration"
+                                                    },
+                                                    "total": {
+                                                        "type": "number",
+                                                        "format": "float",
+                                                        "description": "Total"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
                     }
                 }
             }
@@ -1423,7 +3147,7 @@
                         "name": "body",
                         "required": true,
                         "description": "User",
-                        "schema" : {
+                        "schema": {
                             "type": "object",
                             "properties": {
                                 "action": {
@@ -1455,7 +3179,7 @@
                                                 2,
                                                 3
                                             ],
-                                            "x-enum-descriptions" : [
+                                            "x-enum-descriptions": [
                                                 "basic",
                                                 "pro",
                                                 "corp"
@@ -2181,7 +3905,7 @@
                 "operationId": "webinar",
                 "parameters": [
                     {
-                        "$ref": "#/parameters/WebinarNumber"
+                        "$ref": "#/parameters/WebinarId"
                     }
                 ],
                 "responses": {
@@ -2226,7 +3950,7 @@
                 "operationId": "webinarUpdate",
                 "parameters": [
                     {
-                        "$ref": "#/parameters/WebinarNumber"
+                        "$ref": "#/parameters/WebinarId"
                     },
                     {
                         "in": "body",
@@ -2256,7 +3980,7 @@
                 "operationId": "webinarDelete",
                 "parameters": [
                     {
-                        "$ref": "#/parameters/WebinarNumber"
+                        "$ref": "#/parameters/WebinarId"
                     }
                 ],
                 "responses": {
@@ -2279,7 +4003,7 @@
                 "operationId": "webinarStatus",
                 "parameters": [
                     {
-                        "$ref": "#/parameters/WebinarNumber"
+                        "$ref": "#/parameters/WebinarId"
                     },
                     {
                         "in": "body",
@@ -2320,10 +4044,10 @@
                 "operationId": "webinarPanelists",
                 "parameters": [
                     {
-                        "$ref": "#/parameters/WebinarNumber"
+                        "$ref": "#/parameters/WebinarId"
                     },
                     {
-                        "$ref": "#/parameters/OccurenceId"
+                        "$ref": "#/parameters/OccurrenceId"
                     },
                     {
                         "$ref": "#/parameters/PageSize"
@@ -2353,7 +4077,7 @@
                 "operationId": "webinarPanelistCreate",
                 "parameters": [
                     {
-                        "$ref": "#/parameters/WebinarNumber"
+                        "$ref": "#/parameters/WebinarId"
                     },
                     {
                         "in": "body",
@@ -2395,7 +4119,7 @@
                 "operationId": "webinarPanelistsDelete",
                 "parameters": [
                     {
-                        "$ref": "#/parameters/WebinarNumber"
+                        "$ref": "#/parameters/WebinarId"
                     }
                 ],
                 "responses": {
@@ -2418,7 +4142,7 @@
                 "operationId": "webinarPanelistDelete",
                 "parameters": [
                     {
-                        "$ref": "#/parameters/WebinarNumber"
+                        "$ref": "#/parameters/WebinarId"
                     },
                     {
                         "in": "path",
@@ -2448,10 +4172,10 @@
                 "operationId": "webinarRegistrants",
                 "parameters": [
                     {
-                        "$ref": "#/parameters/WebinarNumber"
+                        "$ref": "#/parameters/WebinarId"
                     },
                     {
-                        "$ref": "#/parameters/OccurenceId"
+                        "$ref": "#/parameters/OccurrenceId"
                     },
                     {
                         "$ref": "#/parameters/RegistrantStatus"
@@ -2484,7 +4208,7 @@
                 "operationId": "webinarRegistrantCreate",
                 "parameters": [
                     {
-                        "$ref": "#/parameters/WebinarNumber"
+                        "$ref": "#/parameters/WebinarId"
                     },
                     {
                         "in": "body",
@@ -2528,7 +4252,7 @@
                 "operationId": "webinarRegistrantStatus",
                 "parameters": [
                     {
-                        "$ref": "#/parameters/WebinarNumber"
+                        "$ref": "#/parameters/WebinarId"
                     },
                     {
                         "$ref": "#/parameters/RegistrantId"
@@ -2571,42 +4295,64 @@
         "AccountId": {
             "in": "path",
             "name": "accountId",
-            "description" : "The account ID",
+            "description": "The account ID",
             "type": "string",
             "required": true
+        },
+        "FromDate": {
+            "in": "query",
+            "name": "from",
+            "description": "Start Date",
+            "type": "string",
+            "format": "date"
         },
         "GroupId": {
             "in": "path",
             "name": "groupId",
-            "description" : "The group ID",
+            "description": "The group ID",
             "type": "string",
             "required": true
         },
-        "MeetingID": {
+        "MeetingId": {
             "in": "path",
             "name": "meetingId",
-            "description" : "The meeting ID",
+            "description": "The meeting ID",
             "type": "integer",
             "required": true
         },
         "MeetingType": {
             "in": "query",
             "name": "type",
-            "description" : "The meeting type",
+            "description": "The meeting type",
             "type": "string",
             "enum": [
                 "scheduled",
                 "live"
             ],
-            "x-enum-descriptions" : [
+            "x-enum-descriptions": [
                 "all the scheduled meetings",
                 "all the live meetings"
             ]
         },
-        "OccurenceId": {
+        "MeetingTypePast": {
+            "in": "query",
+            "name": "type",
+            "description": "The meeting type",
+            "type": "string",
+            "default": "live",
+            "enum": [
+                "past",
+                "live"
+            ],
+            "x-enum-descriptions": [
+                "all the past meetings",
+                "all the live meetings"
+            ]
+        },
+        "OccurrenceId": {
             "in": "query",
             "name": "occurrence_id",
-            "description" : "The the meeting occurence ID",
+            "description": "The the meeting occurence ID",
             "type": "string"
         },
         "PageNumber": {
@@ -2623,17 +4369,24 @@
             "type": "integer",
             "default": 30
         },
+        "ParticipantId": {
+            "in": "path",
+            "name": "participantId",
+            "description": "The participant ID",
+            "type": "string",
+            "required": true
+        },
         "RegistrantId": {
             "in": "path",
             "name": "registrantId",
-            "description" : "The registrant ID",
+            "description": "The registrant ID",
             "type": "string",
             "required": true
         },
         "RegistrantStatus": {
             "in": "query",
             "name": "status",
-            "description" : "The registrant status",
+            "description": "The registrant status",
             "type": "string",
             "default": "approved",
             "enum": [
@@ -2641,13 +4394,20 @@
                 "pending",
                 "denied"
             ],
-            "x-enum-descriptions" : [
+            "x-enum-descriptions": [
                 "registrants status is approved",
                 "registrants status is pending",
                 "registrants status is denied"
             ]
         },
-        "TSPId" : {
+        "ToDate": {
+            "in": "query",
+            "name": "to",
+            "description": "End Date",
+            "type": "string",
+            "format": "date"
+        },
+        "TSPId": {
             "name": "tspId",
             "description": "TSP ID",
             "in": "path",
@@ -2657,14 +4417,21 @@
         "UserId": {
             "in": "path",
             "name": "userId",
-            "description" : "The user ID or email address",
+            "description": "The user ID or email address",
             "type": "string",
             "required": true
         },
-        "WebinarNumber": {
+        "WebinarId": {
             "in": "path",
             "name": "webinarId",
-            "description" : "The webinar ID",
+            "description": "The webinar ID",
+            "type": "integer",
+            "required": true
+        },
+        "ZoomRoomId": {
+            "in": "path",
+            "name": "zoomroomId",
+            "description": "The Zoom Room ID",
             "type": "integer",
             "required": true
         }
@@ -2673,7 +4440,7 @@
         "Account": {
             "type": "object",
             "description": "The account object represents an account on zoom. The person who created the account, or who the account was created for, is referred to as the Account owner. You can read more about the Zoom account structure <a href='https://developer.zoom.us/blog/a-brief-look-at-zoom-account-structures/' target='_blank'>here</a>.",
-            "required" : [
+            "required": [
                 "email",
                 "first_name",
                 "last_name",
@@ -2806,7 +4573,7 @@
                 },
                 "plan_large_meeting": {
                     "type": "array",
-                    "description" : "Additional Large Meeting Plans",
+                    "description": "Additional Large Meeting Plans",
                     "items": {
                         "$ref": "#/definitions/AccountPlan"
                     }
@@ -2820,32 +4587,32 @@
                 },
                 "plan_recording": {
                     "type": "string",
-                    "description" : "Additional Cloud Recording Plan"
+                    "description": "Additional Cloud Recording Plan"
                 },
                 "plan_audio": {
                     "type": "object",
-                    "description" : "Additional Audio Conferencing Plan type",
+                    "description": "Additional Audio Conferencing Plan type",
                     "properties": {
                         "type": {
                             "type": "string",
-                            "description" : "Additional Audio Conferencing Plan type"
+                            "description": "Additional Audio Conferencing Plan type"
                         },
                         "tollfree_country": {
                             "type": "string",
-                            "description" : "Toll-free countries, multiple value separated by comma"
+                            "description": "Toll-free countries, multiple value separated by comma"
                         },
                         "premium_country": {
                             "type": "string",
-                            "description" : "Premium countries, multiple value separated by comma"
+                            "description": "Premium countries, multiple value separated by comma"
                         },
                         "callout": {
                             "type": "boolean",
                             "description": "Call-out type",
-                            "enum" : [
+                            "enum": [
                                 1,
                                 2
                             ],
-                            "x-enum-descriptions" : [
+                            "x-enum-descriptions": [
                                 "US-only",
                                 "US and International"
                             ]
@@ -2874,14 +4641,15 @@
                 "zoom_rooms": {
                     "$ref": "#/definitions/AccountSettingsZoomRooms"
                 },
-                "_security" : {
+                "_security": {
                     "$ref": "#/definitions/AccountSettingsSecurity"
                 },
                 "recording": {
                     "$ref": "#/definitions/AccountSettingsRecording"
                 },
-                "telephony" : {
-                    "$ref": "#/definitions/AccountSettingsTelephony"},
+                "telephony": {
+                    "$ref": "#/definitions/AccountSettingsTelephony"
+                },
                 "integration": {
                     "$ref": "#/definitions/AccountSettingsIntegration"
                 },
@@ -2904,10 +4672,10 @@
                     "description": "Participants Video",
                     "default": false
                 },
-                "audio_type" : {
-                    "type" : "string",
+                "audio_type": {
+                    "type": "string",
                     "description": "Audio Type",
-                    "default" : "both"
+                    "default": "both"
                 },
                 "join_before_host": {
                     "type": "boolean",
@@ -3596,13 +5364,91 @@
                 }
             ]
         },
+        "MeetingMetric": {
+            "type": "object",
+            "title": "Meeting Metrics",
+            "description": "Meeting metric details",
+            "properties": {
+                "uuid": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "Meeting UUID"
+                },
+                "id": {
+                    "type": "integer",
+                    "description": "Meeting ID"
+                },
+                "topic": {
+                    "type": "string",
+                    "description": "Meeting topic"
+                },
+                "host": {
+                    "type": "string",
+                    "description": "User display name"
+                },
+                "email": {
+                    "type": "string",
+                    "description": "User email"
+                },
+                "user_type": {
+                    "type": "string",
+                    "description": "User type"
+                },
+                "start_time": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Meeting start time"
+                },
+                "end_time": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Meeting end time"
+                },
+                "duration": {
+                    "type": "string",
+                    "description": "Meeting duration"
+                },
+                "participants": {
+                    "type": "integer",
+                    "description": "Meeting participant count"
+                },
+                "has_pstn": {
+                    "type": "boolean",
+                    "description": ""
+                },
+                "has_voip": {
+                    "type": "boolean",
+                    "description": ""
+                },
+                "has_3rd_party_audio": {
+                    "type": "boolean",
+                    "description": ""
+                },
+                "has_video": {
+                    "type": "boolean",
+                    "description": ""
+                },
+                "has_screen_share": {
+                    "type": "boolean",
+                    "description": ""
+                },
+                "has_recording": {
+                    "type": "boolean",
+                    "description": ""
+                },
+                "has_sip": {
+                    "type": "boolean",
+                    "description": ""
+                }
+            }
+        },
         "MeetingSettings": {
             "type": "object",
             "description": "Meeting Settings",
             "properties": {
                 "host_video": {
                     "type": "boolean",
-                    "description" : "Start video when host join meeting",
+                    "description": "Start video when host join meeting",
                     "default": true
                 },
                 "participant_video": {
@@ -3656,7 +5502,7 @@
                 },
                 "registration_type": {
                     "type": "integer",
-                    "description" : "Registration type. Used for recurring meeting with fixed time only.",
+                    "description": "Registration type. Used for recurring meeting with fixed time only.",
                     "default": 1,
                     "enum": [
                         1,
@@ -3671,7 +5517,7 @@
                 },
                 "audio": {
                     "type": "string",
-                    "description"  : "Meeting audio options",
+                    "description": "Meeting audio options",
                     "default": "both",
                     "enum": [
                         "both",
@@ -3792,19 +5638,196 @@
                 }
             ]
         },
+        "QOSAudio": {
+            "type": "object",
+            "title": "QOS Object",
+            "description": "Quality of Service object",
+            "properties": {
+                "bitrate": {
+                    "type": "string",
+                    "description": "Bitrate"
+                },
+                "latency": {
+                    "type": "string",
+                    "description": "Latency"
+                },
+                "jitter": {
+                    "type": "string",
+                    "description": "Jitter"
+                },
+                "avg_loss": {
+                    "type": "string",
+                    "description": "Average Loss"
+                },
+                "max_loss": {
+                    "type": "string",
+                    "description": "Max Loss"
+                }
+            }
+        },
+        "QOSParticipant": {
+            "type": "object",
+            "title": "Participant QOS",
+            "description": "Participant QOS",
+            "properties": {
+                "user_id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "Participant ID"
+                },
+                "user_name": {
+                    "type": "string",
+                    "description": "Participant display name"
+                },
+                "device": {
+                    "type": "string",
+                    "description": "Participant device"
+                },
+                "ip_address": {
+                    "type": "string",
+                    "description": "Participant IP Address"
+                },
+                "location": {
+                    "type": "string",
+                    "description": "Participant location"
+                },
+                "join_time": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Participant join time"
+                },
+                "leave_time": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Participant leave time"
+                },
+                "pc_name": {
+                    "type": "string",
+                    "description": "Participant PC name"
+                },
+                "domain": {
+                    "type": "string",
+                    "description": "Participant domain"
+                },
+                "mac_addr": {
+                    "type": "string",
+                    "description": "Participant MAC Address"
+                },
+                "harddisk_id": {
+                    "type": "string",
+                    "description": "Participant hard disk id"
+                },
+                "version": {
+                    "type": "string",
+                    "description": "Participant version"
+                },
+                "user_qos": {
+                    "type": "object",
+                    "description": "User quality of service",
+                    "properties": {
+                        "date_time": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Datetime of QOS"
+                        },
+                        "audio_input": {
+                            "$ref": "#/definitions/QOSAudio"
+                        },
+                        "audio_output": {
+                            "$ref": "#/definitions/QOSAudio"
+                        },
+                        "video_input": {
+                            "$ref": "#/definitions/QOSVideo"
+                        },
+                        "video_output": {
+                            "$ref": "#/definitions/QOSVideo"
+                        },
+                        "as_input": {
+                            "$ref": "#/definitions/QOSVideo"
+                        },
+                        "as_output": {
+                            "$ref": "#/definitions/QOSVideo"
+                        },
+                        "cpu_usage": {
+                            "properties": {
+                                "zoom_min_cpu_usage": {
+                                    "type": "string",
+                                    "description": "Zoom Minimum CPU Usage"
+                                },
+                                "zoom_avg_cpu_usage": {
+                                    "type": "string",
+                                    "description": "Zoom Average CPU Usage"
+                                },
+                                "zoom_max_cpu_usage": {
+                                    "type": "string",
+                                    "description": "Zoom Maximum CPU Usage"
+                                },
+                                "system_max_cpu_usage": {
+                                    "type": "string",
+                                    "description": "System Maximum CPU Usage"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "QOSParticipantList": {
+            "type": "object",
+            "title": "Participant QOS List",
+            "description": "Participant QOS List",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/Pagination"
+                },
+                {
+                    "properties": {
+                        "participants": {
+                            "type": "array",
+                            "description": "Array of user objects",
+                            "items": {
+                                "$ref": "#/definitions/QOSParticipant"
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "QOSVideo": {
+            "type": "object",
+            "title": "QOS Object",
+            "description": "Quality of Service object",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/QOSAudio"
+                },
+                {
+                    "properties": {
+                        "resolution": {
+                            "type": "string",
+                            "description": "Resolution"
+                        },
+                        "frame_rate": {
+                            "type": "string",
+                            "description": "Frame Rate"
+                        }
+                    }
+                }
+            ]
+        },
         "Recurrence": {
             "type": "object",
             "description": "Recurrence object",
             "properties": {
                 "type": {
                     "type": "integer",
-                    "description" : "Recurrence meeting type",
-                    "enum" : [
+                    "description": "Recurrence meeting type",
+                    "enum": [
                         1,
                         2,
                         3
                     ],
-                    "x-enum-descriptions" : [
+                    "x-enum-descriptions": [
                         "Daily",
                         "Weekly",
                         "Monthly"
@@ -3812,11 +5835,11 @@
                 },
                 "repeat_interval": {
                     "type": "integer",
-                    "description" : "Recurrence meeting repeat interval. For a Daily Meeting, max of 90. For a Weekly Meeting, max of 12. For a Monthly Meeting, max of 3."
+                    "description": "Recurrence meeting repeat interval. For a Daily Meeting, max of 90. For a Weekly Meeting, max of 12. For a Monthly Meeting, max of 3."
                 },
                 "weekly_days": {
                     "type": "integer",
-                    "description" : "Recurrence Meeting Occurs on week days, multiple value separated by comma",
+                    "description": "Recurrence Meeting Occurs on week days, multiple value separated by comma",
                     "enum": [
                         1,
                         2,
@@ -3838,19 +5861,19 @@
                 },
                 "monthly_day": {
                     "type": "integer",
-                    "description" : "Recurrence Meeting Occurs on a month day. The value range is from 1 to 31"
+                    "description": "Recurrence Meeting Occurs on a month day. The value range is from 1 to 31"
                 },
                 "monthly_week": {
                     "type": "integer",
                     "description": "Recurrence Meeting Occurs on the week of a month.",
-                    "enum" : [
+                    "enum": [
                         -1,
                         1,
                         2,
                         3,
                         4
                     ],
-                    "x-enum-descriptions" : [
+                    "x-enum-descriptions": [
                         "Last week",
                         "First week",
                         "Second week",
@@ -3860,8 +5883,8 @@
                 },
                 "monthly_week_day": {
                     "type": "integer",
-                    "description" : "Recurrence Meeting Occurs on the week day of a month",
-                    "enum" : [
+                    "description": "Recurrence Meeting Occurs on the week day of a month",
+                    "enum": [
                         1,
                         2,
                         3,
@@ -3882,8 +5905,8 @@
                 },
                 "end_times": {
                     "type": "integer",
-                    "description" : "Recurrence Meeting End occurrences times",
-                    "default" : 1,
+                    "description": "Recurrence Meeting End occurrences times",
+                    "default": 1,
                     "maximum": 50
                 },
                 "end_date_time": {
@@ -3953,7 +5976,7 @@
                 "purchasing_time_frame": {
                     "type": "string",
                     "description": "Purchasing Time Frame",
-                    "enum" : [
+                    "enum": [
                         "Within a month",
                         "1-3 months",
                         "4-6 months",
@@ -3964,7 +5987,7 @@
                 "role_in_purchase_process": {
                     "type": "string",
                     "description": "Role in Purchase Process",
-                    "enum" : [
+                    "enum": [
                         "Decision Maker",
                         "Evaluator/Recommender",
                         "Influencer",
@@ -3974,7 +5997,7 @@
                 "no_of_employees": {
                     "type": "string",
                     "description": "Number of Employees",
-                    "enum" : [
+                    "enum": [
                         "1-20",
                         "21-50",
                         "51-100",
@@ -3983,7 +6006,6 @@
                         "1,001-5,000",
                         "5,001-10,000",
                         "More than 10,000"
-
                     ]
                 },
                 "comments": {
@@ -3994,7 +6016,7 @@
                     "type": "array",
                     "description": "Custom Questions",
                     "items": {
-                        "$ref" : "#/definitions/CustomQuestion"
+                        "$ref": "#/definitions/CustomQuestion"
                     }
                 }
             }
@@ -4073,33 +6095,33 @@
                 }
             }
         },
-        "TSP" : {
-            "type" : "object",
+        "TSP": {
+            "type": "object",
             "description": "TSP Configuration object",
-            "properties" : {
-                "conference_code" : {
+            "properties": {
+                "conference_code": {
                     "type": "string",
                     "description": "Conference code, length is less than 16."
                 },
-                "leader_pin" : {
+                "leader_pin": {
                     "type": "string",
                     "description": "Leader PIN, length is less than 16."
                 },
-                "dial_in_numbers" : {
+                "dial_in_numbers": {
                     "type": "object",
                     "description": "Dial In Numbers object",
                     "properties": {
-                        "id" : {
-                            "type" : "string",
-                            "description" : "Country ID"
+                        "id": {
+                            "type": "string",
+                            "description": "Country ID"
                         },
-                        "code" : {
-                            "type" : "string",
-                            "description" : "Country Code"
+                        "code": {
+                            "type": "string",
+                            "description": "Country Code"
                         },
-                        "number" : {
-                            "type" : "string",
-                            "description" : "Dial-in number, length is less than 16."
+                        "number": {
+                            "type": "string",
+                            "description": "Dial-in number, length is less than 16."
                         }
                     }
                 }
@@ -4108,7 +6130,7 @@
         "User": {
             "type": "object",
             "description": "The user object represents a User on Zoom.",
-            "required" : [
+            "required": [
                 "email",
                 "type"
             ],
@@ -4124,7 +6146,7 @@
                         2,
                         3
                     ],
-                    "x-enum-descriptions" : [
+                    "x-enum-descriptions": [
                         "basic",
                         "pro",
                         "corp"
@@ -4254,14 +6276,14 @@
                     "type": "string",
                     "default": "voip",
                     "description": "Meeting audio",
-                    "enum" : [
+                    "enum": [
                         "both",
                         "telephony",
                         "voip",
                         "thirdParty",
                         "none"
                     ],
-                    "x-enum-descriptions" : [
+                    "x-enum-descriptions": [
                         "Telephony and VoIP",
                         "Audio PSTN telephony only",
                         "VoIP only",
@@ -4325,12 +6347,12 @@
                     "type": "string",
                     "default": "a''",
                     "description": "Play sound on join/leave",
-                    "enum" : [
+                    "enum": [
                         "host",
                         "all",
                         "none"
                     ],
-                    "x-enum-descriptions" : [
+                    "x-enum-descriptions": [
                         "when host joins/leaves",
                         "when any participant joins/leaves",
                         "no join/leave sound"
@@ -4494,12 +6516,12 @@
                     "type": "string",
                     "default": "local",
                     "description": "Automatic recording",
-                    "enum" : [
+                    "enum": [
                         "Record on local",
                         "Record on cloud",
                         "Disabled"
                     ],
-                    "x-enum-descriptions" : [
+                    "x-enum-descriptions": [
                         "local",
                         "cloud",
                         "none"
@@ -4617,6 +6639,84 @@
                 }
             ]
         },
+        "WebinarMetric": {
+            "type": "object",
+            "title": "Webinar Metrics",
+            "description": "Webinar metric details",
+            "properties": {
+                "uuid": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "Webinar UUID"
+                },
+                "id": {
+                    "type": "integer",
+                    "description": "Webinar ID"
+                },
+                "topic": {
+                    "type": "string",
+                    "description": "Webinar topic"
+                },
+                "host": {
+                    "type": "string",
+                    "description": "User display name"
+                },
+                "email": {
+                    "type": "string",
+                    "description": "User email"
+                },
+                "user_type": {
+                    "type": "string",
+                    "description": "User type"
+                },
+                "start_time": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Webinar start time"
+                },
+                "end_time": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Webinar end time"
+                },
+                "duration": {
+                    "type": "string",
+                    "description": "Webinar duration"
+                },
+                "participants": {
+                    "type": "integer",
+                    "description": "Webinar participant count"
+                },
+                "has_pstn": {
+                    "type": "boolean",
+                    "description": ""
+                },
+                "has_voip": {
+                    "type": "boolean",
+                    "description": ""
+                },
+                "has_3rd_party_audio": {
+                    "type": "boolean",
+                    "description": ""
+                },
+                "has_video": {
+                    "type": "boolean",
+                    "description": ""
+                },
+                "has_screen_share": {
+                    "type": "boolean",
+                    "description": ""
+                },
+                "has_recording": {
+                    "type": "boolean",
+                    "description": ""
+                },
+                "has_sip": {
+                    "type": "boolean",
+                    "description": ""
+                }
+            }
+        },
         "WebinarPanelist": {
             "type": "object",
             "description": "Webinar panelist",
@@ -4653,6 +6753,74 @@
                     "$ref": "#/definitions/RegistrantList"
                 }
             ]
+        },
+        "ZoomRoom": {
+            "type": "object",
+            "title": "Zoom Room",
+            "description": "Zoom Room",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "Zoom Room ID"
+                },
+                "room_name": {
+                    "type": "string",
+                    "description": "Zoom Room name"
+                },
+                "email": {
+                    "type": "string",
+                    "description": "Zoom Room email"
+                },
+                "account_type": {
+                    "type": "string",
+                    "description": "Zoom Room email type"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Zoom Room status"
+                },
+                "device_ip": {
+                    "type": "string",
+                    "description": "Zoom Room device IP"
+                },
+                "camera": {
+                    "type": "string",
+                    "description": "Zoom Room camera"
+                },
+                "microphone": {
+                    "type": "string",
+                    "description": "Zoom Room microphone"
+                },
+                "speaker": {
+                    "type": "string",
+                    "description": "Zoom Room speaker"
+                },
+                "last_start_time": {
+                    "type": "string",
+                    "description": "Zoom Room last start time"
+                }
+            }
+        },
+        "ZoomRoomList": {
+            "type": "object",
+            "title": "Zoom Room List",
+            "description": "Zoom Room List",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/Pagination"
+                },
+                {
+                    "properties": {
+                        "zoom_rooms": {
+                            "type": "array",
+                            "description": "Array of Zoom Rooms",
+                            "items": {
+                                "$ref": "#/definitions/ZoomRoom"
+                            }
+                        }
+                    }
+                }
+            ]
         }
     },
     "tags": [
@@ -4679,6 +6847,14 @@
         {
             "name": "IM Groups",
             "description": "IM Group operations"
+        },
+        {
+            "name": "Reports",
+            "description": "Report operations"
+        },
+        {
+            "name": "Dashboards",
+            "description": "Dashboard operations"
         },
         {
             "name": "TSP",

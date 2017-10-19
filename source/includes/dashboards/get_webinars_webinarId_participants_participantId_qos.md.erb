@@ -1,0 +1,107 @@
+## Retrieve webinar participant QOS
+
+Retrieve live or past webinar participant quality of service
+
+> Definition
+
+```shell
+GET https://api.zoom.us/v2/metrics/webinars/{webinarId}/participants/{participantId}/qos
+```
+
+> Example Request
+
+```shell
+$ curl https://api.zoom.us/v2/metrics/webinars/{webinarId}/participants/{participantId}/qos
+```
+
+> Example Response
+
+```text
+200 OK
+```
+
+```json
+{
+    "user_id": "string",
+    "user_name": "string",
+    "device": "string",
+    "ip_address": "string",
+    "location": "string",
+    "join_time": "string",
+    "leave_time": "string",
+    "pc_name": "string",
+    "domain": "string",
+    "mac_addr": "string",
+    "harddisk_id": "string",
+    "version": "string",
+    "user_qos": {
+        "date_time": "string",
+        "audio_input": {
+            "bitrate": "string",
+            "latency": "string",
+            "jitter": "string",
+            "avg_loss": "string",
+            "max_loss": "string"
+        },
+        "audio_output": {
+            "bitrate": "string",
+            "latency": "string",
+            "jitter": "string",
+            "avg_loss": "string",
+            "max_loss": "string"
+        },
+        "video_input": {
+            "bitrate": "string",
+            "latency": "string",
+            "jitter": "string",
+            "avg_loss": "string",
+            "max_loss": "string",
+            "resolution": "string",
+            "frame_rate": "string"
+        },
+        "video_output": {
+            "bitrate": "string",
+            "latency": "string",
+            "jitter": "string",
+            "avg_loss": "string",
+            "max_loss": "string",
+            "resolution": "string",
+            "frame_rate": "string"
+        },
+        "as_input": {
+            "bitrate": "string",
+            "latency": "string",
+            "jitter": "string",
+            "avg_loss": "string",
+            "max_loss": "string",
+            "resolution": "string",
+            "frame_rate": "string"
+        },
+        "as_output": {
+            "bitrate": "string",
+            "latency": "string",
+            "jitter": "string",
+            "avg_loss": "string",
+            "max_loss": "string",
+            "resolution": "string",
+            "frame_rate": "string"
+        },
+        "cpu_usage": {
+            "zoom_min_cpu_usage": "string",
+            "zoom_avg_cpu_usage": "string",
+            "zoom_max_cpu_usage": "string",
+            "system_max_cpu_usage": "string"
+        }
+    }
+}
+```
+
+Path Arguments | &nbsp;
+--- | ---
+webinarId **required** | The webinar ID
+participantId **required** | The participant ID
+
+Query Arguments | &nbsp;
+--- | ---
+type | The meeting type<div class="enum">`past` all the past meetings<br/>`live` all the live meetings<br/></div>
+

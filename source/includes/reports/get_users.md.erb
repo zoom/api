@@ -1,0 +1,56 @@
+## Retrieve hosts report
+
+Retrieve active or inactive hosts report for a specified period
+
+> Definition
+
+```shell
+GET https://api.zoom.us/v2/report/users
+```
+
+> Example Request
+
+```shell
+$ curl https://api.zoom.us/v2/report/users
+```
+
+> Example Response
+
+```text
+200 OK
+```
+
+```json
+{
+    "from": "string",
+    "to": "string",
+    "page_count": "integer",
+    "page_number": "integer",
+    "page_size": "integer",
+    "total_records": "integer",
+    "total_meetings": "integer",
+    "total_participants": "integer",
+    "total_meeting_minutes": "integer",
+    "users": [
+        {
+            "user_id": "string",
+            "email": "string",
+            "user_name": "string",
+            "type": "integer",
+            "dept": "string",
+            "meetings": "integer",
+            "participants": "integer",
+            "meeting_minutes": "integer"
+        }
+    ]
+}
+```
+
+Query Arguments | &nbsp;
+--- | ---
+type | Active hosts or inactive hosts<div class="enum">`active` Active hosts<br/>`inactive` Inactive hosts<br/></div>
+from | Start Date
+to | End Date
+page_size | Number of items returned per page
+page_number | Page number of results returned
+

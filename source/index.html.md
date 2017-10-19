@@ -97,6 +97,34 @@ includes:
   - im_groups/post_groupId_members
   - im_groups/delete_groupId_members_userId
 
+  - reports/index
+  - reports/get_daily
+  - reports/get_users
+  - reports/get_users_userId_meetings
+  - reports/get_meetings_meetingId_participants
+  - reports/get_webinars_webinarId_participants
+  - reports/get_webinars_webinarId_polls
+  - reports/get_webinars_webinarId_qa
+  - reports/get_telephone
+
+  - dashboards/index
+  - dashboards/get_meetings
+  - dashboards/get_meetings_meetingId
+  - dashboards/get_meetings_meetingId_participants
+  - dashboards/get_meetings_meetingId_participants_participantId_qos
+  - dashboards/get_meetings_meetingId_participants_qos
+  - dashboards/get_meetings_meetingId_participants_participantId_sharing
+  - dashboards/get_webinars
+  - dashboards/get_webinars_webinarId
+  - dashboards/get_webinars_webinarId_participants
+  - dashboards/get_webinars_webinarId_participants_participantId_qos
+  - dashboards/get_webinars_webinarId_participants_qos
+  - dashboards/get_webinars_webinarId_participants_participantId_sharing
+  - dashboards/get_zoomrooms
+  - dashboards/get_zoomrooms_zoomroomId
+  - dashboards/get_crc
+  - dashboards/get_im
+
   - tsp/index
   - tsp/get_userId_tsp
   - tsp/post_userId_tsp
