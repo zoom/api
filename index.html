@@ -279,7 +279,7 @@
 
 <h3 id="payload">Payload</h3>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"iss"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HS256"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"iss"</span><span class="p">:</span><span class="w"> </span><span class="s2">"API_KEY"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"exp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1496091964000</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -479,11 +479,11 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>page_size</td>
+<td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
 <td>Number of items returned per page</td>
 </tr>
 <tr>
-<td>page_number</td>
+<td>page_number <em>optional</em><div class="default">1</div></td>
 <td>Page number of results returned</td>
 </tr>
 </tbody></table>
@@ -518,9 +518,12 @@
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre class="highlight plaintext"><code>200 OK
+<pre class="highlight plaintext"><code>201 Created
 </code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"owner_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"owner_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <table><thead>
@@ -546,23 +549,23 @@
 <td>User&rsquo;s password.</td>
 </tr>
 <tr>
-<td>options.share_rc</td>
+<td>options.share_rc <em>optional</em></td>
 <td>Enable Share Virtual Room Connector.</td>
 </tr>
 <tr>
-<td>options.room_connectors</td>
+<td>options.room_connectors <em>optional</em></td>
 <td>Virtual Room Connector, multiple value separated by comma.</td>
 </tr>
 <tr>
-<td>options.share_mc</td>
+<td>options.share_mc <em>optional</em></td>
 <td>Enable Share Meeting Connector.</td>
 </tr>
 <tr>
-<td>options.meeting_conntectors</td>
+<td>options.meeting_conntectors <em>optional</em></td>
 <td>Meeting Connector, multiple value separated by comma.</td>
 </tr>
 <tr>
-<td>options.pay_mode</td>
+<td>options.pay_mode <em>optional</em><div class="default">master</div></td>
 <td>User&rsquo;s password.<div class="enum"><code class="prettyprint">master</code> Master Account holder pays<br/><code class="prettyprint">sub</code> Sub Account holders pays<br/></div></td>
 </tr>
 </tbody></table>
@@ -688,23 +691,23 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>share_rc</td>
+<td>share_rc <em>optional</em></td>
 <td>Enable Share Virtual Room Connector.</td>
 </tr>
 <tr>
-<td>room_connectors</td>
+<td>room_connectors <em>optional</em></td>
 <td>Virtual Room Connector, multiple value separated by comma.</td>
 </tr>
 <tr>
-<td>share_mc</td>
+<td>share_mc <em>optional</em></td>
 <td>Enable Share Meeting Connector.</td>
 </tr>
 <tr>
-<td>meeting_conntectors</td>
+<td>meeting_conntectors <em>optional</em></td>
 <td>Meeting Connector, multiple value separated by comma.</td>
 </tr>
 <tr>
-<td>pay_mode</td>
+<td>pay_mode <em>optional</em><div class="default">master</div></td>
 <td>User&rsquo;s password.<div class="enum"><code class="prettyprint">master</code> Master Account holder pays<br/><code class="prettyprint">sub</code> Sub Account holders pays<br/></div></td>
 </tr>
 </tbody></table>
@@ -976,322 +979,324 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>schedule_meting.host_video</td>
+<td>schedule_meting.host_video <em>optional</em></td>
 <td>Host Video</td>
 </tr>
 <tr>
-<td>schedule_meting.participant_video</td>
+<td>schedule_meting.participant_video <em>optional</em></td>
 <td>Participants Video</td>
 </tr>
 <tr>
-<td>schedule_meting.audio_type</td>
+<td>schedule_meting.audio_type <em>optional</em><div class="default">both</div></td>
 <td>Audio Type</td>
 </tr>
 <tr>
-<td>schedule_meting.join_before_host</td>
+<td>schedule_meting.join_before_host <em>optional</em></td>
 <td>Join Before Host</td>
 </tr>
 <tr>
-<td>schedule_meting.enforce_login</td>
+<td>schedule_meting.enforce_login <em>optional</em></td>
 <td>Required user to be logged in</td>
 </tr>
 <tr>
-<td>schedule_meting.enforce_login_with_domains</td>
+<td>schedule_meting.enforce_login_with_domains <em>optional</em></td>
 <td>Logged in user must be part of domain</td>
 </tr>
 <tr>
-<td>schedule_meting.enforce_login_domains</td>
+<td>schedule_meting.enforce_login_domains <em>optional</em></td>
 <td>PList of domains accepted</td>
 </tr>
 <tr>
-<td>schedule_meting.not_store_meeting_topic</td>
+<td>schedule_meting.not_store_meeting_topic <em>optional</em></td>
 <td>Always display &lsquo;Zoom Meeting&rsquo; as the meeting topic</td>
 </tr>
 <tr>
-<td>schedule_meting.force_pmi_jbh_password</td>
+<td>schedule_meting.force_pmi_jbh_password <em>optional</em></td>
 <td>Require a password for Personal Meetings if attendees can join before host</td>
 </tr>
 <tr>
-<td>in_meeting.e2e_encryption</td>
+<td>in_meeting.e2e_encryption <em>optional</em></td>
 <td>End-to-End Encryption</td>
 </tr>
 <tr>
-<td>in_meeting.chat</td>
+<td>in_meeting.chat <em>optional</em></td>
 <td>Chat</td>
 </tr>
 <tr>
-<td>in_meeting.private_chat</td>
+<td>in_meeting.private_chat <em>optional</em></td>
 <td>Private Chat</td>
 </tr>
 <tr>
-<td>in_meeting.auto_saving_chat</td>
+<td>in_meeting.auto_saving_chat <em>optional</em></td>
 <td>Auto Saving Chats</td>
 </tr>
 <tr>
-<td>in_meeting.file_transfer</td>
+<td>in_meeting.file_transfer <em>optional</em><div class="default">1</div></td>
 <td>File transfer</td>
 </tr>
 <tr>
-<td>in_meeting.feedback</td>
+<td>in_meeting.feedback <em>optional</em></td>
 <td>Feedback to Zoom</td>
 </tr>
 <tr>
-<td>in_meeting.post_meeting_feedback</td>
+<td>in_meeting.post_meeting_feedback <em>optional</em></td>
 <td>Display end-of-meeting experience feedback survey</td>
 </tr>
 <tr>
-<td>in_meeting.co_host</td>
+<td>in_meeting.co_host <em>optional</em></td>
 <td>Co-Host</td>
 </tr>
 <tr>
-<td>in_meeting.polling</td>
+<td>in_meeting.polling <em>optional</em></td>
 <td>Polling</td>
 </tr>
 <tr>
-<td>in_meeting.attendee_on_hold</td>
+<td>in_meeting.attendee_on_hold <em>optional</em></td>
 <td>Allow host to put attendee on hold</td>
 </tr>
 <tr>
-<td>in_meeting.show_meeting_control_toolbar</td>
+<td>in_meeting.show_meeting_control_toolbar <em>optional</em></td>
 <td>Always show meeting control toolbar</td>
 </tr>
 <tr>
-<td>in_meeting.allow_show_zoom_windows</td>
+<td>in_meeting.allow_show_zoom_windows <em>optional</em></td>
 <td>Allow to share Zoom windows in desktop sharing</td>
 </tr>
 <tr>
-<td>in_meeting.annotation</td>
+<td>in_meeting.annotation <em>optional</em></td>
 <td>Allow to share Zoom windows in desktop sharing</td>
 </tr>
 <tr>
-<td>in_meeting.whiteboard</td>
+<td>in_meeting.whiteboard <em>optional</em></td>
 <td>Allow to share Zoom windows in desktop sharing</td>
 </tr>
 <tr>
-<td>in_meeting.webinar_question_answer</td>
+<td>in_meeting.webinar_question_answer <em>optional</em></td>
 <td>Q&amp;A in webinar</td>
 </tr>
 <tr>
-<td>in_meeting.anonymous_question_answer</td>
+<td>in_meeting.anonymous_question_answer <em>optional</em></td>
 <td>Allow Anonymous Q&amp;A in Webinar</td>
 </tr>
 <tr>
-<td>in_meeting.breakout_room</td>
+<td>in_meeting.breakout_room <em>optional</em></td>
 <td>Breakout room</td>
 </tr>
 <tr>
-<td>in_meeting.closed_caption</td>
+<td>in_meeting.closed_caption <em>optional</em></td>
 <td>Closed caption</td>
 </tr>
 <tr>
-<td>in_meeting.far_end_camera_control</td>
+<td>in_meeting.far_end_camera_control <em>optional</em></td>
 <td>Far end camera control</td>
 </tr>
 <tr>
-<td>in_meeting.group_hd</td>
+<td>in_meeting.group_hd <em>optional</em></td>
 <td>Group HD video</td>
 </tr>
 <tr>
-<td>in_meeting.virtual_background</td>
+<td>in_meeting.virtual_background <em>optional</em></td>
 <td>Virtual background</td>
 </tr>
 <tr>
-<td>in_meeting.watermark</td>
+<td>in_meeting.watermark <em>optional</em></td>
 <td>Alert internal participants when a guest joins a meeting</td>
 </tr>
 <tr>
-<td>in_meeting.alert_guest_join</td>
+<td>in_meeting.alert_guest_join <em>optional</em></td>
 <td>Alert internal participants when a guest joins a meeting</td>
 </tr>
 <tr>
-<td>in_meeting.auto_answer</td>
+<td>in_meeting.auto_answer <em>optional</em></td>
 <td>Peer to Peer connection while only 2 people in a meeting Learn More</td>
 </tr>
 <tr>
-<td>in_meeting.p2p_connetion</td>
+<td>in_meeting.p2p_connetion <em>optional</em></td>
 <td>Peer to Peer connection while only 2 people in a meeting Learn More</td>
 </tr>
 <tr>
-<td>in_meeting.p2p_ports</td>
+<td>in_meeting.p2p_ports <em>optional</em></td>
 <td>Listening ports range, separated by comma, such as 55,56</td>
 </tr>
 <tr>
-<td>in_meeting.ports_range</td>
+<td>in_meeting.ports_range <em>optional</em></td>
 <td>Peer to Peer connection while only 2 people in a meeting Learn More</td>
 </tr>
 <tr>
-<td>in_meeting.sending_default_email_invites</td>
+<td>in_meeting.sending_default_email_invites <em>optional</em></td>
 <td>Only show default email when sending email invites</td>
 </tr>
 <tr>
-<td>in_meeting.use_html_format_email</td>
+<td>in_meeting.use_html_format_email <em>optional</em></td>
 <td>Only show default email when sending email invites</td>
 </tr>
 <tr>
-<td>in_meeting.dscp_marking</td>
+<td>in_meeting.dscp_marking <em>optional</em><div class="default">1</div></td>
 <td>DSCP marking</td>
 </tr>
 <tr>
-<td>in_meeting.dscp_audio</td>
+<td>in_meeting.dscp_audio <em>optional</em></td>
 <td>DSCP Audio</td>
 </tr>
 <tr>
-<td>in_meeting.dscp_video</td>
+<td>in_meeting.dscp_video <em>optional</em></td>
 <td>DSCP Video</td>
 </tr>
 <tr>
-<td>in_meeting.stereo_audio</td>
+<td>in_meeting.stereo_audio <em>optional</em></td>
 <td>DSCP Video</td>
 </tr>
 <tr>
-<td>in_meeting.original_audio</td>
+<td>in_meeting.original_audio <em>optional</em></td>
 <td>DSCP Video</td>
 </tr>
 <tr>
-<td>in_meeting.screen_sharing</td>
+<td>in_meeting.screen_sharing <em>optional</em></td>
 <td>DSCP Video</td>
 </tr>
 <tr>
-<td>in_meeting.remote_control</td>
+<td>in_meeting.remote_control <em>optional</em></td>
 <td>DSCP Video</td>
 </tr>
 <tr>
-<td>in_meeting.attention_tracking</td>
+<td>in_meeting.attention_tracking <em>optional</em></td>
 <td>DSCP Video</td>
 </tr>
 <tr>
-<td>email_notification.cloud_recording_avaliable_reminder</td>
+<td>email_notification.cloud_recording_avaliable_reminder <em>optional</em></td>
 <td>Allow keep recording from being automatically deleted</td>
 </tr>
 <tr>
-<td>email_notification.jbh_reminder</td>
+<td>email_notification.jbh_reminder <em>optional</em></td>
 <td>When attendees join meeting before host</td>
 </tr>
 <tr>
-<td>email_notification.cancel_meeting_reminder</td>
+<td>email_notification.cancel_meeting_reminder <em>optional</em></td>
 <td>When a meeting is cancelled</td>
 </tr>
 <tr>
-<td>email_notification.low_host_count_reminder</td>
+<td>email_notification.low_host_count_reminder <em>optional</em></td>
 <td>When host count is low</td>
 </tr>
 <tr>
-<td>email_notification.alternative_host_reminder</td>
+<td>email_notification.alternative_host_reminder <em>optional</em></td>
 <td>When an alternative host is set or removed from a meeting</td>
 </tr>
 <tr>
-<td>zoom_rooms.upcoming_meeting_alert</td>
+<td>zoom_rooms.upcoming_meeting_alert <em>optional</em></td>
 <td>Upcoming meeting alert</td>
 </tr>
 <tr>
-<td>zoom_rooms.start_airplay_manually</td>
+<td>zoom_rooms.start_airplay_manually <em>optional</em></td>
 <td>Start AirPlay service manually</td>
 </tr>
 <tr>
-<td>zoom_rooms.weekly_system_restart</td>
+<td>zoom_rooms.weekly_system_restart <em>optional</em></td>
 <td>Weekly system restart</td>
 </tr>
 <tr>
-<td>zoom_rooms.list_meetings_with_calendar</td>
+<td>zoom_rooms.list_meetings_with_calendar <em>optional</em></td>
 <td>Display meeting list with calendar integration</td>
 </tr>
 <tr>
-<td>zoom_rooms.zr_post_meeting_feedback</td>
+<td>zoom_rooms.zr_post_meeting_feedback <em>optional</em></td>
 <td>Display meeting list with calendar integration</td>
 </tr>
 <tr>
-<td>zoom_rooms.ultrasonic</td>
+<td>zoom_rooms.ultrasonic <em>optional</em></td>
 <td>Automatic direct sharing using ultrasonic proximity signal</td>
 </tr>
 <tr>
-<td>zoom_rooms.force_private_meeting</td>
+<td>zoom_rooms.force_private_meeting <em>optional</em></td>
 <td>Transform all meetings to private</td>
 </tr>
 <tr>
-<td>zoom_rooms.hide_host_information</td>
+<td>zoom_rooms.hide_host_information <em>optional</em></td>
 <td>Hide host and meeting ID from private meetings</td>
 </tr>
 <tr>
-<td>zoom_rooms.cmr_for_instant_meeting</td>
+<td>zoom_rooms.cmr_for_instant_meeting <em>optional</em></td>
 <td>Cloud recording for instant meetings</td>
 </tr>
 <tr>
-<td>zoom_rooms.auto_start_stop_scheduled_meetings</td>
+<td>zoom_rooms.auto_start_stop_scheduled_meetings <em>optional</em></td>
 <td>Automatic start/stop scheduled meetings</td>
 </tr>
 <tr>
-<td>_security.import_photos_from_devices</td>
+<td>_security.import_photos_from_devices <em>optional</em><div class="default">1</div></td>
 <td></td>
 </tr>
 <tr>
-<td>_security.hide_billing_info</td>
+<td>_security.hide_billing_info <em>optional</em><div class="default">1</div></td>
 <td></td>
 </tr>
 <tr>
-<td>recording.local_recording</td>
+<td>recording.local_recording <em>optional</em></td>
 <td>Local recording</td>
 </tr>
 <tr>
-<td>recording.cloud_recording</td>
+<td>recording.cloud_recording <em>optional</em></td>
 <td>Cloud recording</td>
 </tr>
 <tr>
-<td>recording.auto_recording</td>
+<td>recording.auto_recording <em>optional</em></td>
 <td>Automatic recording</td>
 </tr>
 <tr>
-<td>recording.cloud_recording_download</td>
+<td>recording.cloud_recording_download <em>optional</em></td>
 <td>Cloud Recording Downloads</td>
 </tr>
 <tr>
-<td>recording.cloud_recording_download_host</td>
+<td>recording.cloud_recording_download_host <em>optional</em></td>
 <td>Only the host can download cloud recordings</td>
 </tr>
 <tr>
-<td>recording.account_user_access_recording</td>
+<td>recording.account_user_access_recording <em>optional</em></td>
 <td>Only users on my account can access cloud recordings</td>
 </tr>
 <tr>
-<td>recording.auto_delete_cmr</td>
+<td>recording.auto_delete_cmr <em>optional</em></td>
 <td>Auto delete cloud recordings after days</td>
 </tr>
 <tr>
-<td>telephony.third_party_audio</td>
+<td>telephony.third_party_audio <em>optional</em><div class="default">1</div></td>
 <td></td>
 </tr>
 <tr>
-<td>telephony.audio_conference_info</td>
+<td>telephony.audio_conference_info <em>optional</em></td>
 <td></td>
 </tr>
 <tr>
-<td>integration.google_calendar</td>
+<td>integration.google_calendar <em>optional</em></td>
 <td>Google Calendar</td>
 </tr>
 <tr>
-<td>integration.google_drive</td>
+<td>integration.google_drive <em>optional</em></td>
 <td>Google Drive</td>
 </tr>
 <tr>
-<td>integration.dropbox</td>
+<td>integration.dropbox <em>optional</em></td>
 <td>Dropbox</td>
 </tr>
 <tr>
-<td>integration.box</td>
+<td>integration.box <em>optional</em></td>
 <td>Box</td>
 </tr>
 <tr>
-<td>integration.microsoft_one_drive</td>
+<td>integration.microsoft_one_drive <em>optional</em></td>
 <td>Microsoft OneDrive</td>
 </tr>
 <tr>
-<td>integration.kubi</td>
+<td>integration.kubi <em>optional</em></td>
 <td>Kubi</td>
 </tr>
 <tr>
-<td>feature.meeting_capacity</td>
+<td>feature.meeting_capacity <em>optional</em><div class="default">100</div></td>
 <td>Meeting capacity</td>
 </tr>
 </tbody></table>
+
+          <h1 id="billing">Billing</h1>
 
           <h2 id="retrieve-an-accounts-billing-information">Retrieve an account&rsquo;s billing information</h2>
 
@@ -1386,43 +1391,43 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>first_name</td>
+<td>first_name <strong>required</strong></td>
 <td>Billing Contact&rsquo;s first name.</td>
 </tr>
 <tr>
-<td>last_name</td>
+<td>last_name <strong>required</strong></td>
 <td>Billing Contact&rsquo;s last name.</td>
 </tr>
 <tr>
-<td>email</td>
+<td>email <strong>required</strong></td>
 <td>Billing Contact&rsquo;s email address.</td>
 </tr>
 <tr>
-<td>phone_number</td>
+<td>phone_number <strong>required</strong></td>
 <td>Billing Contact&rsquo;s phone number.</td>
 </tr>
 <tr>
-<td>address</td>
+<td>address <strong>required</strong></td>
 <td>Billing Contact&rsquo;s address.</td>
 </tr>
 <tr>
-<td>apt</td>
+<td>apt <em>optional</em></td>
 <td>Billing Contact&rsquo;s apartment/suite.</td>
 </tr>
 <tr>
-<td>city</td>
+<td>city <strong>required</strong></td>
 <td>Billing Contact&rsquo;s city.</td>
 </tr>
 <tr>
-<td>state</td>
+<td>state <strong>required</strong></td>
 <td>Billing Contact&rsquo;s state.</td>
 </tr>
 <tr>
-<td>zip</td>
+<td>zip <strong>required</strong></td>
 <td>Billing Contact&rsquo;s zip/postal code.</td>
 </tr>
 <tr>
-<td>country</td>
+<td>country <strong>required</strong></td>
 <td>Billing Contact&rsquo;s country.</td>
 </tr>
 </tbody></table>
@@ -1473,9 +1478,9 @@
     </span><span class="s2">"plan_recording"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"plan_audio"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"tollfree_country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"premium_country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"callout"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tollfree_countries"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"premium_countries"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"callout_countries"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"ddi_numbers"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1492,9 +1497,9 @@
 </tr>
 </tbody></table>
 
-          <h2 id="add-to-an-accounts-plans">Add to an account&rsquo;s plans</h2>
+          <h2 id="subscribe-plans-for-a-sub-account">Subscribe plans for a sub account</h2>
 
-<p>Add a plan to sub account under the master account <aside>Can only subscribe plans for the sub account which is a free account and paid by master account</aside><aside>Can only add an Additional plan for the sub account which is a paid account and paid by master account</aside></p>
+<p>Subscribe plans for a sub account of the master account <aside>Can only subscribe plans for the sub account which is a free account and paid by master account</aside></p>
 
 <blockquote>
 <p>Definition</p>
@@ -1545,9 +1550,9 @@
     "plan_recording": "string",
     "plan_audio": {
         "type": "string",
-        "tollfree_country": "string",
-        "premium_country": "string",
-        "callout": "boolean",
+        "tollfree_countries": "string",
+        "premium_countries": "string",
+        "callout_countries": "string",
         "ddi_numbers": "integer"
     }
 }'</span>
@@ -1555,8 +1560,42 @@
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre class="highlight plaintext"><code>204 No Content
-</code></pre>
+<pre class="highlight plaintext"><code>201 Created
+</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"plan_base"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"hosts"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"plan_zoom_rooms"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"hosts"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"plan_room_connector"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"hosts"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"plan_large_meeting"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"hosts"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"plan_webinar"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"hosts"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"plan_recording"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"plan_audio"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tollfree_countries"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"premium_countries"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"callout_countries"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ddi_numbers"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <table><thead>
 <tr>
 <th>Path Arguments</th>
@@ -1576,99 +1615,99 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>contact.first_name</td>
+<td>contact.first_name <strong>required</strong></td>
 <td>Billing Contact&rsquo;s first name.</td>
 </tr>
 <tr>
-<td>contact.last_name</td>
+<td>contact.last_name <strong>required</strong></td>
 <td>Billing Contact&rsquo;s last name.</td>
 </tr>
 <tr>
-<td>contact.email</td>
+<td>contact.email <strong>required</strong></td>
 <td>Billing Contact&rsquo;s email address.</td>
 </tr>
 <tr>
-<td>contact.phone_number</td>
+<td>contact.phone_number <strong>required</strong></td>
 <td>Billing Contact&rsquo;s phone number.</td>
 </tr>
 <tr>
-<td>contact.address</td>
+<td>contact.address <strong>required</strong></td>
 <td>Billing Contact&rsquo;s address.</td>
 </tr>
 <tr>
-<td>contact.apt</td>
+<td>contact.apt <em>optional</em></td>
 <td>Billing Contact&rsquo;s apartment/suite.</td>
 </tr>
 <tr>
-<td>contact.city</td>
+<td>contact.city <strong>required</strong></td>
 <td>Billing Contact&rsquo;s city.</td>
 </tr>
 <tr>
-<td>contact.state</td>
+<td>contact.state <strong>required</strong></td>
 <td>Billing Contact&rsquo;s state.</td>
 </tr>
 <tr>
-<td>contact.zip</td>
+<td>contact.zip <strong>required</strong></td>
 <td>Billing Contact&rsquo;s zip/postal code.</td>
 </tr>
 <tr>
-<td>contact.country</td>
+<td>contact.country <strong>required</strong></td>
 <td>Billing Contact&rsquo;s country.</td>
 </tr>
 <tr>
-<td>plan_base.type</td>
+<td>plan_base.type <strong>required</strong></td>
 <td>Account plan type</td>
 </tr>
 <tr>
-<td>plan_base.hosts</td>
+<td>plan_base.hosts <strong>required</strong></td>
 <td>Account plan number of hosts</td>
 </tr>
 <tr>
-<td>plan_zoom_rooms.type</td>
+<td>plan_zoom_rooms.type <em>optional</em></td>
 <td>Account plan type</td>
 </tr>
 <tr>
-<td>plan_zoom_rooms.hosts</td>
+<td>plan_zoom_rooms.hosts <em>optional</em></td>
 <td>Account plan number of hosts</td>
 </tr>
 <tr>
-<td>plan_room_connector.type</td>
+<td>plan_room_connector.type <em>optional</em></td>
 <td>Account plan type</td>
 </tr>
 <tr>
-<td>plan_room_connector.hosts</td>
+<td>plan_room_connector.hosts <em>optional</em></td>
 <td>Account plan number of hosts</td>
 </tr>
 <tr>
-<td>plan_large_meeting</td>
+<td>plan_large_meeting <em>optional</em></td>
 <td>Additional Large Meeting Plans</td>
 </tr>
 <tr>
-<td>plan_webinar</td>
+<td>plan_webinar <em>optional</em></td>
 <td>Additional Webinar Plans</td>
 </tr>
 <tr>
-<td>plan_recording</td>
+<td>plan_recording <em>optional</em></td>
 <td>Additional Cloud Recording Plan</td>
 </tr>
 <tr>
-<td>plan_audio.type</td>
+<td>plan_audio.type <em>optional</em></td>
 <td>Additional Audio Conferencing Plan type</td>
 </tr>
 <tr>
-<td>plan_audio.tollfree_country</td>
+<td>plan_audio.tollfree_countries <em>optional</em></td>
 <td>Toll-free countries, multiple value separated by comma</td>
 </tr>
 <tr>
-<td>plan_audio.premium_country</td>
+<td>plan_audio.premium_countries <em>optional</em></td>
 <td>Premium countries, multiple value separated by comma</td>
 </tr>
 <tr>
-<td>plan_audio.callout</td>
-<td>Call-out type<div class="enum"><code class="prettyprint">1</code> US-only<br/><code class="prettyprint">2</code> US and International<br/></div></td>
+<td>plan_audio.callout_countries <em>optional</em></td>
+<td>Call-out countries, multiple value separated by comma</td>
 </tr>
 <tr>
-<td>plan_audio.ddi_numbers</td>
+<td>plan_audio.ddi_numbers <em>optional</em></td>
 <td>Dedicated Dial-In Numbers</td>
 </tr>
 </tbody></table>
@@ -1715,18 +1754,18 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>type</td>
+<td>type <strong>required</strong></td>
 <td>Account plan type</td>
 </tr>
 <tr>
-<td>hosts</td>
+<td>hosts <strong>required</strong></td>
 <td>Account plan number of hosts</td>
 </tr>
 </tbody></table>
 
-          <h2 id="add-an-account-add-on-plan">Add an account add on plan</h2>
+          <h2 id="add-an-account-add-on-plan">Add an account add-on plan</h2>
 
-<p>Add an add on plan for a sub account <aside>Can only subscribe plans for the sub account which is a free account and paid by master account</aside><aside>Can only add an Additional plan for the sub account which is a paid account and paid by master account</aside></p>
+<p>Add an add-on plan for a sub account <aside>Can only add an Additional plan for the sub account which is a paid account and paid by master account</aside></p>
 
 <blockquote>
 <p>Definition</p>
@@ -1745,7 +1784,7 @@
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre class="highlight plaintext"><code>204 No Content
+<pre class="highlight plaintext"><code>201 Created
 </code></pre>
 <table><thead>
 <tr>
@@ -1766,18 +1805,18 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>type</td>
+<td>type <strong>required</strong></td>
 <td>Account plan type</td>
 </tr>
 <tr>
-<td>hosts</td>
+<td>hosts <strong>required</strong></td>
 <td>Account plan number of hosts</td>
 </tr>
 </tbody></table>
 
-          <h2 id="update-an-accounts-add-on-plans">Update an account&rsquo;s add on plans</h2>
+          <h2 id="update-an-accounts-add-on-plans">Update an account&rsquo;s add-on plans</h2>
 
-<p>Update as add on plan for a sub account <aside>Can only subscribe plans for the sub account which is a free account and paid by master account</aside><aside>Can only add an Additional plan for the sub account which is a paid account and paid by master account</aside></p>
+<p>Update as add-on plan for a sub account <aside>Can only update an Additional plan for the sub account which is a paid account and paid by master account</aside></p>
 
 <blockquote>
 <p>Definition</p>
@@ -1817,11 +1856,11 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>type</td>
+<td>type <strong>required</strong></td>
 <td>Account plan type</td>
 </tr>
 <tr>
-<td>hosts</td>
+<td>hosts <strong>required</strong></td>
 <td>Account plan number of hosts</td>
 </tr>
 </tbody></table>
@@ -1969,15 +2008,15 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>status</td>
+<td>status <em>optional</em><div class="default">active</div></td>
 <td>User status<div class="enum"><code class="prettyprint">active</code> users with active status<br/><code class="prettyprint">inactive</code> users with inactive status<br/><code class="prettyprint">pending</code> users with pending status<br/></div></td>
 </tr>
 <tr>
-<td>page_size</td>
+<td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
 <td>Number of items returned per page</td>
 </tr>
 <tr>
-<td>page_number</td>
+<td>page_number <em>optional</em><div class="default">1</div></td>
 <td>Page number of results returned</td>
 </tr>
 </tbody></table>
@@ -2008,7 +2047,7 @@
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre class="highlight plaintext"><code>200 OK
+<pre class="highlight plaintext"><code>201 Created
 </code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -2020,23 +2059,23 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>action</td>
+<td>action <em>optional</em></td>
 <td>Action to take for user creation<div class="enum"><code class="prettyprint">create</code> User will get an email sent from Zoom. There is a confirmation link in this email. User will then need to click this link to activate their account to the Zoom service. The user can set or change their password in Zoom. <br/><br/><code class="prettyprint">custCreate</code> This action is provided for enterprise customer who has a managed domain. This feature is disabled by default because of the security risk involved in creating a user who does not belong to your domain without notifying the user. <br/><br/><code class="prettyprint">autoCreate</code> This action is provided for API partner only. User created in this way has no password and is not able to log into the Zoom web site or client. <br/><br/><code class="prettyprint">ssoCreate</code> This action is provided for enabled &ldquo;Pre-provisioning SSO User&rdquo; option. User created in this way has no password. If it is not a basic user, will generate a Personal Vanity URL using user name (no domain) of the provisioning email. If user name or pmi is invalid or occupied, will use random number/random personal vanity URL. <br/><br/></div></td>
 </tr>
 <tr>
-<td>user_info.email</td>
+<td>user_info.email <em>optional</em></td>
 <td>User&rsquo;s email address.</td>
 </tr>
 <tr>
-<td>user_info.type</td>
+<td>user_info.type <em>optional</em></td>
 <td>User&rsquo;s type<div class="enum"><code class="prettyprint">1</code> basic<br/><code class="prettyprint">2</code> pro<br/><code class="prettyprint">3</code> corp<br/></div></td>
 </tr>
 <tr>
-<td>user_info.first_name</td>
+<td>user_info.first_name <em>optional</em></td>
 <td>User&rsquo;s first name.</td>
 </tr>
 <tr>
-<td>user_info.last_name</td>
+<td>user_info.last_name <em>optional</em></td>
 <td>User&rsquo;s last name.</td>
 </tr>
 </tbody></table>
@@ -2153,55 +2192,55 @@
 <td>User&rsquo;s type<div class="enum"><code class="prettyprint">1</code> basic<br/><code class="prettyprint">2</code> pro<br/><code class="prettyprint">3</code> corp<br/></div></td>
 </tr>
 <tr>
-<td>first_name</td>
+<td>first_name <em>optional</em></td>
 <td>User&rsquo;s first name.</td>
 </tr>
 <tr>
-<td>last_name</td>
+<td>last_name <em>optional</em></td>
 <td>User&rsquo;s last name.</td>
 </tr>
 <tr>
-<td>created_at</td>
+<td>created_at <em>optional</em></td>
 <td></td>
 </tr>
 <tr>
-<td>dept</td>
+<td>dept <em>optional</em></td>
 <td></td>
 </tr>
 <tr>
-<td>last_client_version</td>
+<td>last_client_version <em>optional</em></td>
 <td></td>
 </tr>
 <tr>
-<td>last_login_time</td>
+<td>last_login_time <em>optional</em></td>
 <td></td>
 </tr>
 <tr>
-<td>pic_url</td>
+<td>pic_url <em>optional</em></td>
 <td></td>
 </tr>
 <tr>
-<td>pmi</td>
+<td>pmi <em>optional</em></td>
 <td></td>
 </tr>
 <tr>
-<td>timezone</td>
+<td>timezone <em>optional</em></td>
 <td></td>
 </tr>
 <tr>
-<td>vanity_url</td>
+<td>vanity_url <em>optional</em></td>
 <td></td>
 </tr>
 <tr>
-<td>verified</td>
+<td>verified <em>optional</em></td>
 <td></td>
 </tr>
 <tr>
-<td>cms_user_id</td>
+<td>cms_user_id <em>optional</em></td>
 <td>CMS User Id</td>
 </tr>
 <tr>
-<td>host_key</td>
+<td>host_key <em>optional</em></td>
 <td>Host Key, should be 6-digit number</td>
 </tr>
 </tbody></table>
@@ -2293,7 +2332,7 @@
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre class="highlight plaintext"><code>200 OK
+<pre class="highlight plaintext"><code>201 Created
 </code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"email_or_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -2317,7 +2356,7 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>email_or_id</td>
+<td>email_or_id <em>optional</em></td>
 <td>ID or Email of assistant</td>
 </tr>
 </tbody></table>
@@ -2407,7 +2446,7 @@
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre class="highlight plaintext"><code>200 OK
+<pre class="highlight plaintext"><code>201 Created
 </code></pre>
 <table><thead>
 <tr>
@@ -2620,207 +2659,207 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>scheduled_meeting.host_video</td>
+<td>scheduled_meeting.host_video <em>optional</em><div class="default">1</div></td>
 <td>Host video</td>
 </tr>
 <tr>
-<td>scheduled_meeting.participants_video</td>
+<td>scheduled_meeting.participants_video <em>optional</em><div class="default">1</div></td>
 <td>Participants video</td>
 </tr>
 <tr>
-<td>scheduled_meeting.audio_type</td>
+<td>scheduled_meeting.audio_type <em>optional</em><div class="default">voip</div></td>
 <td>Meeting audio<div class="enum"><code class="prettyprint">both</code> Telephony and VoIP<br/><code class="prettyprint">telephony</code> Audio PSTN telephony only<br/><code class="prettyprint">voip</code> VoIP only<br/><code class="prettyprint">thirdParty</code> 3rd party audio conference<br/><code class="prettyprint">none</code> Disabled<br/></div></td>
 </tr>
 <tr>
-<td>scheduled_meeting.join_before_host</td>
+<td>scheduled_meeting.join_before_host <em>optional</em><div class="default">1</div></td>
 <td>Join before host</td>
 </tr>
 <tr>
-<td>scheduled_meeting.enforce_login</td>
+<td>scheduled_meeting.enforce_login <em>optional</em><div class="default">1</div></td>
 <td>Only signed-in users can join meetings</td>
 </tr>
 <tr>
-<td>scheduled_meeting.not_store_meeting_topic</td>
+<td>scheduled_meeting.not_store_meeting_topic <em>optional</em><div class="default">1</div></td>
 <td>Always display &ldquo;Zoom Meeting&rdquo; as the meeting topic</td>
 </tr>
 <tr>
-<td>scheduled_meeting.force_pmi_jbh_password</td>
+<td>scheduled_meeting.force_pmi_jbh_password <em>optional</em><div class="default">1</div></td>
 <td>Require a password for Personal Meetings if attendees can join before host</td>
 </tr>
 <tr>
-<td>scheduled_meeting.pstn_password_protected</td>
+<td>scheduled_meeting.pstn_password_protected <em>optional</em><div class="default">1</div></td>
 <td>Generate and require password for participants joining by phone</td>
 </tr>
 <tr>
-<td>in_meeting.e2e_encryption</td>
+<td>in_meeting.e2e_encryption <em>optional</em><div class="default">1</div></td>
 <td>End-to-end encryption</td>
 </tr>
 <tr>
-<td>in_meeting.chat</td>
+<td>in_meeting.chat <em>optional</em></td>
 <td>Chat</td>
 </tr>
 <tr>
-<td>in_meeting.private_chat</td>
+<td>in_meeting.private_chat <em>optional</em></td>
 <td>Private chat</td>
 </tr>
 <tr>
-<td>in_meeting.auto_saving_chat</td>
+<td>in_meeting.auto_saving_chat <em>optional</em></td>
 <td>Auto saving chats</td>
 </tr>
 <tr>
-<td>in_meeting.entry_exit_chime</td>
+<td>in_meeting.entry_exit_chime <em>optional</em><div class="default">a&rsquo;&lsquo;</div></td>
 <td>Play sound on join/leave<div class="enum"><code class="prettyprint">host</code> when host joins/leaves<br/><code class="prettyprint">all</code> when any participant joins/leaves<br/><code class="prettyprint">none</code> no join/leave sound<br/></div></td>
 </tr>
 <tr>
-<td>in_meeting.record_play_voice</td>
+<td>in_meeting.record_play_voice <em>optional</em><div class="default">1</div></td>
 <td>Record and play their own voice</td>
 </tr>
 <tr>
-<td>in_meeting.file_transfer</td>
+<td>in_meeting.file_transfer <em>optional</em></td>
 <td>File transfer</td>
 </tr>
 <tr>
-<td>in_meeting.feedback</td>
+<td>in_meeting.feedback <em>optional</em></td>
 <td>Feedback to Zoom</td>
 </tr>
 <tr>
-<td>in_meeting.co_host</td>
+<td>in_meeting.co_host <em>optional</em></td>
 <td>Co-host</td>
 </tr>
 <tr>
-<td>in_meeting.polling</td>
+<td>in_meeting.polling <em>optional</em></td>
 <td>Polling</td>
 </tr>
 <tr>
-<td>in_meeting.attendee_on_hold</td>
+<td>in_meeting.attendee_on_hold <em>optional</em></td>
 <td>Allow host to put attendee on hold</td>
 </tr>
 <tr>
-<td>in_meeting.annotation</td>
+<td>in_meeting.annotation <em>optional</em></td>
 <td>Annotation</td>
 </tr>
 <tr>
-<td>in_meeting.non_verbal_feedback</td>
+<td>in_meeting.non_verbal_feedback <em>optional</em></td>
 <td>Non-verbal feedback</td>
 </tr>
 <tr>
-<td>in_meeting.breakout_room</td>
+<td>in_meeting.breakout_room <em>optional</em></td>
 <td>Breakout room</td>
 </tr>
 <tr>
-<td>in_meeting.remote_support</td>
+<td>in_meeting.remote_support <em>optional</em></td>
 <td>Remote support</td>
 </tr>
 <tr>
-<td>in_meeting.closed_caption</td>
+<td>in_meeting.closed_caption <em>optional</em></td>
 <td>Closed caption</td>
 </tr>
 <tr>
-<td>in_meeting.group_hd</td>
+<td>in_meeting.group_hd <em>optional</em></td>
 <td>Group HD video</td>
 </tr>
 <tr>
-<td>in_meeting.virtual_background</td>
+<td>in_meeting.virtual_background <em>optional</em></td>
 <td>Virtual background</td>
 </tr>
 <tr>
-<td>in_meeting.far_end_camera_control</td>
+<td>in_meeting.far_end_camera_control <em>optional</em></td>
 <td>Far end camera control</td>
 </tr>
 <tr>
-<td>in_meeting.share_dual_camera</td>
+<td>in_meeting.share_dual_camera <em>optional</em></td>
 <td>Share dual camera</td>
 </tr>
 <tr>
-<td>in_meeting.attention_tracking</td>
+<td>in_meeting.attention_tracking <em>optional</em></td>
 <td>Attention tracking</td>
 </tr>
 <tr>
-<td>in_meeting.waiting_room</td>
+<td>in_meeting.waiting_room <em>optional</em></td>
 <td>Waiting room</td>
 </tr>
 <tr>
-<td>in_meeting.manage_zr</td>
+<td>in_meeting.manage_zr <em>optional</em></td>
 <td>Manage Zoom Rooms</td>
 </tr>
 <tr>
-<td>email_notification.jbh_reminder</td>
+<td>email_notification.jbh_reminder <em>optional</em></td>
 <td>When attendees join meeting before host</td>
 </tr>
 <tr>
-<td>email_notification.cancel_meeting_reminder</td>
+<td>email_notification.cancel_meeting_reminder <em>optional</em></td>
 <td>When a meeting is cancelled</td>
 </tr>
 <tr>
-<td>email_notification.alternative_host_reminder</td>
+<td>email_notification.alternative_host_reminder <em>optional</em></td>
 <td>When an alternative host is set or removed from a meeting</td>
 </tr>
 <tr>
-<td>recording.local_recording</td>
+<td>recording.local_recording <em>optional</em><div class="default">1</div></td>
 <td>Local recording</td>
 </tr>
 <tr>
-<td>recording.cloud_recording</td>
+<td>recording.cloud_recording <em>optional</em></td>
 <td>Cloud recording</td>
 </tr>
 <tr>
-<td>recording.record_speaker_view</td>
+<td>recording.record_speaker_view <em>optional</em></td>
 <td>Record the active speaker view</td>
 </tr>
 <tr>
-<td>recording.record_gallery_view</td>
+<td>recording.record_gallery_view <em>optional</em></td>
 <td>Record the gallery view</td>
 </tr>
 <tr>
-<td>recording.record_audio_file</td>
+<td>recording.record_audio_file <em>optional</em></td>
 <td>Record an audio only file</td>
 </tr>
 <tr>
-<td>recording.save_chat_text</td>
+<td>recording.save_chat_text <em>optional</em></td>
 <td>Save chat text from the meeting</td>
 </tr>
 <tr>
-<td>recording.show_timestamp</td>
+<td>recording.show_timestamp <em>optional</em></td>
 <td>Show timestamp on video</td>
 </tr>
 <tr>
-<td>recording.auto_recording</td>
+<td>recording.auto_recording <em>optional</em><div class="default">local</div></td>
 <td>Automatic recording<div class="enum"><code class="prettyprint">Record on local</code> local<br/><code class="prettyprint">Record on cloud</code> cloud<br/><code class="prettyprint">Disabled</code> none<br/></div></td>
 </tr>
 <tr>
-<td>recording.auto_delete_cmr</td>
+<td>recording.auto_delete_cmr <em>optional</em></td>
 <td>Auto delete cloud recordings</td>
 </tr>
 <tr>
-<td>telephony.third_party_audio</td>
+<td>telephony.third_party_audio <em>optional</em><div class="default">1</div></td>
 <td>3rd party audio conference</td>
 </tr>
 <tr>
-<td>telephony.audio_conference_info</td>
+<td>telephony.audio_conference_info <em>optional</em></td>
 <td>3rd party audio conference info</td>
 </tr>
 <tr>
-<td>telephony.show_international_numbers_link</td>
+<td>telephony.show_international_numbers_link <em>optional</em><div class="default">1</div></td>
 <td>Show international numbers link on the invitation email</td>
 </tr>
 <tr>
-<td>feature.meeting_capacity</td>
+<td>feature.meeting_capacity <em>optional</em><div class="default">100</div></td>
 <td>User’s meeting capacity.</td>
 </tr>
 <tr>
-<td>feature.large_meeting</td>
+<td>feature.large_meeting <em>optional</em><div class="default">1</div></td>
 <td>Large meting feature</td>
 </tr>
 <tr>
-<td>feature.large_meeting_capacity</td>
+<td>feature.large_meeting_capacity <em>optional</em><div class="default">100</div></td>
 <td>Large meeting capacity, can be 100, 200, 300 or 500, depends on if having related large meeting capacity plan subscription or not.</td>
 </tr>
 <tr>
-<td>feature.webinar</td>
+<td>feature.webinar <em>optional</em><div class="default">1</div></td>
 <td>Webinar feature</td>
 </tr>
 <tr>
-<td>feature.webinar_capacity</td>
+<td>feature.webinar_capacity <em>optional</em><div class="default">100</div></td>
 <td>Webinar capacity, can be 100, 500, 1000, 3000, 5000 or 10000, depends on if having related webinar capacity plan subscription or not.</td>
 </tr>
 </tbody></table>
@@ -2863,7 +2902,7 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>status</td>
+<td>status <em>optional</em></td>
 <td><div class="enum"><code class="prettyprint">active</code> set users status to active<br/><code class="prettyprint">deactive</code> set users status to deactive<br/></div></td>
 </tr>
 </tbody></table>
@@ -2941,7 +2980,7 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>type</td>
+<td>type <em>optional</em></td>
 <td>User token<div class="enum"><code class="prettyprint">token</code> used for starting meeting with client SDK<br/><code class="prettyprint">zpk</code> used for generating the start meeting url<br/></div></td>
 </tr>
 </tbody></table>
@@ -2984,7 +3023,7 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>type</td>
+<td>type <em>optional</em></td>
 <td>User zpk</td>
 </tr>
 </tbody></table>
@@ -3244,15 +3283,15 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>type</td>
+<td>type <em>optional</em></td>
 <td>The meeting type<div class="enum"><code class="prettyprint">scheduled</code> all the scheduled meetings<br/><code class="prettyprint">live</code> all the live meetings<br/></div></td>
 </tr>
 <tr>
-<td>page_size</td>
+<td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
 <td>Number of items returned per page</td>
 </tr>
 <tr>
-<td>page_number</td>
+<td>page_number <em>optional</em><div class="default">1</div></td>
 <td>Page number of results returned</td>
 </tr>
 </tbody></table>
@@ -3310,7 +3349,7 @@
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre class="highlight plaintext"><code>200 OK
+<pre class="highlight plaintext"><code>201 Created
 </code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -3334,123 +3373,123 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>topic</td>
+<td>topic <em>optional</em></td>
 <td>Meeting topic</td>
 </tr>
 <tr>
-<td>type</td>
+<td>type <em>optional</em></td>
 <td>Meeting Type<div class="enum"><code class="prettyprint">1</code> Instant Meeting<br/><code class="prettyprint">2</code> Scheduled Meeting<br/><code class="prettyprint">3</code> Recurring Meeting with no fixed time<br/><code class="prettyprint">8</code> Recurring Meeting with fixed time<br/></div></td>
 </tr>
 <tr>
-<td>start_time</td>
+<td>start_time <em>optional</em></td>
 <td>Meeting start time</td>
 </tr>
 <tr>
-<td>duration</td>
+<td>duration <em>optional</em></td>
 <td>Meeting duration</td>
 </tr>
 <tr>
-<td>timezone</td>
+<td>timezone <em>optional</em></td>
 <td>Timezone to format start_time</td>
 </tr>
 <tr>
-<td>password</td>
+<td>password <em>optional</em></td>
 <td>Password to join the meeting</td>
 </tr>
 <tr>
-<td>description</td>
+<td>description <em>optional</em></td>
 <td>Meeting description</td>
 </tr>
 <tr>
-<td>recurrence.type</td>
+<td>recurrence.type <em>optional</em></td>
 <td>Recurrence meeting type<div class="enum"><code class="prettyprint">1</code> Daily<br/><code class="prettyprint">2</code> Weekly<br/><code class="prettyprint">3</code> Monthly<br/></div></td>
 </tr>
 <tr>
-<td>recurrence.repeat_interval</td>
+<td>recurrence.repeat_interval <em>optional</em></td>
 <td>Recurrence meeting repeat interval. For a Daily Meeting, max of 90. For a Weekly Meeting, max of 12. For a Monthly Meeting, max of 3.</td>
 </tr>
 <tr>
-<td>recurrence.weekly_days</td>
+<td>recurrence.weekly_days <em>optional</em></td>
 <td>Recurrence Meeting Occurs on week days, multiple value separated by comma<div class="enum"><code class="prettyprint">1</code> Sunday<br/><code class="prettyprint">2</code> Monday<br/><code class="prettyprint">3</code> Tuesday<br/><code class="prettyprint">4</code> Wednesday<br/><code class="prettyprint">5</code> Thursday<br/><code class="prettyprint">6</code> Friday<br/><code class="prettyprint">7</code> Saturday<br/></div></td>
 </tr>
 <tr>
-<td>recurrence.monthly_day</td>
+<td>recurrence.monthly_day <em>optional</em></td>
 <td>Recurrence Meeting Occurs on a month day. The value range is from 1 to 31</td>
 </tr>
 <tr>
-<td>recurrence.monthly_week</td>
+<td>recurrence.monthly_week <em>optional</em></td>
 <td>Recurrence Meeting Occurs on the week of a month.<div class="enum"><code class="prettyprint">-1</code> Last week<br/><code class="prettyprint">1</code> First week<br/><code class="prettyprint">2</code> Second week<br/><code class="prettyprint">3</code> Third week<br/><code class="prettyprint">4</code> Fourth week<br/></div></td>
 </tr>
 <tr>
-<td>recurrence.monthly_week_day</td>
+<td>recurrence.monthly_week_day <em>optional</em></td>
 <td>Recurrence Meeting Occurs on the week day of a month<div class="enum"><code class="prettyprint">1</code> Sunday<br/><code class="prettyprint">2</code> Monday<br/><code class="prettyprint">3</code> Tuesday<br/><code class="prettyprint">4</code> Wednesday<br/><code class="prettyprint">5</code> Thursday<br/><code class="prettyprint">6</code> Friday<br/><code class="prettyprint">7</code> Saturday<br/></div></td>
 </tr>
 <tr>
-<td>recurrence.end_times</td>
+<td>recurrence.end_times <em>optional</em><div class="default">1</div><div class="maximum">50</div></td>
 <td>Recurrence Meeting End occurrences times</td>
 </tr>
 <tr>
-<td>recurrence.end_date_time</td>
+<td>recurrence.end_date_time <em>optional</em></td>
 <td>Recurrence Meeting End Date. Should be UTC time, such as 2017-11-25T12:00:00Z.</td>
 </tr>
 <tr>
-<td>settings.host_video</td>
+<td>settings.host_video <em>optional</em><div class="default">1</div></td>
 <td>Start video when host join meeting</td>
 </tr>
 <tr>
-<td>settings.participant_video</td>
+<td>settings.participant_video <em>optional</em><div class="default">1</div></td>
 <td>Start video when participants join meeting</td>
 </tr>
 <tr>
-<td>settings.cn_meeting</td>
+<td>settings.cn_meeting <em>optional</em></td>
 <td>Host meeting in China</td>
 </tr>
 <tr>
-<td>settings.in_meeting</td>
+<td>settings.in_meeting <em>optional</em></td>
 <td>Host meeting in India</td>
 </tr>
 <tr>
-<td>settings.join_before_host</td>
+<td>settings.join_before_host <em>optional</em></td>
 <td>Join meeting before host start the meeting. Only used for scheduled or recurring meetings</td>
 </tr>
 <tr>
-<td>settings.mute_upon_entry</td>
+<td>settings.mute_upon_entry <em>optional</em></td>
 <td>Mute participants upon entry</td>
 </tr>
 <tr>
-<td>settings.watermark</td>
+<td>settings.watermark <em>optional</em></td>
 <td>Enable watermark when viewing the shared screen</td>
 </tr>
 <tr>
-<td>settings.use_pmi</td>
+<td>settings.use_pmi <em>optional</em></td>
 <td>Use Personal Meeting ID. Only used for scheduled meetings and recurring meetings with no fixed time</td>
 </tr>
 <tr>
-<td>settings.approval_type</td>
+<td>settings.approval_type <em>optional</em><div class="default">2</div></td>
 <td><div class="enum"><code class="prettyprint">0</code> Automatically Approve<br/><code class="prettyprint">1</code> Manually Approve<br/><code class="prettyprint">2</code> No Registration Required<br/></div></td>
 </tr>
 <tr>
-<td>settings.registration_type</td>
+<td>settings.registration_type <em>optional</em><div class="default">1</div></td>
 <td>Registration type. Used for recurring meeting with fixed time only.<div class="enum"><code class="prettyprint">1</code> Attendees register once and can attend any of the occurrences<br/><code class="prettyprint">2</code> Attendees need to register for each occurrence to attend<br/><code class="prettyprint">3</code> Attendees register once and can choose one or more occurrences to attend<br/></div></td>
 </tr>
 <tr>
-<td>settings.audio</td>
+<td>settings.audio <em>optional</em><div class="default">both</div></td>
 <td>Meeting audio options<div class="enum"><code class="prettyprint">both</code> Both Telephony and VoIP<br/><code class="prettyprint">telephony</code> Telephony only<br/><code class="prettyprint">voip</code> VoIP only<br/></div></td>
 </tr>
 <tr>
-<td>settings.auto_recording</td>
+<td>settings.auto_recording <em>optional</em><div class="default">none</div></td>
 <td><div class="enum"><code class="prettyprint">local</code> Record to local device<br/><code class="prettyprint">cloud</code> Record to cloud<br/><code class="prettyprint">none</code> No Recording<br/></div></td>
 </tr>
 <tr>
-<td>settings.enforce_login</td>
+<td>settings.enforce_login <em>optional</em></td>
 <td>Only signed-in users can join this meeting</td>
 </tr>
 <tr>
-<td>settings.enforce_login_domains</td>
+<td>settings.enforce_login_domains <em>optional</em></td>
 <td>Only signed-in users with specified domains can join meetings</td>
 </tr>
 <tr>
-<td>settings.alternatice_hosts</td>
+<td>settings.alternatice_hosts <em>optional</em></td>
 <td>Alternative hosts emails or IDs. Multiple value separated by comma.</td>
 </tr>
 </tbody></table>
@@ -3599,123 +3638,123 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>topic</td>
+<td>topic <em>optional</em></td>
 <td>Meeting topic</td>
 </tr>
 <tr>
-<td>type</td>
+<td>type <em>optional</em></td>
 <td>Meeting Type<div class="enum"><code class="prettyprint">1</code> Instant Meeting<br/><code class="prettyprint">2</code> Scheduled Meeting<br/><code class="prettyprint">3</code> Recurring Meeting with no fixed time<br/><code class="prettyprint">8</code> Recurring Meeting with fixed time<br/></div></td>
 </tr>
 <tr>
-<td>start_time</td>
+<td>start_time <em>optional</em></td>
 <td>Meeting start time</td>
 </tr>
 <tr>
-<td>duration</td>
+<td>duration <em>optional</em></td>
 <td>Meeting duration</td>
 </tr>
 <tr>
-<td>timezone</td>
+<td>timezone <em>optional</em></td>
 <td>Timezone to format start_time</td>
 </tr>
 <tr>
-<td>password</td>
+<td>password <em>optional</em></td>
 <td>Password to join the meeting</td>
 </tr>
 <tr>
-<td>description</td>
+<td>description <em>optional</em></td>
 <td>Meeting description</td>
 </tr>
 <tr>
-<td>recurrence.type</td>
+<td>recurrence.type <em>optional</em></td>
 <td>Recurrence meeting type<div class="enum"><code class="prettyprint">1</code> Daily<br/><code class="prettyprint">2</code> Weekly<br/><code class="prettyprint">3</code> Monthly<br/></div></td>
 </tr>
 <tr>
-<td>recurrence.repeat_interval</td>
+<td>recurrence.repeat_interval <em>optional</em></td>
 <td>Recurrence meeting repeat interval. For a Daily Meeting, max of 90. For a Weekly Meeting, max of 12. For a Monthly Meeting, max of 3.</td>
 </tr>
 <tr>
-<td>recurrence.weekly_days</td>
+<td>recurrence.weekly_days <em>optional</em></td>
 <td>Recurrence Meeting Occurs on week days, multiple value separated by comma<div class="enum"><code class="prettyprint">1</code> Sunday<br/><code class="prettyprint">2</code> Monday<br/><code class="prettyprint">3</code> Tuesday<br/><code class="prettyprint">4</code> Wednesday<br/><code class="prettyprint">5</code> Thursday<br/><code class="prettyprint">6</code> Friday<br/><code class="prettyprint">7</code> Saturday<br/></div></td>
 </tr>
 <tr>
-<td>recurrence.monthly_day</td>
+<td>recurrence.monthly_day <em>optional</em></td>
 <td>Recurrence Meeting Occurs on a month day. The value range is from 1 to 31</td>
 </tr>
 <tr>
-<td>recurrence.monthly_week</td>
+<td>recurrence.monthly_week <em>optional</em></td>
 <td>Recurrence Meeting Occurs on the week of a month.<div class="enum"><code class="prettyprint">-1</code> Last week<br/><code class="prettyprint">1</code> First week<br/><code class="prettyprint">2</code> Second week<br/><code class="prettyprint">3</code> Third week<br/><code class="prettyprint">4</code> Fourth week<br/></div></td>
 </tr>
 <tr>
-<td>recurrence.monthly_week_day</td>
+<td>recurrence.monthly_week_day <em>optional</em></td>
 <td>Recurrence Meeting Occurs on the week day of a month<div class="enum"><code class="prettyprint">1</code> Sunday<br/><code class="prettyprint">2</code> Monday<br/><code class="prettyprint">3</code> Tuesday<br/><code class="prettyprint">4</code> Wednesday<br/><code class="prettyprint">5</code> Thursday<br/><code class="prettyprint">6</code> Friday<br/><code class="prettyprint">7</code> Saturday<br/></div></td>
 </tr>
 <tr>
-<td>recurrence.end_times</td>
+<td>recurrence.end_times <em>optional</em><div class="default">1</div><div class="maximum">50</div></td>
 <td>Recurrence Meeting End occurrences times</td>
 </tr>
 <tr>
-<td>recurrence.end_date_time</td>
+<td>recurrence.end_date_time <em>optional</em></td>
 <td>Recurrence Meeting End Date. Should be UTC time, such as 2017-11-25T12:00:00Z.</td>
 </tr>
 <tr>
-<td>settings.host_video</td>
+<td>settings.host_video <em>optional</em><div class="default">1</div></td>
 <td>Start video when host join meeting</td>
 </tr>
 <tr>
-<td>settings.participant_video</td>
+<td>settings.participant_video <em>optional</em><div class="default">1</div></td>
 <td>Start video when participants join meeting</td>
 </tr>
 <tr>
-<td>settings.cn_meeting</td>
+<td>settings.cn_meeting <em>optional</em></td>
 <td>Host meeting in China</td>
 </tr>
 <tr>
-<td>settings.in_meeting</td>
+<td>settings.in_meeting <em>optional</em></td>
 <td>Host meeting in India</td>
 </tr>
 <tr>
-<td>settings.join_before_host</td>
+<td>settings.join_before_host <em>optional</em></td>
 <td>Join meeting before host start the meeting. Only used for scheduled or recurring meetings</td>
 </tr>
 <tr>
-<td>settings.mute_upon_entry</td>
+<td>settings.mute_upon_entry <em>optional</em></td>
 <td>Mute participants upon entry</td>
 </tr>
 <tr>
-<td>settings.watermark</td>
+<td>settings.watermark <em>optional</em></td>
 <td>Enable watermark when viewing the shared screen</td>
 </tr>
 <tr>
-<td>settings.use_pmi</td>
+<td>settings.use_pmi <em>optional</em></td>
 <td>Use Personal Meeting ID. Only used for scheduled meetings and recurring meetings with no fixed time</td>
 </tr>
 <tr>
-<td>settings.approval_type</td>
+<td>settings.approval_type <em>optional</em><div class="default">2</div></td>
 <td><div class="enum"><code class="prettyprint">0</code> Automatically Approve<br/><code class="prettyprint">1</code> Manually Approve<br/><code class="prettyprint">2</code> No Registration Required<br/></div></td>
 </tr>
 <tr>
-<td>settings.registration_type</td>
+<td>settings.registration_type <em>optional</em><div class="default">1</div></td>
 <td>Registration type. Used for recurring meeting with fixed time only.<div class="enum"><code class="prettyprint">1</code> Attendees register once and can attend any of the occurrences<br/><code class="prettyprint">2</code> Attendees need to register for each occurrence to attend<br/><code class="prettyprint">3</code> Attendees register once and can choose one or more occurrences to attend<br/></div></td>
 </tr>
 <tr>
-<td>settings.audio</td>
+<td>settings.audio <em>optional</em><div class="default">both</div></td>
 <td>Meeting audio options<div class="enum"><code class="prettyprint">both</code> Both Telephony and VoIP<br/><code class="prettyprint">telephony</code> Telephony only<br/><code class="prettyprint">voip</code> VoIP only<br/></div></td>
 </tr>
 <tr>
-<td>settings.auto_recording</td>
+<td>settings.auto_recording <em>optional</em><div class="default">none</div></td>
 <td><div class="enum"><code class="prettyprint">local</code> Record to local device<br/><code class="prettyprint">cloud</code> Record to cloud<br/><code class="prettyprint">none</code> No Recording<br/></div></td>
 </tr>
 <tr>
-<td>settings.enforce_login</td>
+<td>settings.enforce_login <em>optional</em></td>
 <td>Only signed-in users can join this meeting</td>
 </tr>
 <tr>
-<td>settings.enforce_login_domains</td>
+<td>settings.enforce_login_domains <em>optional</em></td>
 <td>Only signed-in users with specified domains can join meetings</td>
 </tr>
 <tr>
-<td>settings.alternatice_hosts</td>
+<td>settings.alternatice_hosts <em>optional</em></td>
 <td>Alternative hosts emails or IDs. Multiple value separated by comma.</td>
 </tr>
 </tbody></table>
@@ -3749,6 +3788,18 @@
 <tr>
 <td>meetingId <strong>required</strong></td>
 <td>The meeting ID</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Query Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>occurrence_id <em>optional</em></td>
+<td>The meeting occurrence ID</td>
 </tr>
 </tbody></table>
 
@@ -3793,7 +3844,7 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>status</td>
+<td>status <em>optional</em></td>
 <td><div class="enum"><code class="prettyprint">end</code> end a meeting<br/></div></td>
 </tr>
 </tbody></table>
@@ -3868,19 +3919,19 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>occurrence_id</td>
-<td>The the meeting occurence ID</td>
+<td>occurrence_id <em>optional</em></td>
+<td>The meeting occurrence ID</td>
 </tr>
 <tr>
-<td>status</td>
+<td>status <em>optional</em><div class="default">approved</div></td>
 <td>The registrant status<div class="enum"><code class="prettyprint">approved</code> registrants status is approved<br/><code class="prettyprint">pending</code> registrants status is pending<br/><code class="prettyprint">denied</code> registrants status is denied<br/></div></td>
 </tr>
 <tr>
-<td>page_size</td>
+<td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
 <td>Number of items returned per page</td>
 </tr>
 <tr>
-<td>page_number</td>
+<td>page_number <em>optional</em><div class="default">1</div></td>
 <td>Page number of results returned</td>
 </tr>
 </tbody></table>
@@ -3926,7 +3977,7 @@
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre class="highlight plaintext"><code>200 OK
+<pre class="highlight plaintext"><code>201 Created
 </code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"join_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
@@ -3963,59 +4014,59 @@
 <td>User’s last name</td>
 </tr>
 <tr>
-<td>address</td>
+<td>address <em>optional</em></td>
 <td>Address</td>
 </tr>
 <tr>
-<td>city</td>
+<td>city <em>optional</em></td>
 <td>City</td>
 </tr>
 <tr>
-<td>country</td>
+<td>country <em>optional</em></td>
 <td>Country</td>
 </tr>
 <tr>
-<td>zip</td>
+<td>zip <em>optional</em></td>
 <td>Zip/Postal Code</td>
 </tr>
 <tr>
-<td>state</td>
+<td>state <em>optional</em></td>
 <td>State/Province</td>
 </tr>
 <tr>
-<td>phone</td>
+<td>phone <em>optional</em></td>
 <td>Phone</td>
 </tr>
 <tr>
-<td>industry</td>
+<td>industry <em>optional</em></td>
 <td>Industry</td>
 </tr>
 <tr>
-<td>org</td>
+<td>org <em>optional</em></td>
 <td>Organization</td>
 </tr>
 <tr>
-<td>job_title</td>
+<td>job_title <em>optional</em></td>
 <td>Job Title</td>
 </tr>
 <tr>
-<td>purchasing_time_frame</td>
+<td>purchasing_time_frame <em>optional</em></td>
 <td>Purchasing Time Frame<div class="enum"><code class="prettyprint">Within a month</code> <br/><code class="prettyprint">1-3 months</code> <br/><code class="prettyprint">4-6 months</code> <br/><code class="prettyprint">More than 6 months</code> <br/><code class="prettyprint">No timeframe</code> <br/></div></td>
 </tr>
 <tr>
-<td>role_in_purchase_process</td>
+<td>role_in_purchase_process <em>optional</em></td>
 <td>Role in Purchase Process<div class="enum"><code class="prettyprint">Decision Maker</code> <br/><code class="prettyprint">Evaluator/Recommender</code> <br/><code class="prettyprint">Influencer</code> <br/><code class="prettyprint">Not involved</code> <br/></div></td>
 </tr>
 <tr>
-<td>no_of_employees</td>
+<td>no_of_employees <em>optional</em></td>
 <td>Number of Employees<div class="enum"><code class="prettyprint">1-20</code> <br/><code class="prettyprint">21-50</code> <br/><code class="prettyprint">51-100</code> <br/><code class="prettyprint">101-500</code> <br/><code class="prettyprint">500-1,000</code> <br/><code class="prettyprint">1,001-5,000</code> <br/><code class="prettyprint">5,001-10,000</code> <br/><code class="prettyprint">More than 10,000</code> <br/></div></td>
 </tr>
 <tr>
-<td>comments</td>
+<td>comments <em>optional</em></td>
 <td>Questions &amp; Comments</td>
 </tr>
 <tr>
-<td>custom_questions</td>
+<td>custom_questions <em>optional</em></td>
 <td>Custom Questions</td>
 </tr>
 </tbody></table>
@@ -4065,7 +4116,7 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>status</td>
+<td>status <em>optional</em></td>
 <td><div class="enum"><code class="prettyprint">pending</code> set registrant status to pending<br/><code class="prettyprint">approved</code> set registrant status to approved<br/><code class="prettyprint">denied</code> set registrant status to denied<br/></div></td>
 </tr>
 </tbody></table>
@@ -4325,11 +4376,11 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>page_size</td>
+<td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
 <td>Number of items returned per page</td>
 </tr>
 <tr>
-<td>page_number</td>
+<td>page_number <em>optional</em><div class="default">1</div></td>
 <td>Page number of results returned</td>
 </tr>
 </tbody></table>
@@ -4387,7 +4438,7 @@
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre class="highlight plaintext"><code>200 OK
+<pre class="highlight plaintext"><code>201 Created
 </code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -4411,123 +4462,123 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>topic</td>
+<td>topic <em>optional</em></td>
 <td>Meeting topic</td>
 </tr>
 <tr>
-<td>type</td>
+<td>type <em>optional</em></td>
 <td>Meeting Type<div class="enum"><code class="prettyprint">1</code> Instant Meeting<br/><code class="prettyprint">2</code> Scheduled Meeting<br/><code class="prettyprint">3</code> Recurring Meeting with no fixed time<br/><code class="prettyprint">8</code> Recurring Meeting with fixed time<br/></div></td>
 </tr>
 <tr>
-<td>start_time</td>
+<td>start_time <em>optional</em></td>
 <td>Meeting start time</td>
 </tr>
 <tr>
-<td>duration</td>
+<td>duration <em>optional</em></td>
 <td>Meeting duration</td>
 </tr>
 <tr>
-<td>timezone</td>
+<td>timezone <em>optional</em></td>
 <td>Timezone to format start_time</td>
 </tr>
 <tr>
-<td>password</td>
+<td>password <em>optional</em></td>
 <td>Password to join the meeting</td>
 </tr>
 <tr>
-<td>description</td>
+<td>description <em>optional</em></td>
 <td>Meeting description</td>
 </tr>
 <tr>
-<td>recurrence.type</td>
+<td>recurrence.type <em>optional</em></td>
 <td>Recurrence meeting type<div class="enum"><code class="prettyprint">1</code> Daily<br/><code class="prettyprint">2</code> Weekly<br/><code class="prettyprint">3</code> Monthly<br/></div></td>
 </tr>
 <tr>
-<td>recurrence.repeat_interval</td>
+<td>recurrence.repeat_interval <em>optional</em></td>
 <td>Recurrence meeting repeat interval. For a Daily Meeting, max of 90. For a Weekly Meeting, max of 12. For a Monthly Meeting, max of 3.</td>
 </tr>
 <tr>
-<td>recurrence.weekly_days</td>
+<td>recurrence.weekly_days <em>optional</em></td>
 <td>Recurrence Meeting Occurs on week days, multiple value separated by comma<div class="enum"><code class="prettyprint">1</code> Sunday<br/><code class="prettyprint">2</code> Monday<br/><code class="prettyprint">3</code> Tuesday<br/><code class="prettyprint">4</code> Wednesday<br/><code class="prettyprint">5</code> Thursday<br/><code class="prettyprint">6</code> Friday<br/><code class="prettyprint">7</code> Saturday<br/></div></td>
 </tr>
 <tr>
-<td>recurrence.monthly_day</td>
+<td>recurrence.monthly_day <em>optional</em></td>
 <td>Recurrence Meeting Occurs on a month day. The value range is from 1 to 31</td>
 </tr>
 <tr>
-<td>recurrence.monthly_week</td>
+<td>recurrence.monthly_week <em>optional</em></td>
 <td>Recurrence Meeting Occurs on the week of a month.<div class="enum"><code class="prettyprint">-1</code> Last week<br/><code class="prettyprint">1</code> First week<br/><code class="prettyprint">2</code> Second week<br/><code class="prettyprint">3</code> Third week<br/><code class="prettyprint">4</code> Fourth week<br/></div></td>
 </tr>
 <tr>
-<td>recurrence.monthly_week_day</td>
+<td>recurrence.monthly_week_day <em>optional</em></td>
 <td>Recurrence Meeting Occurs on the week day of a month<div class="enum"><code class="prettyprint">1</code> Sunday<br/><code class="prettyprint">2</code> Monday<br/><code class="prettyprint">3</code> Tuesday<br/><code class="prettyprint">4</code> Wednesday<br/><code class="prettyprint">5</code> Thursday<br/><code class="prettyprint">6</code> Friday<br/><code class="prettyprint">7</code> Saturday<br/></div></td>
 </tr>
 <tr>
-<td>recurrence.end_times</td>
+<td>recurrence.end_times <em>optional</em><div class="default">1</div><div class="maximum">50</div></td>
 <td>Recurrence Meeting End occurrences times</td>
 </tr>
 <tr>
-<td>recurrence.end_date_time</td>
+<td>recurrence.end_date_time <em>optional</em></td>
 <td>Recurrence Meeting End Date. Should be UTC time, such as 2017-11-25T12:00:00Z.</td>
 </tr>
 <tr>
-<td>settings.host_video</td>
+<td>settings.host_video <em>optional</em><div class="default">1</div></td>
 <td>Start video when host join meeting</td>
 </tr>
 <tr>
-<td>settings.participant_video</td>
+<td>settings.participant_video <em>optional</em><div class="default">1</div></td>
 <td>Start video when participants join meeting</td>
 </tr>
 <tr>
-<td>settings.cn_meeting</td>
+<td>settings.cn_meeting <em>optional</em></td>
 <td>Host meeting in China</td>
 </tr>
 <tr>
-<td>settings.in_meeting</td>
+<td>settings.in_meeting <em>optional</em></td>
 <td>Host meeting in India</td>
 </tr>
 <tr>
-<td>settings.join_before_host</td>
+<td>settings.join_before_host <em>optional</em></td>
 <td>Join meeting before host start the meeting. Only used for scheduled or recurring meetings</td>
 </tr>
 <tr>
-<td>settings.mute_upon_entry</td>
+<td>settings.mute_upon_entry <em>optional</em></td>
 <td>Mute participants upon entry</td>
 </tr>
 <tr>
-<td>settings.watermark</td>
+<td>settings.watermark <em>optional</em></td>
 <td>Enable watermark when viewing the shared screen</td>
 </tr>
 <tr>
-<td>settings.use_pmi</td>
+<td>settings.use_pmi <em>optional</em></td>
 <td>Use Personal Meeting ID. Only used for scheduled meetings and recurring meetings with no fixed time</td>
 </tr>
 <tr>
-<td>settings.approval_type</td>
+<td>settings.approval_type <em>optional</em><div class="default">2</div></td>
 <td><div class="enum"><code class="prettyprint">0</code> Automatically Approve<br/><code class="prettyprint">1</code> Manually Approve<br/><code class="prettyprint">2</code> No Registration Required<br/></div></td>
 </tr>
 <tr>
-<td>settings.registration_type</td>
+<td>settings.registration_type <em>optional</em><div class="default">1</div></td>
 <td>Registration type. Used for recurring meeting with fixed time only.<div class="enum"><code class="prettyprint">1</code> Attendees register once and can attend any of the occurrences<br/><code class="prettyprint">2</code> Attendees need to register for each occurrence to attend<br/><code class="prettyprint">3</code> Attendees register once and can choose one or more occurrences to attend<br/></div></td>
 </tr>
 <tr>
-<td>settings.audio</td>
+<td>settings.audio <em>optional</em><div class="default">both</div></td>
 <td>Meeting audio options<div class="enum"><code class="prettyprint">both</code> Both Telephony and VoIP<br/><code class="prettyprint">telephony</code> Telephony only<br/><code class="prettyprint">voip</code> VoIP only<br/></div></td>
 </tr>
 <tr>
-<td>settings.auto_recording</td>
+<td>settings.auto_recording <em>optional</em><div class="default">none</div></td>
 <td><div class="enum"><code class="prettyprint">local</code> Record to local device<br/><code class="prettyprint">cloud</code> Record to cloud<br/><code class="prettyprint">none</code> No Recording<br/></div></td>
 </tr>
 <tr>
-<td>settings.enforce_login</td>
+<td>settings.enforce_login <em>optional</em></td>
 <td>Only signed-in users can join this meeting</td>
 </tr>
 <tr>
-<td>settings.enforce_login_domains</td>
+<td>settings.enforce_login_domains <em>optional</em></td>
 <td>Only signed-in users with specified domains can join meetings</td>
 </tr>
 <tr>
-<td>settings.alternatice_hosts</td>
+<td>settings.alternatice_hosts <em>optional</em></td>
 <td>Alternative hosts emails or IDs. Multiple value separated by comma.</td>
 </tr>
 </tbody></table>
@@ -4676,123 +4727,123 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>topic</td>
+<td>topic <em>optional</em></td>
 <td>Meeting topic</td>
 </tr>
 <tr>
-<td>type</td>
+<td>type <em>optional</em></td>
 <td>Meeting Type<div class="enum"><code class="prettyprint">1</code> Instant Meeting<br/><code class="prettyprint">2</code> Scheduled Meeting<br/><code class="prettyprint">3</code> Recurring Meeting with no fixed time<br/><code class="prettyprint">8</code> Recurring Meeting with fixed time<br/></div></td>
 </tr>
 <tr>
-<td>start_time</td>
+<td>start_time <em>optional</em></td>
 <td>Meeting start time</td>
 </tr>
 <tr>
-<td>duration</td>
+<td>duration <em>optional</em></td>
 <td>Meeting duration</td>
 </tr>
 <tr>
-<td>timezone</td>
+<td>timezone <em>optional</em></td>
 <td>Timezone to format start_time</td>
 </tr>
 <tr>
-<td>password</td>
+<td>password <em>optional</em></td>
 <td>Password to join the meeting</td>
 </tr>
 <tr>
-<td>description</td>
+<td>description <em>optional</em></td>
 <td>Meeting description</td>
 </tr>
 <tr>
-<td>recurrence.type</td>
+<td>recurrence.type <em>optional</em></td>
 <td>Recurrence meeting type<div class="enum"><code class="prettyprint">1</code> Daily<br/><code class="prettyprint">2</code> Weekly<br/><code class="prettyprint">3</code> Monthly<br/></div></td>
 </tr>
 <tr>
-<td>recurrence.repeat_interval</td>
+<td>recurrence.repeat_interval <em>optional</em></td>
 <td>Recurrence meeting repeat interval. For a Daily Meeting, max of 90. For a Weekly Meeting, max of 12. For a Monthly Meeting, max of 3.</td>
 </tr>
 <tr>
-<td>recurrence.weekly_days</td>
+<td>recurrence.weekly_days <em>optional</em></td>
 <td>Recurrence Meeting Occurs on week days, multiple value separated by comma<div class="enum"><code class="prettyprint">1</code> Sunday<br/><code class="prettyprint">2</code> Monday<br/><code class="prettyprint">3</code> Tuesday<br/><code class="prettyprint">4</code> Wednesday<br/><code class="prettyprint">5</code> Thursday<br/><code class="prettyprint">6</code> Friday<br/><code class="prettyprint">7</code> Saturday<br/></div></td>
 </tr>
 <tr>
-<td>recurrence.monthly_day</td>
+<td>recurrence.monthly_day <em>optional</em></td>
 <td>Recurrence Meeting Occurs on a month day. The value range is from 1 to 31</td>
 </tr>
 <tr>
-<td>recurrence.monthly_week</td>
+<td>recurrence.monthly_week <em>optional</em></td>
 <td>Recurrence Meeting Occurs on the week of a month.<div class="enum"><code class="prettyprint">-1</code> Last week<br/><code class="prettyprint">1</code> First week<br/><code class="prettyprint">2</code> Second week<br/><code class="prettyprint">3</code> Third week<br/><code class="prettyprint">4</code> Fourth week<br/></div></td>
 </tr>
 <tr>
-<td>recurrence.monthly_week_day</td>
+<td>recurrence.monthly_week_day <em>optional</em></td>
 <td>Recurrence Meeting Occurs on the week day of a month<div class="enum"><code class="prettyprint">1</code> Sunday<br/><code class="prettyprint">2</code> Monday<br/><code class="prettyprint">3</code> Tuesday<br/><code class="prettyprint">4</code> Wednesday<br/><code class="prettyprint">5</code> Thursday<br/><code class="prettyprint">6</code> Friday<br/><code class="prettyprint">7</code> Saturday<br/></div></td>
 </tr>
 <tr>
-<td>recurrence.end_times</td>
+<td>recurrence.end_times <em>optional</em><div class="default">1</div><div class="maximum">50</div></td>
 <td>Recurrence Meeting End occurrences times</td>
 </tr>
 <tr>
-<td>recurrence.end_date_time</td>
+<td>recurrence.end_date_time <em>optional</em></td>
 <td>Recurrence Meeting End Date. Should be UTC time, such as 2017-11-25T12:00:00Z.</td>
 </tr>
 <tr>
-<td>settings.host_video</td>
+<td>settings.host_video <em>optional</em><div class="default">1</div></td>
 <td>Start video when host join meeting</td>
 </tr>
 <tr>
-<td>settings.participant_video</td>
+<td>settings.participant_video <em>optional</em><div class="default">1</div></td>
 <td>Start video when participants join meeting</td>
 </tr>
 <tr>
-<td>settings.cn_meeting</td>
+<td>settings.cn_meeting <em>optional</em></td>
 <td>Host meeting in China</td>
 </tr>
 <tr>
-<td>settings.in_meeting</td>
+<td>settings.in_meeting <em>optional</em></td>
 <td>Host meeting in India</td>
 </tr>
 <tr>
-<td>settings.join_before_host</td>
+<td>settings.join_before_host <em>optional</em></td>
 <td>Join meeting before host start the meeting. Only used for scheduled or recurring meetings</td>
 </tr>
 <tr>
-<td>settings.mute_upon_entry</td>
+<td>settings.mute_upon_entry <em>optional</em></td>
 <td>Mute participants upon entry</td>
 </tr>
 <tr>
-<td>settings.watermark</td>
+<td>settings.watermark <em>optional</em></td>
 <td>Enable watermark when viewing the shared screen</td>
 </tr>
 <tr>
-<td>settings.use_pmi</td>
+<td>settings.use_pmi <em>optional</em></td>
 <td>Use Personal Meeting ID. Only used for scheduled meetings and recurring meetings with no fixed time</td>
 </tr>
 <tr>
-<td>settings.approval_type</td>
+<td>settings.approval_type <em>optional</em><div class="default">2</div></td>
 <td><div class="enum"><code class="prettyprint">0</code> Automatically Approve<br/><code class="prettyprint">1</code> Manually Approve<br/><code class="prettyprint">2</code> No Registration Required<br/></div></td>
 </tr>
 <tr>
-<td>settings.registration_type</td>
+<td>settings.registration_type <em>optional</em><div class="default">1</div></td>
 <td>Registration type. Used for recurring meeting with fixed time only.<div class="enum"><code class="prettyprint">1</code> Attendees register once and can attend any of the occurrences<br/><code class="prettyprint">2</code> Attendees need to register for each occurrence to attend<br/><code class="prettyprint">3</code> Attendees register once and can choose one or more occurrences to attend<br/></div></td>
 </tr>
 <tr>
-<td>settings.audio</td>
+<td>settings.audio <em>optional</em><div class="default">both</div></td>
 <td>Meeting audio options<div class="enum"><code class="prettyprint">both</code> Both Telephony and VoIP<br/><code class="prettyprint">telephony</code> Telephony only<br/><code class="prettyprint">voip</code> VoIP only<br/></div></td>
 </tr>
 <tr>
-<td>settings.auto_recording</td>
+<td>settings.auto_recording <em>optional</em><div class="default">none</div></td>
 <td><div class="enum"><code class="prettyprint">local</code> Record to local device<br/><code class="prettyprint">cloud</code> Record to cloud<br/><code class="prettyprint">none</code> No Recording<br/></div></td>
 </tr>
 <tr>
-<td>settings.enforce_login</td>
+<td>settings.enforce_login <em>optional</em></td>
 <td>Only signed-in users can join this meeting</td>
 </tr>
 <tr>
-<td>settings.enforce_login_domains</td>
+<td>settings.enforce_login_domains <em>optional</em></td>
 <td>Only signed-in users with specified domains can join meetings</td>
 </tr>
 <tr>
-<td>settings.alternatice_hosts</td>
+<td>settings.alternatice_hosts <em>optional</em></td>
 <td>Alternative hosts emails or IDs. Multiple value separated by comma.</td>
 </tr>
 </tbody></table>
@@ -4870,7 +4921,7 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>status</td>
+<td>status <em>optional</em></td>
 <td><div class="enum"><code class="prettyprint">end</code> end a webinar<br/></div></td>
 </tr>
 </tbody></table>
@@ -4925,15 +4976,15 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>occurrence_id</td>
-<td>The the meeting occurence ID</td>
+<td>occurrence_id <em>optional</em></td>
+<td>The meeting occurrence ID</td>
 </tr>
 <tr>
-<td>page_size</td>
+<td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
 <td>Number of items returned per page</td>
 </tr>
 <tr>
-<td>page_number</td>
+<td>page_number <em>optional</em><div class="default">1</div></td>
 <td>Page number of results returned</td>
 </tr>
 </tbody></table>
@@ -4959,7 +5010,7 @@
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre class="highlight plaintext"><code>200 OK
+<pre class="highlight plaintext"><code>201 Created
 </code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"join_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
@@ -4984,11 +5035,11 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>email</td>
+<td>email <em>optional</em></td>
 <td>Panelist&rsquo;s email</td>
 </tr>
 <tr>
-<td>name</td>
+<td>name <em>optional</em></td>
 <td>Panelist&rsquo;s full name</td>
 </tr>
 </tbody></table>
@@ -5131,19 +5182,19 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>occurrence_id</td>
-<td>The the meeting occurence ID</td>
+<td>occurrence_id <em>optional</em></td>
+<td>The meeting occurrence ID</td>
 </tr>
 <tr>
-<td>status</td>
+<td>status <em>optional</em><div class="default">approved</div></td>
 <td>The registrant status<div class="enum"><code class="prettyprint">approved</code> registrants status is approved<br/><code class="prettyprint">pending</code> registrants status is pending<br/><code class="prettyprint">denied</code> registrants status is denied<br/></div></td>
 </tr>
 <tr>
-<td>page_size</td>
+<td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
 <td>Number of items returned per page</td>
 </tr>
 <tr>
-<td>page_number</td>
+<td>page_number <em>optional</em><div class="default">1</div></td>
 <td>Page number of results returned</td>
 </tr>
 </tbody></table>
@@ -5189,7 +5240,7 @@
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre class="highlight plaintext"><code>200 OK
+<pre class="highlight plaintext"><code>201 Created
 </code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"join_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
@@ -5226,59 +5277,59 @@
 <td>User’s last name</td>
 </tr>
 <tr>
-<td>address</td>
+<td>address <em>optional</em></td>
 <td>Address</td>
 </tr>
 <tr>
-<td>city</td>
+<td>city <em>optional</em></td>
 <td>City</td>
 </tr>
 <tr>
-<td>country</td>
+<td>country <em>optional</em></td>
 <td>Country</td>
 </tr>
 <tr>
-<td>zip</td>
+<td>zip <em>optional</em></td>
 <td>Zip/Postal Code</td>
 </tr>
 <tr>
-<td>state</td>
+<td>state <em>optional</em></td>
 <td>State/Province</td>
 </tr>
 <tr>
-<td>phone</td>
+<td>phone <em>optional</em></td>
 <td>Phone</td>
 </tr>
 <tr>
-<td>industry</td>
+<td>industry <em>optional</em></td>
 <td>Industry</td>
 </tr>
 <tr>
-<td>org</td>
+<td>org <em>optional</em></td>
 <td>Organization</td>
 </tr>
 <tr>
-<td>job_title</td>
+<td>job_title <em>optional</em></td>
 <td>Job Title</td>
 </tr>
 <tr>
-<td>purchasing_time_frame</td>
+<td>purchasing_time_frame <em>optional</em></td>
 <td>Purchasing Time Frame<div class="enum"><code class="prettyprint">Within a month</code> <br/><code class="prettyprint">1-3 months</code> <br/><code class="prettyprint">4-6 months</code> <br/><code class="prettyprint">More than 6 months</code> <br/><code class="prettyprint">No timeframe</code> <br/></div></td>
 </tr>
 <tr>
-<td>role_in_purchase_process</td>
+<td>role_in_purchase_process <em>optional</em></td>
 <td>Role in Purchase Process<div class="enum"><code class="prettyprint">Decision Maker</code> <br/><code class="prettyprint">Evaluator/Recommender</code> <br/><code class="prettyprint">Influencer</code> <br/><code class="prettyprint">Not involved</code> <br/></div></td>
 </tr>
 <tr>
-<td>no_of_employees</td>
+<td>no_of_employees <em>optional</em></td>
 <td>Number of Employees<div class="enum"><code class="prettyprint">1-20</code> <br/><code class="prettyprint">21-50</code> <br/><code class="prettyprint">51-100</code> <br/><code class="prettyprint">101-500</code> <br/><code class="prettyprint">500-1,000</code> <br/><code class="prettyprint">1,001-5,000</code> <br/><code class="prettyprint">5,001-10,000</code> <br/><code class="prettyprint">More than 10,000</code> <br/></div></td>
 </tr>
 <tr>
-<td>comments</td>
+<td>comments <em>optional</em></td>
 <td>Questions &amp; Comments</td>
 </tr>
 <tr>
-<td>custom_questions</td>
+<td>custom_questions <em>optional</em></td>
 <td>Custom Questions</td>
 </tr>
 </tbody></table>
@@ -5328,7 +5379,7 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>status</td>
+<td>status <em>optional</em></td>
 <td><div class="enum"><code class="prettyprint">pending</code> set registrant status to pending<br/><code class="prettyprint">approved</code> set registrant status to approved<br/><code class="prettyprint">denied</code> set registrant status to denied<br/></div></td>
 </tr>
 </tbody></table>
@@ -5398,11 +5449,11 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>page_size</td>
+<td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
 <td>Number of items returned per page</td>
 </tr>
 <tr>
-<td>page_number</td>
+<td>page_number <em>optional</em><div class="default">1</div></td>
 <td>Page number of results returned</td>
 </tr>
 </tbody></table>
@@ -5427,9 +5478,11 @@
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre class="highlight plaintext"><code>200 OK
+<pre class="highlight plaintext"><code>201 Created
 </code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_members"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <table><thead>
@@ -5439,7 +5492,7 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>name</td>
+<td>name <em>optional</em></td>
 <td>Group name.</td>
 </tr>
 </tbody></table>
@@ -5521,8 +5574,8 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>name</td>
-<td>Group name.</td>
+<td>name <em>optional</em></td>
+<td>Group name. Must be unique in one account. Character length is less than 128.</td>
 </tr>
 </tbody></table>
 
@@ -5611,18 +5664,18 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>page_size</td>
+<td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
 <td>Number of items returned per page</td>
 </tr>
 <tr>
-<td>page_number</td>
+<td>page_number <em>optional</em><div class="default">1</div></td>
 <td>Page number of results returned</td>
 </tr>
 </tbody></table>
 
-          <h2 id="add-a-group-member">Add a group member</h2>
+          <h2 id="add-group-members">Add group members</h2>
 
-<p>Add a member to a group under your account</p>
+<p>Add members to a group under your account</p>
 
 <blockquote>
 <p>Definition</p>
@@ -5634,15 +5687,23 @@
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/groups/<span class="o">{</span>groupId<span class="o">}</span>/members <span class="se">\</span>
    -d <span class="s1">'{
-    "id": "string",
-    "email": "string"
+    "members": [
+        {
+            "id": "string",
+            "email": "string"
+        }
+    ]
 }'</span>
 </code></pre>
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre class="highlight plaintext"><code>204 No Content
-</code></pre>
+<pre class="highlight plaintext"><code>201 Created
+</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"added_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <table><thead>
 <tr>
 <th>Path Arguments</th>
@@ -5662,12 +5723,8 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>User ID.</td>
-</tr>
-<tr>
-<td>email</td>
-<td>User email. If ID given, email is ignored.</td>
+<td>members <em>optional</em></td>
+<td></td>
 </tr>
 </tbody></table>
 
@@ -5678,12 +5735,12 @@
 <blockquote>
 <p>Definition</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>DELETE https://api.zoom.us/v2/groups/<span class="o">{</span>groupId<span class="o">}</span>/members/<span class="o">{</span>userId<span class="o">}</span>
+<pre class="highlight shell tab-shell"><code>DELETE https://api.zoom.us/v2/groups/<span class="o">{</span>groupId<span class="o">}</span>/members/<span class="o">{</span>memberId<span class="o">}</span>
 </code></pre>
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/groups/<span class="o">{</span>groupId<span class="o">}</span>/members/<span class="o">{</span>userId<span class="o">}</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/groups/<span class="o">{</span>groupId<span class="o">}</span>/members/<span class="o">{</span>memberId<span class="o">}</span> <span class="se">\</span>
     -X DELETE
 </code></pre>
 <blockquote>
@@ -5702,8 +5759,8 @@
 <td>The group ID</td>
 </tr>
 <tr>
-<td>userId <strong>required</strong></td>
-<td>The user ID or email address</td>
+<td>memberId <strong>required</strong></td>
+<td>The member ID</td>
 </tr>
 </tbody></table>
 
@@ -5796,11 +5853,11 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>page_size</td>
+<td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
 <td>Number of items returned per page</td>
 </tr>
 <tr>
-<td>page_number</td>
+<td>page_number <em>optional</em><div class="default">1</div></td>
 <td>Page number of results returned</td>
 </tr>
 </tbody></table>
@@ -5829,7 +5886,7 @@
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre class="highlight plaintext"><code>200 OK
+<pre class="highlight plaintext"><code>201 Created
 </code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -5841,23 +5898,23 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>name</td>
+<td>name <em>optional</em></td>
 <td>Group name, must be unique in one account</td>
 </tr>
 <tr>
-<td>type</td>
+<td>type <em>optional</em></td>
 <td>IM Group type<div class="enum"><code class="prettyprint">normal</code> Only members can see the group automatically. Other people can search members in the group<br/><code class="prettyprint">shared</code> All people in the account can see the group and members automatically<br/><code class="prettyprint">restricted</code> Nobody can see the group or search members except the members in the group<br/></div></td>
 </tr>
 <tr>
-<td>search_by_domain</td>
+<td>search_by_domain <em>optional</em></td>
 <td>Members can search others in the same email domain</td>
 </tr>
 <tr>
-<td>search_by_account</td>
+<td>search_by_account <em>optional</em></td>
 <td>Members can search others under same account</td>
 </tr>
 <tr>
-<td>search_by_ma_account</td>
+<td>search_by_ma_account <em>optional</em></td>
 <td>Members can search others under same master account, including all sub accounts</td>
 </tr>
 </tbody></table>
@@ -5947,23 +6004,23 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>name</td>
+<td>name <em>optional</em></td>
 <td>Group name, must be unique in one account</td>
 </tr>
 <tr>
-<td>type</td>
+<td>type <em>optional</em></td>
 <td>IM Group type<div class="enum"><code class="prettyprint">normal</code> Only members can see the group automatically. Other people can search members in the group<br/><code class="prettyprint">shared</code> All people in the account can see the group and members automatically<br/><code class="prettyprint">restricted</code> Nobody can see the group or search members except the members in the group<br/></div></td>
 </tr>
 <tr>
-<td>search_by_domain</td>
+<td>search_by_domain <em>optional</em></td>
 <td>Members can search others in the same email domain</td>
 </tr>
 <tr>
-<td>search_by_account</td>
+<td>search_by_account <em>optional</em></td>
 <td>Members can search others under same account</td>
 </tr>
 <tr>
-<td>search_by_ma_account</td>
+<td>search_by_ma_account <em>optional</em></td>
 <td>Members can search others under same master account, including all sub accounts</td>
 </tr>
 </tbody></table>
@@ -6053,11 +6110,11 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>page_size</td>
+<td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
 <td>Number of items returned per page</td>
 </tr>
 <tr>
-<td>page_number</td>
+<td>page_number <em>optional</em><div class="default">1</div></td>
 <td>Page number of results returned</td>
 </tr>
 </tbody></table>
@@ -6104,11 +6161,11 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
+<td>id <em>optional</em></td>
 <td>User ID.</td>
 </tr>
 <tr>
-<td>email</td>
+<td>email <em>optional</em></td>
 <td>User email. If ID given, email is ignored.</td>
 </tr>
 </tbody></table>
@@ -6172,13 +6229,15 @@
 </code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"year"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"month"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"dates"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"new_users"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"meetings"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"participants"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"meeting_minutes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="s2">"dates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"new_users"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"meetings"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"participants"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"meeting_minutes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <table><thead>
@@ -6188,11 +6247,11 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>year</td>
+<td>year <em>optional</em></td>
 <td>Year for this report</td>
 </tr>
 <tr>
-<td>month</td>
+<td>month <em>optional</em></td>
 <td>Month for this report</td>
 </tr>
 </tbody></table>
@@ -6209,7 +6268,7 @@
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/report/users
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/report/users?from<span class="o">=</span>string&amp;to<span class="o">=</span>string
 </code></pre>
 <blockquote>
 <p>Example Response</p>
@@ -6227,7 +6286,7 @@
     </span><span class="s2">"total_meeting_minutes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"user_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
@@ -6246,23 +6305,23 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>type</td>
+<td>type <em>optional</em></td>
 <td>Active hosts or inactive hosts<div class="enum"><code class="prettyprint">active</code> Active hosts<br/><code class="prettyprint">inactive</code> Inactive hosts<br/></div></td>
 </tr>
 <tr>
-<td>from</td>
+<td>from <strong>required</strong></td>
 <td>Start Date</td>
 </tr>
 <tr>
-<td>to</td>
+<td>to <strong>required</strong></td>
 <td>End Date</td>
 </tr>
 <tr>
-<td>page_size</td>
+<td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
 <td>Number of items returned per page</td>
 </tr>
 <tr>
-<td>page_number</td>
+<td>page_number <em>optional</em><div class="default">1</div></td>
 <td>Page number of results returned</td>
 </tr>
 </tbody></table>
@@ -6279,7 +6338,7 @@
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/report/users/<span class="o">{</span>userId<span class="o">}</span>/meetings
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/report/users/<span class="o">{</span>userId<span class="o">}</span>/meetings?from<span class="o">=</span>string&amp;to<span class="o">=</span>string
 </code></pre>
 <blockquote>
 <p>Example Response</p>
@@ -6294,7 +6353,7 @@
     </span><span class="s2">"total_records"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"meetings"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"topic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -6304,7 +6363,7 @@
             </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"total_minutes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"participant_count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="w">
+            </span><span class="s2">"participants_count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -6328,19 +6387,19 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>from</td>
+<td>from <strong>required</strong></td>
 <td>Start Date</td>
 </tr>
 <tr>
-<td>to</td>
+<td>to <strong>required</strong></td>
 <td>End Date</td>
 </tr>
 <tr>
-<td>page_size</td>
+<td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
 <td>Number of items returned per page</td>
 </tr>
 <tr>
-<td>page_number</td>
+<td>page_number <em>optional</em><div class="default">1</div></td>
 <td>Page number of results returned</td>
 </tr>
 </tbody></table>
@@ -6399,11 +6458,11 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>page_size</td>
+<td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
 <td>Number of items returned per page</td>
 </tr>
 <tr>
-<td>page_number</td>
+<td>page_number <em>optional</em><div class="default">1</div></td>
 <td>Page number of results returned</td>
 </tr>
 </tbody></table>
@@ -6438,7 +6497,7 @@
             </span><span class="s2">"join_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"leave_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"attentiveness_score"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="w">
+            </span><span class="s2">"attentiveness_score"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -6462,11 +6521,11 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>page_size</td>
+<td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
 <td>Number of items returned per page</td>
 </tr>
 <tr>
-<td>page_number</td>
+<td>page_number <em>optional</em><div class="default">1</div></td>
 <td>Page number of results returned</td>
 </tr>
 </tbody></table>
@@ -6579,7 +6638,7 @@
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/report/telephone
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/report/telephone?from<span class="o">=</span>string&amp;to<span class="o">=</span>string
 </code></pre>
 <blockquote>
 <p>Example Response</p>
@@ -6614,23 +6673,23 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>type</td>
+<td>type <em>optional</em><div class="default">1</div></td>
 <td>Audio type<div class="enum"><code class="prettyprint">1</code> Toll-free Call-in &amp; Call-out<br/><code class="prettyprint">2</code> Toll<br/></div></td>
 </tr>
 <tr>
-<td>from</td>
+<td>from <strong>required</strong></td>
 <td>Start Date</td>
 </tr>
 <tr>
-<td>to</td>
+<td>to <strong>required</strong></td>
 <td>End Date</td>
 </tr>
 <tr>
-<td>page_size</td>
+<td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
 <td>Number of items returned per page</td>
 </tr>
 <tr>
-<td>page_number</td>
+<td>page_number <em>optional</em><div class="default">1</div></td>
 <td>Page number of results returned</td>
 </tr>
 </tbody></table>
@@ -6649,7 +6708,7 @@
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/metrics/meetings
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/metrics/meetings?from<span class="o">=</span>string&amp;to<span class="o">=</span>string
 </code></pre>
 <blockquote>
 <p>Example Response</p>
@@ -6692,30 +6751,30 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>type</td>
-<td>The meeting type<div class="enum"><code class="prettyprint">past</code> all the past meetings<br/><code class="prettyprint">live</code> all the live meetings<br/></div></td>
+<td>type <em>optional</em><div class="default">live</div></td>
+<td>The meeting type<div class="enum"><code class="prettyprint">past</code> past meetings<br/><code class="prettyprint">live</code> live meetings<br/></div></td>
 </tr>
 <tr>
-<td>from</td>
+<td>from <strong>required</strong></td>
 <td>Start Date</td>
 </tr>
 <tr>
-<td>to</td>
+<td>to <strong>required</strong></td>
 <td>End Date</td>
 </tr>
 <tr>
-<td>page_size</td>
+<td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
 <td>Number of items returned per page</td>
 </tr>
 <tr>
-<td>page_number</td>
+<td>page_number <em>optional</em><div class="default">1</div></td>
 <td>Page number of results returned</td>
 </tr>
 </tbody></table>
 
           <h2 id="retrieve-meeting-detail">Retrieve meeting detail</h2>
 
-<p>Retrieve live  or past meetings detail</p>
+<p>Retrieve live or past meetings detail</p>
 
 <blockquote>
 <p>Definition</p>
@@ -6770,8 +6829,8 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>type</td>
-<td>The meeting type<div class="enum"><code class="prettyprint">past</code> all the past meetings<br/><code class="prettyprint">live</code> all the live meetings<br/></div></td>
+<td>type <em>optional</em><div class="default">live</div></td>
+<td>The meeting type<div class="enum"><code class="prettyprint">past</code> past meetings<br/><code class="prettyprint">live</code> live meetings<br/></div></td>
 </tr>
 </tbody></table>
 
@@ -6841,15 +6900,15 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>type</td>
-<td>The meeting type<div class="enum"><code class="prettyprint">past</code> all the past meetings<br/><code class="prettyprint">live</code> all the live meetings<br/></div></td>
+<td>type <em>optional</em><div class="default">live</div></td>
+<td>The meeting type<div class="enum"><code class="prettyprint">past</code> past meetings<br/><code class="prettyprint">live</code> live meetings<br/></div></td>
 </tr>
 <tr>
-<td>page_size</td>
+<td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
 <td>Number of items returned per page</td>
 </tr>
 <tr>
-<td>page_number</td>
+<td>page_number <em>optional</em><div class="default">1</div></td>
 <td>Page number of results returned</td>
 </tr>
 </tbody></table>
@@ -6969,14 +7028,14 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>type</td>
-<td>The meeting type<div class="enum"><code class="prettyprint">past</code> all the past meetings<br/><code class="prettyprint">live</code> all the live meetings<br/></div></td>
+<td>type <em>optional</em><div class="default">live</div></td>
+<td>The meeting type<div class="enum"><code class="prettyprint">past</code> past meetings<br/><code class="prettyprint">live</code> live meetings<br/></div></td>
 </tr>
 </tbody></table>
 
-          <h2 id="list-meeting-participant-qos">List meeting participant QOS</h2>
+          <h2 id="list-meeting-participants-qos">List meeting participants QOS</h2>
 
-<p>Retrieve list of live or past meetings participant quality of service</p>
+<p>Retrieve list of live or past meetings participants quality of service</p>
 
 <blockquote>
 <p>Definition</p>
@@ -7093,15 +7152,15 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>type</td>
-<td>The meeting type<div class="enum"><code class="prettyprint">past</code> all the past meetings<br/><code class="prettyprint">live</code> all the live meetings<br/></div></td>
+<td>type <em>optional</em><div class="default">live</div></td>
+<td>The meeting type<div class="enum"><code class="prettyprint">past</code> past meetings<br/><code class="prettyprint">live</code> live meetings<br/></div></td>
 </tr>
 <tr>
-<td>page_size</td>
+<td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
 <td>Number of items returned per page</td>
 </tr>
 <tr>
-<td>page_number</td>
+<td>page_number <em>optional</em><div class="default">1</div></td>
 <td>Page number of results returned</td>
 </tr>
 </tbody></table>
@@ -7164,15 +7223,15 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>type</td>
-<td>The meeting type<div class="enum"><code class="prettyprint">past</code> all the past meetings<br/><code class="prettyprint">live</code> all the live meetings<br/></div></td>
+<td>type <em>optional</em><div class="default">live</div></td>
+<td>The meeting type<div class="enum"><code class="prettyprint">past</code> past meetings<br/><code class="prettyprint">live</code> live meetings<br/></div></td>
 </tr>
 <tr>
-<td>page_size</td>
+<td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
 <td>Number of items returned per page</td>
 </tr>
 <tr>
-<td>page_number</td>
+<td>page_number <em>optional</em><div class="default">1</div></td>
 <td>Page number of results returned</td>
 </tr>
 </tbody></table>
@@ -7189,7 +7248,7 @@
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/metrics/webinars
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/metrics/webinars?from<span class="o">=</span>string&amp;to<span class="o">=</span>string
 </code></pre>
 <blockquote>
 <p>Example Response</p>
@@ -7232,23 +7291,23 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>type</td>
-<td>The meeting type<div class="enum"><code class="prettyprint">past</code> all the past meetings<br/><code class="prettyprint">live</code> all the live meetings<br/></div></td>
+<td>type <em>optional</em><div class="default">live</div></td>
+<td>The webinar type<div class="enum"><code class="prettyprint">past</code> past webinars<br/><code class="prettyprint">live</code> live webinars<br/></div></td>
 </tr>
 <tr>
-<td>from</td>
+<td>from <strong>required</strong></td>
 <td>Start Date</td>
 </tr>
 <tr>
-<td>to</td>
+<td>to <strong>required</strong></td>
 <td>End Date</td>
 </tr>
 <tr>
-<td>page_size</td>
+<td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
 <td>Number of items returned per page</td>
 </tr>
 <tr>
-<td>page_number</td>
+<td>page_number <em>optional</em><div class="default">1</div></td>
 <td>Page number of results returned</td>
 </tr>
 </tbody></table>
@@ -7272,7 +7331,23 @@
 </blockquote>
 <pre class="highlight plaintext"><code>200 OK
 </code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"$ref"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="s2">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"topic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"user_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"participants"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"has_pstn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"has_voip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"has_3rd_party_audio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"has_video"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"has_screen_share"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"has_recording"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"has_sip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <table><thead>
@@ -7294,8 +7369,8 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>type</td>
-<td>The meeting type<div class="enum"><code class="prettyprint">past</code> all the past meetings<br/><code class="prettyprint">live</code> all the live meetings<br/></div></td>
+<td>type <em>optional</em><div class="default">live</div></td>
+<td>The webinar type<div class="enum"><code class="prettyprint">past</code> past webinars<br/><code class="prettyprint">live</code> live webinars<br/></div></td>
 </tr>
 </tbody></table>
 
@@ -7365,15 +7440,15 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>type</td>
-<td>The meeting type<div class="enum"><code class="prettyprint">past</code> all the past meetings<br/><code class="prettyprint">live</code> all the live meetings<br/></div></td>
+<td>type <em>optional</em><div class="default">live</div></td>
+<td>The webinar type<div class="enum"><code class="prettyprint">past</code> past webinars<br/><code class="prettyprint">live</code> live webinars<br/></div></td>
 </tr>
 <tr>
-<td>page_size</td>
+<td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
 <td>Number of items returned per page</td>
 </tr>
 <tr>
-<td>page_number</td>
+<td>page_number <em>optional</em><div class="default">1</div></td>
 <td>Page number of results returned</td>
 </tr>
 </tbody></table>
@@ -7493,8 +7568,8 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>type</td>
-<td>The meeting type<div class="enum"><code class="prettyprint">past</code> all the past meetings<br/><code class="prettyprint">live</code> all the live meetings<br/></div></td>
+<td>type <em>optional</em><div class="default">live</div></td>
+<td>The webinar type<div class="enum"><code class="prettyprint">past</code> past webinars<br/><code class="prettyprint">live</code> live webinars<br/></div></td>
 </tr>
 </tbody></table>
 
@@ -7617,15 +7692,15 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>type</td>
-<td>The meeting type<div class="enum"><code class="prettyprint">past</code> all the past meetings<br/><code class="prettyprint">live</code> all the live meetings<br/></div></td>
+<td>type <em>optional</em><div class="default">live</div></td>
+<td>The webinar type<div class="enum"><code class="prettyprint">past</code> past webinars<br/><code class="prettyprint">live</code> live webinars<br/></div></td>
 </tr>
 <tr>
-<td>page_size</td>
+<td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
 <td>Number of items returned per page</td>
 </tr>
 <tr>
-<td>page_number</td>
+<td>page_number <em>optional</em><div class="default">1</div></td>
 <td>Page number of results returned</td>
 </tr>
 </tbody></table>
@@ -7688,15 +7763,15 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>type</td>
-<td>The meeting type<div class="enum"><code class="prettyprint">past</code> all the past meetings<br/><code class="prettyprint">live</code> all the live meetings<br/></div></td>
+<td>type <em>optional</em><div class="default">live</div></td>
+<td>The webinar type<div class="enum"><code class="prettyprint">past</code> past webinars<br/><code class="prettyprint">live</code> live webinars<br/></div></td>
 </tr>
 <tr>
-<td>page_size</td>
+<td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
 <td>Number of items returned per page</td>
 </tr>
 <tr>
-<td>page_number</td>
+<td>page_number <em>optional</em><div class="default">1</div></td>
 <td>Page number of results returned</td>
 </tr>
 </tbody></table>
@@ -7747,18 +7822,18 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>page_size</td>
+<td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
 <td>Number of items returned per page</td>
 </tr>
 <tr>
-<td>page_number</td>
+<td>page_number <em>optional</em><div class="default">1</div></td>
 <td>Page number of results returned</td>
 </tr>
 </tbody></table>
 
           <h2 id="retrieve-zoom-room">Retrieve Zoom Room</h2>
 
-<p>Retrieve zoom rooms on account</p>
+<p>Retrieve zoom room on account</p>
 
 <blockquote>
 <p>Definition</p>
@@ -7768,7 +7843,7 @@
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/metrics/zoomrooms/<span class="o">{</span>zoomroomId<span class="o">}</span>
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/metrics/zoomrooms/<span class="o">{</span>zoomroomId<span class="o">}</span>?from<span class="o">=</span>string&amp;to<span class="o">=</span>string
 </code></pre>
 <blockquote>
 <p>Example Response</p>
@@ -7854,26 +7929,26 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>from</td>
+<td>from <strong>required</strong></td>
 <td>Start Date</td>
 </tr>
 <tr>
-<td>to</td>
+<td>to <strong>required</strong></td>
 <td>End Date</td>
 </tr>
 <tr>
-<td>page_size</td>
+<td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
 <td>Number of items returned per page</td>
 </tr>
 <tr>
-<td>page_number</td>
+<td>page_number <em>optional</em><div class="default">1</div></td>
 <td>Page number of results returned</td>
 </tr>
 </tbody></table>
 
           <h2 id="retrieve-crc-port-usage">Retrieve CRC Port Usage</h2>
 
-<p>Get CRC Port usage hour by hour for a specified time period <aside class='notice'>We will report a maximum of one month. For example, if &ldquo;from&rdquo; is set to &ldquo;2015-08-05&rdquo; and &ldquo;to&rdquo; is &ldquo;2015-10-10&rdquo; we will adjust &ldquo;from&rdquo; to &ldquo;2015-09-10&rdquo;</aside></p>
+<p>Get CRC Port usage hour by hour for a specified time period <aside class='notice'>We will report a maximum of one month. For example, if &ldquo;from&rdquo; is set to &ldquo;2017-08-05&rdquo; and &ldquo;to&rdquo; is &ldquo;2017-10-10&rdquo; we will adjust &ldquo;from&rdquo; to &ldquo;2017-09-10&rdquo;</aside></p>
 
 <blockquote>
 <p>Definition</p>
@@ -7883,7 +7958,7 @@
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/metrics/crc
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/metrics/crc?from<span class="o">=</span>string&amp;to<span class="o">=</span>string
 </code></pre>
 <blockquote>
 <p>Example Response</p>
@@ -7913,11 +7988,11 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>from</td>
+<td>from <strong>required</strong></td>
 <td>Start Date</td>
 </tr>
 <tr>
-<td>to</td>
+<td>to <strong>required</strong></td>
 <td>End Date</td>
 </tr>
 </tbody></table>
@@ -7934,7 +8009,7 @@
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/metrics/im
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/metrics/im?from<span class="o">=</span>string&amp;to<span class="o">=</span>string
 </code></pre>
 <blockquote>
 <p>Example Response</p>
@@ -7979,19 +8054,19 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>from</td>
+<td>from <strong>required</strong></td>
 <td>Start Date</td>
 </tr>
 <tr>
-<td>to</td>
+<td>to <strong>required</strong></td>
 <td>End Date</td>
 </tr>
 <tr>
-<td>page_size</td>
+<td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
 <td>Number of items returned per page</td>
 </tr>
 <tr>
-<td>page_number</td>
+<td>page_number <em>optional</em><div class="default">1</div></td>
 <td>Page number of results returned</td>
 </tr>
 </tbody></table>
@@ -8000,12 +8075,11 @@
 
 <h2 id="the-tsp-object">The TSP object</h2>
 
-<p>TSP Configuration object</p>
+<p>TSP Account object</p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"conference_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"leader_pin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"dial_in_numbers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -8026,10 +8100,6 @@
 <td>Leader PIN, length is less than 16.</td>
 </tr>
 <tr>
-<td>dial_in_numbers.id <em>string</em></td>
-<td>Country ID</td>
-</tr>
-<tr>
 <td>dial_in_numbers.code <em>string</em></td>
 <td>Country Code</td>
 </tr>
@@ -8039,9 +8109,38 @@
 </tr>
 </tbody></table>
 
-          <h2 id="list-users-tsp-config">List user&rsquo;s TSP config</h2>
+          <h2 id="list-tsp-dial-in-numbers">List TSP dial-in numbers</h2>
 
-<p>List user&rsquo;s TSP config</p>
+<p>List TSP dial-in numbers under account</p>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>GET https://api.zoom.us/v2/tsp
+</code></pre>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/tsp
+</code></pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>200 OK
+</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"tsp_provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"dial_in_numbers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+          <h2 id="list-users-tsp-accounts">List user&rsquo;s TSP accounts</h2>
+
+<p>List user&rsquo;s TSP accounts</p>
 
 <blockquote>
 <p>Definition</p>
@@ -8057,7 +8156,19 @@
 <p>Example Response</p>
 </blockquote>
 <pre class="highlight plaintext"><code>200 OK
-</code></pre>
+</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"tsp_accounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"conference_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"leader_pin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"dial_in_numbers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <table><thead>
 <tr>
 <th>Path Arguments</th>
@@ -8070,9 +8181,9 @@
 </tr>
 </tbody></table>
 
-          <h2 id="add-a-users-tsp-config">Add a user&rsquo;s TSP config</h2>
+          <h2 id="add-a-users-tsp-account">Add a user&rsquo;s TSP account</h2>
 
-<p>Add a user&rsquo;s TSP config</p>
+<p>Add a user&rsquo;s TSP account</p>
 
 <blockquote>
 <p>Definition</p>
@@ -8087,7 +8198,6 @@
     "conference_code": "string",
     "leader_pin": "string",
     "dial_in_numbers": {
-        "id": "string",
         "code": "string",
         "number": "string"
     }
@@ -8096,8 +8206,16 @@
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre class="highlight plaintext"><code>200 OK
-</code></pre>
+<pre class="highlight plaintext"><code>201 Created
+</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"conference_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"leader_pin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"dial_in_numbers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <table><thead>
 <tr>
 <th>Path Arguments</th>
@@ -8117,30 +8235,26 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>conference_code</td>
+<td>conference_code <strong>required</strong></td>
 <td>Conference code, length is less than 16.</td>
 </tr>
 <tr>
-<td>leader_pin</td>
+<td>leader_pin <strong>required</strong></td>
 <td>Leader PIN, length is less than 16.</td>
 </tr>
 <tr>
-<td>dial_in_numbers.id</td>
-<td>Country ID</td>
-</tr>
-<tr>
-<td>dial_in_numbers.code</td>
+<td>dial_in_numbers.code <strong>required</strong></td>
 <td>Country Code</td>
 </tr>
 <tr>
-<td>dial_in_numbers.number</td>
+<td>dial_in_numbers.number <strong>required</strong></td>
 <td>Dial-in number, length is less than 16.</td>
 </tr>
 </tbody></table>
 
-          <h2 id="retrieve-a-users-tsp-config">Retrieve a user&rsquo;s TSP config</h2>
+          <h2 id="retrieve-a-users-tsp-account">Retrieve a user&rsquo;s TSP account</h2>
 
-<p>Retrieve a user&rsquo;s TSP config</p>
+<p>Retrieve a user&rsquo;s TSP account</p>
 
 <blockquote>
 <p>Definition</p>
@@ -8156,7 +8270,15 @@
 <p>Example Response</p>
 </blockquote>
 <pre class="highlight plaintext"><code>200 OK
-</code></pre>
+</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"conference_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"leader_pin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"dial_in_numbers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <table><thead>
 <tr>
 <th>Path Arguments</th>
@@ -8169,13 +8291,13 @@
 </tr>
 <tr>
 <td>tspId <strong>required</strong></td>
-<td>TSP ID</td>
+<td>TSP account index</td>
 </tr>
 </tbody></table>
 
-          <h2 id="update-a-tsp-config">Update a TSP config</h2>
+          <h2 id="update-a-tsp-account">Update a TSP account</h2>
 
-<p>Update a user&rsquo;s TSP config</p>
+<p>Update a user&rsquo;s TSP account</p>
 
 <blockquote>
 <p>Definition</p>
@@ -8190,7 +8312,6 @@
     "conference_code": "string",
     "leader_pin": "string",
     "dial_in_numbers": {
-        "id": "string",
         "code": "string",
         "number": "string"
     }
@@ -8213,7 +8334,7 @@
 </tr>
 <tr>
 <td>tspId <strong>required</strong></td>
-<td>TSP ID</td>
+<td>TSP account index</td>
 </tr>
 </tbody></table>
 
@@ -8224,30 +8345,26 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>conference_code</td>
+<td>conference_code <strong>required</strong></td>
 <td>Conference code, length is less than 16.</td>
 </tr>
 <tr>
-<td>leader_pin</td>
+<td>leader_pin <strong>required</strong></td>
 <td>Leader PIN, length is less than 16.</td>
 </tr>
 <tr>
-<td>dial_in_numbers.id</td>
-<td>Country ID</td>
-</tr>
-<tr>
-<td>dial_in_numbers.code</td>
+<td>dial_in_numbers.code <strong>required</strong></td>
 <td>Country Code</td>
 </tr>
 <tr>
-<td>dial_in_numbers.number</td>
+<td>dial_in_numbers.number <strong>required</strong></td>
 <td>Dial-in number, length is less than 16.</td>
 </tr>
 </tbody></table>
 
-          <h2 id="delete-a-tsp-config">Delete a TSP config</h2>
+          <h2 id="delete-a-users-tsp-account">Delete a user&rsquo;s TSP account</h2>
 
-<p>Delete a user&rsquo;s TSP config</p>
+<p>Delete a user&rsquo;s TSP account</p>
 
 <blockquote>
 <p>Definition</p>
@@ -8277,7 +8394,7 @@
 </tr>
 <tr>
 <td>tspId <strong>required</strong></td>
-<td>TSP ID</td>
+<td>TSP account index</td>
 </tr>
 </tbody></table>
 
@@ -8605,9 +8722,9 @@
 </tbody></table>
 
 <ul>
-<li>&ldquo;tollfree_country&rdquo;: Toll-free countries, multiple value separated by comma. For this parameter value please refer to the id value in <a href="#tollfree-countries">tollfree countries list</a></li>
-<li>&ldquo;premium_country&rdquo;: Premium countries, multiple value separated by comma. For this parameter value please refer to the id value in <a href="#premium-countries">premium countries list</a></li>
-<li>&ldquo;callout&rdquo;: Call-out type: 1 means US-only Call-out, 2 means US and International Call-out</li>
+<li>&ldquo;tollfree_countries&rdquo;: Toll-free countries, multiple value separated by comma. For this parameter value please refer to the id value in <a href="#tollfree-countries">tollfree countries list</a></li>
+<li>&ldquo;premium_countries&rdquo;: Premium countries, multiple value separated by comma. For this parameter value please refer to the id value in <a href="#premium-countries">premium countries list</a></li>
+<li>&ldquo;callout_countries&rdquo;: Call-out countries, multiple value separated by comma. For this parameter value please refer to the id value in <a href="#callout-countries">callout countries list</a></li>
 <li>&ldquo;ddi_numbers&rdquo;: Dedicated Dial-In Numbers.</li>
 </ul>
 

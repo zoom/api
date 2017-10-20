@@ -1,0 +1,115 @@
+<h2 id="update-a-user">Update a user</h2>
+
+<p>Update a user on your account</p>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>PATCH https://api.zoom.us/v2/users/<span class="o">{</span>userId<span class="o">}</span>
+</code></pre>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/users/<span class="o">{</span>userId<span class="o">}</span> <span class="se">\</span>
+   -d <span class="s1">'{
+    "email": "string",
+    "type": "integer",
+    "first_name": "string",
+    "last_name": "string",
+    "created_at": "string",
+    "dept": "string",
+    "last_client_version": "string",
+    "last_login_time": "string",
+    "pic_url": "string",
+    "pmi": "string",
+    "timezone": "string",
+    "vanity_url": "string",
+    "verified": "boolean",
+    "cms_user_id": "string",
+    "host_key": "string"
+}'</span>
+</code></pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>204 No Content
+</code></pre>
+<table><thead>
+<tr>
+<th>Path Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>userId <strong>required</strong></td>
+<td>The user ID or email address</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Body Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email <strong>required</strong></td>
+<td>User&rsquo;s email address.</td>
+</tr>
+<tr>
+<td>type <strong>required</strong></td>
+<td>User&rsquo;s type<div class="enum"><code class="prettyprint">1</code> basic<br/><code class="prettyprint">2</code> pro<br/><code class="prettyprint">3</code> corp<br/></div></td>
+</tr>
+<tr>
+<td>first_name <em>optional</em></td>
+<td>User&rsquo;s first name.</td>
+</tr>
+<tr>
+<td>last_name <em>optional</em></td>
+<td>User&rsquo;s last name.</td>
+</tr>
+<tr>
+<td>created_at <em>optional</em></td>
+<td></td>
+</tr>
+<tr>
+<td>dept <em>optional</em></td>
+<td></td>
+</tr>
+<tr>
+<td>last_client_version <em>optional</em></td>
+<td></td>
+</tr>
+<tr>
+<td>last_login_time <em>optional</em></td>
+<td></td>
+</tr>
+<tr>
+<td>pic_url <em>optional</em></td>
+<td></td>
+</tr>
+<tr>
+<td>pmi <em>optional</em></td>
+<td></td>
+</tr>
+<tr>
+<td>timezone <em>optional</em></td>
+<td></td>
+</tr>
+<tr>
+<td>vanity_url <em>optional</em></td>
+<td></td>
+</tr>
+<tr>
+<td>verified <em>optional</em></td>
+<td></td>
+</tr>
+<tr>
+<td>cms_user_id <em>optional</em></td>
+<td>CMS User Id</td>
+</tr>
+<tr>
+<td>host_key <em>optional</em></td>
+<td>Host Key, should be 6-digit number</td>
+</tr>
+</tbody></table>

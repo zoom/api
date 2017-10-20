@@ -1,0 +1,180 @@
+<h2 id="add-to-an-accounts-plans">Add to an account&rsquo;s plans</h2>
+
+<p>Add a plan to sub account under the master account <aside>Can only subscribe plans for the sub account which is a free account and paid by master account</aside><aside>Can only add an Additional plan for the sub account which is a paid account and paid by master account</aside></p>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>POST https://api.zoom.us/v2/accounts/<span class="o">{</span>accountId<span class="o">}</span>/plans
+</code></pre>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/accounts/<span class="o">{</span>accountId<span class="o">}</span>/plans <span class="se">\</span>
+   -d <span class="s1">'{
+    "contact": {
+        "first_name": "string",
+        "last_name": "string",
+        "email": "string",
+        "phone_number": "string",
+        "address": "string",
+        "apt": "string",
+        "city": "string",
+        "state": "string",
+        "zip": "string",
+        "country": "string"
+    },
+    "plan_base": {
+        "type": "string",
+        "hosts": "integer"
+    },
+    "plan_zoom_rooms": {
+        "type": "string",
+        "hosts": "integer"
+    },
+    "plan_room_connector": {
+        "type": "string",
+        "hosts": "integer"
+    },
+    "plan_large_meeting": [
+        {
+            "type": "string",
+            "hosts": "integer"
+        }
+    ],
+    "plan_webinar": [
+        {
+            "type": "string",
+            "hosts": "integer"
+        }
+    ],
+    "plan_recording": "string",
+    "plan_audio": {
+        "type": "string",
+        "tollfree_countries": "string",
+        "premium_countries": "string",
+        "callout_countries": "string",
+        "ddi_numbers": "integer"
+    }
+}'</span>
+</code></pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>204 No Content
+</code></pre>
+<table><thead>
+<tr>
+<th>Path Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>accountId <strong>required</strong></td>
+<td>The account ID</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Body Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>contact.first_name <em>optional</em></td>
+<td>Billing Contact&rsquo;s first name.</td>
+</tr>
+<tr>
+<td>contact.last_name <em>optional</em></td>
+<td>Billing Contact&rsquo;s last name.</td>
+</tr>
+<tr>
+<td>contact.email <em>optional</em></td>
+<td>Billing Contact&rsquo;s email address.</td>
+</tr>
+<tr>
+<td>contact.phone_number <em>optional</em></td>
+<td>Billing Contact&rsquo;s phone number.</td>
+</tr>
+<tr>
+<td>contact.address <em>optional</em></td>
+<td>Billing Contact&rsquo;s address.</td>
+</tr>
+<tr>
+<td>contact.apt <em>optional</em></td>
+<td>Billing Contact&rsquo;s apartment/suite.</td>
+</tr>
+<tr>
+<td>contact.city <em>optional</em></td>
+<td>Billing Contact&rsquo;s city.</td>
+</tr>
+<tr>
+<td>contact.state <em>optional</em></td>
+<td>Billing Contact&rsquo;s state.</td>
+</tr>
+<tr>
+<td>contact.zip <em>optional</em></td>
+<td>Billing Contact&rsquo;s zip/postal code.</td>
+</tr>
+<tr>
+<td>contact.country <em>optional</em></td>
+<td>Billing Contact&rsquo;s country.</td>
+</tr>
+<tr>
+<td>plan_base.type <em>optional</em></td>
+<td>Account plan type</td>
+</tr>
+<tr>
+<td>plan_base.hosts <em>optional</em></td>
+<td>Account plan number of hosts</td>
+</tr>
+<tr>
+<td>plan_zoom_rooms.type <em>optional</em></td>
+<td>Account plan type</td>
+</tr>
+<tr>
+<td>plan_zoom_rooms.hosts <em>optional</em></td>
+<td>Account plan number of hosts</td>
+</tr>
+<tr>
+<td>plan_room_connector.type <em>optional</em></td>
+<td>Account plan type</td>
+</tr>
+<tr>
+<td>plan_room_connector.hosts <em>optional</em></td>
+<td>Account plan number of hosts</td>
+</tr>
+<tr>
+<td>plan_large_meeting <em>optional</em></td>
+<td>Additional Large Meeting Plans</td>
+</tr>
+<tr>
+<td>plan_webinar <em>optional</em></td>
+<td>Additional Webinar Plans</td>
+</tr>
+<tr>
+<td>plan_recording <em>optional</em></td>
+<td>Additional Cloud Recording Plan</td>
+</tr>
+<tr>
+<td>plan_audio.type <em>optional</em></td>
+<td>Additional Audio Conferencing Plan type</td>
+</tr>
+<tr>
+<td>plan_audio.tollfree_countries <em>optional</em></td>
+<td>Toll-free countries, multiple value separated by comma</td>
+</tr>
+<tr>
+<td>plan_audio.premium_countries <em>optional</em></td>
+<td>Premium countries, multiple value separated by comma</td>
+</tr>
+<tr>
+<td>plan_audio.callout_countries <em>optional</em></td>
+<td>Call-out countries, multiple value separated by comma</td>
+</tr>
+<tr>
+<td>plan_audio.ddi_numbers <em>optional</em></td>
+<td>Dedicated Dial-In Numbers</td>
+</tr>
+</tbody></table>

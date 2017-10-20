@@ -1,0 +1,169 @@
+<h1 id="webinars">Webinars</h1>
+
+<h2 id="the-webinar-object">The Webinar object</h2>
+
+<p>Webinar object</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"topic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"recurrence"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"repeat_interval"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"weekly_days"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"monthly_day"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"monthly_week"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"monthly_week_day"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"end_times"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"end_date_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"host_video"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"participant_video"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"cn_meeting"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"in_meeting"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"join_before_host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"mute_upon_entry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"watermark"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"use_pmi"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"approval_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"registration_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"audio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"auto_recording"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"enforce_login"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"enforce_login_domains"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"alternatice_hosts"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>topic <em>string</em></td>
+<td>Meeting topic</td>
+</tr>
+<tr>
+<td>type <em>integer</em></td>
+<td>Meeting Type<div class="enum"><code class="prettyprint">1</code> Instant Meeting<br/><code class="prettyprint">2</code> Scheduled Meeting<br/><code class="prettyprint">3</code> Recurring Meeting with no fixed time<br/><code class="prettyprint">8</code> Recurring Meeting with fixed time<br/></div></td>
+</tr>
+<tr>
+<td>start_time <em>string</em></td>
+<td>Meeting start time</td>
+</tr>
+<tr>
+<td>duration <em>integer</em></td>
+<td>Meeting duration</td>
+</tr>
+<tr>
+<td>timezone <em>string</em></td>
+<td>Timezone to format start_time</td>
+</tr>
+<tr>
+<td>password <em>string</em></td>
+<td>Password to join the meeting</td>
+</tr>
+<tr>
+<td>description <em>string</em></td>
+<td>Meeting description</td>
+</tr>
+<tr>
+<td>recurrence.type <em>integer</em></td>
+<td>Recurrence meeting type<div class="enum"><code class="prettyprint">1</code> Daily<br/><code class="prettyprint">2</code> Weekly<br/><code class="prettyprint">3</code> Monthly<br/></div></td>
+</tr>
+<tr>
+<td>recurrence.repeat_interval <em>integer</em></td>
+<td>Recurrence meeting repeat interval. For a Daily Meeting, max of 90. For a Weekly Meeting, max of 12. For a Monthly Meeting, max of 3.</td>
+</tr>
+<tr>
+<td>recurrence.weekly_days <em>integer</em></td>
+<td>Recurrence Meeting Occurs on week days, multiple value separated by comma<div class="enum"><code class="prettyprint">1</code> Sunday<br/><code class="prettyprint">2</code> Monday<br/><code class="prettyprint">3</code> Tuesday<br/><code class="prettyprint">4</code> Wednesday<br/><code class="prettyprint">5</code> Thursday<br/><code class="prettyprint">6</code> Friday<br/><code class="prettyprint">7</code> Saturday<br/></div></td>
+</tr>
+<tr>
+<td>recurrence.monthly_day <em>integer</em></td>
+<td>Recurrence Meeting Occurs on a month day. The value range is from 1 to 31</td>
+</tr>
+<tr>
+<td>recurrence.monthly_week <em>integer</em></td>
+<td>Recurrence Meeting Occurs on the week of a month.<div class="enum"><code class="prettyprint">-1</code> Last week<br/><code class="prettyprint">1</code> First week<br/><code class="prettyprint">2</code> Second week<br/><code class="prettyprint">3</code> Third week<br/><code class="prettyprint">4</code> Fourth week<br/></div></td>
+</tr>
+<tr>
+<td>recurrence.monthly_week_day <em>integer</em></td>
+<td>Recurrence Meeting Occurs on the week day of a month<div class="enum"><code class="prettyprint">1</code> Sunday<br/><code class="prettyprint">2</code> Monday<br/><code class="prettyprint">3</code> Tuesday<br/><code class="prettyprint">4</code> Wednesday<br/><code class="prettyprint">5</code> Thursday<br/><code class="prettyprint">6</code> Friday<br/><code class="prettyprint">7</code> Saturday<br/></div></td>
+</tr>
+<tr>
+<td>recurrence.end_times <em>integer</em></td>
+<td>Recurrence Meeting End occurrences times</td>
+</tr>
+<tr>
+<td>recurrence.end_date_time <em>string</em></td>
+<td>Recurrence Meeting End Date. Should be UTC time, such as 2017-11-25T12:00:00Z.</td>
+</tr>
+<tr>
+<td>settings.host_video <em>boolean</em></td>
+<td>Start video when host join meeting</td>
+</tr>
+<tr>
+<td>settings.participant_video <em>boolean</em></td>
+<td>Start video when participants join meeting</td>
+</tr>
+<tr>
+<td>settings.cn_meeting <em>boolean</em></td>
+<td>Host meeting in China</td>
+</tr>
+<tr>
+<td>settings.in_meeting <em>boolean</em></td>
+<td>Host meeting in India</td>
+</tr>
+<tr>
+<td>settings.join_before_host <em>boolean</em></td>
+<td>Join meeting before host start the meeting. Only used for scheduled or recurring meetings</td>
+</tr>
+<tr>
+<td>settings.mute_upon_entry <em>boolean</em></td>
+<td>Mute participants upon entry</td>
+</tr>
+<tr>
+<td>settings.watermark <em>boolean</em></td>
+<td>Enable watermark when viewing the shared screen</td>
+</tr>
+<tr>
+<td>settings.use_pmi <em>boolean</em></td>
+<td>Use Personal Meeting ID. Only used for scheduled meetings and recurring meetings with no fixed time</td>
+</tr>
+<tr>
+<td>settings.approval_type <em>integer</em></td>
+<td><div class="enum"><code class="prettyprint">0</code> Automatically Approve<br/><code class="prettyprint">1</code> Manually Approve<br/><code class="prettyprint">2</code> No Registration Required<br/></div></td>
+</tr>
+<tr>
+<td>settings.registration_type <em>integer</em></td>
+<td>Registration type. Used for recurring meeting with fixed time only.<div class="enum"><code class="prettyprint">1</code> Attendees register once and can attend any of the occurrences<br/><code class="prettyprint">2</code> Attendees need to register for each occurrence to attend<br/><code class="prettyprint">3</code> Attendees register once and can choose one or more occurrences to attend<br/></div></td>
+</tr>
+<tr>
+<td>settings.audio <em>string</em></td>
+<td>Meeting audio options<div class="enum"><code class="prettyprint">both</code> Both Telephony and VoIP<br/><code class="prettyprint">telephony</code> Telephony only<br/><code class="prettyprint">voip</code> VoIP only<br/></div></td>
+</tr>
+<tr>
+<td>settings.auto_recording <em>string</em></td>
+<td><div class="enum"><code class="prettyprint">local</code> Record to local device<br/><code class="prettyprint">cloud</code> Record to cloud<br/><code class="prettyprint">none</code> No Recording<br/></div></td>
+</tr>
+<tr>
+<td>settings.enforce_login <em>boolean</em></td>
+<td>Only signed-in users can join this meeting</td>
+</tr>
+<tr>
+<td>settings.enforce_login_domains <em>boolean</em></td>
+<td>Only signed-in users with specified domains can join meetings</td>
+</tr>
+<tr>
+<td>settings.alternatice_hosts <em>boolean</em></td>
+<td>Alternative hosts emails or IDs. Multiple value separated by comma.</td>
+</tr>
+</tbody></table>

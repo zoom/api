@@ -1,0 +1,25 @@
+<h1 id="groups">Groups</h1>
+
+<h2 id="the-group-object">The Group object</h2>
+
+<p>Group object</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_members"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name <em>string</em></td>
+<td>Group name</td>
+</tr>
+<tr>
+<td>total_members <em>integer</em></td>
+<td>Total number of members in this group.</td>
+</tr>
+</tbody></table>

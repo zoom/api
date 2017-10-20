@@ -1,0 +1,35 @@
+<h2 id="remove-a-webinar-panelist">Remove a webinar panelist</h2>
+
+<p>Remove a panelist from a webinar</p>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>DELETE https://api.zoom.us/v2/webinars/<span class="o">{</span>webinarId<span class="o">}</span>/panelists/<span class="o">{</span>panelistId<span class="o">}</span>
+</code></pre>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/webinars/<span class="o">{</span>webinarId<span class="o">}</span>/panelists/<span class="o">{</span>panelistId<span class="o">}</span> <span class="se">\</span>
+    -X DELETE
+</code></pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>204 No Content
+</code></pre>
+<table><thead>
+<tr>
+<th>Path Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>webinarId <strong>required</strong></td>
+<td>The webinar ID</td>
+</tr>
+<tr>
+<td>panelistId <strong>required</strong></td>
+<td>The panelist ID</td>
+</tr>
+</tbody></table>

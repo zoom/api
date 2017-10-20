@@ -1,0 +1,128 @@
+<h2 id="add-to-an-accounts-plans">Add to an account&rsquo;s plans</h2>
+
+<p>Add a plan to sub account under the master account <aside>Can only subscribe plans for the sub account which is a free account and paid by master account</aside><aside>Can only add an Additional plan for the sub account which is a paid account and paid by master account</aside></p>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>PUT https://api.zoom.us/v2/accounts/<span class="o">{</span>accountId<span class="o">}</span>/plans
+</code></pre>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/accounts/<span class="o">{</span>accountId<span class="o">}</span>/plans <span class="se">\</span>
+   -d <span class="s1">'{
+    "plan_base": {
+        "type": "string",
+        "hosts": "integer"
+    },
+    "plan_zoom_rooms": {
+        "type": "string",
+        "hosts": "integer"
+    },
+    "plan_room_connector": {
+        "type": "string",
+        "hosts": "integer"
+    },
+    "plan_large_meeting": [
+        {
+            "type": "string",
+            "hosts": "integer"
+        }
+    ],
+    "plan_webinar": [
+        {
+            "type": "string",
+            "hosts": "integer"
+        }
+    ],
+    "plan_recording": "string",
+    "plan_audio": {
+        "type": "string",
+        "tollfree_country": "string",
+        "premium_country": "string",
+        "callout": "boolean",
+        "ddi_numbers": "integer"
+    }
+}'</span>
+</code></pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>204 No Content
+</code></pre>
+<table><thead>
+<tr>
+<th>Path Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>accountId <strong>required</strong></td>
+<td>The account ID</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Body Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>plan_base.type</td>
+<td>Account plan type</td>
+</tr>
+<tr>
+<td>plan_base.hosts</td>
+<td>Account plan number of hosts</td>
+</tr>
+<tr>
+<td>plan_zoom_rooms.type</td>
+<td>Account plan type</td>
+</tr>
+<tr>
+<td>plan_zoom_rooms.hosts</td>
+<td>Account plan number of hosts</td>
+</tr>
+<tr>
+<td>plan_room_connector.type</td>
+<td>Account plan type</td>
+</tr>
+<tr>
+<td>plan_room_connector.hosts</td>
+<td>Account plan number of hosts</td>
+</tr>
+<tr>
+<td>plan_large_meeting</td>
+<td>Additional Large Meeting Plans</td>
+</tr>
+<tr>
+<td>plan_webinar</td>
+<td>Additional Webinar Plans</td>
+</tr>
+<tr>
+<td>plan_recording</td>
+<td>Additional Cloud Recording Plan</td>
+</tr>
+<tr>
+<td>plan_audio.type</td>
+<td>Additional Audio Conferencing Plan type</td>
+</tr>
+<tr>
+<td>plan_audio.tollfree_country</td>
+<td>Toll-free countries, multiple value separated by comma</td>
+</tr>
+<tr>
+<td>plan_audio.premium_country</td>
+<td>Premium countries, multiple value separated by comma</td>
+</tr>
+<tr>
+<td>plan_audio.callout</td>
+<td>Call-out type<div class="enum"><code class="prettyprint">1</code> US-only<br/><code class="prettyprint">2</code> US and International<br/></div></td>
+</tr>
+<tr>
+<td>plan_audio.ddi_numbers</td>
+<td>Dedicated Dial-In Numbers</td>
+</tr>
+</tbody></table>

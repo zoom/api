@@ -1,0 +1,50 @@
+<h2 id="update-an-accounts-base-plan">Update an account&rsquo;s base plan</h2>
+
+<p>Update a base plan for a sub account <aside>Can only subscribe plans for the sub account which is a free account and paid by master account</aside><aside>Can only add an Additional plan for the sub account which is a paid account and paid by master account</aside></p>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>PUT https://api.zoom.us/v2/accounts/<span class="o">{</span>accountId<span class="o">}</span>/plans/base
+</code></pre>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/accounts/<span class="o">{</span>accountId<span class="o">}</span>/plans/base <span class="se">\</span>
+   -d <span class="s1">'{
+    "type": "string",
+    "hosts": "integer"
+}'</span>
+</code></pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>204 No Content
+</code></pre>
+<table><thead>
+<tr>
+<th>Path Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>accountId <strong>required</strong></td>
+<td>The account ID</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Body Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type <em>optional</em></td>
+<td>Account plan type</td>
+</tr>
+<tr>
+<td>hosts <em>optional</em></td>
+<td>Account plan number of hosts</td>
+</tr>
+</tbody></table>
