@@ -98,10 +98,10 @@ $ curl https://api.zoom.us/v2/metrics/meetings/{meetingId}/participants/{partici
 
 Path Arguments | &nbsp;
 --- | ---
-meetingId **required** | The meeting ID
-participantId **required** | The participant ID
+meetingId **required** | The meeting ID or meeting UUID. If given meeting ID, will take the last meeting instance.
+participantId **required** | The participant ID, such as 16778240
 
 Query Arguments | &nbsp;
 --- | ---
-type | The meeting type<div class="enum">`past` all the past meetings<br/>`live` all the live meetings<br/></div>
+type *optional* | The meeting type<div class="enum">`past` past meeting<br/>`live` live meeting<br/></div>
 

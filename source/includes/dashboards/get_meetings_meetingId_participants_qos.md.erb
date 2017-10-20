@@ -1,6 +1,6 @@
-## List meeting participant QOS
+## List meeting participants QOS
 
-Retrieve list of live or past meetings participant quality of service
+Retrieve list of live or past meetings participants quality of service
 
 > Definition
 
@@ -23,11 +23,12 @@ $ curl https://api.zoom.us/v2/metrics/meetings/{meetingId}/participants/qos
 ```json
 {
     "page_count": "integer",
-    "page_number": "integer",
     "page_size": "integer",
     "total_records": "integer",
+    "next_page_token": "string",
     "participants": [
         {
+            "id": "string",
             "user_id": "string",
             "user_name": "string",
             "device": "string",
@@ -106,11 +107,11 @@ $ curl https://api.zoom.us/v2/metrics/meetings/{meetingId}/participants/qos
 
 Path Arguments | &nbsp;
 --- | ---
-meetingId **required** | The meeting ID
+meetingId **required** | The meeting ID or meeting UUID. If given meeting ID, will take the last meeting instance.
 
 Query Arguments | &nbsp;
 --- | ---
-type | The meeting type<div class="enum">`past` all the past meetings<br/>`live` all the live meetings<br/></div>
-page_size | Number of items returned per page
-page_number | Page number of results returned
+type *optional* | The meeting type<div class="enum">`past` past meeting<br/>`live` live meeting<br/></div>
+page_size *optional* | Number of items returned per page. *Default: 1* *Max: 10*
+next_page_token *optional* | Used to paginate through large result sets. A next page token will be returned whenever the set of available participants list exceeds 10. The expiration period is 15 minutes.
 

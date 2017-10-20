@@ -1,6 +1,6 @@
-## Add an account add on plan
+## Add an account add-on plan
 
-Add an add on plan for a sub account <aside>Can only subscribe plans for the sub account which is a free account and paid by master account</aside><aside>Can only add an Additional plan for the sub account which is a paid account and paid by master account</aside>
+Add an add on plan for a sub account <aside>Can only add an Additional plan for the sub account which is a paid account and paid by master account</aside>
 
 > Definition
 
@@ -21,7 +21,7 @@ $ curl https://api.zoom.us/v2/accounts/{accountId}/plans/addons \
 > Example Response
 
 ```text
-204 No Content
+201 Created
 ```
 
 Path Arguments | &nbsp;
@@ -30,6 +30,6 @@ accountId **required** | The account ID
 
 Body Arguments | &nbsp;
 --- | ---
-type | Account plan type
-hosts | Account plan number of hosts
+type **required** | Account add-on plan type
+hosts **required** | Account add-on plan number of hosts
 

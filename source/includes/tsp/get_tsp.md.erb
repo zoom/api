@@ -1,0 +1,36 @@
+## List tsp dial-in numbers under account
+
+List tsp dial-in numbers under account
+
+> Definition
+
+```shell
+GET https://api.zoom.us/v2/tsp
+```
+
+> Example Request
+
+```shell
+$ curl https://api.zoom.us/v2/tsp
+```
+
+> Example Response
+
+```text
+200 OK
+```
+
+```json
+{
+  "tsp_provider": "InterCall4",
+  "dial_in_numbers": [
+    {
+      "code": "93",
+      "number": "123456",
+      "type": "Toll"
+    }
+  ]
+}
+```
+
+
