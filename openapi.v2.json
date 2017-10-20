@@ -85,6 +85,18 @@
                                 "id": {
                                     "type": "string",
                                     "description": "Account ID"
+                                },
+                                "owner_id": {
+                                    "type": "string",
+                                    "description": "Account Owner ID"
+                                },
+                                "owner_email": {
+                                    "type": "string",
+                                    "description": "Account owner email"
+                                },
+                                "created_at": {
+                                    "type": "string",
+                                    "description": "Account created date time"
                                 }
                             }
                         }
@@ -258,7 +270,7 @@
                 "summary": "Retrieve an account's billing information",
                 "description": "Retrieve a sub account's billing information under the master account",
                 "tags": [
-                    "Accounts"
+                    "Billing"
                 ],
                 "operationId": "accountBilling",
                 "parameters": [
@@ -282,7 +294,7 @@
                 "summary": "Update an account's billing information",
                 "description": "Update a sub account's billing information under the master account <aside>Only for the sub account which is paid by master account</aside>",
                 "tags": [
-                    "Accounts"
+                    "Billing"
                 ],
                 "operationId": "accountBillingUpdate",
                 "parameters": [
@@ -313,7 +325,7 @@
                 "summary": "Retrieve an account's plans",
                 "description": "Retrieve a sub account's plans under the master account  <aside>Only for the sub account which is paid by master account</aside>",
                 "tags": [
-                    "Accounts"
+                    "Billing"
                 ],
                 "operationId": "accountPlans",
                 "parameters": [
@@ -334,10 +346,10 @@
                 }
             },
             "post": {
-                "summary": "Add to an account's plans",
-                "description": "Add a plan to sub account under the master account <aside>Can only subscribe plans for the sub account which is a free account and paid by master account</aside><aside>Can only add an Additional plan for the sub account which is a paid account and paid by master account</aside>",
+                "summary": "Subscribe plans for a sub account",
+                "description": "Subscribe plans for a sub account of the master account <aside>Can only subscribe plans for the sub account which is a free account and paid by master account</aside>",
                 "tags": [
-                    "Accounts"
+                    "Billing"
                 ],
                 "operationId": "accountPlanCreate",
                 "parameters": [
@@ -366,8 +378,11 @@
                     }
                 ],
                 "responses": {
-                    "204": {
-                        "description": "Account plans updated"
+                    "201": {
+                        "description": "Account plans updated",
+                        "schema" : {
+                            "$ref" : "#/definitions/AccountPlans"
+                        }
                     }
                 }
             }
@@ -377,7 +392,7 @@
                 "summary": "Update an account's base plan",
                 "description": "Update a base plan for a sub account <aside>Can only subscribe plans for the sub account which is a free account and paid by master account</aside><aside>Can only add an Additional plan for the sub account which is a paid account and paid by master account</aside>",
                 "tags": [
-                    "Accounts"
+                    "Billing"
                 ],
                 "operationId": "accountPlanBaseUpdate",
                 "parameters": [
@@ -389,7 +404,7 @@
                         "name": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/AccountPlan"
+                            "$ref": "#/definitions/AccountPlanRequired"
                         }
                     }
                 ],
@@ -402,10 +417,10 @@
         },
         "/accounts/{accountId}/plans/addons": {
             "post": {
-                "summary": "Add an account add on plan",
-                "description": "Add an add on plan for a sub account <aside>Can only subscribe plans for the sub account which is a free account and paid by master account</aside><aside>Can only add an Additional plan for the sub account which is a paid account and paid by master account</aside>",
+                "summary": "Add an account add-on plan",
+                "description": "Add an add-on plan for a sub account <aside>Can only add an Additional plan for the sub account which is a paid account and paid by master account</aside>",
                 "tags": [
-                    "Accounts"
+                    "Billing"
                 ],
                 "operationId": "accountPlanAddonCreate",
                 "parameters": [
@@ -417,21 +432,21 @@
                         "name": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/AccountPlan"
+                            "$ref": "#/definitions/AccountPlanRequired"
                         }
                     }
                 ],
                 "responses": {
-                    "204": {
+                    "201": {
                         "description": "Account plans updated"
                     }
                 }
             },
             "put": {
-                "summary": "Update an account's add on plans",
-                "description": "Update as add on plan for a sub account <aside>Can only subscribe plans for the sub account which is a free account and paid by master account</aside><aside>Can only add an Additional plan for the sub account which is a paid account and paid by master account</aside>",
+                "summary": "Update an account's add-on plans",
+                "description": "Update as add-on plan for a sub account <aside>Can only update an Additional plan for the sub account which is a paid account and paid by master account</aside>",
                 "tags": [
-                    "Accounts"
+                    "Billing"
                 ],
                 "operationId": "accountPlanAddonUpdate",
                 "parameters": [
@@ -443,7 +458,7 @@
                         "name": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/AccountPlan"
+                            "$ref": "#/definitions/AccountPlanRequired"
                         }
                     }
                 ],
@@ -1435,7 +1450,7 @@
         "/metrics/meetings/{meetingId}": {
             "get": {
                 "summary": "Retrieve meeting detail",
-                "description": "Retrieve live  or past meetings detail",
+                "description": "Retrieve live or past meetings detail",
                 "tags": [
                     "Dashboards"
                 ],
@@ -1613,8 +1628,8 @@
         },
         "/metrics/meetings/{meetingId}/participants/qos": {
             "get": {
-                "summary": "List meeting participant QOS",
-                "description": "Retrieve list of live or past meetings participant quality of service",
+                "summary": "List meeting participants QOS",
+                "description": "Retrieve list of live or past meetings participants quality of service",
                 "tags": [
                     "Dashboards"
                 ],
@@ -1733,7 +1748,7 @@
                 "operationId": "dashboardWebinars",
                 "parameters": [
                     {
-                        "$ref": "#/parameters/MeetingTypePast"
+                        "$ref": "#/parameters/WebinarTypePast"
                     },
                     {
                         "$ref": "#/parameters/FromDate"
@@ -1800,16 +1815,14 @@
                         "$ref": "#/parameters/WebinarId"
                     },
                     {
-                        "$ref": "#/parameters/MeetingTypePast"
+                        "$ref": "#/parameters/WebinarTypePast"
                     }
                 ],
                 "responses": {
                     "200": {
                         "description": "Webinar Returned",
                         "schema": {
-                            "properties": {
-                                "$ref": "#/definitions/WebinarMetric"
-                            }
+                            "$ref": "#/definitions/WebinarMetric"
                         }
                     }
                 }
@@ -1828,7 +1841,7 @@
                         "$ref": "#/parameters/WebinarId"
                     },
                     {
-                        "$ref": "#/parameters/MeetingTypePast"
+                        "$ref": "#/parameters/WebinarTypePast"
                     },
                     {
                         "$ref": "#/parameters/PageSize"
@@ -1955,7 +1968,7 @@
                         "$ref": "#/parameters/ParticipantId"
                     },
                     {
-                        "$ref": "#/parameters/MeetingTypePast"
+                        "$ref": "#/parameters/WebinarTypePast"
                     }
                 ],
                 "responses": {
@@ -1981,7 +1994,7 @@
                         "$ref": "#/parameters/WebinarId"
                     },
                     {
-                        "$ref": "#/parameters/MeetingTypePast"
+                        "$ref": "#/parameters/WebinarTypePast"
                     },
                     {
                         "$ref": "#/parameters/PageSize"
@@ -2013,7 +2026,7 @@
                         "$ref": "#/parameters/WebinarId"
                     },
                     {
-                        "$ref": "#/parameters/MeetingTypePast"
+                        "$ref": "#/parameters/WebinarTypePast"
                     },
                     {
                         "$ref": "#/parameters/PageSize"
@@ -2188,7 +2201,7 @@
         "/metrics/crc": {
             "get": {
                 "summary": "Retrieve CRC Port Usage",
-                "description": "Get CRC Port usage hour by hour for a specified time period <aside class='notice'>We will report a maximum of one month. For example, if \"from\" is set to \"2015-08-05\" and \"to\" is \"2015-10-10\" we will adjust \"from\" to \"2015-09-10\"</aside>",
+                "description": "Get CRC Port usage hour by hour for a specified time period <aside class='notice'>We will report a maximum of one month. For example, if \"from\" is set to \"2017-08-05\" and \"to\" is \"2017-10-10\" we will adjust \"from\" to \"2017-09-10\"</aside>",
                 "tags": [
                     "Dashboards"
                 ],
@@ -2414,29 +2427,31 @@
                                     "description": "Month for this report"
                                 },
                                 "dates": {
-                                    "type": "object",
+                                    "type": "array",
                                     "description": "Array of date objects",
-                                    "properties": {
-                                        "date": {
-                                            "type": "string",
-                                            "format": "date",
-                                            "description": "Date for this object"
-                                        },
-                                        "new_users": {
-                                            "type": "integer",
-                                            "description": "Number of new users on this date"
-                                        },
-                                        "meetings": {
-                                            "type": "integer",
-                                            "description": "Number of meetings on this date"
-                                        },
-                                        "participants": {
-                                            "type": "integer",
-                                            "description": "Number of participants on this date"
-                                        },
-                                        "meeting_minutes": {
-                                            "type": "integer",
-                                            "description": "Number of meeting minutes on this date"
+                                    "items": {
+                                        "properties": {
+                                            "date": {
+                                                "type": "string",
+                                                "format": "date",
+                                                "description": "Date for this object"
+                                            },
+                                            "new_users": {
+                                                "type": "integer",
+                                                "description": "Number of new users on this date"
+                                            },
+                                            "meetings": {
+                                                "type": "integer",
+                                                "description": "Number of meetings on this date"
+                                            },
+                                            "participants": {
+                                                "type": "integer",
+                                                "description": "Number of participants on this date"
+                                            },
+                                            "meeting_minutes": {
+                                                "type": "integer",
+                                                "description": "Number of meeting minutes on this date"
+                                            }
                                         }
                                     }
                                 }
@@ -2523,7 +2538,7 @@
                                             "description": "Array of user objects",
                                             "items": {
                                                 "properties": {
-                                                    "user_id": {
+                                                    "id": {
                                                         "type": "string",
                                                         "format": "uuid",
                                                         "description": "User ID"
@@ -2621,7 +2636,7 @@
                                             "description": "Array of meeting objects",
                                             "items": {
                                                 "properties": {
-                                                    "user_id": {
+                                                    "uuid": {
                                                         "type": "string",
                                                         "format": "uuid",
                                                         "description": "Meeting UUID"
@@ -2664,7 +2679,7 @@
                                                         "type": "integer",
                                                         "description": "Number of meeting minutes"
                                                     },
-                                                    "participant_count": {
+                                                    "participants_count": {
                                                         "type": "integer",
                                                         "description": "Number of meeting participants"
                                                     }
@@ -2813,7 +2828,7 @@
                                                         "description": "Participant duration"
                                                     },
                                                     "attentiveness_score": {
-                                                        "type": "integer",
+                                                        "type": "string",
                                                         "description": "Participant attentiveness score"
                                                     }
                                                 }
@@ -3087,6 +3102,49 @@
                                     }
                                 }
                             ]
+                        }
+                    }
+                }
+            }
+        },
+        "/tsp" : {
+            "get" : {
+                "summary" : "List TSP dial-in numbers",
+                "description": "List TSP dial-in numbers under account",
+                "tags" : [
+                    "TSP"
+                ],
+                "operationId": "tsp",
+                "parameters": [
+
+                ],
+                "responses" : {
+                    "200" : {
+                        "description": "TSP dial-in numbers returned",
+                        "schema": {
+                            "properties": {
+                                "tsp_provider" : {
+                                    "type" : "string"
+                                },
+                                "dial_in_numbers" : {
+                                    "type" : "array",
+                                    "items": {
+                                        "properties": {
+                                            "code": {
+                                                "type": "string",
+                                                "description": "Country Code"
+                                            },
+                                            "number": {
+                                                "type": "string",
+                                                "description": "Dial-in number, length is less than 16."
+                                            },
+                                            "type": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                 }
@@ -3626,8 +3684,8 @@
         },
         "/users/{userId}/tsp": {
             "get": {
-                "summary": "List user's TSP config",
-                "description": "List user's TSP config",
+                "summary": "List user's TSP accounts",
+                "description": "List user's TSP accounts",
                 "tags": [
                     "TSP"
                 ],
@@ -3639,7 +3697,17 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "TSP Config list returned"
+                        "description": "TSP Config list returned",
+                        "schema" : {
+                            "properties": {
+                                "tsp_accounts" : {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref" : "#/definitions/TSP"
+                                    }
+                                }
+                            }
+                        }
                     },
                     "404": {
                         "description": "User not found"
@@ -3647,8 +3715,8 @@
                 }
             },
             "post": {
-                "summary": "Add a user's TSP config",
-                "description": "Add a user's TSP config",
+                "summary": "Add a user's TSP account",
+                "description": "Add a user's TSP account",
                 "tags": [
                     "TSP"
                 ],
@@ -3669,15 +3737,18 @@
                 ],
                 "responses": {
                     "201": {
-                        "description": "TSP Config added"
+                        "description": "TSP Config added",
+                        "schema" : {
+                            "$ref" : "#/definitions/TSP"
+                        }
                     }
                 }
             }
         },
         "/users/{userId}/tsp/{tspId}": {
             "get": {
-                "summary": "Retrieve a user's TSP config",
-                "description": "Retrieve a user's TSP config",
+                "summary": "Retrieve a user's TSP account",
+                "description": "Retrieve a user's TSP account",
                 "tags": [
                     "TSP"
                 ],
@@ -3692,13 +3763,16 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "TSP Config returned"
+                        "description": "TSP Config returned",
+                        "schema": {
+                            "$ref" : "#/definitions/TSP"
+                        }
                     }
                 }
             },
             "patch": {
-                "summary": "Update a TSP config",
-                "description": "Update a user's TSP config",
+                "summary": "Update a TSP account",
+                "description": "Update a user's TSP account",
                 "tags": [
                     "TSP"
                 ],
@@ -3727,8 +3801,8 @@
                 }
             },
             "delete": {
-                "summary": "Delete a TSP config",
-                "description": "Delete a user's TSP config",
+                "summary": "Delete a user's TSP account",
+                "description": "Delete a user's TSP account",
                 "tags": [
                     "TSP"
                 ],
@@ -4304,7 +4378,8 @@
             "name": "from",
             "description": "Start Date",
             "type": "string",
-            "format": "date"
+            "format": "date",
+            "required": true
         },
         "GroupId": {
             "in": "path",
@@ -4345,8 +4420,8 @@
                 "live"
             ],
             "x-enum-descriptions": [
-                "all the past meetings",
-                "all the live meetings"
+                "past meetings",
+                "live meetings"
             ]
         },
         "OccurrenceId": {
@@ -4367,7 +4442,8 @@
             "name": "page_size",
             "description": "Number of items returned per page",
             "type": "integer",
-            "default": 30
+            "default": 30,
+            "maximum": 300
         },
         "ParticipantId": {
             "in": "path",
@@ -4405,11 +4481,12 @@
             "name": "to",
             "description": "End Date",
             "type": "string",
-            "format": "date"
+            "format": "date",
+            "required": true
         },
         "TSPId": {
             "name": "tspId",
-            "description": "TSP ID",
+            "description": "TSP account index",
             "in": "path",
             "type": "string",
             "required": true
@@ -4427,6 +4504,21 @@
             "description": "The webinar ID",
             "type": "integer",
             "required": true
+        },
+        "WebinarTypePast": {
+            "in": "query",
+            "name": "type",
+            "description": "The webinar type",
+            "type": "string",
+            "default": "live",
+            "enum": [
+                "past",
+                "live"
+            ],
+            "x-enum-descriptions": [
+                "past webinars",
+                "live webinars"
+            ]
         },
         "ZoomRoomId": {
             "in": "path",
@@ -4558,12 +4650,30 @@
                 }
             }
         },
+        "AccountPlanRequired": {
+            "type": "object",
+            "description": "Account plan object",
+            "required": [
+                "type",
+                "hosts"
+            ],
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "description": "Account plan type"
+                },
+                "hosts": {
+                    "type": "integer",
+                    "description": "Account plan number of hosts"
+                }
+            }
+        },
         "AccountPlans": {
             "type": "object",
             "description": "Account Plans object",
             "properties": {
                 "plan_base": {
-                    "$ref": "#/definitions/AccountPlan"
+                    "$ref": "#/definitions/AccountPlanRequired"
                 },
                 "plan_zoom_rooms": {
                     "$ref": "#/definitions/AccountPlan"
@@ -4597,25 +4707,17 @@
                             "type": "string",
                             "description": "Additional Audio Conferencing Plan type"
                         },
-                        "tollfree_country": {
+                        "tollfree_countries": {
                             "type": "string",
                             "description": "Toll-free countries, multiple value separated by comma"
                         },
-                        "premium_country": {
+                        "premium_countries": {
                             "type": "string",
                             "description": "Premium countries, multiple value separated by comma"
                         },
-                        "callout": {
-                            "type": "boolean",
-                            "description": "Call-out type",
-                            "enum": [
-                                1,
-                                2
-                            ],
-                            "x-enum-descriptions": [
-                                "US-only",
-                                "US and International"
-                            ]
+                        "callout_countries": {
+                            "type": "string",
+                            "description": "Call-out countries, multiple value separated by comma"
                         },
                         "ddi_numbers": {
                             "type": "integer",
@@ -5106,6 +5208,17 @@
         "BillingContact": {
             "type": "object",
             "description": "Billing Contact object",
+            "required": [
+                "first_name",
+                "last_name",
+                "email",
+                "phone_number",
+                "address",
+                "city",
+                "state",
+                "zip",
+                "country"
+            ],
             "properties": {
                 "first_name": {
                     "type": "string",
@@ -6097,7 +6210,11 @@
         },
         "TSP": {
             "type": "object",
-            "description": "TSP Configuration object",
+            "description": "TSP Account object",
+            "required": [
+                "conference_code",
+                "leader_pin"
+            ],
             "properties": {
                 "conference_code": {
                     "type": "string",
@@ -6110,11 +6227,11 @@
                 "dial_in_numbers": {
                     "type": "object",
                     "description": "Dial In Numbers object",
+                    "required": [
+                        "code",
+                        "number"
+                    ],
                     "properties": {
-                        "id": {
-                            "type": "string",
-                            "description": "Country ID"
-                        },
                         "code": {
                             "type": "string",
                             "description": "Country Code"
@@ -6827,6 +6944,10 @@
         {
             "name": "Accounts",
             "description": "Account operations"
+        },
+        {
+            "name": "Billing",
+            "description": "Billing operations"
         },
         {
             "name": "Users",
