@@ -56,8 +56,9 @@ $ curl https://api.zoom.us/v2/metrics/im
 
 Query Arguments | &nbsp;
 --- | ---
-from | Start Date
-to | End Date
-page_size | Number of items returned per page
-page_number | Page number of results returned
+from **required** | Start Date
+to **required** | End Date
+page_size *optional* | Number of items returned per page. *Default: 30* *Max: 300*
+next_page_token *optional* | Used to paginate through large result sets. A next page token will be returned whenever the set of available meeting list exceeds 300. The expiration period is 15 minutes.
+
 

@@ -1,6 +1,6 @@
 ## Retrieve meeting detail
 
-Retrieve live  or past meetings detail
+Retrieve live or past meetings detail
 
 > Definition
 
@@ -44,9 +44,9 @@ $ curl https://api.zoom.us/v2/metrics/meetings/{meetingId}
 
 Path Arguments | &nbsp;
 --- | ---
-meetingId **required** | The meeting ID
+meetingId **required** | The meeting ID or meeting UUID. If given meeting ID, will take the last meeting instance.
 
 Query Arguments | &nbsp;
 --- | ---
-type | The meeting type<div class="enum">`past` all the past meetings<br/>`live` all the live meetings<br/></div>
+type *optional* | The meeting type<div class="enum">`past` past meeting<br/>`live` live meeting<br/></div>
 

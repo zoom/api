@@ -131,6 +131,7 @@ includes:
   - tsp/get_userId_tsp_tspId
   - tsp/patch_userId_tsp_tspId
   - tsp/delete_userId_tsp_tspId
+  - tsp/get_tsp
 
   - appendix/index
   - appendix/recurrence

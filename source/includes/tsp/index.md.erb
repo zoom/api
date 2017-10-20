@@ -1,14 +1,13 @@
 # TSP
 
 ## The TSP object
-TSP Configuration object
+TSP Account object
 
 ```json
 {
     "conference_code": "string",
     "leader_pin": "string",
     "dial_in_numbers": {
-        "id": "string",
         "code": "string",
         "number": "string"
     }
@@ -17,9 +16,8 @@ TSP Configuration object
 
 Property | Description
 --- | ---
-conference_code *string* | Conference code, length is less than 16.
-leader_pin *string* | Leader PIN, length is less than 16.
-dial_in_numbers.id *string* | Country ID
+conference_code *string* | Conference code, should be numeric and length is less than 16.
+leader_pin *string* | Leader PIN, should be numeric and length is less than 16.
 dial_in_numbers.code *string* | Country Code
 dial_in_numbers.number *string* | Dial-in number, length is less than 16.
 

@@ -22,29 +22,29 @@ $ curl https://api.zoom.us/v2/report/meetings/{meetingId}/participants
 
 ```json
 {
-    "page_count": "integer",
-    "page_number": "integer",
-    "page_size": "integer",
-    "total_records": "integer",
-    "participants": [
-        {
-            "name": "string",
-            "user_email": "string",
-            "join_time": "string",
-            "leave_time": "string",
-            "duration": "integer",
-            "attentiveness_score": "integer"
-        }
-    ]
+  "page_count": "integer",
+  "page_size": "integer",
+  "total_records": "integer",
+  "next_page_token": "string",
+  "participants": [
+    {
+      "name": "string",
+      "user_email": "string",
+      "join_time": "string",
+      "leave_time": "string",
+      "duration": "integer",
+      "attentiveness_score": "string"
+    }
+  ]
 }
 ```
 
 Path Arguments | &nbsp;
 --- | ---
-meetingId **required** | The meeting ID
+meetingId **required** | The meeting ID or meeting UUID. If given meeting ID, will take the last meeting instance.
 
 Query Arguments | &nbsp;
 --- | ---
-page_size | Number of items returned per page
-page_number | Page number of results returned
+page_size *optional* | Number of items returned per page. *Default: 30* *Max: 300*
+next_page_token *optional* | Used to paginate through large result sets. A next page token will be returned whenever the set of available participants list exceeds 300. The expiration period is 15 minutes.
 

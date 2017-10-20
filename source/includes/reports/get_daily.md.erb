@@ -24,18 +24,18 @@ $ curl https://api.zoom.us/v2/report/daily
 {
     "year": "integer",
     "month": "integer",
-    "dates": {
+    "dates": [{
         "date": "string",
         "new_users": "integer",
         "meetings": "integer",
         "participants": "integer",
         "meeting_minutes": "integer"
-    }
+    }]
 }
 ```
 
 Query Arguments | &nbsp;
 --- | ---
-year | Year for this report
-month | Month for this report
+year **required** | Year for this report
+month **required** | Month for this report
 
