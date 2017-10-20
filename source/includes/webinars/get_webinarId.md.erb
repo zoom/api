@@ -30,35 +30,35 @@ $ curl https://api.zoom.us/v2/webinars/{webinarId}
     "start_time": "string",
     "duration": "integer",
     "timezone": "string",
-    "password": "string",
-    "description": "string",
-    "recurrence": {
-        "type": "integer",
-        "repeat_interval": "integer",
-        "weekly_days": "integer",
-        "monthly_day": "integer",
-        "monthly_week": "integer",
-        "monthly_week_day": "integer",
-        "end_times": "integer",
-        "end_date_time": "string"
-    },
+    "agenda": "string",
+    "created_at": "string",
+    "start_url": "string",
+    "join_url": "string",
+    "occurrences": [
+      {
+        "occurrence_id": "string",
+        "start_time": "string",
+        "duration": "integer",
+        "status": "string"
+      }
+    ],
     "settings": {
-        "host_video": "boolean",
-        "participant_video": "boolean",
-        "cn_meeting": "boolean",
-        "in_meeting": "boolean",
-        "join_before_host": "boolean",
-        "mute_upon_entry": "boolean",
-        "watermark": "boolean",
-        "use_pmi": "boolean",
-        "approval_type": "integer",
-        "registration_type": "integer",
-        "audio": "string",
-        "auto_recording": "string",
-        "enforce_login": "boolean",
-        "enforce_login_domains": "boolean",
-        "alternatice_hosts": "boolean"
-    }
+      "host_video": "boolean",
+      "panelists_video": "boolean",
+      "registration": "boolean",
+      "practice_session": "boolean",
+      "hd_video": "boolean",
+      "question_answer": "boolean",
+      "enforce_login": "boolean",
+      "audio": "string",
+      "auto_recording": "string",
+      "enforce_login_domains": "string",
+      "alternative_hosts": "string",
+      "approval_type": "integer",
+      "close_registration": "boolean",
+      "show_share_button": "boolean",
+      "allow_multiple_devices": "boolean"
+  }
 }
 ```
 

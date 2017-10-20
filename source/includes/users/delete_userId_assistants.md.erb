@@ -5,13 +5,13 @@ Delete all of a user'sassitants
 > Definition
 
 ```shell
-DELETE https://api.zoom.us/v2/users/{userId}/assistants
+DELETE https://api.zoom.us/v2/users/{id}/assistants
 ```
 
 > Example Request
 
 ```shell
-$ curl https://api.zoom.us/v2/users/{userId}/assistants \
+$ curl https://api.zoom.us/v2/users/{id}/assistants \
     -X DELETE
 ```
 
@@ -23,5 +23,5 @@ $ curl https://api.zoom.us/v2/users/{userId}/assistants \
 
 Path Arguments | &nbsp;
 --- | ---
-userId **required** | The user ID or email address
+id **required** | The user ID or email address
 

@@ -1,6 +1,6 @@
-## Add a group member
+## Add group members
 
-Add a member to a group under your account
+Add members to a group under your account
 
 > Definition
 
@@ -13,8 +13,12 @@ POST https://api.zoom.us/v2/groups/{groupId}/members
 ```shell
 $ curl https://api.zoom.us/v2/groups/{groupId}/members \
    -d '{
-    "id": "string",
-    "email": "string"
+    "members": [
+      {
+        "id": "string",
+        "email": "string"
+      }
+    ]
 }'
 ```
 
@@ -24,12 +28,19 @@ $ curl https://api.zoom.us/v2/groups/{groupId}/members \
 204 No Content
 ```
 
+```json
+{
+  "id": "string",
+  "added_at": "string"
+}
+```
+
 Path Arguments | &nbsp;
 --- | ---
 groupId **required** | The group ID
 
 Body Arguments | &nbsp;
 --- | ---
-id | User ID.
-email | User email. If ID given, email is ignored.
+id *optional* | User ID.
+email *optional* | User email. If ID given, email is ignored.
 

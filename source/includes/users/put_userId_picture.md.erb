@@ -5,13 +5,13 @@ Update a user's profile picture
 > Definition
 
 ```shell
-PUT https://api.zoom.us/v2/users/{userId}/picture
+PUT https://api.zoom.us/v2/users/{id}/picture
 ```
 
 > Example Request
 
 ```shell
-$ curl https://api.zoom.us/v2/users/{userId}/picture
+$ curl https://api.zoom.us/v2/users/{id}/picture
 ```
 
 > Example Response
@@ -22,5 +22,9 @@ $ curl https://api.zoom.us/v2/users/{userId}/picture
 
 Path Arguments | &nbsp;
 --- | ---
-userId **required** | The user ID or email address
+id **required** | The user ID or email address
+
+Body Arguments | &nbsp;
+--- | ---
+pic_file **required** | User picture file, must be a jpg/jpeg/png file.
 

@@ -5,13 +5,13 @@ Revoke a user's SSO token
 > Definition
 
 ```shell
-DELETE https://api.zoom.us/v2/users/{userId}/ssoToken
+DELETE https://api.zoom.us/v2/users/{id}/token
 ```
 
 > Example Request
 
 ```shell
-$ curl https://api.zoom.us/v2/users/{userId}/ssoToken \
+$ curl https://api.zoom.us/v2/users/{id}/token \
     -X DELETE
 ```
 
@@ -23,5 +23,5 @@ $ curl https://api.zoom.us/v2/users/{userId}/ssoToken \
 
 Path Arguments | &nbsp;
 --- | ---
-userId **required** | The user ID or email address
+id **required** | The user ID
 

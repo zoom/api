@@ -1,17 +1,17 @@
 ## Delete a user
 
-Delete a user on your account
+Delete a user on your account,return the deleted user ID
 
 > Definition
 
 ```shell
-DELETE https://api.zoom.us/v2/users/{userId}
+DELETE https://api.zoom.us/v2/users/{id}
 ```
 
 > Example Request
 
 ```shell
-$ curl https://api.zoom.us/v2/users/{userId} \
+$ curl https://api.zoom.us/v2/users/{id} \
     -X DELETE
 ```
 
@@ -23,5 +23,9 @@ $ curl https://api.zoom.us/v2/users/{userId} \
 
 Path Arguments | &nbsp;
 --- | ---
-userId **required** | The user ID or email address
+id **required** | The user ID
+
+Query Arguments | &nbsp;
+--- | ---
+action *optional* | Delete action type<div class="enum">`disassociate` Disassociate a user.<br/>`delete` Permanently delete a user. </div>
 
