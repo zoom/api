@@ -5,13 +5,16 @@ Update a user's status
 > Definition
 
 ```shell
-PUT https://api.zoom.us/v2/users/{userId}/status
+PUT https://api.zoom.us/v2/users/{id}/status
 ```
 
 > Example Request
 
 ```shell
-$ curl https://api.zoom.us/v2/users/{userId}/status
+$ curl https://api.zoom.us/v2/users/{id}/status
+'{
+  "action": "deactivate"
+}'
 ```
 
 > Example Response
@@ -22,9 +25,9 @@ $ curl https://api.zoom.us/v2/users/{userId}/status
 
 Path Arguments | &nbsp;
 --- | ---
-userId **required** | The user ID or email address
+id **required** | The user ID
 
 Body Arguments | &nbsp;
 --- | ---
-status | <div class="enum">`active` set users status to active<br/>`deactive` set users status to deactive<br/></div>
+action **required** | <div class="enum">`active` set users status to active<br/>`deactive` set users status to deactive<br/></div>
 

@@ -13,8 +13,16 @@ POST https://api.zoom.us/v2/webinars/{webinarId}/panelists
 ```shell
 $ curl https://api.zoom.us/v2/webinars/{webinarId}/panelists \
    -d '{
-    "email": "string",
-    "name": "string"
+  "panelists": [
+    {
+      "name": "string",
+      "email": "string"
+    },
+    {
+      "name": "string",
+      "email": "string"
+    }
+  ]
 }'
 ```
 
@@ -27,7 +35,7 @@ $ curl https://api.zoom.us/v2/webinars/{webinarId}/panelists \
 ```json
 {
     "id": "string",
-    "join_url": "string"
+    "added_at": "string"
 }
 ```
 

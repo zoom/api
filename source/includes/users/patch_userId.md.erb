@@ -5,29 +5,23 @@ Update a user on your account
 > Definition
 
 ```shell
-PATCH https://api.zoom.us/v2/users/{userId}
+PATCH https://api.zoom.us/v2/users/{id}
 ```
 
 > Example Request
 
 ```shell
-$ curl https://api.zoom.us/v2/users/{userId} \
+$ curl https://api.zoom.us/v2/users/{id} \
    -d '{
-    "email": "string",
-    "type": "integer",
-    "first_name": "string",
-    "last_name": "string",
-    "created_at": "string",
-    "dept": "string",
-    "last_client_version": "string",
-    "last_login_time": "string",
-    "pic_url": "string",
-    "pmi": "string",
-    "timezone": "string",
-    "vanity_url": "string",
-    "verified": "boolean",
-    "cms_user_id": "string",
-    "host_key": "string"
+      "first_name": "string",
+      "last_name": "string",
+      "type": "integer",
+      "pmi": "integer",
+      "timezone": "string",
+      "dept": "string",
+      "vanity_name": "string",
+      "host_key": integer,
+      "cms_user_id": "string"
 }'
 ```
 
@@ -39,23 +33,17 @@ $ curl https://api.zoom.us/v2/users/{userId} \
 
 Path Arguments | &nbsp;
 --- | ---
-userId **required** | The user ID or email address
+id **required** | The user ID or email address
 
 Body Arguments | &nbsp;
 --- | ---
-email **required** | User's email address.
-type **required** | User's type<div class="enum">`1` basic<br/>`2` pro<br/>`3` corp<br/></div>
-first_name | User's first name.
-last_name | User's last name.
-created_at | 
-dept | 
-last_client_version | 
-last_login_time | 
-pic_url | 
-pmi | 
-timezone | 
-vanity_url | 
-verified | 
-cms_user_id | CMS User Id
-host_key | Host Key, should be 6-digit number
+first_name *optional* | User’s first name. Character length is less than 64.
+last_name *optional* | User’s last name. Character length is less than 64.
+type *optional* | User's type<div class="enum">`1` basic<br/>`2` pro<br/>`3` corp<br/></div>
+pmi *optional* | Personal Meeting ID, length must be 10.
+timezone *optional* | The time zone id for user profile. For this parameter value please refer to the id value in timezone list JSON file.
+dept *optional* | Department for user profile, use for report.
+vanity_name *optional* | Personal meeting room name.
+host_key *optional* | Host Key, should be 6-digit number
+cms_user_id *optional* | Kaltura User Id.
 

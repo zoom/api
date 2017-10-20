@@ -5,15 +5,14 @@ Retrieve a user on your account
 > Definition
 
 ```shell
-GET https://api.zoom.us/v2/users/{userId}
+GET https://api.zoom.us/v2/users/{id}
 ```
 
 > Example Request
 
 ```shell
-$ curl https://api.zoom.us/v2/users/{userId}
+$ curl https://api.zoom.us/v2/users/{id}
 ```
-
 > Example Response
 
 ```text
@@ -35,13 +34,15 @@ $ curl https://api.zoom.us/v2/users/{userId}
     "pmi": "string",
     "timezone": "string",
     "vanity_url": "string",
-    "verified": "boolean",
-    "cms_user_id": "string",
-    "host_key": "string"
+    "verified": "integer"
 }
 ```
 
 Path Arguments | &nbsp;
 --- | ---
-userId **required** | The user ID or email address
+id **required** | The user ID or email address
+
+Query Arguments | &nbsp;
+--- | ---
+login_type *optional* |  Login type<div class="enum">`0` Facebook </br> `1` Google </br>`99` API </br>`100` Zoom </br>`101` SSO</div>
 

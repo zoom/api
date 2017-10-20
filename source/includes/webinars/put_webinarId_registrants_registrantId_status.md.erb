@@ -1,19 +1,29 @@
-## Update a webinar registrant's status
+## Update webinar registrant's status
 
-Update a webinar registrant's status
+Update webinar registrant's status
 
 > Definition
 
 ```shell
-PUT https://api.zoom.us/v2/webinars/{webinarId}/registrants/{registrantId}/status
+PUT https://api.zoom.us/v2/webinars/{webinarId}/registrants/status
 ```
 
 > Example Request
 
 ```shell
-$ curl https://api.zoom.us/v2/webinars/{webinarId}/registrants/{registrantId}/status \
+$ curl https://api.zoom.us/v2/webinars/{webinarId}/registrants/status \
    -d '{
-    "status": "string"
+      "action": "string",
+      "registrants": [
+        {
+          "id": "string",
+          "email": "string"
+        },
+        {
+          "id": "string",
+          "email": "string"
+        }
+      ]
 }'
 ```
 
@@ -26,9 +36,14 @@ $ curl https://api.zoom.us/v2/webinars/{webinarId}/registrants/{registrantId}/st
 Path Arguments | &nbsp;
 --- | ---
 webinarId **required** | The webinar ID
-registrantId **required** | The registrant ID
+
+Query Arguments | &nbsp;
+--- | ---
+occurrence_id *optional* | The occurrence ID.
 
 Body Arguments | &nbsp;
 --- | ---
-status | <div class="enum">`pending` set registrant status to pending<br/>`approved` set registrant status to approved<br/>`denied` set registrant status to denied<br/></div>
+action **required** | <div class="enum">`approve` approve registrant<br/>`cancel` cancel registrant<br/>`denied` deny registrant<br/></div>
+id *optional* | Webinar registrant ID.
+email *optional* | Webinar registrant Email.
 

@@ -5,13 +5,13 @@ Delete a member from an IM Group under your account
 > Definition
 
 ```shell
-DELETE https://api.zoom.us/v2/im_groups/{groupId}/members/{userId}
+DELETE https://api.zoom.us/v2/im/groups/{groupId}/members/{memberId}
 ```
 
 > Example Request
 
 ```shell
-$ curl https://api.zoom.us/v2/im_groups/{groupId}/members/{userId} \
+$ curl https://api.zoom.us/v2/im/groups/{groupId}/members/{memberId} \
     -X DELETE
 ```
 
@@ -23,6 +23,6 @@ $ curl https://api.zoom.us/v2/im_groups/{groupId}/members/{userId} \
 
 Path Arguments | &nbsp;
 --- | ---
-groupId **required** | The group ID
-userId **required** | The user ID or email address
+groupId **required** | The group ID.
+memberId **required** | The member ID.
 

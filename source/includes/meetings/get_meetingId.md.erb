@@ -30,18 +30,18 @@ $ curl https://api.zoom.us/v2/meetings/{meetingId}
     "start_time": "string",
     "duration": "integer",
     "timezone": "string",
-    "password": "string",
-    "description": "string",
-    "recurrence": {
-        "type": "integer",
-        "repeat_interval": "integer",
-        "weekly_days": "integer",
-        "monthly_day": "integer",
-        "monthly_week": "integer",
-        "monthly_week_day": "integer",
-        "end_times": "integer",
-        "end_date_time": "string"
-    },
+    "created_at": "string",
+    "agenda": "string",
+    "start_url": "string",
+    "join_url": "string",
+    "occurrences": [
+      {
+        "occurrence_id": "string",
+        "start_time": "string",
+        "duration": "integer",
+        "status": "string"
+      }
+    ],
     "settings": {
         "host_video": "boolean",
         "participant_video": "boolean",
@@ -52,10 +52,9 @@ $ curl https://api.zoom.us/v2/meetings/{meetingId}
         "watermark": "boolean",
         "use_pmi": "boolean",
         "approval_type": "integer",
-        "registration_type": "integer",
+        "enforce_login": "boolean",
         "audio": "string",
         "auto_recording": "string",
-        "enforce_login": "boolean",
         "enforce_login_domains": "boolean",
         "alternatice_hosts": "boolean"
     }

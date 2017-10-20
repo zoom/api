@@ -5,15 +5,27 @@ Add an assistant to a user
 > Definition
 
 ```shell
-POST https://api.zoom.us/v2/users/{userId}/assistants
+POST https://api.zoom.us/v2/users/{id}/assistants
 ```
 
 > Example Request
 
 ```shell
-$ curl https://api.zoom.us/v2/users/{userId}/assistants
+$ curl https://api.zoom.us/v2/users/{id}/assistants
+'{
+  "assistants": [
+    {
+      "id": "",
+      "email": ""
+    },
+    {
+      "id": "",
+      "email": ""
+    }
+  ]
+}
+'
 ```
-
 > Example Response
 
 ```text
@@ -22,15 +34,17 @@ $ curl https://api.zoom.us/v2/users/{userId}/assistants
 
 ```json
 {
-    "email_or_id": "string"
+    "id": "string",
+    "added_at": "string"
 }
 ```
 
 Path Arguments | &nbsp;
 --- | ---
-userId **required** | The user ID or email address
+id **required** | The user ID or email address
 
 Body Arguments | &nbsp;
 --- | ---
-email_or_id | ID or Email of assistant
+id *optional* | User ID
+email *optional* | User email address. Must have id or email, if given id, the email is ignored.
 

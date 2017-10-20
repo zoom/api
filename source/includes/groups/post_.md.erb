@@ -25,11 +25,13 @@ $ curl https://api.zoom.us/v2/groups \
 
 ```json
 {
-    "id": "string"
+    "id": "string",
+    "name": "string",
+    "total_members": "integer"
 }
 ```
 
 Body Arguments | &nbsp;
 --- | ---
-name | Group name.
+name *optional* | Group name, must be unique in one account. Character length is less than 128.
 
