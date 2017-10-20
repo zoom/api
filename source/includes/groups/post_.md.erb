@@ -20,16 +20,18 @@ $ curl https://api.zoom.us/v2/groups \
 > Example Response
 
 ```text
-200 OK
+201 Created
 ```
 
 ```json
 {
-    "id": "string"
+    "id": "string",
+    "name": "string",
+    "total_members": "integer"
 }
 ```
 
 Body Arguments | &nbsp;
 --- | ---
-name | Group name.
+name *optional* | Group name.
 

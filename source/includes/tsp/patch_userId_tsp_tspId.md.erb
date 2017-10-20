@@ -1,6 +1,6 @@
-## Update a TSP config
+## Update a TSP account
 
-Update a user's TSP config
+Update a user's TSP account
 
 > Definition
 
@@ -16,7 +16,6 @@ $ curl https://api.zoom.us/v2/users/{userId}/tsp/{tspId} \
     "conference_code": "string",
     "leader_pin": "string",
     "dial_in_numbers": {
-        "id": "string",
         "code": "string",
         "number": "string"
     }
@@ -32,13 +31,12 @@ $ curl https://api.zoom.us/v2/users/{userId}/tsp/{tspId} \
 Path Arguments | &nbsp;
 --- | ---
 userId **required** | The user ID or email address
-tspId **required** | TSP ID
+tspId **required** | TSP account index
 
 Body Arguments | &nbsp;
 --- | ---
-conference_code | Conference code, length is less than 16.
-leader_pin | Leader PIN, length is less than 16.
-dial_in_numbers.id | Country ID
-dial_in_numbers.code | Country Code
-dial_in_numbers.number | Dial-in number, length is less than 16.
+conference_code **required** | Conference code, length is less than 16.
+leader_pin **required** | Leader PIN, length is less than 16.
+dial_in_numbers.code **required** | Country Code
+dial_in_numbers.number **required** | Dial-in number, length is less than 16.
 

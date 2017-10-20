@@ -11,7 +11,7 @@ GET https://api.zoom.us/v2/report/telephone
 > Example Request
 
 ```shell
-$ curl https://api.zoom.us/v2/report/telephone
+$ curl https://api.zoom.us/v2/report/telephone?from=string&to=string
 ```
 
 > Example Response
@@ -46,9 +46,9 @@ $ curl https://api.zoom.us/v2/report/telephone
 
 Query Arguments | &nbsp;
 --- | ---
-type | Audio type<div class="enum">`1` Toll-free Call-in & Call-out<br/>`2` Toll<br/></div>
-from | Start Date
-to | End Date
-page_size | Number of items returned per page
-page_number | Page number of results returned
+type *optional*<div class="default">1</div> | Audio type<div class="enum">`1` Toll-free Call-in & Call-out<br/>`2` Toll<br/></div>
+from **required** | Start Date
+to **required** | End Date
+page_size *optional*<div class="default">30</div><div class="maximum">300</div> | Number of items returned per page
+page_number *optional*<div class="default">1</div> | Page number of results returned
 

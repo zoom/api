@@ -91,55 +91,55 @@ userId **required** | The user ID or email address
 
 Body Arguments | &nbsp;
 --- | ---
-scheduled_meeting.host_video | Host video
-scheduled_meeting.participants_video | Participants video
-scheduled_meeting.audio_type | Meeting audio<div class="enum">`both` Telephony and VoIP<br/>`telephony` Audio PSTN telephony only<br/>`voip` VoIP only<br/>`thirdParty` 3rd party audio conference<br/>`none` Disabled<br/></div>
-scheduled_meeting.join_before_host | Join before host
-scheduled_meeting.enforce_login | Only signed-in users can join meetings
-scheduled_meeting.not_store_meeting_topic | Always display "Zoom Meeting" as the meeting topic
-scheduled_meeting.force_pmi_jbh_password | Require a password for Personal Meetings if attendees can join before host
-scheduled_meeting.pstn_password_protected | Generate and require password for participants joining by phone
-in_meeting.e2e_encryption | End-to-end encryption
-in_meeting.chat | Chat
-in_meeting.private_chat | Private chat
-in_meeting.auto_saving_chat | Auto saving chats
-in_meeting.entry_exit_chime | Play sound on join/leave<div class="enum">`host` when host joins/leaves<br/>`all` when any participant joins/leaves<br/>`none` no join/leave sound<br/></div>
-in_meeting.record_play_voice | Record and play their own voice
-in_meeting.file_transfer | File transfer
-in_meeting.feedback | Feedback to Zoom
-in_meeting.co_host | Co-host
-in_meeting.polling | Polling
-in_meeting.attendee_on_hold | Allow host to put attendee on hold
-in_meeting.annotation | Annotation
-in_meeting.non_verbal_feedback | Non-verbal feedback
-in_meeting.breakout_room | Breakout room
-in_meeting.remote_support | Remote support
-in_meeting.closed_caption | Closed caption
-in_meeting.group_hd | Group HD video
-in_meeting.virtual_background | Virtual background
-in_meeting.far_end_camera_control | Far end camera control
-in_meeting.share_dual_camera | Share dual camera
-in_meeting.attention_tracking | Attention tracking
-in_meeting.waiting_room | Waiting room
-in_meeting.manage_zr | Manage Zoom Rooms
-email_notification.jbh_reminder | When attendees join meeting before host
-email_notification.cancel_meeting_reminder | When a meeting is cancelled
-email_notification.alternative_host_reminder | When an alternative host is set or removed from a meeting
-recording.local_recording | Local recording
-recording.cloud_recording | Cloud recording
-recording.record_speaker_view | Record the active speaker view
-recording.record_gallery_view | Record the gallery view
-recording.record_audio_file | Record an audio only file
-recording.save_chat_text | Save chat text from the meeting
-recording.show_timestamp | Show timestamp on video
-recording.auto_recording | Automatic recording<div class="enum">`Record on local` local<br/>`Record on cloud` cloud<br/>`Disabled` none<br/></div>
-recording.auto_delete_cmr | Auto delete cloud recordings
-telephony.third_party_audio | 3rd party audio conference
-telephony.audio_conference_info | 3rd party audio conference info
-telephony.show_international_numbers_link | Show international numbers link on the invitation email
-feature.meeting_capacity | User’s meeting capacity.
-feature.large_meeting | Large meting feature
-feature.large_meeting_capacity | Large meeting capacity, can be 100, 200, 300 or 500, depends on if having related large meeting capacity plan subscription or not.
-feature.webinar | Webinar feature
-feature.webinar_capacity | Webinar capacity, can be 100, 500, 1000, 3000, 5000 or 10000, depends on if having related webinar capacity plan subscription or not.
+scheduled_meeting.host_video *optional*<div class="default">1</div> | Host video
+scheduled_meeting.participants_video *optional*<div class="default">1</div> | Participants video
+scheduled_meeting.audio_type *optional*<div class="default">voip</div> | Meeting audio<div class="enum">`both` Telephony and VoIP<br/>`telephony` Audio PSTN telephony only<br/>`voip` VoIP only<br/>`thirdParty` 3rd party audio conference<br/>`none` Disabled<br/></div>
+scheduled_meeting.join_before_host *optional*<div class="default">1</div> | Join before host
+scheduled_meeting.enforce_login *optional*<div class="default">1</div> | Only signed-in users can join meetings
+scheduled_meeting.not_store_meeting_topic *optional*<div class="default">1</div> | Always display "Zoom Meeting" as the meeting topic
+scheduled_meeting.force_pmi_jbh_password *optional*<div class="default">1</div> | Require a password for Personal Meetings if attendees can join before host
+scheduled_meeting.pstn_password_protected *optional*<div class="default">1</div> | Generate and require password for participants joining by phone
+in_meeting.e2e_encryption *optional*<div class="default">1</div> | End-to-end encryption
+in_meeting.chat *optional* | Chat
+in_meeting.private_chat *optional* | Private chat
+in_meeting.auto_saving_chat *optional* | Auto saving chats
+in_meeting.entry_exit_chime *optional*<div class="default">a''</div> | Play sound on join/leave<div class="enum">`host` when host joins/leaves<br/>`all` when any participant joins/leaves<br/>`none` no join/leave sound<br/></div>
+in_meeting.record_play_voice *optional*<div class="default">1</div> | Record and play their own voice
+in_meeting.file_transfer *optional* | File transfer
+in_meeting.feedback *optional* | Feedback to Zoom
+in_meeting.co_host *optional* | Co-host
+in_meeting.polling *optional* | Polling
+in_meeting.attendee_on_hold *optional* | Allow host to put attendee on hold
+in_meeting.annotation *optional* | Annotation
+in_meeting.non_verbal_feedback *optional* | Non-verbal feedback
+in_meeting.breakout_room *optional* | Breakout room
+in_meeting.remote_support *optional* | Remote support
+in_meeting.closed_caption *optional* | Closed caption
+in_meeting.group_hd *optional* | Group HD video
+in_meeting.virtual_background *optional* | Virtual background
+in_meeting.far_end_camera_control *optional* | Far end camera control
+in_meeting.share_dual_camera *optional* | Share dual camera
+in_meeting.attention_tracking *optional* | Attention tracking
+in_meeting.waiting_room *optional* | Waiting room
+in_meeting.manage_zr *optional* | Manage Zoom Rooms
+email_notification.jbh_reminder *optional* | When attendees join meeting before host
+email_notification.cancel_meeting_reminder *optional* | When a meeting is cancelled
+email_notification.alternative_host_reminder *optional* | When an alternative host is set or removed from a meeting
+recording.local_recording *optional*<div class="default">1</div> | Local recording
+recording.cloud_recording *optional* | Cloud recording
+recording.record_speaker_view *optional* | Record the active speaker view
+recording.record_gallery_view *optional* | Record the gallery view
+recording.record_audio_file *optional* | Record an audio only file
+recording.save_chat_text *optional* | Save chat text from the meeting
+recording.show_timestamp *optional* | Show timestamp on video
+recording.auto_recording *optional*<div class="default">local</div> | Automatic recording<div class="enum">`Record on local` local<br/>`Record on cloud` cloud<br/>`Disabled` none<br/></div>
+recording.auto_delete_cmr *optional* | Auto delete cloud recordings
+telephony.third_party_audio *optional*<div class="default">1</div> | 3rd party audio conference
+telephony.audio_conference_info *optional* | 3rd party audio conference info
+telephony.show_international_numbers_link *optional*<div class="default">1</div> | Show international numbers link on the invitation email
+feature.meeting_capacity *optional*<div class="default">100</div> | User’s meeting capacity.
+feature.large_meeting *optional*<div class="default">1</div> | Large meting feature
+feature.large_meeting_capacity *optional*<div class="default">100</div> | Large meeting capacity, can be 100, 200, 300 or 500, depends on if having related large meeting capacity plan subscription or not.
+feature.webinar *optional*<div class="default">1</div> | Webinar feature
+feature.webinar_capacity *optional*<div class="default">100</div> | Webinar capacity, can be 100, 500, 1000, 3000, 5000 or 10000, depends on if having related webinar capacity plan subscription or not.
 

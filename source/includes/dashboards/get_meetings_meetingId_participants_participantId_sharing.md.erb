@@ -49,7 +49,7 @@ meetingId **required** | The meeting ID
 
 Query Arguments | &nbsp;
 --- | ---
-type | The meeting type<div class="enum">`past` all the past meetings<br/>`live` all the live meetings<br/></div>
-page_size | Number of items returned per page
-page_number | Page number of results returned
+type *optional*<div class="default">live</div> | The meeting type<div class="enum">`past` past meetings<br/>`live` live meetings<br/></div>
+page_size *optional*<div class="default">30</div><div class="maximum">300</div> | Number of items returned per page
+page_number *optional*<div class="default">1</div> | Page number of results returned
 

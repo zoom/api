@@ -22,7 +22,23 @@ $ curl https://api.zoom.us/v2/metrics/webinars/{webinarId}
 
 ```json
 {
-    "$ref": null
+    "uuid": "string",
+    "id": "integer",
+    "topic": "string",
+    "host": "string",
+    "email": "string",
+    "user_type": "string",
+    "start_time": "string",
+    "end_time": "string",
+    "duration": "string",
+    "participants": "integer",
+    "has_pstn": "boolean",
+    "has_voip": "boolean",
+    "has_3rd_party_audio": "boolean",
+    "has_video": "boolean",
+    "has_screen_share": "boolean",
+    "has_recording": "boolean",
+    "has_sip": "boolean"
 }
 ```
 
@@ -32,5 +48,5 @@ webinarId **required** | The webinar ID
 
 Query Arguments | &nbsp;
 --- | ---
-type | The meeting type<div class="enum">`past` all the past meetings<br/>`live` all the live meetings<br/></div>
+type *optional*<div class="default">live</div> | The webinar type<div class="enum">`past` past webinars<br/>`live` live webinars<br/></div>
 

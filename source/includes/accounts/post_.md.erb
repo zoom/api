@@ -30,12 +30,15 @@ $ curl https://api.zoom.us/v2/accounts \
 > Example Response
 
 ```text
-200 OK
+201 Created
 ```
 
 ```json
 {
-    "id": "string"
+    "id": "string",
+    "owner_id": "string",
+    "owner_email": "string",
+    "created_at": "string"
 }
 ```
 
@@ -45,9 +48,9 @@ email **required** | User's email address.
 first_name **required** | User's first name.
 last_name **required** | User's last name.
 password **required** | User's password.
-options.share_rc | Enable Share Virtual Room Connector.
-options.room_connectors | Virtual Room Connector, multiple value separated by comma.
-options.share_mc | Enable Share Meeting Connector.
-options.meeting_conntectors | Meeting Connector, multiple value separated by comma.
-options.pay_mode | User's password.<div class="enum">`master` Master Account holder pays<br/>`sub` Sub Account holders pays<br/></div>
+options.share_rc *optional* | Enable Share Virtual Room Connector.
+options.room_connectors *optional* | Virtual Room Connector, multiple value separated by comma.
+options.share_mc *optional* | Enable Share Meeting Connector.
+options.meeting_conntectors *optional* | Meeting Connector, multiple value separated by comma.
+options.pay_mode *optional*<div class="default">master</div> | User's password.<div class="enum">`master` Master Account holder pays<br/>`sub` Sub Account holders pays<br/></div>
 

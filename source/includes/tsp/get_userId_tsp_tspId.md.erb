@@ -1,6 +1,6 @@
-## Retrieve a user's TSP config
+## Retrieve a user's TSP account
 
-Retrieve a user's TSP config
+Retrieve a user's TSP account
 
 > Definition
 
@@ -20,8 +20,19 @@ $ curl https://api.zoom.us/v2/users/{userId}/tsp/{tspId}
 200 OK
 ```
 
+```json
+{
+    "conference_code": "string",
+    "leader_pin": "string",
+    "dial_in_numbers": {
+        "code": "string",
+        "number": "string"
+    }
+}
+```
+
 Path Arguments | &nbsp;
 --- | ---
 userId **required** | The user ID or email address
-tspId **required** | TSP ID
+tspId **required** | TSP account index
 

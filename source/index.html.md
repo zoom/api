@@ -25,13 +25,15 @@ includes:
   - accounts/patch_accountId_options
   - accounts/get_accountId_settings
   - accounts/patch_accountId_settings
-  - accounts/get_accountId_billing
-  - accounts/patch_accountId_billing
-  - accounts/get_accountId_plans
-  - accounts/post_accountId_plans
-  - accounts/put_accountId_plans_base
-  - accounts/post_accountId_plans_addons
-  - accounts/put_accountId_plans_addons
+
+  - billing/index
+  - billing/get_accountId_billing
+  - billing/patch_accountId_billing
+  - billing/get_accountId_plans
+  - billing/post_accountId_plans
+  - billing/put_accountId_plans_base
+  - billing/post_accountId_plans_addons
+  - billing/put_accountId_plans_addons
 
   - users/index
   - users/get_
@@ -85,7 +87,7 @@ includes:
   - groups/delete_groupId
   - groups/get_groupId_members
   - groups/post_groupId_members
-  - groups/delete_groupId_members_userId
+  - groups/delete_groupId_members_memberId
 
   - im_groups/index
   - im_groups/get_
@@ -126,6 +128,7 @@ includes:
   - dashboards/get_im
 
   - tsp/index
+  - tsp/get_
   - tsp/get_userId_tsp
   - tsp/post_userId_tsp
   - tsp/get_userId_tsp_tspId

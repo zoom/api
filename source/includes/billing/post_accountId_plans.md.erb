@@ -1,6 +1,6 @@
-## Add to an account's plans
+## Subscribe plans for a sub account
 
-Add a plan to sub account under the master account <aside>Can only subscribe plans for the sub account which is a free account and paid by master account</aside><aside>Can only add an Additional plan for the sub account which is a paid account and paid by master account</aside>
+Subscribe plans for a sub account of the master account <aside>Can only subscribe plans for the sub account which is a free account and paid by master account</aside>
 
 > Definition
 
@@ -63,7 +63,44 @@ $ curl https://api.zoom.us/v2/accounts/{accountId}/plans \
 > Example Response
 
 ```text
-204 No Content
+201 Created
+```
+
+```json
+{
+    "plan_base": {
+        "type": "string",
+        "hosts": "integer"
+    },
+    "plan_zoom_rooms": {
+        "type": "string",
+        "hosts": "integer"
+    },
+    "plan_room_connector": {
+        "type": "string",
+        "hosts": "integer"
+    },
+    "plan_large_meeting": [
+        {
+            "type": "string",
+            "hosts": "integer"
+        }
+    ],
+    "plan_webinar": [
+        {
+            "type": "string",
+            "hosts": "integer"
+        }
+    ],
+    "plan_recording": "string",
+    "plan_audio": {
+        "type": "string",
+        "tollfree_countries": "string",
+        "premium_countries": "string",
+        "callout_countries": "string",
+        "ddi_numbers": "integer"
+    }
+}
 ```
 
 Path Arguments | &nbsp;
@@ -72,18 +109,18 @@ accountId **required** | The account ID
 
 Body Arguments | &nbsp;
 --- | ---
-contact.first_name *optional* | Billing Contact's first name.
-contact.last_name *optional* | Billing Contact's last name.
-contact.email *optional* | Billing Contact's email address.
-contact.phone_number *optional* | Billing Contact's phone number.
-contact.address *optional* | Billing Contact's address.
+contact.first_name **required** | Billing Contact's first name.
+contact.last_name **required** | Billing Contact's last name.
+contact.email **required** | Billing Contact's email address.
+contact.phone_number **required** | Billing Contact's phone number.
+contact.address **required** | Billing Contact's address.
 contact.apt *optional* | Billing Contact's apartment/suite.
-contact.city *optional* | Billing Contact's city.
-contact.state *optional* | Billing Contact's state.
-contact.zip *optional* | Billing Contact's zip/postal code.
-contact.country *optional* | Billing Contact's country.
-plan_base.type *optional* | Account plan type
-plan_base.hosts *optional* | Account plan number of hosts
+contact.city **required** | Billing Contact's city.
+contact.state **required** | Billing Contact's state.
+contact.zip **required** | Billing Contact's zip/postal code.
+contact.country **required** | Billing Contact's country.
+plan_base.type **required** | Account plan type
+plan_base.hosts **required** | Account plan number of hosts
 plan_zoom_rooms.type *optional* | Account plan type
 plan_zoom_rooms.hosts *optional* | Account plan number of hosts
 plan_room_connector.type *optional* | Account plan type

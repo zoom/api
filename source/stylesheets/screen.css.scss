@@ -637,6 +637,22 @@ html, body {
     font-size: 1em;
   }
 
+  div.default,
+  div.maximum {
+    color: #bbb;
+    font-size: 12px;
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  div.default:before {
+    content: "default: "
+  }
+
+  div.maximum:before {
+    content: "max: "
+  }
+
   div.argument-type {
     font-size: .7em;
     text-transform: uppercase;

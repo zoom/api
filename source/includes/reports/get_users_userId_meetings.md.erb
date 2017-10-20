@@ -11,7 +11,7 @@ GET https://api.zoom.us/v2/report/users/{userId}/meetings
 > Example Request
 
 ```shell
-$ curl https://api.zoom.us/v2/report/users/{userId}/meetings
+$ curl https://api.zoom.us/v2/report/users/{userId}/meetings?from=string&to=string
 ```
 
 > Example Response
@@ -30,7 +30,7 @@ $ curl https://api.zoom.us/v2/report/users/{userId}/meetings
     "total_records": "integer",
     "meetings": [
         {
-            "user_id": "string",
+            "uuid": "string",
             "id": "integer",
             "type": "integer",
             "topic": "string",
@@ -40,7 +40,7 @@ $ curl https://api.zoom.us/v2/report/users/{userId}/meetings
             "end_time": "string",
             "duration": "integer",
             "total_minutes": "integer",
-            "participant_count": "integer"
+            "participants_count": "integer"
         }
     ]
 }
@@ -52,8 +52,8 @@ userId **required** | The user ID or email address
 
 Query Arguments | &nbsp;
 --- | ---
-from | Start Date
-to | End Date
-page_size | Number of items returned per page
-page_number | Page number of results returned
+from **required** | Start Date
+to **required** | End Date
+page_size *optional*<div class="default">30</div><div class="maximum">300</div> | Number of items returned per page
+page_number *optional*<div class="default">1</div> | Page number of results returned
 

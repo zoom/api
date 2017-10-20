@@ -21,7 +21,7 @@ $ curl https://api.zoom.us/v2/webinars/{webinarId}/panelists \
 > Example Response
 
 ```text
-200 OK
+201 Created
 ```
 
 ```json
@@ -37,6 +37,6 @@ webinarId **required** | The webinar ID
 
 Body Arguments | &nbsp;
 --- | ---
-email | Panelist's email
-name | Panelist's full name
+email *optional* | Panelist's email
+name *optional* | Panelist's full name
 

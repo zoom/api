@@ -281,9 +281,19 @@ class OpenAPI2Slate {
 		foreach ( $responses as $status => $response ) {
 			switch ( $status ) {
 				case '200':
-				case '201':
 					$this->header_response( $fh, '200 OK' );
+					break;
+				case '201':
+					$this->header_response( $fh, '201 Created' );
+					break;
+				case '204':
+					$this->header_response( $fh, '204 No Content' );
+					break;
+			}
 
+			switch ( $status ) {
+				case '200':
+				case '201':
 					if ( ! $response->schema ) {
 						return;
 					}
@@ -299,9 +309,6 @@ class OpenAPI2Slate {
 					fputs( $fh, "```json\r\n" );
 					fputs( $fh, $ex . "\r\n" );
 					fputs( $fh, "```\r\n\r\n" );
-					break;
-				case '204':
-					$this->header_response( $fh, '204 No Content' );
 					break;
 			}
 		}
@@ -345,7 +352,15 @@ class OpenAPI2Slate {
 			$txt = $param->name;
 
 			//required/optional
-			$txt .= $param->required ? " **required**" : "";
+			$txt .= $param->required ? " **required**" : " *optional*";
+
+			if($param->default) {
+				$txt .= '<div class="default">' . $param->default . "</div>";
+			}
+
+			if($param->maximum) {
+				$txt .= '<div class="maximum">' . $param->maximum . "</div>";
+			}
 
 			//description
 			$txt .= " | " . $param->description;
@@ -389,7 +404,16 @@ class OpenAPI2Slate {
 			}
 		} else {
 			$txt = $parent . $name;
-			$txt .= $param->required ? " **required**" : "";
+			$txt .= $param->required ? " **required**" : " *optional*";
+
+			if($param->default) {
+				$txt .= '<div class="default">' . $param->default . "</div>";
+			}
+
+			if($param->maximum) {
+				$txt .= '<div class="maximum">' . $param->maximum . "</div>";
+			}
+
 			$txt .= " | " . $param->description;
 
 			//display possible values if enum
@@ -445,9 +469,9 @@ class OpenAPI2Slate {
 
 		//if schema is $ref
 		if ( property_exists( $schema, '$ref' ) ) {
+
 			$tmp = array_pop( explode( "/", $schema->{'$ref'} ) );
 			$tmp = $this->openapi->definitions->{$tmp};
-
 			$tmp = $this->get_schema( $tmp );
 
 			return $tmp;

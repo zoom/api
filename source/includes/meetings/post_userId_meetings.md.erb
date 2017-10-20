@@ -53,7 +53,7 @@ $ curl https://api.zoom.us/v2/users/{userId}/meetings \
 > Example Response
 
 ```text
-200 OK
+201 Created
 ```
 
 ```json
@@ -68,34 +68,34 @@ userId **required** | The user ID or email address
 
 Body Arguments | &nbsp;
 --- | ---
-topic | Meeting topic
-type | Meeting Type<div class="enum">`1` Instant Meeting<br/>`2` Scheduled Meeting<br/>`3` Recurring Meeting with no fixed time<br/>`8` Recurring Meeting with fixed time<br/></div>
-start_time | Meeting start time
-duration | Meeting duration
-timezone | Timezone to format start_time
-password | Password to join the meeting
-description | Meeting description
-recurrence.type | Recurrence meeting type<div class="enum">`1` Daily<br/>`2` Weekly<br/>`3` Monthly<br/></div>
-recurrence.repeat_interval | Recurrence meeting repeat interval. For a Daily Meeting, max of 90. For a Weekly Meeting, max of 12. For a Monthly Meeting, max of 3.
-recurrence.weekly_days | Recurrence Meeting Occurs on week days, multiple value separated by comma<div class="enum">`1` Sunday<br/>`2` Monday<br/>`3` Tuesday<br/>`4` Wednesday<br/>`5` Thursday<br/>`6` Friday<br/>`7` Saturday<br/></div>
-recurrence.monthly_day | Recurrence Meeting Occurs on a month day. The value range is from 1 to 31
-recurrence.monthly_week | Recurrence Meeting Occurs on the week of a month.<div class="enum">`-1` Last week<br/>`1` First week<br/>`2` Second week<br/>`3` Third week<br/>`4` Fourth week<br/></div>
-recurrence.monthly_week_day | Recurrence Meeting Occurs on the week day of a month<div class="enum">`1` Sunday<br/>`2` Monday<br/>`3` Tuesday<br/>`4` Wednesday<br/>`5` Thursday<br/>`6` Friday<br/>`7` Saturday<br/></div>
-recurrence.end_times | Recurrence Meeting End occurrences times
-recurrence.end_date_time | Recurrence Meeting End Date. Should be UTC time, such as 2017-11-25T12:00:00Z.
-settings.host_video | Start video when host join meeting
-settings.participant_video | Start video when participants join meeting
-settings.cn_meeting | Host meeting in China
-settings.in_meeting | Host meeting in India
-settings.join_before_host | Join meeting before host start the meeting. Only used for scheduled or recurring meetings
-settings.mute_upon_entry | Mute participants upon entry
-settings.watermark | Enable watermark when viewing the shared screen
-settings.use_pmi | Use Personal Meeting ID. Only used for scheduled meetings and recurring meetings with no fixed time
-settings.approval_type | <div class="enum">`0` Automatically Approve<br/>`1` Manually Approve<br/>`2` No Registration Required<br/></div>
-settings.registration_type | Registration type. Used for recurring meeting with fixed time only.<div class="enum">`1` Attendees register once and can attend any of the occurrences<br/>`2` Attendees need to register for each occurrence to attend<br/>`3` Attendees register once and can choose one or more occurrences to attend<br/></div>
-settings.audio | Meeting audio options<div class="enum">`both` Both Telephony and VoIP<br/>`telephony` Telephony only<br/>`voip` VoIP only<br/></div>
-settings.auto_recording | <div class="enum">`local` Record to local device<br/>`cloud` Record to cloud<br/>`none` No Recording<br/></div>
-settings.enforce_login | Only signed-in users can join this meeting
-settings.enforce_login_domains | Only signed-in users with specified domains can join meetings
-settings.alternatice_hosts | Alternative hosts emails or IDs. Multiple value separated by comma.
+topic *optional* | Meeting topic
+type *optional* | Meeting Type<div class="enum">`1` Instant Meeting<br/>`2` Scheduled Meeting<br/>`3` Recurring Meeting with no fixed time<br/>`8` Recurring Meeting with fixed time<br/></div>
+start_time *optional* | Meeting start time
+duration *optional* | Meeting duration
+timezone *optional* | Timezone to format start_time
+password *optional* | Password to join the meeting
+description *optional* | Meeting description
+recurrence.type *optional* | Recurrence meeting type<div class="enum">`1` Daily<br/>`2` Weekly<br/>`3` Monthly<br/></div>
+recurrence.repeat_interval *optional* | Recurrence meeting repeat interval. For a Daily Meeting, max of 90. For a Weekly Meeting, max of 12. For a Monthly Meeting, max of 3.
+recurrence.weekly_days *optional* | Recurrence Meeting Occurs on week days, multiple value separated by comma<div class="enum">`1` Sunday<br/>`2` Monday<br/>`3` Tuesday<br/>`4` Wednesday<br/>`5` Thursday<br/>`6` Friday<br/>`7` Saturday<br/></div>
+recurrence.monthly_day *optional* | Recurrence Meeting Occurs on a month day. The value range is from 1 to 31
+recurrence.monthly_week *optional* | Recurrence Meeting Occurs on the week of a month.<div class="enum">`-1` Last week<br/>`1` First week<br/>`2` Second week<br/>`3` Third week<br/>`4` Fourth week<br/></div>
+recurrence.monthly_week_day *optional* | Recurrence Meeting Occurs on the week day of a month<div class="enum">`1` Sunday<br/>`2` Monday<br/>`3` Tuesday<br/>`4` Wednesday<br/>`5` Thursday<br/>`6` Friday<br/>`7` Saturday<br/></div>
+recurrence.end_times *optional*<div class="default">1</div><div class="maximum">50</div> | Recurrence Meeting End occurrences times
+recurrence.end_date_time *optional* | Recurrence Meeting End Date. Should be UTC time, such as 2017-11-25T12:00:00Z.
+settings.host_video *optional*<div class="default">1</div> | Start video when host join meeting
+settings.participant_video *optional*<div class="default">1</div> | Start video when participants join meeting
+settings.cn_meeting *optional* | Host meeting in China
+settings.in_meeting *optional* | Host meeting in India
+settings.join_before_host *optional* | Join meeting before host start the meeting. Only used for scheduled or recurring meetings
+settings.mute_upon_entry *optional* | Mute participants upon entry
+settings.watermark *optional* | Enable watermark when viewing the shared screen
+settings.use_pmi *optional* | Use Personal Meeting ID. Only used for scheduled meetings and recurring meetings with no fixed time
+settings.approval_type *optional*<div class="default">2</div> | <div class="enum">`0` Automatically Approve<br/>`1` Manually Approve<br/>`2` No Registration Required<br/></div>
+settings.registration_type *optional*<div class="default">1</div> | Registration type. Used for recurring meeting with fixed time only.<div class="enum">`1` Attendees register once and can attend any of the occurrences<br/>`2` Attendees need to register for each occurrence to attend<br/>`3` Attendees register once and can choose one or more occurrences to attend<br/></div>
+settings.audio *optional*<div class="default">both</div> | Meeting audio options<div class="enum">`both` Both Telephony and VoIP<br/>`telephony` Telephony only<br/>`voip` VoIP only<br/></div>
+settings.auto_recording *optional*<div class="default">none</div> | <div class="enum">`local` Record to local device<br/>`cloud` Record to cloud<br/>`none` No Recording<br/></div>
+settings.enforce_login *optional* | Only signed-in users can join this meeting
+settings.enforce_login_domains *optional* | Only signed-in users with specified domains can join meetings
+settings.alternatice_hosts *optional* | Alternative hosts emails or IDs. Multiple value separated by comma.
 

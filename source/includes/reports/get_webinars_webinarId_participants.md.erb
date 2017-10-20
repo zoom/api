@@ -33,7 +33,7 @@ $ curl https://api.zoom.us/v2/report/webinars/{webinarId}/participants
             "join_time": "string",
             "leave_time": "string",
             "duration": "integer",
-            "attentiveness_score": "integer"
+            "attentiveness_score": "string"
         }
     ]
 }
@@ -45,6 +45,6 @@ webinarId **required** | The webinar ID
 
 Query Arguments | &nbsp;
 --- | ---
-page_size | Number of items returned per page
-page_number | Page number of results returned
+page_size *optional*<div class="default">30</div><div class="maximum">300</div> | Number of items returned per page
+page_number *optional*<div class="default">1</div> | Page number of results returned
 
