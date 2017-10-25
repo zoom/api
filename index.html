@@ -436,7 +436,7 @@
 </tr>
 <tr>
 <td>options.pay_mode <em>string</em></td>
-<td>User&rsquo;s password.<div class="enum"><code class="prettyprint">master</code> Master Account holder pays<br/><code class="prettyprint">sub</code> Sub Account holders pays<br/></div></td>
+<td>Payee<div class="enum"><code class="prettyprint">master</code> Master Account holder pays<br/><code class="prettyprint">sub</code> Sub Account holders pays<br/></div></td>
 </tr>
 </tbody></table>
 
@@ -566,7 +566,7 @@
 </tr>
 <tr>
 <td>options.pay_mode <em>optional</em><div class="default">master</div></td>
-<td>User&rsquo;s password.<div class="enum"><code class="prettyprint">master</code> Master Account holder pays<br/><code class="prettyprint">sub</code> Sub Account holders pays<br/></div></td>
+<td>Payee<div class="enum"><code class="prettyprint">master</code> Master Account holder pays<br/><code class="prettyprint">sub</code> Sub Account holders pays<br/></div></td>
 </tr>
 </tbody></table>
 
@@ -708,7 +708,7 @@
 </tr>
 <tr>
 <td>pay_mode <em>optional</em><div class="default">master</div></td>
-<td>User&rsquo;s password.<div class="enum"><code class="prettyprint">master</code> Master Account holder pays<br/><code class="prettyprint">sub</code> Sub Account holders pays<br/></div></td>
+<td>Payee<div class="enum"><code class="prettyprint">master</code> Master Account holder pays<br/><code class="prettyprint">sub</code> Sub Account holders pays<br/></div></td>
 </tr>
 </tbody></table>
 
@@ -768,7 +768,7 @@
         </span><span class="s2">"alert_guest_join"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"auto_answer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"p2p_connetion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"p2p_ports"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"p2p_ports"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"ports_range"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"sending_default_email_invites"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"use_html_format_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
@@ -793,14 +793,14 @@
         </span><span class="s2">"start_airplay_manually"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"weekly_system_restart"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"list_meetings_with_calendar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"zr_post_meeting_feedback"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"ultrasonic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"force_private_meeting"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"hide_host_information"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"cmr_for_instant_meeting"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"auto_start_stop_scheduled_meetings"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"_security"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"security"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"admin_change_name_pic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"import_photos_from_devices"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"hide_billing_info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="w">
     </span><span class="p">},</span><span class="w">
@@ -893,7 +893,7 @@
         "alert_guest_join": "boolean",
         "auto_answer": "boolean",
         "p2p_connetion": "boolean",
-        "p2p_ports": "string",
+        "p2p_ports": "boolean",
         "ports_range": "string",
         "sending_default_email_invites": "boolean",
         "use_html_format_email": "boolean",
@@ -918,14 +918,14 @@
         "start_airplay_manually": "boolean",
         "weekly_system_restart": "boolean",
         "list_meetings_with_calendar": "boolean",
-        "zr_post_meeting_feedback": "boolean",
         "ultrasonic": "boolean",
         "force_private_meeting": "boolean",
         "hide_host_information": "boolean",
         "cmr_for_instant_meeting": "boolean",
         "auto_start_stop_scheduled_meetings": "boolean"
     },
-    "_security": {
+    "security": {
+        "admin_change_name_pic": "boolean",
         "import_photos_from_devices": "boolean",
         "hide_billing_info": "boolean"
     },
@@ -988,7 +988,7 @@
 </tr>
 <tr>
 <td>schedule_meting.audio_type <em>optional</em><div class="default">both</div></td>
-<td>Audio Type</td>
+<td>Audio Type<div class="enum"><code class="prettyprint">both</code> Both Telephony and VoIP<br/><code class="prettyprint">telephony</code> Telephony only<br/><code class="prettyprint">voip</code> VoIP only<br/></div></td>
 </tr>
 <tr>
 <td>schedule_meting.join_before_host <em>optional</em></td>
@@ -996,15 +996,15 @@
 </tr>
 <tr>
 <td>schedule_meting.enforce_login <em>optional</em></td>
-<td>Required user to be logged in</td>
+<td>Only signed-in users can join meetings</td>
 </tr>
 <tr>
 <td>schedule_meting.enforce_login_with_domains <em>optional</em></td>
-<td>Logged in user must be part of domain</td>
+<td>Only signed-in users with a specified domains can join meetings</td>
 </tr>
 <tr>
 <td>schedule_meting.enforce_login_domains <em>optional</em></td>
-<td>PList of domains accepted</td>
+<td>Only signed-in users with a specified domains</td>
 </tr>
 <tr>
 <td>schedule_meting.not_store_meeting_topic <em>optional</em></td>
@@ -1064,11 +1064,11 @@
 </tr>
 <tr>
 <td>in_meeting.annotation <em>optional</em></td>
-<td>Allow to share Zoom windows in desktop sharing</td>
+<td>Annotation</td>
 </tr>
 <tr>
 <td>in_meeting.whiteboard <em>optional</em></td>
-<td>Allow to share Zoom windows in desktop sharing</td>
+<td>Whiteboard</td>
 </tr>
 <tr>
 <td>in_meeting.webinar_question_answer <em>optional</em></td>
@@ -1100,7 +1100,7 @@
 </tr>
 <tr>
 <td>in_meeting.watermark <em>optional</em></td>
-<td>Alert internal participants when a guest joins a meeting</td>
+<td>Add watermark when viewing shared screen</td>
 </tr>
 <tr>
 <td>in_meeting.alert_guest_join <em>optional</em></td>
@@ -1108,19 +1108,19 @@
 </tr>
 <tr>
 <td>in_meeting.auto_answer <em>optional</em></td>
-<td>Peer to Peer connection while only 2 people in a meeting Learn More</td>
+<td>Enable Auto Answer Group</td>
 </tr>
 <tr>
 <td>in_meeting.p2p_connetion <em>optional</em></td>
-<td>Peer to Peer connection while only 2 people in a meeting Learn More</td>
+<td>Peer to Peer connection while only 2 people in a meeting</td>
 </tr>
 <tr>
 <td>in_meeting.p2p_ports <em>optional</em></td>
-<td>Listening ports range, separated by comma, such as 55,56</td>
+<td>Listening ports range</td>
 </tr>
 <tr>
 <td>in_meeting.ports_range <em>optional</em></td>
-<td>Peer to Peer connection while only 2 people in a meeting Learn More</td>
+<td>Listening ports range, separated by comma (ex 55,56). The ports range is between 1 to 65535</td>
 </tr>
 <tr>
 <td>in_meeting.sending_default_email_invites <em>optional</em></td>
@@ -1128,39 +1128,39 @@
 </tr>
 <tr>
 <td>in_meeting.use_html_format_email <em>optional</em></td>
-<td>Only show default email when sending email invites</td>
+<td>Use HTML format email for Outlook plugin</td>
 </tr>
 <tr>
 <td>in_meeting.dscp_marking <em>optional</em><div class="default">1</div></td>
 <td>DSCP marking</td>
 </tr>
 <tr>
-<td>in_meeting.dscp_audio <em>optional</em></td>
+<td>in_meeting.dscp_audio <em>optional</em><div class="minimum">1</div><div class="maximum">63</div></td>
 <td>DSCP Audio</td>
 </tr>
 <tr>
-<td>in_meeting.dscp_video <em>optional</em></td>
+<td>in_meeting.dscp_video <em>optional</em><div class="minimum">1</div><div class="maximum">63</div></td>
 <td>DSCP Video</td>
 </tr>
 <tr>
 <td>in_meeting.stereo_audio <em>optional</em></td>
-<td>DSCP Video</td>
+<td>When an alternative host is set or removed from a meeting</td>
 </tr>
 <tr>
 <td>in_meeting.original_audio <em>optional</em></td>
-<td>DSCP Video</td>
+<td>Allow users to select original sound in their client settings</td>
 </tr>
 <tr>
 <td>in_meeting.screen_sharing <em>optional</em></td>
-<td>DSCP Video</td>
+<td>Screen sharing</td>
 </tr>
 <tr>
 <td>in_meeting.remote_control <em>optional</em></td>
-<td>DSCP Video</td>
+<td>Remote control</td>
 </tr>
 <tr>
 <td>in_meeting.attention_tracking <em>optional</em></td>
-<td>DSCP Video</td>
+<td>Attention tracking</td>
 </tr>
 <tr>
 <td>email_notification.cloud_recording_avaliable_reminder <em>optional</em></td>
@@ -1199,10 +1199,6 @@
 <td>Display meeting list with calendar integration</td>
 </tr>
 <tr>
-<td>zoom_rooms.zr_post_meeting_feedback <em>optional</em></td>
-<td>Display meeting list with calendar integration</td>
-</tr>
-<tr>
 <td>zoom_rooms.ultrasonic <em>optional</em></td>
 <td>Automatic direct sharing using ultrasonic proximity signal</td>
 </tr>
@@ -1223,12 +1219,16 @@
 <td>Automatic start/stop scheduled meetings</td>
 </tr>
 <tr>
-<td>_security.import_photos_from_devices <em>optional</em><div class="default">1</div></td>
-<td></td>
+<td>security.admin_change_name_pic <em>optional</em></td>
+<td>Only account administrators can change user&rsquo;s username and picture</td>
 </tr>
 <tr>
-<td>_security.hide_billing_info <em>optional</em><div class="default">1</div></td>
-<td></td>
+<td>security.import_photos_from_devices <em>optional</em><div class="default">1</div></td>
+<td>Allow importing of photos from photo library on the user&rsquo;s device</td>
+</tr>
+<tr>
+<td>security.hide_billing_info <em>optional</em><div class="default">1</div></td>
+<td>Hide billing information</td>
 </tr>
 <tr>
 <td>recording.local_recording <em>optional</em></td>
@@ -1714,7 +1714,7 @@
 
           <h2 id="update-an-accounts-base-plan">Update an account&rsquo;s base plan</h2>
 
-<p>Update a base plan for a sub account <aside>Can only subscribe plans for the sub account which is a free account and paid by master account</aside><aside>Can only add an Additional plan for the sub account which is a paid account and paid by master account</aside></p>
+<p>Update a base plan for a sub account <aside>Can only update a base plan for the sub account which is a paid account and paid by master account</aside><aside>Can only add an Additional plan for the sub account which is a paid account and paid by master account</aside></p>
 
 <blockquote>
 <p>Definition</p>
@@ -1733,7 +1733,7 @@
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre class="highlight plaintext"><code>204 No Content
+<pre class="highlight plaintext"><code>201 Created
 </code></pre>
 <table><thead>
 <tr>
@@ -2527,6 +2527,7 @@
         </span><span class="s2">"record_audio_file"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"save_chat_text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"show_timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"recording_audio_transcript"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"auto_recording"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"auto_delete_cmr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="w">
     </span><span class="p">},</span><span class="w">
@@ -2618,6 +2619,7 @@
         "record_audio_file": "boolean",
         "save_chat_text": "boolean",
         "show_timestamp": "boolean",
+        "recording_audio_transcript": "boolean",
         "auto_recording": "string",
         "auto_delete_cmr": "boolean"
     },
@@ -2821,6 +2823,10 @@
 <tr>
 <td>recording.show_timestamp <em>optional</em></td>
 <td>Show timestamp on video</td>
+</tr>
+<tr>
+<td>recording.recording_audio_transcript <em>optional</em></td>
+<td>Recording audio transcript</td>
 </tr>
 <tr>
 <td>recording.auto_recording <em>optional</em><div class="default">local</div></td>
@@ -8093,11 +8099,11 @@
 </thead><tbody>
 <tr>
 <td>conference_code <em>string</em></td>
-<td>Conference code, length is less than 16.</td>
+<td>Conference code, numeric value, length is less than 16.</td>
 </tr>
 <tr>
 <td>leader_pin <em>string</em></td>
-<td>Leader PIN, length is less than 16.</td>
+<td>Leader PIN, numeric value, length is less than 16.</td>
 </tr>
 <tr>
 <td>dial_in_numbers.code <em>string</em></td>
@@ -8236,11 +8242,11 @@
 </thead><tbody>
 <tr>
 <td>conference_code <strong>required</strong></td>
-<td>Conference code, length is less than 16.</td>
+<td>Conference code, numeric value, length is less than 16.</td>
 </tr>
 <tr>
 <td>leader_pin <strong>required</strong></td>
-<td>Leader PIN, length is less than 16.</td>
+<td>Leader PIN, numeric value, length is less than 16.</td>
 </tr>
 <tr>
 <td>dial_in_numbers.code <strong>required</strong></td>
@@ -8346,11 +8352,11 @@
 </thead><tbody>
 <tr>
 <td>conference_code <strong>required</strong></td>
-<td>Conference code, length is less than 16.</td>
+<td>Conference code, numeric value, length is less than 16.</td>
 </tr>
 <tr>
 <td>leader_pin <strong>required</strong></td>
-<td>Leader PIN, length is less than 16.</td>
+<td>Leader PIN, numeric value, length is less than 16.</td>
 </tr>
 <tr>
 <td>dial_in_numbers.code <strong>required</strong></td>

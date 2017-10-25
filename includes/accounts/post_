@@ -76,6 +76,6 @@
 </tr>
 <tr>
 <td>options.pay_mode <em>optional</em><div class="default">master</div></td>
-<td>User&rsquo;s password.<div class="enum"><code class="prettyprint">master</code> Master Account holder pays<br/><code class="prettyprint">sub</code> Sub Account holders pays<br/></div></td>
+<td>Payee<div class="enum"><code class="prettyprint">master</code> Master Account holder pays<br/><code class="prettyprint">sub</code> Sub Account holders pays<br/></div></td>
 </tr>
 </tbody></table>

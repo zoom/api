@@ -60,6 +60,7 @@
         "record_audio_file": "boolean",
         "save_chat_text": "boolean",
         "show_timestamp": "boolean",
+        "recording_audio_transcript": "boolean",
         "auto_recording": "string",
         "auto_delete_cmr": "boolean"
     },
@@ -263,6 +264,10 @@
 <tr>
 <td>recording.show_timestamp <em>optional</em></td>
 <td>Show timestamp on video</td>
+</tr>
+<tr>
+<td>recording.recording_audio_transcript <em>optional</em></td>
+<td>Recording audio transcript</td>
 </tr>
 <tr>
 <td>recording.auto_recording <em>optional</em><div class="default">local</div></td>

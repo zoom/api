@@ -1,6 +1,6 @@
 <h2 id="update-an-accounts-base-plan">Update an account&rsquo;s base plan</h2>
 
-<p>Update a base plan for a sub account <aside>Can only subscribe plans for the sub account which is a free account and paid by master account</aside><aside>Can only add an Additional plan for the sub account which is a paid account and paid by master account</aside></p>
+<p>Update a base plan for a sub account <aside>Can only update a base plan for the sub account which is a paid account and paid by master account</aside><aside>Can only add an Additional plan for the sub account which is a paid account and paid by master account</aside></p>
 
 <blockquote>
 <p>Definition</p>
@@ -19,7 +19,7 @@
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre class="highlight plaintext"><code>204 No Content
+<pre class="highlight plaintext"><code>201 Created
 </code></pre>
 <table><thead>
 <tr>

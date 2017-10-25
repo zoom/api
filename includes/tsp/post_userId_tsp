@@ -53,11 +53,11 @@
 </thead><tbody>
 <tr>
 <td>conference_code <strong>required</strong></td>
-<td>Conference code, length is less than 16.</td>
+<td>Conference code, numeric value, length is less than 16.</td>
 </tr>
 <tr>
 <td>leader_pin <strong>required</strong></td>
-<td>Leader PIN, length is less than 16.</td>
+<td>Leader PIN, numeric value, length is less than 16.</td>
 </tr>
 <tr>
 <td>dial_in_numbers.code <strong>required</strong></td>
