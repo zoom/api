@@ -638,6 +638,7 @@ html, body {
   }
 
   div.default,
+  div.minimum,
   div.maximum {
     color: #bbb;
     font-size: 12px;
@@ -647,6 +648,10 @@ html, body {
 
   div.default:before {
     content: "default: "
+  }
+
+  div.minimum:before {
+    content: "min: "
   }
 
   div.maximum:before {

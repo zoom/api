@@ -59,7 +59,7 @@ $ curl https://api.zoom.us/v2/accounts/{accountId}/settings
         "alert_guest_join": "boolean",
         "auto_answer": "boolean",
         "p2p_connetion": "boolean",
-        "p2p_ports": "string",
+        "p2p_ports": "boolean",
         "ports_range": "string",
         "sending_default_email_invites": "boolean",
         "use_html_format_email": "boolean",
@@ -84,14 +84,14 @@ $ curl https://api.zoom.us/v2/accounts/{accountId}/settings
         "start_airplay_manually": "boolean",
         "weekly_system_restart": "boolean",
         "list_meetings_with_calendar": "boolean",
-        "zr_post_meeting_feedback": "boolean",
         "ultrasonic": "boolean",
         "force_private_meeting": "boolean",
         "hide_host_information": "boolean",
         "cmr_for_instant_meeting": "boolean",
         "auto_start_stop_scheduled_meetings": "boolean"
     },
-    "_security": {
+    "security": {
+        "admin_change_name_pic": "boolean",
         "import_photos_from_devices": "boolean",
         "hide_billing_info": "boolean"
     },

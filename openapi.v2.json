@@ -380,8 +380,8 @@
                 "responses": {
                     "201": {
                         "description": "Account plans updated",
-                        "schema" : {
-                            "$ref" : "#/definitions/AccountPlans"
+                        "schema": {
+                            "$ref": "#/definitions/AccountPlans"
                         }
                     }
                 }
@@ -390,7 +390,7 @@
         "/accounts/{accountId}/plans/base": {
             "put": {
                 "summary": "Update an account's base plan",
-                "description": "Update a base plan for a sub account <aside>Can only subscribe plans for the sub account which is a free account and paid by master account</aside><aside>Can only add an Additional plan for the sub account which is a paid account and paid by master account</aside>",
+                "description": "Update a base plan for a sub account <aside>Can only update a base plan for the sub account which is a paid account and paid by master account</aside><aside>Can only add an Additional plan for the sub account which is a paid account and paid by master account</aside>",
                 "tags": [
                     "Billing"
                 ],
@@ -409,7 +409,7 @@
                     }
                 ],
                 "responses": {
-                    "204": {
+                    "201": {
                         "description": "Account plans updated"
                     }
                 }
@@ -530,6 +530,14 @@
                                 "id": {
                                     "type": "string",
                                     "description": "Group ID"
+                                },
+                                "name": {
+                                    "type": "string",
+                                    "description": "Group name"
+                                },
+                                "total_members": {
+                                    "type": "integer",
+                                    "description": "Group member count"
                                 }
                             }
                         }
@@ -593,7 +601,7 @@
                             "properties": {
                                 "name": {
                                     "type": "string",
-                                    "description": "Group name."
+                                    "description": "Group name. Must be unique in one account. Character length is less than 128."
                                 }
                             }
                         }
@@ -662,8 +670,8 @@
                 }
             },
             "post": {
-                "summary": "Add a group member",
-                "description": "Add a member to a group under your account",
+                "summary": "Add group members",
+                "description": "Add members to a group under your account",
                 "tags": [
                     "Groups"
                 ],
@@ -678,21 +686,39 @@
                         "required": true,
                         "schema": {
                             "properties": {
-                                "id": {
-                                    "type": "string",
-                                    "description": "User ID."
-                                },
-                                "email": {
-                                    "type": "string",
-                                    "description": "User email. If ID given, email is ignored."
+                                "members": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "string",
+                                                "description": "User ID."
+                                            },
+                                            "email": {
+                                                "type": "string",
+                                                "description": "User email. If ID given, email is ignored."
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
                     }
                 ],
                 "responses": {
-                    "204": {
-                        "description": "Member added."
+                    "201": {
+                        "description": "Member added.",
+                        "schema": {
+                            "properties": {
+                                "id": {
+                                    "type": "string"
+                                },
+                                "added_at": {
+                                    "type": "string",
+                                    "format": "date-time"
+                                }
+                            }
+                        }
                     },
                     "404": {
                         "description": "Group not found"
@@ -700,7 +726,7 @@
                 }
             }
         },
-        "/groups/{groupId}/members/{userId}": {
+        "/groups/{groupId}/members/{memberId}": {
             "delete": {
                 "summary": "Delete a group member",
                 "description": "Delete a member from a group under your account",
@@ -713,7 +739,7 @@
                         "$ref": "#/parameters/GroupId"
                     },
                     {
-                        "$ref": "#/parameters/UserId"
+                        "$ref": "#/parameters/MemberId"
                     }
                 ],
                 "responses": {
@@ -1202,6 +1228,9 @@
                 "parameters": [
                     {
                         "$ref": "#/parameters/MeetingId"
+                    },
+                    {
+                        "$ref": "#/parameters/OccurrenceId"
                     }
                 ],
                 "responses": {
@@ -2312,7 +2341,7 @@
                                     }
                                 },
                                 {
-                                    "$ref" : "#/definitions/Pagination"
+                                    "$ref": "#/definitions/Pagination"
                                 },
                                 {
                                     "properties": {
@@ -3107,27 +3136,26 @@
                 }
             }
         },
-        "/tsp" : {
-            "get" : {
-                "summary" : "List TSP dial-in numbers",
+        "/tsp": {
+            "get": {
+                "summary": "List TSP dial-in numbers",
                 "description": "List TSP dial-in numbers under account",
-                "tags" : [
+                "tags": [
                     "TSP"
                 ],
                 "operationId": "tsp",
                 "parameters": [
-
                 ],
-                "responses" : {
-                    "200" : {
+                "responses": {
+                    "200": {
                         "description": "TSP dial-in numbers returned",
                         "schema": {
                             "properties": {
-                                "tsp_provider" : {
-                                    "type" : "string"
+                                "tsp_provider": {
+                                    "type": "string"
                                 },
-                                "dial_in_numbers" : {
-                                    "type" : "array",
+                                "dial_in_numbers": {
+                                    "type": "array",
                                     "items": {
                                         "properties": {
                                             "code": {
@@ -3697,13 +3725,13 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "TSP Config list returned",
-                        "schema" : {
+                        "description": "TSP Account list returned",
+                        "schema": {
                             "properties": {
-                                "tsp_accounts" : {
+                                "tsp_accounts": {
                                     "type": "array",
                                     "items": {
-                                        "$ref" : "#/definitions/TSP"
+                                        "$ref": "#/definitions/TSP"
                                     }
                                 }
                             }
@@ -3729,7 +3757,7 @@
                         "in": "body",
                         "name": "body",
                         "required": true,
-                        "description": "TSP Config",
+                        "description": "TSP Account",
                         "schema": {
                             "$ref": "#/definitions/TSP"
                         }
@@ -3737,9 +3765,9 @@
                 ],
                 "responses": {
                     "201": {
-                        "description": "TSP Config added",
-                        "schema" : {
-                            "$ref" : "#/definitions/TSP"
+                        "description": "TSP Account added",
+                        "schema": {
+                            "$ref": "#/definitions/TSP"
                         }
                     }
                 }
@@ -3763,9 +3791,9 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "TSP Config returned",
+                        "description": "TSP Account returned",
                         "schema": {
-                            "$ref" : "#/definitions/TSP"
+                            "$ref": "#/definitions/TSP"
                         }
                     }
                 }
@@ -3788,7 +3816,7 @@
                         "in": "body",
                         "name": "body",
                         "required": true,
-                        "description": "TSP Config",
+                        "description": "TSP Account",
                         "schema": {
                             "$ref": "#/definitions/TSP"
                         }
@@ -3796,7 +3824,7 @@
                 ],
                 "responses": {
                     "204": {
-                        "description": "TSP Config updated"
+                        "description": "TSP Account updated"
                     }
                 }
             },
@@ -3817,7 +3845,7 @@
                 ],
                 "responses": {
                     "204": {
-                        "description": "TSP Config deleted"
+                        "description": "TSP Account deleted"
                     }
                 }
             }
@@ -4424,10 +4452,17 @@
                 "live meetings"
             ]
         },
+        "MemberId": {
+            "in": "path",
+            "name": "memberId",
+            "description": "The member ID",
+            "type": "string",
+            "required": true
+        },
         "OccurrenceId": {
             "in": "query",
             "name": "occurrence_id",
-            "description": "The the meeting occurence ID",
+            "description": "The meeting occurrence ID",
             "type": "string"
         },
         "PageNumber": {
@@ -4623,7 +4658,7 @@
                 },
                 "pay_mode": {
                     "type": "string",
-                    "description": "User's password.",
+                    "description": "Payee",
                     "enum": [
                         "master",
                         "sub"
@@ -4743,7 +4778,7 @@
                 "zoom_rooms": {
                     "$ref": "#/definitions/AccountSettingsZoomRooms"
                 },
-                "_security": {
+                "security": {
                     "$ref": "#/definitions/AccountSettingsSecurity"
                 },
                 "recording": {
@@ -4777,7 +4812,17 @@
                 "audio_type": {
                     "type": "string",
                     "description": "Audio Type",
-                    "default": "both"
+                    "default": "both",
+                    "enum": [
+                        "both",
+                        "telephony",
+                        "voip"
+                    ],
+                    "x-enum-descriptions": [
+                        "Both Telephony and VoIP",
+                        "Telephony only",
+                        "VoIP only"
+                    ]
                 },
                 "join_before_host": {
                     "type": "boolean",
@@ -4786,17 +4831,17 @@
                 },
                 "enforce_login": {
                     "type": "boolean",
-                    "description": "Required user to be logged in",
+                    "description": "Only signed-in users can join meetings",
                     "default": false
                 },
                 "enforce_login_with_domains": {
                     "type": "boolean",
-                    "description": "Logged in user must be part of domain",
+                    "description": "Only signed-in users with a specified domains can join meetings",
                     "default": false
                 },
                 "enforce_login_domains": {
                     "type": "boolean",
-                    "description": "PList of domains accepted",
+                    "description": "Only signed-in users with a specified domains",
                     "default": false
                 },
                 "not_store_meeting_topic": {
@@ -4877,12 +4922,12 @@
                 },
                 "annotation": {
                     "type": "boolean",
-                    "description": "Allow to share Zoom windows in desktop sharing",
+                    "description": "Annotation",
                     "default": false
                 },
                 "whiteboard": {
                     "type": "boolean",
-                    "description": "Allow to share Zoom windows in desktop sharing",
+                    "description": "Whiteboard",
                     "default": false
                 },
                 "webinar_question_answer": {
@@ -4922,7 +4967,7 @@
                 },
                 "watermark": {
                     "type": "boolean",
-                    "description": "Alert internal participants when a guest joins a meeting",
+                    "description": "Add watermark when viewing shared screen",
                     "default": false
                 },
                 "alert_guest_join": {
@@ -4932,22 +4977,23 @@
                 },
                 "auto_answer": {
                     "type": "boolean",
-                    "description": "Peer to Peer connection while only 2 people in a meeting Learn More",
+                    "description": "Enable Auto Answer Group",
                     "default": false
                 },
                 "p2p_connetion": {
                     "type": "boolean",
-                    "description": "Peer to Peer connection while only 2 people in a meeting Learn More",
+                    "description": "Peer to Peer connection while only 2 people in a meeting",
                     "default": false
                 },
                 "p2p_ports": {
-                    "type": "string",
-                    "description": "Listening ports range, separated by comma, such as 55,56"
+                    "type": "boolean",
+                    "description": "Listening ports range"
                 },
                 "ports_range": {
                     "type": "string",
-                    "description": "Peer to Peer connection while only 2 people in a meeting Learn More",
+                    "description": "Listening ports range, separated by comma (ex 55,56). The ports range is between 1 to 65535",
                     "default": ""
+
                 },
                 "sending_default_email_invites": {
                     "type": "boolean",
@@ -4956,7 +5002,7 @@
                 },
                 "use_html_format_email": {
                     "type": "boolean",
-                    "description": "Only show default email when sending email invites",
+                    "description": "Use HTML format email for Outlook plugin",
                     "default": false
                 },
                 "dscp_marking": {
@@ -4966,35 +5012,39 @@
                 },
                 "dscp_audio": {
                     "type": "integer",
-                    "description": "DSCP Audio"
+                    "description": "DSCP Audio",
+                    "minimum": "1",
+                    "maximum": "63"
                 },
                 "dscp_video": {
                     "type": "integer",
-                    "description": "DSCP Video"
+                    "description": "DSCP Video",
+                    "minimum": "1",
+                    "maximum": "63"
                 },
                 "stereo_audio": {
                     "type": "boolean",
-                    "description": "DSCP Video",
+                    "description": "When an alternative host is set or removed from a meeting",
                     "default": false
                 },
                 "original_audio": {
                     "type": "boolean",
-                    "description": "DSCP Video",
+                    "description": "Allow users to select original sound in their client settings",
                     "default": false
                 },
                 "screen_sharing": {
                     "type": "boolean",
-                    "description": "DSCP Video",
+                    "description": "Screen sharing",
                     "default": false
                 },
                 "remote_control": {
                     "type": "boolean",
-                    "description": "DSCP Video",
+                    "description": "Remote control",
                     "default": false
                 },
                 "attention_tracking": {
                     "type": "boolean",
-                    "description": "DSCP Video",
+                    "description": "Attention tracking",
                     "default": false
                 }
             }
@@ -5054,11 +5104,6 @@
                     "description": "Display meeting list with calendar integration",
                     "default": false
                 },
-                "zr_post_meeting_feedback": {
-                    "type": "boolean",
-                    "description": "Display meeting list with calendar integration",
-                    "default": false
-                },
                 "ultrasonic": {
                     "type": "boolean",
                     "description": "Automatic direct sharing using ultrasonic proximity signal",
@@ -5090,14 +5135,19 @@
             "type": "object",
             "description": "Account Settings: Feature",
             "properties": {
+                "admin_change_name_pic": {
+                    "type": "boolean",
+                    "description": "Only account administrators can change user's username and picture",
+                    "default": false
+                },
                 "import_photos_from_devices": {
                     "type": "boolean",
-                    "description": "",
+                    "description": "Allow importing of photos from photo library on the user's device",
                     "default": true
                 },
                 "hide_billing_info": {
                     "type": "boolean",
-                    "description": "",
+                    "description": "Hide billing information",
                     "default": true
                 }
             }
@@ -5701,13 +5751,14 @@
                 },
                 "page_number": {
                     "type": "integer",
-                    "format": "int64",
-                    "description": "The page number of current results."
+                    "description": "The page number of current results.",
+                    "default" : 1
                 },
                 "page_size": {
                     "type": "integer",
-                    "format": "int64",
-                    "description": "The number of items per page."
+                    "description": "The number of items per page.",
+                    "default": 30,
+                    "maximum": 300
                 },
                 "total_records": {
                     "type": "integer",
@@ -6218,11 +6269,11 @@
             "properties": {
                 "conference_code": {
                     "type": "string",
-                    "description": "Conference code, length is less than 16."
+                    "description": "Conference code, numeric value, length is less than 16."
                 },
                 "leader_pin": {
                     "type": "string",
-                    "description": "Leader PIN, length is less than 16."
+                    "description": "Leader PIN, numeric value, length is less than 16."
                 },
                 "dial_in_numbers": {
                     "type": "object",
@@ -6628,6 +6679,11 @@
                     "type": "boolean",
                     "default": false,
                     "description": "Show timestamp on video"
+                },
+                "recording_audio_transcript" : {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Recording audio transcript"
                 },
                 "auto_recording": {
                     "type": "string",

@@ -358,6 +358,10 @@ class OpenAPI2Slate {
 				$txt .= '<div class="default">' . $param->default . "</div>";
 			}
 
+			if($param->minimum) {
+				$txt .= '<div class="minimum">' . $param->minimum . "</div>";
+			}
+
 			if($param->maximum) {
 				$txt .= '<div class="maximum">' . $param->maximum . "</div>";
 			}
@@ -408,6 +412,10 @@ class OpenAPI2Slate {
 
 			if($param->default) {
 				$txt .= '<div class="default">' . $param->default . "</div>";
+			}
+
+			if($param->minimum) {
+				$txt .= '<div class="minimum">' . $param->minimum . "</div>";
 			}
 
 			if($param->maximum) {

@@ -50,7 +50,7 @@ $ curl https://api.zoom.us/v2/accounts/{accountId}/settings \
         "alert_guest_join": "boolean",
         "auto_answer": "boolean",
         "p2p_connetion": "boolean",
-        "p2p_ports": "string",
+        "p2p_ports": "boolean",
         "ports_range": "string",
         "sending_default_email_invites": "boolean",
         "use_html_format_email": "boolean",
@@ -75,14 +75,14 @@ $ curl https://api.zoom.us/v2/accounts/{accountId}/settings \
         "start_airplay_manually": "boolean",
         "weekly_system_restart": "boolean",
         "list_meetings_with_calendar": "boolean",
-        "zr_post_meeting_feedback": "boolean",
         "ultrasonic": "boolean",
         "force_private_meeting": "boolean",
         "hide_host_information": "boolean",
         "cmr_for_instant_meeting": "boolean",
         "auto_start_stop_scheduled_meetings": "boolean"
     },
-    "_security": {
+    "security": {
+        "admin_change_name_pic": "boolean",
         "import_photos_from_devices": "boolean",
         "hide_billing_info": "boolean"
     },
@@ -127,11 +127,11 @@ Body Arguments | &nbsp;
 --- | ---
 schedule_meting.host_video *optional* | Host Video
 schedule_meting.participant_video *optional* | Participants Video
-schedule_meting.audio_type *optional*<div class="default">both</div> | Audio Type
+schedule_meting.audio_type *optional*<div class="default">both</div> | Audio Type<div class="enum">`both` Both Telephony and VoIP<br/>`telephony` Telephony only<br/>`voip` VoIP only<br/></div>
 schedule_meting.join_before_host *optional* | Join Before Host
-schedule_meting.enforce_login *optional* | Required user to be logged in
-schedule_meting.enforce_login_with_domains *optional* | Logged in user must be part of domain
-schedule_meting.enforce_login_domains *optional* | PList of domains accepted
+schedule_meting.enforce_login *optional* | Only signed-in users can join meetings
+schedule_meting.enforce_login_with_domains *optional* | Only signed-in users with a specified domains can join meetings
+schedule_meting.enforce_login_domains *optional* | Only signed-in users with a specified domains
 schedule_meting.not_store_meeting_topic *optional* | Always display 'Zoom Meeting' as the meeting topic
 schedule_meting.force_pmi_jbh_password *optional* | Require a password for Personal Meetings if attendees can join before host
 in_meeting.e2e_encryption *optional* | End-to-End Encryption
@@ -146,8 +146,8 @@ in_meeting.polling *optional* | Polling
 in_meeting.attendee_on_hold *optional* | Allow host to put attendee on hold
 in_meeting.show_meeting_control_toolbar *optional* | Always show meeting control toolbar
 in_meeting.allow_show_zoom_windows *optional* | Allow to share Zoom windows in desktop sharing
-in_meeting.annotation *optional* | Allow to share Zoom windows in desktop sharing
-in_meeting.whiteboard *optional* | Allow to share Zoom windows in desktop sharing
+in_meeting.annotation *optional* | Annotation
+in_meeting.whiteboard *optional* | Whiteboard
 in_meeting.webinar_question_answer *optional* | Q&A in webinar
 in_meeting.anonymous_question_answer *optional* | Allow Anonymous Q&A in Webinar
 in_meeting.breakout_room *optional* | Breakout room
@@ -155,22 +155,22 @@ in_meeting.closed_caption *optional* | Closed caption
 in_meeting.far_end_camera_control *optional* | Far end camera control
 in_meeting.group_hd *optional* | Group HD video
 in_meeting.virtual_background *optional* | Virtual background
-in_meeting.watermark *optional* | Alert internal participants when a guest joins a meeting
+in_meeting.watermark *optional* | Add watermark when viewing shared screen
 in_meeting.alert_guest_join *optional* | Alert internal participants when a guest joins a meeting
-in_meeting.auto_answer *optional* | Peer to Peer connection while only 2 people in a meeting Learn More
-in_meeting.p2p_connetion *optional* | Peer to Peer connection while only 2 people in a meeting Learn More
-in_meeting.p2p_ports *optional* | Listening ports range, separated by comma, such as 55,56
-in_meeting.ports_range *optional* | Peer to Peer connection while only 2 people in a meeting Learn More
+in_meeting.auto_answer *optional* | Enable Auto Answer Group
+in_meeting.p2p_connetion *optional* | Peer to Peer connection while only 2 people in a meeting
+in_meeting.p2p_ports *optional* | Listening ports range
+in_meeting.ports_range *optional* | Listening ports range, separated by comma (ex 55,56). The ports range is between 1 to 65535
 in_meeting.sending_default_email_invites *optional* | Only show default email when sending email invites
-in_meeting.use_html_format_email *optional* | Only show default email when sending email invites
+in_meeting.use_html_format_email *optional* | Use HTML format email for Outlook plugin
 in_meeting.dscp_marking *optional*<div class="default">1</div> | DSCP marking
-in_meeting.dscp_audio *optional* | DSCP Audio
-in_meeting.dscp_video *optional* | DSCP Video
-in_meeting.stereo_audio *optional* | DSCP Video
-in_meeting.original_audio *optional* | DSCP Video
-in_meeting.screen_sharing *optional* | DSCP Video
-in_meeting.remote_control *optional* | DSCP Video
-in_meeting.attention_tracking *optional* | DSCP Video
+in_meeting.dscp_audio *optional*<div class="minimum">1</div><div class="maximum">63</div> | DSCP Audio
+in_meeting.dscp_video *optional*<div class="minimum">1</div><div class="maximum">63</div> | DSCP Video
+in_meeting.stereo_audio *optional* | When an alternative host is set or removed from a meeting
+in_meeting.original_audio *optional* | Allow users to select original sound in their client settings
+in_meeting.screen_sharing *optional* | Screen sharing
+in_meeting.remote_control *optional* | Remote control
+in_meeting.attention_tracking *optional* | Attention tracking
 email_notification.cloud_recording_avaliable_reminder *optional* | Allow keep recording from being automatically deleted
 email_notification.jbh_reminder *optional* | When attendees join meeting before host
 email_notification.cancel_meeting_reminder *optional* | When a meeting is cancelled
@@ -180,14 +180,14 @@ zoom_rooms.upcoming_meeting_alert *optional* | Upcoming meeting alert
 zoom_rooms.start_airplay_manually *optional* | Start AirPlay service manually
 zoom_rooms.weekly_system_restart *optional* | Weekly system restart
 zoom_rooms.list_meetings_with_calendar *optional* | Display meeting list with calendar integration
-zoom_rooms.zr_post_meeting_feedback *optional* | Display meeting list with calendar integration
 zoom_rooms.ultrasonic *optional* | Automatic direct sharing using ultrasonic proximity signal
 zoom_rooms.force_private_meeting *optional* | Transform all meetings to private
 zoom_rooms.hide_host_information *optional* | Hide host and meeting ID from private meetings
 zoom_rooms.cmr_for_instant_meeting *optional* | Cloud recording for instant meetings
 zoom_rooms.auto_start_stop_scheduled_meetings *optional* | Automatic start/stop scheduled meetings
-_security.import_photos_from_devices *optional*<div class="default">1</div> | 
-_security.hide_billing_info *optional*<div class="default">1</div> | 
+security.admin_change_name_pic *optional* | Only account administrators can change user's username and picture
+security.import_photos_from_devices *optional*<div class="default">1</div> | Allow importing of photos from photo library on the user's device
+security.hide_billing_info *optional*<div class="default">1</div> | Hide billing information
 recording.local_recording *optional* | Local recording
 recording.cloud_recording *optional* | Cloud recording
 recording.auto_recording *optional* | Automatic recording
