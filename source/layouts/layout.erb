@@ -47,6 +47,7 @@ under the License.
         <div class="logo">
             <span class="site" href="/"></span>
             <span class="api" href="/">api</span>
+            <span id="version">Version 2</span>
         </div>
       <% if current_page.data.search %>
         <div class="search">
@@ -67,6 +68,7 @@ under the License.
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
+          <div id="api-version-notice"><aside class="notice">Version 2 of the Zoom API was released on November 4th, 2017. If you're looking for documentation on Version 1 <a href="https://zoom.github.io/api-v1/">click here</a>.</aside></div>
         <%= yield %>
         <% current_page.data.includes && current_page.data.includes.each do |include| %>
           <%= partial "includes/#{include}" %>

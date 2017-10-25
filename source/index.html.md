@@ -9,6 +9,7 @@ language_tabs:
 toc_footers:
   - <a href='https://developer.zoom.us/'>Zoom Developers</a>
   - <a href='https://github.com/zoom/api/issues'>Report An Issue</a>
+  - <br/><a href='https://zoom.github.io/api-v1'>Version 1 Docs</a>
 
 includes:
   - reference/index
