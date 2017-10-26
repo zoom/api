@@ -23,9 +23,9 @@ $ curl https://api.zoom.us/v2/webinars/{webinarId}/registrants
 ```json
 {
     "page_count": "integer",
-    "page_number": "integer",
     "page_size": "integer",
     "total_records": "integer",
+    "next_page_token": "string",
     "registrants": [
         {
             "email": "string",

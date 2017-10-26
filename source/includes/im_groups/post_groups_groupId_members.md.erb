@@ -1,0 +1,35 @@
+## Add an IM Group member
+
+Add a member to an IM Group under your account
+
+> Definition
+
+```shell
+POST https://api.zoom.us/v2/im/groups/{groupId}/members
+```
+
+> Example Request
+
+```shell
+$ curl https://api.zoom.us/v2/im/groups/{groupId}/members \
+   -d '{
+    "id": "string",
+    "email": "string"
+}'
+```
+
+> Example Response
+
+```text
+204 No Content
+```
+
+Path Arguments | &nbsp;
+--- | ---
+groupId **required** | The group ID
+
+Body Arguments | &nbsp;
+--- | ---
+id *optional* | User ID.
+email *optional* | User email. If ID given, email is ignored.
+

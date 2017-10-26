@@ -752,7 +752,7 @@
                 }
             }
         },
-        "/im_groups": {
+        "/im/groups": {
             "get": {
                 "summary": "List IM Groups",
                 "description": "List IM groups under your account",
@@ -847,7 +847,7 @@
                 }
             }
         },
-        "/im_groups/{groupId}": {
+        "/im/groups/{groupId}": {
             "get": {
                 "summary": "Retrieve an IM Group",
                 "description": "Retrieve an IM Group under your account",
@@ -967,7 +967,7 @@
                 }
             }
         },
-        "/im_groups/{groupId}/members": {
+        "/im/groups/{groupId}/members": {
             "get": {
                 "summary": "List an IM Group's members",
                 "description": "List an IM Group's members under your account",
@@ -1037,7 +1037,7 @@
                 }
             }
         },
-        "/im_groups/{groupId}/members/{userId}": {
+        "/im/groups/{groupId}/members/{userId}": {
             "delete": {
                 "summary": "Delete an IM Group member",
                 "description": "Delete a member from an IM Group under your account",
@@ -1457,7 +1457,7 @@
                                     }
                                 },
                                 {
-                                    "$ref": "#/definitions/Pagination"
+                                    "$ref": "#/definitions/PaginationToken"
                                 },
                                 {
                                     "properties": {
@@ -1530,7 +1530,7 @@
                         "schema": {
                             "allOf": [
                                 {
-                                    "$ref": "#/definitions/Pagination"
+                                    "$ref": "#/definitions/PaginationToken"
                                 },
                                 {
                                     "properties": {
@@ -1715,7 +1715,7 @@
                         "schema": {
                             "allOf": [
                                 {
-                                    "$ref": "#/definitions/Pagination"
+                                    "$ref": "#/definitions/PaginationToken"
                                 },
                                 {
                                     "properties": {
@@ -1812,7 +1812,7 @@
                                     }
                                 },
                                 {
-                                    "$ref": "#/definitions/Pagination"
+                                    "$ref": "#/definitions/PaginationToken"
                                 },
                                 {
                                     "properties": {
@@ -1885,7 +1885,7 @@
                         "schema": {
                             "allOf": [
                                 {
-                                    "$ref": "#/definitions/Pagination"
+                                    "$ref": "#/definitions/PaginationToken"
                                 },
                                 {
                                     "properties": {
@@ -2070,7 +2070,7 @@
                         "schema": {
                             "allOf": [
                                 {
-                                    "$ref": "#/definitions/Pagination"
+                                    "$ref": "#/definitions/PaginationToken"
                                 },
                                 {
                                     "properties": {
@@ -2204,7 +2204,7 @@
                                                     }
                                                 },
                                                 {
-                                                    "$ref": "#/definitions/Pagination"
+                                                    "$ref": "#/definitions/PaginationToken"
                                                 },
                                                 {
                                                     "properties": {
@@ -2341,7 +2341,7 @@
                                     }
                                 },
                                 {
-                                    "$ref": "#/definitions/Pagination"
+                                    "$ref": "#/definitions/PaginationToken"
                                 },
                                 {
                                     "properties": {
@@ -5746,7 +5746,6 @@
             "properties": {
                 "page_count": {
                     "type": "integer",
-                    "format": "int64",
                     "description": "The number of items returned on this page."
                 },
                 "page_number": {
@@ -5756,7 +5755,7 @@
                 },
                 "page_size": {
                     "type": "integer",
-                    "description": "The number of items per page.",
+                    "description": "The amount of records returns within a single API call.",
                     "default": 30,
                     "maximum": 300
                 },
@@ -5764,6 +5763,32 @@
                     "type": "integer",
                     "format": "int64",
                     "description": "The number of all records available across pages."
+                }
+            }
+        },
+        "PaginationToken": {
+            "type": "object",
+            "description": "Pagination Object",
+            "properties": {
+                "page_count": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "The number of items returned on this page."
+                },
+                "page_size": {
+                    "type": "integer",
+                    "description": "The amount of records returns within a single API call. ",
+                    "default": 30,
+                    "maximum": 300
+                },
+                "total_records": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "The number of all records available across pages."
+                },
+                "next_page_token": {
+                    "type": "string",
+                    "description": "Used to paginate through large result sets. A next page token will be returned whenever the set of available meeting list exceeds 300. The expiration period is 15 minutes."
                 }
             }
         },
@@ -6191,7 +6216,7 @@
             "description": "List of Users",
             "allOf": [
                 {
-                    "$ref": "#/definitions/Pagination"
+                    "$ref": "#/definitions/PaginationToken"
                 },
                 {
                     "properties": {

@@ -23,9 +23,9 @@ $ curl https://api.zoom.us/v2/metrics/meetings/{meetingId}/participants
 ```json
 {
     "page_count": "integer",
-    "page_number": "integer",
     "page_size": "integer",
     "total_records": "integer",
+    "next_page_token": "string",
     "participants": [
         {
             "id": "string",
