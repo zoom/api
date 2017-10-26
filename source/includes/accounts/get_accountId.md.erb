@@ -1,4 +1,4 @@
-## Retrieve an account
+## Retrieve a sub account
 
 Retrieve a sub account under the master account <aside>Your account must be a master account and have this privilege to get sub account. Zoom only assign this privilege to trusted partner</aside>
 
@@ -25,12 +25,12 @@ $ curl https://api.zoom.us/v2/accounts/{accountId}
     "id": "string",
     "owner_id": "string",
     "owner_email": "string",
-    "created_at": "string",
+    "created_at": "string [date-time]",
     "options": {
         "share_rc": "boolean",
         "room_connectors": "string",
         "share_mc": "boolean",
-        "meeting_conntectors": "string",
+        "meeting_connectors": "string",
         "pay_mode": "string"
     }
 }

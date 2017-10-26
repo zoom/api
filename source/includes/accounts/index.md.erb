@@ -5,15 +5,15 @@ The account object represents an account on zoom. The person who created the acc
 
 ```json
 {
-    "email": "string",
     "first_name": "string",
     "last_name": "string",
+    "email": "string",
     "password": "string",
     "options": {
         "share_rc": "boolean",
         "room_connectors": "string",
         "share_mc": "boolean",
-        "meeting_conntectors": "string",
+        "meeting_connectors": "string",
         "pay_mode": "string"
     }
 }
@@ -21,13 +21,13 @@ The account object represents an account on zoom. The person who created the acc
 
 Property | Description
 --- | ---
-email *string* | User's email address.
 first_name *string* | User's first name.
 last_name *string* | User's last name.
+email *string* | User's email address.
 password *string* | User's password.
 options.share_rc *boolean* | Enable Share Virtual Room Connector.
 options.room_connectors *string* | Virtual Room Connector, multiple value separated by comma.
 options.share_mc *boolean* | Enable Share Meeting Connector.
-options.meeting_conntectors *string* | Meeting Connector, multiple value separated by comma.
+options.meeting_connectors *string* | Meeting Connector, multiple value separated by comma.
 options.pay_mode *string* | Payee<div class="enum">`master` Master Account holder pays<br/>`sub` Sub Account holders pays<br/></div>
 

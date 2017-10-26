@@ -1,4 +1,4 @@
-## Retrieve an account's settings
+## Retrieve a a sub account's settings
 
 Retrieve a sub account's settings under the master account
 
@@ -84,6 +84,7 @@ $ curl https://api.zoom.us/v2/accounts/{accountId}/settings
         "start_airplay_manually": "boolean",
         "weekly_system_restart": "boolean",
         "list_meetings_with_calendar": "boolean",
+        "zr_post_meeting_feedback": "boolean",
         "ultrasonic": "boolean",
         "force_private_meeting": "boolean",
         "hide_host_information": "boolean",
@@ -91,7 +92,6 @@ $ curl https://api.zoom.us/v2/accounts/{accountId}/settings
         "auto_start_stop_scheduled_meetings": "boolean"
     },
     "security": {
-        "admin_change_name_pic": "boolean",
         "import_photos_from_devices": "boolean",
         "hide_billing_info": "boolean"
     },

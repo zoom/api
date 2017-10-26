@@ -289,6 +289,10 @@ class OpenAPI2Slate {
 				case '204':
 					$this->header_response( $fh, '204 No Content' );
 					break;
+				case '404':
+				case '409':
+					//$this->header_response( $fh, $status . ' ' . $response->description );
+					break;
 			}
 
 			switch ( $status ) {
@@ -358,12 +362,20 @@ class OpenAPI2Slate {
 				$txt .= '<div class="default">' . $param->default . "</div>";
 			}
 
+			if($param->default === false) {
+				$txt .= '<div class="default">false</div>';
+			}
+
 			if($param->minimum) {
 				$txt .= '<div class="minimum">' . $param->minimum . "</div>";
 			}
 
 			if($param->maximum) {
 				$txt .= '<div class="maximum">' . $param->maximum . "</div>";
+			}
+
+			if($param->maxLength) {
+				$txt .= '<div class="maxLength">' . $param->maxLength . "</div>";
 			}
 
 			//description
@@ -414,12 +426,21 @@ class OpenAPI2Slate {
 				$txt .= '<div class="default">' . $param->default . "</div>";
 			}
 
+			if($param->default === false) {
+				$txt .= '<div class="default">false</div>';
+			}
+
+
 			if($param->minimum) {
 				$txt .= '<div class="minimum">' . $param->minimum . "</div>";
 			}
 
 			if($param->maximum) {
 				$txt .= '<div class="maximum">' . $param->maximum . "</div>";
+			}
+
+			if($param->maxLength) {
+				$txt .= '<div class="maxLength">' . $param->maxLength . "</div>";
 			}
 
 			$txt .= " | " . $param->description;
@@ -565,6 +586,10 @@ class OpenAPI2Slate {
 				$tmp->{$key} = $this->convert_schema_to_json( $value, false, $required_only );
 			} else {
 				$tmp->{$key} = $value->type;
+
+				if($value->format){
+					$tmp->{$key} = $value->type . " [" . $value->format . "]";
+				}
 			}
 		}
 

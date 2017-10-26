@@ -15,7 +15,7 @@ $ curl https://api.zoom.us/v2/users/{userId}/meetings \
    -d '{
     "topic": "string",
     "type": "integer",
-    "start_time": "string",
+    "start_time": "string [date-time]",
     "duration": "integer",
     "timezone": "string",
     "password": "string",
@@ -28,7 +28,7 @@ $ curl https://api.zoom.us/v2/users/{userId}/meetings \
         "monthly_week": "integer",
         "monthly_week_day": "integer",
         "end_times": "integer",
-        "end_date_time": "string"
+        "end_date_time": "string [date-time]"
     },
     "settings": {
         "host_video": "boolean",
@@ -85,12 +85,12 @@ recurrence.end_times *optional*<div class="default">1</div><div class="maximum">
 recurrence.end_date_time *optional* | Recurrence Meeting End Date. Should be UTC time, such as 2017-11-25T12:00:00Z.
 settings.host_video *optional*<div class="default">1</div> | Start video when host join meeting
 settings.participant_video *optional*<div class="default">1</div> | Start video when participants join meeting
-settings.cn_meeting *optional* | Host meeting in China
-settings.in_meeting *optional* | Host meeting in India
-settings.join_before_host *optional* | Join meeting before host start the meeting. Only used for scheduled or recurring meetings
-settings.mute_upon_entry *optional* | Mute participants upon entry
-settings.watermark *optional* | Enable watermark when viewing the shared screen
-settings.use_pmi *optional* | Use Personal Meeting ID. Only used for scheduled meetings and recurring meetings with no fixed time
+settings.cn_meeting *optional*<div class="default">false</div> | Host meeting in China
+settings.in_meeting *optional*<div class="default">false</div> | Host meeting in India
+settings.join_before_host *optional*<div class="default">false</div> | Join meeting before host start the meeting. Only used for scheduled or recurring meetings
+settings.mute_upon_entry *optional*<div class="default">false</div> | Mute participants upon entry
+settings.watermark *optional*<div class="default">false</div> | Enable watermark when viewing the shared screen
+settings.use_pmi *optional*<div class="default">false</div> | Use Personal Meeting ID. Only used for scheduled meetings and recurring meetings with no fixed time
 settings.approval_type *optional*<div class="default">2</div> | <div class="enum">`0` Automatically Approve<br/>`1` Manually Approve<br/>`2` No Registration Required<br/></div>
 settings.registration_type *optional*<div class="default">1</div> | Registration type. Used for recurring meeting with fixed time only.<div class="enum">`1` Attendees register once and can attend any of the occurrences<br/>`2` Attendees need to register for each occurrence to attend<br/>`3` Attendees register once and can choose one or more occurrences to attend<br/></div>
 settings.audio *optional*<div class="default">both</div> | Meeting audio options<div class="enum">`both` Both Telephony and VoIP<br/>`telephony` Telephony only<br/>`voip` VoIP only<br/></div>

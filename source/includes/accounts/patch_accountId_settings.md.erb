@@ -1,4 +1,4 @@
-## Update an account's settings
+## Update a sub account's settings
 
 Update a sub account's settings under the master account
 
@@ -75,6 +75,7 @@ $ curl https://api.zoom.us/v2/accounts/{accountId}/settings \
         "start_airplay_manually": "boolean",
         "weekly_system_restart": "boolean",
         "list_meetings_with_calendar": "boolean",
+        "zr_post_meeting_feedback": "boolean",
         "ultrasonic": "boolean",
         "force_private_meeting": "boolean",
         "hide_host_information": "boolean",
@@ -82,7 +83,6 @@ $ curl https://api.zoom.us/v2/accounts/{accountId}/settings \
         "auto_start_stop_scheduled_meetings": "boolean"
     },
     "security": {
-        "admin_change_name_pic": "boolean",
         "import_photos_from_devices": "boolean",
         "hide_billing_info": "boolean"
     },
@@ -132,13 +132,13 @@ schedule_meting.join_before_host *optional* | Join Before Host
 schedule_meting.enforce_login *optional* | Only signed-in users can join meetings
 schedule_meting.enforce_login_with_domains *optional* | Only signed-in users with a specified domains can join meetings
 schedule_meting.enforce_login_domains *optional* | Only signed-in users with a specified domains
-schedule_meting.not_store_meeting_topic *optional* | Always display 'Zoom Meeting' as the meeting topic
+schedule_meting.not_store_meeting_topic *optional* | Always display "Zoom Meeting" as the meeting topic
 schedule_meting.force_pmi_jbh_password *optional* | Require a password for Personal Meetings if attendees can join before host
 in_meeting.e2e_encryption *optional* | End-to-End Encryption
 in_meeting.chat *optional* | Chat
 in_meeting.private_chat *optional* | Private Chat
 in_meeting.auto_saving_chat *optional* | Auto Saving Chats
-in_meeting.file_transfer *optional*<div class="default">1</div> | File transfer
+in_meeting.file_transfer *optional* | File transfer
 in_meeting.feedback *optional* | Feedback to Zoom
 in_meeting.post_meeting_feedback *optional* | Display end-of-meeting experience feedback survey
 in_meeting.co_host *optional* | Co-Host
@@ -163,7 +163,7 @@ in_meeting.p2p_ports *optional* | Listening ports range
 in_meeting.ports_range *optional* | Listening ports range, separated by comma (ex 55,56). The ports range is between 1 to 65535
 in_meeting.sending_default_email_invites *optional* | Only show default email when sending email invites
 in_meeting.use_html_format_email *optional* | Use HTML format email for Outlook plugin
-in_meeting.dscp_marking *optional*<div class="default">1</div> | DSCP marking
+in_meeting.dscp_marking *optional* | DSCP marking
 in_meeting.dscp_audio *optional*<div class="minimum">1</div><div class="maximum">63</div> | DSCP Audio
 in_meeting.dscp_video *optional*<div class="minimum">1</div><div class="maximum">63</div> | DSCP Video
 in_meeting.stereo_audio *optional* | When an alternative host is set or removed from a meeting
@@ -180,14 +180,14 @@ zoom_rooms.upcoming_meeting_alert *optional* | Upcoming meeting alert
 zoom_rooms.start_airplay_manually *optional* | Start AirPlay service manually
 zoom_rooms.weekly_system_restart *optional* | Weekly system restart
 zoom_rooms.list_meetings_with_calendar *optional* | Display meeting list with calendar integration
+zoom_rooms.zr_post_meeting_feedback *optional* | Zoom Room post meeting feedback
 zoom_rooms.ultrasonic *optional* | Automatic direct sharing using ultrasonic proximity signal
 zoom_rooms.force_private_meeting *optional* | Transform all meetings to private
 zoom_rooms.hide_host_information *optional* | Hide host and meeting ID from private meetings
 zoom_rooms.cmr_for_instant_meeting *optional* | Cloud recording for instant meetings
 zoom_rooms.auto_start_stop_scheduled_meetings *optional* | Automatic start/stop scheduled meetings
-security.admin_change_name_pic *optional* | Only account administrators can change user's username and picture
-security.import_photos_from_devices *optional*<div class="default">1</div> | Allow importing of photos from photo library on the user's device
-security.hide_billing_info *optional*<div class="default">1</div> | Hide billing information
+security.import_photos_from_devices *optional* | Allow importing of photos from photo library on the user's device
+security.hide_billing_info *optional* | Hide billing information
 recording.local_recording *optional* | Local recording
 recording.cloud_recording *optional* | Cloud recording
 recording.auto_recording *optional* | Automatic recording
@@ -195,8 +195,8 @@ recording.cloud_recording_download *optional* | Cloud Recording Downloads
 recording.cloud_recording_download_host *optional* | Only the host can download cloud recordings
 recording.account_user_access_recording *optional* | Only users on my account can access cloud recordings
 recording.auto_delete_cmr *optional* | Auto delete cloud recordings after days
-telephony.third_party_audio *optional*<div class="default">1</div> | 
-telephony.audio_conference_info *optional* | 
+telephony.third_party_audio *optional* | 3rd party audio conference
+telephony.audio_conference_info *optional* | 3rd party audio conference info
 integration.google_calendar *optional* | Google Calendar
 integration.google_drive *optional* | Google Drive
 integration.dropbox *optional* | Dropbox
