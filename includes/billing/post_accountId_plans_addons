@@ -1,6 +1,6 @@
-<h2 id="add-an-account-add-on-plan">Add an account add-on plan</h2>
+<h2 id="add-an-additional-plan-for-sub-account">Add an additional plan for sub account</h2>
 
-<p>Add an add-on plan for a sub account <aside>Can only add an Additional plan for the sub account which is a paid account and paid by master account</aside></p>
+<p>Add an additional plan for sub account <aside>Can only add an Additional plan for the sub account which is a paid account and paid by master account</aside></p>
 
 <blockquote>
 <p>Definition</p>
@@ -41,7 +41,7 @@
 </thead><tbody>
 <tr>
 <td>type <strong>required</strong></td>
-<td>Account plan type</td>
+<td>Account <a href="#plans">plan type</a></td>
 </tr>
 <tr>
 <td>hosts <strong>required</strong></td>

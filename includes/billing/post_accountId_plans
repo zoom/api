@@ -157,7 +157,7 @@
 </tr>
 <tr>
 <td>plan_base.type <strong>required</strong></td>
-<td>Account plan type</td>
+<td>Account <a href="#plans">plan type</a></td>
 </tr>
 <tr>
 <td>plan_base.hosts <strong>required</strong></td>

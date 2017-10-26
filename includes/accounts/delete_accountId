@@ -1,6 +1,6 @@
-<h2 id="delete-an-account">Delete an account</h2>
+<h2 id="disassociate-an-account">Disassociate an account</h2>
 
-<p>Delete a sub account under the master account</p>
+<p>Disassociate a sub account from the master account</p>
 
 <blockquote>
 <p>Definition</p>

@@ -1,6 +1,6 @@
-<h2 id="retrieve-an-accounts-plans">Retrieve an account&rsquo;s plans</h2>
+<h2 id="retrieve-plan-information-for-a-sub-account">Retrieve plan information for a sub account</h2>
 
-<p>Retrieve a sub account&rsquo;s plans under the master account  <aside>Only for the sub account which is paid by master account</aside></p>
+<p>Retrieve plan information for a sub account under the master account  <aside>Only for the sub account which is paid by master account</aside></p>
 
 <blockquote>
 <p>Definition</p>

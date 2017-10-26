@@ -34,7 +34,7 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>name <em>optional</em></td>
+<td>name <em>optional</em><div class="maxLength">128</div></td>
 <td>Group name, must be unique in one account</td>
 </tr>
 <tr>

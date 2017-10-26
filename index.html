@@ -386,15 +386,15 @@
 
 <p>The account object represents an account on zoom. The person who created the account, or who the account was created for, is referred to as the Account owner. You can read more about the Zoom account structure <a href='https://developer.zoom.us/blog/a-brief-look-at-zoom-account-structures/' target='_blank'>here</a>.</p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"share_rc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"room_connectors"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"share_mc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"meeting_conntectors"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"meeting_connectors"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"pay_mode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -406,16 +406,16 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>email <em>string</em></td>
-<td>User&rsquo;s email address.</td>
-</tr>
-<tr>
 <td>first_name <em>string</em></td>
 <td>User&rsquo;s first name.</td>
 </tr>
 <tr>
 <td>last_name <em>string</em></td>
 <td>User&rsquo;s last name.</td>
+</tr>
+<tr>
+<td>email <em>string</em></td>
+<td>User&rsquo;s email address.</td>
 </tr>
 <tr>
 <td>password <em>string</em></td>
@@ -434,7 +434,7 @@
 <td>Enable Share Meeting Connector.</td>
 </tr>
 <tr>
-<td>options.meeting_conntectors <em>string</em></td>
+<td>options.meeting_connectors <em>string</em></td>
 <td>Meeting Connector, multiple value separated by comma.</td>
 </tr>
 <tr>
@@ -443,9 +443,9 @@
 </tr>
 </tbody></table>
 
-          <h2 id="list-accounts">List accounts</h2>
+          <h2 id="list-sub-accounts">List sub accounts</h2>
 
-<p>List the sub accounts under the master account</p>
+<p>List all the sub accounts under the master account</p>
 
 <blockquote>
 <p>Definition</p>
@@ -468,9 +468,14 @@
     </span><span class="s2">"total_records"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"accounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [uuid]"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"account_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"owner_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+            </span><span class="s2">"account_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"seats"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"subscription_start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"subscription_end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -483,15 +488,15 @@
 </thead><tbody>
 <tr>
 <td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
-<td>Number of items returned per page</td>
+<td>The amount of records returns within a single API call.</td>
 </tr>
 <tr>
 <td>page_number <em>optional</em><div class="default">1</div></td>
-<td>Page number of results returned</td>
+<td>Current page number of returned records.</td>
 </tr>
 </tbody></table>
 
-          <h2 id="create-an-account">Create an account</h2>
+          <h2 id="create-a-sub-account">Create a sub account</h2>
 
 <p>Create a sub account under the master account <aside>Your account must be a master account and have this privilege to create sub account. Zoom only assign this privilege to trusted partner. The created user will not receive the confirmation email.</aside></p>
 
@@ -505,15 +510,15 @@
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/accounts <span class="se">\</span>
    -d <span class="s1">'{
-    "email": "string",
     "first_name": "string",
     "last_name": "string",
+    "email": "string",
     "password": "string",
     "options": {
         "share_rc": "boolean",
         "room_connectors": "string",
         "share_mc": "boolean",
-        "meeting_conntectors": "string",
+        "meeting_connectors": "string",
         "pay_mode": "string"
     }
 }'</span>
@@ -536,10 +541,6 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>email <strong>required</strong></td>
-<td>User&rsquo;s email address.</td>
-</tr>
-<tr>
 <td>first_name <strong>required</strong></td>
 <td>User&rsquo;s first name.</td>
 </tr>
@@ -548,11 +549,15 @@
 <td>User&rsquo;s last name.</td>
 </tr>
 <tr>
+<td>email <strong>required</strong></td>
+<td>User&rsquo;s email address.</td>
+</tr>
+<tr>
 <td>password <strong>required</strong></td>
 <td>User&rsquo;s password.</td>
 </tr>
 <tr>
-<td>options.share_rc <em>optional</em></td>
+<td>options.share_rc <em>optional</em><div class="default">false</div></td>
 <td>Enable Share Virtual Room Connector.</td>
 </tr>
 <tr>
@@ -560,11 +565,11 @@
 <td>Virtual Room Connector, multiple value separated by comma.</td>
 </tr>
 <tr>
-<td>options.share_mc <em>optional</em></td>
+<td>options.share_mc <em>optional</em><div class="default">false</div></td>
 <td>Enable Share Meeting Connector.</td>
 </tr>
 <tr>
-<td>options.meeting_conntectors <em>optional</em></td>
+<td>options.meeting_connectors <em>optional</em></td>
 <td>Meeting Connector, multiple value separated by comma.</td>
 </tr>
 <tr>
@@ -573,7 +578,7 @@
 </tr>
 </tbody></table>
 
-          <h2 id="retrieve-an-account">Retrieve an account</h2>
+          <h2 id="retrieve-a-sub-account">Retrieve a sub account</h2>
 
 <p>Retrieve a sub account under the master account <aside>Your account must be a master account and have this privilege to get sub account. Zoom only assign this privilege to trusted partner</aside></p>
 
@@ -595,12 +600,12 @@
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"owner_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"owner_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"share_rc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"room_connectors"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"share_mc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"meeting_conntectors"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"meeting_connectors"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"pay_mode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -617,9 +622,9 @@
 </tr>
 </tbody></table>
 
-          <h2 id="delete-an-account">Delete an account</h2>
+          <h2 id="disassociate-an-account">Disassociate an account</h2>
 
-<p>Delete a sub account under the master account</p>
+<p>Disassociate a sub account from the master account</p>
 
 <blockquote>
 <p>Definition</p>
@@ -649,7 +654,7 @@
 </tr>
 </tbody></table>
 
-          <h2 id="update-an-accounts-options">Update an account&rsquo;s options</h2>
+          <h2 id="update-a-sub-accounts-options">Update a sub account&rsquo;s options</h2>
 
 <p>Update a sub account&rsquo;s options under the master account</p>
 
@@ -666,7 +671,7 @@
     "share_rc": "boolean",
     "room_connectors": "string",
     "share_mc": "boolean",
-    "meeting_conntectors": "string",
+    "meeting_connectors": "string",
     "pay_mode": "string"
 }'</span>
 </code></pre>
@@ -694,7 +699,7 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>share_rc <em>optional</em></td>
+<td>share_rc <em>optional</em><div class="default">false</div></td>
 <td>Enable Share Virtual Room Connector.</td>
 </tr>
 <tr>
@@ -702,11 +707,11 @@
 <td>Virtual Room Connector, multiple value separated by comma.</td>
 </tr>
 <tr>
-<td>share_mc <em>optional</em></td>
+<td>share_mc <em>optional</em><div class="default">false</div></td>
 <td>Enable Share Meeting Connector.</td>
 </tr>
 <tr>
-<td>meeting_conntectors <em>optional</em></td>
+<td>meeting_connectors <em>optional</em></td>
 <td>Meeting Connector, multiple value separated by comma.</td>
 </tr>
 <tr>
@@ -715,7 +720,7 @@
 </tr>
 </tbody></table>
 
-          <h2 id="retrieve-an-accounts-settings">Retrieve an account&rsquo;s settings</h2>
+          <h2 id="retrieve-a-a-sub-accounts-settings">Retrieve a a sub account&rsquo;s settings</h2>
 
 <p>Retrieve a sub account&rsquo;s settings under the master account</p>
 
@@ -796,6 +801,7 @@
         </span><span class="s2">"start_airplay_manually"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"weekly_system_restart"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"list_meetings_with_calendar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"zr_post_meeting_feedback"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"ultrasonic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"force_private_meeting"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"hide_host_information"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
@@ -803,7 +809,6 @@
         </span><span class="s2">"auto_start_stop_scheduled_meetings"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"security"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"admin_change_name_pic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"import_photos_from_devices"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"hide_billing_info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="w">
     </span><span class="p">},</span><span class="w">
@@ -845,7 +850,7 @@
 </tr>
 </tbody></table>
 
-          <h2 id="update-an-accounts-settings">Update an account&rsquo;s settings</h2>
+          <h2 id="update-a-sub-accounts-settings">Update a sub account&rsquo;s settings</h2>
 
 <p>Update a sub account&rsquo;s settings under the master account</p>
 
@@ -921,6 +926,7 @@
         "start_airplay_manually": "boolean",
         "weekly_system_restart": "boolean",
         "list_meetings_with_calendar": "boolean",
+        "zr_post_meeting_feedback": "boolean",
         "ultrasonic": "boolean",
         "force_private_meeting": "boolean",
         "hide_host_information": "boolean",
@@ -928,7 +934,6 @@
         "auto_start_stop_scheduled_meetings": "boolean"
     },
     "security": {
-        "admin_change_name_pic": "boolean",
         "import_photos_from_devices": "boolean",
         "hide_billing_info": "boolean"
     },
@@ -1011,7 +1016,7 @@
 </tr>
 <tr>
 <td>schedule_meting.not_store_meeting_topic <em>optional</em></td>
-<td>Always display &lsquo;Zoom Meeting&rsquo; as the meeting topic</td>
+<td>Always display &ldquo;Zoom Meeting&rdquo; as the meeting topic</td>
 </tr>
 <tr>
 <td>schedule_meting.force_pmi_jbh_password <em>optional</em></td>
@@ -1034,7 +1039,7 @@
 <td>Auto Saving Chats</td>
 </tr>
 <tr>
-<td>in_meeting.file_transfer <em>optional</em><div class="default">1</div></td>
+<td>in_meeting.file_transfer <em>optional</em></td>
 <td>File transfer</td>
 </tr>
 <tr>
@@ -1134,7 +1139,7 @@
 <td>Use HTML format email for Outlook plugin</td>
 </tr>
 <tr>
-<td>in_meeting.dscp_marking <em>optional</em><div class="default">1</div></td>
+<td>in_meeting.dscp_marking <em>optional</em></td>
 <td>DSCP marking</td>
 </tr>
 <tr>
@@ -1202,6 +1207,10 @@
 <td>Display meeting list with calendar integration</td>
 </tr>
 <tr>
+<td>zoom_rooms.zr_post_meeting_feedback <em>optional</em></td>
+<td>Zoom Room post meeting feedback</td>
+</tr>
+<tr>
 <td>zoom_rooms.ultrasonic <em>optional</em></td>
 <td>Automatic direct sharing using ultrasonic proximity signal</td>
 </tr>
@@ -1222,15 +1231,11 @@
 <td>Automatic start/stop scheduled meetings</td>
 </tr>
 <tr>
-<td>security.admin_change_name_pic <em>optional</em></td>
-<td>Only account administrators can change user&rsquo;s username and picture</td>
-</tr>
-<tr>
-<td>security.import_photos_from_devices <em>optional</em><div class="default">1</div></td>
+<td>security.import_photos_from_devices <em>optional</em></td>
 <td>Allow importing of photos from photo library on the user&rsquo;s device</td>
 </tr>
 <tr>
-<td>security.hide_billing_info <em>optional</em><div class="default">1</div></td>
+<td>security.hide_billing_info <em>optional</em></td>
 <td>Hide billing information</td>
 </tr>
 <tr>
@@ -1262,12 +1267,12 @@
 <td>Auto delete cloud recordings after days</td>
 </tr>
 <tr>
-<td>telephony.third_party_audio <em>optional</em><div class="default">1</div></td>
-<td></td>
+<td>telephony.third_party_audio <em>optional</em></td>
+<td>3rd party audio conference</td>
 </tr>
 <tr>
 <td>telephony.audio_conference_info <em>optional</em></td>
-<td></td>
+<td>3rd party audio conference info</td>
 </tr>
 <tr>
 <td>integration.google_calendar <em>optional</em></td>
@@ -1301,9 +1306,9 @@
 
           <h1 id="billing">Billing</h1>
 
-          <h2 id="retrieve-an-accounts-billing-information">Retrieve an account&rsquo;s billing information</h2>
+          <h2 id="retrieve-billing-information-for-a-sub-account">Retrieve billing information for a sub account</h2>
 
-<p>Retrieve a sub account&rsquo;s billing information under the master account</p>
+<p>Retrieve billing information for a sub account under the master account</p>
 
 <blockquote>
 <p>Definition</p>
@@ -1344,9 +1349,9 @@
 </tr>
 </tbody></table>
 
-          <h2 id="update-an-accounts-billing-information">Update an account&rsquo;s billing information</h2>
+          <h2 id="update-billing-information-for-a-sub-account">Update billing information for a sub account</h2>
 
-<p>Update a sub account&rsquo;s billing information under the master account <aside>Only for the sub account which is paid by master account</aside></p>
+<p>Update billing information for a sub account under the master account <aside>Only for the sub account which is a paid account and paid by master account</aside></p>
 
 <blockquote>
 <p>Definition</p>
@@ -1435,9 +1440,9 @@
 </tr>
 </tbody></table>
 
-          <h2 id="retrieve-an-accounts-plans">Retrieve an account&rsquo;s plans</h2>
+          <h2 id="retrieve-plan-information-for-a-sub-account">Retrieve plan information for a sub account</h2>
 
-<p>Retrieve a sub account&rsquo;s plans under the master account  <aside>Only for the sub account which is paid by master account</aside></p>
+<p>Retrieve plan information for a sub account under the master account  <aside>Only for the sub account which is paid by master account</aside></p>
 
 <blockquote>
 <p>Definition</p>
@@ -1659,7 +1664,7 @@
 </tr>
 <tr>
 <td>plan_base.type <strong>required</strong></td>
-<td>Account plan type</td>
+<td>Account <a href="#plans">plan type</a></td>
 </tr>
 <tr>
 <td>plan_base.hosts <strong>required</strong></td>
@@ -1715,9 +1720,9 @@
 </tr>
 </tbody></table>
 
-          <h2 id="update-an-accounts-base-plan">Update an account&rsquo;s base plan</h2>
+          <h2 id="update-a-base-plan-for-a-sub-account">Update a base plan for a sub account</h2>
 
-<p>Update a base plan for a sub account <aside>Can only update a base plan for the sub account which is a paid account and paid by master account</aside><aside>Can only add an Additional plan for the sub account which is a paid account and paid by master account</aside></p>
+<p>Update a base plan for a sub account <aside>Can only update a base plan for the sub account which is a paid account and paid by master account</aside></p>
 
 <blockquote>
 <p>Definition</p>
@@ -1758,7 +1763,7 @@
 </thead><tbody>
 <tr>
 <td>type <strong>required</strong></td>
-<td>Account plan type</td>
+<td>Account <a href="#plans">plan type</a></td>
 </tr>
 <tr>
 <td>hosts <strong>required</strong></td>
@@ -1766,9 +1771,9 @@
 </tr>
 </tbody></table>
 
-          <h2 id="add-an-account-add-on-plan">Add an account add-on plan</h2>
+          <h2 id="add-an-additional-plan-for-sub-account">Add an additional plan for sub account</h2>
 
-<p>Add an add-on plan for a sub account <aside>Can only add an Additional plan for the sub account which is a paid account and paid by master account</aside></p>
+<p>Add an additional plan for sub account <aside>Can only add an Additional plan for the sub account which is a paid account and paid by master account</aside></p>
 
 <blockquote>
 <p>Definition</p>
@@ -1809,7 +1814,7 @@
 </thead><tbody>
 <tr>
 <td>type <strong>required</strong></td>
-<td>Account plan type</td>
+<td>Account <a href="#plans">plan type</a></td>
 </tr>
 <tr>
 <td>hosts <strong>required</strong></td>
@@ -1817,9 +1822,9 @@
 </tr>
 </tbody></table>
 
-          <h2 id="update-an-accounts-add-on-plans">Update an account&rsquo;s add-on plans</h2>
+          <h2 id="update-an-additional-plan-for-sub-account">Update an additional plan for sub account</h2>
 
-<p>Update as add-on plan for a sub account <aside>Can only update an Additional plan for the sub account which is a paid account and paid by master account</aside></p>
+<p>Update an additional plan for sub account<aside>Can only update an Additional plan for the sub account which is a paid account and paid by master account</aside></p>
 
 <blockquote>
 <p>Definition</p>
@@ -1860,7 +1865,7 @@
 </thead><tbody>
 <tr>
 <td>type <strong>required</strong></td>
-<td>Account plan type</td>
+<td>Account <a href="#plans">plan type</a></td>
 </tr>
 <tr>
 <td>hosts <strong>required</strong></td>
@@ -1874,19 +1879,19 @@
 
 <p>The user object represents a User on Zoom.</p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"dept"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"last_client_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"last_login_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"pic_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"pmi"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"vanity_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"verified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"dept"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_login_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_client_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pic_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"vanity_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"cms_user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"host_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1898,14 +1903,6 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>email <em>string</em></td>
-<td>User&rsquo;s email address.</td>
-</tr>
-<tr>
-<td>type <em>integer</em></td>
-<td>User&rsquo;s type<div class="enum"><code class="prettyprint">1</code> basic<br/><code class="prettyprint">2</code> pro<br/><code class="prettyprint">3</code> corp<br/></div></td>
-</tr>
-<tr>
 <td>first_name <em>string</em></td>
 <td>User&rsquo;s first name.</td>
 </tr>
@@ -1914,24 +1911,12 @@
 <td>User&rsquo;s last name.</td>
 </tr>
 <tr>
-<td>created_at <em>string</em></td>
-<td></td>
+<td>email <em>string</em></td>
+<td>User&rsquo;s email address.</td>
 </tr>
 <tr>
-<td>dept <em>string</em></td>
-<td></td>
-</tr>
-<tr>
-<td>last_client_version <em>string</em></td>
-<td></td>
-</tr>
-<tr>
-<td>last_login_time <em>string</em></td>
-<td></td>
-</tr>
-<tr>
-<td>pic_url <em>string</em></td>
-<td></td>
+<td>type <em>integer</em></td>
+<td>User&rsquo;s type<div class="enum"><code class="prettyprint">1</code> basic<br/><code class="prettyprint">2</code> pro<br/><code class="prettyprint">3</code> corp<br/></div></td>
 </tr>
 <tr>
 <td>pmi <em>string</em></td>
@@ -1942,11 +1927,31 @@
 <td></td>
 </tr>
 <tr>
-<td>vanity_url <em>string</em></td>
+<td>verified <em>boolean</em></td>
 <td></td>
 </tr>
 <tr>
-<td>verified <em>boolean</em></td>
+<td>dept <em>string</em></td>
+<td></td>
+</tr>
+<tr>
+<td>created_at <em>string</em></td>
+<td></td>
+</tr>
+<tr>
+<td>last_login_time <em>string</em></td>
+<td></td>
+</tr>
+<tr>
+<td>last_client_version <em>string</em></td>
+<td></td>
+</tr>
+<tr>
+<td>pic_url <em>string</em></td>
+<td></td>
+</tr>
+<tr>
+<td>vanity_url <em>string</em></td>
 <td></td>
 </tr>
 <tr>
@@ -1985,19 +1990,19 @@
     </span><span class="s2">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"dept"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"last_client_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"last_login_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"pic_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"pmi"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"vanity_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"verified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"dept"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"last_login_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"last_client_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"pic_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"vanity_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"cms_user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"host_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
         </span><span class="p">}</span><span class="w">
@@ -2016,11 +2021,11 @@
 </tr>
 <tr>
 <td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
-<td>Number of items returned per page</td>
+<td>The amount of records returns within a single API call.</td>
 </tr>
 <tr>
 <td>page_number <em>optional</em><div class="default">1</div></td>
-<td>Page number of results returned</td>
+<td>Current page number of returned records.</td>
 </tr>
 </tbody></table>
 
@@ -2052,7 +2057,11 @@
 </blockquote>
 <pre class="highlight plaintext"><code>201 Created
 </code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <table><thead>
@@ -2074,11 +2083,11 @@
 <td>User&rsquo;s type<div class="enum"><code class="prettyprint">1</code> basic<br/><code class="prettyprint">2</code> pro<br/><code class="prettyprint">3</code> corp<br/></div></td>
 </tr>
 <tr>
-<td>user_info.first_name <em>optional</em></td>
+<td>user_info.first_name <em>optional</em><div class="maxLength">64</div></td>
 <td>User&rsquo;s first name.</td>
 </tr>
 <tr>
-<td>user_info.last_name <em>optional</em></td>
+<td>user_info.last_name <em>optional</em><div class="maxLength">64</div></td>
 <td>User&rsquo;s last name.</td>
 </tr>
 </tbody></table>
@@ -2103,19 +2112,19 @@
 <pre class="highlight plaintext"><code>200 OK
 </code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"dept"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"last_client_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"last_login_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"pic_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"pmi"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"vanity_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"verified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"dept"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_login_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_client_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pic_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"vanity_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"cms_user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"host_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -2129,6 +2138,18 @@
 <tr>
 <td>userId <strong>required</strong></td>
 <td>The user ID or email address</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Query Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>login_type <em>optional</em></td>
+<td><div class="enum"><code class="prettyprint">0</code> Facebook<br/><code class="prettyprint">1</code> Google<br/><code class="prettyprint">99</code> API<br/><code class="prettyprint">100</code> Zoom<br/><code class="prettyprint">101</code> SSO<br/></div></td>
 </tr>
 </tbody></table>
 
@@ -2146,19 +2167,19 @@
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/users/<span class="o">{</span>userId<span class="o">}</span> <span class="se">\</span>
    -d <span class="s1">'{
-    "email": "string",
-    "type": "integer",
     "first_name": "string",
     "last_name": "string",
-    "created_at": "string",
-    "dept": "string",
-    "last_client_version": "string",
-    "last_login_time": "string",
-    "pic_url": "string",
+    "email": "string",
+    "type": "integer",
     "pmi": "string",
     "timezone": "string",
-    "vanity_url": "string",
     "verified": "boolean",
+    "dept": "string",
+    "created_at": "string [date-time]",
+    "last_login_time": "string [date-time]",
+    "last_client_version": "string",
+    "pic_url": "string",
+    "vanity_url": "string",
     "cms_user_id": "string",
     "host_key": "string"
 }'</span>
@@ -2187,40 +2208,20 @@
 </tr>
 </thead><tbody>
 <tr>
+<td>first_name <em>optional</em><div class="maxLength">64</div></td>
+<td>User&rsquo;s first name.</td>
+</tr>
+<tr>
+<td>last_name <em>optional</em><div class="maxLength">64</div></td>
+<td>User&rsquo;s last name.</td>
+</tr>
+<tr>
 <td>email <strong>required</strong></td>
 <td>User&rsquo;s email address.</td>
 </tr>
 <tr>
 <td>type <strong>required</strong></td>
 <td>User&rsquo;s type<div class="enum"><code class="prettyprint">1</code> basic<br/><code class="prettyprint">2</code> pro<br/><code class="prettyprint">3</code> corp<br/></div></td>
-</tr>
-<tr>
-<td>first_name <em>optional</em></td>
-<td>User&rsquo;s first name.</td>
-</tr>
-<tr>
-<td>last_name <em>optional</em></td>
-<td>User&rsquo;s last name.</td>
-</tr>
-<tr>
-<td>created_at <em>optional</em></td>
-<td></td>
-</tr>
-<tr>
-<td>dept <em>optional</em></td>
-<td></td>
-</tr>
-<tr>
-<td>last_client_version <em>optional</em></td>
-<td></td>
-</tr>
-<tr>
-<td>last_login_time <em>optional</em></td>
-<td></td>
-</tr>
-<tr>
-<td>pic_url <em>optional</em></td>
-<td></td>
 </tr>
 <tr>
 <td>pmi <em>optional</em></td>
@@ -2231,11 +2232,31 @@
 <td></td>
 </tr>
 <tr>
-<td>vanity_url <em>optional</em></td>
+<td>verified <em>optional</em></td>
 <td></td>
 </tr>
 <tr>
-<td>verified <em>optional</em></td>
+<td>dept <em>optional</em></td>
+<td></td>
+</tr>
+<tr>
+<td>created_at <em>optional</em></td>
+<td></td>
+</tr>
+<tr>
+<td>last_login_time <em>optional</em></td>
+<td></td>
+</tr>
+<tr>
+<td>last_client_version <em>optional</em></td>
+<td></td>
+</tr>
+<tr>
+<td>pic_url <em>optional</em></td>
+<td></td>
+</tr>
+<tr>
+<td>vanity_url <em>optional</em></td>
 <td></td>
 </tr>
 <tr>
@@ -2700,15 +2721,15 @@
 <td>End-to-end encryption</td>
 </tr>
 <tr>
-<td>in_meeting.chat <em>optional</em></td>
+<td>in_meeting.chat <em>optional</em><div class="default">false</div></td>
 <td>Chat</td>
 </tr>
 <tr>
-<td>in_meeting.private_chat <em>optional</em></td>
+<td>in_meeting.private_chat <em>optional</em><div class="default">false</div></td>
 <td>Private chat</td>
 </tr>
 <tr>
-<td>in_meeting.auto_saving_chat <em>optional</em></td>
+<td>in_meeting.auto_saving_chat <em>optional</em><div class="default">false</div></td>
 <td>Auto saving chats</td>
 </tr>
 <tr>
@@ -2720,83 +2741,83 @@
 <td>Record and play their own voice</td>
 </tr>
 <tr>
-<td>in_meeting.file_transfer <em>optional</em></td>
+<td>in_meeting.file_transfer <em>optional</em><div class="default">false</div></td>
 <td>File transfer</td>
 </tr>
 <tr>
-<td>in_meeting.feedback <em>optional</em></td>
+<td>in_meeting.feedback <em>optional</em><div class="default">false</div></td>
 <td>Feedback to Zoom</td>
 </tr>
 <tr>
-<td>in_meeting.co_host <em>optional</em></td>
+<td>in_meeting.co_host <em>optional</em><div class="default">false</div></td>
 <td>Co-host</td>
 </tr>
 <tr>
-<td>in_meeting.polling <em>optional</em></td>
+<td>in_meeting.polling <em>optional</em><div class="default">false</div></td>
 <td>Polling</td>
 </tr>
 <tr>
-<td>in_meeting.attendee_on_hold <em>optional</em></td>
+<td>in_meeting.attendee_on_hold <em>optional</em><div class="default">false</div></td>
 <td>Allow host to put attendee on hold</td>
 </tr>
 <tr>
-<td>in_meeting.annotation <em>optional</em></td>
+<td>in_meeting.annotation <em>optional</em><div class="default">false</div></td>
 <td>Annotation</td>
 </tr>
 <tr>
-<td>in_meeting.non_verbal_feedback <em>optional</em></td>
+<td>in_meeting.non_verbal_feedback <em>optional</em><div class="default">false</div></td>
 <td>Non-verbal feedback</td>
 </tr>
 <tr>
-<td>in_meeting.breakout_room <em>optional</em></td>
+<td>in_meeting.breakout_room <em>optional</em><div class="default">false</div></td>
 <td>Breakout room</td>
 </tr>
 <tr>
-<td>in_meeting.remote_support <em>optional</em></td>
+<td>in_meeting.remote_support <em>optional</em><div class="default">false</div></td>
 <td>Remote support</td>
 </tr>
 <tr>
-<td>in_meeting.closed_caption <em>optional</em></td>
+<td>in_meeting.closed_caption <em>optional</em><div class="default">false</div></td>
 <td>Closed caption</td>
 </tr>
 <tr>
-<td>in_meeting.group_hd <em>optional</em></td>
+<td>in_meeting.group_hd <em>optional</em><div class="default">false</div></td>
 <td>Group HD video</td>
 </tr>
 <tr>
-<td>in_meeting.virtual_background <em>optional</em></td>
+<td>in_meeting.virtual_background <em>optional</em><div class="default">false</div></td>
 <td>Virtual background</td>
 </tr>
 <tr>
-<td>in_meeting.far_end_camera_control <em>optional</em></td>
+<td>in_meeting.far_end_camera_control <em>optional</em><div class="default">false</div></td>
 <td>Far end camera control</td>
 </tr>
 <tr>
-<td>in_meeting.share_dual_camera <em>optional</em></td>
+<td>in_meeting.share_dual_camera <em>optional</em><div class="default">false</div></td>
 <td>Share dual camera</td>
 </tr>
 <tr>
-<td>in_meeting.attention_tracking <em>optional</em></td>
+<td>in_meeting.attention_tracking <em>optional</em><div class="default">false</div></td>
 <td>Attention tracking</td>
 </tr>
 <tr>
-<td>in_meeting.waiting_room <em>optional</em></td>
+<td>in_meeting.waiting_room <em>optional</em><div class="default">false</div></td>
 <td>Waiting room</td>
 </tr>
 <tr>
-<td>in_meeting.manage_zr <em>optional</em></td>
+<td>in_meeting.manage_zr <em>optional</em><div class="default">false</div></td>
 <td>Manage Zoom Rooms</td>
 </tr>
 <tr>
-<td>email_notification.jbh_reminder <em>optional</em></td>
+<td>email_notification.jbh_reminder <em>optional</em><div class="default">false</div></td>
 <td>When attendees join meeting before host</td>
 </tr>
 <tr>
-<td>email_notification.cancel_meeting_reminder <em>optional</em></td>
+<td>email_notification.cancel_meeting_reminder <em>optional</em><div class="default">false</div></td>
 <td>When a meeting is cancelled</td>
 </tr>
 <tr>
-<td>email_notification.alternative_host_reminder <em>optional</em></td>
+<td>email_notification.alternative_host_reminder <em>optional</em><div class="default">false</div></td>
 <td>When an alternative host is set or removed from a meeting</td>
 </tr>
 <tr>
@@ -2804,31 +2825,31 @@
 <td>Local recording</td>
 </tr>
 <tr>
-<td>recording.cloud_recording <em>optional</em></td>
+<td>recording.cloud_recording <em>optional</em><div class="default">false</div></td>
 <td>Cloud recording</td>
 </tr>
 <tr>
-<td>recording.record_speaker_view <em>optional</em></td>
+<td>recording.record_speaker_view <em>optional</em><div class="default">false</div></td>
 <td>Record the active speaker view</td>
 </tr>
 <tr>
-<td>recording.record_gallery_view <em>optional</em></td>
+<td>recording.record_gallery_view <em>optional</em><div class="default">false</div></td>
 <td>Record the gallery view</td>
 </tr>
 <tr>
-<td>recording.record_audio_file <em>optional</em></td>
+<td>recording.record_audio_file <em>optional</em><div class="default">false</div></td>
 <td>Record an audio only file</td>
 </tr>
 <tr>
-<td>recording.save_chat_text <em>optional</em></td>
+<td>recording.save_chat_text <em>optional</em><div class="default">false</div></td>
 <td>Save chat text from the meeting</td>
 </tr>
 <tr>
-<td>recording.show_timestamp <em>optional</em></td>
+<td>recording.show_timestamp <em>optional</em><div class="default">false</div></td>
 <td>Show timestamp on video</td>
 </tr>
 <tr>
-<td>recording.recording_audio_transcript <em>optional</em></td>
+<td>recording.recording_audio_transcript <em>optional</em><div class="default">false</div></td>
 <td>Recording audio transcript</td>
 </tr>
 <tr>
@@ -2836,7 +2857,7 @@
 <td>Automatic recording<div class="enum"><code class="prettyprint">Record on local</code> local<br/><code class="prettyprint">Record on cloud</code> cloud<br/><code class="prettyprint">Disabled</code> none<br/></div></td>
 </tr>
 <tr>
-<td>recording.auto_delete_cmr <em>optional</em></td>
+<td>recording.auto_delete_cmr <em>optional</em><div class="default">false</div></td>
 <td>Auto delete cloud recordings</td>
 </tr>
 <tr>
@@ -3045,7 +3066,7 @@
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"topic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -3058,7 +3079,7 @@
         </span><span class="s2">"monthly_week"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"monthly_week_day"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"end_times"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"end_date_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+        </span><span class="s2">"end_date_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"host_video"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
@@ -3237,7 +3258,7 @@
             </span><span class="s2">"host_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"topic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -3250,7 +3271,7 @@
                 </span><span class="s2">"monthly_week"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"monthly_week_day"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"end_times"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"end_date_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+                </span><span class="s2">"end_date_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"host_video"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
@@ -3297,11 +3318,11 @@
 </tr>
 <tr>
 <td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
-<td>Number of items returned per page</td>
+<td>The amount of records returns within a single API call.</td>
 </tr>
 <tr>
 <td>page_number <em>optional</em><div class="default">1</div></td>
-<td>Page number of results returned</td>
+<td>Current page number of returned records.</td>
 </tr>
 </tbody></table>
 
@@ -3321,7 +3342,7 @@
    -d <span class="s1">'{
     "topic": "string",
     "type": "integer",
-    "start_time": "string",
+    "start_time": "string [date-time]",
     "duration": "integer",
     "timezone": "string",
     "password": "string",
@@ -3334,7 +3355,7 @@
         "monthly_week": "integer",
         "monthly_week_day": "integer",
         "end_times": "integer",
-        "end_date_time": "string"
+        "end_date_time": "string [date-time]"
     },
     "settings": {
         "host_video": "boolean",
@@ -3450,27 +3471,27 @@
 <td>Start video when participants join meeting</td>
 </tr>
 <tr>
-<td>settings.cn_meeting <em>optional</em></td>
+<td>settings.cn_meeting <em>optional</em><div class="default">false</div></td>
 <td>Host meeting in China</td>
 </tr>
 <tr>
-<td>settings.in_meeting <em>optional</em></td>
+<td>settings.in_meeting <em>optional</em><div class="default">false</div></td>
 <td>Host meeting in India</td>
 </tr>
 <tr>
-<td>settings.join_before_host <em>optional</em></td>
+<td>settings.join_before_host <em>optional</em><div class="default">false</div></td>
 <td>Join meeting before host start the meeting. Only used for scheduled or recurring meetings</td>
 </tr>
 <tr>
-<td>settings.mute_upon_entry <em>optional</em></td>
+<td>settings.mute_upon_entry <em>optional</em><div class="default">false</div></td>
 <td>Mute participants upon entry</td>
 </tr>
 <tr>
-<td>settings.watermark <em>optional</em></td>
+<td>settings.watermark <em>optional</em><div class="default">false</div></td>
 <td>Enable watermark when viewing the shared screen</td>
 </tr>
 <tr>
-<td>settings.use_pmi <em>optional</em></td>
+<td>settings.use_pmi <em>optional</em><div class="default">false</div></td>
 <td>Use Personal Meeting ID. Only used for scheduled meetings and recurring meetings with no fixed time</td>
 </tr>
 <tr>
@@ -3527,7 +3548,7 @@
     </span><span class="s2">"host_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"topic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -3540,7 +3561,7 @@
         </span><span class="s2">"monthly_week"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"monthly_week_day"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"end_times"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"end_date_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+        </span><span class="s2">"end_date_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"host_video"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
@@ -3589,7 +3610,7 @@
    -d <span class="s1">'{
     "topic": "string",
     "type": "integer",
-    "start_time": "string",
+    "start_time": "string [date-time]",
     "duration": "integer",
     "timezone": "string",
     "password": "string",
@@ -3602,7 +3623,7 @@
         "monthly_week": "integer",
         "monthly_week_day": "integer",
         "end_times": "integer",
-        "end_date_time": "string"
+        "end_date_time": "string [date-time]"
     },
     "settings": {
         "host_video": "boolean",
@@ -3715,27 +3736,27 @@
 <td>Start video when participants join meeting</td>
 </tr>
 <tr>
-<td>settings.cn_meeting <em>optional</em></td>
+<td>settings.cn_meeting <em>optional</em><div class="default">false</div></td>
 <td>Host meeting in China</td>
 </tr>
 <tr>
-<td>settings.in_meeting <em>optional</em></td>
+<td>settings.in_meeting <em>optional</em><div class="default">false</div></td>
 <td>Host meeting in India</td>
 </tr>
 <tr>
-<td>settings.join_before_host <em>optional</em></td>
+<td>settings.join_before_host <em>optional</em><div class="default">false</div></td>
 <td>Join meeting before host start the meeting. Only used for scheduled or recurring meetings</td>
 </tr>
 <tr>
-<td>settings.mute_upon_entry <em>optional</em></td>
+<td>settings.mute_upon_entry <em>optional</em><div class="default">false</div></td>
 <td>Mute participants upon entry</td>
 </tr>
 <tr>
-<td>settings.watermark <em>optional</em></td>
+<td>settings.watermark <em>optional</em><div class="default">false</div></td>
 <td>Enable watermark when viewing the shared screen</td>
 </tr>
 <tr>
-<td>settings.use_pmi <em>optional</em></td>
+<td>settings.use_pmi <em>optional</em><div class="default">false</div></td>
 <td>Use Personal Meeting ID. Only used for scheduled meetings and recurring meetings with no fixed time</td>
 </tr>
 <tr>
@@ -3937,11 +3958,11 @@
 </tr>
 <tr>
 <td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
-<td>Number of items returned per page</td>
+<td>The amount of records returns within a single API call.</td>
 </tr>
 <tr>
 <td>page_number <em>optional</em><div class="default">1</div></td>
-<td>Page number of results returned</td>
+<td>Current page number of returned records.</td>
 </tr>
 </tbody></table>
 
@@ -4138,7 +4159,7 @@
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"topic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -4151,7 +4172,7 @@
         </span><span class="s2">"monthly_week"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"monthly_week_day"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"end_times"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"end_date_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+        </span><span class="s2">"end_date_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"host_video"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
@@ -4330,7 +4351,7 @@
             </span><span class="s2">"host_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"topic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -4343,7 +4364,7 @@
                 </span><span class="s2">"monthly_week"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"monthly_week_day"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"end_times"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"end_date_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+                </span><span class="s2">"end_date_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"host_video"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
@@ -4386,11 +4407,11 @@
 </thead><tbody>
 <tr>
 <td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
-<td>Number of items returned per page</td>
+<td>The amount of records returns within a single API call.</td>
 </tr>
 <tr>
 <td>page_number <em>optional</em><div class="default">1</div></td>
-<td>Page number of results returned</td>
+<td>Current page number of returned records.</td>
 </tr>
 </tbody></table>
 
@@ -4410,7 +4431,7 @@
    -d <span class="s1">'{
     "topic": "string",
     "type": "integer",
-    "start_time": "string",
+    "start_time": "string [date-time]",
     "duration": "integer",
     "timezone": "string",
     "password": "string",
@@ -4423,7 +4444,7 @@
         "monthly_week": "integer",
         "monthly_week_day": "integer",
         "end_times": "integer",
-        "end_date_time": "string"
+        "end_date_time": "string [date-time]"
     },
     "settings": {
         "host_video": "boolean",
@@ -4539,27 +4560,27 @@
 <td>Start video when participants join meeting</td>
 </tr>
 <tr>
-<td>settings.cn_meeting <em>optional</em></td>
+<td>settings.cn_meeting <em>optional</em><div class="default">false</div></td>
 <td>Host meeting in China</td>
 </tr>
 <tr>
-<td>settings.in_meeting <em>optional</em></td>
+<td>settings.in_meeting <em>optional</em><div class="default">false</div></td>
 <td>Host meeting in India</td>
 </tr>
 <tr>
-<td>settings.join_before_host <em>optional</em></td>
+<td>settings.join_before_host <em>optional</em><div class="default">false</div></td>
 <td>Join meeting before host start the meeting. Only used for scheduled or recurring meetings</td>
 </tr>
 <tr>
-<td>settings.mute_upon_entry <em>optional</em></td>
+<td>settings.mute_upon_entry <em>optional</em><div class="default">false</div></td>
 <td>Mute participants upon entry</td>
 </tr>
 <tr>
-<td>settings.watermark <em>optional</em></td>
+<td>settings.watermark <em>optional</em><div class="default">false</div></td>
 <td>Enable watermark when viewing the shared screen</td>
 </tr>
 <tr>
-<td>settings.use_pmi <em>optional</em></td>
+<td>settings.use_pmi <em>optional</em><div class="default">false</div></td>
 <td>Use Personal Meeting ID. Only used for scheduled meetings and recurring meetings with no fixed time</td>
 </tr>
 <tr>
@@ -4616,7 +4637,7 @@
     </span><span class="s2">"host_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"topic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -4629,7 +4650,7 @@
         </span><span class="s2">"monthly_week"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"monthly_week_day"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"end_times"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"end_date_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+        </span><span class="s2">"end_date_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"host_video"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
@@ -4678,7 +4699,7 @@
    -d <span class="s1">'{
     "topic": "string",
     "type": "integer",
-    "start_time": "string",
+    "start_time": "string [date-time]",
     "duration": "integer",
     "timezone": "string",
     "password": "string",
@@ -4691,7 +4712,7 @@
         "monthly_week": "integer",
         "monthly_week_day": "integer",
         "end_times": "integer",
-        "end_date_time": "string"
+        "end_date_time": "string [date-time]"
     },
     "settings": {
         "host_video": "boolean",
@@ -4804,27 +4825,27 @@
 <td>Start video when participants join meeting</td>
 </tr>
 <tr>
-<td>settings.cn_meeting <em>optional</em></td>
+<td>settings.cn_meeting <em>optional</em><div class="default">false</div></td>
 <td>Host meeting in China</td>
 </tr>
 <tr>
-<td>settings.in_meeting <em>optional</em></td>
+<td>settings.in_meeting <em>optional</em><div class="default">false</div></td>
 <td>Host meeting in India</td>
 </tr>
 <tr>
-<td>settings.join_before_host <em>optional</em></td>
+<td>settings.join_before_host <em>optional</em><div class="default">false</div></td>
 <td>Join meeting before host start the meeting. Only used for scheduled or recurring meetings</td>
 </tr>
 <tr>
-<td>settings.mute_upon_entry <em>optional</em></td>
+<td>settings.mute_upon_entry <em>optional</em><div class="default">false</div></td>
 <td>Mute participants upon entry</td>
 </tr>
 <tr>
-<td>settings.watermark <em>optional</em></td>
+<td>settings.watermark <em>optional</em><div class="default">false</div></td>
 <td>Enable watermark when viewing the shared screen</td>
 </tr>
 <tr>
-<td>settings.use_pmi <em>optional</em></td>
+<td>settings.use_pmi <em>optional</em><div class="default">false</div></td>
 <td>Use Personal Meeting ID. Only used for scheduled meetings and recurring meetings with no fixed time</td>
 </tr>
 <tr>
@@ -4990,11 +5011,11 @@
 </tr>
 <tr>
 <td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
-<td>Number of items returned per page</td>
+<td>The amount of records returns within a single API call.</td>
 </tr>
 <tr>
 <td>page_number <em>optional</em><div class="default">1</div></td>
-<td>Page number of results returned</td>
+<td>Current page number of returned records.</td>
 </tr>
 </tbody></table>
 
@@ -5200,11 +5221,11 @@
 </tr>
 <tr>
 <td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
-<td>Number of items returned per page</td>
+<td>The amount of records returns within a single API call.</td>
 </tr>
 <tr>
 <td>page_number <em>optional</em><div class="default">1</div></td>
-<td>Page number of results returned</td>
+<td>Current page number of returned records.</td>
 </tr>
 </tbody></table>
 
@@ -5459,11 +5480,11 @@
 </thead><tbody>
 <tr>
 <td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
-<td>Number of items returned per page</td>
+<td>The amount of records returns within a single API call.</td>
 </tr>
 <tr>
 <td>page_number <em>optional</em><div class="default">1</div></td>
-<td>Page number of results returned</td>
+<td>Current page number of returned records.</td>
 </tr>
 </tbody></table>
 
@@ -5674,11 +5695,11 @@
 </thead><tbody>
 <tr>
 <td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
-<td>Number of items returned per page</td>
+<td>The amount of records returns within a single API call.</td>
 </tr>
 <tr>
 <td>page_number <em>optional</em><div class="default">1</div></td>
-<td>Page number of results returned</td>
+<td>Current page number of returned records.</td>
 </tr>
 </tbody></table>
 
@@ -5710,7 +5731,7 @@
 <pre class="highlight plaintext"><code>201 Created
 </code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"added_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="s2">"added_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <table><thead>
@@ -5863,11 +5884,11 @@
 </thead><tbody>
 <tr>
 <td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
-<td>Number of items returned per page</td>
+<td>The amount of records returns within a single API call.</td>
 </tr>
 <tr>
 <td>page_number <em>optional</em><div class="default">1</div></td>
-<td>Page number of results returned</td>
+<td>Current page number of returned records.</td>
 </tr>
 </tbody></table>
 
@@ -5907,7 +5928,7 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>name <em>optional</em></td>
+<td>name <em>optional</em><div class="maxLength">128</div></td>
 <td>Group name, must be unique in one account</td>
 </tr>
 <tr>
@@ -6013,7 +6034,7 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>name <em>optional</em></td>
+<td>name <em>optional</em><div class="maxLength">128</div></td>
 <td>Group name, must be unique in one account</td>
 </tr>
 <tr>
@@ -6120,11 +6141,11 @@
 </thead><tbody>
 <tr>
 <td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
-<td>Number of items returned per page</td>
+<td>The amount of records returns within a single API call.</td>
 </tr>
 <tr>
 <td>page_number <em>optional</em><div class="default">1</div></td>
-<td>Page number of results returned</td>
+<td>Current page number of returned records.</td>
 </tr>
 </tbody></table>
 
@@ -6240,7 +6261,7 @@
     </span><span class="s2">"month"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"dates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date]"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"new_users"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"meetings"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"participants"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
@@ -6284,8 +6305,8 @@
 </blockquote>
 <pre class="highlight plaintext"><code>200 OK
 </code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date]"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date]"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"page_count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"page_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"page_size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
@@ -6295,7 +6316,7 @@
     </span><span class="s2">"total_meeting_minutes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [uuid]"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"user_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
@@ -6327,11 +6348,11 @@
 </tr>
 <tr>
 <td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
-<td>Number of items returned per page</td>
+<td>The amount of records returns within a single API call.</td>
 </tr>
 <tr>
 <td>page_number <em>optional</em><div class="default">1</div></td>
-<td>Page number of results returned</td>
+<td>Current page number of returned records.</td>
 </tr>
 </tbody></table>
 
@@ -6354,22 +6375,22 @@
 </blockquote>
 <pre class="highlight plaintext"><code>200 OK
 </code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date]"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date]"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"page_count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"page_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"page_size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"total_records"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"meetings"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [uuid]"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"topic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"user_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"user_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"total_minutes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"participants_count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="w">
@@ -6405,11 +6426,11 @@
 </tr>
 <tr>
 <td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
-<td>Number of items returned per page</td>
+<td>The amount of records returns within a single API call.</td>
 </tr>
 <tr>
 <td>page_number <em>optional</em><div class="default">1</div></td>
-<td>Page number of results returned</td>
+<td>Current page number of returned records.</td>
 </tr>
 </tbody></table>
 
@@ -6440,8 +6461,8 @@
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"user_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"join_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"leave_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"join_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"leave_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"attentiveness_score"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="w">
         </span><span class="p">}</span><span class="w">
@@ -6468,11 +6489,11 @@
 </thead><tbody>
 <tr>
 <td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
-<td>Number of items returned per page</td>
+<td>The amount of records returns within a single API call.</td>
 </tr>
 <tr>
 <td>page_number <em>optional</em><div class="default">1</div></td>
-<td>Page number of results returned</td>
+<td>Current page number of returned records.</td>
 </tr>
 </tbody></table>
 
@@ -6503,8 +6524,8 @@
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"user_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"join_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"leave_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"join_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"leave_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"attentiveness_score"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
         </span><span class="p">}</span><span class="w">
@@ -6531,11 +6552,11 @@
 </thead><tbody>
 <tr>
 <td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
-<td>Number of items returned per page</td>
+<td>The amount of records returns within a single API call.</td>
 </tr>
 <tr>
 <td>page_number <em>optional</em><div class="default">1</div></td>
-<td>Page number of results returned</td>
+<td>Current page number of returned records.</td>
 </tr>
 </tbody></table>
 
@@ -6559,8 +6580,8 @@
 <pre class="highlight plaintext"><code>200 OK
 </code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [uuid]"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"questions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -6607,8 +6628,8 @@
 <pre class="highlight plaintext"><code>200 OK
 </code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [uuid]"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"questions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -6654,8 +6675,8 @@
 </blockquote>
 <pre class="highlight plaintext"><code>200 OK
 </code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date]"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date]"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"page_count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"page_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"page_size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
@@ -6667,8 +6688,8 @@
             </span><span class="s2">"host_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"host_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"dept"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="w">
         </span><span class="p">}</span><span class="w">
@@ -6695,11 +6716,11 @@
 </tr>
 <tr>
 <td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
-<td>Number of items returned per page</td>
+<td>The amount of records returns within a single API call.</td>
 </tr>
 <tr>
 <td>page_number <em>optional</em><div class="default">1</div></td>
-<td>Page number of results returned</td>
+<td>Current page number of returned records.</td>
 </tr>
 </tbody></table>
 
@@ -6724,22 +6745,22 @@
 </blockquote>
 <pre class="highlight plaintext"><code>200 OK
 </code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date]"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date]"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"page_count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"page_size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"total_records"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"next_page_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"meetings"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [uuid]"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"topic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"user_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"participants"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"has_pstn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
@@ -6773,11 +6794,11 @@
 </tr>
 <tr>
 <td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
-<td>Number of items returned per page</td>
+<td>The amount of records returns within a single API call.</td>
 </tr>
 <tr>
 <td>page_number <em>optional</em><div class="default">1</div></td>
-<td>Page number of results returned</td>
+<td>Current page number of returned records.</td>
 </tr>
 </tbody></table>
 
@@ -6800,14 +6821,14 @@
 </blockquote>
 <pre class="highlight plaintext"><code>200 OK
 </code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [uuid]"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"topic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"user_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"participants"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"has_pstn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
@@ -6868,15 +6889,15 @@
     </span><span class="s2">"next_page_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"participants"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [uuid]"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [uuid]"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"user_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"device"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"ip_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"network_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"join_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"leave_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"join_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"leave_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"share_application"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"share_desktop"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"share_whiteboard"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
@@ -6914,11 +6935,11 @@
 </tr>
 <tr>
 <td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
-<td>Number of items returned per page</td>
+<td>The amount of records returns within a single API call.</td>
 </tr>
 <tr>
 <td>page_number <em>optional</em><div class="default">1</div></td>
-<td>Page number of results returned</td>
+<td>Current page number of returned records.</td>
 </tr>
 </tbody></table>
 
@@ -6941,20 +6962,20 @@
 </blockquote>
 <pre class="highlight plaintext"><code>200 OK
 </code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [uuid]"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"user_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"device"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"ip_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"join_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"leave_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"join_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"leave_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"pc_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"domain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"mac_addr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"harddisk_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"user_qos"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"date_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"date_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"audio_input"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"bitrate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"latency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -7067,20 +7088,20 @@
     </span><span class="s2">"total_records"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"participants"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [uuid]"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"user_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"device"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"ip_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"join_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"leave_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"join_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"leave_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"pc_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"domain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"mac_addr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"harddisk_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"user_qos"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"date_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"date_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"audio_input"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                     </span><span class="s2">"bitrate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"latency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -7166,11 +7187,11 @@
 </tr>
 <tr>
 <td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
-<td>Number of items returned per page</td>
+<td>The amount of records returns within a single API call.</td>
 </tr>
 <tr>
 <td>page_number <em>optional</em><div class="default">1</div></td>
-<td>Page number of results returned</td>
+<td>Current page number of returned records.</td>
 </tr>
 </tbody></table>
 
@@ -7223,6 +7244,10 @@
 <td>meetingId <strong>required</strong></td>
 <td>The meeting ID</td>
 </tr>
+<tr>
+<td>participantId <strong>required</strong></td>
+<td>The participant ID</td>
+</tr>
 </tbody></table>
 
 <table><thead>
@@ -7237,11 +7262,11 @@
 </tr>
 <tr>
 <td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
-<td>Number of items returned per page</td>
+<td>The amount of records returns within a single API call.</td>
 </tr>
 <tr>
 <td>page_number <em>optional</em><div class="default">1</div></td>
-<td>Page number of results returned</td>
+<td>Current page number of returned records.</td>
 </tr>
 </tbody></table>
 
@@ -7264,22 +7289,22 @@
 </blockquote>
 <pre class="highlight plaintext"><code>200 OK
 </code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date]"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date]"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"page_count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"page_size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"total_records"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"next_page_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"webinars"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [uuid]"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"topic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"user_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"participants"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"has_pstn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
@@ -7313,11 +7338,11 @@
 </tr>
 <tr>
 <td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
-<td>Number of items returned per page</td>
+<td>The amount of records returns within a single API call.</td>
 </tr>
 <tr>
 <td>page_number <em>optional</em><div class="default">1</div></td>
-<td>Page number of results returned</td>
+<td>Current page number of returned records.</td>
 </tr>
 </tbody></table>
 
@@ -7340,14 +7365,14 @@
 </blockquote>
 <pre class="highlight plaintext"><code>200 OK
 </code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [uuid]"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"topic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"user_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"participants"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"has_pstn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
@@ -7408,15 +7433,15 @@
     </span><span class="s2">"next_page_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"participants"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [uuid]"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [uuid]"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"user_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"device"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"ip_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"network_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"join_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"leave_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"join_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"leave_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"share_application"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"share_desktop"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"share_whiteboard"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
@@ -7454,11 +7479,11 @@
 </tr>
 <tr>
 <td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
-<td>Number of items returned per page</td>
+<td>The amount of records returns within a single API call.</td>
 </tr>
 <tr>
 <td>page_number <em>optional</em><div class="default">1</div></td>
-<td>Page number of results returned</td>
+<td>Current page number of returned records.</td>
 </tr>
 </tbody></table>
 
@@ -7481,20 +7506,20 @@
 </blockquote>
 <pre class="highlight plaintext"><code>200 OK
 </code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [uuid]"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"user_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"device"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"ip_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"join_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"leave_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"join_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"leave_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"pc_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"domain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"mac_addr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"harddisk_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"user_qos"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"date_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"date_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"audio_input"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"bitrate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"latency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -7607,20 +7632,20 @@
     </span><span class="s2">"total_records"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"participants"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [uuid]"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"user_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"device"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"ip_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"join_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"leave_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"join_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"leave_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"pc_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"domain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"mac_addr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"harddisk_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"user_qos"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"date_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"date_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"audio_input"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                     </span><span class="s2">"bitrate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"latency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -7706,11 +7731,11 @@
 </tr>
 <tr>
 <td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
-<td>Number of items returned per page</td>
+<td>The amount of records returns within a single API call.</td>
 </tr>
 <tr>
 <td>page_number <em>optional</em><div class="default">1</div></td>
-<td>Page number of results returned</td>
+<td>Current page number of returned records.</td>
 </tr>
 </tbody></table>
 
@@ -7763,6 +7788,10 @@
 <td>webinarId <strong>required</strong></td>
 <td>The webinar ID</td>
 </tr>
+<tr>
+<td>participantId <strong>required</strong></td>
+<td>The participant ID</td>
+</tr>
 </tbody></table>
 
 <table><thead>
@@ -7777,11 +7806,11 @@
 </tr>
 <tr>
 <td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
-<td>Number of items returned per page</td>
+<td>The amount of records returns within a single API call.</td>
 </tr>
 <tr>
 <td>page_number <em>optional</em><div class="default">1</div></td>
-<td>Page number of results returned</td>
+<td>Current page number of returned records.</td>
 </tr>
 </tbody></table>
 
@@ -7832,11 +7861,11 @@
 </thead><tbody>
 <tr>
 <td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
-<td>Number of items returned per page</td>
+<td>The amount of records returns within a single API call.</td>
 </tr>
 <tr>
 <td>page_number <em>optional</em><div class="default">1</div></td>
-<td>Page number of results returned</td>
+<td>Current page number of returned records.</td>
 </tr>
 </tbody></table>
 
@@ -7870,14 +7899,14 @@
     </span><span class="s2">"speaker"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"last_start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"live_meeting"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [uuid]"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"topic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"user_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"participants"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"has_pstn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
@@ -7889,22 +7918,22 @@
         </span><span class="s2">"has_sip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"past_meetings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date]"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date]"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"page_count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"page_size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"total_records"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"next_page_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"meetings"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [uuid]"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"topic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"user_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"participants"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"has_pstn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
@@ -7947,11 +7976,11 @@
 </tr>
 <tr>
 <td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
-<td>Number of items returned per page</td>
+<td>The amount of records returns within a single API call.</td>
 </tr>
 <tr>
 <td>page_number <em>optional</em><div class="default">1</div></td>
-<td>Page number of results returned</td>
+<td>Current page number of returned records.</td>
 </tr>
 </tbody></table>
 
@@ -7974,8 +8003,8 @@
 </blockquote>
 <pre class="highlight plaintext"><code>200 OK
 </code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date]"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date]"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"crc_ports_usage"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"date_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -8025,8 +8054,8 @@
 </blockquote>
 <pre class="highlight plaintext"><code>200 OK
 </code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date]"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date]"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"page_count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"page_size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"total_records"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
@@ -8072,11 +8101,11 @@
 </tr>
 <tr>
 <td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
-<td>Number of items returned per page</td>
+<td>The amount of records returns within a single API call.</td>
 </tr>
 <tr>
 <td>page_number <em>optional</em><div class="default">1</div></td>
-<td>Page number of results returned</td>
+<td>Current page number of returned records.</td>
 </tr>
 </tbody></table>
 
@@ -8539,7 +8568,9 @@
 </tr>
 </tbody></table>
 
-<h2 id="zoom-room-plans">Zoom Room Plans</h2>
+<h2 id="additional-plans">Additional Plans</h2>
+
+<h3 id="zoom-room-plans">Zoom Room Plans</h3>
 
 <table><thead>
 <tr>
@@ -8557,7 +8588,7 @@
 </tr>
 </tbody></table>
 
-<h2 id="h-323-sip-device-room-connector-plans">H.323/SIP Device Room Connector Plans</h2>
+<h3 id="h-323-sip-device-room-connector-plans">H.323/SIP Device Room Connector Plans</h3>
 
 <table><thead>
 <tr>
@@ -8575,7 +8606,7 @@
 </tr>
 </tbody></table>
 
-<h2 id="large-meeting-plans">Large Meeting Plans</h2>
+<h3 id="large-meeting-plans">Large Meeting Plans</h3>
 
 <table><thead>
 <tr>
@@ -8617,7 +8648,7 @@
 </tr>
 </tbody></table>
 
-<h2 id="webinar-plans">Webinar Plans</h2>
+<h3 id="webinar-plans">Webinar Plans</h3>
 
 <table><thead>
 <tr>
@@ -8675,7 +8706,7 @@
 </tr>
 </tbody></table>
 
-<h2 id="cloud-recording-plans">Cloud Recording Plans</h2>
+<h3 id="cloud-recording-plans">Cloud Recording Plans</h3>
 
 <table><thead>
 <tr>
@@ -8708,7 +8739,7 @@
   </span><span class="s2">"ddi_numbers"</span><span class="p">:</span><span class="mi">10</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<h2 id="audio-conferencing-plans">Audio Conferencing Plans</h2>
+<h3 id="audio-conferencing-plans">Audio Conferencing Plans</h3>
 
 <table><thead>
 <tr>

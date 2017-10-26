@@ -1,6 +1,6 @@
-<h2 id="update-an-accounts-base-plan">Update an account&rsquo;s base plan</h2>
+<h2 id="update-a-base-plan-for-a-sub-account">Update a base plan for a sub account</h2>
 
-<p>Update a base plan for a sub account <aside>Can only update a base plan for the sub account which is a paid account and paid by master account</aside><aside>Can only add an Additional plan for the sub account which is a paid account and paid by master account</aside></p>
+<p>Update a base plan for a sub account <aside>Can only update a base plan for the sub account which is a paid account and paid by master account</aside></p>
 
 <blockquote>
 <p>Definition</p>
@@ -41,7 +41,7 @@
 </thead><tbody>
 <tr>
 <td>type <strong>required</strong></td>
-<td>Account plan type</td>
+<td>Account <a href="#plans">plan type</a></td>
 </tr>
 <tr>
 <td>hosts <strong>required</strong></td>

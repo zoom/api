@@ -1,4 +1,4 @@
-<h2 id="update-an-accounts-settings">Update an account&rsquo;s settings</h2>
+<h2 id="update-a-sub-accounts-settings">Update a sub account&rsquo;s settings</h2>
 
 <p>Update a sub account&rsquo;s settings under the master account</p>
 
@@ -74,6 +74,7 @@
         "start_airplay_manually": "boolean",
         "weekly_system_restart": "boolean",
         "list_meetings_with_calendar": "boolean",
+        "zr_post_meeting_feedback": "boolean",
         "ultrasonic": "boolean",
         "force_private_meeting": "boolean",
         "hide_host_information": "boolean",
@@ -81,7 +82,6 @@
         "auto_start_stop_scheduled_meetings": "boolean"
     },
     "security": {
-        "admin_change_name_pic": "boolean",
         "import_photos_from_devices": "boolean",
         "hide_billing_info": "boolean"
     },
@@ -164,7 +164,7 @@
 </tr>
 <tr>
 <td>schedule_meting.not_store_meeting_topic <em>optional</em></td>
-<td>Always display &lsquo;Zoom Meeting&rsquo; as the meeting topic</td>
+<td>Always display &ldquo;Zoom Meeting&rdquo; as the meeting topic</td>
 </tr>
 <tr>
 <td>schedule_meting.force_pmi_jbh_password <em>optional</em></td>
@@ -187,7 +187,7 @@
 <td>Auto Saving Chats</td>
 </tr>
 <tr>
-<td>in_meeting.file_transfer <em>optional</em><div class="default">1</div></td>
+<td>in_meeting.file_transfer <em>optional</em></td>
 <td>File transfer</td>
 </tr>
 <tr>
@@ -287,7 +287,7 @@
 <td>Use HTML format email for Outlook plugin</td>
 </tr>
 <tr>
-<td>in_meeting.dscp_marking <em>optional</em><div class="default">1</div></td>
+<td>in_meeting.dscp_marking <em>optional</em></td>
 <td>DSCP marking</td>
 </tr>
 <tr>
@@ -355,6 +355,10 @@
 <td>Display meeting list with calendar integration</td>
 </tr>
 <tr>
+<td>zoom_rooms.zr_post_meeting_feedback <em>optional</em></td>
+<td>Zoom Room post meeting feedback</td>
+</tr>
+<tr>
 <td>zoom_rooms.ultrasonic <em>optional</em></td>
 <td>Automatic direct sharing using ultrasonic proximity signal</td>
 </tr>
@@ -375,15 +379,11 @@
 <td>Automatic start/stop scheduled meetings</td>
 </tr>
 <tr>
-<td>security.admin_change_name_pic <em>optional</em></td>
-<td>Only account administrators can change user&rsquo;s username and picture</td>
-</tr>
-<tr>
-<td>security.import_photos_from_devices <em>optional</em><div class="default">1</div></td>
+<td>security.import_photos_from_devices <em>optional</em></td>
 <td>Allow importing of photos from photo library on the user&rsquo;s device</td>
 </tr>
 <tr>
-<td>security.hide_billing_info <em>optional</em><div class="default">1</div></td>
+<td>security.hide_billing_info <em>optional</em></td>
 <td>Hide billing information</td>
 </tr>
 <tr>
@@ -415,12 +415,12 @@
 <td>Auto delete cloud recordings after days</td>
 </tr>
 <tr>
-<td>telephony.third_party_audio <em>optional</em><div class="default">1</div></td>
-<td></td>
+<td>telephony.third_party_audio <em>optional</em></td>
+<td>3rd party audio conference</td>
 </tr>
 <tr>
 <td>telephony.audio_conference_info <em>optional</em></td>
-<td></td>
+<td>3rd party audio conference info</td>
 </tr>
 <tr>
 <td>integration.google_calendar <em>optional</em></td>

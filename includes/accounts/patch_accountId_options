@@ -1,4 +1,4 @@
-<h2 id="update-an-accounts-options">Update an account&rsquo;s options</h2>
+<h2 id="update-a-sub-accounts-options">Update a sub account&rsquo;s options</h2>
 
 <p>Update a sub account&rsquo;s options under the master account</p>
 
@@ -15,7 +15,7 @@
     "share_rc": "boolean",
     "room_connectors": "string",
     "share_mc": "boolean",
-    "meeting_conntectors": "string",
+    "meeting_connectors": "string",
     "pay_mode": "string"
 }'</span>
 </code></pre>
@@ -43,7 +43,7 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>share_rc <em>optional</em></td>
+<td>share_rc <em>optional</em><div class="default">false</div></td>
 <td>Enable Share Virtual Room Connector.</td>
 </tr>
 <tr>
@@ -51,11 +51,11 @@
 <td>Virtual Room Connector, multiple value separated by comma.</td>
 </tr>
 <tr>
-<td>share_mc <em>optional</em></td>
+<td>share_mc <em>optional</em><div class="default">false</div></td>
 <td>Enable Share Meeting Connector.</td>
 </tr>
 <tr>
-<td>meeting_conntectors <em>optional</em></td>
+<td>meeting_connectors <em>optional</em></td>
 <td>Meeting Connector, multiple value separated by comma.</td>
 </tr>
 <tr>

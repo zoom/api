@@ -1,4 +1,4 @@
-<h2 id="create-an-account">Create an account</h2>
+<h2 id="create-a-sub-account">Create a sub account</h2>
 
 <p>Create a sub account under the master account <aside>Your account must be a master account and have this privilege to create sub account. Zoom only assign this privilege to trusted partner. The created user will not receive the confirmation email.</aside></p>
 
@@ -12,15 +12,15 @@
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/accounts <span class="se">\</span>
    -d <span class="s1">'{
-    "email": "string",
     "first_name": "string",
     "last_name": "string",
+    "email": "string",
     "password": "string",
     "options": {
         "share_rc": "boolean",
         "room_connectors": "string",
         "share_mc": "boolean",
-        "meeting_conntectors": "string",
+        "meeting_connectors": "string",
         "pay_mode": "string"
     }
 }'</span>
@@ -43,10 +43,6 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>email <strong>required</strong></td>
-<td>User&rsquo;s email address.</td>
-</tr>
-<tr>
 <td>first_name <strong>required</strong></td>
 <td>User&rsquo;s first name.</td>
 </tr>
@@ -55,11 +51,15 @@
 <td>User&rsquo;s last name.</td>
 </tr>
 <tr>
+<td>email <strong>required</strong></td>
+<td>User&rsquo;s email address.</td>
+</tr>
+<tr>
 <td>password <strong>required</strong></td>
 <td>User&rsquo;s password.</td>
 </tr>
 <tr>
-<td>options.share_rc <em>optional</em></td>
+<td>options.share_rc <em>optional</em><div class="default">false</div></td>
 <td>Enable Share Virtual Room Connector.</td>
 </tr>
 <tr>
@@ -67,11 +67,11 @@
 <td>Virtual Room Connector, multiple value separated by comma.</td>
 </tr>
 <tr>
-<td>options.share_mc <em>optional</em></td>
+<td>options.share_mc <em>optional</em><div class="default">false</div></td>
 <td>Enable Share Meeting Connector.</td>
 </tr>
 <tr>
-<td>options.meeting_conntectors <em>optional</em></td>
+<td>options.meeting_connectors <em>optional</em></td>
 <td>Meeting Connector, multiple value separated by comma.</td>
 </tr>
 <tr>

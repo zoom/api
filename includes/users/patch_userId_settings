@@ -138,15 +138,15 @@
 <td>End-to-end encryption</td>
 </tr>
 <tr>
-<td>in_meeting.chat <em>optional</em></td>
+<td>in_meeting.chat <em>optional</em><div class="default">false</div></td>
 <td>Chat</td>
 </tr>
 <tr>
-<td>in_meeting.private_chat <em>optional</em></td>
+<td>in_meeting.private_chat <em>optional</em><div class="default">false</div></td>
 <td>Private chat</td>
 </tr>
 <tr>
-<td>in_meeting.auto_saving_chat <em>optional</em></td>
+<td>in_meeting.auto_saving_chat <em>optional</em><div class="default">false</div></td>
 <td>Auto saving chats</td>
 </tr>
 <tr>
@@ -158,83 +158,83 @@
 <td>Record and play their own voice</td>
 </tr>
 <tr>
-<td>in_meeting.file_transfer <em>optional</em></td>
+<td>in_meeting.file_transfer <em>optional</em><div class="default">false</div></td>
 <td>File transfer</td>
 </tr>
 <tr>
-<td>in_meeting.feedback <em>optional</em></td>
+<td>in_meeting.feedback <em>optional</em><div class="default">false</div></td>
 <td>Feedback to Zoom</td>
 </tr>
 <tr>
-<td>in_meeting.co_host <em>optional</em></td>
+<td>in_meeting.co_host <em>optional</em><div class="default">false</div></td>
 <td>Co-host</td>
 </tr>
 <tr>
-<td>in_meeting.polling <em>optional</em></td>
+<td>in_meeting.polling <em>optional</em><div class="default">false</div></td>
 <td>Polling</td>
 </tr>
 <tr>
-<td>in_meeting.attendee_on_hold <em>optional</em></td>
+<td>in_meeting.attendee_on_hold <em>optional</em><div class="default">false</div></td>
 <td>Allow host to put attendee on hold</td>
 </tr>
 <tr>
-<td>in_meeting.annotation <em>optional</em></td>
+<td>in_meeting.annotation <em>optional</em><div class="default">false</div></td>
 <td>Annotation</td>
 </tr>
 <tr>
-<td>in_meeting.non_verbal_feedback <em>optional</em></td>
+<td>in_meeting.non_verbal_feedback <em>optional</em><div class="default">false</div></td>
 <td>Non-verbal feedback</td>
 </tr>
 <tr>
-<td>in_meeting.breakout_room <em>optional</em></td>
+<td>in_meeting.breakout_room <em>optional</em><div class="default">false</div></td>
 <td>Breakout room</td>
 </tr>
 <tr>
-<td>in_meeting.remote_support <em>optional</em></td>
+<td>in_meeting.remote_support <em>optional</em><div class="default">false</div></td>
 <td>Remote support</td>
 </tr>
 <tr>
-<td>in_meeting.closed_caption <em>optional</em></td>
+<td>in_meeting.closed_caption <em>optional</em><div class="default">false</div></td>
 <td>Closed caption</td>
 </tr>
 <tr>
-<td>in_meeting.group_hd <em>optional</em></td>
+<td>in_meeting.group_hd <em>optional</em><div class="default">false</div></td>
 <td>Group HD video</td>
 </tr>
 <tr>
-<td>in_meeting.virtual_background <em>optional</em></td>
+<td>in_meeting.virtual_background <em>optional</em><div class="default">false</div></td>
 <td>Virtual background</td>
 </tr>
 <tr>
-<td>in_meeting.far_end_camera_control <em>optional</em></td>
+<td>in_meeting.far_end_camera_control <em>optional</em><div class="default">false</div></td>
 <td>Far end camera control</td>
 </tr>
 <tr>
-<td>in_meeting.share_dual_camera <em>optional</em></td>
+<td>in_meeting.share_dual_camera <em>optional</em><div class="default">false</div></td>
 <td>Share dual camera</td>
 </tr>
 <tr>
-<td>in_meeting.attention_tracking <em>optional</em></td>
+<td>in_meeting.attention_tracking <em>optional</em><div class="default">false</div></td>
 <td>Attention tracking</td>
 </tr>
 <tr>
-<td>in_meeting.waiting_room <em>optional</em></td>
+<td>in_meeting.waiting_room <em>optional</em><div class="default">false</div></td>
 <td>Waiting room</td>
 </tr>
 <tr>
-<td>in_meeting.manage_zr <em>optional</em></td>
+<td>in_meeting.manage_zr <em>optional</em><div class="default">false</div></td>
 <td>Manage Zoom Rooms</td>
 </tr>
 <tr>
-<td>email_notification.jbh_reminder <em>optional</em></td>
+<td>email_notification.jbh_reminder <em>optional</em><div class="default">false</div></td>
 <td>When attendees join meeting before host</td>
 </tr>
 <tr>
-<td>email_notification.cancel_meeting_reminder <em>optional</em></td>
+<td>email_notification.cancel_meeting_reminder <em>optional</em><div class="default">false</div></td>
 <td>When a meeting is cancelled</td>
 </tr>
 <tr>
-<td>email_notification.alternative_host_reminder <em>optional</em></td>
+<td>email_notification.alternative_host_reminder <em>optional</em><div class="default">false</div></td>
 <td>When an alternative host is set or removed from a meeting</td>
 </tr>
 <tr>
@@ -242,31 +242,31 @@
 <td>Local recording</td>
 </tr>
 <tr>
-<td>recording.cloud_recording <em>optional</em></td>
+<td>recording.cloud_recording <em>optional</em><div class="default">false</div></td>
 <td>Cloud recording</td>
 </tr>
 <tr>
-<td>recording.record_speaker_view <em>optional</em></td>
+<td>recording.record_speaker_view <em>optional</em><div class="default">false</div></td>
 <td>Record the active speaker view</td>
 </tr>
 <tr>
-<td>recording.record_gallery_view <em>optional</em></td>
+<td>recording.record_gallery_view <em>optional</em><div class="default">false</div></td>
 <td>Record the gallery view</td>
 </tr>
 <tr>
-<td>recording.record_audio_file <em>optional</em></td>
+<td>recording.record_audio_file <em>optional</em><div class="default">false</div></td>
 <td>Record an audio only file</td>
 </tr>
 <tr>
-<td>recording.save_chat_text <em>optional</em></td>
+<td>recording.save_chat_text <em>optional</em><div class="default">false</div></td>
 <td>Save chat text from the meeting</td>
 </tr>
 <tr>
-<td>recording.show_timestamp <em>optional</em></td>
+<td>recording.show_timestamp <em>optional</em><div class="default">false</div></td>
 <td>Show timestamp on video</td>
 </tr>
 <tr>
-<td>recording.recording_audio_transcript <em>optional</em></td>
+<td>recording.recording_audio_transcript <em>optional</em><div class="default">false</div></td>
 <td>Recording audio transcript</td>
 </tr>
 <tr>
@@ -274,7 +274,7 @@
 <td>Automatic recording<div class="enum"><code class="prettyprint">Record on local</code> local<br/><code class="prettyprint">Record on cloud</code> cloud<br/><code class="prettyprint">Disabled</code> none<br/></div></td>
 </tr>
 <tr>
-<td>recording.auto_delete_cmr <em>optional</em></td>
+<td>recording.auto_delete_cmr <em>optional</em><div class="default">false</div></td>
 <td>Auto delete cloud recordings</td>
 </tr>
 <tr>

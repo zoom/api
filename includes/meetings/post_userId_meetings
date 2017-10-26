@@ -14,7 +14,7 @@
    -d <span class="s1">'{
     "topic": "string",
     "type": "integer",
-    "start_time": "string",
+    "start_time": "string [date-time]",
     "duration": "integer",
     "timezone": "string",
     "password": "string",
@@ -27,7 +27,7 @@
         "monthly_week": "integer",
         "monthly_week_day": "integer",
         "end_times": "integer",
-        "end_date_time": "string"
+        "end_date_time": "string [date-time]"
     },
     "settings": {
         "host_video": "boolean",
@@ -143,27 +143,27 @@
 <td>Start video when participants join meeting</td>
 </tr>
 <tr>
-<td>settings.cn_meeting <em>optional</em></td>
+<td>settings.cn_meeting <em>optional</em><div class="default">false</div></td>
 <td>Host meeting in China</td>
 </tr>
 <tr>
-<td>settings.in_meeting <em>optional</em></td>
+<td>settings.in_meeting <em>optional</em><div class="default">false</div></td>
 <td>Host meeting in India</td>
 </tr>
 <tr>
-<td>settings.join_before_host <em>optional</em></td>
+<td>settings.join_before_host <em>optional</em><div class="default">false</div></td>
 <td>Join meeting before host start the meeting. Only used for scheduled or recurring meetings</td>
 </tr>
 <tr>
-<td>settings.mute_upon_entry <em>optional</em></td>
+<td>settings.mute_upon_entry <em>optional</em><div class="default">false</div></td>
 <td>Mute participants upon entry</td>
 </tr>
 <tr>
-<td>settings.watermark <em>optional</em></td>
+<td>settings.watermark <em>optional</em><div class="default">false</div></td>
 <td>Enable watermark when viewing the shared screen</td>
 </tr>
 <tr>
-<td>settings.use_pmi <em>optional</em></td>
+<td>settings.use_pmi <em>optional</em><div class="default">false</div></td>
 <td>Use Personal Meeting ID. Only used for scheduled meetings and recurring meetings with no fixed time</td>
 </tr>
 <tr>

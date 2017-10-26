@@ -1,6 +1,6 @@
-<h2 id="update-an-accounts-add-on-plans">Update an account&rsquo;s add-on plans</h2>
+<h2 id="update-an-additional-plan-for-sub-account">Update an additional plan for sub account</h2>
 
-<p>Update as add-on plan for a sub account <aside>Can only update an Additional plan for the sub account which is a paid account and paid by master account</aside></p>
+<p>Update an additional plan for sub account<aside>Can only update an Additional plan for the sub account which is a paid account and paid by master account</aside></p>
 
 <blockquote>
 <p>Definition</p>
@@ -41,7 +41,7 @@
 </thead><tbody>
 <tr>
 <td>type <strong>required</strong></td>
-<td>Account plan type</td>
+<td>Account <a href="#plans">plan type</a></td>
 </tr>
 <tr>
 <td>hosts <strong>required</strong></td>

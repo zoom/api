@@ -1,6 +1,6 @@
-<h2 id="retrieve-an-accounts-billing-information">Retrieve an account&rsquo;s billing information</h2>
+<h2 id="retrieve-billing-information-for-a-sub-account">Retrieve billing information for a sub account</h2>
 
-<p>Retrieve a sub account&rsquo;s billing information under the master account</p>
+<p>Retrieve billing information for a sub account under the master account</p>
 
 <blockquote>
 <p>Definition</p>
