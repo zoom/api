@@ -5077,12 +5077,14 @@
                     "enum": [
                         "both",
                         "telephony",
-                        "voip"
+                        "voip",
+                        "thirdParty"
                     ],
                     "x-enum-descriptions": [
-                        "Both Telephony and VoIP",
-                        "Telephony only",
-                        "VoIP only"
+                        "Telephony and VoIP",
+                        "Audio PSTN telephony only",
+                        "VoIP only",
+                        "3rd party audio conference"
                     ]
                 },
                 "join_before_host": {
