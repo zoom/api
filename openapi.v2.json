@@ -715,7 +715,7 @@
                                 },
                                 "added_at": {
                                     "type": "string",
-                                    "format": "date-time"
+                                    "format": "dateTime"
                                 }
                             }
                         }
@@ -1113,9 +1113,10 @@
                         "name": "body",
                         "required": true,
                         "description": "User",
-                        "schema": {
-                            "$ref": "#/definitions/Meeting"
-                        }
+                        "schema":
+                            {
+                                "$ref": "#/definitions/Meeting"
+                            }
                     }
                 ],
                 "responses": {
@@ -1123,17 +1124,33 @@
                         "description": "Meeting Created",
                         "headers": {
                             "Content-Location": {
-                                "description": "Location of created Meeting",
-                                "type": "string"
+                              "description": "Location of created Meeting",
+                              "type": "string"
                             }
                         },
                         "schema": {
-                            "properties": {
-                                "id": {
-                                    "type": "string",
-                                    "description": "Meeting ID"
+                            "allOf": [
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "uuid": {
+                                            "type": "string",
+                                            "description": "Meeting unique ID"
+                                        },
+                                        "id": {
+                                            "type": "string",
+                                            "description": "Meeting ID, also know as meeting number"
+                                        },
+                                        "host_id": {
+                                            "type": "string",
+                                            "description": "ID of the user set as host of meeting"
+                                        }
+                                    }
+                                },
+                                {
+                                    "$ref": "#/definitions/MeetingInfo"
                                 }
-                            }
+                            ]
                         }
                     },
                     "404": {
@@ -1178,7 +1195,7 @@
                                     }
                                 },
                                 {
-                                    "$ref": "#/definitions/Meeting"
+                                    "$ref": "#/definitions/MeetingInfo"
                                 }
                             ]
                         }
@@ -1261,7 +1278,7 @@
                         "required": true,
                         "schema": {
                             "properties": {
-                                "status": {
+                                "action": {
                                     "type": "string",
                                     "enum": [
                                         "end"
@@ -1312,9 +1329,10 @@
                 "responses": {
                     "200": {
                         "description": "Success",
-                        "schema": {
-                            "$ref": "#/definitions/MeetingRegistrantList"
-                        }
+                        "schema":
+                            {
+                                "$ref": "#/definitions/MeetingRegistrantList"
+                            }
                     },
                     "404": {
                         "description": "Meeting not found"
@@ -1333,6 +1351,12 @@
                         "$ref": "#/parameters/MeetingId"
                     },
                     {
+                        "in": "query",
+                        "name": "occurrence_ids",
+                        "type":"string",
+                        "description":"Occurrence IDs, could get this value from Meeting Get API. Multiple value separated by comma."
+                    },
+                    {
                         "in": "body",
                         "name": "body",
                         "required": true,
@@ -1347,9 +1371,22 @@
                         "schema": {
                             "type": "object",
                             "properties": {
+                                "registrant_id": {
+                                    "type": "string",
+                                    "description": "Registrant ID"
+                                },
                                 "id": {
                                     "type": "string",
                                     "description": "Registrant ID"
+                                },
+                                "topic": {
+                                    "type": "string",
+                                    "description": "Topic"
+                                },
+                                "start_time": {
+                                    "type": "string",
+                                    "format":"dateTime",
+                                    "description": "Start time"
                                 },
                                 "join_url": {
                                     "type": "string",
@@ -1364,7 +1401,7 @@
                 }
             }
         },
-        "/meetings/{meetingId}/registrants/{registrantId}/status": {
+        "/meetings/{meetingId}/registrants/status": {
             "put": {
                 "summary": "Update a meeting registrant's status",
                 "description": "Update  a registrants status for a meeting",
@@ -1377,7 +1414,7 @@
                         "$ref": "#/parameters/MeetingId"
                     },
                     {
-                        "$ref": "#/parameters/RegistrantId"
+                        "$ref": "#/parameters/OccurrenceId"
                     },
                     {
                         "in": "body",
@@ -1385,18 +1422,34 @@
                         "required": true,
                         "schema": {
                             "properties": {
-                                "status": {
-                                    "type": "string",
-                                    "enum": [
-                                        "pending",
-                                        "approved",
-                                        "denied"
-                                    ],
-                                    "x-enum-descriptions": [
-                                        "set registrant status to pending",
-                                        "set registrant status to approved",
-                                        "set registrant status to denied"
-                                    ]
+                                "action": {
+                                  "type": "string",
+                                  "required": true,
+                                  "enum": [
+                                    "approve",
+                                    "cancel",
+                                    "deny"
+                                  ],
+                                  "x-enum-descriptions": [
+                                    "Approve registrant",
+                                    "Cancel registrant",
+                                    "Deny registrant"
+                                  ]
+                                },
+                                "registrant":{
+                                    "type":"array",
+                                    "description":"List of registrant",
+                                    "items":{
+                                        "properties":{
+                                            "id":{
+                                                "type": "string"
+                                            },
+                                            "email":{
+                                                "name": "email",
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -1571,12 +1624,12 @@
                                                     },
                                                     "join_time": {
                                                         "type": "string",
-                                                        "format": "date-time",
+                                                        "format": "dateTime",
                                                         "description": "Participant join time"
                                                     },
                                                     "leave_time": {
                                                         "type": "string",
-                                                        "format": "date-time",
+                                                        "format": "dateTime",
                                                         "description": "Participant leave time"
                                                     },
                                                     "share_application": {
@@ -1926,12 +1979,12 @@
                                                     },
                                                     "join_time": {
                                                         "type": "string",
-                                                        "format": "date-time",
+                                                        "format": "dateTime",
                                                         "description": "Participant join time"
                                                     },
                                                     "leave_time": {
                                                         "type": "string",
-                                                        "format": "date-time",
+                                                        "format": "dateTime",
                                                         "description": "Participant leave time"
                                                     },
                                                     "share_application": {
@@ -2692,12 +2745,12 @@
                                                     },
                                                     "start_time": {
                                                         "type": "string",
-                                                        "format": "date-time",
+                                                        "format": "dateTime",
                                                         "description": "Meeting start time"
                                                     },
                                                     "end_time": {
                                                         "type": "string",
-                                                        "format": "date-time",
+                                                        "format": "dateTime",
                                                         "description": "Meeting end time"
                                                     },
                                                     "duration": {
@@ -2770,12 +2823,12 @@
                                                     },
                                                     "join_time": {
                                                         "type": "string",
-                                                        "format": "date-time",
+                                                        "format": "dateTime",
                                                         "description": "Participant join time"
                                                     },
                                                     "leave_time": {
                                                         "type": "string",
-                                                        "format": "date-time",
+                                                        "format": "dateTime",
                                                         "description": "Participant leave time"
                                                     },
                                                     "duration": {
@@ -2844,12 +2897,12 @@
                                                     },
                                                     "join_time": {
                                                         "type": "string",
-                                                        "format": "date-time",
+                                                        "format": "dateTime",
                                                         "description": "Participant join time"
                                                     },
                                                     "leave_time": {
                                                         "type": "string",
-                                                        "format": "date-time",
+                                                        "format": "dateTime",
                                                         "description": "Participant leave time"
                                                     },
                                                     "duration": {
@@ -2903,7 +2956,7 @@
                                 },
                                 "start_time": {
                                     "type": "string",
-                                    "format": "date-time",
+                                    "format": "dateTime",
                                     "description": "Webinar start time"
                                 },
                                 "questions": {
@@ -2976,7 +3029,7 @@
                                 },
                                 "start_time": {
                                     "type": "string",
-                                    "format": "date-time",
+                                    "format": "dateTime",
                                     "description": "Webinar start time"
                                 },
                                 "questions": {
@@ -3108,12 +3161,12 @@
                                                     },
                                                     "start_time": {
                                                         "type": "string",
-                                                        "format": "date-time",
+                                                        "format": "dateTime",
                                                         "description": "Meeting start time"
                                                     },
                                                     "end_time": {
                                                         "type": "string",
-                                                        "format": "date-time",
+                                                        "format": "dateTime",
                                                         "description": "Meeting end time"
                                                     },
                                                     "duration": {
@@ -3426,7 +3479,6 @@
                         "name": "action",
                         "description": "Delete action type",
                         "type": "string",
-                        "required":false,
                         "default":"disassociate",
                         "enum": [
                           "disassociate",
@@ -3511,7 +3563,7 @@
                                 },
                                 "add_at": {
                                     "type": "string",
-                                    "format":"date-time"
+                                    "format":"dateTime"
                                 }
                             }
                         }
@@ -4648,13 +4700,13 @@
             "type": "string",
             "default": "approved",
             "enum": [
+                "approval",
                 "approved",
-                "pending",
                 "denied"
             ],
             "x-enum-descriptions": [
-                "registrants status is approved",
                 "registrants status is pending",
+                "registrants status is approved",
                 "registrants status is denied"
             ]
         },
@@ -4685,7 +4737,6 @@
             "name": "login_type",
             "description": "User login type",
             "type": "integer",
-            "required":false,
             "enum": [
               0,
               1,
@@ -5771,6 +5822,75 @@
                 }
             ]
         },
+        "MeetingInfo": {
+            "type": "object",
+            "description": "Meeting object",
+            "allOf": [
+                {
+                  "type": "object",
+                  "description": "Base object for sessions",
+                  "properties": {
+                    "topic": {
+                      "type": "string",
+                      "description": "Meeting topic"
+                    },
+                    "type": {
+                      "type": "integer",
+                      "description": "Meeting Type",
+                      "default":2,
+                      "enum": [
+                        1,
+                        2,
+                        3,
+                        8
+                      ],
+                      "x-enum-descriptions": [
+                        "Instant Meeting",
+                        "Scheduled Meeting",
+                        "Recurring Meeting with no fixed time",
+                        "Recurring Meeting with fixed time"
+                      ]
+                    },
+                    "start_time": {
+                      "type": "string",
+                      "format": "dateTime",
+                      "description": "Meeting start time"
+                    },
+                    "duration": {
+                      "type": "integer",
+                      "description": "Meeting duration"
+                    },
+                    "timezone": {
+                      "type": "string",
+                      "description": "Timezone to format start_time"
+                    },
+                    "create_at": {
+                      "type": "string",
+                      "format":"dateTime",
+                      "description": "Create time"
+                    },
+                    "agenda": {
+                      "type": "string",
+                      "description": "Agenda"
+                    },
+                    "start_url": {
+                      "type": "string",
+                      "description": "Start url"
+                    },
+                    "join_url": {
+                      "type": "string",
+                      "description": "Join url"
+                    },
+                    "occurrences": {
+                      "$ref": "#/definitions/Occurrences"
+                    },
+                    "settings": {
+                      "$ref": "#/definitions/MeetingSettings"
+                    }
+                  }
+                }
+            ]
+        },
         "MeetingList": {
             "type": "object",
             "title": "Group List",
@@ -5800,11 +5920,50 @@
                                             "host_id": {
                                                 "type": "string",
                                                 "description": "ID of the user set as host of meeting"
+                                            },
+                                            "topic": {
+                                                "type": "string",
+                                                "description": "Meeting topic"
+                                            },
+                                            "type": {
+                                                "type": "integer",
+                                                "description": "Meeting Type",
+                                                "enum": [
+                                                  1,
+                                                  2,
+                                                  3,
+                                                  8
+                                                ],
+                                                "x-enum-descriptions": [
+                                                  "Instant Meeting",
+                                                  "Scheduled Meeting",
+                                                  "Recurring Meeting with no fixed time",
+                                                  "Recurring Meeting with fixed time"
+                                                ]
+                                            },
+                                            "start_time": {
+                                                "type": "string",
+                                                "format": "dateTime",
+                                                "description": "Meeting start time"
+                                            },
+                                            "duration": {
+                                                "type": "integer",
+                                                "description": "Meeting duration"
+                                            },
+                                            "timezone": {
+                                                "type": "string",
+                                                "description": "Timezone to format start_time"
+                                            },
+                                            "created_at": {
+                                                "type": "string",
+                                                "format":"dateTime",
+                                                "description": "Create time"
+                                            },
+                                            "join_url": {
+                                                "type": "string",
+                                                "description": "Join url"
                                             }
                                         }
-                                    },
-                                    {
-                                        "$ref": "#/definitions/Meeting"
                                     }
                                 ]
                             }
@@ -5845,12 +6004,12 @@
                 },
                 "start_time": {
                     "type": "string",
-                    "format": "date-time",
+                    "format": "dateTime",
                     "description": "Meeting start time"
                 },
                 "end_time": {
                     "type": "string",
-                    "format": "date-time",
+                    "format": "dateTime",
                     "description": "Meeting end time"
                 },
                 "duration": {
@@ -5998,11 +6157,11 @@
                     "description": "Only signed-in users can join this meeting"
                 },
                 "enforce_login_domains": {
-                    "type": "boolean",
+                    "type": "string",
                     "description": "Only signed-in users with specified domains can join meetings"
                 },
                 "alternatice_hosts": {
-                    "type": "boolean",
+                    "type": "string",
                     "description": "Alternative hosts emails or IDs. Multiple value separated by comma."
                 }
             }
@@ -6023,6 +6182,35 @@
             "allOf": [
                 {
                     "$ref": "#/definitions/RegistrantList"
+                }
+            ]
+        },
+        "Occurrences": {
+            "type": "object",
+            "description": "Occurrences object",
+            "allOf": [
+                {
+                    "type": "array",
+                    "description": "Base object for occurrences",
+                    "items": {
+                        "occurrence_id": {
+                            "type": "long",
+                            "description": "Occurrence Id"
+                        },
+                        "start_time": {
+                            "type": "string",
+                            "format":"dateTime",
+                            "description": "Start time"
+                        },
+                        "duration": {
+                            "type": "integer",
+                            "description": "Duration"
+                        },
+                        "status": {
+                            "type": "string",
+                            "description": "Occurrence status"
+                        }
+                    }
                 }
             ]
         },
@@ -6195,12 +6383,12 @@
                 },
                 "join_time": {
                     "type": "string",
-                    "format": "date-time",
+                    "format": "dateTime",
                     "description": "Participant join time"
                 },
                 "leave_time": {
                     "type": "string",
-                    "format": "date-time",
+                    "format": "dateTime",
                     "description": "Participant leave time"
                 },
                 "pc_name": {
@@ -6229,7 +6417,7 @@
                     "properties": {
                         "date_time": {
                             "type": "string",
-                            "format": "date-time",
+                            "format": "dateTime",
                             "description": "Datetime of QOS"
                         },
                         "audio_input": {
@@ -6537,7 +6725,29 @@
                             "type": "array",
                             "description": "List of Registrant objects.",
                             "items": {
-                                "$ref": "#/definitions/MeetingRegistrant"
+                                "allOf":[
+                                    {
+                                        "properties": {
+                                            "id":{
+                                                "type":"string"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "$ref": "#/definitions/MeetingRegistrant"
+                                    },
+                                    {
+                                        "properties": {
+                                            "status":{
+                                                "type":"string"
+                                            },
+                                            "create_time":{
+                                                "type":"string",
+                                                "format":"dateTime"
+                                            }
+                                        }
+                                    }
+                                ]
                             }
                         }
                     }
@@ -6555,6 +6765,7 @@
                 "type": {
                     "type": "integer",
                     "description": "Meeting Type",
+                    "default":2,
                     "enum": [
                         1,
                         2,
@@ -6585,9 +6796,9 @@
                     "type": "string",
                     "description": "Password to join the meeting"
                 },
-                "description": {
+                "agenda": {
                     "type": "string",
-                    "description": "Meeting description"
+                    "description": "Meeting agenda"
                 },
                 "recurrence": {
                     "$ref": "#/definitions/Recurrence"
@@ -6700,13 +6911,11 @@
             "properties": {
                 "first_name": {
                     "type": "string",
-                    "description": "User's first name.",
-                    "required":false
+                    "description": "User's first name."
                 },
                 "last_name": {
                     "type": "string",
-                    "description": "User's last name.",
-                    "required":false
+                    "description": "User's last name."
                 },
                 "type": {
                     "type": "integer",
@@ -6720,18 +6929,15 @@
                         "pro",
                         "corp"
                     ],
-                    "description": "User's type",
-                    "required":false
+                    "description": "User's type"
                 },
                 "pmi": {
                     "type": "string",
-                    "description": "Personal Meeting ID,length must be 10.",
-                    "required":false
+                    "description": "Personal Meeting ID,length must be 10."
                 },
                 "timezone": {
                     "type": "string",
-                    "description": "The time zone id for user profile. ",
-                    "required":false
+                    "description": "The time zone id for user profile. "
                 },
                 "dept": {
                     "type": "string",
@@ -6924,26 +7130,22 @@
                 "chat": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Chat",
-                    "required":false
+                    "description": "Chat"
                 },
                 "private_chat": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Private chat",
-                    "required":false
+                    "description": "Private chat"
                 },
                 "auto_saving_chat": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Auto saving chats",
-                    "required":false
+                    "description": "Auto saving chats"
                 },
                 "entry_exit_chime": {
                     "type": "string",
                     "default": "a''",
                     "description": "Play sound on join/leave",
-                    "required":false,
                     "enum": [
                         "host",
                         "all",
@@ -6958,116 +7160,97 @@
                 "record_play_voice": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Record and play their own voice",
-                    "required":false
+                    "description": "Record and play their own voice"
                 },
                 "file_transfer": {
                     "type": "boolean",
                     "default": false,
-                    "description": "File transfer",
-                    "required":false
+                    "description": "File transfer"
                 },
                 "feedback": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Feedback to Zoom",
-                    "required":false
+                    "description": "Feedback to Zoom"
                 },
                 "co_host": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Co-host",
-                    "required":false
+                    "description": "Co-host"
                 },
                 "polling": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Polling",
-                    "required":false
+                    "description": "Polling"
                 },
                 "attendee_on_hold": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Allow host to put attendee on hold",
-                    "required":false
+                    "description": "Allow host to put attendee on hold"
                 },
                 "annotation": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Annotation",
-                    "required":false
+                    "description": "Annotation"
                 },
                 "remote_control": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Remote control",
-                    "required":false
+                    "description": "Remote control"
                 },
                 "non_verbal_feedback": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Non-verbal feedback",
-                    "required":false
+                    "description": "Non-verbal feedback"
                 },
                 "breakout_room": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Breakout room",
-                    "required":false
+                    "description": "Breakout room"
                 },
                 "remote_support": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Remote support",
-                    "required":false
+                    "description": "Remote support"
                 },
                 "closed_caption": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Closed caption",
-                    "required":false
+                    "description": "Closed caption"
                 },
                 "group_hd": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Group HD video",
-                    "required":false
+                    "description": "Group HD video"
                 },
                 "virtual_background": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Virtual background",
-                    "required":false
+                    "description": "Virtual background"
                 },
                 "far_end_camera_control": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Far end camera control",
-                    "required":false
+                    "description": "Far end camera control"
                 },
                 "share_dual_camera": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Share dual camera",
-                    "required":false
+                    "description": "Share dual camera"
                 },
                 "attention_tracking": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Attention tracking",
-                    "required":false
+                    "description": "Attention tracking"
                 },
                 "waiting_room": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Waiting room",
-                    "required":false
+                    "description": "Waiting room"
                 },
                 "manage_zr": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Manage Zoom Rooms",
-                    "required":false
+                    "description": "Manage Zoom Rooms"
                 }
             }
         },
@@ -7079,20 +7262,17 @@
                 "jbh_reminder": {
                     "type": "boolean",
                     "default": false,
-                    "description": "When attendees join meeting before host",
-                    "required":false
+                    "description": "When attendees join meeting before host"
                 },
                 "cancel_meeting_reminder": {
                     "type": "boolean",
                     "default": false,
-                    "description": "When a meeting is cancelled",
-                    "required":false
+                    "description": "When a meeting is cancelled"
                 },
                 "alternative_host_reminder": {
                     "type": "boolean",
                     "default": false,
-                    "description": "When an alternative host is set or removed from a meeting",
-                    "required":false
+                    "description": "When an alternative host is set or removed from a meeting"
                 }
             }
         },
@@ -7104,50 +7284,42 @@
                 "local_recording": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Local recording",
-                    "required":false
+                    "description": "Local recording"
                 },
                 "cloud_recording": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Cloud recording",
-                    "required":false
+                    "description": "Cloud recording"
                 },
                 "record_speaker_view": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Record the active speaker view",
-                    "required":false
+                    "description": "Record the active speaker view"
                 },
                 "record_gallery_view": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Record the gallery view",
-                    "required":false
+                    "description": "Record the gallery view"
                 },
                 "record_audio_file": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Record an audio only file",
-                    "required":false
+                    "description": "Record an audio only file"
                 },
                 "save_chat_text": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Save chat text from the meeting",
-                    "required":false
+                    "description": "Save chat text from the meeting"
                 },
                 "show_timestamp": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Show timestamp on video",
-                    "required":false
+                    "description": "Show timestamp on video"
                 },
                 "auto_recording": {
                     "type": "string",
                     "default": "local",
                     "description": "Automatic recording",
-                    "required":false,
                     "enum": [
                         "Record on local",
                         "Record on cloud",
@@ -7162,8 +7334,7 @@
                 "auto_delete_cmr": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Auto delete cloud recordings",
-                    "required":false
+                    "description": "Auto delete cloud recordings"
                 }
             }
         },
@@ -7175,20 +7346,17 @@
                 "third_party_audio": {
                     "type": "boolean",
                     "default": true,
-                    "description": "3rd party audio conference",
-                    "required":false
+                    "description": "3rd party audio conference"
                 },
                 "audio_conference_info": {
                     "type": "string",
                     "default": "",
-                    "description": "3rd party audio conference info",
-                    "required":false
+                    "description": "3rd party audio conference info"
                 },
                 "show_international_numbers_link": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Show international numbers link on the invitation email",
-                    "required":false
+                    "description": "Show international numbers link on the invitation email"
                 }
             }
         },
@@ -7312,12 +7480,12 @@
                 },
                 "start_time": {
                     "type": "string",
-                    "format": "date-time",
+                    "format": "dateTime",
                     "description": "Webinar start time"
                 },
                 "end_time": {
                     "type": "string",
-                    "format": "date-time",
+                    "format": "dateTime",
                     "description": "Webinar end time"
                 },
                 "duration": {
