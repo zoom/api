@@ -1434,7 +1434,7 @@
                         "$ref": "#/parameters/PageSize"
                     },
                     {
-                        "$ref": "#/parameters/PageNumber"
+                        "$ref": "#/parameters/PageToken"
                     }
                 ],
                 "responses": {
@@ -1457,7 +1457,7 @@
                                     }
                                 },
                                 {
-                                    "$ref": "#/definitions/Pagination"
+                                    "$ref": "#/definitions/PaginationWithToken"
                                 },
                                 {
                                     "properties": {
@@ -1486,10 +1486,10 @@
                 "operationId": "dashboardMeetingDetail",
                 "parameters": [
                     {
-                        "$ref": "#/parameters/MeetingId"
+                        "$ref": "#/parameters/MeetingId4Metrics"
                     },
                     {
-                        "$ref": "#/parameters/MeetingTypePast"
+                        "$ref": "#/parameters/MeetingTypePast2"
                     }
                 ],
                 "responses": {
@@ -1512,16 +1512,16 @@
                 "operationId": "dashboardMeetingParticipants",
                 "parameters": [
                     {
-                        "$ref": "#/parameters/MeetingId"
+                        "$ref": "#/parameters/MeetingId4Metrics"
                     },
                     {
-                        "$ref": "#/parameters/MeetingTypePast"
+                        "$ref": "#/parameters/MeetingTypePast2"
                     },
                     {
                         "$ref": "#/parameters/PageSize"
                     },
                     {
-                        "$ref": "#/parameters/PageNumber"
+                        "$ref": "#/parameters/PageToken"
                     }
                 ],
                 "responses": {
@@ -1530,7 +1530,7 @@
                         "schema": {
                             "allOf": [
                                 {
-                                    "$ref": "#/definitions/Pagination"
+                                    "$ref": "#/definitions/PaginationWithToken"
                                 },
                                 {
                                     "properties": {
@@ -1636,13 +1636,13 @@
                 "operationId": "dashboardMeetingParticipantQOS",
                 "parameters": [
                     {
-                        "$ref": "#/parameters/MeetingId"
+                        "$ref": "#/parameters/MeetingId4Metrics"
                     },
                     {
                         "$ref": "#/parameters/ParticipantId"
                     },
                     {
-                        "$ref": "#/parameters/MeetingTypePast"
+                        "$ref": "#/parameters/MeetingTypePast2"
                     }
                 ],
                 "responses": {
@@ -1665,16 +1665,16 @@
                 "operationId": "dashboardMeetingParticipantsQOS",
                 "parameters": [
                     {
-                        "$ref": "#/parameters/MeetingId"
+                        "$ref": "#/parameters/MeetingId4Metrics"
                     },
                     {
-                        "$ref": "#/parameters/MeetingTypePast"
+                        "$ref": "#/parameters/MeetingTypePast2"
                     },
                     {
-                        "$ref": "#/parameters/PageSize"
+                        "$ref": "#/parameters/PageSize4Qos"
                     },
                     {
-                        "$ref": "#/parameters/PageNumber"
+                        "$ref": "#/parameters/PageToken"
                     }
                 ],
                 "responses": {
@@ -1789,7 +1789,7 @@
                         "$ref": "#/parameters/PageSize"
                     },
                     {
-                        "$ref": "#/parameters/PageNumber"
+                        "$ref": "#/parameters/PageToken"
                     }
                 ],
                 "responses": {
@@ -1812,7 +1812,7 @@
                                     }
                                 },
                                 {
-                                    "$ref": "#/definitions/Pagination"
+                                    "$ref": "#/definitions/PaginationWithToken"
                                 },
                                 {
                                     "properties": {
@@ -1841,10 +1841,10 @@
                 "operationId": "dashboardWebinarDetail",
                 "parameters": [
                     {
-                        "$ref": "#/parameters/WebinarId"
+                        "$ref": "#/parameters/WebinarId4Metrics"
                     },
                     {
-                        "$ref": "#/parameters/WebinarTypePast"
+                        "$ref": "#/parameters/WebinarTypePast2"
                     }
                 ],
                 "responses": {
@@ -1867,16 +1867,16 @@
                 "operationId": "dashboardWebinarParticipants",
                 "parameters": [
                     {
-                        "$ref": "#/parameters/WebinarId"
+                        "$ref": "#/parameters/WebinarId4Metrics"
                     },
                     {
-                        "$ref": "#/parameters/WebinarTypePast"
+                        "$ref": "#/parameters/WebinarTypePast2"
                     },
                     {
                         "$ref": "#/parameters/PageSize"
                     },
                     {
-                        "$ref": "#/parameters/PageNumber"
+                        "$ref": "#/parameters/PageToken"
                     }
                 ],
                 "responses": {
@@ -1885,7 +1885,7 @@
                         "schema": {
                             "allOf": [
                                 {
-                                    "$ref": "#/definitions/Pagination"
+                                    "$ref": "#/definitions/PaginationWithToken"
                                 },
                                 {
                                     "properties": {
@@ -1991,13 +1991,13 @@
                 "operationId": "dashboardWebinarParticipantQOS",
                 "parameters": [
                     {
-                        "$ref": "#/parameters/WebinarId"
+                        "$ref": "#/parameters/WebinarId4Metrics"
                     },
                     {
                         "$ref": "#/parameters/ParticipantId"
                     },
                     {
-                        "$ref": "#/parameters/WebinarTypePast"
+                        "$ref": "#/parameters/WebinarTypePast2"
                     }
                 ],
                 "responses": {
@@ -2020,16 +2020,16 @@
                 "operationId": "dashboardWebinarParticipantsQOS",
                 "parameters": [
                     {
-                        "$ref": "#/parameters/WebinarId"
+                        "$ref": "#/parameters/WebinarId4Metrics"
                     },
                     {
-                        "$ref": "#/parameters/WebinarTypePast"
+                        "$ref": "#/parameters/WebinarTypePast2"
                     },
                     {
-                        "$ref": "#/parameters/PageSize"
+                        "$ref": "#/parameters/PageSize4Qos"
                     },
                     {
-                        "$ref": "#/parameters/PageNumber"
+                        "$ref": "#/parameters/PageToken"
                     }
                 ],
                 "responses": {
@@ -2052,16 +2052,16 @@
                 "operationId": "dashboardWebinarParticipantShare",
                 "parameters": [
                     {
-                        "$ref": "#/parameters/WebinarId"
+                        "$ref": "#/parameters/WebinarId4Metrics"
                     },
                     {
-                        "$ref": "#/parameters/WebinarTypePast"
+                        "$ref": "#/parameters/WebinarTypePast2"
                     },
                     {
                         "$ref": "#/parameters/PageSize"
                     },
                     {
-                        "$ref": "#/parameters/PageNumber"
+                        "$ref": "#/parameters/PageToken"
                     }
                 ],
                 "responses": {
@@ -2070,7 +2070,7 @@
                         "schema": {
                             "allOf": [
                                 {
-                                    "$ref": "#/definitions/Pagination"
+                                    "$ref": "#/definitions/PaginationWithToken"
                                 },
                                 {
                                     "properties": {
@@ -2318,7 +2318,7 @@
                         "$ref": "#/parameters/PageSize"
                     },
                     {
-                        "$ref": "#/parameters/PageNumber"
+                        "$ref": "#/parameters/PageToken"
                     }
                 ],
                 "responses": {
@@ -2341,7 +2341,7 @@
                                     }
                                 },
                                 {
-                                    "$ref": "#/definitions/Pagination"
+                                    "$ref": "#/definitions/PaginationWithToken"
                                 },
                                 {
                                     "properties": {
@@ -4423,6 +4423,13 @@
             "type": "integer",
             "required": true
         },
+        "MeetingId4Metrics": {
+            "in": "path",
+            "name": "meetingId",
+            "description": "The meeting ID or meeting UUID. If given meeting ID, will take the last meeting instance.",
+            "type": "integer",
+            "required": true
+        },
         "MeetingType": {
             "in": "query",
             "name": "type",
@@ -4450,6 +4457,21 @@
             "x-enum-descriptions": [
                 "past meetings",
                 "live meetings"
+            ]
+        },
+        "MeetingTypePast2": {
+            "in": "query",
+            "name": "type",
+            "description": "The meeting type",
+            "type": "string",
+            "default": "live",
+            "enum": [
+                "past",
+                "live"
+            ],
+            "x-enum-descriptions": [
+                "past meeting",
+                "live meeting"
             ]
         },
         "MemberId": {
@@ -4480,9 +4502,23 @@
             "default": 30,
             "maximum": 300
         },
+        "PageSize4Qos": {
+            "in": "query",
+            "name": "page_size",
+            "description": "Number of items returned per page",
+            "type": "integer",
+            "default": 1,
+            "maximum": 10
+        },
+        "PageToken": {
+            "in": "query",
+            "name": "next_page_token",
+            "description": "Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.",
+            "type": "string"
+        },
         "ParticipantId": {
             "in": "path",
-            "name": "participantId",
+            "name": "participantId, such as 16778240",
             "description": "The participant ID",
             "type": "string",
             "required": true
@@ -4540,6 +4576,13 @@
             "type": "integer",
             "required": true
         },
+        "WebinarId4Metrics": {
+            "in": "path",
+            "name": "webinarId",
+            "description": "The webinar ID or webinar UUID. If given webinar ID, will take the last webinar instance.",
+            "type": "integer",
+            "required": true
+        },
         "WebinarTypePast": {
             "in": "query",
             "name": "type",
@@ -4553,6 +4596,21 @@
             "x-enum-descriptions": [
                 "past webinars",
                 "live webinars"
+            ]
+        },
+        "WebinarTypePast2": {
+            "in": "query",
+            "name": "type",
+            "description": "The webinar type",
+            "type": "string",
+            "default": "live",
+            "enum": [
+                "past",
+                "live"
+            ],
+            "x-enum-descriptions": [
+                "past webinar",
+                "live webinar"
             ]
         },
         "ZoomRoomId": {
@@ -5863,6 +5921,58 @@
                 }
             }
         },
+        "PaginationWithToken": {
+            "type": "object",
+            "description": "Pagination Object",
+            "properties": {
+                "page_count": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "The number of items returned on this page."
+                },
+                "page_size": {
+                    "type": "integer",
+                    "description": "The number of items per page.",
+                    "default": 30,
+                    "maximum": 300
+                },
+                "total_records": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "The number of all records available across pages."
+                },
+                "next_page_token": {
+                    "description": "Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.",
+                    "type": "string"
+                }
+            }
+        },
+        "PaginationWithToken4Qos": {
+            "type": "object",
+            "description": "Pagination Object",
+            "properties": {
+                "page_count": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "The number of items returned on this page."
+                },
+                "page_size": {
+                    "type": "integer",
+                    "description": "The number of items per page.",
+                    "default": 1,
+                    "maximum": 10
+                },
+                "total_records": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "The number of all records available across pages."
+                },
+                "next_page_token": {
+                    "description": "Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.",
+                    "type": "string"
+                }
+            }
+        },
         "Panelist": {
             "type": "object",
             "description": "Panelist base object",
@@ -6038,7 +6148,7 @@
             "description": "Participant QOS List",
             "allOf": [
                 {
-                    "$ref": "#/definitions/Pagination"
+                    "$ref": "#/definitions/PaginationWithToken4Qos"
                 },
                 {
                     "properties": {
