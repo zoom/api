@@ -282,7 +282,7 @@
                     "200": {
                         "description": "Account billing contact information returned",
                         "schema": {
-                            "$ref": "#/definitions/BillingContact"
+                            "$ref": "#/definitions/BillingContactRequired"
                         }
                     },
                     "404": {
@@ -366,7 +366,7 @@
                                     "type": "object",
                                     "properties": {
                                         "contact": {
-                                            "$ref": "#/definitions/BillingContact"
+                                            "$ref": "#/definitions/BillingContactRequired"
                                         }
                                     }
                                 },
@@ -4616,9 +4616,29 @@
                                                 "type": "string",
                                                 "description": "Account ID"
                                             },
+                                            "account_name": {
+                                                "type": "string",
+                                                "description": "Account Name"
+                                            },
                                             "owner_email": {
                                                 "type": "string",
                                                 "description": "Account Owner email"
+                                            },
+                                            "account_type": {
+                                                "type": "string",
+                                                "description": "Account Type"
+                                            },
+                                            "seats": {
+                                                "type": "string",
+                                                "description": "Account Seats"
+                                            },
+                                            "subscription_start_time": {
+                                                "type": "string",
+                                                "description": "Subscription Start time"
+                                            },
+                                            "subscription_end_time": {
+                                                "type": "string",
+                                                "description": "Subscription End time"
                                             },
                                             "created_at": {
                                                 "type": "string",
@@ -4840,9 +4860,9 @@
                     "default": false
                 },
                 "enforce_login_domains": {
-                    "type": "boolean",
+                    "type": "string",
                     "description": "Only signed-in users with a specified domains",
-                    "default": false
+                    "default": ""
                 },
                 "not_store_meeting_topic": {
                     "type": "boolean",
@@ -5133,7 +5153,7 @@
         },
         "AccountSettingsSecurity": {
             "type": "object",
-            "description": "Account Settings: Feature",
+            "description": "Account Settings: Security",
             "properties": {
                 "admin_change_name_pic": {
                     "type": "boolean",
@@ -5166,6 +5186,36 @@
                     "description": "Cloud recording",
                     "default": false
                 },
+                "record_speaker_view": {
+                    "type": "boolean",
+                    "description": "Record the active speaker view",
+                    "default": false
+                },
+                "record_gallery_view": {
+                    "type": "boolean",
+                    "description": "Record the gallery view",
+                    "default": false
+                },
+                "record_audio_file": {
+                    "type": "boolean",
+                    "description": "Record an audio only file",
+                    "default": false
+                },
+                "save_chat_text": {
+                    "type": "boolean",
+                    "description": "Save chat text from the meeting",
+                    "default": false
+                },
+                "show_timestamp": {
+                    "type": "boolean",
+                    "description": "Show timestamp on video",
+                    "default": false
+                },
+                "recording_audio_transcript": {
+                    "type": "boolean",
+                    "description": "Audio transcript",
+                    "default": false
+                },
                 "auto_recording": {
                     "type": "boolean",
                     "description": "Automatic recording",
@@ -5195,16 +5245,16 @@
         },
         "AccountSettingsTelephony": {
             "type": "object",
-            "description": "Account Settings: Feature",
+            "description": "Account Settings: Telephony",
             "properties": {
                 "third_party_audio": {
                     "type": "boolean",
-                    "description": "",
+                    "description": "3rd party audio conference",
                     "default": true
                 },
                 "audio_conference_info": {
                     "type": "string",
-                    "description": ""
+                    "description": "3rd party audio conference info"
                 }
             }
         },
@@ -5256,6 +5306,52 @@
             }
         },
         "BillingContact": {
+            "type": "object",
+            "description": "Billing Contact object",
+            "properties": {
+                "first_name": {
+                    "type": "string",
+                    "description": "Billing Contact's first name."
+                },
+                "last_name": {
+                    "type": "string",
+                    "description": "Billing Contact's last name."
+                },
+                "email": {
+                    "type": "string",
+                    "description": "Billing Contact's email address."
+                },
+                "phone_number": {
+                    "type": "string",
+                    "description": "Billing Contact's phone number."
+                },
+                "address": {
+                    "type": "string",
+                    "description": "Billing Contact's address."
+                },
+                "apt": {
+                    "type": "string",
+                    "description": "Billing Contact's apartment/suite."
+                },
+                "city": {
+                    "type": "string",
+                    "description": "Billing Contact's city."
+                },
+                "state": {
+                    "type": "string",
+                    "description": "Billing Contact's state."
+                },
+                "zip": {
+                    "type": "string",
+                    "description": "Billing Contact's zip/postal code."
+                },
+                "country": {
+                    "type": "string",
+                    "description": "Billing Contact's country."
+                }
+            }
+        },
+        "BillingContactRequired": {
             "type": "object",
             "description": "Billing Contact object",
             "required": [
