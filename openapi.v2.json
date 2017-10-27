@@ -3241,8 +3241,8 @@
                                     "description": "Action to take for user creation",
                                     "enum": [
                                         "create",
-                                        "custCreate",
                                         "autoCreate",
+                                        "custCreate",
                                         "ssoCreate"
                                     ],
                                     "x-enum-descriptions": [
@@ -3279,6 +3279,10 @@
                                         "last_name": {
                                             "type": "string",
                                             "description": "User's last name."
+                                        },
+                                        "password": {
+                                            "type": "string",
+                                            "description": "User’s password."
                                         }
                                     }
                                 }
@@ -3300,6 +3304,22 @@
                                 "id": {
                                     "type": "string",
                                     "description": "User ID"
+                                },
+                                "first_name": {
+                                    "type": "string",
+                                    "description": "User first name"
+                                },
+                                "last_name": {
+                                    "type": "string",
+                                    "description": "User last name"
+                                },
+                                "email": {
+                                    "type": "string",
+                                    "description": "User email"
+                                },
+                                "type": {
+                                    "type": "integer",
+                                    "description": "User type"
                                 }
                             }
                         }
@@ -3321,6 +3341,9 @@
                 "parameters": [
                     {
                         "$ref": "#/parameters/UserId"
+                    },
+                    {
+                        "$ref": "#/parameters/LoginType"
                     }
                 ],
                 "responses": {
@@ -3338,6 +3361,16 @@
                                 },
                                 {
                                     "$ref": "#/definitions/User"
+                                },
+                                {
+                                    "properties": {
+                                        "vanity_url": {
+                                          "type": "string"
+                                        },
+                                        "pic_url": {
+                                          "type": "string"
+                                        }
+                                    }
                                 }
                             ]
                         }
@@ -3364,7 +3397,7 @@
                         "required": true,
                         "description": "User",
                         "schema": {
-                            "$ref": "#/definitions/User"
+                            "$ref": "#/definitions/UserUpdate"
                         }
                     }
                 ],
@@ -3387,6 +3420,22 @@
                 "parameters": [
                     {
                         "$ref": "#/parameters/UserId"
+                    },
+                    {
+                        "in": "query",
+                        "name": "action",
+                        "description": "Delete action type",
+                        "type": "string",
+                        "required":false,
+                        "default":"disassociate",
+                        "enum": [
+                          "disassociate",
+                          "delete"
+                        ],
+                        "x-enum-descriptions": [
+                          "Disassociate a user",
+                          "Permanently delete a user"
+                        ]
                     }
                 ],
                 "responses": {
@@ -3416,24 +3465,7 @@
                     "200": {
                         "description": "Success",
                         "schema": {
-                            "properties": {
-                                "assistants": {
-                                    "type": "array",
-                                    "description": "List of User assistants.",
-                                    "items": {
-                                        "allOf": [
-                                            {
-                                                "properties": {
-                                                    "email_or_id": {
-                                                        "type": "string",
-                                                        "description": "Assistant Email or ID"
-                                                    }
-                                                }
-                                            }
-                                        ]
-                                    }
-                                }
-                            }
+                          "$ref":"#/definitions/UserAssistantsList"
                         }
                     },
                     "404": {
@@ -3455,15 +3487,10 @@
                     {
                         "name": "body",
                         "description": "User assistant",
+                        "required":true,
                         "in": "body",
                         "schema": {
-                            "type": "object",
-                            "properties": {
-                                "email_or_id": {
-                                    "type": "string",
-                                    "description": "ID or Email of assistant"
-                                }
-                            }
+                          "$ref":"#/definitions/UserAssistantsList"
                         }
                     }
                 ],
@@ -3478,9 +3505,13 @@
                         },
                         "schema": {
                             "properties": {
-                                "email_or_id": {
+                                "id": {
                                     "type": "string",
                                     "description": "User ID"
+                                },
+                                "add_at": {
+                                    "type": "string",
+                                    "format":"date-time"
                                 }
                             }
                         }
@@ -3543,9 +3574,9 @@
             }
         },
         "/users/{userId}/picture": {
-            "put": {
-                "summary": "Update a user's picture",
-                "description": "Update a user's profile picture",
+            "post": {
+                "summary": "Upload  a user's picture",
+                "description": "Upload  a user's profile picture",
                 "tags": [
                     "Users"
                 ],
@@ -3555,7 +3586,7 @@
                         "$ref": "#/parameters/UserId"
                     },
                     {
-                        "name": "body",
+                        "name": "pic_file",
                         "description": "User picture file, must be a jpg/jpeg file",
                         "in": "formData",
                         "type": "file",
@@ -3598,6 +3629,9 @@
                 "parameters": [
                     {
                         "$ref": "#/parameters/UserId"
+                    },
+                    {
+                        "$ref": "#/parameters/LoginType"
                     }
                 ],
                 "responses": {
@@ -3659,18 +3693,22 @@
                         "name": "body",
                         "description": "User status",
                         "in": "body",
+                        "required":true,
                         "schema": {
+                            "description": "The action",
                             "type": "object",
                             "properties": {
-                                "status": {
+                                "action": {
                                     "type": "string",
+                                    "required":true,
+                                    "description": "The action type",
                                     "enum": [
-                                        "active",
-                                        "deactive"
+                                          "activate",
+                                          "deactivate"
                                     ],
                                     "x-enum-descriptions": [
-                                        "set users status to active",
-                                        "set users status to deactive"
+                                        "set users status to activate",
+                                        "set users status to deactivate"
                                     ]
                                 }
                             }
@@ -3687,22 +3725,38 @@
                 }
             }
         },
-        "/users/{userId}/ssoToken": {
-            "delete": {
-                "summary": "Revoke a user's SSO token",
-                "description": "Revoke a user's SSO token",
+        "/users/{userId}/password": {
+            "put": {
+                "summary": "Update a user's password",
+                "description": "Update a user's password",
                 "tags": [
                     "Users"
                 ],
-                "operationId": "userSSOTokenDelete",
+                "operationId": "userPassword",
                 "parameters": [
                     {
                         "$ref": "#/parameters/UserId"
+                    },
+                    {
+                        "name": "body",
+                        "description": "User password",
+                        "required":true,
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "password": {
+                                    "type": "string",
+                                    "required":true,
+                                    "description":"User’s password. Character length is less than 32."
+                                }
+                            }
+                        }
                     }
                 ],
                 "responses": {
                     "204": {
-                        "description": "Token deleted"
+                        "description": "Password updated"
                     },
                     "404": {
                         "description": "User not found"
@@ -3863,17 +3917,17 @@
                         "$ref": "#/parameters/UserId"
                     },
                     {
-                        "name": "type",
-                        "description": "User token",
                         "in": "query",
+                        "name": "type",
+                        "description": "User token type",
                         "type": "string",
                         "enum": [
-                            "token",
-                            "zpk"
+                          "token",
+                          "zpk"
                         ],
                         "x-enum-descriptions": [
-                            "used for starting meeting with client SDK",
-                            "used for generating the start meeting url"
+                          "Used for starting meeting with client SDK.",
+                          "Used for generating the start meeting url."
                         ]
                     }
                 ],
@@ -3884,7 +3938,7 @@
                             "properties": {
                                 "token": {
                                     "type": "string",
-                                    "description": "User Token"
+                                    "description": "User ID"
                                 }
                             }
                         }
@@ -3893,9 +3947,30 @@
                         "description": "User not found"
                     }
                 }
+            },
+            "delete": {
+                "summary": "Revoke a user's SSO token",
+                "description": "Revoke a user's SSO token",
+                "tags": [
+                  "Users"
+                ],
+                "operationId": "userSSOTokenDelete",
+                "parameters": [
+                  {
+                    "$ref": "#/parameters/UserId"
+                  }
+                ],
+                "responses": {
+              "204": {
+                "description": "Token deleted"
+              },
+              "404": {
+                "description": "User not found"
+              }
             }
+          }
         },
-        "/users/{userId}/zpk": {
+        "/users/zpk": {
             "get": {
                 "summary": "Verify a user's zpk",
                 "description": "Check if the zpk is expired. The zpk is used to authenticate a user.",
@@ -3905,21 +3980,57 @@
                 "operationId": "userZPK",
                 "parameters": [
                     {
-                        "$ref": "#/parameters/UserId"
-                    },
-                    {
-                        "name": "type",
+                        "name": "zpk",
                         "description": "User zpk",
                         "in": "query",
-                        "type": "string"
+                        "type": "string",
+                        "required":true
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "Success"
+                        "description": "Success",
+                        "schema": {
+                            "properties": {
+                                "expire_in": {
+                                  "type": "integer"
+                                }
+                            }
+                        }
                     }
                 }
             }
+        },
+        "/users/email": {
+            "get": {
+                "summary": "Check a user's email",
+                "description": "Check if the user email exists.",
+                "tags": [
+                    "Users"
+                ],
+                "operationId": "userEmail",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "description": "User email",
+                        "in": "query",
+                        "type": "string",
+                        "required":true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "properties": {
+                                "existed_email": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+              }
         },
         "/users/{userId}/webinars": {
             "get": {
@@ -4532,6 +4643,27 @@
             "description": "The user ID or email address",
             "type": "string",
             "required": true
+        },
+        "LoginType":{
+            "in": "query",
+            "name": "login_type",
+            "description": "User login type",
+            "type": "integer",
+            "required":false,
+            "enum": [
+              0,
+              1,
+              99,
+              100,
+              101
+            ],
+            "x-enum-descriptions": [
+              "Facebook",
+              "Google",
+              "API",
+              "Zoom",
+              "SSO"
+            ]
         },
         "WebinarId": {
             "in": "path",
@@ -6303,6 +6435,14 @@
                 "type"
             ],
             "properties": {
+                "first_name": {
+                    "type": "string",
+                    "description": "User's first name."
+                },
+                "last_name": {
+                    "type": "string",
+                    "description": "User's last name."
+                },
                 "email": {
                     "type": "string",
                     "description": "User's email address."
@@ -6321,50 +6461,91 @@
                     ],
                     "description": "User's type"
                 },
-                "first_name": {
-                    "type": "string",
-                    "description": "User's first name."
-                },
-                "last_name": {
-                    "type": "string",
-                    "description": "User's last name."
-                },
-                "created_at": {
-                    "type": "string",
-                    "format": "dateTime"
-                },
-                "dept": {
-                    "type": "string"
-                },
-                "last_client_version": {
-                    "type": "string"
-                },
-                "last_login_time": {
-                    "type": "string",
-                    "format": "dateTime"
-                },
-                "pic_url": {
-                    "type": "string"
-                },
                 "pmi": {
                     "type": "string"
                 },
                 "timezone": {
                     "type": "string"
                 },
-                "vanity_url": {
-                    "type": "string"
-                },
                 "verified": {
                     "type": "boolean"
                 },
-                "cms_user_id": {
+                "dept": {
+                    "type": "string"
+                },
+                "created_at": {
                     "type": "string",
-                    "description": "CMS User Id"
+                    "format": "dateTime"
+                },
+                "last_login_time": {
+                    "type": "string",
+                    "format": "dateTime"
+                },
+                "last_client_version": {
+                    "type": "string"
+                }
+            }
+        },
+        "UserUpdate": {
+            "type": "object",
+            "description": "The user update object represents a User on Zoom.",
+            "required": [
+            ],
+            "properties": {
+                "first_name": {
+                    "type": "string",
+                    "description": "User's first name.",
+                    "required":false
+                },
+                "last_name": {
+                    "type": "string",
+                    "description": "User's last name.",
+                    "required":false
+                },
+                "type": {
+                    "type": "integer",
+                    "enum": [
+                        1,
+                        2,
+                        3
+                    ],
+                    "x-enum-descriptions": [
+                        "basic",
+                        "pro",
+                        "corp"
+                    ],
+                    "description": "User's type",
+                    "required":false
+                },
+                "pmi": {
+                    "type": "string",
+                    "description": "Personal Meeting ID,length must be 10.",
+                    "required":false
+                },
+                "timezone": {
+                    "type": "string",
+                    "description": "The time zone id for user profile. ",
+                    "required":false
+                },
+                "dept": {
+                    "type": "string",
+                    "description": "Department for user profile, use for report.",
+                    "required":false
+                },
+                "vanity_name": {
+                      "type": "string",
+                      "description": "Personal meeting room name.",
+                      "required":false
                 },
                 "host_key": {
                     "type": "string",
-                    "description": "Host Key, should be 6-digit number"
+                    "description": "Host Key, should be 6-digit number.",
+                    "required":false
+                },
+                "cms_user_id": {
+                    "type": "string",
+                    "description": "Kaltura User Id.",
+                    "required":false
                 }
             }
         },
@@ -6393,6 +6574,37 @@
                                     },
                                     {
                                         "$ref": "#/definitions/User"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "UserAssistantsList": {
+            "type": "object",
+            "title": "User assistants List",
+            "description": "List of User's assistants",
+            "allOf": [
+                {
+                    "properties": {
+                        "assistants": {
+                            "type": "array",
+                            "description": "List of User's assistants.",
+                            "items": {
+                                "allOf": [
+                                    {
+                                        "properties": {
+                                            "id": {
+                                                "type": "string",
+                                                "description": "User ID"
+                                            },
+                                            "email": {
+                                                "type": "string",
+                                                "description": "User email address. Must have id or email, if given id, the email is ignored."
+                                            }
+                                        }
                                     }
                                 ]
                             }
@@ -6433,56 +6645,62 @@
                 "host_video": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Host video"
+                    "description": "Host video",
+                    "required":false
                 },
                 "participants_video": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Participants video"
+                    "description": "Participants video",
+                    "required":false
                 },
                 "audio_type": {
                     "type": "string",
                     "default": "voip",
                     "description": "Meeting audio",
+                    "required":false,
                     "enum": [
                         "both",
                         "telephony",
                         "voip",
-                        "thirdParty",
-                        "none"
+                        "thirdParty"
                     ],
                     "x-enum-descriptions": [
                         "Telephony and VoIP",
                         "Audio PSTN telephony only",
                         "VoIP only",
-                        "3rd party audio conference",
-                        "Disabled"
+                        "3rd party audio conference"
                     ]
                 },
                 "join_before_host": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Join before host"
+                    "description": "Join before host",
+                    "required":false
                 },
                 "enforce_login": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Only signed-in users can join meetings"
+                    "description": "Only signed-in users can join meetings",
+                    "required":false
                 },
                 "not_store_meeting_topic": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Always display \"Zoom Meeting\" as the meeting topic"
+                    "description": "Always display \"Zoom Meeting\" as the meeting topic",
+                    "required":false
                 },
                 "force_pmi_jbh_password": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Require a password for Personal Meetings if attendees can join before host"
+                    "description": "Require a password for Personal Meetings if attendees can join before host",
+                    "required":false
                 },
                 "pstn_password_protected": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Generate and require password for participants joining by phone"
+                    "description": "Generate and require password for participants joining by phone",
+                    "required":false
                 }
             }
         },
@@ -6494,27 +6712,32 @@
                 "e2e_encryption": {
                     "type": "boolean",
                     "default": true,
-                    "description": "End-to-end encryption"
+                    "description": "End-to-end encryption",
+                    "required":false
                 },
                 "chat": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Chat"
+                    "description": "Chat",
+                    "required":false
                 },
                 "private_chat": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Private chat"
+                    "description": "Private chat",
+                    "required":false
                 },
                 "auto_saving_chat": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Auto saving chats"
+                    "description": "Auto saving chats",
+                    "required":false
                 },
                 "entry_exit_chime": {
                     "type": "string",
                     "default": "a''",
                     "description": "Play sound on join/leave",
+                    "required":false,
                     "enum": [
                         "host",
                         "all",
@@ -6529,92 +6752,116 @@
                 "record_play_voice": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Record and play their own voice"
+                    "description": "Record and play their own voice",
+                    "required":false
                 },
                 "file_transfer": {
                     "type": "boolean",
                     "default": false,
-                    "description": "File transfer"
+                    "description": "File transfer",
+                    "required":false
                 },
                 "feedback": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Feedback to Zoom"
+                    "description": "Feedback to Zoom",
+                    "required":false
                 },
                 "co_host": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Co-host"
+                    "description": "Co-host",
+                    "required":false
                 },
                 "polling": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Polling"
+                    "description": "Polling",
+                    "required":false
                 },
                 "attendee_on_hold": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Allow host to put attendee on hold"
+                    "description": "Allow host to put attendee on hold",
+                    "required":false
                 },
                 "annotation": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Annotation"
+                    "description": "Annotation",
+                    "required":false
+                },
+                "remote_control": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Remote control",
+                    "required":false
                 },
                 "non_verbal_feedback": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Non-verbal feedback"
+                    "description": "Non-verbal feedback",
+                    "required":false
                 },
                 "breakout_room": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Breakout room"
+                    "description": "Breakout room",
+                    "required":false
                 },
                 "remote_support": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Remote support"
+                    "description": "Remote support",
+                    "required":false
                 },
                 "closed_caption": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Closed caption"
+                    "description": "Closed caption",
+                    "required":false
                 },
                 "group_hd": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Group HD video"
+                    "description": "Group HD video",
+                    "required":false
                 },
                 "virtual_background": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Virtual background"
+                    "description": "Virtual background",
+                    "required":false
                 },
                 "far_end_camera_control": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Far end camera control"
+                    "description": "Far end camera control",
+                    "required":false
                 },
                 "share_dual_camera": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Share dual camera"
+                    "description": "Share dual camera",
+                    "required":false
                 },
                 "attention_tracking": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Attention tracking"
+                    "description": "Attention tracking",
+                    "required":false
                 },
                 "waiting_room": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Waiting room"
+                    "description": "Waiting room",
+                    "required":false
                 },
                 "manage_zr": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Manage Zoom Rooms"
+                    "description": "Manage Zoom Rooms",
+                    "required":false
                 }
             }
         },
@@ -6626,17 +6873,20 @@
                 "jbh_reminder": {
                     "type": "boolean",
                     "default": false,
-                    "description": "When attendees join meeting before host"
+                    "description": "When attendees join meeting before host",
+                    "required":false
                 },
                 "cancel_meeting_reminder": {
                     "type": "boolean",
                     "default": false,
-                    "description": "When a meeting is cancelled"
+                    "description": "When a meeting is cancelled",
+                    "required":false
                 },
                 "alternative_host_reminder": {
                     "type": "boolean",
                     "default": false,
-                    "description": "When an alternative host is set or removed from a meeting"
+                    "description": "When an alternative host is set or removed from a meeting",
+                    "required":false
                 }
             }
         },
@@ -6648,47 +6898,50 @@
                 "local_recording": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Local recording"
+                    "description": "Local recording",
+                    "required":false
                 },
                 "cloud_recording": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Cloud recording"
+                    "description": "Cloud recording",
+                    "required":false
                 },
                 "record_speaker_view": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Record the active speaker view"
+                    "description": "Record the active speaker view",
+                    "required":false
                 },
                 "record_gallery_view": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Record the gallery view"
+                    "description": "Record the gallery view",
+                    "required":false
                 },
                 "record_audio_file": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Record an audio only file"
+                    "description": "Record an audio only file",
+                    "required":false
                 },
                 "save_chat_text": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Save chat text from the meeting"
+                    "description": "Save chat text from the meeting",
+                    "required":false
                 },
                 "show_timestamp": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Show timestamp on video"
-                },
-                "recording_audio_transcript" : {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "Recording audio transcript"
+                    "description": "Show timestamp on video",
+                    "required":false
                 },
                 "auto_recording": {
                     "type": "string",
                     "default": "local",
                     "description": "Automatic recording",
+                    "required":false,
                     "enum": [
                         "Record on local",
                         "Record on cloud",
@@ -6703,7 +6956,8 @@
                 "auto_delete_cmr": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Auto delete cloud recordings"
+                    "description": "Auto delete cloud recordings",
+                    "required":false
                 }
             }
         },
@@ -6715,17 +6969,20 @@
                 "third_party_audio": {
                     "type": "boolean",
                     "default": true,
-                    "description": "3rd party audio conference"
+                    "description": "3rd party audio conference",
+                    "required":false
                 },
                 "audio_conference_info": {
                     "type": "string",
                     "default": "",
-                    "description": "3rd party audio conference info"
+                    "description": "3rd party audio conference info",
+                    "required":false
                 },
                 "show_international_numbers_link": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Show international numbers link on the invitation email"
+                    "description": "Show international numbers link on the invitation email",
+                    "required":false
                 }
             }
         },
@@ -6737,27 +6994,32 @@
                 "meeting_capacity": {
                     "type": "integer",
                     "default": 100,
-                    "description": "User’s meeting capacity."
+                    "description": "User’s meeting capacity.",
+                    "required":false
                 },
                 "large_meeting": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Large meting feature"
+                    "description": "Large meting feature",
+                    "required":false
                 },
                 "large_meeting_capacity": {
                     "type": "integer",
                     "default": 100,
-                    "description": "Large meeting capacity, can be 100, 200, 300 or 500, depends on if having related large meeting capacity plan subscription or not."
+                    "description": "Large meeting capacity, can be 100, 200, 300 or 500, depends on if having related large meeting capacity plan subscription or not.",
+                    "required":false
                 },
                 "webinar": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Webinar feature"
+                    "description": "Webinar feature",
+                    "required":false
                 },
                 "webinar_capacity": {
-                    "type": "boolean",
+                    "type": "integer",
                     "default": 100,
-                    "description": "Webinar capacity, can be 100, 500, 1000, 3000, 5000 or 10000, depends on if having related webinar capacity plan subscription or not."
+                    "description": "Webinar capacity, can be 100, 500, 1000, 3000, 5000 or 10000, depends on if having related webinar capacity plan subscription or not.",
+                    "required":false
                 }
             }
         },
