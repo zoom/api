@@ -390,7 +390,7 @@
         "/accounts/{accountId}/plans/base": {
             "put": {
                 "summary": "Update an account's base plan",
-                "description": "Update a base plan for a sub account <aside>Can only update a base plan for the sub account which is a paid account and paid by master account</aside><aside>Can only add an Additional plan for the sub account which is a paid account and paid by master account</aside>",
+                "description": "Update a base plan for a sub account <aside>Can only update a base plan for the sub account which is a paid account and paid by master account</aside>",
                 "tags": [
                     "Billing"
                 ],
@@ -404,7 +404,7 @@
                         "name": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/AccountPlanRequired"
+                            "$ref": "#/definitions/AccountPlanBaseRequired"
                         }
                     }
                 ],
@@ -1697,16 +1697,16 @@
                 "operationId": "dashboardMeetingParticipantShare",
                 "parameters": [
                     {
-                        "$ref": "#/parameters/MeetingId"
+                        "$ref": "#/parameters/MeetingId4Metrics"
                     },
                     {
-                        "$ref": "#/parameters/MeetingTypePast"
+                        "$ref": "#/parameters/MeetingTypePast2"
                     },
                     {
                         "$ref": "#/parameters/PageSize"
                     },
                     {
-                        "$ref": "#/parameters/PageNumber"
+                        "$ref": "#/parameters/PageToken"
                     }
                 ],
                 "responses": {
@@ -1715,7 +1715,7 @@
                         "schema": {
                             "allOf": [
                                 {
-                                    "$ref": "#/definitions/Pagination"
+                                    "$ref": "#/definitions/PaginationWithToken"
                                 },
                                 {
                                     "properties": {
@@ -4629,8 +4629,8 @@
         },
         "ParticipantId": {
             "in": "path",
-            "name": "participantId, such as 16778240",
-            "description": "The participant ID",
+            "name": "participantId",
+            "description": "The participant ID, such as 16778240",
             "type": "string",
             "required": true
         },
@@ -4895,6 +4895,24 @@
                 }
             }
         },
+        "AccountPlanBaseRequired": {
+            "type": "object",
+            "description": "Account base plan object",
+            "required": [
+                "type",
+                "hosts"
+            ],
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "description": "Account base plan type"
+                },
+                "hosts": {
+                    "type": "integer",
+                    "description": "Account base plan number of hosts. For a Pro Plan, please select a value between 1 and 9. For a Business Plan, please select a value between 10 and 49. For a Education Plan, please select a value between 20 and 149. For a Free Trial Plan, please select a value between 1 and 9999."
+                }
+            }
+        },
         "AccountPlanRequired": {
             "type": "object",
             "description": "Account plan object",
@@ -4909,7 +4927,7 @@
                 },
                 "hosts": {
                     "type": "integer",
-                    "description": "Account plan number of hosts"
+                    "description": "Account plan number of hosts."
                 }
             }
         },
@@ -4918,7 +4936,7 @@
             "description": "Account Plans object",
             "properties": {
                 "plan_base": {
-                    "$ref": "#/definitions/AccountPlanRequired"
+                    "$ref": "#/definitions/AccountPlanBaseRequired"
                 },
                 "plan_zoom_rooms": {
                     "$ref": "#/definitions/AccountPlan"
@@ -5093,7 +5111,7 @@
                 "file_transfer": {
                     "type": "boolean",
                     "description": "File transfer",
-                    "default": true
+                    "default": false
                 },
                 "feedback": {
                     "type": "boolean",
@@ -5218,7 +5236,7 @@
                 "dscp_marking": {
                     "type": "boolean",
                     "description": "DSCP marking",
-                    "default": true
+                    "default": false
                 },
                 "dscp_audio": {
                     "type": "integer",
@@ -5353,12 +5371,12 @@
                 "import_photos_from_devices": {
                     "type": "boolean",
                     "description": "Allow importing of photos from photo library on the user's device",
-                    "default": true
+                    "default": false
                 },
                 "hide_billing_info": {
                     "type": "boolean",
                     "description": "Hide billing information",
-                    "default": true
+                    "default": false
                 }
             }
         },
@@ -5440,7 +5458,7 @@
                 "third_party_audio": {
                     "type": "boolean",
                     "description": "3rd party audio conference",
-                    "default": true
+                    "default": false
                 },
                 "audio_conference_info": {
                     "type": "string",
@@ -5898,12 +5916,12 @@
                 "host_video": {
                     "type": "boolean",
                     "description": "Start video when host join meeting",
-                    "default": true
+                    "default": false
                 },
                 "participant_video": {
                     "type": "boolean",
                     "description": "Start video when participants join meeting",
-                    "default": true
+                    "default": false
                 },
                 "cn_meeting": {
                     "type": "boolean",
@@ -6850,13 +6868,13 @@
             "properties": {
                 "host_video": {
                     "type": "boolean",
-                    "default": true,
+                    "default": false,
                     "description": "Host video",
                     "required":false
                 },
                 "participants_video": {
                     "type": "boolean",
-                    "default": true,
+                    "default": false,
                     "description": "Participants video",
                     "required":false
                 },
@@ -6880,31 +6898,31 @@
                 },
                 "join_before_host": {
                     "type": "boolean",
-                    "default": true,
+                    "default": false,
                     "description": "Join before host",
                     "required":false
                 },
                 "enforce_login": {
                     "type": "boolean",
-                    "default": true,
+                    "default": false,
                     "description": "Only signed-in users can join meetings",
                     "required":false
                 },
                 "not_store_meeting_topic": {
                     "type": "boolean",
-                    "default": true,
+                    "default": false,
                     "description": "Always display \"Zoom Meeting\" as the meeting topic",
                     "required":false
                 },
                 "force_pmi_jbh_password": {
                     "type": "boolean",
-                    "default": true,
+                    "default": false,
                     "description": "Require a password for Personal Meetings if attendees can join before host",
                     "required":false
                 },
                 "pstn_password_protected": {
                     "type": "boolean",
-                    "default": true,
+                    "default": false,
                     "description": "Generate and require password for participants joining by phone",
                     "required":false
                 }
@@ -6917,7 +6935,7 @@
             "properties": {
                 "e2e_encryption": {
                     "type": "boolean",
-                    "default": true,
+                    "default": false,
                     "description": "End-to-end encryption",
                     "required":false
                 },
@@ -6957,7 +6975,7 @@
                 },
                 "record_play_voice": {
                     "type": "boolean",
-                    "default": true,
+                    "default": false,
                     "description": "Record and play their own voice",
                     "required":false
                 },
@@ -7103,7 +7121,7 @@
             "properties": {
                 "local_recording": {
                     "type": "boolean",
-                    "default": true,
+                    "default": false,
                     "description": "Local recording",
                     "required":false
                 },
@@ -7174,7 +7192,7 @@
             "properties": {
                 "third_party_audio": {
                     "type": "boolean",
-                    "default": true,
+                    "default": false,
                     "description": "3rd party audio conference",
                     "required":false
                 },
@@ -7186,7 +7204,7 @@
                 },
                 "show_international_numbers_link": {
                     "type": "boolean",
-                    "default": true,
+                    "default": false,
                     "description": "Show international numbers link on the invitation email",
                     "required":false
                 }
@@ -7205,7 +7223,7 @@
                 },
                 "large_meeting": {
                     "type": "boolean",
-                    "default": true,
+                    "default": false,
                     "description": "Large meting feature",
                     "required":false
                 },
@@ -7217,7 +7235,7 @@
                 },
                 "webinar": {
                     "type": "boolean",
-                    "default": true,
+                    "default": false,
                     "description": "Webinar feature",
                     "required":false
                 },
