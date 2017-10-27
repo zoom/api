@@ -7370,7 +7370,8 @@
                 "webinar": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Webinar feature",
+                    "description": "Webinar feature"
+                },
                 "webinar_capacity": {
                     "type": "integer",
                     "default": 100,
