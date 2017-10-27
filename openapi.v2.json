@@ -2633,7 +2633,7 @@
                         "$ref": "#/parameters/PageSize"
                     },
                     {
-                        "$ref": "#/parameters/PageNumber"
+                        "$ref": "#/parameters/PageToken"
                     }
                 ],
                 "responses": {
@@ -2656,7 +2656,7 @@
                                     }
                                 },
                                 {
-                                    "$ref": "#/definitions/Pagination"
+                                    "$ref": "#/definitions/PaginationWithToken"
                                 },
                                 {
                                     "properties": {
@@ -2736,13 +2736,13 @@
                 "operationId": "reportMeetingParticipants",
                 "parameters": [
                     {
-                        "$ref": "#/parameters/MeetingId"
+                        "$ref": "#/parameters/MeetingId4Metrics"
                     },
                     {
                         "$ref": "#/parameters/PageSize"
                     },
                     {
-                        "$ref": "#/parameters/PageNumber"
+                        "$ref": "#/parameters/PageToken"
                     }
                 ],
                 "responses": {
@@ -2751,7 +2751,7 @@
                         "schema": {
                             "allOf": [
                                 {
-                                    "$ref": "#/definitions/Pagination"
+                                    "$ref": "#/definitions/PaginationWithToken"
                                 },
                                 {
                                     "properties": {
@@ -2810,13 +2810,13 @@
                 "operationId": "reportWebinarParticipants",
                 "parameters": [
                     {
-                        "$ref": "#/parameters/WebinarId"
+                        "$ref": "#/parameters/WebinarId4Metrics"
                     },
                     {
                         "$ref": "#/parameters/PageSize"
                     },
                     {
-                        "$ref": "#/parameters/PageNumber"
+                        "$ref": "#/parameters/PageToken"
                     }
                 ],
                 "responses": {
@@ -2825,7 +2825,7 @@
                         "schema": {
                             "allOf": [
                                 {
-                                    "$ref": "#/definitions/Pagination"
+                                    "$ref": "#/definitions/PaginationWithToken"
                                 },
                                 {
                                     "properties": {
@@ -2884,7 +2884,7 @@
                 "operationId": "reportWebinarPolls",
                 "parameters": [
                     {
-                        "$ref": "#/parameters/WebinarId"
+                        "$ref": "#/parameters/WebinarId4Metrics"
                     }
                 ],
                 "responses": {
@@ -2957,7 +2957,7 @@
                 "operationId": "reportWebinarQA",
                 "parameters": [
                     {
-                        "$ref": "#/parameters/WebinarId"
+                        "$ref": "#/parameters/WebinarId4Metrics"
                     }
                 ],
                 "responses": {
