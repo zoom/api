@@ -406,7 +406,7 @@
                     }
                 ],
                 "responses": {
-                    "201": {
+                    "204": {
                         "description": "Account plans updated"
                     }
                 }
@@ -3071,7 +3071,7 @@
         "/report/telephone": {
             "get": {
                 "summary": "Retrieve telephone report",
-                "description": "Retrieve telephone report for a specified period",
+                "description": "Retrieve telephone report for a specified period <aside>Toll Report API is provided for enabled 'Toll Report' option.</aside>",
                 "tags": [
                     "Reports"
                 ],
