@@ -1003,8 +1003,8 @@
                 }
             },
             "post": {
-                "summary": "Add an IM Group member",
-                "description": "Add a member to an IM Group under your account",
+                "summary": "Add IM Group members",
+                "description": "Add members to an IM Group under your account",
                 "tags": [
                     "IM Groups"
                 ],
@@ -1019,21 +1019,39 @@
                         "required": true,
                         "schema": {
                             "properties": {
-                                "id": {
-                                    "type": "string",
-                                    "description": "User ID."
-                                },
-                                "email": {
-                                    "type": "string",
-                                    "description": "User email. If ID given, email is ignored."
+                                "members": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "string",
+                                                "description": "User ID."
+                                            },
+                                            "email": {
+                                                "type": "string",
+                                                "description": "User email. If ID given, email is ignored."
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
                     }
                 ],
                 "responses": {
-                    "204": {
-                        "description": "Member added."
+                    "201": {
+                        "description": "Member added.",
+                        "schema": {
+                            "properties": {
+                                "id": {
+                                    "type": "string"
+                                },
+                                "added_at": {
+                                    "type": "string",
+                                    "format": "date-time"
+                                }
+                            }
+                        }
                     },
                     "404": {
                         "description": "IM Group not found"
@@ -1041,7 +1059,7 @@
                 }
             }
         },
-        "/im/groups/{groupId}/members/{userId}": {
+        "/im/groups/{groupId}/members/{memberId}": {
             "delete": {
                 "summary": "Delete an IM Group member",
                 "description": "Delete a member from an IM Group under your account",
@@ -1054,7 +1072,7 @@
                         "$ref": "#/parameters/GroupId"
                     },
                     {
-                        "$ref": "#/parameters/UserId"
+                        "$ref": "#/parameters/MemberId"
                     }
                 ],
                 "responses": {
@@ -1440,7 +1458,7 @@
                                 },
                                 "registrant":{
                                     "type":"array",
-                                    "description":"List of registrant",
+                                    "description":"List of registrants",
                                     "items":{
                                         "properties":{
                                             "id":{
@@ -4139,7 +4157,7 @@
             },
             "post": {
                 "summary": "Create a webinar",
-                "description": "Create a webinars for a user",
+                "description": "Create a webinar for a user",
                 "tags": [
                     "Webinars"
                 ],
@@ -4767,7 +4785,7 @@
             "type": "string",
             "default": "approved",
             "enum": [
-                "approval",
+                "pending",
                 "approved",
                 "denied"
             ],
@@ -5792,16 +5810,31 @@
                 {
                     "properties": {
                         "type": {
-                            "type": "string"
+                            "type": "string",
+                            "description": "IM Group type",
+                            "default":"normal",
+                            "enum": [
+                                "normal",
+                                "shared",
+                                "restricted"
+                            ],
+                            "x-enum-descriptions": [
+                                "Only members can see the group automatically. Other people can search members in the group",
+                                "All people in the account can see the group and members automatically",
+                                "Nobody can see the group or search members except the members in the group"
+                            ]
                         },
                         "search_by_domain": {
-                            "type": "boolean"
+                            "type": "boolean",
+                            "description": "Members can search others in the same email domain"
                         },
                         "search_by_account": {
-                            "type": "boolean"
+                            "type": "boolean",
+                            "description": "Members can search others under same account"
                         },
                         "search_by_ma_account": {
-                            "type": "boolean"
+                            "type": "boolean",
+                            "description": "Members can search others under same master account, including all sub accounts"
                         }
                     }
                 }
@@ -6826,23 +6859,23 @@
                 "start_time": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Meeting start time"
+                    "description": "Meeting start time, in the format \"yyyy-MM-dd'T'HH:mm:ss'Z'\", should be GMT time. In the format \"yyyy-MM-dd'T'HH:mm:ss\", should be local time, need to specify the time zone. Only used for scheduled meeting and recurring meeting with fixed time."
                 },
                 "duration": {
                     "type": "integer",
-                    "description": "Meeting duration"
+                    "description": "Meeting duration (minutes). Used for scheduled meeting only."
                 },
                 "timezone": {
                     "type": "string",
-                    "description": "Timezone to format start_time"
+                    "description": "Timezone to format start_time, like \"America/Los_Angeles\". For scheduled meeting only. For this parameter value please refer to the id value in timezone list."
                 },
                 "password": {
                     "type": "string",
-                    "description": "Password to join the meeting"
+                    "description": "Password to join the meeting. Password may only contain the following characters: [a-z A-Z 0-9 @ - _ *]. Max of 10 characters."
                 },
                 "agenda": {
                     "type": "string",
-                    "description": "Meeting agenda"
+                    "description": "Meeting description"
                 },
                 "recurrence": {
                     "$ref": "#/definitions/Recurrence"
@@ -6878,23 +6911,23 @@
                 "start_time": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Webinar start time"
+                    "description": "Webinar start time, in the format \"yyyy-MM-dd'T'HH:mm:ss'Z'\", should be GMT time. In the format \"yyyy-MM-dd'T'HH:mm:ss\", should be local time, need to specify the time zone. Only used for scheduled webinar and recurring webinar with fixed time."
                 },
                 "duration": {
                     "type": "integer",
-                    "description": "Webinar duration"
+                    "description": "Webinar duration (minutes). Used for scheduled webinar only."
                 },
                 "timezone": {
                     "type": "string",
-                    "description": "Timezone to format start_time"
+                    "description": "Timezone to format start_time, like \"America/Los_Angeles\". For scheduled webinar only. For this parameter value please refer to the id value in timezone list."
                 },
                 "password": {
                     "type": "string",
-                    "description": "Password to join the webinar"
+                    "description": "Webinar password. Password may only contain the following characters: [a-z A-Z 0-9 @ - _ *]. Max of 10 characters."
                 },
                 "agenda": {
                     "type": "string",
-                    "description": "Webinar agenda"
+                    "description": "Webinar description"
                 },
                 "recurrence": {
                     "$ref": "#/definitions/Recurrence"
@@ -7543,7 +7576,7 @@
                 },
                 {
                     "properties": {
-                        "meetings": {
+                        "webinars": {
                             "type": "array",
                             "description": "List of Webinar objects.",
                             "items": {
