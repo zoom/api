@@ -30,8 +30,8 @@
     "paths": {
         "/accounts": {
             "get": {
-                "summary": "List accounts",
-                "description": "List the sub accounts under the master account",
+                "summary": "List sub accounts",
+                "description": "List all the sub accounts under the master account",
                 "tags": [
                     "Accounts"
                 ],
@@ -54,7 +54,7 @@
                 }
             },
             "post": {
-                "summary": "Create an account",
+                "summary": "Create a sub account",
                 "description": "Create a sub account under the master account <aside>Your account must be a master account and have this privilege to create sub account. Zoom only assign this privilege to trusted partner. The created user will not receive the confirmation email.</aside>",
                 "tags": [
                     "Accounts"
@@ -109,7 +109,7 @@
         },
         "/accounts/{accountId}": {
             "get": {
-                "summary": "Retrieve an account",
+                "summary": "Retrieve a sub account",
                 "description": "Retrieve a sub account under the master account <aside>Your account must be a master account and have this privilege to get sub account. Zoom only assign this privilege to trusted partner</aside>",
                 "tags": [
                     "Accounts"
@@ -124,32 +124,29 @@
                     "200": {
                         "description": "Account object returned",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "properties": {
-                                        "id": {
-                                            "type": "string",
-                                            "description": "Account ID"
-                                        },
-                                        "owner_id": {
-                                            "type": "string",
-                                            "description": "Account Owner ID"
-                                        },
-                                        "owner_email": {
-                                            "type": "string",
-                                            "description": "Account Owner email"
-                                        },
-                                        "created_at": {
-                                            "type": "string",
-                                            "format": "dateTime",
-                                            "description": "Account creation date/time"
-                                        },
-                                        "options": {
-                                            "$ref": "#/definitions/AccountOptions"
-                                        }
-                                    }
+                            "properties": {
+                                "id": {
+                                    "type": "string",
+                                    "description": "Account ID"
+                                },
+                                "owner_id": {
+                                    "type": "string",
+                                    "description": "Account Owner ID"
+                                },
+                                "owner_email": {
+                                    "type": "string",
+                                    "description": "Account Owner email"
+                                },
+                                "created_at": {
+                                    "type": "string",
+                                    "format": "date-time",
+                                    "description": "Account creation date/time"
+                                },
+                                "options": {
+                                    "$ref": "#/definitions/AccountOptions"
                                 }
-                            ]
+                            }
+                            
                         }
                     },
                     "404": {
@@ -158,12 +155,12 @@
                 }
             },
             "delete": {
-                "summary": "Delete an account",
-                "description": "Delete a sub account under the master account",
+                "summary": "Disassociate an account",
+                "description": "Disassociate a sub account from the master account",
                 "tags": [
                     "Accounts"
                 ],
-                "operationId": "accountDelete",
+                "operationId": "accountDisassociate",
                 "parameters": [
                     {
                         "$ref": "#/parameters/AccountId"
@@ -181,7 +178,7 @@
         },
         "/accounts/{accountId}/options": {
             "patch": {
-                "summary": "Update an account's options",
+                "summary": "Update a sub account's options",
                 "description": "Update a sub account's options under the master account",
                 "tags": [
                     "Accounts"
@@ -212,7 +209,7 @@
         },
         "/accounts/{accountId}/settings": {
             "get": {
-                "summary": "Retrieve an account's settings",
+                "summary": "Retrieve a sub account's settings",
                 "description": "Retrieve a sub account's settings under the master account",
                 "tags": [
                     "Accounts"
@@ -236,7 +233,7 @@
                 }
             },
             "patch": {
-                "summary": "Update an account's settings",
+                "summary": "Update a sub account's settings",
                 "description": "Update a sub account's settings under the master account",
                 "tags": [
                     "Accounts"
@@ -267,8 +264,8 @@
         },
         "/accounts/{accountId}/billing": {
             "get": {
-                "summary": "Retrieve an account's billing information",
-                "description": "Retrieve a sub account's billing information under the master account",
+                "summary": "Retrieve billing information for a sub account",
+                "description": "Retrieve billing information for a sub account under the master account",
                 "tags": [
                     "Billing"
                 ],
@@ -291,8 +288,8 @@
                 }
             },
             "patch": {
-                "summary": "Update an account's billing information",
-                "description": "Update a sub account's billing information under the master account <aside>Only for the sub account which is paid by master account</aside>",
+                "summary": "Update billing information for a sub account",
+                "description": "Update billing information for a sub account under the master account <aside>Only for the sub account which is a paid account and paid by master account</aside>",
                 "tags": [
                     "Billing"
                 ],
@@ -322,8 +319,8 @@
         },
         "/accounts/{accountId}/plans": {
             "get": {
-                "summary": "Retrieve an account's plans",
-                "description": "Retrieve a sub account's plans under the master account  <aside>Only for the sub account which is paid by master account</aside>",
+                "summary": "Retrieve plan information for a sub account",
+                "description": "Retrieve plan information for a sub account under the master account  <aside>Only for the sub account which is paid by master account</aside>",
                 "tags": [
                     "Billing"
                 ],
@@ -389,8 +386,8 @@
         },
         "/accounts/{accountId}/plans/base": {
             "put": {
-                "summary": "Update an account's base plan",
-                "description": "Update a base plan for a sub account <aside>Can only update a base plan for the sub account which is a paid account and paid by master account</aside><aside>Can only add an Additional plan for the sub account which is a paid account and paid by master account</aside>",
+                "summary": "Update a base plan for a sub account",
+                "description": "Update a base plan for a sub account <aside>Can only update a base plan for the sub account which is a paid account and paid by master account</aside>",
                 "tags": [
                     "Billing"
                 ],
@@ -404,7 +401,7 @@
                         "name": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/AccountPlanRequired"
+                            "$ref": "#/definitions/AccountPlanBaseRequired"
                         }
                     }
                 ],
@@ -417,8 +414,8 @@
         },
         "/accounts/{accountId}/plans/addons": {
             "post": {
-                "summary": "Add an account add-on plan",
-                "description": "Add an add-on plan for a sub account <aside>Can only add an Additional plan for the sub account which is a paid account and paid by master account</aside>",
+                "summary": "Add an additional plan for sub account",
+                "description": "Add an additional plan for sub account <aside>Can only add an Additional plan for the sub account which is a paid account and paid by master account</aside>",
                 "tags": [
                     "Billing"
                 ],
@@ -443,8 +440,8 @@
                 }
             },
             "put": {
-                "summary": "Update an account's add-on plans",
-                "description": "Update as add-on plan for a sub account <aside>Can only update an Additional plan for the sub account which is a paid account and paid by master account</aside>",
+                "summary": "Update an additional plan for sub account",
+                "description": "Update an additional plan for sub account<aside>Can only update an Additional plan for the sub account which is a paid account and paid by master account</aside>",
                 "tags": [
                     "Billing"
                 ],
@@ -715,7 +712,7 @@
                                 },
                                 "added_at": {
                                     "type": "string",
-                                    "format": "dateTime"
+                                    "format": "date-time"
                                 }
                             }
                         }
@@ -752,7 +749,7 @@
                 }
             }
         },
-        "/im_groups": {
+        "/im/groups": {
             "get": {
                 "summary": "List IM Groups",
                 "description": "List IM groups under your account",
@@ -847,7 +844,7 @@
                 }
             }
         },
-        "/im_groups/{groupId}": {
+        "/im/groups/{groupId}": {
             "get": {
                 "summary": "Retrieve an IM Group",
                 "description": "Retrieve an IM Group under your account",
@@ -967,7 +964,7 @@
                 }
             }
         },
-        "/im_groups/{groupId}/members": {
+        "/im/groups/{groupId}/members": {
             "get": {
                 "summary": "List an IM Group's members",
                 "description": "List an IM Group's members under your account",
@@ -1037,7 +1034,7 @@
                 }
             }
         },
-        "/im_groups/{groupId}/members/{userId}": {
+        "/im/groups/{groupId}/members/{userId}": {
             "delete": {
                 "summary": "Delete an IM Group member",
                 "description": "Delete a member from an IM Group under your account",
@@ -1113,10 +1110,9 @@
                         "name": "body",
                         "required": true,
                         "description": "User",
-                        "schema":
-                            {
-                                "$ref": "#/definitions/Meeting"
-                            }
+                        "schema": {
+                            "$ref": "#/definitions/Meeting"
+                        }
                     }
                 ],
                 "responses": {
@@ -1124,8 +1120,8 @@
                         "description": "Meeting Created",
                         "headers": {
                             "Content-Location": {
-                              "description": "Location of created Meeting",
-                              "type": "string"
+                                "description": "Location of created Meeting",
+                                "type": "string"
                             }
                         },
                         "schema": {
@@ -1329,10 +1325,9 @@
                 "responses": {
                     "200": {
                         "description": "Success",
-                        "schema":
-                            {
-                                "$ref": "#/definitions/MeetingRegistrantList"
-                            }
+                        "schema": {
+                            "$ref": "#/definitions/MeetingRegistrantList"
+                        }
                     },
                     "404": {
                         "description": "Meeting not found"
@@ -1385,7 +1380,7 @@
                                 },
                                 "start_time": {
                                     "type": "string",
-                                    "format":"dateTime",
+                                    "format":"date-time",
                                     "description": "Start time"
                                 },
                                 "join_url": {
@@ -1510,7 +1505,7 @@
                                     }
                                 },
                                 {
-                                    "$ref": "#/definitions/PaginationWithToken"
+                                    "$ref": "#/definitions/PaginationToken"
                                 },
                                 {
                                     "properties": {
@@ -1583,7 +1578,7 @@
                         "schema": {
                             "allOf": [
                                 {
-                                    "$ref": "#/definitions/PaginationWithToken"
+                                    "$ref": "#/definitions/PaginationToken"
                                 },
                                 {
                                     "properties": {
@@ -1624,12 +1619,12 @@
                                                     },
                                                     "join_time": {
                                                         "type": "string",
-                                                        "format": "dateTime",
+                                                        "format": "date-time",
                                                         "description": "Participant join time"
                                                     },
                                                     "leave_time": {
                                                         "type": "string",
-                                                        "format": "dateTime",
+                                                        "format": "date-time",
                                                         "description": "Participant leave time"
                                                     },
                                                     "share_application": {
@@ -1740,7 +1735,7 @@
                 }
             }
         },
-        "/metrics/meetings/{meetingId}/participants/{participantId}/sharing": {
+        "/metrics/meetings/{meetingId}/participants/sharing": {
             "get": {
                 "summary": "Retrieve sharing/recording details of meeting participant",
                 "description": "Retrieve sharing/recording details of live or past meetings participant",
@@ -1750,16 +1745,16 @@
                 "operationId": "dashboardMeetingParticipantShare",
                 "parameters": [
                     {
-                        "$ref": "#/parameters/MeetingId"
+                        "$ref": "#/parameters/MeetingId4Metrics"
                     },
                     {
-                        "$ref": "#/parameters/MeetingTypePast"
+                        "$ref": "#/parameters/MeetingTypePast2"
                     },
                     {
                         "$ref": "#/parameters/PageSize"
                     },
                     {
-                        "$ref": "#/parameters/PageNumber"
+                        "$ref": "#/parameters/PageToken"
                     }
                 ],
                 "responses": {
@@ -1768,7 +1763,7 @@
                         "schema": {
                             "allOf": [
                                 {
-                                    "$ref": "#/definitions/Pagination"
+                                    "$ref": "#/definitions/PaginationToken"
                                 },
                                 {
                                     "properties": {
@@ -1865,7 +1860,7 @@
                                     }
                                 },
                                 {
-                                    "$ref": "#/definitions/PaginationWithToken"
+                                    "$ref": "#/definitions/PaginationToken"
                                 },
                                 {
                                     "properties": {
@@ -1938,7 +1933,7 @@
                         "schema": {
                             "allOf": [
                                 {
-                                    "$ref": "#/definitions/PaginationWithToken"
+                                    "$ref": "#/definitions/PaginationToken"
                                 },
                                 {
                                     "properties": {
@@ -1979,12 +1974,12 @@
                                                     },
                                                     "join_time": {
                                                         "type": "string",
-                                                        "format": "dateTime",
+                                                        "format": "date-time",
                                                         "description": "Participant join time"
                                                     },
                                                     "leave_time": {
                                                         "type": "string",
-                                                        "format": "dateTime",
+                                                        "format": "date-time",
                                                         "description": "Participant leave time"
                                                     },
                                                     "share_application": {
@@ -2095,7 +2090,7 @@
                 }
             }
         },
-        "/metrics/webinars/{webinarId}/participants/{participantId}/sharing": {
+        "/metrics/webinars/{webinarId}/participants/sharing": {
             "get": {
                 "summary": "Retrieve sharing/recording details of webinar participant",
                 "description": "Retrieve sharing/recording details of live or past webinar participant",
@@ -2123,7 +2118,7 @@
                         "schema": {
                             "allOf": [
                                 {
-                                    "$ref": "#/definitions/PaginationWithToken"
+                                    "$ref": "#/definitions/PaginationToken"
                                 },
                                 {
                                     "properties": {
@@ -2394,7 +2389,7 @@
                                     }
                                 },
                                 {
-                                    "$ref": "#/definitions/PaginationWithToken"
+                                    "$ref": "#/definitions/PaginationToken"
                                 },
                                 {
                                     "properties": {
@@ -2709,7 +2704,7 @@
                                     }
                                 },
                                 {
-                                    "$ref": "#/definitions/PaginationWithToken"
+                                    "$ref": "#/definitions/PaginationToken"
                                 },
                                 {
                                     "properties": {
@@ -2745,12 +2740,12 @@
                                                     },
                                                     "start_time": {
                                                         "type": "string",
-                                                        "format": "dateTime",
+                                                        "format": "date-time",
                                                         "description": "Meeting start time"
                                                     },
                                                     "end_time": {
                                                         "type": "string",
-                                                        "format": "dateTime",
+                                                        "format": "date-time",
                                                         "description": "Meeting end time"
                                                     },
                                                     "duration": {
@@ -2804,7 +2799,7 @@
                         "schema": {
                             "allOf": [
                                 {
-                                    "$ref": "#/definitions/PaginationWithToken"
+                                    "$ref": "#/definitions/PaginationToken"
                                 },
                                 {
                                     "properties": {
@@ -2823,12 +2818,12 @@
                                                     },
                                                     "join_time": {
                                                         "type": "string",
-                                                        "format": "dateTime",
+                                                        "format": "date-time",
                                                         "description": "Participant join time"
                                                     },
                                                     "leave_time": {
                                                         "type": "string",
-                                                        "format": "dateTime",
+                                                        "format": "date-time",
                                                         "description": "Participant leave time"
                                                     },
                                                     "duration": {
@@ -2878,7 +2873,7 @@
                         "schema": {
                             "allOf": [
                                 {
-                                    "$ref": "#/definitions/PaginationWithToken"
+                                    "$ref": "#/definitions/PaginationToken"
                                 },
                                 {
                                     "properties": {
@@ -2897,12 +2892,12 @@
                                                     },
                                                     "join_time": {
                                                         "type": "string",
-                                                        "format": "dateTime",
+                                                        "format": "date-time",
                                                         "description": "Participant join time"
                                                     },
                                                     "leave_time": {
                                                         "type": "string",
-                                                        "format": "dateTime",
+                                                        "format": "date-time",
                                                         "description": "Participant leave time"
                                                     },
                                                     "duration": {
@@ -2956,7 +2951,7 @@
                                 },
                                 "start_time": {
                                     "type": "string",
-                                    "format": "dateTime",
+                                    "format": "date-time",
                                     "description": "Webinar start time"
                                 },
                                 "questions": {
@@ -3029,7 +3024,7 @@
                                 },
                                 "start_time": {
                                     "type": "string",
-                                    "format": "dateTime",
+                                    "format": "date-time",
                                     "description": "Webinar start time"
                                 },
                                 "questions": {
@@ -3161,12 +3156,12 @@
                                                     },
                                                     "start_time": {
                                                         "type": "string",
-                                                        "format": "dateTime",
+                                                        "format": "date-time",
                                                         "description": "Meeting start time"
                                                     },
                                                     "end_time": {
                                                         "type": "string",
-                                                        "format": "dateTime",
+                                                        "format": "date-time",
                                                         "description": "Meeting end time"
                                                     },
                                                     "duration": {
@@ -3175,7 +3170,6 @@
                                                     },
                                                     "total": {
                                                         "type": "number",
-                                                        "format": "float",
                                                         "description": "Total"
                                                     }
                                                 }
@@ -3327,11 +3321,13 @@
                                         },
                                         "first_name": {
                                             "type": "string",
-                                            "description": "User's first name."
+                                            "description": "User's first name.",
+                                            "maxLength": 64
                                         },
                                         "last_name": {
                                             "type": "string",
-                                            "description": "User's last name."
+                                            "description": "User's last name.",
+                                            "maxLength": 64
                                         },
                                         "password": {
                                             "type": "string",
@@ -3360,19 +3356,31 @@
                                 },
                                 "first_name": {
                                     "type": "string",
-                                    "description": "User first name"
+                                    "description": "User's first name.",
+                                    "maxLength": 64
                                 },
                                 "last_name": {
                                     "type": "string",
-                                    "description": "User last name"
+                                    "description": "User's last name.",
+                                    "maxLength": 64
                                 },
                                 "email": {
                                     "type": "string",
-                                    "description": "User email"
+                                    "description": "User's email address."
                                 },
                                 "type": {
                                     "type": "integer",
-                                    "description": "User type"
+                                    "enum": [
+                                        1,
+                                        2,
+                                        3
+                                    ],
+                                    "x-enum-descriptions": [
+                                        "basic",
+                                        "pro",
+                                        "corp"
+                                    ],
+                                    "description": "User's type"
                                 }
                             }
                         }
@@ -3396,7 +3404,23 @@
                         "$ref": "#/parameters/UserId"
                     },
                     {
-                        "$ref": "#/parameters/LoginType"
+                        "in": "query",
+                        "name": "login_type",
+                        "type": "string",
+                        "enum": [
+                            0,
+                            1,
+                            99,
+                            100,
+                            101
+                        ],
+                        "x-enum-descriptions": [
+                            "Facebook",
+                            "Google",
+                            "API",
+                            "Zoom",
+                            "SSO"
+                        ]
                     }
                 ],
                 "responses": {
@@ -3563,7 +3587,7 @@
                                 },
                                 "add_at": {
                                     "type": "string",
-                                    "format":"dateTime"
+                                    "format":"date-time"
                                 }
                             }
                         }
@@ -4653,14 +4677,14 @@
         "PageNumber": {
             "in": "query",
             "name": "page_number",
-            "description": "Page number of results returned",
+            "description": "Current page number of returned records.",
             "type": "integer",
             "default": 1
         },
         "PageSize": {
             "in": "query",
             "name": "page_size",
-            "description": "Number of items returned per page",
+            "description": "The amount of records returns within a single API call. ",
             "type": "integer",
             "default": 30,
             "maximum": 300
@@ -4681,8 +4705,8 @@
         },
         "ParticipantId": {
             "in": "path",
-            "name": "participantId, such as 16778240",
-            "description": "The participant ID",
+            "name": "participantId",
+            "description": "The participant ID, such as 16778240",
             "type": "string",
             "required": true
         },
@@ -4855,35 +4879,38 @@
                                         "properties": {
                                             "id": {
                                                 "type": "string",
+                                                "format": "uuid",
                                                 "description": "Account ID"
                                             },
                                             "account_name": {
                                                 "type": "string",
-                                                "description": "Account Name"
+                                                "description": "Account name"
                                             },
                                             "owner_email": {
                                                 "type": "string",
-                                                "description": "Account Owner email"
+                                                "description": "Account owner email"
                                             },
                                             "account_type": {
                                                 "type": "string",
-                                                "description": "Account Type"
+                                                "description": "Account type"
                                             },
                                             "seats": {
-                                                "type": "string",
-                                                "description": "Account Seats"
+                                                "type": "integer",
+                                                "description": "Account seats"
                                             },
                                             "subscription_start_time": {
                                                 "type": "string",
-                                                "description": "Subscription Start time"
+                                                "format": "date-time",
+                                                "description": "Account subscription start date/time"
                                             },
                                             "subscription_end_time": {
                                                 "type": "string",
-                                                "description": "Subscription End time"
+                                                "format": "date-time",
+                                                "description": "Account subscription end date/time"
                                             },
                                             "created_at": {
                                                 "type": "string",
-                                                "format": "dateTime",
+                                                 "format": "date-time",
                                                 "description": "Account creation date/time"
                                             }
                                         }
@@ -4946,6 +4973,24 @@
                 }
             }
         },
+        "AccountPlanBaseRequired": {
+            "type": "object",
+            "description": "Account base plan object",
+            "required": [
+                "type",
+                "hosts"
+            ],
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "description": "Account base plan type"
+                },
+                "hosts": {
+                    "type": "integer",
+                    "description": "Account base plan number of hosts. For a Pro Plan, please select a value between 1 and 9. For a Business Plan, please select a value between 10 and 49. For a Education Plan, please select a value between 20 and 149. For a Free Trial Plan, please select a value between 1 and 9999."
+                }
+            }
+        },
         "AccountPlanRequired": {
             "type": "object",
             "description": "Account plan object",
@@ -4960,7 +5005,7 @@
                 },
                 "hosts": {
                     "type": "integer",
-                    "description": "Account plan number of hosts"
+                    "description": "Account plan number of hosts."
                 }
             }
         },
@@ -4969,7 +5014,7 @@
             "description": "Account Plans object",
             "properties": {
                 "plan_base": {
-                    "$ref": "#/definitions/AccountPlanRequired"
+                    "$ref": "#/definitions/AccountPlanBaseRequired"
                 },
                 "plan_zoom_rooms": {
                     "$ref": "#/definitions/AccountPlan"
@@ -5062,13 +5107,11 @@
             "properties": {
                 "host_video": {
                     "type": "boolean",
-                    "description": "Host Video",
-                    "default": false
+                    "description": "Host Video"
                 },
                 "participant_video": {
                     "type": "boolean",
-                    "description": "Participants Video",
-                    "default": false
+                    "description": "Participants Video"
                 },
                 "audio_type": {
                     "type": "string",
@@ -5089,33 +5132,27 @@
                 },
                 "join_before_host": {
                     "type": "boolean",
-                    "description": "Join Before Host",
-                    "default": false
+                    "description": "Join Before Host"
                 },
                 "enforce_login": {
                     "type": "boolean",
-                    "description": "Only signed-in users can join meetings",
-                    "default": false
+                    "description": "Only signed-in users can join meetings"
                 },
                 "enforce_login_with_domains": {
                     "type": "boolean",
-                    "description": "Only signed-in users with a specified domains can join meetings",
-                    "default": false
+                    "description": "Only signed-in users with a specified domains can join meetings"
                 },
                 "enforce_login_domains": {
                     "type": "string",
-                    "description": "Only signed-in users with a specified domains",
-                    "default": ""
+                    "description": "Only signed-in users with a specified domains"
                 },
                 "not_store_meeting_topic": {
                     "type": "boolean",
-                    "description": "Always display 'Zoom Meeting' as the meeting topic",
-                    "default": false
+                    "description": "Always display \"Zoom Meeting\" as the meeting topic"
                 },
                 "force_pmi_jbh_password": {
                     "type": "boolean",
-                    "description": "Require a password for Personal Meetings if attendees can join before host",
-                    "default": false
+                    "description": "Require a password for Personal Meetings if attendees can join before host"
                 }
             }
         },
@@ -5125,128 +5162,103 @@
             "properties": {
                 "e2e_encryption": {
                     "type": "boolean",
-                    "description": "End-to-End Encryption",
-                    "default": false
+                    "description": "End-to-End Encryption"
                 },
                 "chat": {
                     "type": "boolean",
-                    "description": "Chat",
-                    "default": false
+                    "description": "Chat"
                 },
                 "private_chat": {
                     "type": "boolean",
-                    "description": "Private Chat",
-                    "default": false
+                    "description": "Private Chat"
                 },
                 "auto_saving_chat": {
                     "type": "boolean",
-                    "description": "Auto Saving Chats",
-                    "default": false
+                    "description": "Auto Saving Chats"
                 },
                 "file_transfer": {
                     "type": "boolean",
-                    "description": "File transfer",
-                    "default": true
+                    "description": "File transfer"
                 },
                 "feedback": {
                     "type": "boolean",
-                    "description": "Feedback to Zoom",
-                    "default": false
+                    "description": "Feedback to Zoom"
                 },
                 "post_meeting_feedback": {
                     "type": "boolean",
-                    "description": "Display end-of-meeting experience feedback survey",
-                    "default": false
+                    "description": "Display end-of-meeting experience feedback survey"
                 },
                 "co_host": {
                     "type": "boolean",
-                    "description": "Co-Host",
-                    "default": false
+                    "description": "Co-Host"
                 },
                 "polling": {
                     "type": "boolean",
-                    "description": "Polling",
-                    "default": false
+                    "description": "Polling"
                 },
                 "attendee_on_hold": {
                     "type": "boolean",
-                    "description": "Allow host to put attendee on hold",
-                    "default": false
+                    "description": "Allow host to put attendee on hold"
                 },
                 "show_meeting_control_toolbar": {
                     "type": "boolean",
-                    "description": "Always show meeting control toolbar",
-                    "default": false
+                    "description": "Always show meeting control toolbar"
                 },
                 "allow_show_zoom_windows": {
                     "type": "boolean",
-                    "description": "Allow to share Zoom windows in desktop sharing",
-                    "default": false
+                    "description": "Allow to share Zoom windows in desktop sharing"
                 },
                 "annotation": {
                     "type": "boolean",
-                    "description": "Annotation",
-                    "default": false
+                    "description": "Annotation"
                 },
                 "whiteboard": {
                     "type": "boolean",
-                    "description": "Whiteboard",
-                    "default": false
+                    "description": "Whiteboard"
                 },
                 "webinar_question_answer": {
                     "type": "boolean",
-                    "description": "Q&A in webinar",
-                    "default": false
+                    "description": "Q&A in webinar"
                 },
                 "anonymous_question_answer": {
                     "type": "boolean",
-                    "description": "Allow Anonymous Q&A in Webinar",
-                    "default": false
+                    "description": "Allow Anonymous Q&A in Webinar"
                 },
                 "breakout_room": {
                     "type": "boolean",
-                    "description": "Breakout room",
-                    "default": false
+                    "description": "Breakout room"
                 },
                 "closed_caption": {
                     "type": "boolean",
-                    "description": "Closed caption",
-                    "default": false
+                    "description": "Closed caption"
                 },
                 "far_end_camera_control": {
                     "type": "boolean",
-                    "description": "Far end camera control",
-                    "default": false
+                    "description": "Far end camera control"
                 },
                 "group_hd": {
                     "type": "boolean",
-                    "description": "Group HD video",
-                    "default": false
+                    "description": "Group HD video"
                 },
                 "virtual_background": {
                     "type": "boolean",
-                    "description": "Virtual background",
-                    "default": false
+                    "description": "Virtual background"
                 },
                 "watermark": {
                     "type": "boolean",
-                    "description": "Add watermark when viewing shared screen",
-                    "default": false
+                    "description": "Add watermark when viewing shared screen"
                 },
                 "alert_guest_join": {
                     "type": "boolean",
-                    "description": "Alert internal participants when a guest joins a meeting",
-                    "default": false
+                    "description": "Alert internal participants when a guest joins a meeting"
                 },
                 "auto_answer": {
                     "type": "boolean",
-                    "description": "Enable Auto Answer Group",
-                    "default": false
+                    "description": "Enable Auto Answer Group"
                 },
                 "p2p_connetion": {
                     "type": "boolean",
-                    "description": "Peer to Peer connection while only 2 people in a meeting",
-                    "default": false
+                    "description": "Peer to Peer connection while only 2 people in a meeting"
                 },
                 "p2p_ports": {
                     "type": "boolean",
@@ -5256,59 +5268,50 @@
                     "type": "string",
                     "description": "Listening ports range, separated by comma (ex 55,56). The ports range is between 1 to 65535",
                     "default": ""
-
                 },
                 "sending_default_email_invites": {
                     "type": "boolean",
-                    "description": "Only show default email when sending email invites",
-                    "default": false
+                    "description": "Only show default email when sending email invites"
                 },
                 "use_html_format_email": {
                     "type": "boolean",
-                    "description": "Use HTML format email for Outlook plugin",
-                    "default": false
+                    "description": "Use HTML format email for Outlook plugin"
                 },
                 "dscp_marking": {
                     "type": "boolean",
-                    "description": "DSCP marking",
-                    "default": true
+                    "description": "DSCP marking"
                 },
                 "dscp_audio": {
                     "type": "integer",
                     "description": "DSCP Audio",
-                    "minimum": "1",
-                    "maximum": "63"
+                    "minimum": 1,
+                    "maximum": 63
                 },
                 "dscp_video": {
                     "type": "integer",
                     "description": "DSCP Video",
-                    "minimum": "1",
-                    "maximum": "63"
+                    "minimum": 1,
+                    "maximum": 63
                 },
                 "stereo_audio": {
                     "type": "boolean",
-                    "description": "When an alternative host is set or removed from a meeting",
-                    "default": false
+                    "description": "When an alternative host is set or removed from a meeting"
                 },
                 "original_audio": {
                     "type": "boolean",
-                    "description": "Allow users to select original sound in their client settings",
-                    "default": false
+                    "description": "Allow users to select original sound in their client settings"
                 },
                 "screen_sharing": {
                     "type": "boolean",
-                    "description": "Screen sharing",
-                    "default": false
+                    "description": "Screen sharing"
                 },
                 "remote_control": {
                     "type": "boolean",
-                    "description": "Remote control",
-                    "default": false
+                    "description": "Remote control"
                 },
                 "attention_tracking": {
                     "type": "boolean",
-                    "description": "Attention tracking",
-                    "default": false
+                    "description": "Attention tracking"
                 }
             }
         },
@@ -5318,28 +5321,23 @@
             "properties": {
                 "cloud_recording_avaliable_reminder": {
                     "type": "boolean",
-                    "description": "Allow keep recording from being automatically deleted",
-                    "default": false
+                    "description": "Allow keep recording from being automatically deleted"
                 },
                 "jbh_reminder": {
                     "type": "boolean",
-                    "description": "When attendees join meeting before host",
-                    "default": false
+                    "description": "When attendees join meeting before host"
                 },
                 "cancel_meeting_reminder": {
                     "type": "boolean",
-                    "description": "When a meeting is cancelled",
-                    "default": false
+                    "description": "When a meeting is cancelled"
                 },
                 "low_host_count_reminder": {
                     "type": "boolean",
-                    "description": "When host count is low",
-                    "default": false
+                    "description": "When host count is low"
                 },
                 "alternative_host_reminder": {
                     "type": "boolean",
-                    "description": "When an alternative host is set or removed from a meeting",
-                    "default": false
+                    "description": "When an alternative host is set or removed from a meeting"
                 }
             }
         },
@@ -5349,48 +5347,39 @@
             "properties": {
                 "upcoming_meeting_alert": {
                     "type": "boolean",
-                    "description": "Upcoming meeting alert",
-                    "default": false
+                    "description": "Upcoming meeting alert"
                 },
                 "start_airplay_manually": {
                     "type": "boolean",
-                    "description": "Start AirPlay service manually",
-                    "default": false
+                    "description": "Start AirPlay service manually"
                 },
                 "weekly_system_restart": {
                     "type": "boolean",
-                    "description": "Weekly system restart",
-                    "default": false
+                    "description": "Weekly system restart"
                 },
                 "list_meetings_with_calendar": {
                     "type": "boolean",
-                    "description": "Display meeting list with calendar integration",
-                    "default": false
+                    "description": "Display meeting list with calendar integration"
                 },
                 "ultrasonic": {
                     "type": "boolean",
-                    "description": "Automatic direct sharing using ultrasonic proximity signal",
-                    "default": false
+                    "description": "Automatic direct sharing using ultrasonic proximity signal"
                 },
                 "force_private_meeting": {
                     "type": "boolean",
-                    "description": "Transform all meetings to private",
-                    "default": false
+                    "description": "Transform all meetings to private"
                 },
                 "hide_host_information": {
                     "type": "boolean",
-                    "description": "Hide host and meeting ID from private meetings",
-                    "default": false
+                    "description": "Hide host and meeting ID from private meetings"
                 },
                 "cmr_for_instant_meeting": {
                     "type": "boolean",
-                    "description": "Cloud recording for instant meetings",
-                    "default": false
+                    "description": "Cloud recording for instant meetings"
                 },
                 "auto_start_stop_scheduled_meetings": {
                     "type": "boolean",
-                    "description": "Automatic start/stop scheduled meetings",
-                    "default": false
+                    "description": "Automatic start/stop scheduled meetings"
                 }
             }
         },
@@ -5400,18 +5389,15 @@
             "properties": {
                 "admin_change_name_pic": {
                     "type": "boolean",
-                    "description": "Only account administrators can change user's username and picture",
-                    "default": false
+                    "description": "Only account administrators can change user's username and picture"
                 },
                 "import_photos_from_devices": {
                     "type": "boolean",
-                    "description": "Allow importing of photos from photo library on the user's device",
-                    "default": true
+                    "description": "Allow importing of photos from photo library on the user's device"
                 },
                 "hide_billing_info": {
                     "type": "boolean",
-                    "description": "Hide billing information",
-                    "default": true
+                    "description": "Hide billing information"
                 }
             }
         },
@@ -5421,68 +5407,55 @@
             "properties": {
                 "local_recording": {
                     "type": "boolean",
-                    "description": "Local recording",
-                    "default": false
+                    "description": "Local recording"
                 },
                 "cloud_recording": {
                     "type": "boolean",
-                    "description": "Cloud recording",
-                    "default": false
+                    "description": "Cloud recording"
                 },
                 "record_speaker_view": {
                     "type": "boolean",
-                    "description": "Record the active speaker view",
-                    "default": false
+                    "description": "Record the active speaker view"
                 },
                 "record_gallery_view": {
                     "type": "boolean",
-                    "description": "Record the gallery view",
-                    "default": false
+                    "description": "Record the gallery view"
                 },
                 "record_audio_file": {
                     "type": "boolean",
-                    "description": "Record an audio only file",
-                    "default": false
+                    "description": "Record an audio only file"
                 },
                 "save_chat_text": {
                     "type": "boolean",
-                    "description": "Save chat text from the meeting",
-                    "default": false
+                    "description": "Save chat text from the meeting"
                 },
                 "show_timestamp": {
                     "type": "boolean",
-                    "description": "Show timestamp on video",
-                    "default": false
+                    "description": "Show timestamp on video"
                 },
                 "recording_audio_transcript": {
                     "type": "boolean",
-                    "description": "Audio transcript",
-                    "default": false
+                    "description": "Audio transcript"
                 },
                 "auto_recording": {
                     "type": "boolean",
-                    "description": "Automatic recording",
-                    "default": false
+                    "description": "Automatic recording"
                 },
                 "cloud_recording_download": {
                     "type": "boolean",
-                    "description": "Cloud Recording Downloads",
-                    "default": false
+                    "description": "Cloud Recording Downloads"
                 },
                 "cloud_recording_download_host": {
                     "type": "boolean",
-                    "description": "Only the host can download cloud recordings",
-                    "default": false
+                    "description": "Only the host can download cloud recordings"
                 },
                 "account_user_access_recording": {
                     "type": "boolean",
-                    "description": "Only users on my account can access cloud recordings",
-                    "default": false
+                    "description": "Only users on my account can access cloud recordings"
                 },
                 "auto_delete_cmr": {
                     "type": "boolean",
-                    "description": "Auto delete cloud recordings after days",
-                    "default": false
+                    "description": "Auto delete cloud recordings after days"
                 }
             }
         },
@@ -5492,8 +5465,7 @@
             "properties": {
                 "third_party_audio": {
                     "type": "boolean",
-                    "description": "3rd party audio conference",
-                    "default": true
+                    "description": "3rd party audio conference"
                 },
                 "audio_conference_info": {
                     "type": "string",
@@ -5507,33 +5479,27 @@
             "properties": {
                 "google_calendar": {
                     "type": "boolean",
-                    "description": "Google Calendar",
-                    "default": false
+                    "description": "Google Calendar"
                 },
                 "google_drive": {
                     "type": "boolean",
-                    "description": "Google Drive",
-                    "default": false
+                    "description": "Google Drive"
                 },
                 "dropbox": {
                     "type": "boolean",
-                    "description": "Dropbox",
-                    "default": false
+                    "description": "Dropbox"
                 },
                 "box": {
                     "type": "boolean",
-                    "description": "Box",
-                    "default": false
+                    "description": "Box"
                 },
                 "microsoft_one_drive": {
                     "type": "boolean",
-                    "description": "Microsoft OneDrive",
-                    "default": false
+                    "description": "Microsoft OneDrive"
                 },
                 "kubi": {
                     "type": "boolean",
-                    "description": "Kubi",
-                    "default": false
+                    "description": "Kubi"
                 }
             }
         },
@@ -5855,7 +5821,7 @@
                     },
                     "start_time": {
                       "type": "string",
-                      "format": "dateTime",
+                      "format": "date-time",
                       "description": "Meeting start time"
                     },
                     "duration": {
@@ -5868,7 +5834,7 @@
                     },
                     "create_at": {
                       "type": "string",
-                      "format":"dateTime",
+                      "format":"date-time",
                       "description": "Create time"
                     },
                     "agenda": {
@@ -5945,7 +5911,7 @@
                                             },
                                             "start_time": {
                                                 "type": "string",
-                                                "format": "dateTime",
+                                                "format": "date-time",
                                                 "description": "Meeting start time"
                                             },
                                             "duration": {
@@ -5958,7 +5924,7 @@
                                             },
                                             "created_at": {
                                                 "type": "string",
-                                                "format":"dateTime",
+                                                "format":"date-time",
                                                 "description": "Create time"
                                             },
                                             "join_url": {
@@ -6006,12 +5972,12 @@
                 },
                 "start_time": {
                     "type": "string",
-                    "format": "dateTime",
+                    "format": "date-time",
                     "description": "Meeting start time"
                 },
                 "end_time": {
                     "type": "string",
-                    "format": "dateTime",
+                    "format": "date-time",
                     "description": "Meeting end time"
                 },
                 "duration": {
@@ -6058,13 +6024,11 @@
             "properties": {
                 "host_video": {
                     "type": "boolean",
-                    "description": "Start video when host join meeting",
-                    "default": true
+                    "description": "Start video when host join meeting"
                 },
                 "participant_video": {
                     "type": "boolean",
-                    "description": "Start video when participants join meeting",
-                    "default": true
+                    "description": "Start video when participants join meeting"
                 },
                 "cn_meeting": {
                     "type": "boolean",
@@ -6201,7 +6165,7 @@
                         },
                         "start_time": {
                             "type": "string",
-                            "format":"dateTime",
+                            "format":"date-time",
                             "description": "Start time"
                         },
                         "duration": {
@@ -6222,7 +6186,6 @@
             "properties": {
                 "page_count": {
                     "type": "integer",
-                    "format": "int64",
                     "description": "The number of items returned on this page."
                 },
                 "page_number": {
@@ -6232,24 +6195,22 @@
                 },
                 "page_size": {
                     "type": "integer",
-                    "description": "The number of items per page.",
+                    "description": "The amount of records returns within a single API call.",
                     "default": 30,
                     "maximum": 300
                 },
                 "total_records": {
                     "type": "integer",
-                    "format": "int64",
                     "description": "The number of all records available across pages."
                 }
             }
         },
-        "PaginationWithToken": {
+        "PaginationToken": {
             "type": "object",
             "description": "Pagination Object",
             "properties": {
                 "page_count": {
                     "type": "integer",
-                    "format": "int64",
                     "description": "The number of items returned on this page."
                 },
                 "page_size": {
@@ -6269,7 +6230,7 @@
                 }
             }
         },
-        "PaginationWithToken4Qos": {
+        "PaginationToken4Qos": {
             "type": "object",
             "description": "Pagination Object",
             "properties": {
@@ -6385,12 +6346,12 @@
                 },
                 "join_time": {
                     "type": "string",
-                    "format": "dateTime",
+                    "format": "date-time",
                     "description": "Participant join time"
                 },
                 "leave_time": {
                     "type": "string",
-                    "format": "dateTime",
+                    "format": "date-time",
                     "description": "Participant leave time"
                 },
                 "pc_name": {
@@ -6419,7 +6380,7 @@
                     "properties": {
                         "date_time": {
                             "type": "string",
-                            "format": "dateTime",
+                            "format": "date-time",
                             "description": "Datetime of QOS"
                         },
                         "audio_input": {
@@ -6470,7 +6431,7 @@
             "description": "Participant QOS List",
             "allOf": [
                 {
-                    "$ref": "#/definitions/PaginationWithToken4Qos"
+                    "$ref": "#/definitions/PaginationToken4Qos"
                 },
                 {
                     "properties": {
@@ -6604,7 +6565,7 @@
                 "end_date_time": {
                     "type": "string",
                     "description": "Recurrence Meeting End Date. Should be UTC time, such as 2017-11-25T12:00:00Z.",
-                    "format": "dateTime"
+                    "format": "date-time"
                 }
             }
         },
@@ -6745,7 +6706,7 @@
                                             },
                                             "create_time":{
                                                 "type":"string",
-                                                "format":"dateTime"
+                                                "format":"date-time"
                                             }
                                         }
                                     }
@@ -6783,7 +6744,7 @@
                 },
                 "start_time": {
                     "type": "string",
-                    "format": "dateTime",
+                    "format": "date-time",
                     "description": "Meeting start time"
                 },
                 "duration": {
@@ -6894,11 +6855,11 @@
                 },
                 "created_at": {
                     "type": "string",
-                    "format": "dateTime"
+                    "format": "date-time"
                 },
                 "last_login_time": {
                     "type": "string",
-                    "format": "dateTime"
+                    "format": "date-time"
                 },
                 "last_client_version": {
                     "type": "string"
@@ -7054,12 +7015,10 @@
             "properties": {
                 "host_video": {
                     "type": "boolean",
-                    "default": true,
                     "description": "Host video"
                 },
                 "participants_video": {
                     "type": "boolean",
-                    "default": true,
                     "description": "Participants video"
                 },
                 "audio_type": {
@@ -7081,27 +7040,22 @@
                 },
                 "join_before_host": {
                     "type": "boolean",
-                    "default": true,
                     "description": "Join before host"
                 },
                 "enforce_login": {
                     "type": "boolean",
-                    "default": true,
                     "description": "Only signed-in users can join meetings"
                 },
                 "not_store_meeting_topic": {
                     "type": "boolean",
-                    "default": true,
                     "description": "Always display \"Zoom Meeting\" as the meeting topic"
                 },
                 "force_pmi_jbh_password": {
                     "type": "boolean",
-                    "default": true,
                     "description": "Require a password for Personal Meetings if attendees can join before host"
                 },
                 "pstn_password_protected": {
                     "type": "boolean",
-                    "default": true,
                     "description": "Generate and require password for participants joining by phone"
                 }
             }
@@ -7113,7 +7067,6 @@
             "properties": {
                 "e2e_encryption": {
                     "type": "boolean",
-                    "default": true,
                     "description": "End-to-end encryption"
                 },
                 "chat": {
@@ -7148,7 +7101,6 @@
                 },
                 "record_play_voice": {
                     "type": "boolean",
-                    "default": true,
                     "description": "Record and play their own voice"
                 },
                 "file_transfer": {
@@ -7272,7 +7224,6 @@
             "properties": {
                 "local_recording": {
                     "type": "boolean",
-                    "default": true,
                     "description": "Local recording"
                 },
                 "cloud_recording": {
@@ -7334,7 +7285,6 @@
             "properties": {
                 "third_party_audio": {
                     "type": "boolean",
-                    "default": true,
                     "description": "3rd party audio conference"
                 },
                 "audio_conference_info": {
@@ -7344,7 +7294,6 @@
                 },
                 "show_international_numbers_link": {
                     "type": "boolean",
-                    "default": true,
                     "description": "Show international numbers link on the invitation email"
                 }
             }
@@ -7361,7 +7310,6 @@
                 },
                 "large_meeting": {
                     "type": "boolean",
-                    "default": true,
                     "description": "Large meting feature"
                 },
                 "large_meeting_capacity": {
@@ -7371,7 +7319,6 @@
                 },
                 "webinar": {
                     "type": "boolean",
-                    "default": true,
                     "description": "Webinar feature"
                 },
                 "webinar_capacity": {
@@ -7464,12 +7411,12 @@
                 },
                 "start_time": {
                     "type": "string",
-                    "format": "dateTime",
+                    "format": "date-time",
                     "description": "Webinar start time"
                 },
                 "end_time": {
                     "type": "string",
-                    "format": "dateTime",
+                    "format": "date-time",
                     "description": "Webinar end time"
                 },
                 "duration": {
