@@ -6867,7 +6867,7 @@
                 },
                 "timezone": {
                     "type": "string",
-                    "description": "Timezone to format start_time, like \"America/Los_Angeles\". For scheduled meeting only. For this parameter value please refer to the id value in timezone list."
+                    "description": "Timezone to format start_time, like \"America/Los_Angeles\". For scheduled meeting only. For this parameter value please refer to the id value in [timezone](#timezones) list."
                 },
                 "password": {
                     "type": "string",
@@ -6919,7 +6919,7 @@
                 },
                 "timezone": {
                     "type": "string",
-                    "description": "Timezone to format start_time, like \"America/Los_Angeles\". For scheduled webinar only. For this parameter value please refer to the id value in timezone list."
+                    "description": "Timezone to format start_time, like \"America/Los_Angeles\". For scheduled webinar only. For this parameter value please refer to the id value in [timezone](#timezones) list."
                 },
                 "password": {
                     "type": "string",
@@ -7069,7 +7069,7 @@
                 },
                 "timezone": {
                     "type": "string",
-                    "description": "The time zone id for user profile. "
+                    "description": "The time zone id for user profile. For this parameter value please refer to the id value in [timezone](#timezones) list. "
                 },
                 "dept": {
                     "type": "string",
