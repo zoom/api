@@ -473,6 +473,7 @@
                 "tags": [
                     "Groups"
                 ],
+                "parameters":[],
                 "operationId": "groups",
                 "responses": {
                     "200": {
@@ -749,6 +750,7 @@
                     "IM Groups"
                 ],
                 "operationId": "imGroups",
+                "parameters":[],
                 "responses": {
                     "200": {
                         "description": "List of IM Groups returned.",
