@@ -3331,7 +3331,7 @@
                                         },
                                         "password": {
                                             "type": "string",
-                                            "description": "User’s password."
+                                            "description": "User’s password. Only for \"autoCreate\" action."
                                         }
                                     }
                                 }
@@ -3671,16 +3671,7 @@
                 ],
                 "responses": {
                     "201": {
-                        "description": "Picture Added",
-                        "headers": {
-                            "Content-Location": {
-                                "description": "Location of user's picture",
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "204": {
-                        "description": "Picture Updated",
+                        "description": "Picture Uploaded",
                         "headers": {
                             "Content-Location": {
                                 "description": "Location of user's picture",
@@ -4100,7 +4091,7 @@
                         "schema": {
                             "properties": {
                                 "existed_email": {
-                                    "type": "string"
+                                    "type": "boolean"
                                 }
                             }
                         }
@@ -5250,7 +5241,7 @@
                 },
                 "alert_guest_join": {
                     "type": "boolean",
-                    "description": "Alert internal participants when a guest joins a meeting"
+                    "description": "Identify guest participants in the meeting/webinar"
                 },
                 "auto_answer": {
                     "type": "boolean",
@@ -5295,7 +5286,7 @@
                 },
                 "stereo_audio": {
                     "type": "boolean",
-                    "description": "When an alternative host is set or removed from a meeting"
+                    "description": "Allow users to select stereo audio in their client settings"
                 },
                 "original_audio": {
                     "type": "boolean",
@@ -5333,7 +5324,7 @@
                 },
                 "low_host_count_reminder": {
                     "type": "boolean",
-                    "description": "When host count is low"
+                    "description": "When host licenses are running low"
                 },
                 "alternative_host_reminder": {
                     "type": "boolean",
@@ -5438,8 +5429,18 @@
                     "description": "Audio transcript"
                 },
                 "auto_recording": {
-                    "type": "boolean",
-                    "description": "Automatic recording"
+                    "type": "string",
+                    "description": "Automatic recording",
+                    "enum": [
+                        "local",
+                        "cloud",
+                        "none"
+                    ],
+                    "x-enum-descriptions": [
+                        "Record on local",
+                        "Record on cloud",
+                        "Disabled"
+                    ]
                 },
                 "cloud_recording_download": {
                     "type": "boolean",
@@ -5456,6 +5457,11 @@
                 "auto_delete_cmr": {
                     "type": "boolean",
                     "description": "Auto delete cloud recordings after days"
+                },
+                "auto_delete_cmr_days": {
+                    "type": "integer",
+                    "default": false,
+                    "description": "A specified number of days of auto delete cloud recordings"
                 }
             }
         },
@@ -6842,27 +6848,30 @@
                     "description": "User's type"
                 },
                 "pmi": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Personal Meeting ID"
                 },
                 "timezone": {
-                    "type": "string"
-                },
-                "verified": {
-                    "type": "boolean"
+                    "type": "string",
+                    "description": "Time Zone"
                 },
                 "dept": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Department"
                 },
                 "created_at": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "User create time"
                 },
                 "last_login_time": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "User last login time"
                 },
                 "last_client_version": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "User last login client version"
                 }
             }
         },
@@ -7042,14 +7051,6 @@
                     "type": "boolean",
                     "description": "Join before host"
                 },
-                "enforce_login": {
-                    "type": "boolean",
-                    "description": "Only signed-in users can join meetings"
-                },
-                "not_store_meeting_topic": {
-                    "type": "boolean",
-                    "description": "Always display \"Zoom Meeting\" as the meeting topic"
-                },
                 "force_pmi_jbh_password": {
                     "type": "boolean",
                     "description": "Require a password for Personal Meetings if attendees can join before host"
@@ -7187,11 +7188,6 @@
                     "type": "boolean",
                     "default": false,
                     "description": "Waiting room"
-                },
-                "manage_zr": {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "Manage Zoom Rooms"
                 }
             }
         },
@@ -7256,25 +7252,34 @@
                     "default": false,
                     "description": "Show timestamp on video"
                 },
+                "recording_audio_transcript": {
+                    "type": "boolean",
+                    "description": "Audio transcript"
+                },
                 "auto_recording": {
                     "type": "string",
                     "default": "local",
                     "description": "Automatic recording",
                     "enum": [
-                        "Record on local",
-                        "Record on cloud",
-                        "Disabled"
-                    ],
-                    "x-enum-descriptions": [
                         "local",
                         "cloud",
                         "none"
+                    ],
+                    "x-enum-descriptions": [
+                        "Record on local",
+                        "Record on cloud",
+                        "Disabled"
                     ]
                 },
                 "auto_delete_cmr": {
                     "type": "boolean",
                     "default": false,
                     "description": "Auto delete cloud recordings"
+                },
+                "auto_delete_cmr_days": {
+                    "type": "integer",
+                    "default": false,
+                    "description": "A specified number of days of auto delete cloud recordings"
                 }
             }
         },
@@ -7305,7 +7310,6 @@
             "properties": {
                 "meeting_capacity": {
                     "type": "integer",
-                    "default": 100,
                     "description": "User’s meeting capacity."
                 },
                 "large_meeting": {
@@ -7314,7 +7318,6 @@
                 },
                 "large_meeting_capacity": {
                     "type": "integer",
-                    "default": 100,
                     "description": "Large meeting capacity, can be 100, 200, 300 or 500, depends on if having related large meeting capacity plan subscription or not."
                 },
                 "webinar": {
@@ -7323,7 +7326,6 @@
                 },
                 "webinar_capacity": {
                     "type": "integer",
-                    "default": 100,
                     "description": "Webinar capacity, can be 100, 500, 1000, 3000, 5000 or 10000, depends on if having related webinar capacity plan subscription or not."
                 }
             }
