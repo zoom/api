@@ -749,14 +749,6 @@
                     "IM Groups"
                 ],
                 "operationId": "imGroups",
-                "parameters": [
-                    {
-                        "$ref": "#/parameters/PageSize"
-                    },
-                    {
-                        "$ref": "#/parameters/PageNumber"
-                    }
-                ],
                 "responses": {
                     "200": {
                         "description": "List of IM Groups returned.",
@@ -788,6 +780,7 @@
                                 "type": {
                                     "type": "string",
                                     "description": "IM Group type",
+                                    "default":"normal",
                                     "enum": [
                                         "normal",
                                         "shared",
@@ -828,7 +821,27 @@
                             "properties": {
                                 "id": {
                                     "type": "string",
-                                    "description": "User ID"
+                                    "description": "Group ID"
+                                },
+                                "name": {
+                                    "type": "string",
+                                    "description": "Group name"
+                                },
+                                "total_members": {
+                                    "type": "integer",
+                                    "description": "Group member count"
+                                },
+                                "search_by_domain": {
+                                    "type": "boolean",
+                                    "description": "Members can search others in the same email domain."
+                                },
+                                "search_by_account": {
+                                    "type": "boolean",
+                                    "description": "Members can search others under same account."
+                                },
+                                "search_by_ma_account": {
+                                    "type": "boolean",
+                                    "description": "Members can search others under same master account, including all sub accounts."
                                 }
                             }
                         }
