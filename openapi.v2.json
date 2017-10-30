@@ -3651,7 +3651,7 @@
         },
         "/users/{userId}/picture": {
             "post": {
-                "summary": "Upload  a user's picture",
+                "summary": "Upload a user's picture",
                 "description": "Upload  a user's profile picture",
                 "tags": [
                     "Users"
