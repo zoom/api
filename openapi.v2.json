@@ -863,7 +863,27 @@
                             "properties": {
                                 "id": {
                                     "type": "string",
-                                    "description": "User ID"
+                                    "description": "Group ID"
+                                },
+                                "name": {
+                                    "type": "string",
+                                    "description": "Group name"
+                                },
+                                "total_members": {
+                                    "type": "integer",
+                                    "description": "Group member count"
+                                },
+                                "search_by_domain": {
+                                    "type": "boolean",
+                                    "description": "Members can search others in the same email domain."
+                                },
+                                "search_by_account": {
+                                    "type": "boolean",
+                                    "description": "Members can search others under same account."
+                                },
+                                "search_by_ma_account": {
+                                    "type": "boolean",
+                                    "description": "Members can search others under same master account, including all sub accounts."
                                 }
                             }
                         }
@@ -1052,8 +1072,19 @@
                     }
                 ],
                 "responses": {
-                    "204": {
-                        "description": "Member added."
+                    "201": {
+                        "description": "Member added.",
+                        "schema": {
+                            "properties": {
+                                "id": {
+                                    "type": "string"
+                                },
+                                "added_at": {
+                                    "type": "string",
+                                    "format": "date-time"
+                                }
+                            }
+                        }
                     },
                     "404": {
                         "description": "IM Group not found"
@@ -1061,7 +1092,7 @@
                 }
             }
         },
-        "/im/groups/{groupId}/members/{userId}": {
+        "/im/groups/{groupId}/members/{memberId}": {
             "delete": {
                 "summary": "Delete an IM Group member",
                 "description": "Delete a member from an IM Group under your account",
@@ -1074,7 +1105,7 @@
                         "$ref": "#/parameters/GroupId"
                     },
                     {
-                        "$ref": "#/parameters/UserId"
+                        "$ref": "#/parameters/MemberId"
                     }
                 ],
                 "responses": {
@@ -1152,12 +1183,28 @@
                             }
                         },
                         "schema": {
-                            "properties": {
-                                "id": {
-                                    "type": "string",
-                                    "description": "Meeting ID"
+                            "allOf": [
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "uuid": {
+                                            "type": "string",
+                                            "description": "Meeting unique ID"
+                                        },
+                                        "id": {
+                                            "type": "string",
+                                            "description": "Meeting ID, also known as meeting number"
+                                        },
+                                        "host_id": {
+                                            "type": "string",
+                                            "description": "ID of the user set as host of meeting"
+                                        }
+                                    }
+                                },
+                                {
+                                    "$ref": "#/definitions/MeetingInfo"
                                 }
-                            }
+                            ]
                         }
                     },
                     "404": {
@@ -1202,7 +1249,7 @@
                                     }
                                 },
                                 {
-                                    "$ref": "#/definitions/Meeting"
+                                    "$ref": "#/definitions/MeetingInfo"
                                 }
                             ]
                         }
@@ -1285,7 +1332,7 @@
                         "required": true,
                         "schema": {
                             "properties": {
-                                "status": {
+                                "action": {
                                     "type": "string",
                                     "enum": [
                                         "end"
@@ -1357,6 +1404,12 @@
                         "$ref": "#/parameters/MeetingId"
                     },
                     {
+                        "in": "query",
+                        "name": "occurrence_ids",
+                        "type": "string",
+                        "description": "Occurrence IDs, could get this value from Meeting Get API. Multiple value separated by comma."
+                    },
+                    {
                         "in": "body",
                         "name": "body",
                         "required": true,
@@ -1371,9 +1424,22 @@
                         "schema": {
                             "type": "object",
                             "properties": {
+                                "registrant_id": {
+                                    "type": "string",
+                                    "description": "Registrant ID"
+                                },
                                 "id": {
                                     "type": "string",
                                     "description": "Registrant ID"
+                                },
+                                "topic": {
+                                    "type": "string",
+                                    "description": "Topic"
+                                },
+                                "start_time": {
+                                    "type": "string",
+                                    "format": "date-time",
+                                    "description": "Start time"
                                 },
                                 "join_url": {
                                     "type": "string",
@@ -1458,7 +1524,7 @@
                         "$ref": "#/parameters/PageSize"
                     },
                     {
-                        "$ref": "#/parameters/PageNumber"
+                        "$ref": "#/parameters/NextPageToken"
                     }
                 ],
                 "responses": {
@@ -1545,7 +1611,7 @@
                         "$ref": "#/parameters/PageSize"
                     },
                     {
-                        "$ref": "#/parameters/PageNumber"
+                        "$ref": "#/parameters/NextPageToken"
                     }
                 ],
                 "responses": {
@@ -1698,7 +1764,7 @@
                         "$ref": "#/parameters/PageSize"
                     },
                     {
-                        "$ref": "#/parameters/PageNumber"
+                        "$ref": "#/parameters/NextPageToken"
                     }
                 ],
                 "responses": {
@@ -1816,7 +1882,7 @@
                         "$ref": "#/parameters/PageSize"
                     },
                     {
-                        "$ref": "#/parameters/PageNumber"
+                        "$ref": "#/parameters/NextPageToken"
                     }
                 ],
                 "responses": {
@@ -1903,7 +1969,7 @@
                         "$ref": "#/parameters/PageSize"
                     },
                     {
-                        "$ref": "#/parameters/PageNumber"
+                        "$ref": "#/parameters/NextPageToken"
                     }
                 ],
                 "responses": {
@@ -2056,7 +2122,7 @@
                         "$ref": "#/parameters/PageSize"
                     },
                     {
-                        "$ref": "#/parameters/PageNumber"
+                        "$ref": "#/parameters/NextPageToken"
                     }
                 ],
                 "responses": {
@@ -2348,7 +2414,7 @@
                         "$ref": "#/parameters/PageSize"
                     },
                     {
-                        "$ref": "#/parameters/PageNumber"
+                        "$ref": "#/parameters/NextPageToken"
                     }
                 ],
                 "responses": {
@@ -2663,7 +2729,7 @@
                         "$ref": "#/parameters/PageSize"
                     },
                     {
-                        "$ref": "#/parameters/PageNumber"
+                        "$ref": "#/parameters/NextPageToken"
                     }
                 ],
                 "responses": {
@@ -2772,7 +2838,7 @@
                         "$ref": "#/parameters/PageSize"
                     },
                     {
-                        "$ref": "#/parameters/PageNumber"
+                        "$ref": "#/parameters/NextPageToken"
                     }
                 ],
                 "responses": {
@@ -2781,7 +2847,7 @@
                         "schema": {
                             "allOf": [
                                 {
-                                    "$ref": "#/definitions/Pagination"
+                                    "$ref": "#/definitions/PaginationToken"
                                 },
                                 {
                                     "properties": {
@@ -2846,7 +2912,7 @@
                         "$ref": "#/parameters/PageSize"
                     },
                     {
-                        "$ref": "#/parameters/PageNumber"
+                        "$ref": "#/parameters/NextPageToken"
                     }
                 ],
                 "responses": {
@@ -2855,7 +2921,7 @@
                         "schema": {
                             "allOf": [
                                 {
-                                    "$ref": "#/definitions/Pagination"
+                                    "$ref": "#/definitions/PaginationToken"
                                 },
                                 {
                                     "properties": {
@@ -3053,7 +3119,7 @@
         "/report/telephone": {
             "get": {
                 "summary": "Retrieve telephone report",
-                "description": "Retrieve telephone report for a specified period",
+                "description": "Retrieve telephone report for a specified period <aside>Toll Report API is provided for enabled 'Toll Report' option.</aside>",
                 "tags": [
                     "Reports"
                 ],
@@ -3270,8 +3336,8 @@
                                     "description": "Action to take for user creation",
                                     "enum": [
                                         "create",
-                                        "custCreate",
                                         "autoCreate",
+                                        "custCreate",
                                         "ssoCreate"
                                     ],
                                     "x-enum-descriptions": [
@@ -3310,6 +3376,10 @@
                                             "type": "string",
                                             "description": "User's last name.",
                                             "maxLength": 64
+                                        },
+                                        "password": {
+                                            "type": "string",
+                                            "description": "User’s password. Only for \"autoCreate\" action."
                                         }
                                     }
                                 }
@@ -4536,6 +4606,12 @@
             "description": "The member ID",
             "type": "string",
             "required": true
+        },
+        "NextPageToken": {
+            "in": "query",
+            "name": "next_page_token",
+            "description": "Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.",
+            "type": "string"
         },
         "OccurrenceId": {
             "in": "query",
