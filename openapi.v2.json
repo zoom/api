@@ -1200,9 +1200,6 @@
                                             "description": "ID of the user set as host of meeting"
                                         }
                                     }
-                                },
-                                {
-                                    "$ref": "#/definitions/MeetingInfo"
                                 }
                             ]
                         }
@@ -3452,23 +3449,7 @@
                         "$ref": "#/parameters/UserId"
                     },
                     {
-                        "in": "query",
-                        "name": "login_type",
-                        "type": "string",
-                        "enum": [
-                            0,
-                            1,
-                            99,
-                            100,
-                            101
-                        ],
-                        "x-enum-descriptions": [
-                            "Facebook",
-                            "Google",
-                            "API",
-                            "Zoom",
-                            "SSO"
-                        ]
+                        "$ref": "#/parameters/LoginType"
                     }
                 ],
                 "responses": {
@@ -3691,9 +3672,9 @@
             }
         },
         "/users/{userId}/picture": {
-            "put": {
-                "summary": "Update a user's picture",
-                "description": "Update a user's profile picture",
+            "post": {
+                "summary": "Upload a user's picture",
+                "description": "Upload a user's profile picture",
                 "tags": [
                     "Users"
                 ],
@@ -3703,7 +3684,7 @@
                         "$ref": "#/parameters/UserId"
                     },
                     {
-                        "name": "body",
+                        "name": "pic_file",
                         "description": "User picture file, must be a jpg/jpeg file",
                         "in": "formData",
                         "type": "file",
@@ -3712,16 +3693,7 @@
                 ],
                 "responses": {
                     "201": {
-                        "description": "Picture Added",
-                        "headers": {
-                            "Content-Location": {
-                                "description": "Location of user's picture",
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "204": {
-                        "description": "Picture Updated",
+                        "description": "Picture Uploaded",
                         "headers": {
                             "Content-Location": {
                                 "description": "Location of user's picture",
@@ -3746,6 +3718,9 @@
                 "parameters": [
                     {
                         "$ref": "#/parameters/UserId"
+                    },
+                    {
+                        "$ref": "#/parameters/LoginType"
                     }
                 ],
                 "responses": {
@@ -3807,18 +3782,19 @@
                         "name": "body",
                         "description": "User status",
                         "in": "body",
+                        "required": true,
                         "schema": {
                             "type": "object",
                             "properties": {
-                                "status": {
+                                "action": {
                                     "type": "string",
                                     "enum": [
-                                        "active",
-                                        "deactive"
+                                        "activate",
+                                        "deactivate"
                                     ],
                                     "x-enum-descriptions": [
                                         "set users status to active",
-                                        "set users status to deactive"
+                                        "set users status to inactive"
                                     ]
                                 }
                             }
@@ -4102,7 +4078,7 @@
             },
             "post": {
                 "summary": "Create a webinar",
-                "description": "Create a webinars for a user",
+                "description": "Create a webinar for a user",
                 "tags": [
                     "Webinars"
                 ],
@@ -4131,12 +4107,25 @@
                             }
                         },
                         "schema": {
-                            "properties": {
-                                "id": {
-                                    "type": "string",
-                                    "description": "Webinar ID"
+                            "allOf": [
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "uuid": {
+                                            "type": "string",
+                                            "description": "Webinar unique ID"
+                                        },
+                                        "id": {
+                                            "type": "string",
+                                            "description": "Webinar ID, also known as Webinar number"
+                                        },
+                                        "host_id": {
+                                            "type": "string",
+                                            "description": "ID of the user set as host of Webinar"
+                                        }
+                                    }
                                 }
-                            }
+                            ]
                         }
                     },
                     "404": {
@@ -4231,6 +4220,9 @@
                 "parameters": [
                     {
                         "$ref": "#/parameters/WebinarId"
+                    },
+                    {
+                        "$ref": "#/parameters/OccurrenceId"
                     }
                 ],
                 "responses": {
@@ -4295,15 +4287,6 @@
                 "parameters": [
                     {
                         "$ref": "#/parameters/WebinarId"
-                    },
-                    {
-                        "$ref": "#/parameters/OccurrenceId"
-                    },
-                    {
-                        "$ref": "#/parameters/PageSize"
-                    },
-                    {
-                        "$ref": "#/parameters/PageNumber"
                     }
                 ],
                 "responses": {
@@ -4461,6 +4444,9 @@
                         "$ref": "#/parameters/WebinarId"
                     },
                     {
+                        "$ref": "#/parameters/OccurrenceId"
+                    },
+                    {
                         "in": "body",
                         "name": "body",
                         "required": true,
@@ -4475,9 +4461,22 @@
                         "schema": {
                             "type": "object",
                             "properties": {
+                                "registrant_id": {
+                                    "type": "string",
+                                    "description": "Registrant ID"
+                                },
                                 "id": {
                                     "type": "string",
                                     "description": "Registrant ID"
+                                },
+                                "topic": {
+                                    "type": "string",
+                                    "description": "Topic"
+                                },
+                                "start_time": {
+                                    "type": "string",
+                                    "format": "date-time",
+                                    "description": "Start time"
                                 },
                                 "join_url": {
                                     "type": "string",
@@ -4563,6 +4562,25 @@
             "description": "The group ID",
             "type": "string",
             "required": true
+        },
+        "LoginType": {
+            "in": "query",
+            "name": "login_type",
+            "type": "string",
+            "enum": [
+                0,
+                1,
+                99,
+                100,
+                101
+            ],
+            "x-enum-descriptions": [
+                "Facebook",
+                "Google",
+                "API",
+                "Zoom",
+                "SSO"
+            ]
         },
         "MeetingId": {
             "in": "path",
@@ -4655,13 +4673,13 @@
             "type": "string",
             "default": "approved",
             "enum": [
-                "approved",
                 "pending",
+                "approved",
                 "denied"
             ],
             "x-enum-descriptions": [
-                "registrants status is approved",
                 "registrants status is pending",
+                "registrants status is approved",
                 "registrants status is denied"
             ]
         },
@@ -4992,12 +5010,14 @@
                     "enum": [
                         "both",
                         "telephony",
-                        "voip"
+                        "voip",
+                        "thirdParty"
                     ],
                     "x-enum-descriptions": [
-                        "Both Telephony and VoIP",
-                        "Telephony only",
-                        "VoIP only"
+                        "Telephony and VoIP",
+                        "Audio PSTN telephony only",
+                        "VoIP only",
+                        "3rd party audio conference"
                     ]
                 },
                 "join_before_host": {
@@ -5120,7 +5140,7 @@
                 },
                 "alert_guest_join": {
                     "type": "boolean",
-                    "description": "Alert internal participants when a guest joins a meeting"
+                    "description": "Identify guest participants in the meeting/webinar"
                 },
                 "auto_answer": {
                     "type": "boolean",
@@ -5165,7 +5185,7 @@
                 },
                 "stereo_audio": {
                     "type": "boolean",
-                    "description": "When an alternative host is set or removed from a meeting"
+                    "description": "Allow users to select stereo audio in their client settings"
                 },
                 "original_audio": {
                     "type": "boolean",
@@ -5203,7 +5223,7 @@
                 },
                 "low_host_count_reminder": {
                     "type": "boolean",
-                    "description": "When host count is low"
+                    "description": "When host licenses are running low"
                 },
                 "alternative_host_reminder": {
                     "type": "boolean",
@@ -5259,7 +5279,7 @@
         },
         "AccountSettingsSecurity": {
             "type": "object",
-            "description": "Account Settings: Feature",
+            "description": "Account Settings: Security",
             "properties": {
                 "import_photos_from_devices": {
                     "type": "boolean",
@@ -5283,9 +5303,43 @@
                     "type": "boolean",
                     "description": "Cloud recording"
                 },
-                "auto_recording": {
+                "record_speaker_view": {
                     "type": "boolean",
-                    "description": "Automatic recording"
+                    "description": "Record the active speaker view"
+                },
+                "record_gallery_view": {
+                    "type": "boolean",
+                    "description": "Record the gallery view"
+                },
+                "record_audio_file": {
+                    "type": "boolean",
+                    "description": "Record an audio only file"
+                },
+                "save_chat_text": {
+                    "type": "boolean",
+                    "description": "Save chat text from the meeting"
+                },
+                "show_timestamp": {
+                    "type": "boolean",
+                    "description": "Show timestamp on video"
+                },
+                "recording_audio_transcript": {
+                    "type": "boolean",
+                    "description": "Audio transcript"
+                },
+                "auto_recording": {
+                    "type": "string",
+                    "description": "Automatic recording",
+                    "enum": [
+                        "local",
+                        "cloud",
+                        "none"
+                    ],
+                    "x-enum-descriptions": [
+                        "Record on local",
+                        "Record on cloud",
+                        "Disabled"
+                    ]
                 },
                 "cloud_recording_download": {
                     "type": "boolean",
@@ -5302,12 +5356,16 @@
                 "auto_delete_cmr": {
                     "type": "boolean",
                     "description": "Auto delete cloud recordings after days"
+                },
+                "auto_delete_cmr_days": {
+                    "type": "integer",
+                    "description": "A specified number of days of auto delete cloud recordings"
                 }
             }
         },
         "AccountSettingsTelephony": {
             "type": "object",
-            "description": "Account Settings: Feature",
+            "description": "Account Settings: Telephony",
             "properties": {
                 "third_party_audio": {
                     "type": "boolean",
