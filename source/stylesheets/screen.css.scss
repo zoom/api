@@ -654,7 +654,8 @@ html, body {
 
   div.default,
   div.minimum,
-  div.maximum {
+  div.maximum,
+  div.maxLength {
     color: #bbb;
     font-size: 12px;
     font-style: italic;
@@ -671,6 +672,10 @@ html, body {
 
   div.maximum:before {
     content: "max: "
+  }
+
+  div.maxLength:before {
+    content: "max length: "
   }
 
   div.argument-type {

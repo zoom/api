@@ -101,41 +101,41 @@ scheduled_meeting.not_store_meeting_topic *optional*<div class="default">1</div>
 scheduled_meeting.force_pmi_jbh_password *optional*<div class="default">1</div> | Require a password for Personal Meetings if attendees can join before host
 scheduled_meeting.pstn_password_protected *optional*<div class="default">1</div> | Generate and require password for participants joining by phone
 in_meeting.e2e_encryption *optional*<div class="default">1</div> | End-to-end encryption
-in_meeting.chat *optional* | Chat
-in_meeting.private_chat *optional* | Private chat
-in_meeting.auto_saving_chat *optional* | Auto saving chats
+in_meeting.chat *optional*<div class="default">false</div> | Chat
+in_meeting.private_chat *optional*<div class="default">false</div> | Private chat
+in_meeting.auto_saving_chat *optional*<div class="default">false</div> | Auto saving chats
 in_meeting.entry_exit_chime *optional*<div class="default">a''</div> | Play sound on join/leave<div class="enum">`host` when host joins/leaves<br/>`all` when any participant joins/leaves<br/>`none` no join/leave sound<br/></div>
 in_meeting.record_play_voice *optional*<div class="default">1</div> | Record and play their own voice
-in_meeting.file_transfer *optional* | File transfer
-in_meeting.feedback *optional* | Feedback to Zoom
-in_meeting.co_host *optional* | Co-host
-in_meeting.polling *optional* | Polling
-in_meeting.attendee_on_hold *optional* | Allow host to put attendee on hold
-in_meeting.annotation *optional* | Annotation
-in_meeting.non_verbal_feedback *optional* | Non-verbal feedback
-in_meeting.breakout_room *optional* | Breakout room
-in_meeting.remote_support *optional* | Remote support
-in_meeting.closed_caption *optional* | Closed caption
-in_meeting.group_hd *optional* | Group HD video
-in_meeting.virtual_background *optional* | Virtual background
-in_meeting.far_end_camera_control *optional* | Far end camera control
-in_meeting.share_dual_camera *optional* | Share dual camera
-in_meeting.attention_tracking *optional* | Attention tracking
-in_meeting.waiting_room *optional* | Waiting room
-in_meeting.manage_zr *optional* | Manage Zoom Rooms
-email_notification.jbh_reminder *optional* | When attendees join meeting before host
-email_notification.cancel_meeting_reminder *optional* | When a meeting is cancelled
-email_notification.alternative_host_reminder *optional* | When an alternative host is set or removed from a meeting
+in_meeting.file_transfer *optional*<div class="default">false</div> | File transfer
+in_meeting.feedback *optional*<div class="default">false</div> | Feedback to Zoom
+in_meeting.co_host *optional*<div class="default">false</div> | Co-host
+in_meeting.polling *optional*<div class="default">false</div> | Polling
+in_meeting.attendee_on_hold *optional*<div class="default">false</div> | Allow host to put attendee on hold
+in_meeting.annotation *optional*<div class="default">false</div> | Annotation
+in_meeting.non_verbal_feedback *optional*<div class="default">false</div> | Non-verbal feedback
+in_meeting.breakout_room *optional*<div class="default">false</div> | Breakout room
+in_meeting.remote_support *optional*<div class="default">false</div> | Remote support
+in_meeting.closed_caption *optional*<div class="default">false</div> | Closed caption
+in_meeting.group_hd *optional*<div class="default">false</div> | Group HD video
+in_meeting.virtual_background *optional*<div class="default">false</div> | Virtual background
+in_meeting.far_end_camera_control *optional*<div class="default">false</div> | Far end camera control
+in_meeting.share_dual_camera *optional*<div class="default">false</div> | Share dual camera
+in_meeting.attention_tracking *optional*<div class="default">false</div> | Attention tracking
+in_meeting.waiting_room *optional*<div class="default">false</div> | Waiting room
+in_meeting.manage_zr *optional*<div class="default">false</div> | Manage Zoom Rooms
+email_notification.jbh_reminder *optional*<div class="default">false</div> | When attendees join meeting before host
+email_notification.cancel_meeting_reminder *optional*<div class="default">false</div> | When a meeting is cancelled
+email_notification.alternative_host_reminder *optional*<div class="default">false</div> | When an alternative host is set or removed from a meeting
 recording.local_recording *optional*<div class="default">1</div> | Local recording
-recording.cloud_recording *optional* | Cloud recording
-recording.record_speaker_view *optional* | Record the active speaker view
-recording.record_gallery_view *optional* | Record the gallery view
-recording.record_audio_file *optional* | Record an audio only file
-recording.save_chat_text *optional* | Save chat text from the meeting
-recording.show_timestamp *optional* | Show timestamp on video
-recording.recording_audio_transcript *optional* | Recording audio transcript
+recording.cloud_recording *optional*<div class="default">false</div> | Cloud recording
+recording.record_speaker_view *optional*<div class="default">false</div> | Record the active speaker view
+recording.record_gallery_view *optional*<div class="default">false</div> | Record the gallery view
+recording.record_audio_file *optional*<div class="default">false</div> | Record an audio only file
+recording.save_chat_text *optional*<div class="default">false</div> | Save chat text from the meeting
+recording.show_timestamp *optional*<div class="default">false</div> | Show timestamp on video
+recording.recording_audio_transcript *optional*<div class="default">false</div> | Recording audio transcript
 recording.auto_recording *optional*<div class="default">local</div> | Automatic recording<div class="enum">`Record on local` local<br/>`Record on cloud` cloud<br/>`Disabled` none<br/></div>
-recording.auto_delete_cmr *optional* | Auto delete cloud recordings
+recording.auto_delete_cmr *optional*<div class="default">false</div> | Auto delete cloud recordings
 telephony.third_party_audio *optional*<div class="default">1</div> | 3rd party audio conference
 telephony.audio_conference_info *optional* | 3rd party audio conference info
 telephony.show_international_numbers_link *optional*<div class="default">1</div> | Show international numbers link on the invitation email

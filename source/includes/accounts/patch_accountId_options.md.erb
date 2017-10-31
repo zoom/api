@@ -1,4 +1,4 @@
-## Update an account's options
+## Update a sub account's options
 
 Update a sub account's options under the master account
 
@@ -16,7 +16,7 @@ $ curl https://api.zoom.us/v2/accounts/{accountId}/options \
     "share_rc": "boolean",
     "room_connectors": "string",
     "share_mc": "boolean",
-    "meeting_conntectors": "string",
+    "meeting_connectors": "string",
     "pay_mode": "string"
 }'
 ```
@@ -33,9 +33,9 @@ accountId **required** | The account ID
 
 Body Arguments | &nbsp;
 --- | ---
-share_rc *optional* | Enable Share Virtual Room Connector.
+share_rc *optional*<div class="default">false</div> | Enable Share Virtual Room Connector.
 room_connectors *optional* | Virtual Room Connector, multiple value separated by comma.
-share_mc *optional* | Enable Share Meeting Connector.
-meeting_conntectors *optional* | Meeting Connector, multiple value separated by comma.
+share_mc *optional*<div class="default">false</div> | Enable Share Meeting Connector.
+meeting_connectors *optional* | Meeting Connector, multiple value separated by comma.
 pay_mode *optional*<div class="default">master</div> | Payee<div class="enum">`master` Master Account holder pays<br/>`sub` Sub Account holders pays<br/></div>
 
