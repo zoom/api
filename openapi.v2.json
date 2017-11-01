@@ -500,7 +500,7 @@
                 "tags": [
                     "Groups"
                 ],
-                "parameters":[],
+                "parameters": [],
                 "operationId": "groups",
                 "responses": {
                     "200": {
@@ -777,7 +777,7 @@
                     "IM Groups"
                 ],
                 "operationId": "imGroups",
-                "parameters":[],
+                "parameters": [],
                 "responses": {
                     "200": {
                         "description": "List of IM Groups returned.",
@@ -809,7 +809,7 @@
                                 "type": {
                                     "type": "string",
                                     "description": "IM Group type",
-                                    "default":"normal",
+                                    "default": "normal",
                                     "enum": [
                                         "normal",
                                         "shared",
@@ -1194,7 +1194,7 @@
                                             "description": "ID of the user set as host of meeting"
                                         }
                                     }
-                                },
+                                }
                             ]
                         }
                     },
@@ -1480,15 +1480,15 @@
                                         "Deny registrant"
                                     ]
                                 },
-                                "registrant":{
-                                    "type":"array",
-                                    "description":"List of registrants",
-                                    "items":{
-                                        "properties":{
-                                            "id":{
+                                "registrant": {
+                                    "type": "array",
+                                    "description": "List of registrants",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
                                                 "type": "string"
                                             },
-                                            "email":{
+                                            "email": {
                                                 "name": "email",
                                                 "type": "string"
                                             }
@@ -3475,10 +3475,10 @@
                                 {
                                     "properties": {
                                         "vanity_url": {
-                                          "type": "string"
+                                            "type": "string"
                                         },
                                         "pic_url": {
-                                          "type": "string"
+                                            "type": "string"
                                         }
                                     }
                                 }
@@ -3536,14 +3536,14 @@
                         "name": "action",
                         "description": "Delete action type",
                         "type": "string",
-                        "default":"disassociate",
+                        "default": "disassociate",
                         "enum": [
-                          "disassociate",
-                          "delete"
+                            "disassociate",
+                            "delete"
                         ],
                         "x-enum-descriptions": [
-                          "Disassociate a user",
-                          "Permanently delete a user"
+                            "Disassociate a user",
+                            "Permanently delete a user"
                         ]
                     }
                 ],
@@ -3574,7 +3574,7 @@
                     "200": {
                         "description": "Success",
                         "schema": {
-                          "$ref":"#/definitions/UserAssistantsList"
+                            "$ref": "#/definitions/UserAssistantsList"
                         }
                     },
                     "404": {
@@ -3596,10 +3596,10 @@
                     {
                         "name": "body",
                         "description": "User assistant",
-                        "required":true,
+                        "required": true,
                         "in": "body",
                         "schema": {
-                          "$ref":"#/definitions/UserAssistantsList"
+                            "$ref": "#/definitions/UserAssistantsList"
                         }
                     }
                 ],
@@ -3620,7 +3620,7 @@
                                 },
                                 "add_at": {
                                     "type": "string",
-                                    "format":"date-time"
+                                    "format": "date-time"
                                 }
                             }
                         }
@@ -3800,7 +3800,7 @@
                             "properties": {
                                 "action": {
                                     "type": "string",
-                                    "required":true,
+                                    "required": true,
                                     "description": "The action type",
                                     "enum": [
                                         "activate",
@@ -3840,15 +3840,15 @@
                     {
                         "name": "body",
                         "description": "User password",
-                        "required":true,
+                        "required": true,
                         "in": "body",
                         "schema": {
                             "type": "object",
                             "properties": {
                                 "password": {
                                     "type": "string",
-                                    "required":true,
-                                    "description":"User’s password. Character length is less than 32."
+                                    "required": true,
+                                    "description": "User’s password. Character length is less than 32."
                                 }
                             }
                         }
@@ -4022,12 +4022,12 @@
                         "description": "User token type",
                         "type": "string",
                         "enum": [
-                          "token",
-                          "zpk"
+                            "token",
+                            "zpk"
                         ],
                         "x-enum-descriptions": [
-                          "Used for starting meeting with client SDK.",
-                          "Used for generating the start meeting url."
+                            "Used for starting meeting with client SDK.",
+                            "Used for generating the start meeting url."
                         ]
                     }
                 ],
@@ -4052,23 +4052,23 @@
                 "summary": "Revoke a user's SSO token",
                 "description": "Revoke a user's SSO token",
                 "tags": [
-                  "Users"
+                    "Users"
                 ],
                 "operationId": "userSSOTokenDelete",
                 "parameters": [
-                  {
-                    "$ref": "#/parameters/UserId"
-                  }
+                    {
+                        "$ref": "#/parameters/UserId"
+                    }
                 ],
                 "responses": {
-              "204": {
-                "description": "Token deleted"
-              },
-              "404": {
-                "description": "User not found"
-              }
+                    "204": {
+                        "description": "Token deleted"
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                }
             }
-          }
         },
         "/users/zpk": {
             "get": {
@@ -4084,7 +4084,7 @@
                         "description": "User zpk",
                         "in": "query",
                         "type": "string",
-                        "required":true
+                        "required": true
                     }
                 ],
                 "responses": {
@@ -4093,7 +4093,7 @@
                         "schema": {
                             "properties": {
                                 "expire_in": {
-                                  "type": "integer"
+                                    "type": "integer"
                                 }
                             }
                         }
@@ -4115,7 +4115,7 @@
                         "description": "User email",
                         "in": "query",
                         "type": "string",
-                        "required":true
+                        "required": true
                     }
                 ],
                 "responses": {
@@ -4130,7 +4130,7 @@
                         }
                     }
                 }
-              }
+            }
         },
         "/users/{userId}/webinars": {
             "get": {
@@ -4613,15 +4613,15 @@
                                         "Deny registrant"
                                     ]
                                 },
-                                "registrant":{
-                                    "type":"array",
-                                    "description":"List of registrant",
-                                    "items":{
-                                        "properties":{
-                                            "id":{
+                                "registrant": {
+                                    "type": "array",
+                                    "description": "List of registrant",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
                                                 "type": "string"
                                             },
-                                            "email":{
+                                            "email": {
                                                 "name": "email",
                                                 "type": "string"
                                             }
@@ -4843,26 +4843,6 @@
             "description": "The user ID or email address",
             "type": "string",
             "required": true
-        },
-        "LoginType":{
-            "in": "query",
-            "name": "login_type",
-            "description": "User login type",
-            "type": "integer",
-            "enum": [
-              0,
-              1,
-              99,
-              100,
-              101
-            ],
-            "x-enum-descriptions": [
-              "Facebook",
-              "Google",
-              "API",
-              "Zoom",
-              "SSO"
-            ]
         },
         "WebinarId": {
             "in": "path",
@@ -5757,7 +5737,7 @@
             "allOf": [
                 {
                     "properties": {
-                        "total_records":{
+                        "total_records": {
                             "type": "integer",
                             "description": "Total records"
                         },
@@ -5843,7 +5823,7 @@
                         "type": {
                             "type": "string",
                             "description": "IM Group type",
-                            "default":"normal",
+                            "default": "normal",
                             "enum": [
                                 "normal",
                                 "shared",
@@ -5918,67 +5898,67 @@
             "description": "Meeting object",
             "allOf": [
                 {
-                  "type": "object",
-                  "description": "Base object for sessions",
-                  "properties": {
-                    "topic": {
-                      "type": "string",
-                      "description": "Meeting topic"
-                    },
-                    "type": {
-                      "type": "integer",
-                      "description": "Meeting Type",
-                      "default":2,
-                      "enum": [
-                        1,
-                        2,
-                        3,
-                        8
-                      ],
-                      "x-enum-descriptions": [
-                        "Instant Meeting",
-                        "Scheduled Meeting",
-                        "Recurring Meeting with no fixed time",
-                        "Recurring Meeting with fixed time"
-                      ]
-                    },
-                    "start_time": {
-                      "type": "string",
-                      "format": "date-time",
-                      "description": "Meeting start time"
-                    },
-                    "duration": {
-                      "type": "integer",
-                      "description": "Meeting duration"
-                    },
-                    "timezone": {
-                      "type": "string",
-                      "description": "Timezone to format start_time"
-                    },
-                    "create_at": {
-                      "type": "string",
-                      "format":"date-time",
-                      "description": "Create time"
-                    },
-                    "agenda": {
-                      "type": "string",
-                      "description": "Agenda"
-                    },
-                    "start_url": {
-                      "type": "string",
-                      "description": "Start url"
-                    },
-                    "join_url": {
-                      "type": "string",
-                      "description": "Join url"
-                    },
-                    "occurrences": {
-                      "$ref": "#/definitions/Occurrences"
-                    },
-                    "settings": {
-                      "$ref": "#/definitions/MeetingSettings"
+                    "type": "object",
+                    "description": "Base object for sessions",
+                    "properties": {
+                        "topic": {
+                            "type": "string",
+                            "description": "Meeting topic"
+                        },
+                        "type": {
+                            "type": "integer",
+                            "description": "Meeting Type",
+                            "default": 2,
+                            "enum": [
+                                1,
+                                2,
+                                3,
+                                8
+                            ],
+                            "x-enum-descriptions": [
+                                "Instant Meeting",
+                                "Scheduled Meeting",
+                                "Recurring Meeting with no fixed time",
+                                "Recurring Meeting with fixed time"
+                            ]
+                        },
+                        "start_time": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Meeting start time"
+                        },
+                        "duration": {
+                            "type": "integer",
+                            "description": "Meeting duration"
+                        },
+                        "timezone": {
+                            "type": "string",
+                            "description": "Timezone to format start_time"
+                        },
+                        "create_at": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Create time"
+                        },
+                        "agenda": {
+                            "type": "string",
+                            "description": "Agenda"
+                        },
+                        "start_url": {
+                            "type": "string",
+                            "description": "Start url"
+                        },
+                        "join_url": {
+                            "type": "string",
+                            "description": "Join url"
+                        },
+                        "occurrences": {
+                            "$ref": "#/definitions/Occurrences"
+                        },
+                        "settings": {
+                            "$ref": "#/definitions/MeetingSettings"
+                        }
                     }
-                  }
                 }
             ]
         },
@@ -6020,16 +6000,16 @@
                                                 "type": "integer",
                                                 "description": "Meeting Type",
                                                 "enum": [
-                                                  1,
-                                                  2,
-                                                  3,
-                                                  8
+                                                    1,
+                                                    2,
+                                                    3,
+                                                    8
                                                 ],
                                                 "x-enum-descriptions": [
-                                                  "Instant Meeting",
-                                                  "Scheduled Meeting",
-                                                  "Recurring Meeting with no fixed time",
-                                                  "Recurring Meeting with fixed time"
+                                                    "Instant Meeting",
+                                                    "Scheduled Meeting",
+                                                    "Recurring Meeting with no fixed time",
+                                                    "Recurring Meeting with fixed time"
                                                 ]
                                             },
                                             "start_time": {
@@ -6047,7 +6027,7 @@
                                             },
                                             "created_at": {
                                                 "type": "string",
-                                                "format":"date-time",
+                                                "format": "date-time",
                                                 "description": "Create time"
                                             },
                                             "join_url": {
@@ -6288,7 +6268,7 @@
                         },
                         "start_time": {
                             "type": "string",
-                            "format":"date-time",
+                            "format": "date-time",
                             "description": "Start time"
                         },
                         "duration": {
@@ -6399,15 +6379,15 @@
             "allOf": [
                 {
                     "properties": {
-                        "total_records":{
-                            "type":"integer",
-                            "description":"Total records."
+                        "total_records": {
+                            "type": "integer",
+                            "description": "Total records."
                         },
                         "panelists": {
                             "type": "array",
                             "description": "List of Panelist objects.",
-                            "items":{
-                                "allOf":[
+                            "items": {
+                                "allOf": [
                                     {
                                         "properties": {
                                             "id": {
@@ -6429,7 +6409,6 @@
                                     }
                                 ]
                             }
-
                         }
                     }
                 }
@@ -6832,11 +6811,11 @@
                             "type": "array",
                             "description": "List of Registrant objects.",
                             "items": {
-                                "allOf":[
+                                "allOf": [
                                     {
                                         "properties": {
-                                            "id":{
-                                                "type":"string"
+                                            "id": {
+                                                "type": "string"
                                             }
                                         }
                                     },
@@ -6845,12 +6824,12 @@
                                     },
                                     {
                                         "properties": {
-                                            "status":{
-                                                "type":"string"
+                                            "status": {
+                                                "type": "string"
                                             },
-                                            "create_time":{
-                                                "type":"string",
-                                                "format":"date-time"
+                                            "create_time": {
+                                                "type": "string",
+                                                "format": "date-time"
                                             }
                                         }
                                     }
@@ -6872,7 +6851,7 @@
                 "type": {
                     "type": "integer",
                     "description": "Meeting Type",
-                    "default":2,
+                    "default": 2,
                     "enum": [
                         1,
                         2,
@@ -6926,7 +6905,7 @@
                 "type": {
                     "type": "integer",
                     "description": "Webinar Type",
-                    "default":5,
+                    "default": 5,
                     "enum": [
                         5,
                         6,
@@ -7070,12 +7049,11 @@
         "UserUpdate": {
             "type": "object",
             "description": "The user update object represents a User on Zoom.",
-            "required": [
-            ],
             "properties": {
                 "first_name": {
                     "type": "string",
                     "description": "User's first name."
+                },
                 "created_at": {
                     "type": "string",
                     "format": "date-time"
@@ -7104,8 +7082,7 @@
                 },
                 "timezone": {
                     "type": "string",
-                    "description": "The time zone id for user profile. For this parameter value please refer to the id value in [timezone](#timezones) list. "
-
+                    "description": "The time zone id for user profile. For this parameter value please refer to the id value in [timezone](#timezones) list.",
                     "format": "date-time"
                 },
                 "last_client_version": {
@@ -7119,8 +7096,8 @@
                     "description": "Department for user profile, use for report."
                 },
                 "vanity_name": {
-                      "type": "string",
-                      "description": "Personal meeting room name."
+                    "type": "string",
+                    "description": "Personal meeting room name."
                 },
                 "host_key": {
                     "type": "string",
@@ -7543,71 +7520,71 @@
             ]
         },
         "WebinarInfo": {
-          "type": "object",
-          "description": "Webinar object",
-          "allOf": [
-            {
-              "type": "object",
-              "description": "Base Webinar object for sessions",
-              "properties": {
-                "topic": {
-                  "type": "string",
-                  "description": "Webinar topic"
-                },
-                "type": {
-                  "type": "integer",
-                  "description": "Webinar Type",
-                  "default":5,
-                  "enum": [
-                    5,
-                    6,
-                    9
-                  ],
-                  "x-enum-descriptions": [
-                    "Webinar",
-                    "Recurring Webinar with no fixed time",
-                    "Recurring Webinar with fixed time"
-                  ]
-                },
-                "start_time": {
-                  "type": "string",
-                  "format": "date-time",
-                  "description": "Webinar start time"
-                },
-                "duration": {
-                  "type": "integer",
-                  "description": "Webinar duration"
-                },
-                "timezone": {
-                  "type": "string",
-                  "description": "Timezone to format start_time"
-                },
-                "agenda": {
-                  "type": "string",
-                  "description": "Webinar agenda"
-                },
-                "create_at": {
-                  "type": "string",
-                  "format":"date-time",
-                  "description": "Create time"
-                },
-                "start_url": {
-                  "type": "string",
-                  "description": "Start url"
-                },
-                "join_url": {
-                  "type": "string",
-                  "description": "Join url"
-                },
-                "occurrences": {
-                  "$ref": "#/definitions/Occurrences"
-                },
-                "settings": {
-                  "$ref": "#/definitions/WebinarSettings"
+            "type": "object",
+            "description": "Webinar object",
+            "allOf": [
+                {
+                    "type": "object",
+                    "description": "Base Webinar object for sessions",
+                    "properties": {
+                        "topic": {
+                            "type": "string",
+                            "description": "Webinar topic"
+                        },
+                        "type": {
+                            "type": "integer",
+                            "description": "Webinar Type",
+                            "default": 5,
+                            "enum": [
+                                5,
+                                6,
+                                9
+                            ],
+                            "x-enum-descriptions": [
+                                "Webinar",
+                                "Recurring Webinar with no fixed time",
+                                "Recurring Webinar with fixed time"
+                            ]
+                        },
+                        "start_time": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Webinar start time"
+                        },
+                        "duration": {
+                            "type": "integer",
+                            "description": "Webinar duration"
+                        },
+                        "timezone": {
+                            "type": "string",
+                            "description": "Timezone to format start_time"
+                        },
+                        "agenda": {
+                            "type": "string",
+                            "description": "Webinar agenda"
+                        },
+                        "create_at": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Create time"
+                        },
+                        "start_url": {
+                            "type": "string",
+                            "description": "Start url"
+                        },
+                        "join_url": {
+                            "type": "string",
+                            "description": "Join url"
+                        },
+                        "occurrences": {
+                            "$ref": "#/definitions/Occurrences"
+                        },
+                        "settings": {
+                            "$ref": "#/definitions/WebinarSettings"
+                        }
+                    }
                 }
-              }
-            }
-          ]
+            ]
         },
         "WebinarList": {
             "type": "object",
@@ -7667,7 +7644,7 @@
                                             },
                                             "created_at": {
                                                 "type": "string",
-                                                "format":"date-time",
+                                                "format": "date-time",
                                                 "description": "Create time"
                                             },
                                             "join_url": {
@@ -7770,8 +7747,8 @@
                         "panelists": {
                             "type": "array",
                             "description": "List of Panelist objects.",
-                            "items":{
-                                "allOf":[
+                            "items": {
+                                "allOf": [
                                     {
                                         "$ref": "#/definitions/Panelist"
                                     }
@@ -7811,130 +7788,130 @@
             ]
         },
         "WebinarSettings": {
-          "type": "object",
-          "description": "Webinar Settings",
-          "properties": {
-            "host_video": {
-              "type": "boolean",
-              "description": "Start video when host join webinar"
-            },
-            "participant_video": {
-              "type": "boolean",
-              "description": "Start video when participants join webinar"
-            },
-            "cn_meeting": {
-              "type": "boolean",
-              "description": "Host webinar in China",
-              "default": false
-            },
-            "in_meeting": {
-              "type": "boolean",
-              "description": "Host webinar in India",
-              "default": false
-            },
-            "join_before_host": {
-              "type": "boolean",
-              "description": "Join webinar before host start the webinar. Only used for scheduled or recurring webinars",
-              "default": false
-            },
-            "mute_upon_entry": {
-              "type": "boolean",
-              "description": "Mute participants upon entry",
-              "default": false
-            },
-            "watermark": {
-              "type": "boolean",
-              "description": "Enable watermark when viewing the shared screen",
-              "default": false
-            },
-            "use_pmi": {
-              "type": "boolean",
-              "description": "Use Personal Meeting ID. Only used for scheduled webinars and recurring webinars with no fixed time",
-              "default": false
-            },
-            "approval_type": {
-              "type": "integer",
-              "default": 2,
-              "enum": [
-                0,
-                1,
-                2
-              ],
-              "x-enum-descriptions": [
-                "Automatically Approve",
-                "Manually Approve",
-                "No Registration Required"
-              ]
-            },
-            "registration_type": {
-              "type": "integer",
-              "description": "Registration type. Used for recurring webinar with fixed time only.",
-              "default": 1,
-              "enum": [
-                1,
-                2,
-                3
-              ],
-              "x-enum-descriptions": [
-                "Attendees register once and can attend any of the occurrences",
-                "Attendees need to register for each occurrence to attend",
-                "Attendees register once and can choose one or more occurrences to attend"
-              ]
-            },
-            "audio": {
-              "type": "string",
-              "description": "Meeting audio options",
-              "default": "both",
-              "enum": [
-                "both",
-                "telephony",
-                "voip"
-              ],
-              "x-enum-descriptions": [
-                "Both Telephony and VoIP",
-                "Telephony only",
-                "VoIP only"
-              ]
-            },
-            "auto_recording": {
-              "type": "string",
-              "default": "none",
-              "enum": [
-                "local",
-                "cloud",
-                "none"
-              ],
-              "x-enum-descriptions": [
-                "Record to local device",
-                "Record to cloud",
-                "No Recording"
-              ]
-            },
-            "enforce_login": {
-              "type": "boolean",
-              "description": "Only signed-in users can join this meeting"
-            },
-            "enforce_login_domains": {
-              "type": "string",
-              "description": "Only signed-in users with specified domains can join meetings"
-            },
-            "alternatice_hosts": {
-              "type": "string",
-              "description": "Alternative hosts emails or IDs. Multiple value separated by comma."
-            },
-            "close_registration": {
-              "type": "boolean",
-              "description": "Close registration after event date."
-            },
-            "show_share_button": {
-              "type": "boolean",
-              "description": "Show social share buttons on registration page."
-            },
-            "allow_multiple_devices": {
-              "type": "boolean",
-              "description": "Allow attendees to join from multiple devices."
+            "type": "object",
+            "description": "Webinar Settings",
+            "properties": {
+                "host_video": {
+                    "type": "boolean",
+                    "description": "Start video when host join webinar"
+                },
+                "participant_video": {
+                    "type": "boolean",
+                    "description": "Start video when participants join webinar"
+                },
+                "cn_meeting": {
+                    "type": "boolean",
+                    "description": "Host webinar in China",
+                    "default": false
+                },
+                "in_meeting": {
+                    "type": "boolean",
+                    "description": "Host webinar in India",
+                    "default": false
+                },
+                "join_before_host": {
+                    "type": "boolean",
+                    "description": "Join webinar before host start the webinar. Only used for scheduled or recurring webinars",
+                    "default": false
+                },
+                "mute_upon_entry": {
+                    "type": "boolean",
+                    "description": "Mute participants upon entry",
+                    "default": false
+                },
+                "watermark": {
+                    "type": "boolean",
+                    "description": "Enable watermark when viewing the shared screen",
+                    "default": false
+                },
+                "use_pmi": {
+                    "type": "boolean",
+                    "description": "Use Personal Meeting ID. Only used for scheduled webinars and recurring webinars with no fixed time",
+                    "default": false
+                },
+                "approval_type": {
+                    "type": "integer",
+                    "default": 2,
+                    "enum": [
+                        0,
+                        1,
+                        2
+                    ],
+                    "x-enum-descriptions": [
+                        "Automatically Approve",
+                        "Manually Approve",
+                        "No Registration Required"
+                    ]
+                },
+                "registration_type": {
+                    "type": "integer",
+                    "description": "Registration type. Used for recurring webinar with fixed time only.",
+                    "default": 1,
+                    "enum": [
+                        1,
+                        2,
+                        3
+                    ],
+                    "x-enum-descriptions": [
+                        "Attendees register once and can attend any of the occurrences",
+                        "Attendees need to register for each occurrence to attend",
+                        "Attendees register once and can choose one or more occurrences to attend"
+                    ]
+                },
+                "audio": {
+                    "type": "string",
+                    "description": "Meeting audio options",
+                    "default": "both",
+                    "enum": [
+                        "both",
+                        "telephony",
+                        "voip"
+                    ],
+                    "x-enum-descriptions": [
+                        "Both Telephony and VoIP",
+                        "Telephony only",
+                        "VoIP only"
+                    ]
+                },
+                "auto_recording": {
+                    "type": "string",
+                    "default": "none",
+                    "enum": [
+                        "local",
+                        "cloud",
+                        "none"
+                    ],
+                    "x-enum-descriptions": [
+                        "Record to local device",
+                        "Record to cloud",
+                        "No Recording"
+                    ]
+                },
+                "enforce_login": {
+                    "type": "boolean",
+                    "description": "Only signed-in users can join this meeting"
+                },
+                "enforce_login_domains": {
+                    "type": "string",
+                    "description": "Only signed-in users with specified domains can join meetings"
+                },
+                "alternatice_hosts": {
+                    "type": "string",
+                    "description": "Alternative hosts emails or IDs. Multiple value separated by comma."
+                },
+                "close_registration": {
+                    "type": "boolean",
+                    "description": "Close registration after event date."
+                },
+                "show_share_button": {
+                    "type": "boolean",
+                    "description": "Show social share buttons on registration page."
+                },
+                "allow_multiple_devices": {
+                    "type": "boolean",
+                    "description": "Allow attendees to join from multiple devices."
+                }
             }
-          }
         },
         "ZoomRoom": {
             "type": "object",

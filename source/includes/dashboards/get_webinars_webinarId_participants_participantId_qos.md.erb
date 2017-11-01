@@ -98,10 +98,10 @@ $ curl https://api.zoom.us/v2/metrics/webinars/{webinarId}/participants/{partici
 
 Path Arguments | &nbsp;
 --- | ---
-webinarId **required** | The webinar ID
-participantId **required** | The participant ID
+webinarId **required** | The webinar ID or webinar UUID. If given webinar ID, will take the last webinar instance.
+participantId **required** | The participant ID, such as 16778240
 
 Query Arguments | &nbsp;
 --- | ---
-type *optional*<div class="default">live</div> | The webinar type<div class="enum">`past` past webinars<br/>`live` live webinars<br/></div>
+type *optional*<div class="default">live</div> | The webinar type<div class="enum">`past` past webinar<br/>`live` live webinar<br/></div>
 

@@ -21,7 +21,7 @@ $ curl https://api.zoom.us/v2/accounts/{accountId}/plans/base \
 > Example Response
 
 ```text
-201 Created
+204 No Content
 ```
 
 Path Arguments | &nbsp;
@@ -30,6 +30,6 @@ accountId **required** | The account ID
 
 Body Arguments | &nbsp;
 --- | ---
-type **required** | Account <a href="#plans">plan type</a>
-hosts **required** | Account plan number of hosts
+type **required** | Account base plan type
+hosts **required** | Account base plan number of hosts. For a Pro Plan, please select a value between 1 and 9. For a Business Plan, please select a value between 10 and 49. For a Education Plan, please select a value between 20 and 149. For a Free Trial Plan, please select a value between 1 and 9999.
 

@@ -11,15 +11,10 @@ The user object represents a User on Zoom.
     "type": "integer",
     "pmi": "string",
     "timezone": "string",
-    "verified": "boolean",
     "dept": "string",
     "created_at": "string [date-time]",
     "last_login_time": "string [date-time]",
-    "last_client_version": "string",
-    "pic_url": "string",
-    "vanity_url": "string",
-    "cms_user_id": "string",
-    "host_key": "string"
+    "last_client_version": "string"
 }
 ```
 
@@ -29,15 +24,10 @@ first_name *string* | User's first name.
 last_name *string* | User's last name.
 email *string* | User's email address.
 type *integer* | User's type<div class="enum">`1` basic<br/>`2` pro<br/>`3` corp<br/></div>
-pmi *string* | 
-timezone *string* | 
-verified *boolean* | 
-dept *string* | 
-created_at *string* | 
-last_login_time *string* | 
-last_client_version *string* | 
-pic_url *string* | 
-vanity_url *string* | 
-cms_user_id *string* | CMS User Id
-host_key *string* | Host Key, should be 6-digit number
+pmi *string* | Personal Meeting ID
+timezone *string* | Time Zone
+dept *string* | Department
+created_at *string* | User create time
+last_login_time *string* | User last login time
+last_client_version *string* | User last login client version
 

@@ -30,18 +30,18 @@ $ curl https://api.zoom.us/v2/webinars/{webinarId}
     "start_time": "string [date-time]",
     "duration": "integer",
     "timezone": "string",
-    "password": "string",
-    "description": "string",
-    "recurrence": {
-        "type": "integer",
-        "repeat_interval": "integer",
-        "weekly_days": "integer",
-        "monthly_day": "integer",
-        "monthly_week": "integer",
-        "monthly_week_day": "integer",
-        "end_times": "integer",
-        "end_date_time": "string [date-time]"
-    },
+    "agenda": "string",
+    "create_at": "string [date-time]",
+    "start_url": "string",
+    "join_url": "string",
+    "occurrences": [
+        {
+            "occurrence_id": "long",
+            "start_time": "string [date-time]",
+            "duration": "integer",
+            "status": "string"
+        }
+    ],
     "settings": {
         "host_video": "boolean",
         "participant_video": "boolean",
@@ -56,8 +56,11 @@ $ curl https://api.zoom.us/v2/webinars/{webinarId}
         "audio": "string",
         "auto_recording": "string",
         "enforce_login": "boolean",
-        "enforce_login_domains": "boolean",
-        "alternatice_hosts": "boolean"
+        "enforce_login_domains": "string",
+        "alternatice_hosts": "string",
+        "close_registration": "boolean",
+        "show_share_button": "boolean",
+        "allow_multiple_devices": "boolean"
     }
 }
 ```

@@ -23,9 +23,9 @@ $ curl https://api.zoom.us/v2/report/webinars/{webinarId}/participants
 ```json
 {
     "page_count": "integer",
-    "page_number": "integer",
     "page_size": "integer",
     "total_records": "integer",
+    "next_page_token": "string",
     "participants": [
         {
             "name": "string",
@@ -41,10 +41,10 @@ $ curl https://api.zoom.us/v2/report/webinars/{webinarId}/participants
 
 Path Arguments | &nbsp;
 --- | ---
-webinarId **required** | The webinar ID
+webinarId **required** | The webinar ID or webinar UUID. If given webinar ID, will take the last webinar instance.
 
 Query Arguments | &nbsp;
 --- | ---
 page_size *optional*<div class="default">30</div><div class="maximum">300</div> | The amount of records returns within a single API call. 
-page_number *optional*<div class="default">1</div> | Current page number of returned records.
+next_page_token *optional* | Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.
 

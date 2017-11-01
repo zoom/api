@@ -11,7 +11,7 @@ Meeting object
     "duration": "integer",
     "timezone": "string",
     "password": "string",
-    "description": "string",
+    "agenda": "string",
     "recurrence": {
         "type": "integer",
         "repeat_interval": "integer",
@@ -36,8 +36,8 @@ Meeting object
         "audio": "string",
         "auto_recording": "string",
         "enforce_login": "boolean",
-        "enforce_login_domains": "boolean",
-        "alternatice_hosts": "boolean"
+        "enforce_login_domains": "string",
+        "alternatice_hosts": "string"
     }
 }
 ```
@@ -46,11 +46,11 @@ Property | Description
 --- | ---
 topic *string* | Meeting topic
 type *integer* | Meeting Type<div class="enum">`1` Instant Meeting<br/>`2` Scheduled Meeting<br/>`3` Recurring Meeting with no fixed time<br/>`8` Recurring Meeting with fixed time<br/></div>
-start_time *string* | Meeting start time
-duration *integer* | Meeting duration
-timezone *string* | Timezone to format start_time
-password *string* | Password to join the meeting
-description *string* | Meeting description
+start_time *string* | Meeting start time, in the format "yyyy-MM-dd'T'HH:mm:ss'Z'", should be GMT time. In the format "yyyy-MM-dd'T'HH:mm:ss", should be local time, need to specify the time zone. Only used for scheduled meeting and recurring meeting with fixed time.
+duration *integer* | Meeting duration (minutes). Used for scheduled meeting only.
+timezone *string* | Timezone to format start_time, like "America/Los_Angeles". For scheduled meeting only. For this parameter value please refer to the id value in [timezone](#timezones) list.
+password *string* | Password to join the meeting. Password may only contain the following characters: [a-z A-Z 0-9 @ - _ *]. Max of 10 characters.
+agenda *string* | Meeting description
 recurrence.type *integer* | Recurrence meeting type<div class="enum">`1` Daily<br/>`2` Weekly<br/>`3` Monthly<br/></div>
 recurrence.repeat_interval *integer* | Recurrence meeting repeat interval. For a Daily Meeting, max of 90. For a Weekly Meeting, max of 12. For a Monthly Meeting, max of 3.
 recurrence.weekly_days *integer* | Recurrence Meeting Occurs on week days, multiple value separated by comma<div class="enum">`1` Sunday<br/>`2` Monday<br/>`3` Tuesday<br/>`4` Wednesday<br/>`5` Thursday<br/>`6` Friday<br/>`7` Saturday<br/></div>
@@ -72,6 +72,6 @@ settings.registration_type *integer* | Registration type. Used for recurring mee
 settings.audio *string* | Meeting audio options<div class="enum">`both` Both Telephony and VoIP<br/>`telephony` Telephony only<br/>`voip` VoIP only<br/></div>
 settings.auto_recording *string* | <div class="enum">`local` Record to local device<br/>`cloud` Record to cloud<br/>`none` No Recording<br/></div>
 settings.enforce_login *boolean* | Only signed-in users can join this meeting
-settings.enforce_login_domains *boolean* | Only signed-in users with specified domains can join meetings
-settings.alternatice_hosts *boolean* | Alternative hosts emails or IDs. Multiple value separated by comma.
+settings.enforce_login_domains *string* | Only signed-in users with specified domains can join meetings
+settings.alternatice_hosts *string* | Alternative hosts emails or IDs. Multiple value separated by comma.
 

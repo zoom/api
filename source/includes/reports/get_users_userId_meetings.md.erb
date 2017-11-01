@@ -25,9 +25,9 @@ $ curl https://api.zoom.us/v2/report/users/{userId}/meetings?from=string&to=stri
     "from": "string [date]",
     "to": "string [date]",
     "page_count": "integer",
-    "page_number": "integer",
     "page_size": "integer",
     "total_records": "integer",
+    "next_page_token": "string",
     "meetings": [
         {
             "uuid": "string [uuid]",
@@ -55,5 +55,5 @@ Query Arguments | &nbsp;
 from **required** | Start Date
 to **required** | End Date
 page_size *optional*<div class="default">30</div><div class="maximum">300</div> | The amount of records returns within a single API call. 
-page_number *optional*<div class="default">1</div> | Current page number of returned records.
+next_page_token *optional* | Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.
 

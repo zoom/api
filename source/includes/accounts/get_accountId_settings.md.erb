@@ -1,4 +1,4 @@
-## Retrieve a a sub account's settings
+## Retrieve a sub account's settings
 
 Retrieve a sub account's settings under the master account
 
@@ -29,7 +29,7 @@ $ curl https://api.zoom.us/v2/accounts/{accountId}/settings
         "join_before_host": "boolean",
         "enforce_login": "boolean",
         "enforce_login_with_domains": "boolean",
-        "enforce_login_domains": "boolean",
+        "enforce_login_domains": "string",
         "not_store_meeting_topic": "boolean",
         "force_pmi_jbh_password": "boolean"
     },
@@ -92,17 +92,25 @@ $ curl https://api.zoom.us/v2/accounts/{accountId}/settings
         "auto_start_stop_scheduled_meetings": "boolean"
     },
     "security": {
+        "admin_change_name_pic": "boolean",
         "import_photos_from_devices": "boolean",
         "hide_billing_info": "boolean"
     },
     "recording": {
         "local_recording": "boolean",
         "cloud_recording": "boolean",
-        "auto_recording": "boolean",
+        "record_speaker_view": "boolean",
+        "record_gallery_view": "boolean",
+        "record_audio_file": "boolean",
+        "save_chat_text": "boolean",
+        "show_timestamp": "boolean",
+        "recording_audio_transcript": "boolean",
+        "auto_recording": "string",
         "cloud_recording_download": "boolean",
         "cloud_recording_download_host": "boolean",
         "account_user_access_recording": "boolean",
-        "auto_delete_cmr": "boolean"
+        "auto_delete_cmr": "boolean",
+        "auto_delete_cmr_days": "integer"
     },
     "telephony": {
         "third_party_audio": "boolean",

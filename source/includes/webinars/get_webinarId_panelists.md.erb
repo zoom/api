@@ -22,14 +22,13 @@ $ curl https://api.zoom.us/v2/webinars/{webinarId}/panelists
 
 ```json
 {
-    "page_count": "integer",
-    "page_number": "integer",
-    "page_size": "integer",
     "total_records": "integer",
-    "registrants": [
+    "panelists": [
         {
+            "id": "string",
+            "name": "string",
             "email": "string",
-            "name": "string"
+            "join_url": "string"
         }
     ]
 }
@@ -38,10 +37,4 @@ $ curl https://api.zoom.us/v2/webinars/{webinarId}/panelists
 Path Arguments | &nbsp;
 --- | ---
 webinarId **required** | The webinar ID
-
-Query Arguments | &nbsp;
---- | ---
-occurrence_id *optional* | The meeting occurrence ID
-page_size *optional*<div class="default">30</div><div class="maximum">300</div> | The amount of records returns within a single API call. 
-page_number *optional*<div class="default">1</div> | Current page number of returned records.
 

@@ -27,8 +27,6 @@ $ curl https://api.zoom.us/v2/users/{userId}/settings
         "participants_video": "boolean",
         "audio_type": "string",
         "join_before_host": "boolean",
-        "enforce_login": "boolean",
-        "not_store_meeting_topic": "boolean",
         "force_pmi_jbh_password": "boolean",
         "pstn_password_protected": "boolean"
     },
@@ -45,6 +43,7 @@ $ curl https://api.zoom.us/v2/users/{userId}/settings
         "polling": "boolean",
         "attendee_on_hold": "boolean",
         "annotation": "boolean",
+        "remote_control": "boolean",
         "non_verbal_feedback": "boolean",
         "breakout_room": "boolean",
         "remote_support": "boolean",
@@ -54,8 +53,7 @@ $ curl https://api.zoom.us/v2/users/{userId}/settings
         "far_end_camera_control": "boolean",
         "share_dual_camera": "boolean",
         "attention_tracking": "boolean",
-        "waiting_room": "boolean",
-        "manage_zr": "boolean"
+        "waiting_room": "boolean"
     },
     "email_notification": {
         "jbh_reminder": "boolean",
@@ -72,7 +70,8 @@ $ curl https://api.zoom.us/v2/users/{userId}/settings
         "show_timestamp": "boolean",
         "recording_audio_transcript": "boolean",
         "auto_recording": "string",
-        "auto_delete_cmr": "boolean"
+        "auto_delete_cmr": "boolean",
+        "auto_delete_cmr_days": "integer"
     },
     "telephony": {
         "third_party_audio": "boolean",
@@ -84,7 +83,7 @@ $ curl https://api.zoom.us/v2/users/{userId}/settings
         "large_meeting": "boolean",
         "large_meeting_capacity": "integer",
         "webinar": "boolean",
-        "webinar_capacity": "boolean"
+        "webinar_capacity": "integer"
     }
 }
 ```
@@ -92,4 +91,8 @@ $ curl https://api.zoom.us/v2/users/{userId}/settings
 Path Arguments | &nbsp;
 --- | ---
 userId **required** | The user ID or email address
+
+Query Arguments | &nbsp;
+--- | ---
+login_type *optional* | <div class="enum">`0` Facebook<br/>`1` Google<br/>`99` API<br/>`100` Zoom<br/>`101` SSO<br/></div>
 

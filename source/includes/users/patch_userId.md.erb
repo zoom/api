@@ -14,20 +14,17 @@ PATCH https://api.zoom.us/v2/users/{userId}
 $ curl https://api.zoom.us/v2/users/{userId} \
    -d '{
     "first_name": "string",
+    "created_at": "string [date-time]",
     "last_name": "string",
-    "email": "string",
     "type": "integer",
     "pmi": "string",
-    "timezone": "string",
-    "verified": "boolean",
-    "dept": "string",
-    "created_at": "string [date-time]",
-    "last_login_time": "string [date-time]",
+    "timezone": "string [date-time]",
     "last_client_version": "string",
     "pic_url": "string",
-    "vanity_url": "string",
-    "cms_user_id": "string",
-    "host_key": "string"
+    "dept": "string",
+    "vanity_name": "string",
+    "host_key": "string",
+    "cms_user_id": "string"
 }'
 ```
 
@@ -43,19 +40,16 @@ userId **required** | The user ID or email address
 
 Body Arguments | &nbsp;
 --- | ---
-first_name *optional*<div class="maxLength">64</div> | User's first name.
-last_name *optional*<div class="maxLength">64</div> | User's last name.
-email **required** | User's email address.
-type **required** | User's type<div class="enum">`1` basic<br/>`2` pro<br/>`3` corp<br/></div>
-pmi *optional* | 
-timezone *optional* | 
-verified *optional* | 
-dept *optional* | 
+first_name *optional* | User's first name.
 created_at *optional* | 
-last_login_time *optional* | 
+last_name *optional* | User's last name.
+type *optional* | User's type<div class="enum">`1` basic<br/>`2` pro<br/>`3` corp<br/></div>
+pmi *optional* | Personal Meeting ID,length must be 10.
+timezone *optional* | The time zone id for user profile. For this parameter value please refer to the id value in [timezone](#timezones) list.
 last_client_version *optional* | 
 pic_url *optional* | 
-vanity_url *optional* | 
-cms_user_id *optional* | CMS User Id
-host_key *optional* | Host Key, should be 6-digit number
+dept *optional* | Department for user profile, use for report.
+vanity_name *optional* | Personal meeting room name.
+host_key *optional* | Host Key, should be 6-digit number.
+cms_user_id *optional* | Kaltura User Id.
 

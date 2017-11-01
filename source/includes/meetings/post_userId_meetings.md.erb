@@ -19,7 +19,7 @@ $ curl https://api.zoom.us/v2/users/{userId}/meetings \
     "duration": "integer",
     "timezone": "string",
     "password": "string",
-    "description": "string",
+    "agenda": "string",
     "recurrence": {
         "type": "integer",
         "repeat_interval": "integer",
@@ -44,8 +44,8 @@ $ curl https://api.zoom.us/v2/users/{userId}/meetings \
         "audio": "string",
         "auto_recording": "string",
         "enforce_login": "boolean",
-        "enforce_login_domains": "boolean",
-        "alternatice_hosts": "boolean"
+        "enforce_login_domains": "string",
+        "alternatice_hosts": "string"
     }
 }'
 ```
@@ -58,7 +58,9 @@ $ curl https://api.zoom.us/v2/users/{userId}/meetings \
 
 ```json
 {
-    "id": "string"
+    "uuid": "string",
+    "id": "string",
+    "host_id": "string"
 }
 ```
 
@@ -69,12 +71,12 @@ userId **required** | The user ID or email address
 Body Arguments | &nbsp;
 --- | ---
 topic *optional* | Meeting topic
-type *optional* | Meeting Type<div class="enum">`1` Instant Meeting<br/>`2` Scheduled Meeting<br/>`3` Recurring Meeting with no fixed time<br/>`8` Recurring Meeting with fixed time<br/></div>
-start_time *optional* | Meeting start time
-duration *optional* | Meeting duration
-timezone *optional* | Timezone to format start_time
-password *optional* | Password to join the meeting
-description *optional* | Meeting description
+type *optional*<div class="default">2</div> | Meeting Type<div class="enum">`1` Instant Meeting<br/>`2` Scheduled Meeting<br/>`3` Recurring Meeting with no fixed time<br/>`8` Recurring Meeting with fixed time<br/></div>
+start_time *optional* | Meeting start time, in the format "yyyy-MM-dd'T'HH:mm:ss'Z'", should be GMT time. In the format "yyyy-MM-dd'T'HH:mm:ss", should be local time, need to specify the time zone. Only used for scheduled meeting and recurring meeting with fixed time.
+duration *optional* | Meeting duration (minutes). Used for scheduled meeting only.
+timezone *optional* | Timezone to format start_time, like "America/Los_Angeles". For scheduled meeting only. For this parameter value please refer to the id value in [timezone](#timezones) list.
+password *optional* | Password to join the meeting. Password may only contain the following characters: [a-z A-Z 0-9 @ - _ *]. Max of 10 characters.
+agenda *optional* | Meeting description
 recurrence.type *optional* | Recurrence meeting type<div class="enum">`1` Daily<br/>`2` Weekly<br/>`3` Monthly<br/></div>
 recurrence.repeat_interval *optional* | Recurrence meeting repeat interval. For a Daily Meeting, max of 90. For a Weekly Meeting, max of 12. For a Monthly Meeting, max of 3.
 recurrence.weekly_days *optional* | Recurrence Meeting Occurs on week days, multiple value separated by comma<div class="enum">`1` Sunday<br/>`2` Monday<br/>`3` Tuesday<br/>`4` Wednesday<br/>`5` Thursday<br/>`6` Friday<br/>`7` Saturday<br/></div>
@@ -83,8 +85,8 @@ recurrence.monthly_week *optional* | Recurrence Meeting Occurs on the week of a 
 recurrence.monthly_week_day *optional* | Recurrence Meeting Occurs on the week day of a month<div class="enum">`1` Sunday<br/>`2` Monday<br/>`3` Tuesday<br/>`4` Wednesday<br/>`5` Thursday<br/>`6` Friday<br/>`7` Saturday<br/></div>
 recurrence.end_times *optional*<div class="default">1</div><div class="maximum">50</div> | Recurrence Meeting End occurrences times
 recurrence.end_date_time *optional* | Recurrence Meeting End Date. Should be UTC time, such as 2017-11-25T12:00:00Z.
-settings.host_video *optional*<div class="default">1</div> | Start video when host join meeting
-settings.participant_video *optional*<div class="default">1</div> | Start video when participants join meeting
+settings.host_video *optional* | Start video when host join meeting
+settings.participant_video *optional* | Start video when participants join meeting
 settings.cn_meeting *optional*<div class="default">false</div> | Host meeting in China
 settings.in_meeting *optional*<div class="default">false</div> | Host meeting in India
 settings.join_before_host *optional*<div class="default">false</div> | Join meeting before host start the meeting. Only used for scheduled or recurring meetings

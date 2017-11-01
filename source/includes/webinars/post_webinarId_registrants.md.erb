@@ -46,7 +46,10 @@ $ curl https://api.zoom.us/v2/webinars/{webinarId}/registrants \
 
 ```json
 {
+    "registrant_id": "string",
     "id": "string",
+    "topic": "string",
+    "start_time": "string [date-time]",
     "join_url": "string"
 }
 ```
@@ -54,6 +57,10 @@ $ curl https://api.zoom.us/v2/webinars/{webinarId}/registrants \
 Path Arguments | &nbsp;
 --- | ---
 webinarId **required** | The webinar ID
+
+Query Arguments | &nbsp;
+--- | ---
+occurrence_id *optional* | The meeting occurrence ID
 
 Body Arguments | &nbsp;
 --- | ---

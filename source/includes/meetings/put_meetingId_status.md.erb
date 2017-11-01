@@ -13,7 +13,7 @@ PUT https://api.zoom.us/v2/meetings/{meetingId}/status
 ```shell
 $ curl https://api.zoom.us/v2/meetings/{meetingId}/status \
    -d '{
-    "status": "string"
+    "action": "string"
 }'
 ```
 
@@ -29,5 +29,5 @@ meetingId **required** | The meeting ID
 
 Body Arguments | &nbsp;
 --- | ---
-status *optional* | <div class="enum">`end` end a meeting<br/></div>
+action *optional* | <div class="enum">`end` end a meeting<br/></div>
 

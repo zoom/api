@@ -22,9 +22,6 @@ $ curl https://api.zoom.us/v2/groups
 
 ```json
 {
-    "page_count": "integer",
-    "page_number": "integer",
-    "page_size": "integer",
     "total_records": "integer",
     "groups": [
         {
@@ -35,9 +32,4 @@ $ curl https://api.zoom.us/v2/groups
     ]
 }
 ```
-
-Query Arguments | &nbsp;
---- | ---
-page_size *optional*<div class="default">30</div><div class="maximum">300</div> | The amount of records returns within a single API call. 
-page_number *optional*<div class="default">1</div> | Current page number of returned records.
 

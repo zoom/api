@@ -46,13 +46,15 @@ includes:
   - users/post_userId_assistants
   - users/delete_userId_assistants
   - users/delete_userId_assistants_assistantId
-  - users/put_userId_picture
+  - users/post_userId_picture
   - users/get_userId_settings
   - users/patch_userId_settings
   - users/put_userId_status
-  - users/delete_userId_ssoToken
+  - users/put_userId_password
   - users/get_userId_token
-  - users/get_userId_zpk
+  - users/delete_userId_token
+  - users/get_zpk
+  - users/get_email
 
   - meetings/index
   - meetings/get_userId_meetings
@@ -63,7 +65,7 @@ includes:
   - meetings/put_meetingId_status
   - meetings/get_meetingId_registrants
   - meetings/post_meetingId_registrants
-  - meetings/put_meetingId_registrants_registrantId_status
+  - meetings/put_meetingId_registrants_status
 
   - webinars/index
   - webinars/get_userId_webinars
@@ -78,7 +80,7 @@ includes:
   - webinars/delete_webinarId_panelists_panelistId
   - webinars/get_webinarId_registrants
   - webinars/post_webinarId_registrants
-  - webinars/put_webinarId_registrants_registrantId_status
+  - webinars/put_webinarId_registrants_status
 
   - groups/index
   - groups/get_
@@ -98,7 +100,7 @@ includes:
   - im_groups/delete_groups_groupId
   - im_groups/get_groups_groupId_members
   - im_groups/post_groups_groupId_members
-  - im_groups/delete_groups_groupId_members_userId
+  - im_groups/delete_groups_groupId_members_memberId
 
   - reports/index
   - reports/get_daily
@@ -116,13 +118,13 @@ includes:
   - dashboards/get_meetings_meetingId_participants
   - dashboards/get_meetings_meetingId_participants_participantId_qos
   - dashboards/get_meetings_meetingId_participants_qos
-  - dashboards/get_meetings_meetingId_participants_participantId_sharing
+  - dashboards/get_meetings_meetingId_participants_sharing
   - dashboards/get_webinars
   - dashboards/get_webinars_webinarId
   - dashboards/get_webinars_webinarId_participants
   - dashboards/get_webinars_webinarId_participants_participantId_qos
   - dashboards/get_webinars_webinarId_participants_qos
-  - dashboards/get_webinars_webinarId_participants_participantId_sharing
+  - dashboards/get_webinars_webinarId_participants_sharing
   - dashboards/get_zoomrooms
   - dashboards/get_zoomrooms_zoomroomId
   - dashboards/get_crc

@@ -46,7 +46,10 @@ $ curl https://api.zoom.us/v2/meetings/{meetingId}/registrants \
 
 ```json
 {
+    "registrant_id": "string",
     "id": "string",
+    "topic": "string",
+    "start_time": "string [date-time]",
     "join_url": "string"
 }
 ```
@@ -54,6 +57,10 @@ $ curl https://api.zoom.us/v2/meetings/{meetingId}/registrants \
 Path Arguments | &nbsp;
 --- | ---
 meetingId **required** | The meeting ID
+
+Query Arguments | &nbsp;
+--- | ---
+occurrence_ids *optional* | Occurrence IDs, could get this value from Meeting Get API. Multiple value separated by comma.
 
 Body Arguments | &nbsp;
 --- | ---

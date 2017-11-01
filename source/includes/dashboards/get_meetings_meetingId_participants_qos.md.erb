@@ -22,10 +22,10 @@ $ curl https://api.zoom.us/v2/metrics/meetings/{meetingId}/participants/qos
 
 ```json
 {
-    "page_count": "integer",
-    "page_number": "integer",
+    "page_count": "integer [int64]",
     "page_size": "integer",
-    "total_records": "integer",
+    "total_records": "integer [int64]",
+    "next_page_token": "string",
     "participants": [
         {
             "user_id": "string [uuid]",
@@ -106,11 +106,11 @@ $ curl https://api.zoom.us/v2/metrics/meetings/{meetingId}/participants/qos
 
 Path Arguments | &nbsp;
 --- | ---
-meetingId **required** | The meeting ID
+meetingId **required** | The meeting ID or meeting UUID. If given meeting ID, will take the last meeting instance.
 
 Query Arguments | &nbsp;
 --- | ---
-type *optional*<div class="default">live</div> | The meeting type<div class="enum">`past` past meetings<br/>`live` live meetings<br/></div>
-page_size *optional*<div class="default">30</div><div class="maximum">300</div> | The amount of records returns within a single API call. 
-page_number *optional*<div class="default">1</div> | Current page number of returned records.
+type *optional*<div class="default">live</div> | The meeting type<div class="enum">`past` past meeting<br/>`live` live meeting<br/></div>
+page_size *optional*<div class="default">1</div><div class="maximum">10</div> | Number of items returned per page
+next_page_token *optional* | Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.
 

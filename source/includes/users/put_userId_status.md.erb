@@ -11,7 +11,10 @@ PUT https://api.zoom.us/v2/users/{userId}/status
 > Example Request
 
 ```shell
-$ curl https://api.zoom.us/v2/users/{userId}/status
+$ curl https://api.zoom.us/v2/users/{userId}/status \
+   -d '{
+    "action": "string"
+}'
 ```
 
 > Example Response
@@ -26,5 +29,5 @@ userId **required** | The user ID or email address
 
 Body Arguments | &nbsp;
 --- | ---
-status *optional* | <div class="enum">`active` set users status to active<br/>`deactive` set users status to deactive<br/></div>
+action **required** | The action type<div class="enum">`activate` set users status to active<br/>`deactivate` set users status to inactive<br/></div>
 

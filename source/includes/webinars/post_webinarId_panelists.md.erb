@@ -13,8 +13,12 @@ POST https://api.zoom.us/v2/webinars/{webinarId}/panelists
 ```shell
 $ curl https://api.zoom.us/v2/webinars/{webinarId}/panelists \
    -d '{
-    "email": "string",
-    "name": "string"
+    "panelists": [
+        {
+            "name": "string",
+            "email": "string"
+        }
+    ]
 }'
 ```
 
@@ -37,6 +41,5 @@ webinarId **required** | The webinar ID
 
 Body Arguments | &nbsp;
 --- | ---
-email *optional* | Panelist's email
-name *optional* | Panelist's full name
+panelists *optional* | List of Panelist objects.
 
