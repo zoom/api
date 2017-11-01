@@ -10,7 +10,7 @@
     </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"agenda"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"recurrence"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"repeat_interval"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
@@ -35,8 +35,8 @@
         </span><span class="s2">"audio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"auto_recording"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"enforce_login"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"enforce_login_domains"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"alternatice_hosts"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="w">
+        </span><span class="s2">"enforce_login_domains"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"alternatice_hosts"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -56,22 +56,22 @@
 </tr>
 <tr>
 <td>start_time <em>string</em></td>
-<td>Meeting start time</td>
+<td>Meeting start time, in the format &ldquo;yyyy-MM-dd&rsquo;T&#39;HH:mm:ss&#39;Z&rsquo;&rdquo;, should be GMT time. In the format &ldquo;yyyy-MM-dd&rsquo;T&#39;HH:mm:ss&rdquo;, should be local time, need to specify the time zone. Only used for scheduled meeting and recurring meeting with fixed time.</td>
 </tr>
 <tr>
 <td>duration <em>integer</em></td>
-<td>Meeting duration</td>
+<td>Meeting duration (minutes). Used for scheduled meeting only.</td>
 </tr>
 <tr>
 <td>timezone <em>string</em></td>
-<td>Timezone to format start_time</td>
+<td>Timezone to format start_time, like &ldquo;America/Los_Angeles&rdquo;. For scheduled meeting only. For this parameter value please refer to the id value in <a href="#timezones">timezone</a> list.</td>
 </tr>
 <tr>
 <td>password <em>string</em></td>
-<td>Password to join the meeting</td>
+<td>Password to join the meeting. Password may only contain the following characters: [a-z A-Z 0-9 @ - _ *]. Max of 10 characters.</td>
 </tr>
 <tr>
-<td>description <em>string</em></td>
+<td>agenda <em>string</em></td>
 <td>Meeting description</td>
 </tr>
 <tr>
@@ -159,11 +159,11 @@
 <td>Only signed-in users can join this meeting</td>
 </tr>
 <tr>
-<td>settings.enforce_login_domains <em>boolean</em></td>
+<td>settings.enforce_login_domains <em>string</em></td>
 <td>Only signed-in users with specified domains can join meetings</td>
 </tr>
 <tr>
-<td>settings.alternatice_hosts <em>boolean</em></td>
+<td>settings.alternatice_hosts <em>string</em></td>
 <td>Alternative hosts emails or IDs. Multiple value separated by comma.</td>
 </tr>
 </tbody></table>

@@ -41,7 +41,10 @@
 </blockquote>
 <pre class="highlight plaintext"><code>201 Created
 </code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"registrant_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"topic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"join_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -54,6 +57,18 @@
 <tr>
 <td>webinarId <strong>required</strong></td>
 <td>The webinar ID</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Query Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>occurrence_id <em>optional</em></td>
+<td>The meeting occurrence ID</td>
 </tr>
 </tbody></table>
 

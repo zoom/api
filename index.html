@@ -718,7 +718,7 @@
 </tr>
 </tbody></table>
 
-          <h2 id="retrieve-a-a-sub-accounts-settings">Retrieve a a sub account&rsquo;s settings</h2>
+          <h2 id="retrieve-a-sub-accounts-settings">Retrieve a sub account&rsquo;s settings</h2>
 
 <p>Retrieve a sub account&rsquo;s settings under the master account</p>
 
@@ -744,7 +744,7 @@
         </span><span class="s2">"join_before_host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"enforce_login"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"enforce_login_with_domains"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"enforce_login_domains"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"enforce_login_domains"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"not_store_meeting_topic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"force_pmi_jbh_password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="w">
     </span><span class="p">},</span><span class="w">
@@ -807,17 +807,25 @@
         </span><span class="s2">"auto_start_stop_scheduled_meetings"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"security"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"admin_change_name_pic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"import_photos_from_devices"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"hide_billing_info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"recording"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"local_recording"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"cloud_recording"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"auto_recording"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"record_speaker_view"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"record_gallery_view"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"record_audio_file"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"save_chat_text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"show_timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"recording_audio_transcript"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"auto_recording"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"cloud_recording_download"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"cloud_recording_download_host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"account_user_access_recording"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"auto_delete_cmr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="w">
+        </span><span class="s2">"auto_delete_cmr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"auto_delete_cmr_days"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"telephony"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"third_party_audio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
@@ -869,7 +877,7 @@
         "join_before_host": "boolean",
         "enforce_login": "boolean",
         "enforce_login_with_domains": "boolean",
-        "enforce_login_domains": "boolean",
+        "enforce_login_domains": "string",
         "not_store_meeting_topic": "boolean",
         "force_pmi_jbh_password": "boolean"
     },
@@ -932,17 +940,25 @@
         "auto_start_stop_scheduled_meetings": "boolean"
     },
     "security": {
+        "admin_change_name_pic": "boolean",
         "import_photos_from_devices": "boolean",
         "hide_billing_info": "boolean"
     },
     "recording": {
         "local_recording": "boolean",
         "cloud_recording": "boolean",
-        "auto_recording": "boolean",
+        "record_speaker_view": "boolean",
+        "record_gallery_view": "boolean",
+        "record_audio_file": "boolean",
+        "save_chat_text": "boolean",
+        "show_timestamp": "boolean",
+        "recording_audio_transcript": "boolean",
+        "auto_recording": "string",
         "cloud_recording_download": "boolean",
         "cloud_recording_download_host": "boolean",
         "account_user_access_recording": "boolean",
-        "auto_delete_cmr": "boolean"
+        "auto_delete_cmr": "boolean",
+        "auto_delete_cmr_days": "integer"
     },
     "telephony": {
         "third_party_audio": "boolean",
@@ -994,7 +1010,7 @@
 </tr>
 <tr>
 <td>schedule_meting.audio_type <em>optional</em><div class="default">both</div></td>
-<td>Audio Type<div class="enum"><code class="prettyprint">both</code> Both Telephony and VoIP<br/><code class="prettyprint">telephony</code> Telephony only<br/><code class="prettyprint">voip</code> VoIP only<br/></div></td>
+<td>Audio Type<div class="enum"><code class="prettyprint">both</code> Telephony and VoIP<br/><code class="prettyprint">telephony</code> Audio PSTN telephony only<br/><code class="prettyprint">voip</code> VoIP only<br/><code class="prettyprint">thirdParty</code> 3rd party audio conference<br/></div></td>
 </tr>
 <tr>
 <td>schedule_meting.join_before_host <em>optional</em></td>
@@ -1110,7 +1126,7 @@
 </tr>
 <tr>
 <td>in_meeting.alert_guest_join <em>optional</em></td>
-<td>Alert internal participants when a guest joins a meeting</td>
+<td>Identify guest participants in the meeting/webinar</td>
 </tr>
 <tr>
 <td>in_meeting.auto_answer <em>optional</em></td>
@@ -1150,7 +1166,7 @@
 </tr>
 <tr>
 <td>in_meeting.stereo_audio <em>optional</em></td>
-<td>When an alternative host is set or removed from a meeting</td>
+<td>Allow users to select stereo audio in their client settings</td>
 </tr>
 <tr>
 <td>in_meeting.original_audio <em>optional</em></td>
@@ -1182,7 +1198,7 @@
 </tr>
 <tr>
 <td>email_notification.low_host_count_reminder <em>optional</em></td>
-<td>When host count is low</td>
+<td>When host licenses are running low</td>
 </tr>
 <tr>
 <td>email_notification.alternative_host_reminder <em>optional</em></td>
@@ -1229,6 +1245,10 @@
 <td>Automatic start/stop scheduled meetings</td>
 </tr>
 <tr>
+<td>security.admin_change_name_pic <em>optional</em></td>
+<td>Only account administrators can change user&rsquo;s username and picture</td>
+</tr>
+<tr>
 <td>security.import_photos_from_devices <em>optional</em></td>
 <td>Allow importing of photos from photo library on the user&rsquo;s device</td>
 </tr>
@@ -1245,8 +1265,32 @@
 <td>Cloud recording</td>
 </tr>
 <tr>
+<td>recording.record_speaker_view <em>optional</em></td>
+<td>Record the active speaker view</td>
+</tr>
+<tr>
+<td>recording.record_gallery_view <em>optional</em></td>
+<td>Record the gallery view</td>
+</tr>
+<tr>
+<td>recording.record_audio_file <em>optional</em></td>
+<td>Record an audio only file</td>
+</tr>
+<tr>
+<td>recording.save_chat_text <em>optional</em></td>
+<td>Save chat text from the meeting</td>
+</tr>
+<tr>
+<td>recording.show_timestamp <em>optional</em></td>
+<td>Show timestamp on video</td>
+</tr>
+<tr>
+<td>recording.recording_audio_transcript <em>optional</em></td>
+<td>Audio transcript</td>
+</tr>
+<tr>
 <td>recording.auto_recording <em>optional</em></td>
-<td>Automatic recording</td>
+<td>Automatic recording<div class="enum"><code class="prettyprint">local</code> Record on local<br/><code class="prettyprint">cloud</code> Record on cloud<br/><code class="prettyprint">none</code> Disabled<br/></div></td>
 </tr>
 <tr>
 <td>recording.cloud_recording_download <em>optional</em></td>
@@ -1263,6 +1307,10 @@
 <tr>
 <td>recording.auto_delete_cmr <em>optional</em></td>
 <td>Auto delete cloud recordings after days</td>
+</tr>
+<tr>
+<td>recording.auto_delete_cmr_days <em>optional</em></td>
+<td>A specified number of days of auto delete cloud recordings</td>
 </tr>
 <tr>
 <td>telephony.third_party_audio <em>optional</em></td>
@@ -1397,23 +1445,23 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>first_name <strong>required</strong></td>
+<td>first_name <em>optional</em></td>
 <td>Billing Contact&rsquo;s first name.</td>
 </tr>
 <tr>
-<td>last_name <strong>required</strong></td>
+<td>last_name <em>optional</em></td>
 <td>Billing Contact&rsquo;s last name.</td>
 </tr>
 <tr>
-<td>email <strong>required</strong></td>
+<td>email <em>optional</em></td>
 <td>Billing Contact&rsquo;s email address.</td>
 </tr>
 <tr>
-<td>phone_number <strong>required</strong></td>
+<td>phone_number <em>optional</em></td>
 <td>Billing Contact&rsquo;s phone number.</td>
 </tr>
 <tr>
-<td>address <strong>required</strong></td>
+<td>address <em>optional</em></td>
 <td>Billing Contact&rsquo;s address.</td>
 </tr>
 <tr>
@@ -1421,19 +1469,19 @@
 <td>Billing Contact&rsquo;s apartment/suite.</td>
 </tr>
 <tr>
-<td>city <strong>required</strong></td>
+<td>city <em>optional</em></td>
 <td>Billing Contact&rsquo;s city.</td>
 </tr>
 <tr>
-<td>state <strong>required</strong></td>
+<td>state <em>optional</em></td>
 <td>Billing Contact&rsquo;s state.</td>
 </tr>
 <tr>
-<td>zip <strong>required</strong></td>
+<td>zip <em>optional</em></td>
 <td>Billing Contact&rsquo;s zip/postal code.</td>
 </tr>
 <tr>
-<td>country <strong>required</strong></td>
+<td>country <em>optional</em></td>
 <td>Billing Contact&rsquo;s country.</td>
 </tr>
 </tbody></table>
@@ -1662,11 +1710,11 @@
 </tr>
 <tr>
 <td>plan_base.type <strong>required</strong></td>
-<td>Account <a href="#plans">plan type</a></td>
+<td>Account base plan type</td>
 </tr>
 <tr>
 <td>plan_base.hosts <strong>required</strong></td>
-<td>Account plan number of hosts</td>
+<td>Account base plan number of hosts. For a Pro Plan, please select a value between 1 and 9. For a Business Plan, please select a value between 10 and 49. For a Education Plan, please select a value between 20 and 149. For a Free Trial Plan, please select a value between 1 and 9999.</td>
 </tr>
 <tr>
 <td>plan_zoom_rooms.type <em>optional</em></td>
@@ -1739,7 +1787,7 @@
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre class="highlight plaintext"><code>201 Created
+<pre class="highlight plaintext"><code>204 No Content
 </code></pre>
 <table><thead>
 <tr>
@@ -1761,11 +1809,11 @@
 </thead><tbody>
 <tr>
 <td>type <strong>required</strong></td>
-<td>Account <a href="#plans">plan type</a></td>
+<td>Account base plan type</td>
 </tr>
 <tr>
 <td>hosts <strong>required</strong></td>
-<td>Account plan number of hosts</td>
+<td>Account base plan number of hosts. For a Pro Plan, please select a value between 1 and 9. For a Business Plan, please select a value between 10 and 49. For a Education Plan, please select a value between 20 and 149. For a Free Trial Plan, please select a value between 1 and 9999.</td>
 </tr>
 </tbody></table>
 
@@ -1816,7 +1864,7 @@
 </tr>
 <tr>
 <td>hosts <strong>required</strong></td>
-<td>Account plan number of hosts</td>
+<td>Account plan number of hosts.</td>
 </tr>
 </tbody></table>
 
@@ -1867,7 +1915,7 @@
 </tr>
 <tr>
 <td>hosts <strong>required</strong></td>
-<td>Account plan number of hosts</td>
+<td>Account plan number of hosts.</td>
 </tr>
 </tbody></table>
 
@@ -1883,15 +1931,10 @@
     </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"pmi"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"verified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"dept"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"last_login_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"last_client_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"pic_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"vanity_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cms_user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"host_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="s2">"last_client_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <table><thead>
@@ -1918,47 +1961,27 @@
 </tr>
 <tr>
 <td>pmi <em>string</em></td>
-<td></td>
+<td>Personal Meeting ID</td>
 </tr>
 <tr>
 <td>timezone <em>string</em></td>
-<td></td>
-</tr>
-<tr>
-<td>verified <em>boolean</em></td>
-<td></td>
+<td>Time Zone</td>
 </tr>
 <tr>
 <td>dept <em>string</em></td>
-<td></td>
+<td>Department</td>
 </tr>
 <tr>
 <td>created_at <em>string</em></td>
-<td></td>
+<td>User create time</td>
 </tr>
 <tr>
 <td>last_login_time <em>string</em></td>
-<td></td>
+<td>User last login time</td>
 </tr>
 <tr>
 <td>last_client_version <em>string</em></td>
-<td></td>
-</tr>
-<tr>
-<td>pic_url <em>string</em></td>
-<td></td>
-</tr>
-<tr>
-<td>vanity_url <em>string</em></td>
-<td></td>
-</tr>
-<tr>
-<td>cms_user_id <em>string</em></td>
-<td>CMS User Id</td>
-</tr>
-<tr>
-<td>host_key <em>string</em></td>
-<td>Host Key, should be 6-digit number</td>
+<td>User last login client version</td>
 </tr>
 </tbody></table>
 
@@ -1994,15 +2017,10 @@
             </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"pmi"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"verified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"dept"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"last_login_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"last_client_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"pic_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"vanity_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"cms_user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"host_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+            </span><span class="s2">"last_client_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -2046,7 +2064,8 @@
         "email": "string",
         "type": "integer",
         "first_name": "string",
-        "last_name": "string"
+        "last_name": "string",
+        "password": "string"
     }
 }'</span>
 </code></pre>
@@ -2070,7 +2089,7 @@
 </thead><tbody>
 <tr>
 <td>action <em>optional</em></td>
-<td>Action to take for user creation<div class="enum"><code class="prettyprint">create</code> User will get an email sent from Zoom. There is a confirmation link in this email. User will then need to click this link to activate their account to the Zoom service. The user can set or change their password in Zoom. <br/><br/><code class="prettyprint">custCreate</code> This action is provided for enterprise customer who has a managed domain. This feature is disabled by default because of the security risk involved in creating a user who does not belong to your domain without notifying the user. <br/><br/><code class="prettyprint">autoCreate</code> This action is provided for API partner only. User created in this way has no password and is not able to log into the Zoom web site or client. <br/><br/><code class="prettyprint">ssoCreate</code> This action is provided for enabled &ldquo;Pre-provisioning SSO User&rdquo; option. User created in this way has no password. If it is not a basic user, will generate a Personal Vanity URL using user name (no domain) of the provisioning email. If user name or pmi is invalid or occupied, will use random number/random personal vanity URL. <br/><br/></div></td>
+<td>Action to take for user creation<div class="enum"><code class="prettyprint">create</code> User will get an email sent from Zoom. There is a confirmation link in this email. User will then need to click this link to activate their account to the Zoom service. The user can set or change their password in Zoom. <br/><br/><code class="prettyprint">autoCreate</code> This action is provided for enterprise customer who has a managed domain. This feature is disabled by default because of the security risk involved in creating a user who does not belong to your domain without notifying the user. <br/><br/><code class="prettyprint">custCreate</code> This action is provided for API partner only. User created in this way has no password and is not able to log into the Zoom web site or client. <br/><br/><code class="prettyprint">ssoCreate</code> This action is provided for enabled &ldquo;Pre-provisioning SSO User&rdquo; option. User created in this way has no password. If it is not a basic user, will generate a Personal Vanity URL using user name (no domain) of the provisioning email. If user name or pmi is invalid or occupied, will use random number/random personal vanity URL. <br/><br/></div></td>
 </tr>
 <tr>
 <td>user_info.email <em>optional</em></td>
@@ -2087,6 +2106,10 @@
 <tr>
 <td>user_info.last_name <em>optional</em><div class="maxLength">64</div></td>
 <td>User&rsquo;s last name.</td>
+</tr>
+<tr>
+<td>user_info.password <em>optional</em></td>
+<td>User’s password. Only for &ldquo;autoCreate&rdquo; action.</td>
 </tr>
 </tbody></table>
 
@@ -2116,15 +2139,12 @@
     </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"pmi"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"verified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"dept"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"last_login_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"last_client_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"pic_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"vanity_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cms_user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"host_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="s2">"pic_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <table><thead>
@@ -2166,20 +2186,17 @@
 <pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/users/<span class="o">{</span>userId<span class="o">}</span> <span class="se">\</span>
    -d <span class="s1">'{
     "first_name": "string",
+    "created_at": "string [date-time]",
     "last_name": "string",
-    "email": "string",
     "type": "integer",
     "pmi": "string",
-    "timezone": "string",
-    "verified": "boolean",
-    "dept": "string",
-    "created_at": "string [date-time]",
-    "last_login_time": "string [date-time]",
+    "timezone": "string [date-time]",
     "last_client_version": "string",
     "pic_url": "string",
-    "vanity_url": "string",
-    "cms_user_id": "string",
-    "host_key": "string"
+    "dept": "string",
+    "vanity_name": "string",
+    "host_key": "string",
+    "cms_user_id": "string"
 }'</span>
 </code></pre>
 <blockquote>
@@ -2206,44 +2223,28 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>first_name <em>optional</em><div class="maxLength">64</div></td>
+<td>first_name <em>optional</em></td>
 <td>User&rsquo;s first name.</td>
-</tr>
-<tr>
-<td>last_name <em>optional</em><div class="maxLength">64</div></td>
-<td>User&rsquo;s last name.</td>
-</tr>
-<tr>
-<td>email <strong>required</strong></td>
-<td>User&rsquo;s email address.</td>
-</tr>
-<tr>
-<td>type <strong>required</strong></td>
-<td>User&rsquo;s type<div class="enum"><code class="prettyprint">1</code> basic<br/><code class="prettyprint">2</code> pro<br/><code class="prettyprint">3</code> corp<br/></div></td>
-</tr>
-<tr>
-<td>pmi <em>optional</em></td>
-<td></td>
-</tr>
-<tr>
-<td>timezone <em>optional</em></td>
-<td></td>
-</tr>
-<tr>
-<td>verified <em>optional</em></td>
-<td></td>
-</tr>
-<tr>
-<td>dept <em>optional</em></td>
-<td></td>
 </tr>
 <tr>
 <td>created_at <em>optional</em></td>
 <td></td>
 </tr>
 <tr>
-<td>last_login_time <em>optional</em></td>
-<td></td>
+<td>last_name <em>optional</em></td>
+<td>User&rsquo;s last name.</td>
+</tr>
+<tr>
+<td>type <em>optional</em></td>
+<td>User&rsquo;s type<div class="enum"><code class="prettyprint">1</code> basic<br/><code class="prettyprint">2</code> pro<br/><code class="prettyprint">3</code> corp<br/></div></td>
+</tr>
+<tr>
+<td>pmi <em>optional</em></td>
+<td>Personal Meeting ID,length must be 10.</td>
+</tr>
+<tr>
+<td>timezone <em>optional</em></td>
+<td>The time zone id for user profile. For this parameter value please refer to the id value in <a href="#timezones">timezone</a> list.</td>
 </tr>
 <tr>
 <td>last_client_version <em>optional</em></td>
@@ -2254,16 +2255,20 @@
 <td></td>
 </tr>
 <tr>
-<td>vanity_url <em>optional</em></td>
-<td></td>
+<td>dept <em>optional</em></td>
+<td>Department for user profile, use for report.</td>
 </tr>
 <tr>
-<td>cms_user_id <em>optional</em></td>
-<td>CMS User Id</td>
+<td>vanity_name <em>optional</em></td>
+<td>Personal meeting room name.</td>
 </tr>
 <tr>
 <td>host_key <em>optional</em></td>
-<td>Host Key, should be 6-digit number</td>
+<td>Host Key, should be 6-digit number.</td>
+</tr>
+<tr>
+<td>cms_user_id <em>optional</em></td>
+<td>Kaltura User Id.</td>
 </tr>
 </tbody></table>
 
@@ -2299,6 +2304,18 @@
 </tr>
 </tbody></table>
 
+<table><thead>
+<tr>
+<th>Query Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>action <em>optional</em><div class="default">disassociate</div></td>
+<td>Delete action type<div class="enum"><code class="prettyprint">disassociate</code> Disassociate a user<br/><code class="prettyprint">delete</code> Permanently delete a user<br/></div></td>
+</tr>
+</tbody></table>
+
           <h2 id="list-a-users-assistants">List a user&rsquo;s assistants</h2>
 
 <p>List a user&rsquo;s assistants</p>
@@ -2320,7 +2337,8 @@
 </code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"assistants"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"email_or_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -2349,14 +2367,23 @@
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/users/<span class="o">{</span>userId<span class="o">}</span>/assistants
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/users/<span class="o">{</span>userId<span class="o">}</span>/assistants <span class="se">\</span>
+   -d <span class="s1">'{
+    "assistants": [
+        {
+            "id": "string",
+            "email": "string"
+        }
+    ]
+}'</span>
 </code></pre>
 <blockquote>
 <p>Example Response</p>
 </blockquote>
 <pre class="highlight plaintext"><code>201 Created
 </code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"email_or_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"add_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <table><thead>
@@ -2378,8 +2405,8 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>email_or_id <em>optional</em></td>
-<td>ID or Email of assistant</td>
+<td>assistants <em>optional</em></td>
+<td>List of User&rsquo;s assistants.</td>
 </tr>
 </tbody></table>
 
@@ -2451,14 +2478,14 @@
 </tr>
 </tbody></table>
 
-          <h2 id="update-a-users-picture">Update a user&rsquo;s picture</h2>
+          <h2 id="upload-a-users-picture">Upload a user&rsquo;s picture</h2>
 
-<p>Update a user&rsquo;s profile picture</p>
+<p>Upload a user&rsquo;s profile picture</p>
 
 <blockquote>
 <p>Definition</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>PUT https://api.zoom.us/v2/users/<span class="o">{</span>userId<span class="o">}</span>/picture
+<pre class="highlight shell tab-shell"><code>POST https://api.zoom.us/v2/users/<span class="o">{</span>userId<span class="o">}</span>/picture
 </code></pre>
 <blockquote>
 <p>Example Request</p>
@@ -2506,8 +2533,6 @@
         </span><span class="s2">"participants_video"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"audio_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"join_before_host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"enforce_login"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"not_store_meeting_topic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"force_pmi_jbh_password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"pstn_password_protected"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="w">
     </span><span class="p">},</span><span class="w">
@@ -2524,6 +2549,7 @@
         </span><span class="s2">"polling"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"attendee_on_hold"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"annotation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"remote_control"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"non_verbal_feedback"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"breakout_room"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"remote_support"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
@@ -2533,8 +2559,7 @@
         </span><span class="s2">"far_end_camera_control"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"share_dual_camera"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"attention_tracking"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"waiting_room"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"manage_zr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="w">
+        </span><span class="s2">"waiting_room"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"email_notification"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"jbh_reminder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
@@ -2551,7 +2576,8 @@
         </span><span class="s2">"show_timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"recording_audio_transcript"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"auto_recording"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"auto_delete_cmr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="w">
+        </span><span class="s2">"auto_delete_cmr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"auto_delete_cmr_days"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"telephony"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"third_party_audio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
@@ -2563,7 +2589,7 @@
         </span><span class="s2">"large_meeting"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"large_meeting_capacity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"webinar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"webinar_capacity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="w">
+        </span><span class="s2">"webinar_capacity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -2576,6 +2602,18 @@
 <tr>
 <td>userId <strong>required</strong></td>
 <td>The user ID or email address</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Query Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>login_type <em>optional</em></td>
+<td><div class="enum"><code class="prettyprint">0</code> Facebook<br/><code class="prettyprint">1</code> Google<br/><code class="prettyprint">99</code> API<br/><code class="prettyprint">100</code> Zoom<br/><code class="prettyprint">101</code> SSO<br/></div></td>
 </tr>
 </tbody></table>
 
@@ -2598,8 +2636,6 @@
         "participants_video": "boolean",
         "audio_type": "string",
         "join_before_host": "boolean",
-        "enforce_login": "boolean",
-        "not_store_meeting_topic": "boolean",
         "force_pmi_jbh_password": "boolean",
         "pstn_password_protected": "boolean"
     },
@@ -2616,6 +2652,7 @@
         "polling": "boolean",
         "attendee_on_hold": "boolean",
         "annotation": "boolean",
+        "remote_control": "boolean",
         "non_verbal_feedback": "boolean",
         "breakout_room": "boolean",
         "remote_support": "boolean",
@@ -2625,8 +2662,7 @@
         "far_end_camera_control": "boolean",
         "share_dual_camera": "boolean",
         "attention_tracking": "boolean",
-        "waiting_room": "boolean",
-        "manage_zr": "boolean"
+        "waiting_room": "boolean"
     },
     "email_notification": {
         "jbh_reminder": "boolean",
@@ -2643,7 +2679,8 @@
         "show_timestamp": "boolean",
         "recording_audio_transcript": "boolean",
         "auto_recording": "string",
-        "auto_delete_cmr": "boolean"
+        "auto_delete_cmr": "boolean",
+        "auto_delete_cmr_days": "integer"
     },
     "telephony": {
         "third_party_audio": "boolean",
@@ -2655,7 +2692,7 @@
         "large_meeting": "boolean",
         "large_meeting_capacity": "integer",
         "webinar": "boolean",
-        "webinar_capacity": "boolean"
+        "webinar_capacity": "integer"
     }
 }'</span>
 </code></pre>
@@ -2683,39 +2720,31 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>scheduled_meeting.host_video <em>optional</em><div class="default">1</div></td>
+<td>scheduled_meeting.host_video <em>optional</em></td>
 <td>Host video</td>
 </tr>
 <tr>
-<td>scheduled_meeting.participants_video <em>optional</em><div class="default">1</div></td>
+<td>scheduled_meeting.participants_video <em>optional</em></td>
 <td>Participants video</td>
 </tr>
 <tr>
 <td>scheduled_meeting.audio_type <em>optional</em><div class="default">voip</div></td>
-<td>Meeting audio<div class="enum"><code class="prettyprint">both</code> Telephony and VoIP<br/><code class="prettyprint">telephony</code> Audio PSTN telephony only<br/><code class="prettyprint">voip</code> VoIP only<br/><code class="prettyprint">thirdParty</code> 3rd party audio conference<br/><code class="prettyprint">none</code> Disabled<br/></div></td>
+<td>Meeting audio<div class="enum"><code class="prettyprint">both</code> Telephony and VoIP<br/><code class="prettyprint">telephony</code> Audio PSTN telephony only<br/><code class="prettyprint">voip</code> VoIP only<br/><code class="prettyprint">thirdParty</code> 3rd party audio conference<br/></div></td>
 </tr>
 <tr>
-<td>scheduled_meeting.join_before_host <em>optional</em><div class="default">1</div></td>
+<td>scheduled_meeting.join_before_host <em>optional</em></td>
 <td>Join before host</td>
 </tr>
 <tr>
-<td>scheduled_meeting.enforce_login <em>optional</em><div class="default">1</div></td>
-<td>Only signed-in users can join meetings</td>
-</tr>
-<tr>
-<td>scheduled_meeting.not_store_meeting_topic <em>optional</em><div class="default">1</div></td>
-<td>Always display &ldquo;Zoom Meeting&rdquo; as the meeting topic</td>
-</tr>
-<tr>
-<td>scheduled_meeting.force_pmi_jbh_password <em>optional</em><div class="default">1</div></td>
+<td>scheduled_meeting.force_pmi_jbh_password <em>optional</em></td>
 <td>Require a password for Personal Meetings if attendees can join before host</td>
 </tr>
 <tr>
-<td>scheduled_meeting.pstn_password_protected <em>optional</em><div class="default">1</div></td>
+<td>scheduled_meeting.pstn_password_protected <em>optional</em></td>
 <td>Generate and require password for participants joining by phone</td>
 </tr>
 <tr>
-<td>in_meeting.e2e_encryption <em>optional</em><div class="default">1</div></td>
+<td>in_meeting.e2e_encryption <em>optional</em></td>
 <td>End-to-end encryption</td>
 </tr>
 <tr>
@@ -2735,7 +2764,7 @@
 <td>Play sound on join/leave<div class="enum"><code class="prettyprint">host</code> when host joins/leaves<br/><code class="prettyprint">all</code> when any participant joins/leaves<br/><code class="prettyprint">none</code> no join/leave sound<br/></div></td>
 </tr>
 <tr>
-<td>in_meeting.record_play_voice <em>optional</em><div class="default">1</div></td>
+<td>in_meeting.record_play_voice <em>optional</em></td>
 <td>Record and play their own voice</td>
 </tr>
 <tr>
@@ -2761,6 +2790,10 @@
 <tr>
 <td>in_meeting.annotation <em>optional</em><div class="default">false</div></td>
 <td>Annotation</td>
+</tr>
+<tr>
+<td>in_meeting.remote_control <em>optional</em><div class="default">false</div></td>
+<td>Remote control</td>
 </tr>
 <tr>
 <td>in_meeting.non_verbal_feedback <em>optional</em><div class="default">false</div></td>
@@ -2803,10 +2836,6 @@
 <td>Waiting room</td>
 </tr>
 <tr>
-<td>in_meeting.manage_zr <em>optional</em><div class="default">false</div></td>
-<td>Manage Zoom Rooms</td>
-</tr>
-<tr>
 <td>email_notification.jbh_reminder <em>optional</em><div class="default">false</div></td>
 <td>When attendees join meeting before host</td>
 </tr>
@@ -2819,7 +2848,7 @@
 <td>When an alternative host is set or removed from a meeting</td>
 </tr>
 <tr>
-<td>recording.local_recording <em>optional</em><div class="default">1</div></td>
+<td>recording.local_recording <em>optional</em></td>
 <td>Local recording</td>
 </tr>
 <tr>
@@ -2847,19 +2876,23 @@
 <td>Show timestamp on video</td>
 </tr>
 <tr>
-<td>recording.recording_audio_transcript <em>optional</em><div class="default">false</div></td>
-<td>Recording audio transcript</td>
+<td>recording.recording_audio_transcript <em>optional</em></td>
+<td>Audio transcript</td>
 </tr>
 <tr>
 <td>recording.auto_recording <em>optional</em><div class="default">local</div></td>
-<td>Automatic recording<div class="enum"><code class="prettyprint">Record on local</code> local<br/><code class="prettyprint">Record on cloud</code> cloud<br/><code class="prettyprint">Disabled</code> none<br/></div></td>
+<td>Automatic recording<div class="enum"><code class="prettyprint">local</code> Record on local<br/><code class="prettyprint">cloud</code> Record on cloud<br/><code class="prettyprint">none</code> Disabled<br/></div></td>
 </tr>
 <tr>
 <td>recording.auto_delete_cmr <em>optional</em><div class="default">false</div></td>
 <td>Auto delete cloud recordings</td>
 </tr>
 <tr>
-<td>telephony.third_party_audio <em>optional</em><div class="default">1</div></td>
+<td>recording.auto_delete_cmr_days <em>optional</em><div class="default">false</div></td>
+<td>A specified number of days of auto delete cloud recordings</td>
+</tr>
+<tr>
+<td>telephony.third_party_audio <em>optional</em></td>
 <td>3rd party audio conference</td>
 </tr>
 <tr>
@@ -2867,27 +2900,27 @@
 <td>3rd party audio conference info</td>
 </tr>
 <tr>
-<td>telephony.show_international_numbers_link <em>optional</em><div class="default">1</div></td>
+<td>telephony.show_international_numbers_link <em>optional</em></td>
 <td>Show international numbers link on the invitation email</td>
 </tr>
 <tr>
-<td>feature.meeting_capacity <em>optional</em><div class="default">100</div></td>
+<td>feature.meeting_capacity <em>optional</em></td>
 <td>User’s meeting capacity.</td>
 </tr>
 <tr>
-<td>feature.large_meeting <em>optional</em><div class="default">1</div></td>
+<td>feature.large_meeting <em>optional</em></td>
 <td>Large meting feature</td>
 </tr>
 <tr>
-<td>feature.large_meeting_capacity <em>optional</em><div class="default">100</div></td>
+<td>feature.large_meeting_capacity <em>optional</em></td>
 <td>Large meeting capacity, can be 100, 200, 300 or 500, depends on if having related large meeting capacity plan subscription or not.</td>
 </tr>
 <tr>
-<td>feature.webinar <em>optional</em><div class="default">1</div></td>
+<td>feature.webinar <em>optional</em></td>
 <td>Webinar feature</td>
 </tr>
 <tr>
-<td>feature.webinar_capacity <em>optional</em><div class="default">100</div></td>
+<td>feature.webinar_capacity <em>optional</em></td>
 <td>Webinar capacity, can be 100, 500, 1000, 3000, 5000 or 10000, depends on if having related webinar capacity plan subscription or not.</td>
 </tr>
 </tbody></table>
@@ -2904,7 +2937,10 @@
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/users/<span class="o">{</span>userId<span class="o">}</span>/status
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/users/<span class="o">{</span>userId<span class="o">}</span>/status <span class="se">\</span>
+   -d <span class="s1">'{
+    "action": "string"
+}'</span>
 </code></pre>
 <blockquote>
 <p>Example Response</p>
@@ -2930,25 +2966,27 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>status <em>optional</em></td>
-<td><div class="enum"><code class="prettyprint">active</code> set users status to active<br/><code class="prettyprint">deactive</code> set users status to deactive<br/></div></td>
+<td>action <strong>required</strong></td>
+<td>The action type<div class="enum"><code class="prettyprint">activate</code> set users status to active<br/><code class="prettyprint">deactivate</code> set users status to inactive<br/></div></td>
 </tr>
 </tbody></table>
 
-          <h2 id="revoke-a-users-sso-token">Revoke a user&rsquo;s SSO token</h2>
+          <h2 id="update-a-users-password">Update a user&rsquo;s password</h2>
 
-<p>Revoke a user&rsquo;s SSO token</p>
+<p>Update a user&rsquo;s password</p>
 
 <blockquote>
 <p>Definition</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>DELETE https://api.zoom.us/v2/users/<span class="o">{</span>userId<span class="o">}</span>/ssoToken
+<pre class="highlight shell tab-shell"><code>PUT https://api.zoom.us/v2/users/<span class="o">{</span>userId<span class="o">}</span>/password
 </code></pre>
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/users/<span class="o">{</span>userId<span class="o">}</span>/ssoToken <span class="se">\</span>
-    -X DELETE
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/users/<span class="o">{</span>userId<span class="o">}</span>/password <span class="se">\</span>
+   -d <span class="s1">'{
+    "password": "string"
+}'</span>
 </code></pre>
 <blockquote>
 <p>Example Response</p>
@@ -2964,6 +3002,18 @@
 <tr>
 <td>userId <strong>required</strong></td>
 <td>The user ID or email address</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Body Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>password <strong>required</strong></td>
+<td>User’s password. Character length is less than 32.</td>
 </tr>
 </tbody></table>
 
@@ -3009,28 +3059,29 @@
 </thead><tbody>
 <tr>
 <td>type <em>optional</em></td>
-<td>User token<div class="enum"><code class="prettyprint">token</code> used for starting meeting with client SDK<br/><code class="prettyprint">zpk</code> used for generating the start meeting url<br/></div></td>
+<td>User token type<div class="enum"><code class="prettyprint">token</code> Used for starting meeting with client SDK.<br/><code class="prettyprint">zpk</code> Used for generating the start meeting url.<br/></div></td>
 </tr>
 </tbody></table>
 
-          <h2 id="verify-a-users-zpk">Verify a user&rsquo;s zpk</h2>
+          <h2 id="revoke-a-users-sso-token">Revoke a user&rsquo;s SSO token</h2>
 
-<p>Check if the zpk is expired. The zpk is used to authenticate a user.</p>
+<p>Revoke a user&rsquo;s SSO token</p>
 
 <blockquote>
 <p>Definition</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>GET https://api.zoom.us/v2/users/<span class="o">{</span>userId<span class="o">}</span>/zpk
+<pre class="highlight shell tab-shell"><code>DELETE https://api.zoom.us/v2/users/<span class="o">{</span>userId<span class="o">}</span>/token
 </code></pre>
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/users/<span class="o">{</span>userId<span class="o">}</span>/zpk
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/users/<span class="o">{</span>userId<span class="o">}</span>/token <span class="se">\</span>
+    -X DELETE
 </code></pre>
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre class="highlight plaintext"><code>200 OK
+<pre class="highlight plaintext"><code>204 No Content
 </code></pre>
 <table><thead>
 <tr>
@@ -3044,6 +3095,28 @@
 </tr>
 </tbody></table>
 
+          <h2 id="verify-a-users-zpk">Verify a user&rsquo;s zpk</h2>
+
+<p>Check if the zpk is expired. The zpk is used to authenticate a user.</p>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>GET https://api.zoom.us/v2/users/zpk
+</code></pre>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/users/zpk?zpk<span class="o">=</span>string
+</code></pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>200 OK
+</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"expire_in"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <table><thead>
 <tr>
 <th>Query Arguments</th>
@@ -3051,8 +3124,42 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>type <em>optional</em></td>
+<td>zpk <strong>required</strong></td>
 <td>User zpk</td>
+</tr>
+</tbody></table>
+
+          <h2 id="check-a-users-email">Check a user&rsquo;s email</h2>
+
+<p>Check if the user email exists.</p>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>GET https://api.zoom.us/v2/users/email
+</code></pre>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/users/email?email<span class="o">=</span>string
+</code></pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>200 OK
+</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"existed_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Query Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email <strong>required</strong></td>
+<td>User email</td>
 </tr>
 </tbody></table>
 
@@ -3068,7 +3175,7 @@
     </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"agenda"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"recurrence"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"repeat_interval"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
@@ -3093,8 +3200,8 @@
         </span><span class="s2">"audio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"auto_recording"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"enforce_login"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"enforce_login_domains"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"alternatice_hosts"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="w">
+        </span><span class="s2">"enforce_login_domains"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"alternatice_hosts"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -3114,22 +3221,22 @@
 </tr>
 <tr>
 <td>start_time <em>string</em></td>
-<td>Meeting start time</td>
+<td>Meeting start time, in the format &ldquo;yyyy-MM-dd&rsquo;T&#39;HH:mm:ss&#39;Z&rsquo;&rdquo;, should be GMT time. In the format &ldquo;yyyy-MM-dd&rsquo;T&#39;HH:mm:ss&rdquo;, should be local time, need to specify the time zone. Only used for scheduled meeting and recurring meeting with fixed time.</td>
 </tr>
 <tr>
 <td>duration <em>integer</em></td>
-<td>Meeting duration</td>
+<td>Meeting duration (minutes). Used for scheduled meeting only.</td>
 </tr>
 <tr>
 <td>timezone <em>string</em></td>
-<td>Timezone to format start_time</td>
+<td>Timezone to format start_time, like &ldquo;America/Los_Angeles&rdquo;. For scheduled meeting only. For this parameter value please refer to the id value in <a href="#timezones">timezone</a> list.</td>
 </tr>
 <tr>
 <td>password <em>string</em></td>
-<td>Password to join the meeting</td>
+<td>Password to join the meeting. Password may only contain the following characters: [a-z A-Z 0-9 @ - _ *]. Max of 10 characters.</td>
 </tr>
 <tr>
-<td>description <em>string</em></td>
+<td>agenda <em>string</em></td>
 <td>Meeting description</td>
 </tr>
 <tr>
@@ -3217,11 +3324,11 @@
 <td>Only signed-in users can join this meeting</td>
 </tr>
 <tr>
-<td>settings.enforce_login_domains <em>boolean</em></td>
+<td>settings.enforce_login_domains <em>string</em></td>
 <td>Only signed-in users with specified domains can join meetings</td>
 </tr>
 <tr>
-<td>settings.alternatice_hosts <em>boolean</em></td>
+<td>settings.alternatice_hosts <em>string</em></td>
 <td>Alternative hosts emails or IDs. Multiple value separated by comma.</td>
 </tr>
 </tbody></table>
@@ -3259,35 +3366,8 @@
             </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"recurrence"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"repeat_interval"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"weekly_days"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"monthly_day"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"monthly_week"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"monthly_week_day"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"end_times"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"end_date_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"host_video"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"participant_video"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"cn_meeting"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"in_meeting"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"join_before_host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"mute_upon_entry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"watermark"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"use_pmi"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"approval_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"registration_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"audio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"auto_recording"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"enforce_login"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"enforce_login_domains"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"alternatice_hosts"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
+            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"join_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -3344,7 +3424,7 @@
     "duration": "integer",
     "timezone": "string",
     "password": "string",
-    "description": "string",
+    "agenda": "string",
     "recurrence": {
         "type": "integer",
         "repeat_interval": "integer",
@@ -3369,8 +3449,8 @@
         "audio": "string",
         "auto_recording": "string",
         "enforce_login": "boolean",
-        "enforce_login_domains": "boolean",
-        "alternatice_hosts": "boolean"
+        "enforce_login_domains": "string",
+        "alternatice_hosts": "string"
     }
 }'</span>
 </code></pre>
@@ -3379,7 +3459,9 @@
 </blockquote>
 <pre class="highlight plaintext"><code>201 Created
 </code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="s2">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"host_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <table><thead>
@@ -3405,27 +3487,27 @@
 <td>Meeting topic</td>
 </tr>
 <tr>
-<td>type <em>optional</em></td>
+<td>type <em>optional</em><div class="default">2</div></td>
 <td>Meeting Type<div class="enum"><code class="prettyprint">1</code> Instant Meeting<br/><code class="prettyprint">2</code> Scheduled Meeting<br/><code class="prettyprint">3</code> Recurring Meeting with no fixed time<br/><code class="prettyprint">8</code> Recurring Meeting with fixed time<br/></div></td>
 </tr>
 <tr>
 <td>start_time <em>optional</em></td>
-<td>Meeting start time</td>
+<td>Meeting start time, in the format &ldquo;yyyy-MM-dd&rsquo;T&#39;HH:mm:ss&#39;Z&rsquo;&rdquo;, should be GMT time. In the format &ldquo;yyyy-MM-dd&rsquo;T&#39;HH:mm:ss&rdquo;, should be local time, need to specify the time zone. Only used for scheduled meeting and recurring meeting with fixed time.</td>
 </tr>
 <tr>
 <td>duration <em>optional</em></td>
-<td>Meeting duration</td>
+<td>Meeting duration (minutes). Used for scheduled meeting only.</td>
 </tr>
 <tr>
 <td>timezone <em>optional</em></td>
-<td>Timezone to format start_time</td>
+<td>Timezone to format start_time, like &ldquo;America/Los_Angeles&rdquo;. For scheduled meeting only. For this parameter value please refer to the id value in <a href="#timezones">timezone</a> list.</td>
 </tr>
 <tr>
 <td>password <em>optional</em></td>
-<td>Password to join the meeting</td>
+<td>Password to join the meeting. Password may only contain the following characters: [a-z A-Z 0-9 @ - _ *]. Max of 10 characters.</td>
 </tr>
 <tr>
-<td>description <em>optional</em></td>
+<td>agenda <em>optional</em></td>
 <td>Meeting description</td>
 </tr>
 <tr>
@@ -3461,11 +3543,11 @@
 <td>Recurrence Meeting End Date. Should be UTC time, such as 2017-11-25T12:00:00Z.</td>
 </tr>
 <tr>
-<td>settings.host_video <em>optional</em><div class="default">1</div></td>
+<td>settings.host_video <em>optional</em></td>
 <td>Start video when host join meeting</td>
 </tr>
 <tr>
-<td>settings.participant_video <em>optional</em><div class="default">1</div></td>
+<td>settings.participant_video <em>optional</em></td>
 <td>Start video when participants join meeting</td>
 </tr>
 <tr>
@@ -3549,18 +3631,18 @@
     </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"recurrence"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"repeat_interval"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"weekly_days"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"monthly_day"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"monthly_week"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"monthly_week_day"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"end_times"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"end_date_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"create_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"agenda"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"start_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"join_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"occurrences"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"occurrence_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"long"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
     </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"host_video"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"participant_video"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
@@ -3575,8 +3657,8 @@
         </span><span class="s2">"audio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"auto_recording"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"enforce_login"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"enforce_login_domains"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"alternatice_hosts"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="w">
+        </span><span class="s2">"enforce_login_domains"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"alternatice_hosts"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -3612,7 +3694,7 @@
     "duration": "integer",
     "timezone": "string",
     "password": "string",
-    "description": "string",
+    "agenda": "string",
     "recurrence": {
         "type": "integer",
         "repeat_interval": "integer",
@@ -3637,8 +3719,8 @@
         "audio": "string",
         "auto_recording": "string",
         "enforce_login": "boolean",
-        "enforce_login_domains": "boolean",
-        "alternatice_hosts": "boolean"
+        "enforce_login_domains": "string",
+        "alternatice_hosts": "string"
     }
 }'</span>
 </code></pre>
@@ -3670,27 +3752,27 @@
 <td>Meeting topic</td>
 </tr>
 <tr>
-<td>type <em>optional</em></td>
+<td>type <em>optional</em><div class="default">2</div></td>
 <td>Meeting Type<div class="enum"><code class="prettyprint">1</code> Instant Meeting<br/><code class="prettyprint">2</code> Scheduled Meeting<br/><code class="prettyprint">3</code> Recurring Meeting with no fixed time<br/><code class="prettyprint">8</code> Recurring Meeting with fixed time<br/></div></td>
 </tr>
 <tr>
 <td>start_time <em>optional</em></td>
-<td>Meeting start time</td>
+<td>Meeting start time, in the format &ldquo;yyyy-MM-dd&rsquo;T&#39;HH:mm:ss&#39;Z&rsquo;&rdquo;, should be GMT time. In the format &ldquo;yyyy-MM-dd&rsquo;T&#39;HH:mm:ss&rdquo;, should be local time, need to specify the time zone. Only used for scheduled meeting and recurring meeting with fixed time.</td>
 </tr>
 <tr>
 <td>duration <em>optional</em></td>
-<td>Meeting duration</td>
+<td>Meeting duration (minutes). Used for scheduled meeting only.</td>
 </tr>
 <tr>
 <td>timezone <em>optional</em></td>
-<td>Timezone to format start_time</td>
+<td>Timezone to format start_time, like &ldquo;America/Los_Angeles&rdquo;. For scheduled meeting only. For this parameter value please refer to the id value in <a href="#timezones">timezone</a> list.</td>
 </tr>
 <tr>
 <td>password <em>optional</em></td>
-<td>Password to join the meeting</td>
+<td>Password to join the meeting. Password may only contain the following characters: [a-z A-Z 0-9 @ - _ *]. Max of 10 characters.</td>
 </tr>
 <tr>
-<td>description <em>optional</em></td>
+<td>agenda <em>optional</em></td>
 <td>Meeting description</td>
 </tr>
 <tr>
@@ -3726,11 +3808,11 @@
 <td>Recurrence Meeting End Date. Should be UTC time, such as 2017-11-25T12:00:00Z.</td>
 </tr>
 <tr>
-<td>settings.host_video <em>optional</em><div class="default">1</div></td>
+<td>settings.host_video <em>optional</em></td>
 <td>Start video when host join meeting</td>
 </tr>
 <tr>
-<td>settings.participant_video <em>optional</em><div class="default">1</div></td>
+<td>settings.participant_video <em>optional</em></td>
 <td>Start video when participants join meeting</td>
 </tr>
 <tr>
@@ -3845,7 +3927,7 @@
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/meetings/<span class="o">{</span>meetingId<span class="o">}</span>/status <span class="se">\</span>
    -d <span class="s1">'{
-    "status": "string"
+    "action": "string"
 }'</span>
 </code></pre>
 <blockquote>
@@ -3872,7 +3954,7 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>status <em>optional</em></td>
+<td>action <em>optional</em></td>
 <td><div class="enum"><code class="prettyprint">end</code> end a meeting<br/></div></td>
 </tr>
 </tbody></table>
@@ -3902,6 +3984,7 @@
     </span><span class="s2">"next_page_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"registrants"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -3923,7 +4006,9 @@
                     </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
                 </span><span class="p">}</span><span class="w">
-            </span><span class="p">]</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"create_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -3952,7 +4037,7 @@
 </tr>
 <tr>
 <td>status <em>optional</em><div class="default">approved</div></td>
-<td>The registrant status<div class="enum"><code class="prettyprint">approved</code> registrants status is approved<br/><code class="prettyprint">pending</code> registrants status is pending<br/><code class="prettyprint">denied</code> registrants status is denied<br/></div></td>
+<td>The registrant status<div class="enum"><code class="prettyprint">pending</code> registrants status is pending<br/><code class="prettyprint">approved</code> registrants status is approved<br/><code class="prettyprint">denied</code> registrants status is denied<br/></div></td>
 </tr>
 <tr>
 <td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
@@ -4007,7 +4092,10 @@
 </blockquote>
 <pre class="highlight plaintext"><code>201 Created
 </code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"registrant_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"topic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"join_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -4020,6 +4108,18 @@
 <tr>
 <td>meetingId <strong>required</strong></td>
 <td>The meeting ID</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Query Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>occurrence_ids <em>optional</em></td>
+<td>Occurrence IDs, could get this value from Meeting Get API. Multiple value separated by comma.</td>
 </tr>
 </tbody></table>
 
@@ -4106,14 +4206,20 @@
 <blockquote>
 <p>Definition</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>PUT https://api.zoom.us/v2/meetings/<span class="o">{</span>meetingId<span class="o">}</span>/registrants/<span class="o">{</span>registrantId<span class="o">}</span>/status
+<pre class="highlight shell tab-shell"><code>PUT https://api.zoom.us/v2/meetings/<span class="o">{</span>meetingId<span class="o">}</span>/registrants/status
 </code></pre>
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/meetings/<span class="o">{</span>meetingId<span class="o">}</span>/registrants/<span class="o">{</span>registrantId<span class="o">}</span>/status <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/meetings/<span class="o">{</span>meetingId<span class="o">}</span>/registrants/status <span class="se">\</span>
    -d <span class="s1">'{
-    "status": "string"
+    "action": "string",
+    "registrant": [
+        {
+            "id": "string",
+            "email": "string"
+        }
+    ]
 }'</span>
 </code></pre>
 <blockquote>
@@ -4131,9 +4237,17 @@
 <td>meetingId <strong>required</strong></td>
 <td>The meeting ID</td>
 </tr>
+</tbody></table>
+
+<table><thead>
 <tr>
-<td>registrantId <strong>required</strong></td>
-<td>The registrant ID</td>
+<th>Query Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>occurrence_id <em>optional</em></td>
+<td>The meeting occurrence ID</td>
 </tr>
 </tbody></table>
 
@@ -4144,8 +4258,12 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>status <em>optional</em></td>
-<td><div class="enum"><code class="prettyprint">pending</code> set registrant status to pending<br/><code class="prettyprint">approved</code> set registrant status to approved<br/><code class="prettyprint">denied</code> set registrant status to denied<br/></div></td>
+<td>action <strong>required</strong></td>
+<td><div class="enum"><code class="prettyprint">approve</code> Approve registrant<br/><code class="prettyprint">cancel</code> Cancel registrant<br/><code class="prettyprint">deny</code> Deny registrant<br/></div></td>
+</tr>
+<tr>
+<td>registrant <em>optional</em></td>
+<td>List of registrants</td>
 </tr>
 </tbody></table>
 
@@ -4161,7 +4279,7 @@
     </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"agenda"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"recurrence"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"repeat_interval"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
@@ -4186,8 +4304,11 @@
         </span><span class="s2">"audio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"auto_recording"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"enforce_login"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"enforce_login_domains"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"alternatice_hosts"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="w">
+        </span><span class="s2">"enforce_login_domains"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"alternatice_hosts"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"close_registration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"show_share_button"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"allow_multiple_devices"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -4199,31 +4320,31 @@
 </thead><tbody>
 <tr>
 <td>topic <em>string</em></td>
-<td>Meeting topic</td>
+<td>Webinar topic</td>
 </tr>
 <tr>
 <td>type <em>integer</em></td>
-<td>Meeting Type<div class="enum"><code class="prettyprint">1</code> Instant Meeting<br/><code class="prettyprint">2</code> Scheduled Meeting<br/><code class="prettyprint">3</code> Recurring Meeting with no fixed time<br/><code class="prettyprint">8</code> Recurring Meeting with fixed time<br/></div></td>
+<td>Webinar Type<div class="enum"><code class="prettyprint">5</code> Webinar<br/><code class="prettyprint">6</code> Recurring Webinar with no fixed time<br/><code class="prettyprint">9</code> Recurring Webinar with fixed time<br/></div></td>
 </tr>
 <tr>
 <td>start_time <em>string</em></td>
-<td>Meeting start time</td>
+<td>Webinar start time, in the format &ldquo;yyyy-MM-dd&rsquo;T&#39;HH:mm:ss&#39;Z&rsquo;&rdquo;, should be GMT time. In the format &ldquo;yyyy-MM-dd&rsquo;T&#39;HH:mm:ss&rdquo;, should be local time, need to specify the time zone. Only used for scheduled webinar and recurring webinar with fixed time.</td>
 </tr>
 <tr>
 <td>duration <em>integer</em></td>
-<td>Meeting duration</td>
+<td>Webinar duration (minutes). Used for scheduled webinar only.</td>
 </tr>
 <tr>
 <td>timezone <em>string</em></td>
-<td>Timezone to format start_time</td>
+<td>Timezone to format start_time, like &ldquo;America/Los_Angeles&rdquo;. For scheduled webinar only. For this parameter value please refer to the id value in <a href="#timezones">timezone</a> list.</td>
 </tr>
 <tr>
 <td>password <em>string</em></td>
-<td>Password to join the meeting</td>
+<td>Webinar password. Password may only contain the following characters: [a-z A-Z 0-9 @ - _ *]. Max of 10 characters.</td>
 </tr>
 <tr>
-<td>description <em>string</em></td>
-<td>Meeting description</td>
+<td>agenda <em>string</em></td>
+<td>Webinar description</td>
 </tr>
 <tr>
 <td>recurrence.type <em>integer</em></td>
@@ -4259,23 +4380,23 @@
 </tr>
 <tr>
 <td>settings.host_video <em>boolean</em></td>
-<td>Start video when host join meeting</td>
+<td>Start video when host join webinar</td>
 </tr>
 <tr>
 <td>settings.participant_video <em>boolean</em></td>
-<td>Start video when participants join meeting</td>
+<td>Start video when participants join webinar</td>
 </tr>
 <tr>
 <td>settings.cn_meeting <em>boolean</em></td>
-<td>Host meeting in China</td>
+<td>Host webinar in China</td>
 </tr>
 <tr>
 <td>settings.in_meeting <em>boolean</em></td>
-<td>Host meeting in India</td>
+<td>Host webinar in India</td>
 </tr>
 <tr>
 <td>settings.join_before_host <em>boolean</em></td>
-<td>Join meeting before host start the meeting. Only used for scheduled or recurring meetings</td>
+<td>Join webinar before host start the webinar. Only used for scheduled or recurring webinars</td>
 </tr>
 <tr>
 <td>settings.mute_upon_entry <em>boolean</em></td>
@@ -4287,7 +4408,7 @@
 </tr>
 <tr>
 <td>settings.use_pmi <em>boolean</em></td>
-<td>Use Personal Meeting ID. Only used for scheduled meetings and recurring meetings with no fixed time</td>
+<td>Use Personal Meeting ID. Only used for scheduled webinars and recurring webinars with no fixed time</td>
 </tr>
 <tr>
 <td>settings.approval_type <em>integer</em></td>
@@ -4295,7 +4416,7 @@
 </tr>
 <tr>
 <td>settings.registration_type <em>integer</em></td>
-<td>Registration type. Used for recurring meeting with fixed time only.<div class="enum"><code class="prettyprint">1</code> Attendees register once and can attend any of the occurrences<br/><code class="prettyprint">2</code> Attendees need to register for each occurrence to attend<br/><code class="prettyprint">3</code> Attendees register once and can choose one or more occurrences to attend<br/></div></td>
+<td>Registration type. Used for recurring webinar with fixed time only.<div class="enum"><code class="prettyprint">1</code> Attendees register once and can attend any of the occurrences<br/><code class="prettyprint">2</code> Attendees need to register for each occurrence to attend<br/><code class="prettyprint">3</code> Attendees register once and can choose one or more occurrences to attend<br/></div></td>
 </tr>
 <tr>
 <td>settings.audio <em>string</em></td>
@@ -4310,12 +4431,24 @@
 <td>Only signed-in users can join this meeting</td>
 </tr>
 <tr>
-<td>settings.enforce_login_domains <em>boolean</em></td>
+<td>settings.enforce_login_domains <em>string</em></td>
 <td>Only signed-in users with specified domains can join meetings</td>
 </tr>
 <tr>
-<td>settings.alternatice_hosts <em>boolean</em></td>
+<td>settings.alternatice_hosts <em>string</em></td>
 <td>Alternative hosts emails or IDs. Multiple value separated by comma.</td>
+</tr>
+<tr>
+<td>settings.close_registration <em>boolean</em></td>
+<td>Close registration after event date.</td>
+</tr>
+<tr>
+<td>settings.show_share_button <em>boolean</em></td>
+<td>Show social share buttons on registration page.</td>
+</tr>
+<tr>
+<td>settings.allow_multiple_devices <em>boolean</em></td>
+<td>Allow attendees to join from multiple devices.</td>
 </tr>
 </tbody></table>
 
@@ -4342,45 +4475,17 @@
     </span><span class="s2">"page_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"page_size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"total_records"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"meetings"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"webinars"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"host_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"topic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"recurrence"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"repeat_interval"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"weekly_days"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"monthly_day"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"monthly_week"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"monthly_week_day"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"end_times"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"end_date_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"host_video"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"participant_video"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"cn_meeting"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"in_meeting"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"join_before_host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"mute_upon_entry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"watermark"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"use_pmi"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"approval_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"registration_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"audio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"auto_recording"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"enforce_login"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"enforce_login_domains"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"alternatice_hosts"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
+            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"join_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -4415,7 +4520,7 @@
 
           <h2 id="create-a-webinar">Create a webinar</h2>
 
-<p>Create a webinars for a user</p>
+<p>Create a webinar for a user</p>
 
 <blockquote>
 <p>Definition</p>
@@ -4433,7 +4538,7 @@
     "duration": "integer",
     "timezone": "string",
     "password": "string",
-    "description": "string",
+    "agenda": "string",
     "recurrence": {
         "type": "integer",
         "repeat_interval": "integer",
@@ -4458,8 +4563,11 @@
         "audio": "string",
         "auto_recording": "string",
         "enforce_login": "boolean",
-        "enforce_login_domains": "boolean",
-        "alternatice_hosts": "boolean"
+        "enforce_login_domains": "string",
+        "alternatice_hosts": "string",
+        "close_registration": "boolean",
+        "show_share_button": "boolean",
+        "allow_multiple_devices": "boolean"
     }
 }'</span>
 </code></pre>
@@ -4468,7 +4576,9 @@
 </blockquote>
 <pre class="highlight plaintext"><code>201 Created
 </code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="s2">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"host_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <table><thead>
@@ -4491,31 +4601,31 @@
 </thead><tbody>
 <tr>
 <td>topic <em>optional</em></td>
-<td>Meeting topic</td>
+<td>Webinar topic</td>
 </tr>
 <tr>
-<td>type <em>optional</em></td>
-<td>Meeting Type<div class="enum"><code class="prettyprint">1</code> Instant Meeting<br/><code class="prettyprint">2</code> Scheduled Meeting<br/><code class="prettyprint">3</code> Recurring Meeting with no fixed time<br/><code class="prettyprint">8</code> Recurring Meeting with fixed time<br/></div></td>
+<td>type <em>optional</em><div class="default">5</div></td>
+<td>Webinar Type<div class="enum"><code class="prettyprint">5</code> Webinar<br/><code class="prettyprint">6</code> Recurring Webinar with no fixed time<br/><code class="prettyprint">9</code> Recurring Webinar with fixed time<br/></div></td>
 </tr>
 <tr>
 <td>start_time <em>optional</em></td>
-<td>Meeting start time</td>
+<td>Webinar start time, in the format &ldquo;yyyy-MM-dd&rsquo;T&#39;HH:mm:ss&#39;Z&rsquo;&rdquo;, should be GMT time. In the format &ldquo;yyyy-MM-dd&rsquo;T&#39;HH:mm:ss&rdquo;, should be local time, need to specify the time zone. Only used for scheduled webinar and recurring webinar with fixed time.</td>
 </tr>
 <tr>
 <td>duration <em>optional</em></td>
-<td>Meeting duration</td>
+<td>Webinar duration (minutes). Used for scheduled webinar only.</td>
 </tr>
 <tr>
 <td>timezone <em>optional</em></td>
-<td>Timezone to format start_time</td>
+<td>Timezone to format start_time, like &ldquo;America/Los_Angeles&rdquo;. For scheduled webinar only. For this parameter value please refer to the id value in <a href="#timezones">timezone</a> list.</td>
 </tr>
 <tr>
 <td>password <em>optional</em></td>
-<td>Password to join the meeting</td>
+<td>Webinar password. Password may only contain the following characters: [a-z A-Z 0-9 @ - _ *]. Max of 10 characters.</td>
 </tr>
 <tr>
-<td>description <em>optional</em></td>
-<td>Meeting description</td>
+<td>agenda <em>optional</em></td>
+<td>Webinar description</td>
 </tr>
 <tr>
 <td>recurrence.type <em>optional</em></td>
@@ -4550,24 +4660,24 @@
 <td>Recurrence Meeting End Date. Should be UTC time, such as 2017-11-25T12:00:00Z.</td>
 </tr>
 <tr>
-<td>settings.host_video <em>optional</em><div class="default">1</div></td>
-<td>Start video when host join meeting</td>
+<td>settings.host_video <em>optional</em></td>
+<td>Start video when host join webinar</td>
 </tr>
 <tr>
-<td>settings.participant_video <em>optional</em><div class="default">1</div></td>
-<td>Start video when participants join meeting</td>
+<td>settings.participant_video <em>optional</em></td>
+<td>Start video when participants join webinar</td>
 </tr>
 <tr>
 <td>settings.cn_meeting <em>optional</em><div class="default">false</div></td>
-<td>Host meeting in China</td>
+<td>Host webinar in China</td>
 </tr>
 <tr>
 <td>settings.in_meeting <em>optional</em><div class="default">false</div></td>
-<td>Host meeting in India</td>
+<td>Host webinar in India</td>
 </tr>
 <tr>
 <td>settings.join_before_host <em>optional</em><div class="default">false</div></td>
-<td>Join meeting before host start the meeting. Only used for scheduled or recurring meetings</td>
+<td>Join webinar before host start the webinar. Only used for scheduled or recurring webinars</td>
 </tr>
 <tr>
 <td>settings.mute_upon_entry <em>optional</em><div class="default">false</div></td>
@@ -4579,7 +4689,7 @@
 </tr>
 <tr>
 <td>settings.use_pmi <em>optional</em><div class="default">false</div></td>
-<td>Use Personal Meeting ID. Only used for scheduled meetings and recurring meetings with no fixed time</td>
+<td>Use Personal Meeting ID. Only used for scheduled webinars and recurring webinars with no fixed time</td>
 </tr>
 <tr>
 <td>settings.approval_type <em>optional</em><div class="default">2</div></td>
@@ -4587,7 +4697,7 @@
 </tr>
 <tr>
 <td>settings.registration_type <em>optional</em><div class="default">1</div></td>
-<td>Registration type. Used for recurring meeting with fixed time only.<div class="enum"><code class="prettyprint">1</code> Attendees register once and can attend any of the occurrences<br/><code class="prettyprint">2</code> Attendees need to register for each occurrence to attend<br/><code class="prettyprint">3</code> Attendees register once and can choose one or more occurrences to attend<br/></div></td>
+<td>Registration type. Used for recurring webinar with fixed time only.<div class="enum"><code class="prettyprint">1</code> Attendees register once and can attend any of the occurrences<br/><code class="prettyprint">2</code> Attendees need to register for each occurrence to attend<br/><code class="prettyprint">3</code> Attendees register once and can choose one or more occurrences to attend<br/></div></td>
 </tr>
 <tr>
 <td>settings.audio <em>optional</em><div class="default">both</div></td>
@@ -4608,6 +4718,18 @@
 <tr>
 <td>settings.alternatice_hosts <em>optional</em></td>
 <td>Alternative hosts emails or IDs. Multiple value separated by comma.</td>
+</tr>
+<tr>
+<td>settings.close_registration <em>optional</em></td>
+<td>Close registration after event date.</td>
+</tr>
+<tr>
+<td>settings.show_share_button <em>optional</em></td>
+<td>Show social share buttons on registration page.</td>
+</tr>
+<tr>
+<td>settings.allow_multiple_devices <em>optional</em></td>
+<td>Allow attendees to join from multiple devices.</td>
 </tr>
 </tbody></table>
 
@@ -4638,18 +4760,18 @@
     </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"recurrence"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"repeat_interval"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"weekly_days"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"monthly_day"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"monthly_week"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"monthly_week_day"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"end_times"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"end_date_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"agenda"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"create_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"start_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"join_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"occurrences"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"occurrence_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"long"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
     </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"host_video"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"participant_video"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
@@ -4664,8 +4786,11 @@
         </span><span class="s2">"audio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"auto_recording"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"enforce_login"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"enforce_login_domains"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"alternatice_hosts"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="w">
+        </span><span class="s2">"enforce_login_domains"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"alternatice_hosts"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"close_registration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"show_share_button"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"allow_multiple_devices"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -4701,7 +4826,7 @@
     "duration": "integer",
     "timezone": "string",
     "password": "string",
-    "description": "string",
+    "agenda": "string",
     "recurrence": {
         "type": "integer",
         "repeat_interval": "integer",
@@ -4726,8 +4851,11 @@
         "audio": "string",
         "auto_recording": "string",
         "enforce_login": "boolean",
-        "enforce_login_domains": "boolean",
-        "alternatice_hosts": "boolean"
+        "enforce_login_domains": "string",
+        "alternatice_hosts": "string",
+        "close_registration": "boolean",
+        "show_share_button": "boolean",
+        "allow_multiple_devices": "boolean"
     }
 }'</span>
 </code></pre>
@@ -4756,31 +4884,31 @@
 </thead><tbody>
 <tr>
 <td>topic <em>optional</em></td>
-<td>Meeting topic</td>
+<td>Webinar topic</td>
 </tr>
 <tr>
-<td>type <em>optional</em></td>
-<td>Meeting Type<div class="enum"><code class="prettyprint">1</code> Instant Meeting<br/><code class="prettyprint">2</code> Scheduled Meeting<br/><code class="prettyprint">3</code> Recurring Meeting with no fixed time<br/><code class="prettyprint">8</code> Recurring Meeting with fixed time<br/></div></td>
+<td>type <em>optional</em><div class="default">5</div></td>
+<td>Webinar Type<div class="enum"><code class="prettyprint">5</code> Webinar<br/><code class="prettyprint">6</code> Recurring Webinar with no fixed time<br/><code class="prettyprint">9</code> Recurring Webinar with fixed time<br/></div></td>
 </tr>
 <tr>
 <td>start_time <em>optional</em></td>
-<td>Meeting start time</td>
+<td>Webinar start time, in the format &ldquo;yyyy-MM-dd&rsquo;T&#39;HH:mm:ss&#39;Z&rsquo;&rdquo;, should be GMT time. In the format &ldquo;yyyy-MM-dd&rsquo;T&#39;HH:mm:ss&rdquo;, should be local time, need to specify the time zone. Only used for scheduled webinar and recurring webinar with fixed time.</td>
 </tr>
 <tr>
 <td>duration <em>optional</em></td>
-<td>Meeting duration</td>
+<td>Webinar duration (minutes). Used for scheduled webinar only.</td>
 </tr>
 <tr>
 <td>timezone <em>optional</em></td>
-<td>Timezone to format start_time</td>
+<td>Timezone to format start_time, like &ldquo;America/Los_Angeles&rdquo;. For scheduled webinar only. For this parameter value please refer to the id value in <a href="#timezones">timezone</a> list.</td>
 </tr>
 <tr>
 <td>password <em>optional</em></td>
-<td>Password to join the meeting</td>
+<td>Webinar password. Password may only contain the following characters: [a-z A-Z 0-9 @ - _ *]. Max of 10 characters.</td>
 </tr>
 <tr>
-<td>description <em>optional</em></td>
-<td>Meeting description</td>
+<td>agenda <em>optional</em></td>
+<td>Webinar description</td>
 </tr>
 <tr>
 <td>recurrence.type <em>optional</em></td>
@@ -4815,24 +4943,24 @@
 <td>Recurrence Meeting End Date. Should be UTC time, such as 2017-11-25T12:00:00Z.</td>
 </tr>
 <tr>
-<td>settings.host_video <em>optional</em><div class="default">1</div></td>
-<td>Start video when host join meeting</td>
+<td>settings.host_video <em>optional</em></td>
+<td>Start video when host join webinar</td>
 </tr>
 <tr>
-<td>settings.participant_video <em>optional</em><div class="default">1</div></td>
-<td>Start video when participants join meeting</td>
+<td>settings.participant_video <em>optional</em></td>
+<td>Start video when participants join webinar</td>
 </tr>
 <tr>
 <td>settings.cn_meeting <em>optional</em><div class="default">false</div></td>
-<td>Host meeting in China</td>
+<td>Host webinar in China</td>
 </tr>
 <tr>
 <td>settings.in_meeting <em>optional</em><div class="default">false</div></td>
-<td>Host meeting in India</td>
+<td>Host webinar in India</td>
 </tr>
 <tr>
 <td>settings.join_before_host <em>optional</em><div class="default">false</div></td>
-<td>Join meeting before host start the meeting. Only used for scheduled or recurring meetings</td>
+<td>Join webinar before host start the webinar. Only used for scheduled or recurring webinars</td>
 </tr>
 <tr>
 <td>settings.mute_upon_entry <em>optional</em><div class="default">false</div></td>
@@ -4844,7 +4972,7 @@
 </tr>
 <tr>
 <td>settings.use_pmi <em>optional</em><div class="default">false</div></td>
-<td>Use Personal Meeting ID. Only used for scheduled meetings and recurring meetings with no fixed time</td>
+<td>Use Personal Meeting ID. Only used for scheduled webinars and recurring webinars with no fixed time</td>
 </tr>
 <tr>
 <td>settings.approval_type <em>optional</em><div class="default">2</div></td>
@@ -4852,7 +4980,7 @@
 </tr>
 <tr>
 <td>settings.registration_type <em>optional</em><div class="default">1</div></td>
-<td>Registration type. Used for recurring meeting with fixed time only.<div class="enum"><code class="prettyprint">1</code> Attendees register once and can attend any of the occurrences<br/><code class="prettyprint">2</code> Attendees need to register for each occurrence to attend<br/><code class="prettyprint">3</code> Attendees register once and can choose one or more occurrences to attend<br/></div></td>
+<td>Registration type. Used for recurring webinar with fixed time only.<div class="enum"><code class="prettyprint">1</code> Attendees register once and can attend any of the occurrences<br/><code class="prettyprint">2</code> Attendees need to register for each occurrence to attend<br/><code class="prettyprint">3</code> Attendees register once and can choose one or more occurrences to attend<br/></div></td>
 </tr>
 <tr>
 <td>settings.audio <em>optional</em><div class="default">both</div></td>
@@ -4873,6 +5001,18 @@
 <tr>
 <td>settings.alternatice_hosts <em>optional</em></td>
 <td>Alternative hosts emails or IDs. Multiple value separated by comma.</td>
+</tr>
+<tr>
+<td>settings.close_registration <em>optional</em></td>
+<td>Close registration after event date.</td>
+</tr>
+<tr>
+<td>settings.show_share_button <em>optional</em></td>
+<td>Show social share buttons on registration page.</td>
+</tr>
+<tr>
+<td>settings.allow_multiple_devices <em>optional</em></td>
+<td>Allow attendees to join from multiple devices.</td>
 </tr>
 </tbody></table>
 
@@ -4905,6 +5045,18 @@
 <tr>
 <td>webinarId <strong>required</strong></td>
 <td>The webinar ID</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Query Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>occurrence_id <em>optional</em></td>
+<td>The meeting occurrence ID</td>
 </tr>
 </tbody></table>
 
@@ -4973,14 +5125,13 @@
 </blockquote>
 <pre class="highlight plaintext"><code>200 OK
 </code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"page_count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"page_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"page_size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"total_records"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"registrants"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"panelists"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+            </span><span class="s2">"join_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -4994,26 +5145,6 @@
 <tr>
 <td>webinarId <strong>required</strong></td>
 <td>The webinar ID</td>
-</tr>
-</tbody></table>
-
-<table><thead>
-<tr>
-<th>Query Arguments</th>
-<th>&nbsp;</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>occurrence_id <em>optional</em></td>
-<td>The meeting occurrence ID</td>
-</tr>
-<tr>
-<td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
-<td>The amount of records returns within a single API call.</td>
-</tr>
-<tr>
-<td>page_number <em>optional</em><div class="default">1</div></td>
-<td>Current page number of returned records.</td>
 </tr>
 </tbody></table>
 
@@ -5031,8 +5162,12 @@
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/webinars/<span class="o">{</span>webinarId<span class="o">}</span>/panelists <span class="se">\</span>
    -d <span class="s1">'{
-    "email": "string",
-    "name": "string"
+    "panelists": [
+        {
+            "name": "string",
+            "email": "string"
+        }
+    ]
 }'</span>
 </code></pre>
 <blockquote>
@@ -5063,12 +5198,8 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>email <em>optional</em></td>
-<td>Panelist&rsquo;s email</td>
-</tr>
-<tr>
-<td>name <em>optional</em></td>
-<td>Panelist&rsquo;s full name</td>
+<td>panelists <em>optional</em></td>
+<td>List of Panelist objects.</td>
 </tr>
 </tbody></table>
 
@@ -5165,6 +5296,7 @@
     </span><span class="s2">"next_page_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"registrants"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -5186,7 +5318,9 @@
                     </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
                 </span><span class="p">}</span><span class="w">
-            </span><span class="p">]</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"create_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -5215,7 +5349,7 @@
 </tr>
 <tr>
 <td>status <em>optional</em><div class="default">approved</div></td>
-<td>The registrant status<div class="enum"><code class="prettyprint">approved</code> registrants status is approved<br/><code class="prettyprint">pending</code> registrants status is pending<br/><code class="prettyprint">denied</code> registrants status is denied<br/></div></td>
+<td>The registrant status<div class="enum"><code class="prettyprint">pending</code> registrants status is pending<br/><code class="prettyprint">approved</code> registrants status is approved<br/><code class="prettyprint">denied</code> registrants status is denied<br/></div></td>
 </tr>
 <tr>
 <td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
@@ -5270,7 +5404,10 @@
 </blockquote>
 <pre class="highlight plaintext"><code>201 Created
 </code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"registrant_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"topic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"join_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -5283,6 +5420,18 @@
 <tr>
 <td>webinarId <strong>required</strong></td>
 <td>The webinar ID</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Query Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>occurrence_id <em>optional</em></td>
+<td>The meeting occurrence ID</td>
 </tr>
 </tbody></table>
 
@@ -5369,14 +5518,20 @@
 <blockquote>
 <p>Definition</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>PUT https://api.zoom.us/v2/webinars/<span class="o">{</span>webinarId<span class="o">}</span>/registrants/<span class="o">{</span>registrantId<span class="o">}</span>/status
+<pre class="highlight shell tab-shell"><code>PUT https://api.zoom.us/v2/webinars/<span class="o">{</span>webinarId<span class="o">}</span>/registrants/status
 </code></pre>
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/webinars/<span class="o">{</span>webinarId<span class="o">}</span>/registrants/<span class="o">{</span>registrantId<span class="o">}</span>/status <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/webinars/<span class="o">{</span>webinarId<span class="o">}</span>/registrants/status <span class="se">\</span>
    -d <span class="s1">'{
-    "status": "string"
+    "action": "string",
+    "registrant": [
+        {
+            "id": "string",
+            "email": "string"
+        }
+    ]
 }'</span>
 </code></pre>
 <blockquote>
@@ -5394,9 +5549,17 @@
 <td>webinarId <strong>required</strong></td>
 <td>The webinar ID</td>
 </tr>
+</tbody></table>
+
+<table><thead>
 <tr>
-<td>registrantId <strong>required</strong></td>
-<td>The registrant ID</td>
+<th>Query Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>occurrence_id <em>optional</em></td>
+<td>The meeting occurrence ID</td>
 </tr>
 </tbody></table>
 
@@ -5407,8 +5570,12 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>status <em>optional</em></td>
-<td><div class="enum"><code class="prettyprint">pending</code> set registrant status to pending<br/><code class="prettyprint">approved</code> set registrant status to approved<br/><code class="prettyprint">denied</code> set registrant status to denied<br/></div></td>
+<td>action <strong>required</strong></td>
+<td><div class="enum"><code class="prettyprint">approve</code> Approve registrant<br/><code class="prettyprint">cancel</code> Cancel registrant<br/><code class="prettyprint">deny</code> Deny registrant<br/></div></td>
+</tr>
+<tr>
+<td>registrant <em>optional</em></td>
+<td>List of registrant</td>
 </tr>
 </tbody></table>
 
@@ -5457,9 +5624,6 @@
 </blockquote>
 <pre class="highlight plaintext"><code>200 OK
 </code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"page_count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"page_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"page_size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"total_records"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"groups"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
@@ -5470,22 +5634,6 @@
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<table><thead>
-<tr>
-<th>Query Arguments</th>
-<th>&nbsp;</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
-<td>The amount of records returns within a single API call.</td>
-</tr>
-<tr>
-<td>page_number <em>optional</em><div class="default">1</div></td>
-<td>Current page number of returned records.</td>
-</tr>
-</tbody></table>
-
           <h2 id="create-a-group">Create a group</h2>
 
 <p>Create a group under your account</p>
@@ -5822,19 +5970,19 @@
 </tr>
 <tr>
 <td>type <em>string</em></td>
-<td></td>
+<td>IM Group type<div class="enum"><code class="prettyprint">normal</code> Only members can see the group automatically. Other people can search members in the group<br/><code class="prettyprint">shared</code> All people in the account can see the group and members automatically<br/><code class="prettyprint">restricted</code> Nobody can see the group or search members except the members in the group<br/></div></td>
 </tr>
 <tr>
 <td>search_by_domain <em>boolean</em></td>
-<td></td>
+<td>Members can search others in the same email domain</td>
 </tr>
 <tr>
 <td>search_by_account <em>boolean</em></td>
-<td></td>
+<td>Members can search others under same account</td>
 </tr>
 <tr>
 <td>search_by_ma_account <em>boolean</em></td>
-<td></td>
+<td>Members can search others under same master account, including all sub accounts</td>
 </tr>
 </tbody></table>
 
@@ -5874,22 +6022,6 @@
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<table><thead>
-<tr>
-<th>Query Arguments</th>
-<th>&nbsp;</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
-<td>The amount of records returns within a single API call.</td>
-</tr>
-<tr>
-<td>page_number <em>optional</em><div class="default">1</div></td>
-<td>Current page number of returned records.</td>
-</tr>
-</tbody></table>
-
           <h2 id="create-an-im-group">Create an IM Group</h2>
 
 <p>Create a IM Group under your account</p>
@@ -5916,7 +6048,12 @@
 </blockquote>
 <pre class="highlight plaintext"><code>201 Created
 </code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_members"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"search_by_domain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"search_by_account"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"search_by_ma_account"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <table><thead>
@@ -5930,7 +6067,7 @@
 <td>Group name, must be unique in one account</td>
 </tr>
 <tr>
-<td>type <em>optional</em></td>
+<td>type <em>optional</em><div class="default">normal</div></td>
 <td>IM Group type<div class="enum"><code class="prettyprint">normal</code> Only members can see the group automatically. Other people can search members in the group<br/><code class="prettyprint">shared</code> All people in the account can see the group and members automatically<br/><code class="prettyprint">restricted</code> Nobody can see the group or search members except the members in the group<br/></div></td>
 </tr>
 <tr>
@@ -6147,9 +6284,9 @@
 </tr>
 </tbody></table>
 
-          <h2 id="add-an-im-group-member">Add an IM Group member</h2>
+          <h2 id="add-im-group-members">Add IM Group members</h2>
 
-<p>Add a member to an IM Group under your account</p>
+<p>Add members to an IM Group under your account</p>
 
 <blockquote>
 <p>Definition</p>
@@ -6161,15 +6298,23 @@
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/im/groups/<span class="o">{</span>groupId<span class="o">}</span>/members <span class="se">\</span>
    -d <span class="s1">'{
-    "id": "string",
-    "email": "string"
+    "members": [
+        {
+            "id": "string",
+            "email": "string"
+        }
+    ]
 }'</span>
 </code></pre>
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre class="highlight plaintext"><code>204 No Content
-</code></pre>
+<pre class="highlight plaintext"><code>201 Created
+</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"added_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <table><thead>
 <tr>
 <th>Path Arguments</th>
@@ -6189,12 +6334,8 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>id <em>optional</em></td>
-<td>User ID.</td>
-</tr>
-<tr>
-<td>email <em>optional</em></td>
-<td>User email. If ID given, email is ignored.</td>
+<td>members <em>optional</em></td>
+<td></td>
 </tr>
 </tbody></table>
 
@@ -6205,12 +6346,12 @@
 <blockquote>
 <p>Definition</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>DELETE https://api.zoom.us/v2/im/groups/<span class="o">{</span>groupId<span class="o">}</span>/members/<span class="o">{</span>userId<span class="o">}</span>
+<pre class="highlight shell tab-shell"><code>DELETE https://api.zoom.us/v2/im/groups/<span class="o">{</span>groupId<span class="o">}</span>/members/<span class="o">{</span>memberId<span class="o">}</span>
 </code></pre>
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/im/groups/<span class="o">{</span>groupId<span class="o">}</span>/members/<span class="o">{</span>userId<span class="o">}</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/im/groups/<span class="o">{</span>groupId<span class="o">}</span>/members/<span class="o">{</span>memberId<span class="o">}</span> <span class="se">\</span>
     -X DELETE
 </code></pre>
 <blockquote>
@@ -6229,8 +6370,8 @@
 <td>The group ID</td>
 </tr>
 <tr>
-<td>userId <strong>required</strong></td>
-<td>The user ID or email address</td>
+<td>memberId <strong>required</strong></td>
+<td>The member ID</td>
 </tr>
 </tbody></table>
 
@@ -6376,9 +6517,9 @@
     </span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date]"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date]"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"page_count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"page_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"page_size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"total_records"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"next_page_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"meetings"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [uuid]"</span><span class="p">,</span><span class="w">
@@ -6427,8 +6568,8 @@
 <td>The amount of records returns within a single API call.</td>
 </tr>
 <tr>
-<td>page_number <em>optional</em><div class="default">1</div></td>
-<td>Current page number of returned records.</td>
+<td>next_page_token <em>optional</em></td>
+<td>Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.</td>
 </tr>
 </tbody></table>
 
@@ -6452,9 +6593,9 @@
 <pre class="highlight plaintext"><code>200 OK
 </code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"page_count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"page_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"page_size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"total_records"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"next_page_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"participants"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -6475,7 +6616,7 @@
 </thead><tbody>
 <tr>
 <td>meetingId <strong>required</strong></td>
-<td>The meeting ID</td>
+<td>The meeting ID or meeting UUID. If given meeting ID, will take the last meeting instance.</td>
 </tr>
 </tbody></table>
 
@@ -6490,8 +6631,8 @@
 <td>The amount of records returns within a single API call.</td>
 </tr>
 <tr>
-<td>page_number <em>optional</em><div class="default">1</div></td>
-<td>Current page number of returned records.</td>
+<td>next_page_token <em>optional</em></td>
+<td>Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.</td>
 </tr>
 </tbody></table>
 
@@ -6515,9 +6656,9 @@
 <pre class="highlight plaintext"><code>200 OK
 </code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"page_count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"page_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"page_size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"total_records"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"next_page_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"participants"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -6538,7 +6679,7 @@
 </thead><tbody>
 <tr>
 <td>webinarId <strong>required</strong></td>
-<td>The webinar ID</td>
+<td>The webinar ID or webinar UUID. If given webinar ID, will take the last webinar instance.</td>
 </tr>
 </tbody></table>
 
@@ -6553,8 +6694,8 @@
 <td>The amount of records returns within a single API call.</td>
 </tr>
 <tr>
-<td>page_number <em>optional</em><div class="default">1</div></td>
-<td>Current page number of returned records.</td>
+<td>next_page_token <em>optional</em></td>
+<td>Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.</td>
 </tr>
 </tbody></table>
 
@@ -6602,7 +6743,7 @@
 </thead><tbody>
 <tr>
 <td>webinarId <strong>required</strong></td>
-<td>The webinar ID</td>
+<td>The webinar ID or webinar UUID. If given webinar ID, will take the last webinar instance.</td>
 </tr>
 </tbody></table>
 
@@ -6650,13 +6791,13 @@
 </thead><tbody>
 <tr>
 <td>webinarId <strong>required</strong></td>
-<td>The webinar ID</td>
+<td>The webinar ID or webinar UUID. If given webinar ID, will take the last webinar instance.</td>
 </tr>
 </tbody></table>
 
           <h2 id="retrieve-telephone-report">Retrieve telephone report</h2>
 
-<p>Retrieve telephone report for a specified period</p>
+<p>Retrieve telephone report for a specified period <aside>Toll Report API is provided for enabled &lsquo;Toll Report&rsquo; option.</aside></p>
 
 <blockquote>
 <p>Definition</p>
@@ -6795,8 +6936,8 @@
 <td>The amount of records returns within a single API call.</td>
 </tr>
 <tr>
-<td>page_number <em>optional</em><div class="default">1</div></td>
-<td>Current page number of returned records.</td>
+<td>next_page_token <em>optional</em></td>
+<td>Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.</td>
 </tr>
 </tbody></table>
 
@@ -6846,7 +6987,7 @@
 </thead><tbody>
 <tr>
 <td>meetingId <strong>required</strong></td>
-<td>The meeting ID</td>
+<td>The meeting ID or meeting UUID. If given meeting ID, will take the last meeting instance.</td>
 </tr>
 </tbody></table>
 
@@ -6858,7 +6999,7 @@
 </thead><tbody>
 <tr>
 <td>type <em>optional</em><div class="default">live</div></td>
-<td>The meeting type<div class="enum"><code class="prettyprint">past</code> past meetings<br/><code class="prettyprint">live</code> live meetings<br/></div></td>
+<td>The meeting type<div class="enum"><code class="prettyprint">past</code> past meeting<br/><code class="prettyprint">live</code> live meeting<br/></div></td>
 </tr>
 </tbody></table>
 
@@ -6917,7 +7058,7 @@
 </thead><tbody>
 <tr>
 <td>meetingId <strong>required</strong></td>
-<td>The meeting ID</td>
+<td>The meeting ID or meeting UUID. If given meeting ID, will take the last meeting instance.</td>
 </tr>
 </tbody></table>
 
@@ -6929,15 +7070,15 @@
 </thead><tbody>
 <tr>
 <td>type <em>optional</em><div class="default">live</div></td>
-<td>The meeting type<div class="enum"><code class="prettyprint">past</code> past meetings<br/><code class="prettyprint">live</code> live meetings<br/></div></td>
+<td>The meeting type<div class="enum"><code class="prettyprint">past</code> past meeting<br/><code class="prettyprint">live</code> live meeting<br/></div></td>
 </tr>
 <tr>
 <td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
 <td>The amount of records returns within a single API call.</td>
 </tr>
 <tr>
-<td>page_number <em>optional</em><div class="default">1</div></td>
-<td>Current page number of returned records.</td>
+<td>next_page_token <em>optional</em></td>
+<td>Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.</td>
 </tr>
 </tbody></table>
 
@@ -7041,11 +7182,11 @@
 </thead><tbody>
 <tr>
 <td>meetingId <strong>required</strong></td>
-<td>The meeting ID</td>
+<td>The meeting ID or meeting UUID. If given meeting ID, will take the last meeting instance.</td>
 </tr>
 <tr>
 <td>participantId <strong>required</strong></td>
-<td>The participant ID</td>
+<td>The participant ID, such as 16778240</td>
 </tr>
 </tbody></table>
 
@@ -7057,7 +7198,7 @@
 </thead><tbody>
 <tr>
 <td>type <em>optional</em><div class="default">live</div></td>
-<td>The meeting type<div class="enum"><code class="prettyprint">past</code> past meetings<br/><code class="prettyprint">live</code> live meetings<br/></div></td>
+<td>The meeting type<div class="enum"><code class="prettyprint">past</code> past meeting<br/><code class="prettyprint">live</code> live meeting<br/></div></td>
 </tr>
 </tbody></table>
 
@@ -7080,10 +7221,10 @@
 </blockquote>
 <pre class="highlight plaintext"><code>200 OK
 </code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"page_count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"page_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"page_count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer [int64]"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"page_size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"total_records"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_records"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer [int64]"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"next_page_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"participants"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [uuid]"</span><span class="p">,</span><span class="w">
@@ -7169,7 +7310,7 @@
 </thead><tbody>
 <tr>
 <td>meetingId <strong>required</strong></td>
-<td>The meeting ID</td>
+<td>The meeting ID or meeting UUID. If given meeting ID, will take the last meeting instance.</td>
 </tr>
 </tbody></table>
 
@@ -7181,15 +7322,15 @@
 </thead><tbody>
 <tr>
 <td>type <em>optional</em><div class="default">live</div></td>
-<td>The meeting type<div class="enum"><code class="prettyprint">past</code> past meetings<br/><code class="prettyprint">live</code> live meetings<br/></div></td>
+<td>The meeting type<div class="enum"><code class="prettyprint">past</code> past meeting<br/><code class="prettyprint">live</code> live meeting<br/></div></td>
 </tr>
 <tr>
-<td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
-<td>The amount of records returns within a single API call.</td>
+<td>page_size <em>optional</em><div class="default">1</div><div class="maximum">10</div></td>
+<td>Number of items returned per page</td>
 </tr>
 <tr>
-<td>page_number <em>optional</em><div class="default">1</div></td>
-<td>Current page number of returned records.</td>
+<td>next_page_token <em>optional</em></td>
+<td>Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.</td>
 </tr>
 </tbody></table>
 
@@ -7200,12 +7341,12 @@
 <blockquote>
 <p>Definition</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>GET https://api.zoom.us/v2/metrics/meetings/<span class="o">{</span>meetingId<span class="o">}</span>/participants/<span class="o">{</span>participantId<span class="o">}</span>/sharing
+<pre class="highlight shell tab-shell"><code>GET https://api.zoom.us/v2/metrics/meetings/<span class="o">{</span>meetingId<span class="o">}</span>/participants/sharing
 </code></pre>
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/metrics/meetings/<span class="o">{</span>meetingId<span class="o">}</span>/participants/<span class="o">{</span>participantId<span class="o">}</span>/sharing
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/metrics/meetings/<span class="o">{</span>meetingId<span class="o">}</span>/participants/sharing
 </code></pre>
 <blockquote>
 <p>Example Response</p>
@@ -7240,11 +7381,7 @@
 </thead><tbody>
 <tr>
 <td>meetingId <strong>required</strong></td>
-<td>The meeting ID</td>
-</tr>
-<tr>
-<td>participantId <strong>required</strong></td>
-<td>The participant ID</td>
+<td>The meeting ID or meeting UUID. If given meeting ID, will take the last meeting instance.</td>
 </tr>
 </tbody></table>
 
@@ -7256,15 +7393,15 @@
 </thead><tbody>
 <tr>
 <td>type <em>optional</em><div class="default">live</div></td>
-<td>The meeting type<div class="enum"><code class="prettyprint">past</code> past meetings<br/><code class="prettyprint">live</code> live meetings<br/></div></td>
+<td>The meeting type<div class="enum"><code class="prettyprint">past</code> past meeting<br/><code class="prettyprint">live</code> live meeting<br/></div></td>
 </tr>
 <tr>
 <td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
 <td>The amount of records returns within a single API call.</td>
 </tr>
 <tr>
-<td>page_number <em>optional</em><div class="default">1</div></td>
-<td>Current page number of returned records.</td>
+<td>next_page_token <em>optional</em></td>
+<td>Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.</td>
 </tr>
 </tbody></table>
 
@@ -7339,8 +7476,8 @@
 <td>The amount of records returns within a single API call.</td>
 </tr>
 <tr>
-<td>page_number <em>optional</em><div class="default">1</div></td>
-<td>Current page number of returned records.</td>
+<td>next_page_token <em>optional</em></td>
+<td>Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.</td>
 </tr>
 </tbody></table>
 
@@ -7390,7 +7527,7 @@
 </thead><tbody>
 <tr>
 <td>webinarId <strong>required</strong></td>
-<td>The webinar ID</td>
+<td>The webinar ID or webinar UUID. If given webinar ID, will take the last webinar instance.</td>
 </tr>
 </tbody></table>
 
@@ -7402,7 +7539,7 @@
 </thead><tbody>
 <tr>
 <td>type <em>optional</em><div class="default">live</div></td>
-<td>The webinar type<div class="enum"><code class="prettyprint">past</code> past webinars<br/><code class="prettyprint">live</code> live webinars<br/></div></td>
+<td>The webinar type<div class="enum"><code class="prettyprint">past</code> past webinar<br/><code class="prettyprint">live</code> live webinar<br/></div></td>
 </tr>
 </tbody></table>
 
@@ -7461,7 +7598,7 @@
 </thead><tbody>
 <tr>
 <td>webinarId <strong>required</strong></td>
-<td>The webinar ID</td>
+<td>The webinar ID or webinar UUID. If given webinar ID, will take the last webinar instance.</td>
 </tr>
 </tbody></table>
 
@@ -7473,15 +7610,15 @@
 </thead><tbody>
 <tr>
 <td>type <em>optional</em><div class="default">live</div></td>
-<td>The webinar type<div class="enum"><code class="prettyprint">past</code> past webinars<br/><code class="prettyprint">live</code> live webinars<br/></div></td>
+<td>The webinar type<div class="enum"><code class="prettyprint">past</code> past webinar<br/><code class="prettyprint">live</code> live webinar<br/></div></td>
 </tr>
 <tr>
 <td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
 <td>The amount of records returns within a single API call.</td>
 </tr>
 <tr>
-<td>page_number <em>optional</em><div class="default">1</div></td>
-<td>Current page number of returned records.</td>
+<td>next_page_token <em>optional</em></td>
+<td>Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.</td>
 </tr>
 </tbody></table>
 
@@ -7585,11 +7722,11 @@
 </thead><tbody>
 <tr>
 <td>webinarId <strong>required</strong></td>
-<td>The webinar ID</td>
+<td>The webinar ID or webinar UUID. If given webinar ID, will take the last webinar instance.</td>
 </tr>
 <tr>
 <td>participantId <strong>required</strong></td>
-<td>The participant ID</td>
+<td>The participant ID, such as 16778240</td>
 </tr>
 </tbody></table>
 
@@ -7601,7 +7738,7 @@
 </thead><tbody>
 <tr>
 <td>type <em>optional</em><div class="default">live</div></td>
-<td>The webinar type<div class="enum"><code class="prettyprint">past</code> past webinars<br/><code class="prettyprint">live</code> live webinars<br/></div></td>
+<td>The webinar type<div class="enum"><code class="prettyprint">past</code> past webinar<br/><code class="prettyprint">live</code> live webinar<br/></div></td>
 </tr>
 </tbody></table>
 
@@ -7624,10 +7761,10 @@
 </blockquote>
 <pre class="highlight plaintext"><code>200 OK
 </code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"page_count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"page_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"page_count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer [int64]"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"page_size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"total_records"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_records"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer [int64]"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"next_page_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"participants"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [uuid]"</span><span class="p">,</span><span class="w">
@@ -7713,7 +7850,7 @@
 </thead><tbody>
 <tr>
 <td>webinarId <strong>required</strong></td>
-<td>The webinar ID</td>
+<td>The webinar ID or webinar UUID. If given webinar ID, will take the last webinar instance.</td>
 </tr>
 </tbody></table>
 
@@ -7725,15 +7862,15 @@
 </thead><tbody>
 <tr>
 <td>type <em>optional</em><div class="default">live</div></td>
-<td>The webinar type<div class="enum"><code class="prettyprint">past</code> past webinars<br/><code class="prettyprint">live</code> live webinars<br/></div></td>
+<td>The webinar type<div class="enum"><code class="prettyprint">past</code> past webinar<br/><code class="prettyprint">live</code> live webinar<br/></div></td>
 </tr>
 <tr>
-<td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
-<td>The amount of records returns within a single API call.</td>
+<td>page_size <em>optional</em><div class="default">1</div><div class="maximum">10</div></td>
+<td>Number of items returned per page</td>
 </tr>
 <tr>
-<td>page_number <em>optional</em><div class="default">1</div></td>
-<td>Current page number of returned records.</td>
+<td>next_page_token <em>optional</em></td>
+<td>Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.</td>
 </tr>
 </tbody></table>
 
@@ -7744,12 +7881,12 @@
 <blockquote>
 <p>Definition</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>GET https://api.zoom.us/v2/metrics/webinars/<span class="o">{</span>webinarId<span class="o">}</span>/participants/<span class="o">{</span>participantId<span class="o">}</span>/sharing
+<pre class="highlight shell tab-shell"><code>GET https://api.zoom.us/v2/metrics/webinars/<span class="o">{</span>webinarId<span class="o">}</span>/participants/sharing
 </code></pre>
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/metrics/webinars/<span class="o">{</span>webinarId<span class="o">}</span>/participants/<span class="o">{</span>participantId<span class="o">}</span>/sharing
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/metrics/webinars/<span class="o">{</span>webinarId<span class="o">}</span>/participants/sharing
 </code></pre>
 <blockquote>
 <p>Example Response</p>
@@ -7784,11 +7921,7 @@
 </thead><tbody>
 <tr>
 <td>webinarId <strong>required</strong></td>
-<td>The webinar ID</td>
-</tr>
-<tr>
-<td>participantId <strong>required</strong></td>
-<td>The participant ID</td>
+<td>The webinar ID or webinar UUID. If given webinar ID, will take the last webinar instance.</td>
 </tr>
 </tbody></table>
 
@@ -7800,15 +7933,15 @@
 </thead><tbody>
 <tr>
 <td>type <em>optional</em><div class="default">live</div></td>
-<td>The webinar type<div class="enum"><code class="prettyprint">past</code> past webinars<br/><code class="prettyprint">live</code> live webinars<br/></div></td>
+<td>The webinar type<div class="enum"><code class="prettyprint">past</code> past webinar<br/><code class="prettyprint">live</code> live webinar<br/></div></td>
 </tr>
 <tr>
 <td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
 <td>The amount of records returns within a single API call.</td>
 </tr>
 <tr>
-<td>page_number <em>optional</em><div class="default">1</div></td>
-<td>Current page number of returned records.</td>
+<td>next_page_token <em>optional</em></td>
+<td>Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.</td>
 </tr>
 </tbody></table>
 
@@ -8102,8 +8235,8 @@
 <td>The amount of records returns within a single API call.</td>
 </tr>
 <tr>
-<td>page_number <em>optional</em><div class="default">1</div></td>
-<td>Current page number of returned records.</td>
+<td>next_page_token <em>optional</em></td>
+<td>Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.</td>
 </tr>
 </tbody></table>
 

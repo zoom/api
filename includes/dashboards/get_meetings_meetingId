@@ -44,7 +44,7 @@
 </thead><tbody>
 <tr>
 <td>meetingId <strong>required</strong></td>
-<td>The meeting ID</td>
+<td>The meeting ID or meeting UUID. If given meeting ID, will take the last meeting instance.</td>
 </tr>
 </tbody></table>
 
@@ -56,6 +56,6 @@
 </thead><tbody>
 <tr>
 <td>type <em>optional</em><div class="default">live</div></td>
-<td>The meeting type<div class="enum"><code class="prettyprint">past</code> past meetings<br/><code class="prettyprint">live</code> live meetings<br/></div></td>
+<td>The meeting type<div class="enum"><code class="prettyprint">past</code> past meeting<br/><code class="prettyprint">live</code> live meeting<br/></div></td>
 </tr>
 </tbody></table>

@@ -18,9 +18,9 @@
 <pre class="highlight plaintext"><code>200 OK
 </code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"page_count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"page_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"page_size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"total_records"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"next_page_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"participants"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -41,7 +41,7 @@
 </thead><tbody>
 <tr>
 <td>meetingId <strong>required</strong></td>
-<td>The meeting ID</td>
+<td>The meeting ID or meeting UUID. If given meeting ID, will take the last meeting instance.</td>
 </tr>
 </tbody></table>
 
@@ -56,7 +56,7 @@
 <td>The amount of records returns within a single API call.</td>
 </tr>
 <tr>
-<td>page_number <em>optional</em><div class="default">1</div></td>
-<td>Current page number of returned records.</td>
+<td>next_page_token <em>optional</em></td>
+<td>Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.</td>
 </tr>
 </tbody></table>

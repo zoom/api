@@ -1,4 +1,4 @@
-<h2 id="retrieve-a-a-sub-accounts-settings">Retrieve a a sub account&rsquo;s settings</h2>
+<h2 id="retrieve-a-sub-accounts-settings">Retrieve a sub account&rsquo;s settings</h2>
 
 <p>Retrieve a sub account&rsquo;s settings under the master account</p>
 
@@ -24,7 +24,7 @@
         </span><span class="s2">"join_before_host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"enforce_login"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"enforce_login_with_domains"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"enforce_login_domains"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"enforce_login_domains"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"not_store_meeting_topic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"force_pmi_jbh_password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="w">
     </span><span class="p">},</span><span class="w">
@@ -87,17 +87,25 @@
         </span><span class="s2">"auto_start_stop_scheduled_meetings"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"security"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"admin_change_name_pic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"import_photos_from_devices"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"hide_billing_info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"recording"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"local_recording"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"cloud_recording"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"auto_recording"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"record_speaker_view"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"record_gallery_view"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"record_audio_file"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"save_chat_text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"show_timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"recording_audio_transcript"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"auto_recording"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"cloud_recording_download"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"cloud_recording_download_host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"account_user_access_recording"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"auto_delete_cmr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="w">
+        </span><span class="s2">"auto_delete_cmr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"auto_delete_cmr_days"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"telephony"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"third_party_audio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">

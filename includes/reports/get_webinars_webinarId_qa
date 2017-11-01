@@ -42,6 +42,6 @@
 </thead><tbody>
 <tr>
 <td>webinarId <strong>required</strong></td>
-<td>The webinar ID</td>
+<td>The webinar ID or webinar UUID. If given webinar ID, will take the last webinar instance.</td>
 </tr>
 </tbody></table>

@@ -29,3 +29,15 @@
 <td>The webinar ID</td>
 </tr>
 </tbody></table>
+
+<table><thead>
+<tr>
+<th>Query Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>occurrence_id <em>optional</em></td>
+<td>The meeting occurrence ID</td>
+</tr>
+</tbody></table>

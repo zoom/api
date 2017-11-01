@@ -40,6 +40,6 @@
 </thead><tbody>
 <tr>
 <td>type <em>optional</em></td>
-<td>User token<div class="enum"><code class="prettyprint">token</code> used for starting meeting with client SDK<br/><code class="prettyprint">zpk</code> used for generating the start meeting url<br/></div></td>
+<td>User token type<div class="enum"><code class="prettyprint">token</code> Used for starting meeting with client SDK.<br/><code class="prettyprint">zpk</code> Used for generating the start meeting url.<br/></div></td>
 </tr>
 </tbody></table>

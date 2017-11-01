@@ -10,7 +10,7 @@
     </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"agenda"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"recurrence"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"repeat_interval"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
@@ -35,8 +35,11 @@
         </span><span class="s2">"audio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"auto_recording"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"enforce_login"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"enforce_login_domains"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"alternatice_hosts"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="w">
+        </span><span class="s2">"enforce_login_domains"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"alternatice_hosts"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"close_registration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"show_share_button"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"allow_multiple_devices"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -48,31 +51,31 @@
 </thead><tbody>
 <tr>
 <td>topic <em>string</em></td>
-<td>Meeting topic</td>
+<td>Webinar topic</td>
 </tr>
 <tr>
 <td>type <em>integer</em></td>
-<td>Meeting Type<div class="enum"><code class="prettyprint">1</code> Instant Meeting<br/><code class="prettyprint">2</code> Scheduled Meeting<br/><code class="prettyprint">3</code> Recurring Meeting with no fixed time<br/><code class="prettyprint">8</code> Recurring Meeting with fixed time<br/></div></td>
+<td>Webinar Type<div class="enum"><code class="prettyprint">5</code> Webinar<br/><code class="prettyprint">6</code> Recurring Webinar with no fixed time<br/><code class="prettyprint">9</code> Recurring Webinar with fixed time<br/></div></td>
 </tr>
 <tr>
 <td>start_time <em>string</em></td>
-<td>Meeting start time</td>
+<td>Webinar start time, in the format &ldquo;yyyy-MM-dd&rsquo;T&#39;HH:mm:ss&#39;Z&rsquo;&rdquo;, should be GMT time. In the format &ldquo;yyyy-MM-dd&rsquo;T&#39;HH:mm:ss&rdquo;, should be local time, need to specify the time zone. Only used for scheduled webinar and recurring webinar with fixed time.</td>
 </tr>
 <tr>
 <td>duration <em>integer</em></td>
-<td>Meeting duration</td>
+<td>Webinar duration (minutes). Used for scheduled webinar only.</td>
 </tr>
 <tr>
 <td>timezone <em>string</em></td>
-<td>Timezone to format start_time</td>
+<td>Timezone to format start_time, like &ldquo;America/Los_Angeles&rdquo;. For scheduled webinar only. For this parameter value please refer to the id value in <a href="#timezones">timezone</a> list.</td>
 </tr>
 <tr>
 <td>password <em>string</em></td>
-<td>Password to join the meeting</td>
+<td>Webinar password. Password may only contain the following characters: [a-z A-Z 0-9 @ - _ *]. Max of 10 characters.</td>
 </tr>
 <tr>
-<td>description <em>string</em></td>
-<td>Meeting description</td>
+<td>agenda <em>string</em></td>
+<td>Webinar description</td>
 </tr>
 <tr>
 <td>recurrence.type <em>integer</em></td>
@@ -108,23 +111,23 @@
 </tr>
 <tr>
 <td>settings.host_video <em>boolean</em></td>
-<td>Start video when host join meeting</td>
+<td>Start video when host join webinar</td>
 </tr>
 <tr>
 <td>settings.participant_video <em>boolean</em></td>
-<td>Start video when participants join meeting</td>
+<td>Start video when participants join webinar</td>
 </tr>
 <tr>
 <td>settings.cn_meeting <em>boolean</em></td>
-<td>Host meeting in China</td>
+<td>Host webinar in China</td>
 </tr>
 <tr>
 <td>settings.in_meeting <em>boolean</em></td>
-<td>Host meeting in India</td>
+<td>Host webinar in India</td>
 </tr>
 <tr>
 <td>settings.join_before_host <em>boolean</em></td>
-<td>Join meeting before host start the meeting. Only used for scheduled or recurring meetings</td>
+<td>Join webinar before host start the webinar. Only used for scheduled or recurring webinars</td>
 </tr>
 <tr>
 <td>settings.mute_upon_entry <em>boolean</em></td>
@@ -136,7 +139,7 @@
 </tr>
 <tr>
 <td>settings.use_pmi <em>boolean</em></td>
-<td>Use Personal Meeting ID. Only used for scheduled meetings and recurring meetings with no fixed time</td>
+<td>Use Personal Meeting ID. Only used for scheduled webinars and recurring webinars with no fixed time</td>
 </tr>
 <tr>
 <td>settings.approval_type <em>integer</em></td>
@@ -144,7 +147,7 @@
 </tr>
 <tr>
 <td>settings.registration_type <em>integer</em></td>
-<td>Registration type. Used for recurring meeting with fixed time only.<div class="enum"><code class="prettyprint">1</code> Attendees register once and can attend any of the occurrences<br/><code class="prettyprint">2</code> Attendees need to register for each occurrence to attend<br/><code class="prettyprint">3</code> Attendees register once and can choose one or more occurrences to attend<br/></div></td>
+<td>Registration type. Used for recurring webinar with fixed time only.<div class="enum"><code class="prettyprint">1</code> Attendees register once and can attend any of the occurrences<br/><code class="prettyprint">2</code> Attendees need to register for each occurrence to attend<br/><code class="prettyprint">3</code> Attendees register once and can choose one or more occurrences to attend<br/></div></td>
 </tr>
 <tr>
 <td>settings.audio <em>string</em></td>
@@ -159,11 +162,23 @@
 <td>Only signed-in users can join this meeting</td>
 </tr>
 <tr>
-<td>settings.enforce_login_domains <em>boolean</em></td>
+<td>settings.enforce_login_domains <em>string</em></td>
 <td>Only signed-in users with specified domains can join meetings</td>
 </tr>
 <tr>
-<td>settings.alternatice_hosts <em>boolean</em></td>
+<td>settings.alternatice_hosts <em>string</em></td>
 <td>Alternative hosts emails or IDs. Multiple value separated by comma.</td>
+</tr>
+<tr>
+<td>settings.close_registration <em>boolean</em></td>
+<td>Close registration after event date.</td>
+</tr>
+<tr>
+<td>settings.show_share_button <em>boolean</em></td>
+<td>Show social share buttons on registration page.</td>
+</tr>
+<tr>
+<td>settings.allow_multiple_devices <em>boolean</em></td>
+<td>Allow attendees to join from multiple devices.</td>
 </tr>
 </tbody></table>

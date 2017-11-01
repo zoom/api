@@ -29,3 +29,15 @@
 <td>The user ID or email address</td>
 </tr>
 </tbody></table>
+
+<table><thead>
+<tr>
+<th>Query Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>action <em>optional</em><div class="default">disassociate</div></td>
+<td>Delete action type<div class="enum"><code class="prettyprint">disassociate</code> Disassociate a user<br/><code class="prettyprint">delete</code> Permanently delete a user<br/></div></td>
+</tr>
+</tbody></table>

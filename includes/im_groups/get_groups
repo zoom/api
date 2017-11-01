@@ -34,18 +34,3 @@
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<table><thead>
-<tr>
-<th>Query Arguments</th>
-<th>&nbsp;</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
-<td>The amount of records returns within a single API call.</td>
-</tr>
-<tr>
-<td>page_number <em>optional</em><div class="default">1</div></td>
-<td>Current page number of returned records.</td>
-</tr>
-</tbody></table>

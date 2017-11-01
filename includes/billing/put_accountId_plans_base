@@ -19,7 +19,7 @@
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre class="highlight plaintext"><code>201 Created
+<pre class="highlight plaintext"><code>204 No Content
 </code></pre>
 <table><thead>
 <tr>
@@ -41,10 +41,10 @@
 </thead><tbody>
 <tr>
 <td>type <strong>required</strong></td>
-<td>Account <a href="#plans">plan type</a></td>
+<td>Account base plan type</td>
 </tr>
 <tr>
 <td>hosts <strong>required</strong></td>
-<td>Account plan number of hosts</td>
+<td>Account base plan number of hosts. For a Pro Plan, please select a value between 1 and 9. For a Business Plan, please select a value between 10 and 49. For a Education Plan, please select a value between 20 and 149. For a Free Trial Plan, please select a value between 1 and 9999.</td>
 </tr>
 </tbody></table>

@@ -1,0 +1,67 @@
+<h2 id="update-a-meeting-registrants-status">Update a meeting registrant&rsquo;s status</h2>
+
+<p>Update  a registrants status for a meeting</p>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>PUT https://api.zoom.us/v2/meetings/<span class="o">{</span>meetingId<span class="o">}</span>/registrants/status
+</code></pre>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/meetings/<span class="o">{</span>meetingId<span class="o">}</span>/registrants/status <span class="se">\</span>
+   -d <span class="s1">'{
+    "action": "string",
+    "registrant": [
+        {
+            "id": "string",
+            "email": "string"
+        }
+    ]
+}'</span>
+</code></pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>204 No Content
+</code></pre>
+<table><thead>
+<tr>
+<th>Path Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>meetingId <strong>required</strong></td>
+<td>The meeting ID</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Query Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>occurrence_id <em>optional</em></td>
+<td>The meeting occurrence ID</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Body Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>action <strong>required</strong></td>
+<td><div class="enum"><code class="prettyprint">approve</code> Approve registrant<br/><code class="prettyprint">cancel</code> Cancel registrant<br/><code class="prettyprint">deny</code> Deny registrant<br/></div></td>
+</tr>
+<tr>
+<td>registrant <em>optional</em></td>
+<td>List of registrants</td>
+</tr>
+</tbody></table>

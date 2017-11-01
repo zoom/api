@@ -18,7 +18,7 @@
     "duration": "integer",
     "timezone": "string",
     "password": "string",
-    "description": "string",
+    "agenda": "string",
     "recurrence": {
         "type": "integer",
         "repeat_interval": "integer",
@@ -43,8 +43,8 @@
         "audio": "string",
         "auto_recording": "string",
         "enforce_login": "boolean",
-        "enforce_login_domains": "boolean",
-        "alternatice_hosts": "boolean"
+        "enforce_login_domains": "string",
+        "alternatice_hosts": "string"
     }
 }'</span>
 </code></pre>
@@ -53,7 +53,9 @@
 </blockquote>
 <pre class="highlight plaintext"><code>201 Created
 </code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="s2">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"host_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <table><thead>
@@ -79,27 +81,27 @@
 <td>Meeting topic</td>
 </tr>
 <tr>
-<td>type <em>optional</em></td>
+<td>type <em>optional</em><div class="default">2</div></td>
 <td>Meeting Type<div class="enum"><code class="prettyprint">1</code> Instant Meeting<br/><code class="prettyprint">2</code> Scheduled Meeting<br/><code class="prettyprint">3</code> Recurring Meeting with no fixed time<br/><code class="prettyprint">8</code> Recurring Meeting with fixed time<br/></div></td>
 </tr>
 <tr>
 <td>start_time <em>optional</em></td>
-<td>Meeting start time</td>
+<td>Meeting start time, in the format &ldquo;yyyy-MM-dd&rsquo;T&#39;HH:mm:ss&#39;Z&rsquo;&rdquo;, should be GMT time. In the format &ldquo;yyyy-MM-dd&rsquo;T&#39;HH:mm:ss&rdquo;, should be local time, need to specify the time zone. Only used for scheduled meeting and recurring meeting with fixed time.</td>
 </tr>
 <tr>
 <td>duration <em>optional</em></td>
-<td>Meeting duration</td>
+<td>Meeting duration (minutes). Used for scheduled meeting only.</td>
 </tr>
 <tr>
 <td>timezone <em>optional</em></td>
-<td>Timezone to format start_time</td>
+<td>Timezone to format start_time, like &ldquo;America/Los_Angeles&rdquo;. For scheduled meeting only. For this parameter value please refer to the id value in <a href="#timezones">timezone</a> list.</td>
 </tr>
 <tr>
 <td>password <em>optional</em></td>
-<td>Password to join the meeting</td>
+<td>Password to join the meeting. Password may only contain the following characters: [a-z A-Z 0-9 @ - _ *]. Max of 10 characters.</td>
 </tr>
 <tr>
-<td>description <em>optional</em></td>
+<td>agenda <em>optional</em></td>
 <td>Meeting description</td>
 </tr>
 <tr>
@@ -135,11 +137,11 @@
 <td>Recurrence Meeting End Date. Should be UTC time, such as 2017-11-25T12:00:00Z.</td>
 </tr>
 <tr>
-<td>settings.host_video <em>optional</em><div class="default">1</div></td>
+<td>settings.host_video <em>optional</em></td>
 <td>Start video when host join meeting</td>
 </tr>
 <tr>
-<td>settings.participant_video <em>optional</em><div class="default">1</div></td>
+<td>settings.participant_video <em>optional</em></td>
 <td>Start video when participants join meeting</td>
 </tr>
 <tr>

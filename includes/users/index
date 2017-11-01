@@ -10,15 +10,10 @@
     </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"pmi"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"verified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"dept"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"last_login_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"last_client_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"pic_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"vanity_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cms_user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"host_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="s2">"last_client_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <table><thead>
@@ -45,46 +40,26 @@
 </tr>
 <tr>
 <td>pmi <em>string</em></td>
-<td></td>
+<td>Personal Meeting ID</td>
 </tr>
 <tr>
 <td>timezone <em>string</em></td>
-<td></td>
-</tr>
-<tr>
-<td>verified <em>boolean</em></td>
-<td></td>
+<td>Time Zone</td>
 </tr>
 <tr>
 <td>dept <em>string</em></td>
-<td></td>
+<td>Department</td>
 </tr>
 <tr>
 <td>created_at <em>string</em></td>
-<td></td>
+<td>User create time</td>
 </tr>
 <tr>
 <td>last_login_time <em>string</em></td>
-<td></td>
+<td>User last login time</td>
 </tr>
 <tr>
 <td>last_client_version <em>string</em></td>
-<td></td>
-</tr>
-<tr>
-<td>pic_url <em>string</em></td>
-<td></td>
-</tr>
-<tr>
-<td>vanity_url <em>string</em></td>
-<td></td>
-</tr>
-<tr>
-<td>cms_user_id <em>string</em></td>
-<td>CMS User Id</td>
-</tr>
-<tr>
-<td>host_key <em>string</em></td>
-<td>Host Key, should be 6-digit number</td>
+<td>User last login client version</td>
 </tr>
 </tbody></table>

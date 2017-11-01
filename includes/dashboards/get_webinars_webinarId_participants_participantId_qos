@@ -98,11 +98,11 @@
 </thead><tbody>
 <tr>
 <td>webinarId <strong>required</strong></td>
-<td>The webinar ID</td>
+<td>The webinar ID or webinar UUID. If given webinar ID, will take the last webinar instance.</td>
 </tr>
 <tr>
 <td>participantId <strong>required</strong></td>
-<td>The participant ID</td>
+<td>The participant ID, such as 16778240</td>
 </tr>
 </tbody></table>
 
@@ -114,6 +114,6 @@
 </thead><tbody>
 <tr>
 <td>type <em>optional</em><div class="default">live</div></td>
-<td>The webinar type<div class="enum"><code class="prettyprint">past</code> past webinars<br/><code class="prettyprint">live</code> live webinars<br/></div></td>
+<td>The webinar type<div class="enum"><code class="prettyprint">past</code> past webinar<br/><code class="prettyprint">live</code> live webinar<br/></div></td>
 </tr>
 </tbody></table>

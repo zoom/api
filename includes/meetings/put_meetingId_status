@@ -12,7 +12,7 @@
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/meetings/<span class="o">{</span>meetingId<span class="o">}</span>/status <span class="se">\</span>
    -d <span class="s1">'{
-    "status": "string"
+    "action": "string"
 }'</span>
 </code></pre>
 <blockquote>
@@ -39,7 +39,7 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>status <em>optional</em></td>
+<td>action <em>optional</em></td>
 <td><div class="enum"><code class="prettyprint">end</code> end a meeting<br/></div></td>
 </tr>
 </tbody></table>

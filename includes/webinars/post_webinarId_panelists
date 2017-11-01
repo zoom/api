@@ -12,8 +12,12 @@
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/webinars/<span class="o">{</span>webinarId<span class="o">}</span>/panelists <span class="se">\</span>
    -d <span class="s1">'{
-    "email": "string",
-    "name": "string"
+    "panelists": [
+        {
+            "name": "string",
+            "email": "string"
+        }
+    ]
 }'</span>
 </code></pre>
 <blockquote>
@@ -44,11 +48,7 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>email <em>optional</em></td>
-<td>Panelist&rsquo;s email</td>
-</tr>
-<tr>
-<td>name <em>optional</em></td>
-<td>Panelist&rsquo;s full name</td>
+<td>panelists <em>optional</em></td>
+<td>List of Panelist objects.</td>
 </tr>
 </tbody></table>

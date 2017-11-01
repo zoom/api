@@ -17,8 +17,6 @@
         "participants_video": "boolean",
         "audio_type": "string",
         "join_before_host": "boolean",
-        "enforce_login": "boolean",
-        "not_store_meeting_topic": "boolean",
         "force_pmi_jbh_password": "boolean",
         "pstn_password_protected": "boolean"
     },
@@ -35,6 +33,7 @@
         "polling": "boolean",
         "attendee_on_hold": "boolean",
         "annotation": "boolean",
+        "remote_control": "boolean",
         "non_verbal_feedback": "boolean",
         "breakout_room": "boolean",
         "remote_support": "boolean",
@@ -44,8 +43,7 @@
         "far_end_camera_control": "boolean",
         "share_dual_camera": "boolean",
         "attention_tracking": "boolean",
-        "waiting_room": "boolean",
-        "manage_zr": "boolean"
+        "waiting_room": "boolean"
     },
     "email_notification": {
         "jbh_reminder": "boolean",
@@ -62,7 +60,8 @@
         "show_timestamp": "boolean",
         "recording_audio_transcript": "boolean",
         "auto_recording": "string",
-        "auto_delete_cmr": "boolean"
+        "auto_delete_cmr": "boolean",
+        "auto_delete_cmr_days": "integer"
     },
     "telephony": {
         "third_party_audio": "boolean",
@@ -74,7 +73,7 @@
         "large_meeting": "boolean",
         "large_meeting_capacity": "integer",
         "webinar": "boolean",
-        "webinar_capacity": "boolean"
+        "webinar_capacity": "integer"
     }
 }'</span>
 </code></pre>
@@ -102,39 +101,31 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>scheduled_meeting.host_video <em>optional</em><div class="default">1</div></td>
+<td>scheduled_meeting.host_video <em>optional</em></td>
 <td>Host video</td>
 </tr>
 <tr>
-<td>scheduled_meeting.participants_video <em>optional</em><div class="default">1</div></td>
+<td>scheduled_meeting.participants_video <em>optional</em></td>
 <td>Participants video</td>
 </tr>
 <tr>
 <td>scheduled_meeting.audio_type <em>optional</em><div class="default">voip</div></td>
-<td>Meeting audio<div class="enum"><code class="prettyprint">both</code> Telephony and VoIP<br/><code class="prettyprint">telephony</code> Audio PSTN telephony only<br/><code class="prettyprint">voip</code> VoIP only<br/><code class="prettyprint">thirdParty</code> 3rd party audio conference<br/><code class="prettyprint">none</code> Disabled<br/></div></td>
+<td>Meeting audio<div class="enum"><code class="prettyprint">both</code> Telephony and VoIP<br/><code class="prettyprint">telephony</code> Audio PSTN telephony only<br/><code class="prettyprint">voip</code> VoIP only<br/><code class="prettyprint">thirdParty</code> 3rd party audio conference<br/></div></td>
 </tr>
 <tr>
-<td>scheduled_meeting.join_before_host <em>optional</em><div class="default">1</div></td>
+<td>scheduled_meeting.join_before_host <em>optional</em></td>
 <td>Join before host</td>
 </tr>
 <tr>
-<td>scheduled_meeting.enforce_login <em>optional</em><div class="default">1</div></td>
-<td>Only signed-in users can join meetings</td>
-</tr>
-<tr>
-<td>scheduled_meeting.not_store_meeting_topic <em>optional</em><div class="default">1</div></td>
-<td>Always display &ldquo;Zoom Meeting&rdquo; as the meeting topic</td>
-</tr>
-<tr>
-<td>scheduled_meeting.force_pmi_jbh_password <em>optional</em><div class="default">1</div></td>
+<td>scheduled_meeting.force_pmi_jbh_password <em>optional</em></td>
 <td>Require a password for Personal Meetings if attendees can join before host</td>
 </tr>
 <tr>
-<td>scheduled_meeting.pstn_password_protected <em>optional</em><div class="default">1</div></td>
+<td>scheduled_meeting.pstn_password_protected <em>optional</em></td>
 <td>Generate and require password for participants joining by phone</td>
 </tr>
 <tr>
-<td>in_meeting.e2e_encryption <em>optional</em><div class="default">1</div></td>
+<td>in_meeting.e2e_encryption <em>optional</em></td>
 <td>End-to-end encryption</td>
 </tr>
 <tr>
@@ -154,7 +145,7 @@
 <td>Play sound on join/leave<div class="enum"><code class="prettyprint">host</code> when host joins/leaves<br/><code class="prettyprint">all</code> when any participant joins/leaves<br/><code class="prettyprint">none</code> no join/leave sound<br/></div></td>
 </tr>
 <tr>
-<td>in_meeting.record_play_voice <em>optional</em><div class="default">1</div></td>
+<td>in_meeting.record_play_voice <em>optional</em></td>
 <td>Record and play their own voice</td>
 </tr>
 <tr>
@@ -180,6 +171,10 @@
 <tr>
 <td>in_meeting.annotation <em>optional</em><div class="default">false</div></td>
 <td>Annotation</td>
+</tr>
+<tr>
+<td>in_meeting.remote_control <em>optional</em><div class="default">false</div></td>
+<td>Remote control</td>
 </tr>
 <tr>
 <td>in_meeting.non_verbal_feedback <em>optional</em><div class="default">false</div></td>
@@ -222,10 +217,6 @@
 <td>Waiting room</td>
 </tr>
 <tr>
-<td>in_meeting.manage_zr <em>optional</em><div class="default">false</div></td>
-<td>Manage Zoom Rooms</td>
-</tr>
-<tr>
 <td>email_notification.jbh_reminder <em>optional</em><div class="default">false</div></td>
 <td>When attendees join meeting before host</td>
 </tr>
@@ -238,7 +229,7 @@
 <td>When an alternative host is set or removed from a meeting</td>
 </tr>
 <tr>
-<td>recording.local_recording <em>optional</em><div class="default">1</div></td>
+<td>recording.local_recording <em>optional</em></td>
 <td>Local recording</td>
 </tr>
 <tr>
@@ -266,19 +257,23 @@
 <td>Show timestamp on video</td>
 </tr>
 <tr>
-<td>recording.recording_audio_transcript <em>optional</em><div class="default">false</div></td>
-<td>Recording audio transcript</td>
+<td>recording.recording_audio_transcript <em>optional</em></td>
+<td>Audio transcript</td>
 </tr>
 <tr>
 <td>recording.auto_recording <em>optional</em><div class="default">local</div></td>
-<td>Automatic recording<div class="enum"><code class="prettyprint">Record on local</code> local<br/><code class="prettyprint">Record on cloud</code> cloud<br/><code class="prettyprint">Disabled</code> none<br/></div></td>
+<td>Automatic recording<div class="enum"><code class="prettyprint">local</code> Record on local<br/><code class="prettyprint">cloud</code> Record on cloud<br/><code class="prettyprint">none</code> Disabled<br/></div></td>
 </tr>
 <tr>
 <td>recording.auto_delete_cmr <em>optional</em><div class="default">false</div></td>
 <td>Auto delete cloud recordings</td>
 </tr>
 <tr>
-<td>telephony.third_party_audio <em>optional</em><div class="default">1</div></td>
+<td>recording.auto_delete_cmr_days <em>optional</em><div class="default">false</div></td>
+<td>A specified number of days of auto delete cloud recordings</td>
+</tr>
+<tr>
+<td>telephony.third_party_audio <em>optional</em></td>
 <td>3rd party audio conference</td>
 </tr>
 <tr>
@@ -286,27 +281,27 @@
 <td>3rd party audio conference info</td>
 </tr>
 <tr>
-<td>telephony.show_international_numbers_link <em>optional</em><div class="default">1</div></td>
+<td>telephony.show_international_numbers_link <em>optional</em></td>
 <td>Show international numbers link on the invitation email</td>
 </tr>
 <tr>
-<td>feature.meeting_capacity <em>optional</em><div class="default">100</div></td>
+<td>feature.meeting_capacity <em>optional</em></td>
 <td>User’s meeting capacity.</td>
 </tr>
 <tr>
-<td>feature.large_meeting <em>optional</em><div class="default">1</div></td>
+<td>feature.large_meeting <em>optional</em></td>
 <td>Large meting feature</td>
 </tr>
 <tr>
-<td>feature.large_meeting_capacity <em>optional</em><div class="default">100</div></td>
+<td>feature.large_meeting_capacity <em>optional</em></td>
 <td>Large meeting capacity, can be 100, 200, 300 or 500, depends on if having related large meeting capacity plan subscription or not.</td>
 </tr>
 <tr>
-<td>feature.webinar <em>optional</em><div class="default">1</div></td>
+<td>feature.webinar <em>optional</em></td>
 <td>Webinar feature</td>
 </tr>
 <tr>
-<td>feature.webinar_capacity <em>optional</em><div class="default">100</div></td>
+<td>feature.webinar_capacity <em>optional</em></td>
 <td>Webinar capacity, can be 100, 500, 1000, 3000, 5000 or 10000, depends on if having related webinar capacity plan subscription or not.</td>
 </tr>
 </tbody></table>

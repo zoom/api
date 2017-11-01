@@ -10,7 +10,10 @@
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/users/<span class="o">{</span>userId<span class="o">}</span>/status
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/users/<span class="o">{</span>userId<span class="o">}</span>/status <span class="se">\</span>
+   -d <span class="s1">'{
+    "action": "string"
+}'</span>
 </code></pre>
 <blockquote>
 <p>Example Response</p>
@@ -36,7 +39,7 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>status <em>optional</em></td>
-<td><div class="enum"><code class="prettyprint">active</code> set users status to active<br/><code class="prettyprint">deactive</code> set users status to deactive<br/></div></td>
+<td>action <strong>required</strong></td>
+<td>The action type<div class="enum"><code class="prettyprint">activate</code> set users status to active<br/><code class="prettyprint">deactivate</code> set users status to inactive<br/></div></td>
 </tr>
 </tbody></table>

@@ -1,6 +1,6 @@
 <h2 id="retrieve-telephone-report">Retrieve telephone report</h2>
 
-<p>Retrieve telephone report for a specified period</p>
+<p>Retrieve telephone report for a specified period <aside>Toll Report API is provided for enabled &lsquo;Toll Report&rsquo; option.</aside></p>
 
 <blockquote>
 <p>Definition</p>
