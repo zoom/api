@@ -677,6 +677,8 @@
                             "properties": {
                                 "members": {
                                     "type": "array",
+                                    "description": "List of Group members",
+                                    "maximum": 30,
                                     "items": {
                                         "properties": {
                                             "id": {
@@ -699,7 +701,7 @@
                         "description": "Member added.",
                         "schema": {
                             "properties": {
-                                "id": {
+                                "ids": {
                                     "type": "string"
                                 },
                                 "added_at": {
@@ -1020,6 +1022,8 @@
                             "properties": {
                                 "members": {
                                     "type": "array",
+                                    "description": "List of IM Group members",
+                                    "maximum": 10,
                                     "items": {
                                         "properties": {
                                             "id": {
@@ -1042,7 +1046,7 @@
                         "description": "Member added.",
                         "schema": {
                             "properties": {
-                                "id": {
+                                "ids": {
                                     "type": "string"
                                 },
                                 "added_at": {
@@ -1458,6 +1462,7 @@
                                 "registrant":{
                                     "type":"array",
                                     "description":"List of registrants",
+                                    "maximum": 30,
                                     "items":{
                                         "properties":{
                                             "id":{
@@ -3574,8 +3579,8 @@
                 }
             },
             "post": {
-                "summary": "Add a user's assistant",
-                "description": "Add an assistant to a user",
+                "summary": "Add a user's assistants",
+                "description": "Add assistants to a user",
                 "tags": [
                     "Users"
                 ],
@@ -3605,7 +3610,7 @@
                         },
                         "schema": {
                             "properties": {
-                                "id": {
+                                "ids": {
                                     "type": "string",
                                     "description": "User ID"
                                 },
@@ -4612,7 +4617,8 @@
                                 },
                                 "registrant":{
                                     "type":"array",
-                                    "description":"List of registrant",
+                                    "description":"List of registrants",
+                                    "maximum": 30,
                                     "items":{
                                         "properties":{
                                             "id":{
