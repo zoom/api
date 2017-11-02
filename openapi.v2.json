@@ -167,21 +167,7 @@
                 ],
                 "responses": {
                     "204": {
-                        "description": "Account deleted",
-                        "schema": {
-                            "properties": {
-                                "id": {
-                                    "type": "string",
-                                    "format": "uuid",
-                                    "description": "Account ID"
-                                },
-                                "deleted_at": {
-                                    "type": "string",
-                                    "format": "date-time",
-                                    "description": "Date/time when account was disassociated"
-                                }
-                            }
-                        }
+                        "description": "Account deleted"
                     },
                     "404": {
                         "description": "Account not found"
@@ -212,21 +198,7 @@
                 ],
                 "responses": {
                     "204": {
-                        "description": "Account options updated",
-                        "schema": {
-                            "properties": {
-                                "id": {
-                                    "type": "string",
-                                    "format": "uuid",
-                                    "description": "Account ID"
-                                },
-                                "updated_at": {
-                                    "type": "string",
-                                    "format": "date-time",
-                                    "description": "Date/time when account was updated"
-                                }
-                            }
-                        }
+                        "description": "Account options updated"
                     },
                     "404": {
                         "description": "Account not found"
@@ -705,6 +677,8 @@
                             "properties": {
                                 "members": {
                                     "type": "array",
+                                    "description": "List of Group members",
+                                    "maximum": 30,
                                     "items": {
                                         "properties": {
                                             "id": {
@@ -727,7 +701,7 @@
                         "description": "Member added.",
                         "schema": {
                             "properties": {
-                                "id": {
+                                "ids": {
                                     "type": "string"
                                 },
                                 "added_at": {
@@ -1048,6 +1022,8 @@
                             "properties": {
                                 "members": {
                                     "type": "array",
+                                    "description": "List of IM Group members",
+                                    "maximum": 10,
                                     "items": {
                                         "properties": {
                                             "id": {
@@ -1070,7 +1046,7 @@
                         "description": "Member added.",
                         "schema": {
                             "properties": {
-                                "id": {
+                                "ids": {
                                     "type": "string"
                                 },
                                 "added_at": {
@@ -1194,6 +1170,9 @@
                                             "description": "ID of the user set as host of meeting"
                                         }
                                     }
+                                },
+                                {
+                                    "$ref": "#/definitions/MeetingInfo"
                                 }
                             ]
                         }
@@ -1483,6 +1462,7 @@
                                 "registrant": {
                                     "type": "array",
                                     "description": "List of registrants",
+                                    "maximum": 30,
                                     "items": {
                                         "properties": {
                                             "id": {
@@ -3477,6 +3457,9 @@
                                         "vanity_url": {
                                             "type": "string"
                                         },
+                                        "verified": {
+                                            "type": "integer"
+                                        },
                                         "pic_url": {
                                             "type": "string"
                                         }
@@ -3583,8 +3566,8 @@
                 }
             },
             "post": {
-                "summary": "Add a user's assistant",
-                "description": "Add an assistant to a user",
+                "summary": "Add assistants",
+                "description": "Add assistants to a user",
                 "tags": [
                     "Users"
                 ],
@@ -3614,7 +3597,7 @@
                         },
                         "schema": {
                             "properties": {
-                                "id": {
+                                "ids": {
                                     "type": "string",
                                     "description": "User ID"
                                 },
@@ -4615,7 +4598,8 @@
                                 },
                                 "registrant": {
                                     "type": "array",
-                                    "description": "List of registrant",
+                                    "description": "List of registrants",
+                                    "maximum": 30,
                                     "items": {
                                         "properties": {
                                             "id": {
