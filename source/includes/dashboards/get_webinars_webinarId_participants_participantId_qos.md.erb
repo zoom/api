@@ -22,20 +22,20 @@ $ curl https://api.zoom.us/v2/metrics/webinars/{webinarId}/participants/{partici
 
 ```json
 {
-    "user_id": "string",
+    "user_id": "string [uuid]",
     "user_name": "string",
     "device": "string",
     "ip_address": "string",
     "location": "string",
-    "join_time": "string",
-    "leave_time": "string",
+    "join_time": "string [date-time]",
+    "leave_time": "string [date-time]",
     "pc_name": "string",
     "domain": "string",
     "mac_addr": "string",
     "harddisk_id": "string",
     "version": "string",
     "user_qos": {
-        "date_time": "string",
+        "date_time": "string [date-time]",
         "audio_input": {
             "bitrate": "string",
             "latency": "string",

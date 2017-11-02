@@ -5,13 +5,13 @@ List an IM Group's members under your account
 > Definition
 
 ```shell
-GET https://api.zoom.us/v2/im_groups/{groupId}/members
+GET https://api.zoom.us/v2/im/groups/{groupId}/members
 ```
 
 > Example Request
 
 ```shell
-$ curl https://api.zoom.us/v2/im_groups/{groupId}/members
+$ curl https://api.zoom.us/v2/im/groups/{groupId}/members
 ```
 
 > Example Response
@@ -44,6 +44,6 @@ groupId **required** | The group ID
 
 Query Arguments | &nbsp;
 --- | ---
-page_size *optional*<div class="default">30</div><div class="maximum">300</div> | Number of items returned per page
-page_number *optional*<div class="default">1</div> | Page number of results returned
+page_size *optional*<div class="default">30</div><div class="maximum">300</div> | The amount of records returns within a single API call. 
+page_number *optional*<div class="default">1</div> | Current page number of returned records.
 

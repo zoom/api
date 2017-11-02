@@ -23,19 +23,19 @@ $ curl https://api.zoom.us/v2/users/{userId}
 ```json
 {
     "id": "string",
-    "email": "string",
-    "type": "integer",
     "first_name": "string",
     "last_name": "string",
-    "created_at": "string",
-    "dept": "string",
-    "last_client_version": "string",
-    "last_login_time": "string",
-    "pic_url": "string",
+    "email": "string",
+    "type": "integer",
     "pmi": "string",
     "timezone": "string",
-    "vanity_url": "string",
     "verified": "boolean",
+    "dept": "string",
+    "created_at": "string [date-time]",
+    "last_login_time": "string [date-time]",
+    "last_client_version": "string",
+    "pic_url": "string",
+    "vanity_url": "string",
     "cms_user_id": "string",
     "host_key": "string"
 }
@@ -44,4 +44,8 @@ $ curl https://api.zoom.us/v2/users/{userId}
 Path Arguments | &nbsp;
 --- | ---
 userId **required** | The user ID or email address
+
+Query Arguments | &nbsp;
+--- | ---
+login_type *optional* | <div class="enum">`0` Facebook<br/>`1` Google<br/>`99` API<br/>`100` Zoom<br/>`101` SSO<br/></div>
 
