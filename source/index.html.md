@@ -145,6 +145,7 @@ includes:
   - appendix/lists/state
   - appendix/lists/country
   - appendix/lists/timezone
+  - appendix/lists/callout_countries
   - appendix/lists/tollfree_countries
   - appendix/lists/premium_countries
 
