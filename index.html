@@ -315,7 +315,72 @@
 
           <h1 id="errors">Errors</h1>
 
-<p><em>More coming soon</em></p>
+<p>The Zoom API uses HTTP Status codes to reflect a successful or error requests. 2XX status codes represent a successful request, 4XX/5XX status codes represent an error took place. If you receive an error HTTP status code, check the body for an error code and message.</p>
+
+<blockquote>
+<p>Error response example</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Request Body should be a valid JSON object."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Error response when sending invalid fields</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Validation Failed."</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user_info.email"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid field."</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user_info.type"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid field."</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Status Code</th>
+<th>Description</th>
+<th>Most Likely Cause</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>2XX</td>
+<td>Successful Request</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Bad Request</td>
+<td>Invalid/missing data</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+<td>Invalid/missing credentials</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+<td>The resource dosen&rsquo;t exists, ex. invalid/non-existent user id</td>
+</tr>
+<tr>
+<td>409</td>
+<td>Conflict</td>
+<td>Trying to overwrite a resource, ex. when creating a user with an email that already exists</td>
+</tr>
+<tr>
+<td>429</td>
+<td>Too Many Requests</td>
+<td>Hit an API rate limit</td>
+</tr>
+</tbody></table>
 
           <h1 id="rate-limits">Rate Limits</h1>
 
@@ -332,14 +397,10 @@
 <p>Includes:</p>
 
 <ul>
-<li>/v1/*/list</li>
 <li>/v1/*/billing/*</li>
 <li>/v1/*/plan/*</li>
-<li>/v1/chat/*</li>
 <li>/v1/metrics/*</li>
-<li>/v1/questions/</li>
 <li>/v1/report/*</li>
-<li>/v1/webinar/poll</li>
 </ul>
 
 <h2 id="report-apis">Report APIs</h2>
@@ -349,7 +410,6 @@
 <p>Includes:</p>
 
 <ul>
-<li>/v1/chat/list</li>
 <li>/v1/metrics/meetings</li>
 <li>/v1/metrics/webinars</li>
 <li>/v1/report/*</li>
@@ -364,16 +424,6 @@
 <ul>
 <li>/v1/metrics/meetings</li>
 <li>/v1/metrics/webinars</li>
-</ul>
-
-<h2 id="user-report-api">User Report API</h2>
-
-<p>You can run a max of one request per day (1 request/day)</p>
-
-<p>Includes:</p>
-
-<ul>
-<li>/v1/report/getuserreport</li>
 </ul>
 
           <header>Core Resources</header>
