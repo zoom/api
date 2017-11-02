@@ -91,14 +91,14 @@ includes:
   - groups/delete_groupId_members_memberId
 
   - im_groups/index
-  - im_groups/get_
-  - im_groups/post_
-  - im_groups/get_groupId
-  - im_groups/patch_groupId
-  - im_groups/delete_groupId
-  - im_groups/get_groupId_members
-  - im_groups/post_groupId_members
-  - im_groups/delete_groupId_members_userId
+  - im_groups/get_groups
+  - im_groups/post_groups
+  - im_groups/get_groups_groupId
+  - im_groups/patch_groups_groupId
+  - im_groups/delete_groups_groupId
+  - im_groups/get_groups_groupId_members
+  - im_groups/post_groups_groupId_members
+  - im_groups/delete_groups_groupId_members_userId
 
   - reports/index
   - reports/get_daily

@@ -167,7 +167,21 @@
                 ],
                 "responses": {
                     "204": {
-                        "description": "Account deleted"
+                        "description": "Account deleted",
+                        "schema": {
+                            "properties": {
+                                "id": {
+                                    "type": "string",
+                                    "format": "uuid",
+                                    "description": "Account ID"
+                                },
+                                "deleted_at": {
+                                    "type": "string",
+                                    "format": "date-time",
+                                    "description": "Date/time when account was disassociated"
+                                }
+                            }
+                        }
                     },
                     "404": {
                         "description": "Account not found"
@@ -198,7 +212,21 @@
                 ],
                 "responses": {
                     "204": {
-                        "description": "Account options updated"
+                        "description": "Account options updated",
+                        "schema": {
+                            "properties": {
+                                "id": {
+                                    "type": "string",
+                                    "format": "uuid",
+                                    "description": "Account ID"
+                                },
+                                "updated_at": {
+                                    "type": "string",
+                                    "format": "date-time",
+                                    "description": "Date/time when account was updated"
+                                }
+                            }
+                        }
                     },
                     "404": {
                         "description": "Account not found"
@@ -1163,7 +1191,7 @@
                                         },
                                         "id": {
                                             "type": "string",
-                                            "description": "Meeting ID, also know as meeting number"
+                                            "description": "Meeting ID, also known as meeting number"
                                         },
                                         "host_id": {
                                             "type": "string",
@@ -1171,9 +1199,6 @@
                                         }
                                     }
                                 },
-                                {
-                                    "$ref": "#/definitions/MeetingInfo"
-                                }
                             ]
                         }
                     },
@@ -1376,8 +1401,8 @@
                     {
                         "in": "query",
                         "name": "occurrence_ids",
-                        "type":"string",
-                        "description":"Occurrence IDs, could get this value from Meeting Get API. Multiple value separated by comma."
+                        "type": "string",
+                        "description": "Occurrence IDs, could get this value from Meeting Get API. Multiple value separated by comma."
                     },
                     {
                         "in": "body",
@@ -1408,7 +1433,7 @@
                                 },
                                 "start_time": {
                                     "type": "string",
-                                    "format":"date-time",
+                                    "format": "date-time",
                                     "description": "Start time"
                                 },
                                 "join_url": {
@@ -1511,7 +1536,7 @@
                         "$ref": "#/parameters/PageSize"
                     },
                     {
-                        "$ref": "#/parameters/PageToken"
+                        "$ref": "#/parameters/NextPageToken"
                     }
                 ],
                 "responses": {
@@ -1598,7 +1623,7 @@
                         "$ref": "#/parameters/PageSize"
                     },
                     {
-                        "$ref": "#/parameters/PageToken"
+                        "$ref": "#/parameters/NextPageToken"
                     }
                 ],
                 "responses": {
@@ -1751,7 +1776,7 @@
                         "$ref": "#/parameters/PageSize4Qos"
                     },
                     {
-                        "$ref": "#/parameters/PageToken"
+                        "$ref": "#/parameters/NextPageToken"
                     }
                 ],
                 "responses": {
@@ -1866,7 +1891,7 @@
                         "$ref": "#/parameters/PageSize"
                     },
                     {
-                        "$ref": "#/parameters/PageToken"
+                        "$ref": "#/parameters/NextPageToken"
                     }
                 ],
                 "responses": {
@@ -1953,7 +1978,7 @@
                         "$ref": "#/parameters/PageSize"
                     },
                     {
-                        "$ref": "#/parameters/PageToken"
+                        "$ref": "#/parameters/NextPageToken"
                     }
                 ],
                 "responses": {
@@ -2106,7 +2131,7 @@
                         "$ref": "#/parameters/PageSize4Qos"
                     },
                     {
-                        "$ref": "#/parameters/PageToken"
+                        "$ref": "#/parameters/NextPageToken"
                     }
                 ],
                 "responses": {
@@ -2281,7 +2306,7 @@
                                                     }
                                                 },
                                                 {
-                                                    "$ref": "#/definitions/Pagination"
+                                                    "$ref": "#/definitions/PaginationToken"
                                                 },
                                                 {
                                                     "properties": {
@@ -2395,7 +2420,7 @@
                         "$ref": "#/parameters/PageSize"
                     },
                     {
-                        "$ref": "#/parameters/PageToken"
+                        "$ref": "#/parameters/NextPageToken"
                     }
                 ],
                 "responses": {
@@ -2710,7 +2735,7 @@
                         "$ref": "#/parameters/PageSize"
                     },
                     {
-                        "$ref": "#/parameters/PageToken"
+                        "$ref": "#/parameters/NextPageToken"
                     }
                 ],
                 "responses": {
@@ -2819,7 +2844,7 @@
                         "$ref": "#/parameters/PageSize"
                     },
                     {
-                        "$ref": "#/parameters/PageToken"
+                        "$ref": "#/parameters/NextPageToken"
                     }
                 ],
                 "responses": {
@@ -2893,7 +2918,7 @@
                         "$ref": "#/parameters/PageSize"
                     },
                     {
-                        "$ref": "#/parameters/PageToken"
+                        "$ref": "#/parameters/NextPageToken"
                     }
                 ],
                 "responses": {
@@ -3433,23 +3458,7 @@
                         "$ref": "#/parameters/UserId"
                     },
                     {
-                        "in": "query",
-                        "name": "login_type",
-                        "type": "string",
-                        "enum": [
-                            0,
-                            1,
-                            99,
-                            100,
-                            101
-                        ],
-                        "x-enum-descriptions": [
-                            "Facebook",
-                            "Google",
-                            "API",
-                            "Zoom",
-                            "SSO"
-                        ]
+                        "$ref": "#/parameters/LoginType"
                     }
                 ],
                 "responses": {
@@ -3472,6 +3481,9 @@
                                     "properties": {
                                         "vanity_url": {
                                           "type": "string"
+                                        },
+                                        "verified": {
+                                          "type": "integer"
                                         },
                                         "pic_url": {
                                           "type": "string"
@@ -3681,7 +3693,7 @@
         "/users/{userId}/picture": {
             "post": {
                 "summary": "Upload a user's picture",
-                "description": "Upload  a user's profile picture",
+                "description": "Upload a user's profile picture",
                 "tags": [
                     "Users"
                 ],
@@ -3789,7 +3801,7 @@
                         "name": "body",
                         "description": "User status",
                         "in": "body",
-                        "required":true,
+                        "required": true,
                         "schema": {
                             "description": "The action",
                             "type": "object",
@@ -3799,12 +3811,12 @@
                                     "required":true,
                                     "description": "The action type",
                                     "enum": [
-                                          "activate",
-                                          "deactivate"
+                                        "activate",
+                                        "deactivate"
                                     ],
                                     "x-enum-descriptions": [
-                                        "set users status to activate",
-                                        "set users status to deactivate"
+                                        "set users status to active",
+                                        "set users status to inactive"
                                     ]
                                 }
                             }
@@ -4200,16 +4212,13 @@
                                         },
                                         "id": {
                                             "type": "string",
-                                            "description": "Webinar ID, also know as webinar number"
+                                            "description": "Webinar ID, also known as Webinar number"
                                         },
                                         "host_id": {
                                             "type": "string",
-                                            "description": "ID of the user set as host of webinar"
+                                            "description": "ID of the user set as host of Webinar"
                                         }
                                     }
-                                },
-                                {
-                                    "$ref": "#/definitions/WebinarInfo"
                                 }
                             ]
                         }
@@ -4530,10 +4539,7 @@
                         "$ref": "#/parameters/WebinarId"
                     },
                     {
-                        "in": "query",
-                        "name": "occurrence_ids",
-                        "type":"string",
-                        "description":"Occurrence IDs, could get this value from Webinar Get API. Multiple value separated by comma."
+                        "$ref": "#/parameters/OccurrenceId"
                     },
                     {
                         "in": "body",
@@ -4564,7 +4570,7 @@
                                 },
                                 "start_time": {
                                     "type": "string",
-                                    "format":"date-time",
+                                    "format": "date-time",
                                     "description": "Start time"
                                 },
                                 "join_url": {
@@ -4669,6 +4675,25 @@
             "type": "string",
             "required": true
         },
+        "LoginType": {
+            "in": "query",
+            "name": "login_type",
+            "type": "string",
+            "enum": [
+                0,
+                1,
+                99,
+                100,
+                101
+            ],
+            "x-enum-descriptions": [
+                "Facebook",
+                "Google",
+                "API",
+                "Zoom",
+                "SSO"
+            ]
+        },
         "MeetingId": {
             "in": "path",
             "name": "meetingId",
@@ -4733,6 +4758,12 @@
             "description": "The member ID",
             "type": "string",
             "required": true
+        },
+        "NextPageToken": {
+            "in": "query",
+            "name": "next_page_token",
+            "description": "Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.",
+            "type": "string"
         },
         "OccurrenceId": {
             "in": "query",
@@ -4905,10 +4936,6 @@
                 "password"
             ],
             "properties": {
-                "email": {
-                    "type": "string",
-                    "description": "User's email address."
-                },
                 "first_name": {
                     "type": "string",
                     "description": "User's first name."
@@ -4917,12 +4944,66 @@
                     "type": "string",
                     "description": "User's last name."
                 },
+                "email": {
+                    "type": "string",
+                    "description": "User's email address."
+                },
                 "password": {
                     "type": "string",
                     "description": "User's password."
                 },
                 "options": {
                     "$ref": "#/definitions/AccountOptions"
+                }
+            }
+        },
+        "AccountListItem": {
+            "type": "object",
+            "description": "Account object in account list",
+            "properties": {
+                "accounts": {
+                    "type": "array",
+                    "description": "List of Account objects.",
+                    "items": {
+                        "properties": {
+                            "id": {
+                                "type": "string",
+                                "format": "uuid",
+                                "description": "Account ID"
+                            },
+                            "account_name": {
+                                "type": "string",
+                                "description": "Account name"
+                            },
+                            "owner_email": {
+                                "type": "string",
+                                "description": "Account owner email"
+                            },
+                            "account_type": {
+                                "type": "string",
+                                "description": "Account type"
+                            },
+                            "seats": {
+                                "type": "integer",
+                                "description": "Account seats"
+                            },
+                            "subscription_start_time": {
+                                "type": "string",
+                                "format": "date-time",
+                                "description": "Account subscription start date/time"
+                            },
+                            "subscription_end_time": {
+                                "type": "string",
+                                "format": "date-time",
+                                "description": "Account subscription end date/time"
+                            },
+                            "created_at": {
+                                "type": "string",
+                                "format": "date-time",
+                                "description": "Account creation date/time"
+                            }
+                        }
+                    }
                 }
             }
         },
@@ -4935,56 +5016,7 @@
                     "$ref": "#/definitions/Pagination"
                 },
                 {
-                    "properties": {
-                        "accounts": {
-                            "type": "array",
-                            "description": "List of Account objects.",
-                            "items": {
-                                "allOf": [
-                                    {
-                                        "properties": {
-                                            "id": {
-                                                "type": "string",
-                                                "format": "uuid",
-                                                "description": "Account ID"
-                                            },
-                                            "account_name": {
-                                                "type": "string",
-                                                "description": "Account name"
-                                            },
-                                            "owner_email": {
-                                                "type": "string",
-                                                "description": "Account owner email"
-                                            },
-                                            "account_type": {
-                                                "type": "string",
-                                                "description": "Account type"
-                                            },
-                                            "seats": {
-                                                "type": "integer",
-                                                "description": "Account seats"
-                                            },
-                                            "subscription_start_time": {
-                                                "type": "string",
-                                                "format": "date-time",
-                                                "description": "Account subscription start date/time"
-                                            },
-                                            "subscription_end_time": {
-                                                "type": "string",
-                                                "format": "date-time",
-                                                "description": "Account subscription end date/time"
-                                            },
-                                            "created_at": {
-                                                "type": "string",
-                                                 "format": "date-time",
-                                                "description": "Account creation date/time"
-                                            }
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    }
+                    "$ref": "#/definitions/AccountListItem"
                 }
             ]
         },
@@ -5006,7 +5038,7 @@
                     "description": "Enable Share Meeting Connector.",
                     "default": false
                 },
-                "meeting_conntectors": {
+                "meeting_connectors": {
                     "type": "string",
                     "description": "Meeting Connector, multiple value separated by comma."
                 },
@@ -5067,7 +5099,7 @@
             "properties": {
                 "type": {
                     "type": "string",
-                    "description": "Account plan type"
+                    "description": "Account <a href=\"#plans\">plan type</a>"
                 },
                 "hosts": {
                     "type": "integer",
@@ -5427,6 +5459,10 @@
                     "type": "boolean",
                     "description": "Display meeting list with calendar integration"
                 },
+                "zr_post_meeting_feedback": {
+                    "type": "boolean",
+                    "description": "Zoom Room post meeting feedback"
+                },
                 "ultrasonic": {
                     "type": "boolean",
                     "description": "Automatic direct sharing using ultrasonic proximity signal"
@@ -5535,7 +5571,6 @@
                 },
                 "auto_delete_cmr_days": {
                     "type": "integer",
-                    "default": false,
                     "description": "A specified number of days of auto delete cloud recordings"
                 }
             }
@@ -6288,7 +6323,7 @@
                 "page_number": {
                     "type": "integer",
                     "description": "The page number of current results.",
-                    "default" : 1
+                    "default": 1
                 },
                 "page_size": {
                     "type": "integer",
@@ -6312,13 +6347,12 @@
                 },
                 "page_size": {
                     "type": "integer",
-                    "description": "The number of items per page.",
+                    "description": "The amount of records returns within a single API call. ",
                     "default": 30,
                     "maximum": 300
                 },
                 "total_records": {
                     "type": "integer",
-                    "format": "int64",
                     "description": "The number of all records available across pages."
                 },
                 "next_page_token": {
@@ -6799,7 +6833,7 @@
             "description": "List of Users",
             "allOf": [
                 {
-                    "$ref": "#/definitions/Pagination"
+                    "$ref": "#/definitions/PaginationToken"
                 },
                 {
                     "properties": {
@@ -6988,11 +7022,13 @@
             "properties": {
                 "first_name": {
                     "type": "string",
-                    "description": "User's first name."
+                    "description": "User's first name.",
+                    "maxLength": 64
                 },
                 "last_name": {
                     "type": "string",
-                    "description": "User's last name."
+                    "description": "User's last name.",
+                    "maxLength": 64
                 },
                 "email": {
                     "type": "string",
@@ -7049,6 +7085,9 @@
                 "first_name": {
                     "type": "string",
                     "description": "User's first name."
+                "created_at": {
+                    "type": "string",
+                    "format": "date-time"
                 },
                 "last_name": {
                     "type": "string",
@@ -7075,6 +7114,14 @@
                 "timezone": {
                     "type": "string",
                     "description": "The time zone id for user profile. For this parameter value please refer to the id value in [timezone](#timezones) list. "
+
+                    "format": "date-time"
+                },
+                "last_client_version": {
+                    "type": "string"
+                },
+                "pic_url": {
+                    "type": "string"
                 },
                 "dept": {
                     "type": "string",

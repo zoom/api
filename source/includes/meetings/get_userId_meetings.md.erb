@@ -33,7 +33,7 @@ $ curl https://api.zoom.us/v2/users/{userId}/meetings
             "host_id": "string",
             "topic": "string",
             "type": "integer",
-            "start_time": "string",
+            "start_time": "string [date-time]",
             "duration": "integer",
             "timezone": "string",
             "password": "string",
@@ -46,7 +46,7 @@ $ curl https://api.zoom.us/v2/users/{userId}/meetings
                 "monthly_week": "integer",
                 "monthly_week_day": "integer",
                 "end_times": "integer",
-                "end_date_time": "string"
+                "end_date_time": "string [date-time]"
             },
             "settings": {
                 "host_video": "boolean",
@@ -77,6 +77,6 @@ userId **required** | The user ID or email address
 Query Arguments | &nbsp;
 --- | ---
 type *optional* | The meeting type<div class="enum">`scheduled` all the scheduled meetings<br/>`live` all the live meetings<br/></div>
-page_size *optional*<div class="default">30</div><div class="maximum">300</div> | Number of items returned per page
-page_number *optional*<div class="default">1</div> | Page number of results returned
+page_size *optional*<div class="default">30</div><div class="maximum">300</div> | The amount of records returns within a single API call. 
+page_number *optional*<div class="default">1</div> | Current page number of returned records.
 

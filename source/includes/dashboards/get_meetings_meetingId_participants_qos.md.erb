@@ -28,20 +28,20 @@ $ curl https://api.zoom.us/v2/metrics/meetings/{meetingId}/participants/qos
     "total_records": "integer",
     "participants": [
         {
-            "user_id": "string",
+            "user_id": "string [uuid]",
             "user_name": "string",
             "device": "string",
             "ip_address": "string",
             "location": "string",
-            "join_time": "string",
-            "leave_time": "string",
+            "join_time": "string [date-time]",
+            "leave_time": "string [date-time]",
             "pc_name": "string",
             "domain": "string",
             "mac_addr": "string",
             "harddisk_id": "string",
             "version": "string",
             "user_qos": {
-                "date_time": "string",
+                "date_time": "string [date-time]",
                 "audio_input": {
                     "bitrate": "string",
                     "latency": "string",
@@ -111,6 +111,6 @@ meetingId **required** | The meeting ID
 Query Arguments | &nbsp;
 --- | ---
 type *optional*<div class="default">live</div> | The meeting type<div class="enum">`past` past meetings<br/>`live` live meetings<br/></div>
-page_size *optional*<div class="default">30</div><div class="maximum">300</div> | Number of items returned per page
-page_number *optional*<div class="default">1</div> | Page number of results returned
+page_size *optional*<div class="default">30</div><div class="maximum">300</div> | The amount of records returns within a single API call. 
+page_number *optional*<div class="default">1</div> | Current page number of returned records.
 

@@ -5,13 +5,13 @@ Add a member to an IM Group under your account
 > Definition
 
 ```shell
-POST https://api.zoom.us/v2/im_groups/{groupId}/members
+POST https://api.zoom.us/v2/im/groups/{groupId}/members
 ```
 
 > Example Request
 
 ```shell
-$ curl https://api.zoom.us/v2/im_groups/{groupId}/members \
+$ curl https://api.zoom.us/v2/im/groups/{groupId}/members \
    -d '{
     "id": "string",
     "email": "string"
