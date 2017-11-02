@@ -3469,6 +3469,9 @@
                                         "vanity_url": {
                                           "type": "string"
                                         },
+                                        "verified": {
+                                          "type": "integer"
+                                        },
                                         "pic_url": {
                                           "type": "string"
                                         }
