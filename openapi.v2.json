@@ -167,21 +167,7 @@
                 ],
                 "responses": {
                     "204": {
-                        "description": "Account deleted",
-                        "schema": {
-                            "properties": {
-                                "id": {
-                                    "type": "string",
-                                    "format": "uuid",
-                                    "description": "Account ID"
-                                },
-                                "deleted_at": {
-                                    "type": "string",
-                                    "format": "date-time",
-                                    "description": "Date/time when account was disassociated"
-                                }
-                            }
-                        }
+                        "description": "Account deleted"
                     },
                     "404": {
                         "description": "Account not found"
@@ -212,21 +198,7 @@
                 ],
                 "responses": {
                     "204": {
-                        "description": "Account options updated",
-                        "schema": {
-                            "properties": {
-                                "id": {
-                                    "type": "string",
-                                    "format": "uuid",
-                                    "description": "Account ID"
-                                },
-                                "updated_at": {
-                                    "type": "string",
-                                    "format": "date-time",
-                                    "description": "Date/time when account was updated"
-                                }
-                            }
-                        }
+                        "description": "Account options updated"
                     },
                     "404": {
                         "description": "Account not found"
@@ -1199,6 +1171,9 @@
                                         }
                                     }
                                 },
+                                {
+                                    "$ref": "#/definitions/MeetingInfo"
+                                }
                             ]
                         }
                     },
@@ -7085,9 +7060,6 @@
                 "first_name": {
                     "type": "string",
                     "description": "User's first name."
-                "created_at": {
-                    "type": "string",
-                    "format": "date-time"
                 },
                 "last_name": {
                     "type": "string",
@@ -7114,14 +7086,6 @@
                 "timezone": {
                     "type": "string",
                     "description": "The time zone id for user profile. For this parameter value please refer to the id value in [timezone](#timezones) list. "
-
-                    "format": "date-time"
-                },
-                "last_client_version": {
-                    "type": "string"
-                },
-                "pic_url": {
-                    "type": "string"
                 },
                 "dept": {
                     "type": "string",
