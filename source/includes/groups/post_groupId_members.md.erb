@@ -30,7 +30,7 @@ $ curl https://api.zoom.us/v2/groups/{groupId}/members \
 
 ```json
 {
-    "id": "string",
+    "ids": "string",
     "added_at": "string [date-time]"
 }
 ```
@@ -41,5 +41,5 @@ groupId **required** | The group ID
 
 Body Arguments | &nbsp;
 --- | ---
-members *optional* | 
+members *optional*<div class="maximum">30</div> | List of Group members
 

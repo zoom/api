@@ -1,6 +1,6 @@
-## Add a user's assistant
+## Add assistants
 
-Add an assistant to a user
+Add assistants to a user
 
 > Definition
 
@@ -30,7 +30,7 @@ $ curl https://api.zoom.us/v2/users/{userId}/assistants \
 
 ```json
 {
-    "id": "string",
+    "ids": "string",
     "add_at": "string [date-time]"
 }
 ```
@@ -41,5 +41,5 @@ userId **required** | The user ID or email address
 
 Body Arguments | &nbsp;
 --- | ---
-assistants *optional* | List of User's assistants.
+assistants *optional*<div class="maximum">30</div> | List of User's assistants.
 

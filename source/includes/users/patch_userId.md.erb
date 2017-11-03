@@ -14,13 +14,10 @@ PATCH https://api.zoom.us/v2/users/{userId}
 $ curl https://api.zoom.us/v2/users/{userId} \
    -d '{
     "first_name": "string",
-    "created_at": "string [date-time]",
     "last_name": "string",
     "type": "integer",
     "pmi": "string",
     "timezone": "string [date-time]",
-    "last_client_version": "string",
-    "pic_url": "string",
     "dept": "string",
     "vanity_name": "string",
     "host_key": "string",
@@ -41,13 +38,10 @@ userId **required** | The user ID or email address
 Body Arguments | &nbsp;
 --- | ---
 first_name *optional* | User's first name.
-created_at *optional* | 
 last_name *optional* | User's last name.
 type *optional* | User's type<div class="enum">`1` basic<br/>`2` pro<br/>`3` corp<br/></div>
 pmi *optional* | Personal Meeting ID,length must be 10.
 timezone *optional* | The time zone id for user profile. For this parameter value please refer to the id value in [timezone](#timezones) list.
-last_client_version *optional* | 
-pic_url *optional* | 
 dept *optional* | Department for user profile, use for report.
 vanity_name *optional* | Personal meeting room name.
 host_key *optional* | Host Key, should be 6-digit number.

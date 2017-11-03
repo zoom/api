@@ -7038,10 +7038,6 @@
                     "type": "string",
                     "description": "User's first name."
                 },
-                "created_at": {
-                    "type": "string",
-                    "format": "date-time"
-                },
                 "last_name": {
                     "type": "string",
                     "description": "User's last name."
@@ -7068,12 +7064,6 @@
                     "type": "string",
                     "description": "The time zone id for user profile. For this parameter value please refer to the id value in [timezone](#timezones) list.",
                     "format": "date-time"
-                },
-                "last_client_version": {
-                    "type": "string"
-                },
-                "pic_url": {
-                    "type": "string"
                 },
                 "dept": {
                     "type": "string",
@@ -7130,32 +7120,25 @@
             "type": "object",
             "title": "User assistants List",
             "description": "List of User's assistants",
-            "allOf": [
-                {
-                    "properties": {
-                        "assistants": {
-                            "type": "array",
-                            "description": "List of User's assistants.",
-                            "items": {
-                                "allOf": [
-                                    {
-                                        "properties": {
-                                            "id": {
-                                                "type": "string",
-                                                "description": "User ID"
-                                            },
-                                            "email": {
-                                                "type": "string",
-                                                "description": "User email address. Must have id or email, if given id, the email is ignored."
-                                            }
-                                        }
-                                    }
-                                ]
+            "properties": {
+                "assistants": {
+                    "type": "array",
+                    "description": "List of User's assistants.",
+                    "maximum": 30,
+                    "items": {
+                        "properties": {
+                            "id": {
+                                "type": "string",
+                                "description": "User ID"
+                            },
+                            "email": {
+                                "type": "string",
+                                "description": "User email address. Must have id or email, if given id, the email is ignored."
                             }
                         }
                     }
                 }
-            ]
+            }
         },
         "UserSettings": {
             "title": "User settings",
