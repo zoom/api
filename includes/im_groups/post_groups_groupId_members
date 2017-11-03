@@ -25,7 +25,7 @@
 </blockquote>
 <pre class="highlight plaintext"><code>201 Created
 </code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ids"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"added_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -48,7 +48,7 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>members <em>optional</em></td>
-<td></td>
+<td>members <em>optional</em><div class="maximum">10</div></td>
+<td>List of IM Group members</td>
 </tr>
 </tbody></table>

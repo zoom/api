@@ -13,13 +13,10 @@
 <pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/users/<span class="o">{</span>userId<span class="o">}</span> <span class="se">\</span>
    -d <span class="s1">'{
     "first_name": "string",
-    "created_at": "string [date-time]",
     "last_name": "string",
     "type": "integer",
     "pmi": "string",
     "timezone": "string [date-time]",
-    "last_client_version": "string",
-    "pic_url": "string",
     "dept": "string",
     "vanity_name": "string",
     "host_key": "string",
@@ -54,10 +51,6 @@
 <td>User&rsquo;s first name.</td>
 </tr>
 <tr>
-<td>created_at <em>optional</em></td>
-<td></td>
-</tr>
-<tr>
 <td>last_name <em>optional</em></td>
 <td>User&rsquo;s last name.</td>
 </tr>
@@ -72,14 +65,6 @@
 <tr>
 <td>timezone <em>optional</em></td>
 <td>The time zone id for user profile. For this parameter value please refer to the id value in <a href="#timezones">timezone</a> list.</td>
-</tr>
-<tr>
-<td>last_client_version <em>optional</em></td>
-<td></td>
-</tr>
-<tr>
-<td>pic_url <em>optional</em></td>
-<td></td>
 </tr>
 <tr>
 <td>dept <em>optional</em></td>

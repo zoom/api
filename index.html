@@ -2194,6 +2194,7 @@
     </span><span class="s2">"last_login_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"last_client_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"vanity_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"verified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"pic_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -2236,13 +2237,10 @@
 <pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/users/<span class="o">{</span>userId<span class="o">}</span> <span class="se">\</span>
    -d <span class="s1">'{
     "first_name": "string",
-    "created_at": "string [date-time]",
     "last_name": "string",
     "type": "integer",
     "pmi": "string",
     "timezone": "string [date-time]",
-    "last_client_version": "string",
-    "pic_url": "string",
     "dept": "string",
     "vanity_name": "string",
     "host_key": "string",
@@ -2277,10 +2275,6 @@
 <td>User&rsquo;s first name.</td>
 </tr>
 <tr>
-<td>created_at <em>optional</em></td>
-<td></td>
-</tr>
-<tr>
 <td>last_name <em>optional</em></td>
 <td>User&rsquo;s last name.</td>
 </tr>
@@ -2295,14 +2289,6 @@
 <tr>
 <td>timezone <em>optional</em></td>
 <td>The time zone id for user profile. For this parameter value please refer to the id value in <a href="#timezones">timezone</a> list.</td>
-</tr>
-<tr>
-<td>last_client_version <em>optional</em></td>
-<td></td>
-</tr>
-<tr>
-<td>pic_url <em>optional</em></td>
-<td></td>
 </tr>
 <tr>
 <td>dept <em>optional</em></td>
@@ -2405,9 +2391,9 @@
 </tr>
 </tbody></table>
 
-          <h2 id="add-a-users-assistant">Add a user&rsquo;s assistant</h2>
+          <h2 id="add-assistants">Add assistants</h2>
 
-<p>Add an assistant to a user</p>
+<p>Add assistants to a user</p>
 
 <blockquote>
 <p>Definition</p>
@@ -2432,7 +2418,7 @@
 </blockquote>
 <pre class="highlight plaintext"><code>201 Created
 </code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ids"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"add_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -2455,7 +2441,7 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>assistants <em>optional</em></td>
+<td>assistants <em>optional</em><div class="maximum">30</div></td>
 <td>List of User&rsquo;s assistants.</td>
 </tr>
 </tbody></table>
@@ -3511,7 +3497,41 @@
 </code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"host_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="s2">"host_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"topic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"create_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"agenda"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"start_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"join_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"occurrences"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"occurrence_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"long"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"host_video"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"participant_video"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"cn_meeting"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"in_meeting"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"join_before_host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"mute_upon_entry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"watermark"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"use_pmi"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"approval_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"registration_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"audio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"auto_recording"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"enforce_login"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"enforce_login_domains"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"alternatice_hosts"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <table><thead>
@@ -4312,7 +4332,7 @@
 <td><div class="enum"><code class="prettyprint">approve</code> Approve registrant<br/><code class="prettyprint">cancel</code> Cancel registrant<br/><code class="prettyprint">deny</code> Deny registrant<br/></div></td>
 </tr>
 <tr>
-<td>registrant <em>optional</em></td>
+<td>registrant <em>optional</em><div class="maximum">30</div></td>
 <td>List of registrants</td>
 </tr>
 </tbody></table>
@@ -5624,8 +5644,8 @@
 <td><div class="enum"><code class="prettyprint">approve</code> Approve registrant<br/><code class="prettyprint">cancel</code> Cancel registrant<br/><code class="prettyprint">deny</code> Deny registrant<br/></div></td>
 </tr>
 <tr>
-<td>registrant <em>optional</em></td>
-<td>List of registrant</td>
+<td>registrant <em>optional</em><div class="maximum">30</div></td>
+<td>List of registrants</td>
 </tr>
 </tbody></table>
 
@@ -5926,7 +5946,7 @@
 </blockquote>
 <pre class="highlight plaintext"><code>201 Created
 </code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ids"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"added_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -5949,8 +5969,8 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>members <em>optional</em></td>
-<td></td>
+<td>members <em>optional</em><div class="maximum">30</div></td>
+<td>List of Group members</td>
 </tr>
 </tbody></table>
 
@@ -6361,7 +6381,7 @@
 </blockquote>
 <pre class="highlight plaintext"><code>201 Created
 </code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ids"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"added_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -6384,8 +6404,8 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>members <em>optional</em></td>
-<td></td>
+<td>members <em>optional</em><div class="maximum">10</div></td>
+<td>List of IM Group members</td>
 </tr>
 </tbody></table>
 
