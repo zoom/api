@@ -1444,38 +1444,7 @@
                         "name": "body",
                         "required": true,
                         "schema": {
-                            "properties": {
-                                "action": {
-                                    "type": "string",
-                                    "required": true,
-                                    "enum": [
-                                        "approve",
-                                        "cancel",
-                                        "deny"
-                                    ],
-                                    "x-enum-descriptions": [
-                                        "Approve registrant",
-                                        "Cancel registrant",
-                                        "Deny registrant"
-                                    ]
-                                },
-                                "registrant": {
-                                    "type": "array",
-                                    "description": "List of registrants",
-                                    "maximum": 30,
-                                    "items": {
-                                        "properties": {
-                                            "id": {
-                                                "type": "string"
-                                            },
-                                            "email": {
-                                                "name": "email",
-                                                "type": "string"
-                                            }
-                                        }
-                                    }
-                                }
-                            }
+                            "$ref": "#/definitions/RegistrantStatus"
                         }
                     }
                 ],
@@ -3780,10 +3749,12 @@
                         "schema": {
                             "description": "The action",
                             "type": "object",
+                            "required": [
+                              "action"
+                            ],
                             "properties": {
                                 "action": {
                                     "type": "string",
-                                    "required": true,
                                     "description": "The action type",
                                     "enum": [
                                         "activate",
@@ -3827,10 +3798,12 @@
                         "in": "body",
                         "schema": {
                             "type": "object",
+                            "required": [
+                              "password"
+                            ],
                             "properties": {
                                 "password": {
                                     "type": "string",
-                                    "required": true,
                                     "description": "User’s password. Character length is less than 32."
                                 }
                             }
@@ -4581,10 +4554,12 @@
                         "name": "body",
                         "required": true,
                         "schema": {
+                            "required": [
+                              "action"
+                            ],
                             "properties": {
                                 "action": {
                                     "type": "string",
-                                    "required": true,
                                     "enum": [
                                         "approve",
                                         "cancel",
@@ -4606,7 +4581,6 @@
                                                 "type": "string"
                                             },
                                             "email": {
-                                                "name": "email",
                                                 "type": "string"
                                             }
                                         }
@@ -5716,37 +5690,32 @@
         },
         "GroupList": {
             "type": "object",
-            "title": "Group List",
             "description": "List of Groups",
-            "allOf": [
-                {
-                    "properties": {
-                        "total_records": {
-                            "type": "integer",
-                            "description": "Total records"
-                        },
-                        "groups": {
-                            "type": "array",
-                            "description": "List of Group objects.",
-                            "items": {
-                                "allOf": [
-                                    {
-                                        "properties": {
-                                            "id": {
-                                                "type": "string",
-                                                "description": "Group ID"
-                                            }
-                                        }
-                                    },
-                                    {
-                                        "$ref": "#/definitions/Group"
+            "properties": {
+                "total_records": {
+                    "type": "integer",
+                    "description": "Total records"
+                },
+                "groups": {
+                    "type": "array",
+                    "description": "List of Group objects.",
+                    "items": {
+                        "allOf": [
+                            {
+                                "properties": {
+                                    "id": {
+                                        "type": "string",
+                                        "description": "Group ID"
                                     }
-                                ]
+                                }
+                            },
+                            {
+                                "$ref": "#/definitions/Group"
                             }
-                        }
+                        ]
                     }
                 }
-            ]
+            }
         },
         "GroupMember": {
             "type": "object",
@@ -5880,71 +5849,65 @@
         "MeetingInfo": {
             "type": "object",
             "description": "Meeting object",
-            "allOf": [
-                {
-                    "type": "object",
-                    "description": "Base object for sessions",
-                    "properties": {
-                        "topic": {
-                            "type": "string",
-                            "description": "Meeting topic"
-                        },
-                        "type": {
-                            "type": "integer",
-                            "description": "Meeting Type",
-                            "default": 2,
-                            "enum": [
-                                1,
-                                2,
-                                3,
-                                8
-                            ],
-                            "x-enum-descriptions": [
-                                "Instant Meeting",
-                                "Scheduled Meeting",
-                                "Recurring Meeting with no fixed time",
-                                "Recurring Meeting with fixed time"
-                            ]
-                        },
-                        "start_time": {
-                            "type": "string",
-                            "format": "date-time",
-                            "description": "Meeting start time"
-                        },
-                        "duration": {
-                            "type": "integer",
-                            "description": "Meeting duration"
-                        },
-                        "timezone": {
-                            "type": "string",
-                            "description": "Timezone to format start_time"
-                        },
-                        "create_at": {
-                            "type": "string",
-                            "format": "date-time",
-                            "description": "Create time"
-                        },
-                        "agenda": {
-                            "type": "string",
-                            "description": "Agenda"
-                        },
-                        "start_url": {
-                            "type": "string",
-                            "description": "Start url"
-                        },
-                        "join_url": {
-                            "type": "string",
-                            "description": "Join url"
-                        },
-                        "occurrences": {
-                            "$ref": "#/definitions/Occurrences"
-                        },
-                        "settings": {
-                            "$ref": "#/definitions/MeetingSettings"
-                        }
-                    }
+            "properties": {
+                "topic": {
+                    "type": "string",
+                    "description": "Meeting topic"
+                },
+                "type": {
+                    "type": "integer",
+                    "description": "Meeting Type",
+                    "default": 2,
+                    "enum": [
+                        1,
+                        2,
+                        3,
+                        8
+                    ],
+                    "x-enum-descriptions": [
+                        "Instant Meeting",
+                        "Scheduled Meeting",
+                        "Recurring Meeting with no fixed time",
+                        "Recurring Meeting with fixed time"
+                    ]
+                },
+                "start_time": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Meeting start time"
+                },
+                "duration": {
+                    "type": "integer",
+                    "description": "Meeting duration"
+                },
+                "timezone": {
+                    "type": "string",
+                    "description": "Timezone to format start_time"
+                },
+                "create_at": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Create time"
+                },
+                "agenda": {
+                    "type": "string",
+                    "description": "Agenda"
+                },
+                "start_url": {
+                    "type": "string",
+                    "description": "Start url"
+                },
+                "join_url": {
+                    "type": "string",
+                    "description": "Join url"
+                },
+                "occurrences": {
+                    "$ref": "#/definitions/Occurrences"
+                },
+                "settings": {
+                    "$ref": "#/definitions/MeetingSettings"
                 }
-            ]
+            }
         },
         "MeetingList": {
             "type": "object",
@@ -6238,34 +6201,35 @@
                 }
             ]
         },
-        "Occurrences": {
+        "Occurrence": {
             "type": "object",
-            "description": "Occurrences object",
-            "allOf": [
-                {
-                    "type": "array",
-                    "description": "Base object for occurrences",
-                    "items": {
-                        "occurrence_id": {
-                            "type": "long",
-                            "description": "Occurrence Id"
-                        },
-                        "start_time": {
-                            "type": "string",
-                            "format": "date-time",
-                            "description": "Start time"
-                        },
-                        "duration": {
-                            "type": "integer",
-                            "description": "Duration"
-                        },
-                        "status": {
-                            "type": "string",
-                            "description": "Occurrence status"
-                        }
-                    }
+            "description": "Occurence object",
+            "properties": {
+                "occurrence_id": {
+                    "type": "integer",
+                    "description": "Occurrence Id"
+                },
+                "start_time": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Start time"
+                },
+                "duration": {
+                    "type": "integer",
+                    "description": "Duration"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Occurrence status"
                 }
-            ]
+            }
+        },
+        "Occurrences": {
+            "type": "array",
+            "description": "Array of occurrence objects",
+            "items": {
+                "$ref": "#/definitions/Occurrence"
+            }
         },
         "Pagination": {
             "type": "object",
@@ -6360,43 +6324,39 @@
             "type": "object",
             "title": "Panelist List",
             "description": "List of Panelist",
-            "allOf": [
-                {
-                    "properties": {
-                        "total_records": {
-                            "type": "integer",
-                            "description": "Total records."
-                        },
-                        "panelists": {
-                            "type": "array",
-                            "description": "List of Panelist objects.",
-                            "items": {
-                                "allOf": [
-                                    {
-                                        "properties": {
-                                            "id": {
-                                                "type": "string",
-                                                "description": "Panelist's ID"
-                                            }
-                                        }
-                                    },
-                                    {
-                                        "$ref": "#/definitions/Panelist"
-                                    },
-                                    {
-                                        "properties": {
-                                            "join_url": {
-                                                "type": "string",
-                                                "description": "Join url"
-                                            }
-                                        }
+            "properties": {
+                "total_records": {
+                    "type": "integer",
+                    "description": "Total records."
+                },
+                "panelists": {
+                    "type": "array",
+                    "description": "List of Panelist objects.",
+                    "items": {
+                        "allOf": [
+                            {
+                                "properties": {
+                                    "id": {
+                                        "type": "string",
+                                        "description": "Panelist's ID"
                                     }
-                                ]
+                                }
+                            },
+                            {
+                                "$ref": "#/definitions/Panelist"
+                            },
+                            {
+                                "properties": {
+                                    "join_url": {
+                                        "type": "string",
+                                        "description": "Join url"
+                                    }
+                                }
                             }
-                        }
+                        ]
                     }
                 }
-            ]
+            }
         },
         "QOSAudio": {
             "type": "object",
@@ -6823,6 +6783,43 @@
                     }
                 }
             ]
+        },
+        "RegistrantStatus": {
+            "type": "object",
+            "description": "Registrant Status",
+            "required": [
+                "action"
+            ],
+            "properties": {
+                "action": {
+                    "type": "string",
+                    "enum": [
+                        "approve",
+                        "cancel",
+                        "deny"
+                    ],
+                    "x-enum-descriptions": [
+                        "Approve registrant",
+                        "Cancel registrant",
+                        "Deny registrant"
+                    ]
+                },
+                "registrant": {
+                    "type": "array",
+                    "description": "List of registrants",
+                    "maximum": 30,
+                    "items": {
+                        "properties": {
+                            "id": {
+                                "type": "string"
+                            },
+                            "email": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
         },
         "Session": {
             "type": "object",
@@ -7489,69 +7486,63 @@
         "WebinarInfo": {
             "type": "object",
             "description": "Webinar object",
-            "allOf": [
-                {
-                    "type": "object",
-                    "description": "Base Webinar object for sessions",
-                    "properties": {
-                        "topic": {
-                            "type": "string",
-                            "description": "Webinar topic"
-                        },
-                        "type": {
-                            "type": "integer",
-                            "description": "Webinar Type",
-                            "default": 5,
-                            "enum": [
-                                5,
-                                6,
-                                9
-                            ],
-                            "x-enum-descriptions": [
-                                "Webinar",
-                                "Recurring Webinar with no fixed time",
-                                "Recurring Webinar with fixed time"
-                            ]
-                        },
-                        "start_time": {
-                            "type": "string",
-                            "format": "date-time",
-                            "description": "Webinar start time"
-                        },
-                        "duration": {
-                            "type": "integer",
-                            "description": "Webinar duration"
-                        },
-                        "timezone": {
-                            "type": "string",
-                            "description": "Timezone to format start_time"
-                        },
-                        "agenda": {
-                            "type": "string",
-                            "description": "Webinar agenda"
-                        },
-                        "create_at": {
-                            "type": "string",
-                            "format": "date-time",
-                            "description": "Create time"
-                        },
-                        "start_url": {
-                            "type": "string",
-                            "description": "Start url"
-                        },
-                        "join_url": {
-                            "type": "string",
-                            "description": "Join url"
-                        },
-                        "occurrences": {
-                            "$ref": "#/definitions/Occurrences"
-                        },
-                        "settings": {
-                            "$ref": "#/definitions/WebinarSettings"
-                        }
-                    }
+            "properties": {
+                "topic": {
+                    "type": "string",
+                    "description": "Webinar topic"
+                },
+                "type": {
+                    "type": "integer",
+                    "description": "Webinar Type",
+                    "default": 5,
+                    "enum": [
+                        5,
+                        6,
+                        9
+                    ],
+                    "x-enum-descriptions": [
+                        "Webinar",
+                        "Recurring Webinar with no fixed time",
+                        "Recurring Webinar with fixed time"
+                    ]
+                },
+                "start_time": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Webinar start time"
+                },
+                "duration": {
+                    "type": "integer",
+                    "description": "Webinar duration"
+                },
+                "timezone": {
+                    "type": "string",
+                    "description": "Timezone to format start_time"
+                },
+                "agenda": {
+                    "type": "string",
+                    "description": "Webinar agenda"
+                },
+                "create_at": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Create time"
+                },
+                "start_url": {
+                    "type": "string",
+                    "description": "Start url"
+                },
+                "join_url": {
+                    "type": "string",
+                    "description": "Join url"
+                },
+                "occurrences": {
+                    "$ref": "#/definitions/Occurrences"
+                },
+                "settings": {
+                    "$ref": "#/definitions/WebinarSettings"
                 }
-            ]
+            }
         },
         "WebinarList": {
             "type": "object",
@@ -7708,23 +7699,19 @@
         "WebinarPanelist": {
             "type": "object",
             "description": "Webinar panelist",
-            "allOf": [
-                {
-                    "properties": {
-                        "panelists": {
-                            "type": "array",
-                            "description": "List of Panelist objects.",
-                            "items": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/definitions/Panelist"
-                                    }
-                                ]
+            "properties": {
+                "panelists": {
+                    "type": "array",
+                    "description": "List of Panelist objects.",
+                    "items": {
+                        "allOf": [
+                            {
+                                "$ref": "#/definitions/Panelist"
                             }
-                        }
+                        ]
                     }
                 }
-            ]
+            }
         },
         "WebinarPanelistList": {
             "type": "object",
