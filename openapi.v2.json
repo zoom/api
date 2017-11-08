@@ -1489,6 +1489,124 @@
                 }
             }
         },
+        "/users/{userId}/recordings": {
+            "get": {
+                "summary": "List all the recordings",
+                "description": "List all the recordings",
+                "tags": [
+                    "Cloud Recording"
+                ],
+                "operationId": "recordings",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/UserId"
+                    },
+                    {
+                        "$ref": "#/parameters/FromDate"
+                    },
+                    {
+                        "$ref": "#/parameters/ToDate"
+                    },
+                    {
+                        "$ref": "#/parameters/PageSize"
+                    },
+                    {
+                        "$ref": "#/parameters/PageNumber"
+                    },
+                    {
+                        "$ref": "#/parameters/Mc"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of Recording objects returned",
+                        "schema": {
+                            "$ref": "#/definitions/RecordingList"
+                        }
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                }
+            }
+        },
+        "/meetings/{meetingId}/recordings": {
+            "get": {
+                "summary": "Retrieve a meeting’s recordings",
+                "description": "Retrieve a meeting’s recordings",
+                "tags": [
+                    "Cloud Recording"
+                ],
+                "operationId": "recordings",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/MeetingIdNumber"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Recording object returned",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/Recording"
+                                }
+                            ]
+                        }
+                    },
+                    "404": {
+                        "description": "Meeting recording not found"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete a meeting's recordings",
+                "description": "Delete a meeting's recordings",
+                "tags": [
+                    "Cloud Recording"
+                ],
+                "operationId": "recordings",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/MeetingIdNumber"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Meeting recording deleted"
+                    },
+                    "404": {
+                        "description": "Meeting recording not found"
+                    }
+                }
+            }
+        },
+        "/meetings/{meetingId}/recordings/{recordingId}": {
+            "delete": {
+                "summary": "Delete one meeting recording file",
+                "description": "Delete one meeting recording file",
+                "tags": [
+                    "Cloud Recording"
+                ],
+                "operationId": "recordings",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/MeetingIdNumber"
+                    },
+                    {
+                        "$ref": "#/parameters/RecordingId"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Meeting recording file deleted"
+                    },
+                    "404": {
+                        "description": "Meeting recording file not found"
+                    }
+                }
+            }
+        },
         "/metrics/meetings": {
             "get": {
                 "summary": "List meetings",
@@ -4669,11 +4787,32 @@
                 "SSO"
             ]
         },
+        "Mc": {
+            "in": "query",
+            "name": "mc",
+            "description": "Query mc ",
+            "type": "string",
+            "default":"false"
+        },
         "MeetingId": {
             "in": "path",
             "name": "meetingId",
             "description": "The meeting ID",
             "type": "integer",
+            "required": true
+        },
+        "MeetingIdNumber": {
+            "in": "path",
+            "name": "meetingId",
+            "description": "The meeting ID or uuid",
+            "type": "string",
+            "required": true
+        },
+        "RecordingId": {
+            "in": "path",
+            "name": "recordingId",
+            "description": "The recording ID",
+            "type": "string",
             "required": true
         },
         "MeetingId4Metrics": {
@@ -5700,6 +5839,22 @@
                 }
             }
         },
+        "DateTime": {
+            "type": "object",
+            "description": "DateTime Object",
+            "properties": {
+                "from": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "Start Date,"
+                },
+                "to": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "End Date"
+                }
+            }
+        },
         "Group": {
             "type": "object",
             "description": "Group object",
@@ -6570,6 +6725,152 @@
                         "frame_rate": {
                             "type": "string",
                             "description": "Frame Rate"
+                        }
+                    }
+                }
+            ]
+        },
+        "Recording": {
+            "type": "object",
+            "description": "The recording meeting object",
+            "allOf":[
+                {
+                    "properties": {
+                        "uuid": {
+                            "type": "string",
+                            "description": "Meeting unique ID"
+                        },
+                        "id": {
+                            "type": "string",
+                            "description": "Meeting ID, also know as meeting number"
+                        },
+                        "account_id": {
+                            "type": "string",
+                            "description": "ID of the user account"
+                        },
+                        "host_id": {
+                            "type": "string",
+                            "description": "ID of the user set as host of meeting"
+                        },
+                        "topic": {
+                            "type": "string",
+                            "description": "Meeting topic"
+                        },
+                        "start_time": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Meeting start time"
+                        },
+                        "duration": {
+                            "type": "integer",
+                            "description": "Meeting duration"
+                        },
+                        "total_size": {
+                            "type": "string",
+                            "description": "Total size"
+                        },
+                        "recording_count": {
+                            "type": "string",
+                            "description": "Recording count"
+                        }
+                    }
+                },
+                {
+                    "$ref": "#/definitions/RecordingFileList"
+                }
+
+            ]
+
+        },
+        "RecordingFile": {
+            "type": "object",
+            "description": "RecordingFile Object",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The recording file ID."
+                },
+                "meeting_id": {
+                    "type": "string",
+                    "description": "The meeting ID. "
+                },
+                "recording_start": {
+                    "type": "string",
+                    "description": "The recording start time."
+                },
+                "recording_end": {
+                    "type": "string",
+                    "description": "The recording end time."
+                },
+                "file_type": {
+                    "type": "string",
+                    "description": "The recording file type."
+                },
+                "file_size": {
+                    "type": "long",
+                    "description": "The recording file size."
+                },
+                "play_url": {
+                    "type": "string",
+                    "description": "The recording file play url."
+                },
+                "download_url": {
+                    "type": "string",
+                    "description": "The recording download url."
+                },
+                "status": {
+                    "type": "string",
+                    "description": "The recording status."
+                }
+            }
+        },
+        "RecordingFileList": {
+            "type": "object",
+            "title": "Recording file List",
+            "description": "List of Recording file",
+            "allOf": [
+                {
+                    "properties": {
+                        "recording_files": {
+                            "type": "array",
+                            "title": "Recording file List",
+                            "description": "List of Recording file",
+                            "items": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/definitions/RecordingFile"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "RecordingList": {
+            "type": "object",
+            "title": "Recording List",
+            "description": "List of Recording",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/DateTime"
+                },
+                {
+                    "$ref": "#/definitions/PaginationToken"
+                },
+                {
+                    "properties": {
+                        "meetings": {
+                            "type": "array",
+                            "title": "Recording List",
+                            "description": "List of Recording",
+                            "items": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/definitions/Recording"
+                                    }
+                                ]
+                            }
                         }
                     }
                 }
@@ -7957,6 +8258,10 @@
         {
             "name": "Billing",
             "description": "Billing operations"
+        },
+        {
+            "name": "Cloud Recording",
+            "description": "Cloud Recording operations"
         },
         {
             "name": "Users",
