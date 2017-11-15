@@ -139,6 +139,7 @@ includes:
   - tsp/delete_userId_tsp_tspId
 
   - appendix/index
+  - appendix/master_account
   - appendix/recurrence
   - appendix/plans
   - appendix/lists/index
