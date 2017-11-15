@@ -1,0 +1,431 @@
+<h1 id="master-account-apis">Master Account APIs</h1>
+
+<p>Zoom API Version 2 provides a set of Master Account APIs. These APIs allow a Master Account to manage Sub Accounts utilizing the Master Account&rsquo;s API Key/Secret. Previously you would have to know the Sub Account&rsquo;s API Key/Secret to mange it&rsquo;s users and meetings. The endpoints mirror the standard Zoom API, pre-pended with /account/{accountID}</p>
+
+<h2 id="user-apis">User APIs</h2>
+
+<p>Manage users under a sub account.</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Endpoint</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>GET</td>
+<td>/v2/accounts/{accountId}/users <br /> <em>List all the users on Zoom.</em></td>
+</tr>
+<tr>
+<td>POST</td>
+<td>/v2/accounts/{accountId}/users <br /> <em>Create a user on Zoom.</em></td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/v2/accounts/{accountId}/users/{userId} <br /> <em>Get a user on Zoom via user ID or user email.</em></td>
+</tr>
+<tr>
+<td>PATCH</td>
+<td>/v2/accounts/{accountId}/users/{userId} <br /> <em>Update user&rsquo;s info on Zoom via user ID.</em></td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>/v2/accounts/{accountId}/users/{userId} <br /> <em>Delete a user on Zoom.</em></td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/v2/accounts/{accountId}/users/{userId}/settings <br /> <em>Get a user on Zoom via user ID or user email, return the user settings.</em></td>
+</tr>
+<tr>
+<td>PATCH</td>
+<td>/v2/accounts/{accountId}/users/{userId}/settings <br /> <em>Update user&rsquo;s settings on Zoom via user ID.</em></td>
+</tr>
+<tr>
+<td>PUT</td>
+<td>/v2/accounts/{accountId}/users/{userId}/status <br /> <em>Update user&rsquo;s status on Zoom via user ID.</em></td>
+</tr>
+<tr>
+<td>PUT</td>
+<td>/v2/accounts/{accountId}/users/{userId}/password <br /> <em>Update user&rsquo;s password on Zoom via user ID.</em></td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/v2/accounts/{accountId}/users/{userId}/assistants <br /> <em>List user&rsquo;s assistants on Zoom via user ID.</em></td>
+</tr>
+<tr>
+<td>PUT</td>
+<td>/v2/accounts/{accountId}/users/{userId}/assistants <br /> <em>Add user&rsquo;s assistants on Zoom via user ID.</em></td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>/v2/accounts/{accountId}/users/{userId}/assistants <br /> <em>Delete all the user&rsquo;s assistants on Zoom via user ID.</em></td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>/v2/accounts/{accountId}/users/{userId}/assistants/{assistantId} <br /> <em>Delete a user&rsquo;s assistant on Zoom via user ID.</em></td>
+</tr>
+<tr>
+<td>POST</td>
+<td>/v2/accounts/{accountId}/users/{userId}/picture <br /> <em>Upload a user&rsquo;s profile picture on Zoom via user ID.</em></td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/v2/accounts/{accountId}/users/{userId}/token <br /> <em>Get a user&rsquo;s token on Zoom via user ID.</em></td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>/v2/accounts/{accountId}/users/{userId}/token <br /> <em>Revoke a user&rsquo;s SSO token.</em></td>
+</tr>
+</tbody></table>
+
+<h2 id="group-apis">Group APIs</h2>
+
+<p>Manage groups under a sub account.</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Endpoint</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>GET</td>
+<td>/v2/accounts/{accountId}/groups <br /> <em>List all groups</em></td>
+</tr>
+<tr>
+<td>POST</td>
+<td>/v2/accounts/{accountId}/groups <br /> <em>Create a group on Zoom</em></td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/v2/accounts/{accountId}/groups/{groupId} <br /> <em>Get a group on Zoom via ID</em></td>
+</tr>
+<tr>
+<td>PATCH</td>
+<td>/v2/accounts/{accountId}/groups/{groupId} <br /> <em>Update a group on Zoom</em></td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>/v2/accounts/{accountId}/groups/{groupId} <br /> <em>Delete a group on Zoom</em></td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/v2/accounts/{accountId}/groups/{groupId}/members <br /> <em>Lists the members of a group on Zoom.</em></td>
+</tr>
+<tr>
+<td>POST</td>
+<td>/v2/accounts/{accountId}/groups/{groupId}/members <br /> <em>Adds members to a group on Zoom.</em></td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>/v2/accounts/{accountId}/groups/{groupId}/members/{memberId} <br /> <em>Delete a member of a group on Zoom.</em></td>
+</tr>
+</tbody></table>
+
+<h2 id="im-apis">IM APIs</h2>
+
+<p>Manage IM under a sub account.</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Endpoint</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>GET</td>
+<td>/v2/accounts/{accountId}/im/groups <br /> <em>List all im groups</em></td>
+</tr>
+<tr>
+<td>POST</td>
+<td>/v2/accounts/{accountId}/im/groups <br /> <em>Create a im group on Zoom</em></td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/v2/accounts/{accountId}/im/groups/{groupId} <br /> <em>Get a im group on Zoom via ID</em></td>
+</tr>
+<tr>
+<td>PATCH</td>
+<td>/v2/accounts/{accountId}/im/groups/{groupId} <br /> <em>Update a im group on Zoom</em></td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>/v2/accounts/{accountId}/im/groups/{groupId} <br /> <em>Delete a im group on Zoom</em></td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/v2/accounts/{accountId}/im/groups/{groupId}/members <br /> <em>Lists the members of a im group on Zoom.</em></td>
+</tr>
+<tr>
+<td>POST</td>
+<td>/v2/accounts/{accountId}/im/groups/{groupId}/members <br /> <em>Adds members to a im group on Zoom.</em></td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>/v2/accounts/{accountId}/im/groups/{groupId}/members/{memberId} <br /> <em>Delete a member of a im group on Zoom.</em></td>
+</tr>
+</tbody></table>
+
+<h2 id="meeting-apis">Meeting APIs</h2>
+
+<p>Manage meetings under a sub account.</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Endpoint</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>GET</td>
+<td>/v2/accounts/{accountId}/users/{userId}/meetings <br /> <em>List all the scheduled/live meetings on Zoom.</em></td>
+</tr>
+<tr>
+<td>POST</td>
+<td>/v2/accounts/{accountId}/users/{userId}/meetings <br /> <em>Create a meeting on Zoom.</em></td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/v2/accounts/{accountId}/meetings/{meetingId} <br /> <em>Get a meeting on Zoom via meeting ID</em></td>
+</tr>
+<tr>
+<td>PATCH</td>
+<td>/v2/accounts/{accountId}/meetings/{meetingId} <br /> <em>Update meeting info on Zoom via meeting ID.</em></td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>/v2/accounts/{accountId}/meetings/{meetingId} <br /> <em>Delete a meeting on Zoom</em></td>
+</tr>
+<tr>
+<td>PUT</td>
+<td>/v2/accounts/{accountId}/meetings/{meetingId}/status <br/> <em>Update meeting status on Zoom.</em></td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/v2/accounts/{accountId}/meetings/{meetingId}/registrants <br/> <em>Gather Meeting registrants info.</em></td>
+</tr>
+<tr>
+<td>POST</td>
+<td>/v2/accounts/{accountId}/meetings/{meetingId}/registrants <br/> <em>Register for a meeting.</em></td>
+</tr>
+<tr>
+<td>PUT</td>
+<td>/v2/accounts/{accountId}/meetings/{meetingId}/registrants/status <br/> <em>Approve/Cancel/Deny meeting registration.</em></td>
+</tr>
+</tbody></table>
+
+<h2 id="webinars-apis">Webinars APIs</h2>
+
+<p>Manage webinars under a sub account.</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Endpoint</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>GET</td>
+<td>/v2/accounts/{accountId}/users/{userId}/webinars <br/> <em>List webinars on Zoom.</em></td>
+</tr>
+<tr>
+<td>POST</td>
+<td>/v2/accounts/{accountId}/users/{userId}/webinars <br/> <em>Create a webinar on Zoom.</em></td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/v2/accounts/{accountId}/webinars/{webinarId} <br/> <em>Get a webinar on Zoom via webinar ID</em></td>
+</tr>
+<tr>
+<td>PATCH</td>
+<td>/v2/accounts/{accountId}/webinars/{webinarId} <br/> <em>Update webinar info on Zoom via webinar ID.</em></td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>/v2/accounts/{accountId}/webinars/{webinarId} <br/> <em>Delete a webinar on Zoom</em></td>
+</tr>
+<tr>
+<td>PUT</td>
+<td>/v2/accounts/{accountId}/webinars/{webinarId}/status <br/> <em>Update webinar status on Zoom.</em></td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/v2/accounts/{accountId}/webinars/{webinarId}/registrants <br/> <em>Gather Webinar registrants info.</em></td>
+</tr>
+<tr>
+<td>POST</td>
+<td>/v2/accounts/{accountId}/webinars/{webinarId}/registrants <br/> <em>Register for a webinar.</em></td>
+</tr>
+<tr>
+<td>PUT</td>
+<td>/v2/accounts/{accountId}/webinars/{webinarId}/registrants/status <br/> <em>Approve/Cancel/Deny webinar registration.</em></td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/v2/accounts/{accountId}/webinars/{webinarId}/panelists <br/> <em>List all the Webinar Panelists on Zoom.</em></td>
+</tr>
+<tr>
+<td>PUT</td>
+<td>/v2/accounts/{accountId}/webinars/{webinarId}/panelists <br/> <em>Add the Webinar Panelists on Zoom.</em></td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>/v2/accounts/{accountId}/webinars/{webinarId}/panelists <br/> <em>Delete all the Webinar Panelists on Zoom.</em></td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>/v2/accounts/{accountId}/webinars/{webinarId}/panelists/{panelistId} <br/> <em>Delete a Webinar Panelist on Zoom.</em></td>
+</tr>
+</tbody></table>
+
+<h2 id="report-apis">Report APIs</h2>
+
+<p>Manage reports under a sub account.</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Endpoint</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>GET</td>
+<td>/v2/accounts/{accountId}/report/daily <br/> <em>Get Daily Report</em></td>
+</tr>
+<tr>
+<td>POST</td>
+<td>/v2/accounts/{accountId}/report/active/users <br/> <em>Get Active Hosts Report.</em></td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/v2/accounts/{accountId}/report/inactive/users <br/> <em>Get Inactive Hosts Report</em></td>
+</tr>
+<tr>
+<td>PATCH</td>
+<td>/v2/accounts/{accountId}/report/active/users/{userId}/meetings <br/> <em>Get active host&rsquo;s meetings Report</em></td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>/v2/accounts/{accountId}/report/meetings/{meetingID}/participants <br/> <em>Get active host&rsquo;s meeting participants Report</em></td>
+</tr>
+<tr>
+<td>PUT</td>
+<td>/v2/accounts/{accountId}/report/webinars/{webinarId}/polls <br/> <em>Get Ended Webinar Polls Report.</em></td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/v2/accounts/{accountId}/report/webinars/{webinarId}/questions <br/> <em>Get Ended Webinar Q&amp;A Report.</em></td>
+</tr>
+<tr>
+<td>POST</td>
+<td>/v2/accounts/{accountId}/report/telephone <br/> <em>Get Telephone Report.</em></td>
+</tr>
+</tbody></table>
+
+<h2 id="dashboard-apis">Dashboard APIs</h2>
+
+<p>Manage Dashboard under a sub account.</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Endpoint</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>GET</td>
+<td>/v2/accounts/{accountId}/metrics/meetings <br/> <em>List Meetings</em></td>
+</tr>
+<tr>
+<td>POST</td>
+<td>/v2/accounts/{accountId}/metrics/meetings/{meetingID} <br/> <em>Get Meeting Detail.</em></td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/v2/accounts/{accountId}/metrics/meetings/{meetingID}/participants <br/> <em>List Meeting Participants</em></td>
+</tr>
+<tr>
+<td>PATCH</td>
+<td>/v2/accounts/{accountId}/metrics/meetings/{meetingID}/participants/{participantId}/qos <br/> <em>Get one Meeting Participant QoS</em></td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>/v2/accounts/{accountId}/metrics/meetings/{meetingID}/participants/qos <br/> <em>List more Meeting Participants QoS</em></td>
+</tr>
+<tr>
+<td>PUT</td>
+<td>/v2/accounts/{accountId}/metrics/meetings/{meetingID}/participants/sharing <br/> <em>List Meeting Participants sharing and recording details</em></td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/v2/accounts/{accountId}/metrics/webinars <br/> <em>List Webinars.</em></td>
+</tr>
+<tr>
+<td>POST</td>
+<td>/v2/accounts/{accountId}/metrics/webinars/{webinarID} <br/> <em>Get Webinar Detail.</em></td>
+</tr>
+<tr>
+<td>POST</td>
+<td>/v2/accounts/{accountId}/metrics/webinars/{webinarID}/participants <br/> <em>List Webinar Participants.</em></td>
+</tr>
+<tr>
+<td>POST</td>
+<td>/v2/accounts/{accountId}/metrics/webinars/{webinarID}/participants/{participantId}/qos <br/> <em>Get one Webinar Participant QoS.</em></td>
+</tr>
+<tr>
+<td>POST</td>
+<td>/v2/accounts/{accountId}/metrics/webinars/{webinarID}/participants/qos <br/> <em>List more Webinar Participants QoS.</em></td>
+</tr>
+<tr>
+<td>POST</td>
+<td>/v2/accounts/{accountId}/metrics/webinars/{webinarID}/participants/sharing <br/> <em>List Webinar Participants sharing and recording details.</em></td>
+</tr>
+<tr>
+<td>POST</td>
+<td>/v2/accounts/{accountId}/metrics/zoomrooms <br/> <em>List Zoom Rooms.</em></td>
+</tr>
+<tr>
+<td>POST</td>
+<td>/v2/accounts/{accountId}/metrics/zoomrooms/{zoomroomId} <br/> <em>Get Zoom Room Detail.</em></td>
+</tr>
+<tr>
+<td>POST</td>
+<td>/v2/accounts/{accountId}/metrics/crc <br/> <em>Get CRC Port Usage.</em></td>
+</tr>
+<tr>
+<td>POST</td>
+<td>/v2/accounts/{accountId}/metrics/im <br/> <em>Get IM.</em></td>
+</tr>
+</tbody></table>
+
+<h2 id="tsp-apis">TSP APIs</h2>
+
+<p>Manage tsp under a sub account.</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Endpoint</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>GET</td>
+<td>/v2/accounts/{accountId}/users/{userId}/tsp <br/> <em>List tsp configs on Zoom.</em></td>
+</tr>
+<tr>
+<td>POST</td>
+<td>/v2/accounts/{accountId}/users/{userId}/tsp <br/> <em>Add tsp config on Zoom</em></td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/v2/accounts/{accountId}/users/{userId}/tsp/{tspId} <br/> <em>Get tsp config on Zoom.</em></td>
+</tr>
+<tr>
+<td>PATCH</td>
+<td>/v2/accounts/{accountId}/users/{userId}/tsp/{tspId} <br/> <em>Update tsp config on Zoom</em></td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>/v2/accounts/{accountId}/users/{userId}/tsp/{tspId} <br/> <em>Delete tsp config on Zoom.</em></td>
+</tr>
+</tbody></table>
