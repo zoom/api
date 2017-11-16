@@ -44,7 +44,7 @@
         "auto_recording": "string",
         "enforce_login": "boolean",
         "enforce_login_domains": "string",
-        "alternatice_hosts": "string",
+        "alternative_hosts": "string",
         "close_registration": "boolean",
         "show_share_button": "boolean",
         "allow_multiple_devices": "boolean"
@@ -196,7 +196,7 @@
 <td>Only signed-in users with specified domains can join meetings</td>
 </tr>
 <tr>
-<td>settings.alternatice_hosts <em>optional</em></td>
+<td>settings.alternative_hosts <em>optional</em></td>
 <td>Alternative hosts emails or IDs. Multiple value separated by comma.</td>
 </tr>
 <tr>
