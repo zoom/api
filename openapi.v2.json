@@ -3298,6 +3298,12 @@
                                     ]
                                 },
                                 "user_info": {
+                                    "required": [
+                                        "email",
+                                        "type",
+                                        "first_name",
+                                        "last_name"
+                                    ],
                                     "properties": {
                                         "email": {
                                             "type": "string",
@@ -3750,7 +3756,7 @@
                             "description": "The action",
                             "type": "object",
                             "required": [
-                              "action"
+                                "action"
                             ],
                             "properties": {
                                 "action": {
@@ -3799,7 +3805,7 @@
                         "schema": {
                             "type": "object",
                             "required": [
-                              "password"
+                                "password"
                             ],
                             "properties": {
                                 "password": {
@@ -4555,7 +4561,7 @@
                         "required": true,
                         "schema": {
                             "required": [
-                              "action"
+                                "action"
                             ],
                             "properties": {
                                 "action": {
