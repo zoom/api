@@ -6183,7 +6183,7 @@
                     "type": "string",
                     "description": "Only signed-in users with specified domains can join meetings"
                 },
-                "alternatice_hosts": {
+                "alternative_hosts": {
                     "type": "string",
                     "description": "Alternative hosts emails or IDs. Multiple value separated by comma."
                 }
@@ -7856,7 +7856,7 @@
                     "type": "string",
                     "description": "Only signed-in users with specified domains can join meetings"
                 },
-                "alternatice_hosts": {
+                "alternative_hosts": {
                     "type": "string",
                     "description": "Alternative hosts emails or IDs. Multiple value separated by comma."
                 },
