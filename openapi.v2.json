@@ -3280,6 +3280,9 @@
                         "description": "User",
                         "schema": {
                             "type": "object",
+                            "required": [
+                              "action"
+                            ],
                             "properties": {
                                 "action": {
                                     "type": "string",
@@ -3300,9 +3303,7 @@
                                 "user_info": {
                                     "required": [
                                         "email",
-                                        "type",
-                                        "first_name",
-                                        "last_name"
+                                        "type"
                                     ],
                                     "properties": {
                                         "email": {
