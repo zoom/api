@@ -652,6 +652,7 @@ $options = array(
 	),
 	'append_includes'  => array(
 		'appendix/index',
+		'appendix/master_account',
 		'appendix/recurrence',
 		'appendix/plans',
 		'appendix/lists/index',

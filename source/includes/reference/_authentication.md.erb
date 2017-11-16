@@ -66,3 +66,14 @@ var token = jwt.sign(payload, api_secret);
 ``` 
 
 To the right you'll find an example algorithm for generating a signature, again highly recommend using a library to do this for you
+
+
+## Example
+
+The example below is written in PHP and utilizes the [Firebase JWT Library](https://github.com/firebase/php-jwt) installed via [Composer](https://getcomposer.org/). However the concept and idea can be ported to any language and workflow and you can find libraries for your specific language on [jwt.io](https://jwt.io/#libraries)
+
+The key thing to understand is that the JWT token isn't static, and that it is generated each time you make a request. This makes it unique and more secure; if somehow your token is intercepted it won't be good for long (as in this example 60 seconds)
+
+<div style='width:55%'>
+<script src="https://gist.github.com/joshuawoodward/929e1743036a9512692c1c02c606d04d.js"></script>
+</div>
