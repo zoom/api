@@ -8653,7 +8653,7 @@
 
           <h1 id="master-account-apis">Master Account APIs</h1>
 
-<p>Zoom API Version 2 provides a set of Master Account APIs. These APIs allow a Master Account to manage Sub Accounts utilizing the Master Account&rsquo;s API Key/Secret. Previously you would have to know the Sub Account&rsquo;s API Key/Secret to mange it&rsquo;s users and meetings. The endpoints mirror the standard Zoom API, pre-pended with /account/{accountID}</p>
+<p>Zoom API Version 2 provides a set of Master Account APIs. These APIs allow a Master Account to manage Sub Accounts utilizing the Master Account&rsquo;s API Key/Secret. Previously you would have to know the Sub Account&rsquo;s API Key/Secret to mange it&rsquo;s users and meetings. The endpoints mirror the standard Zoom API, pre-pended with /accounts/{accountID}</p>
 
 <h2 id="user-apis">User APIs</h2>
 
@@ -8706,7 +8706,7 @@
 <td>/v2/accounts/{accountId}/users/{userId}/assistants <br /> <em>List user&rsquo;s assistants on Zoom via user ID.</em></td>
 </tr>
 <tr>
-<td>PUT</td>
+<td>POST</td>
 <td>/v2/accounts/{accountId}/users/{userId}/assistants <br /> <em>Add user&rsquo;s assistants on Zoom via user ID.</em></td>
 </tr>
 <tr>
@@ -8946,7 +8946,7 @@
 <td>/v2/accounts/{accountId}/report/daily <br/> <em>Get Daily Report</em></td>
 </tr>
 <tr>
-<td>POST</td>
+<td>GET</td>
 <td>/v2/accounts/{accountId}/report/active/users <br/> <em>Get Active Hosts Report.</em></td>
 </tr>
 <tr>
@@ -8954,15 +8954,15 @@
 <td>/v2/accounts/{accountId}/report/inactive/users <br/> <em>Get Inactive Hosts Report</em></td>
 </tr>
 <tr>
-<td>PATCH</td>
+<td>GET</td>
 <td>/v2/accounts/{accountId}/report/active/users/{userId}/meetings <br/> <em>Get active host&rsquo;s meetings Report</em></td>
 </tr>
 <tr>
-<td>DELETE</td>
+<td>GET</td>
 <td>/v2/accounts/{accountId}/report/meetings/{meetingID}/participants <br/> <em>Get active host&rsquo;s meeting participants Report</em></td>
 </tr>
 <tr>
-<td>PUT</td>
+<td>GET</td>
 <td>/v2/accounts/{accountId}/report/webinars/{webinarId}/polls <br/> <em>Get Ended Webinar Polls Report.</em></td>
 </tr>
 <tr>
@@ -8970,7 +8970,7 @@
 <td>/v2/accounts/{accountId}/report/webinars/{webinarId}/questions <br/> <em>Get Ended Webinar Q&amp;A Report.</em></td>
 </tr>
 <tr>
-<td>POST</td>
+<td>GET</td>
 <td>/v2/accounts/{accountId}/report/telephone <br/> <em>Get Telephone Report.</em></td>
 </tr>
 </tbody></table>
@@ -8990,7 +8990,7 @@
 <td>/v2/accounts/{accountId}/metrics/meetings <br/> <em>List Meetings</em></td>
 </tr>
 <tr>
-<td>POST</td>
+<td>GET</td>
 <td>/v2/accounts/{accountId}/metrics/meetings/{meetingID} <br/> <em>Get Meeting Detail.</em></td>
 </tr>
 <tr>
@@ -8998,15 +8998,15 @@
 <td>/v2/accounts/{accountId}/metrics/meetings/{meetingID}/participants <br/> <em>List Meeting Participants</em></td>
 </tr>
 <tr>
-<td>PATCH</td>
+<td>GET</td>
 <td>/v2/accounts/{accountId}/metrics/meetings/{meetingID}/participants/{participantId}/qos <br/> <em>Get one Meeting Participant QoS</em></td>
 </tr>
 <tr>
-<td>DELETE</td>
+<td>GET</td>
 <td>/v2/accounts/{accountId}/metrics/meetings/{meetingID}/participants/qos <br/> <em>List more Meeting Participants QoS</em></td>
 </tr>
 <tr>
-<td>PUT</td>
+<td>GET</td>
 <td>/v2/accounts/{accountId}/metrics/meetings/{meetingID}/participants/sharing <br/> <em>List Meeting Participants sharing and recording details</em></td>
 </tr>
 <tr>
@@ -9014,39 +9014,39 @@
 <td>/v2/accounts/{accountId}/metrics/webinars <br/> <em>List Webinars.</em></td>
 </tr>
 <tr>
-<td>POST</td>
+<td>GET</td>
 <td>/v2/accounts/{accountId}/metrics/webinars/{webinarID} <br/> <em>Get Webinar Detail.</em></td>
 </tr>
 <tr>
-<td>POST</td>
+<td>GET</td>
 <td>/v2/accounts/{accountId}/metrics/webinars/{webinarID}/participants <br/> <em>List Webinar Participants.</em></td>
 </tr>
 <tr>
-<td>POST</td>
+<td>GET</td>
 <td>/v2/accounts/{accountId}/metrics/webinars/{webinarID}/participants/{participantId}/qos <br/> <em>Get one Webinar Participant QoS.</em></td>
 </tr>
 <tr>
-<td>POST</td>
+<td>GET</td>
 <td>/v2/accounts/{accountId}/metrics/webinars/{webinarID}/participants/qos <br/> <em>List more Webinar Participants QoS.</em></td>
 </tr>
 <tr>
-<td>POST</td>
+<td>GET</td>
 <td>/v2/accounts/{accountId}/metrics/webinars/{webinarID}/participants/sharing <br/> <em>List Webinar Participants sharing and recording details.</em></td>
 </tr>
 <tr>
-<td>POST</td>
+<td>GET</td>
 <td>/v2/accounts/{accountId}/metrics/zoomrooms <br/> <em>List Zoom Rooms.</em></td>
 </tr>
 <tr>
-<td>POST</td>
+<td>GET</td>
 <td>/v2/accounts/{accountId}/metrics/zoomrooms/{zoomroomId} <br/> <em>Get Zoom Room Detail.</em></td>
 </tr>
 <tr>
-<td>POST</td>
+<td>GET</td>
 <td>/v2/accounts/{accountId}/metrics/crc <br/> <em>Get CRC Port Usage.</em></td>
 </tr>
 <tr>
-<td>POST</td>
+<td>GET</td>
 <td>/v2/accounts/{accountId}/metrics/im <br/> <em>Get IM.</em></td>
 </tr>
 </tbody></table>
