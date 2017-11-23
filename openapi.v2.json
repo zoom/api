@@ -743,111 +743,6 @@
                 }
             }
         },
-        "/H323/devices": {
-            "get": {
-                "summary": "List H323 devices",
-                "description": "List H323 devices",
-                "tags": [
-                    "H323"
-                ],
-                "parameters": [],
-                "operationId": "h323",
-                "responses": {
-                    "200": {
-                        "description": "List of groups returned.",
-                        "schema": {
-                            "$ref": "#/definitions/DeviceList"
-                        }
-                    }
-                }
-            },
-            "post": {
-                "summary": "Create a H323 device",
-                "description": "Create a H323 device",
-                "tags": [
-                    "H323"
-                ],
-                "operationId": "h323 device create",
-                "parameters": [
-                    {
-                        "in": "body",
-                        "name": "body",
-                        "required": true,
-                        "description": "User",
-                        "schema": {
-                            "$ref": "#/definitions/Device"
-                        }
-                    }
-                ],
-                "responses": {
-                    "201": {
-                        "description": "H323 device created.",
-                        "headers": {
-                            "Content-Location": {
-                                "description": "Location of created H323 device",
-                                "type": "string"
-                            }
-                        },
-                        "schema": {
-                            "$ref":"#/definitions/DeviceListItem"
-                        }
-                    }
-                }
-            }
-        },
-        "/H323/devices/{deviceId}": {
-            "patch": {
-                "summary": "Update a H323 device",
-                "description": "Update a H323 device",
-                "tags": [
-                    "H323"
-                ],
-                "operationId": "groupUpdate",
-                "parameters": [
-                    {
-                        "$ref": "#/parameters/DeviceId"
-                    },
-                    {
-                        "in": "body",
-                        "name": "body",
-                        "required": true,
-                        "description": "User",
-                        "schema": {
-                            "$ref": "#/definitions/DeviceUpdate"
-                        }
-                    }
-                ],
-                "responses": {
-                    "204": {
-                        "description": "H323 device updated."
-                    },
-                    "404": {
-                        "description": "H323 device not found"
-                    }
-                }
-            },
-            "delete": {
-                "summary": "Delete a H323 device",
-                "description": "Delete a H323 device",
-                "tags": [
-                    "H323"
-                ],
-                "operationId": "H323 device delete",
-                "parameters": [
-                    {
-                        "$ref": "#/parameters/DeviceId"
-                    }
-                ],
-                "responses": {
-                    "204": {
-                        "description": "H323 device deleted."
-                    },
-                    "404": {
-                        "description": "H323 device not found"
-                    }
-                }
-            }
-        },
         "/im/groups": {
             "get": {
                 "summary": "List IM Groups",
@@ -1585,7 +1480,7 @@
                         "$ref": "#/parameters/PageSize"
                     },
                     {
-                        "$ref": "#/parameters/PageNumber"
+                        "$ref": "#/parameters/NextPageToken"
                     },
                     {
                         "$ref": "#/parameters/Mc"
@@ -1609,15 +1504,15 @@
         },
         "/meetings/{meetingId}/recordings": {
             "get": {
-                "summary": "Retrieve a meeting’s recordings",
-                "description": "Retrieve a meeting’s recordings",
+                "summary": "Retrieve a meeting’s all recordings",
+                "description": "Retrieve a meeting’s all recordings",
                 "tags": [
                     "Cloud Recording"
                 ],
                 "operationId": "recordings",
                 "parameters": [
                     {
-                        "$ref": "#/parameters/MeetingIdNumber"
+                        "$ref": "#/parameters/MeetingId4Recording"
                     }
                 ],
                 "responses": {
@@ -1645,7 +1540,7 @@
                 "operationId": "recordings",
                 "parameters": [
                     {
-                        "$ref": "#/parameters/MeetingIdNumber"
+                        "$ref": "#/parameters/MeetingId4Recording"
                     },
                     {
                         "$ref": "#/parameters/RecordingDeleteAction"
@@ -1671,7 +1566,7 @@
                 "operationId": "recordings",
                 "parameters": [
                     {
-                        "$ref": "#/parameters/MeetingIdNumber"
+                        "$ref": "#/parameters/MeetingId4Recording"
                     },
                     {
                         "$ref": "#/parameters/RecordingId"
@@ -1692,15 +1587,15 @@
         },
         "/meetings/{meetingId}/recordings/status": {
             "put": {
-                "summary": "Recover a meeting recording",
-                "description": "Recover a meeting recording",
+                "summary": "Recover a meeting's recordings",
+                "description": "Recover a meeting's recordings",
                 "tags": [
                     "Cloud Recording"
                 ],
                 "operationId": "recordings",
                 "parameters": [
                     {
-                        "$ref": "#/parameters/MeetingId"
+                        "$ref": "#/parameters/MeetingId4Recording"
                     },
                     {
                         "in": "body",
@@ -1710,11 +1605,12 @@
                             "properties": {
                                 "action": {
                                     "type": "string",
+                                    "required":true,
                                     "enum": [
                                         "recover"
                                     ],
                                     "x-enum-descriptions": [
-                                        "recover a meeting recording"
+                                        "recover meeting recording"
                                     ]
                                 }
                             }
@@ -1741,7 +1637,7 @@
                 "operationId": "recordings",
                 "parameters": [
                     {
-                        "$ref": "#/parameters/MeetingId"
+                        "$ref": "#/parameters/MeetingId4Recording"
                     },
                     {
                         "$ref": "#/parameters/RecordingId"
@@ -1754,11 +1650,12 @@
                             "properties": {
                                 "action": {
                                     "type": "string",
+                                    "required":true,
                                     "enum": [
                                         "recover"
                                     ],
                                     "x-enum-descriptions": [
-                                        "recover a meeting recording"
+                                        "recover meeting recording"
                                     ]
                                 }
                             }
@@ -4942,13 +4839,6 @@
             "type": "string",
             "required": true
         },
-        "DeviceId": {
-            "in": "path",
-            "name": "deviceId",
-            "description": "The device ID",
-            "type": "string",
-            "required": true
-        },
         "LoginType": {
             "in": "query",
             "name": "login_type",
@@ -5012,10 +4902,21 @@
             "enum": [
                 "trash",
                 "delete"
+            ],
+            "x-enum-descriptions": [
+                "move recording to trash",
+                "delete recording permanently"
             ]
 
         },
         "MeetingId4Metrics": {
+            "in": "path",
+            "name": "meetingId",
+            "description": "The meeting ID or meeting UUID. If given meeting ID, will take the last meeting instance.",
+            "type": "integer",
+            "required": true
+        },
+        "MeetingId4Recording": {
             "in": "path",
             "name": "meetingId",
             "description": "The meeting ID or meeting UUID. If given meeting ID, will take the last meeting instance.",
@@ -6054,166 +5955,6 @@
                     "description": "End Date"
                 }
             }
-        },
-        "Device": {
-            "type": "object",
-            "description": "The device object",
-            "allOf":[
-                {
-                    "properties": {
-                        "name": {
-                            "type": "string",
-                            "description": "The device name",
-                            "required":true
-                        },
-                        "protocol_type": {
-                            "type": "integer",
-                            "required":true,
-                            "enum": [
-                                1,
-                                2,
-                                3
-                            ],
-                            "x-enum-descriptions": [
-                                "H.323",
-                                "SIP",
-                                "Both"
-                            ],
-                            "description": "The device type"
-                        },
-                        "ip": {
-                            "type": "string",
-                            "description": "The IP",
-                            "required":true
-                        },
-                        "encrypt_type": {
-                            "type": "integer",
-                            "required":true,
-                            "enum": [
-                                0,
-                                1,
-                                2
-                            ],
-                            "x-enum-descriptions": [
-                                "NO",
-                                "Yes",
-                                "Auto"
-                            ],
-                            "description": "The device encryptType type"
-                        }
-                    }
-                }
-
-            ]
-
-        },
-        "DeviceUpdate": {
-            "type": "object",
-            "description": "The device object",
-            "allOf":[
-                {
-                    "properties": {
-                        "name": {
-                            "type": "string",
-                            "description": "The device name"
-                        },
-                        "protocol_type": {
-                            "type": "integer",
-                            "required":true,
-                            "enum": [
-                                1,
-                                2,
-                                3
-                            ],
-                            "x-enum-descriptions": [
-                                "H.323",
-                                "SIP",
-                                "Both"
-                            ],
-                            "description": "The device type"
-                        },
-                        "ip": {
-                            "type": "string",
-                            "description": "The IP"
-                        },
-                        "encrypt_type": {
-                            "type": "integer",
-                            "required":true,
-                            "enum": [
-                                0,
-                                1,
-                                2
-                            ],
-                            "x-enum-descriptions": [
-                                "NO",
-                                "Yes",
-                                "Auto"
-                            ],
-                            "description": "The device encryptType type"
-                        }
-                    }
-                }
-
-            ]
-
-        },
-        "DeviceListItem": {
-            "type": "object",
-            "description": "The deviceListItem object",
-            "allOf":[
-                {
-                    "properties": {
-                        "id": {
-                            "type": "string",
-                            "description": "The device ID"
-                        },
-                        "name": {
-                            "type": "string",
-                            "description": "The device Name"
-                        },
-                        "ip": {
-                            "type": "string",
-                            "description": "The IP"
-                        },
-                        "protocol_type": {
-                            "type": "integer",
-                            "description": "The device protocol type"
-                        },
-                        "encrypt_type": {
-                            "type": "integer",
-                            "description": "The device encryption type"
-                        }
-                    }
-                }
-
-            ]
-
-        },
-        "DeviceList": {
-            "type": "object",
-            "title": "Device List",
-            "description": "List of Device",
-            "allOf": [
-                {
-                    "$ref": "#/definitions/PaginationToken"
-                },
-                {
-                    "properties": {
-                        "meetings": {
-                            "type": "array",
-                            "title": "Device List",
-                            "description": "List of Device",
-                            "items": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/definitions/DeviceListItem"
-                                    }
-                                ]
-                            }
-                        }
-                    }
-                }
-            ]
         },
         "Group": {
             "type": "object",
@@ -8639,10 +8380,6 @@
         {
             "name": "Cloud Recording",
             "description": "Cloud Recording operations"
-        },
-        {
-            "name": "H323",
-            "description": "H323 operations"
         },
         {
             "name": "Users",
