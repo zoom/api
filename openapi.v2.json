@@ -1589,6 +1589,9 @@
                     },
                     {
                         "$ref": "#/parameters/Mc"
+                    },
+                    {
+                        "$ref": "#/parameters/Trash"
                     }
                 ],
                 "responses": {
@@ -1643,6 +1646,9 @@
                 "parameters": [
                     {
                         "$ref": "#/parameters/MeetingIdNumber"
+                    },
+                    {
+                        "$ref": "#/parameters/RecordingDeleteAction"
                     }
                 ],
                 "responses": {
@@ -1669,6 +1675,9 @@
                     },
                     {
                         "$ref": "#/parameters/RecordingId"
+                    },
+                    {
+                        "$ref": "#/parameters/RecordingDeleteAction"
                     }
                 ],
                 "responses": {
@@ -1681,6 +1690,92 @@
                 }
             }
         },
+        "/meetings/{meetingId}/recordings/status": {
+            "put": {
+                "summary": "Recover a meeting recording",
+                "description": "Recover a meeting recording",
+                "tags": [
+                    "Cloud Recording"
+                ],
+                "operationId": "recordings",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/MeetingId"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "schema": {
+                            "properties": {
+                                "action": {
+                                    "type": "string",
+                                    "enum": [
+                                        "recover"
+                                    ],
+                                    "x-enum-descriptions": [
+                                        "recover a meeting recording"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Meeting recording recover"
+                    },
+                    "404": {
+                        "description": "Meeting recording not found"
+                    }
+                }
+            }
+        },
+        "/meetings/{meetingId}/recordings/{recordingId}/status": {
+            "put": {
+                "summary": "Recover a meeting one recording",
+                "description": "Recover a meeting one recording",
+                "tags": [
+                    "Cloud Recording"
+                ],
+                "operationId": "recordings",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/MeetingId"
+                    },
+                    {
+                        "$ref": "#/parameters/RecordingId"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "schema": {
+                            "properties": {
+                                "action": {
+                                    "type": "string",
+                                    "enum": [
+                                        "recover"
+                                    ],
+                                    "x-enum-descriptions": [
+                                        "recover a meeting recording"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Meeting recording recover"
+                    },
+                    "404": {
+                        "description": "Meeting recording not found"
+                    }
+                }
+            }
+        },
+
         "/metrics/meetings": {
             "get": {
                 "summary": "List meetings",
@@ -4880,6 +4975,13 @@
             "type": "string",
             "default":"false"
         },
+        "Trash": {
+            "in": "query",
+            "name": "trash",
+            "description": "Query trash ",
+            "type": "boolean",
+            "default":"false"
+        },
         "MeetingId": {
             "in": "path",
             "name": "meetingId",
@@ -4900,6 +5002,18 @@
             "description": "The recording ID",
             "type": "string",
             "required": true
+        },
+        "RecordingDeleteAction": {
+            "in": "query",
+            "name": "action",
+            "description": "The recording delete action",
+            "type": "string",
+            "default":"trash",
+            "enum": [
+                "trash",
+                "delete"
+            ]
+
         },
         "MeetingId4Metrics": {
             "in": "path",
@@ -7020,7 +7134,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The recording file ID."
+                    "description": "The recording file ID.Response in general query"
                 },
                 "meeting_id": {
                     "type": "string",
@@ -7032,7 +7146,7 @@
                 },
                 "recording_end": {
                     "type": "string",
-                    "description": "The recording end time."
+                    "description": "The recording end time.Response in general query"
                 },
                 "file_type": {
                     "type": "string",
@@ -7044,15 +7158,19 @@
                 },
                 "play_url": {
                     "type": "string",
-                    "description": "The recording file play url."
+                    "description": "The recording file play url.Response in general query"
                 },
                 "download_url": {
                     "type": "string",
-                    "description": "The recording download url."
+                    "description": "The recording download url.Response in general query"
                 },
                 "status": {
                     "type": "string",
-                    "description": "The recording status."
+                    "description": "The recording status.Response in general query"
+                },
+                "deleted_time": {
+                    "type": "string",
+                    "description": "The recording delete time.Response in trash query"
                 }
             }
         },
