@@ -1,6 +1,6 @@
 # Master Account APIs
 
-Zoom API Version 2 provides a set of Master Account APIs. These APIs allow a Master Account to manage Sub Accounts utilizing the Master Account's API Key/Secret. Previously you would have to know the Sub Account's API Key/Secret to mange it's users and meetings. The endpoints mirror the standard Zoom API, pre-pended with /account/{accountID}
+Zoom API Version 2 provides a set of Master Account APIs. These APIs allow a Master Account to manage Sub Accounts utilizing the Master Account's API Key/Secret. Previously you would have to know the Sub Account's API Key/Secret to mange it's users and meetings. The endpoints mirror the standard Zoom API, pre-pended with /accounts/{accountID}
 
 ## User APIs
 
@@ -18,7 +18,7 @@ PATCH | /v2/accounts/{accountId}/users/{userId}/settings <br /> *Update user's s
 PUT | /v2/accounts/{accountId}/users/{userId}/status <br /> *Update user's status on Zoom via user ID.*
 PUT | /v2/accounts/{accountId}/users/{userId}/password <br /> *Update user's password on Zoom via user ID.*
 GET | /v2/accounts/{accountId}/users/{userId}/assistants <br /> *List user's assistants on Zoom via user ID.*
-PUT | /v2/accounts/{accountId}/users/{userId}/assistants <br /> *Add user's assistants on Zoom via user ID.*
+POST | /v2/accounts/{accountId}/users/{userId}/assistants <br /> *Add user's assistants on Zoom via user ID.*
 DELETE | /v2/accounts/{accountId}/users/{userId}/assistants <br /> *Delete all the user's assistants on Zoom via user ID.*
 DELETE | /v2/accounts/{accountId}/users/{userId}/assistants/{assistantId} <br /> *Delete a user's assistant on Zoom via user ID.*
 POST | /v2/accounts/{accountId}/users/{userId}/picture <br /> *Upload a user's profile picture on Zoom via user ID.*
@@ -98,13 +98,13 @@ Manage reports under a sub account.
 Method | Endpoint
 ---| ---
 GET | /v2/accounts/{accountId}/report/daily <br/> *Get Daily Report*
-POST | /v2/accounts/{accountId}/report/active/users <br/> *Get Active Hosts Report.*
+GET | /v2/accounts/{accountId}/report/active/users <br/> *Get Active Hosts Report.*
 GET | /v2/accounts/{accountId}/report/inactive/users <br/> *Get Inactive Hosts Report*
-PATCH | /v2/accounts/{accountId}/report/active/users/{userId}/meetings <br/> *Get active host's meetings Report*
-DELETE | /v2/accounts/{accountId}/report/meetings/{meetingID}/participants <br/> *Get active host's meeting participants Report*
-PUT | /v2/accounts/{accountId}/report/webinars/{webinarId}/polls <br/> *Get Ended Webinar Polls Report.*
+GET | /v2/accounts/{accountId}/report/active/users/{userId}/meetings <br/> *Get active host's meetings Report*
+GET | /v2/accounts/{accountId}/report/meetings/{meetingID}/participants <br/> *Get active host's meeting participants Report*
+GET | /v2/accounts/{accountId}/report/webinars/{webinarId}/polls <br/> *Get Ended Webinar Polls Report.*
 GET | /v2/accounts/{accountId}/report/webinars/{webinarId}/questions <br/> *Get Ended Webinar Q&amp;A Report.*
-POST | /v2/accounts/{accountId}/report/telephone <br/> *Get Telephone Report.*
+GET | /v2/accounts/{accountId}/report/telephone <br/> *Get Telephone Report.*
 
 ## Dashboard APIs
 
@@ -113,21 +113,21 @@ Manage Dashboard under a sub account.
 Method | Endpoint
 ---| ---
 GET | /v2/accounts/{accountId}/metrics/meetings <br/> *List Meetings*
-POST | /v2/accounts/{accountId}/metrics/meetings/{meetingID} <br/> *Get Meeting Detail.*
+GET | /v2/accounts/{accountId}/metrics/meetings/{meetingID} <br/> *Get Meeting Detail.*
 GET | /v2/accounts/{accountId}/metrics/meetings/{meetingID}/participants <br/> *List Meeting Participants*
-PATCH | /v2/accounts/{accountId}/metrics/meetings/{meetingID}/participants/{participantId}/qos <br/> *Get one Meeting Participant QoS*
-DELETE | /v2/accounts/{accountId}/metrics/meetings/{meetingID}/participants/qos <br/> *List more Meeting Participants QoS*
-PUT | /v2/accounts/{accountId}/metrics/meetings/{meetingID}/participants/sharing <br/> *List Meeting Participants sharing and recording details*
+GET | /v2/accounts/{accountId}/metrics/meetings/{meetingID}/participants/{participantId}/qos <br/> *Get one Meeting Participant QoS*
+GET | /v2/accounts/{accountId}/metrics/meetings/{meetingID}/participants/qos <br/> *List more Meeting Participants QoS*
+GET | /v2/accounts/{accountId}/metrics/meetings/{meetingID}/participants/sharing <br/> *List Meeting Participants sharing and recording details*
 GET | /v2/accounts/{accountId}/metrics/webinars <br/> *List Webinars.*
-POST | /v2/accounts/{accountId}/metrics/webinars/{webinarID} <br/> *Get Webinar Detail.*
-POST | /v2/accounts/{accountId}/metrics/webinars/{webinarID}/participants <br/> *List Webinar Participants.*
-POST | /v2/accounts/{accountId}/metrics/webinars/{webinarID}/participants/{participantId}/qos <br/> *Get one Webinar Participant QoS.*
-POST | /v2/accounts/{accountId}/metrics/webinars/{webinarID}/participants/qos <br/> *List more Webinar Participants QoS.*
-POST | /v2/accounts/{accountId}/metrics/webinars/{webinarID}/participants/sharing <br/> *List Webinar Participants sharing and recording details.*
-POST | /v2/accounts/{accountId}/metrics/zoomrooms <br/> *List Zoom Rooms.*
-POST | /v2/accounts/{accountId}/metrics/zoomrooms/{zoomroomId} <br/> *Get Zoom Room Detail.*
-POST | /v2/accounts/{accountId}/metrics/crc <br/> *Get CRC Port Usage.*
-POST | /v2/accounts/{accountId}/metrics/im <br/> *Get IM.*
+GET | /v2/accounts/{accountId}/metrics/webinars/{webinarID} <br/> *Get Webinar Detail.*
+GET | /v2/accounts/{accountId}/metrics/webinars/{webinarID}/participants <br/> *List Webinar Participants.*
+GET | /v2/accounts/{accountId}/metrics/webinars/{webinarID}/participants/{participantId}/qos <br/> *Get one Webinar Participant QoS.*
+GET | /v2/accounts/{accountId}/metrics/webinars/{webinarID}/participants/qos <br/> *List more Webinar Participants QoS.*
+GET | /v2/accounts/{accountId}/metrics/webinars/{webinarID}/participants/sharing <br/> *List Webinar Participants sharing and recording details.*
+GET | /v2/accounts/{accountId}/metrics/zoomrooms <br/> *List Zoom Rooms.*
+GET | /v2/accounts/{accountId}/metrics/zoomrooms/{zoomroomId} <br/> *Get Zoom Room Detail.*
+GET | /v2/accounts/{accountId}/metrics/crc <br/> *Get CRC Port Usage.*
+GET | /v2/accounts/{accountId}/metrics/im <br/> *Get IM.*
 
 ## TSP APIs
 
