@@ -6457,6 +6457,350 @@
 </tr>
 </tbody></table>
 
+          <h1 id="cloud-recording">Cloud Recording</h1>
+
+          <h2 id="list-all-the-recordings">List all the recordings</h2>
+
+<p>List all the recordings</p>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>GET https://api.zoom.us/v2/users/<span class="o">{</span>userId<span class="o">}</span>/recordings
+</code></pre>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/users/<span class="o">{</span>userId<span class="o">}</span>/recordings?from<span class="o">=</span>string&amp;to<span class="o">=</span>string
+</code></pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>200 OK
+</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date]"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date]"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"page_count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"page_size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_records"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"next_page_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"meetings"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"host_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"topic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"total_size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"recording_count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"recording_files"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"meeting_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"recording_start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"recording_end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"file_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"file_size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"long"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"play_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"download_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"deleted_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Path Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>userId <strong>required</strong></td>
+<td>The user ID or email address</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Query Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>from <strong>required</strong></td>
+<td>Start Date</td>
+</tr>
+<tr>
+<td>to <strong>required</strong></td>
+<td>End Date</td>
+</tr>
+<tr>
+<td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
+<td>The amount of records returns within a single API call.</td>
+</tr>
+<tr>
+<td>next_page_token <em>optional</em></td>
+<td>Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.</td>
+</tr>
+<tr>
+<td>mc <em>optional</em><div class="default">false</div></td>
+<td>Query mc</td>
+</tr>
+<tr>
+<td>trash <em>optional</em><div class="default">false</div></td>
+<td>Query trash</td>
+</tr>
+</tbody></table>
+
+          <h2 id="retrieve-a-meeting-s-all-recordings">Retrieve a meeting’s all recordings</h2>
+
+<p>Retrieve a meeting’s all recordings</p>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>GET https://api.zoom.us/v2/meetings/<span class="o">{</span>meetingId<span class="o">}</span>/recordings
+</code></pre>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/meetings/<span class="o">{</span>meetingId<span class="o">}</span>/recordings
+</code></pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>200 OK
+</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"host_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"topic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"recording_count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"recording_files"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"meeting_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"recording_start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"recording_end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"file_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"file_size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"long"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"play_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"download_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"deleted_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Path Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>meetingId <strong>required</strong></td>
+<td>The meeting ID or meeting UUID. If given meeting ID, will take the last meeting instance.</td>
+</tr>
+</tbody></table>
+
+          <h2 id="delete-a-meetings-recordings">Delete a meeting&rsquo;s recordings</h2>
+
+<p>Delete a meeting&rsquo;s recordings</p>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>DELETE https://api.zoom.us/v2/meetings/<span class="o">{</span>meetingId<span class="o">}</span>/recordings
+</code></pre>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/meetings/<span class="o">{</span>meetingId<span class="o">}</span>/recordings <span class="se">\</span>
+    -X DELETE
+</code></pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>204 No Content
+</code></pre>
+<table><thead>
+<tr>
+<th>Path Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>meetingId <strong>required</strong></td>
+<td>The meeting ID or meeting UUID. If given meeting ID, will take the last meeting instance.</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Query Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>action <em>optional</em><div class="default">trash</div></td>
+<td>The recording delete action<div class="enum"><code class="prettyprint">trash</code> move recording to trash<br/><code class="prettyprint">delete</code> delete recording permanently<br/></div></td>
+</tr>
+</tbody></table>
+
+          <h2 id="delete-one-meeting-recording-file">Delete one meeting recording file</h2>
+
+<p>Delete one meeting recording file</p>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>DELETE https://api.zoom.us/v2/meetings/<span class="o">{</span>meetingId<span class="o">}</span>/recordings/<span class="o">{</span>recordingId<span class="o">}</span>
+</code></pre>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/meetings/<span class="o">{</span>meetingId<span class="o">}</span>/recordings/<span class="o">{</span>recordingId<span class="o">}</span> <span class="se">\</span>
+    -X DELETE
+</code></pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>204 No Content
+</code></pre>
+<table><thead>
+<tr>
+<th>Path Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>meetingId <strong>required</strong></td>
+<td>The meeting ID or meeting UUID. If given meeting ID, will take the last meeting instance.</td>
+</tr>
+<tr>
+<td>recordingId <strong>required</strong></td>
+<td>The recording ID</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Query Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>action <em>optional</em><div class="default">trash</div></td>
+<td>The recording delete action<div class="enum"><code class="prettyprint">trash</code> move recording to trash<br/><code class="prettyprint">delete</code> delete recording permanently<br/></div></td>
+</tr>
+</tbody></table>
+
+          <h2 id="recover-a-meetings-recordings">Recover a meeting&rsquo;s recordings</h2>
+
+<p>Recover a meeting&rsquo;s recordings</p>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>PUT https://api.zoom.us/v2/meetings/<span class="o">{</span>meetingId<span class="o">}</span>/recordings/status
+</code></pre>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/meetings/<span class="o">{</span>meetingId<span class="o">}</span>/recordings/status <span class="se">\</span>
+   -d <span class="s1">'{
+    "action": "string"
+}'</span>
+</code></pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>204 No Content
+</code></pre>
+<table><thead>
+<tr>
+<th>Path Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>meetingId <strong>required</strong></td>
+<td>The meeting ID or meeting UUID. If given meeting ID, will take the last meeting instance.</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Body Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>action <strong>required</strong></td>
+<td><div class="enum"><code class="prettyprint">recover</code> recover meeting recording<br/></div></td>
+</tr>
+</tbody></table>
+
+          <h2 id="recover-a-meeting-one-recording">Recover a meeting one recording</h2>
+
+<p>Recover a meeting one recording</p>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>PUT https://api.zoom.us/v2/meetings/<span class="o">{</span>meetingId<span class="o">}</span>/recordings/<span class="o">{</span>recordingId<span class="o">}</span>/status
+</code></pre>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/meetings/<span class="o">{</span>meetingId<span class="o">}</span>/recordings/<span class="o">{</span>recordingId<span class="o">}</span>/status <span class="se">\</span>
+   -d <span class="s1">'{
+    "action": "string"
+}'</span>
+</code></pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>204 No Content
+</code></pre>
+<table><thead>
+<tr>
+<th>Path Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>meetingId <strong>required</strong></td>
+<td>The meeting ID or meeting UUID. If given meeting ID, will take the last meeting instance.</td>
+</tr>
+<tr>
+<td>recordingId <strong>required</strong></td>
+<td>The recording ID</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Body Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>action <strong>required</strong></td>
+<td><div class="enum"><code class="prettyprint">recover</code> recover meeting recording<br/></div></td>
+</tr>
+</tbody></table>
+
           <h1 id="reports">Reports</h1>
 
           <h2 id="retrieve-daily-report">Retrieve daily report</h2>
@@ -6655,6 +6999,50 @@
 </tr>
 </tbody></table>
 
+          <h2 id="retrieve-meeting-details-report">Retrieve meeting details report</h2>
+
+<p>Retrieve ended meeting details report</p>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>GET https://api.zoom.us/v2/report/meetings/<span class="o">{</span>meetingId<span class="o">}</span>
+</code></pre>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/report/meetings/<span class="o">{</span>meetingId<span class="o">}</span>
+</code></pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>200 OK
+</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [uuid]"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"topic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"user_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"user_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_minutes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"participants_count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Path Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>meetingId <strong>required</strong></td>
+<td>The meeting ID or meeting UUID. If given meeting ID, will take the last meeting instance.</td>
+</tr>
+</tbody></table>
+
           <h2 id="retrieve-meeting-participants-report">Retrieve meeting participants report</h2>
 
 <p>Retrieve ended meeting participants report</p>
@@ -6715,6 +7103,50 @@
 <tr>
 <td>next_page_token <em>optional</em></td>
 <td>Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.</td>
+</tr>
+</tbody></table>
+
+          <h2 id="retrieve-webinar-details-report">Retrieve webinar details report</h2>
+
+<p>Retrieve ended webinar details report</p>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>GET https://api.zoom.us/v2/report/webinars/<span class="o">{</span>webinarId<span class="o">}</span>
+</code></pre>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/report/webinars/<span class="o">{</span>webinarId<span class="o">}</span>
+</code></pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>200 OK
+</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [uuid]"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"topic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"user_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"user_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_minutes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"participants_count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Path Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>webinarId <strong>required</strong></td>
+<td>The webinar ID or webinar UUID. If given webinar ID, will take the last webinar instance.</td>
 </tr>
 </tbody></table>
 
@@ -7003,7 +7435,7 @@
 </thead><tbody>
 <tr>
 <td>type <em>optional</em><div class="default">live</div></td>
-<td>The meeting type<div class="enum"><code class="prettyprint">past</code> past meetings<br/><code class="prettyprint">live</code> live meetings<br/></div></td>
+<td>The meeting type<div class="enum"><code class="prettyprint">past</code> past meetings<br/><code class="prettyprint">pastOne</code> past one user meetings<br/><code class="prettyprint">live</code> live meetings<br/></div></td>
 </tr>
 <tr>
 <td>from <strong>required</strong></td>
@@ -7081,7 +7513,7 @@
 </thead><tbody>
 <tr>
 <td>type <em>optional</em><div class="default">live</div></td>
-<td>The meeting type<div class="enum"><code class="prettyprint">past</code> past meeting<br/><code class="prettyprint">live</code> live meeting<br/></div></td>
+<td>The meeting type<div class="enum"><code class="prettyprint">past</code> past meeting<br/><code class="prettyprint">pastOne</code> past one user meeting<br/><code class="prettyprint">live</code> live meeting<br/></div></td>
 </tr>
 </tbody></table>
 
@@ -7152,7 +7584,7 @@
 </thead><tbody>
 <tr>
 <td>type <em>optional</em><div class="default">live</div></td>
-<td>The meeting type<div class="enum"><code class="prettyprint">past</code> past meeting<br/><code class="prettyprint">live</code> live meeting<br/></div></td>
+<td>The meeting type<div class="enum"><code class="prettyprint">past</code> past meeting<br/><code class="prettyprint">pastOne</code> past one user meeting<br/><code class="prettyprint">live</code> live meeting<br/></div></td>
 </tr>
 <tr>
 <td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>

@@ -1,0 +1,97 @@
+<h2 id="list-all-the-recordings">List all the recordings</h2>
+
+<p>List all the recordings</p>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>GET https://api.zoom.us/v2/users/<span class="o">{</span>userId<span class="o">}</span>/recordings
+</code></pre>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/users/<span class="o">{</span>userId<span class="o">}</span>/recordings?from<span class="o">=</span>string&amp;to<span class="o">=</span>string
+</code></pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>200 OK
+</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date]"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date]"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"page_count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"page_size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_records"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"next_page_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"meetings"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"host_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"topic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"total_size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"recording_count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"recording_files"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"meeting_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"recording_start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"recording_end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"file_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"file_size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"long"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"play_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"download_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"deleted_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Path Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>userId <strong>required</strong></td>
+<td>The user ID or email address</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Query Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>from <strong>required</strong></td>
+<td>Start Date</td>
+</tr>
+<tr>
+<td>to <strong>required</strong></td>
+<td>End Date</td>
+</tr>
+<tr>
+<td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
+<td>The amount of records returns within a single API call.</td>
+</tr>
+<tr>
+<td>next_page_token <em>optional</em></td>
+<td>Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.</td>
+</tr>
+<tr>
+<td>mc <em>optional</em><div class="default">false</div></td>
+<td>Query mc</td>
+</tr>
+<tr>
+<td>trash <em>optional</em><div class="default">false</div></td>
+<td>Query trash</td>
+</tr>
+</tbody></table>

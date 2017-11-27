@@ -1,0 +1,49 @@
+<h2 id="recover-a-meeting-one-recording">Recover a meeting one recording</h2>
+
+<p>Recover a meeting one recording</p>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>PUT https://api.zoom.us/v2/meetings/<span class="o">{</span>meetingId<span class="o">}</span>/recordings/<span class="o">{</span>recordingId<span class="o">}</span>/status
+</code></pre>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/meetings/<span class="o">{</span>meetingId<span class="o">}</span>/recordings/<span class="o">{</span>recordingId<span class="o">}</span>/status <span class="se">\</span>
+   -d <span class="s1">'{
+    "action": "string"
+}'</span>
+</code></pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>204 No Content
+</code></pre>
+<table><thead>
+<tr>
+<th>Path Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>meetingId <strong>required</strong></td>
+<td>The meeting ID or meeting UUID. If given meeting ID, will take the last meeting instance.</td>
+</tr>
+<tr>
+<td>recordingId <strong>required</strong></td>
+<td>The recording ID</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Body Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>action <strong>required</strong></td>
+<td><div class="enum"><code class="prettyprint">recover</code> recover meeting recording<br/></div></td>
+</tr>
+</tbody></table>

@@ -1,0 +1,43 @@
+<h2 id="delete-a-meetings-recordings">Delete a meeting&rsquo;s recordings</h2>
+
+<p>Delete a meeting&rsquo;s recordings</p>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>DELETE https://api.zoom.us/v2/meetings/<span class="o">{</span>meetingId<span class="o">}</span>/recordings
+</code></pre>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/meetings/<span class="o">{</span>meetingId<span class="o">}</span>/recordings <span class="se">\</span>
+    -X DELETE
+</code></pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>204 No Content
+</code></pre>
+<table><thead>
+<tr>
+<th>Path Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>meetingId <strong>required</strong></td>
+<td>The meeting ID or meeting UUID. If given meeting ID, will take the last meeting instance.</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Query Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>action <em>optional</em><div class="default">trash</div></td>
+<td>The recording delete action<div class="enum"><code class="prettyprint">trash</code> move recording to trash<br/><code class="prettyprint">delete</code> delete recording permanently<br/></div></td>
+</tr>
+</tbody></table>

@@ -65,7 +65,7 @@
 </thead><tbody>
 <tr>
 <td>type <em>optional</em><div class="default">live</div></td>
-<td>The meeting type<div class="enum"><code class="prettyprint">past</code> past meeting<br/><code class="prettyprint">live</code> live meeting<br/></div></td>
+<td>The meeting type<div class="enum"><code class="prettyprint">past</code> past meeting<br/><code class="prettyprint">pastOne</code> past one user meeting<br/><code class="prettyprint">live</code> live meeting<br/></div></td>
 </tr>
 <tr>
 <td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
