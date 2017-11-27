@@ -102,11 +102,21 @@ includes:
   - im_groups/post_groups_groupId_members
   - im_groups/delete_groups_groupId_members_memberId
 
+  - cloud_recording/index
+  - cloud_recording/get_userId_recordings
+  - cloud_recording/get_meetingId_recordings
+  - cloud_recording/delete_meetingId_recordings
+  - cloud_recording/delete_meetingId_recordings_recordingId
+  - cloud_recording/put_meetingId_recordings_status
+  - cloud_recording/put_meetingId_recordings_recordingId_status
+
   - reports/index
   - reports/get_daily
   - reports/get_users
   - reports/get_users_userId_meetings
+  - reports/get_meetings_meetingId
   - reports/get_meetings_meetingId_participants
+  - reports/get_webinars_webinarId
   - reports/get_webinars_webinarId_participants
   - reports/get_webinars_webinarId_polls
   - reports/get_webinars_webinarId_qa

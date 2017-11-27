@@ -8552,10 +8552,6 @@
             "description": "Billing operations"
         },
         {
-            "name": "Cloud Recording",
-            "description": "Cloud Recording operations"
-        },
-        {
             "name": "Users",
             "description": "User operations"
         },
@@ -8574,6 +8570,10 @@
         {
             "name": "IM Groups",
             "description": "IM Group operations"
+        },
+        {
+            "name": "Cloud Recording",
+            "description": "Cloud Recording operations"
         },
         {
             "name": "Reports",
