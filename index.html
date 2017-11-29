@@ -394,46 +394,51 @@
 
           <h1 id="rate-limits">Rate Limits</h1>
 
-<p>Our APIs have the following rate limits.</p>
+<p>To preserve the integrity and reliability of the platform our APIs have the following rate limits.</p>
 
 <h2 id="all-api-endpoints">All API Endpoints</h2>
 
-<p>You can run a max of ten requests per second (10 requests/second)</p>
+<p>You can run a max of ten requests per second (10 requests/second) unless otherwise noted below.</p>
 
-<h2 id="report-billing-apis">Report/Billing APIs</h2>
+<h2 id="billing-apis">Billing APIs</h2>
 
 <p>You can run a max of one request per second (1 request/second)</p>
 
-<p>Includes:</p>
+<p>Applies to:</p>
 
 <ul>
 <li>/v2/*/billing/*</li>
 <li>/v2/*/plan/*</li>
+</ul>
+
+<h2 id="report-metric-apis">Report &amp; Metric APIs</h2>
+
+<p>You can run a max of one request per second (1 request/second) unless otherwise noted below.</p>
+
+<p>Applies to:</p>
+
+<ul>
 <li>/v2/metrics/*</li>
 <li>/v2/report/*</li>
 </ul>
 
-<h2 id="report-apis">Report APIs</h2>
+<p>You can run a max of one request per minute (1 request/minute)</p>
 
-<p>You can run a max of two thousand request per day (2000 requests/day)</p>
+<p>Applies to:</p>
 
-<p>Includes:</p>
+<ul>
+<li>/v2/metrics/meetings</li>
+<li>/v2/metrics/meetingdetail</li>
+</ul>
+
+<p>In addition, you can run a max of two thousand request per day (2000 requests/day) on the following</p>
+
+<p>Applies to:</p>
 
 <ul>
 <li>/v2/metrics/meetings</li>
 <li>/v2/metrics/webinars</li>
 <li>/v2/report/*</li>
-</ul>
-
-<h2 id="metrics-apis">Metrics APIs</h2>
-
-<p>You can run a max of one request per minute (1 request/minute)</p>
-
-<p>Includes:</p>
-
-<ul>
-<li>/v2/metrics/meetings</li>
-<li>/v2/metrics/webinars</li>
 </ul>
 
           <header>Core Resources</header>
