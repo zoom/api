@@ -26,7 +26,6 @@
         </span><span class="s2">"participant_video"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"cn_meeting"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"in_meeting"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"join_before_host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"mute_upon_entry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"watermark"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"use_pmi"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
@@ -124,10 +123,6 @@
 <tr>
 <td>settings.in_meeting <em>boolean</em></td>
 <td>Host webinar in India</td>
-</tr>
-<tr>
-<td>settings.join_before_host <em>boolean</em></td>
-<td>Join webinar before host start the webinar. Only used for scheduled or recurring webinars</td>
 </tr>
 <tr>
 <td>settings.mute_upon_entry <em>boolean</em></td>

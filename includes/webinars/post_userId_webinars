@@ -34,7 +34,6 @@
         "participant_video": "boolean",
         "cn_meeting": "boolean",
         "in_meeting": "boolean",
-        "join_before_host": "boolean",
         "mute_upon_entry": "boolean",
         "watermark": "boolean",
         "use_pmi": "boolean",
@@ -154,10 +153,6 @@
 <tr>
 <td>settings.in_meeting <em>optional</em><div class="default">false</div></td>
 <td>Host webinar in India</td>
-</tr>
-<tr>
-<td>settings.join_before_host <em>optional</em><div class="default">false</div></td>
-<td>Join webinar before host start the webinar. Only used for scheduled or recurring webinars</td>
 </tr>
 <tr>
 <td>settings.mute_upon_entry <em>optional</em><div class="default">false</div></td>
