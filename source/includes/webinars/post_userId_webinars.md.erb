@@ -35,7 +35,6 @@ $ curl https://api.zoom.us/v2/users/{userId}/webinars \
         "participant_video": "boolean",
         "cn_meeting": "boolean",
         "in_meeting": "boolean",
-        "join_before_host": "boolean",
         "mute_upon_entry": "boolean",
         "watermark": "boolean",
         "use_pmi": "boolean",
@@ -92,7 +91,6 @@ settings.host_video *optional* | Start video when host join webinar
 settings.participant_video *optional* | Start video when participants join webinar
 settings.cn_meeting *optional*<div class="default">false</div> | Host webinar in China
 settings.in_meeting *optional*<div class="default">false</div> | Host webinar in India
-settings.join_before_host *optional*<div class="default">false</div> | Join webinar before host start the webinar. Only used for scheduled or recurring webinars
 settings.mute_upon_entry *optional*<div class="default">false</div> | Mute participants upon entry
 settings.watermark *optional*<div class="default">false</div> | Enable watermark when viewing the shared screen
 settings.use_pmi *optional*<div class="default">false</div> | Use Personal Meeting ID. Only used for scheduled webinars and recurring webinars with no fixed time

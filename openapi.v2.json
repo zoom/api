@@ -1137,7 +1137,7 @@
                         "in": "body",
                         "name": "body",
                         "required": true,
-                        "description": "User",
+                        "description": "Meeting object",
                         "schema": {
                             "$ref": "#/definitions/Meeting"
                         }
@@ -1672,7 +1672,6 @@
                 }
             }
         },
-
         "/metrics/meetings": {
             "get": {
                 "summary": "List meetings",
@@ -5083,6 +5082,7 @@
             "name": "type",
             "description": "The meeting type",
             "type": "string",
+            "default" : "live",
             "enum": [
                 "scheduled",
                 "live"
@@ -8367,11 +8367,6 @@
                 "in_meeting": {
                     "type": "boolean",
                     "description": "Host webinar in India",
-                    "default": false
-                },
-                "join_before_host": {
-                    "type": "boolean",
-                    "description": "Join webinar before host start the webinar. Only used for scheduled or recurring webinars",
                     "default": false
                 },
                 "mute_upon_entry": {
