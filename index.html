@@ -407,6 +407,7 @@
 <ul>
 <li>/v2/*/billing/*</li>
 <li>/v2/*/plan/*</li>
+<li>/v2/*/metrics/* (excluding /meetings and /webinars)</li>
 </ul>
 
 <h2 id="report-metric-apis">Report &amp; Metric APIs</h2>
@@ -414,7 +415,8 @@
 <p>You can run a max of one request per second (1 request/second) and a max of two thousand request per day (2000 requests/day) on the following:</p>
 
 <ul>
-<li>/v2/metrics/*</li>
+<li>/v2/metrics/meetings</li>
+<li>/v2/metrics/webinars</li>
 <li>/v2/report/*</li>
 </ul>
 
@@ -422,7 +424,7 @@
 
 <ul>
 <li>/v2/metrics/meetings</li>
-<li>/v2/metrics/meetingdetail</li>
+<li>/v2/metrics/webinars</li>
 </ul>
 
           <header>Core Resources</header>
