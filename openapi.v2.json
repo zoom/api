@@ -1137,7 +1137,7 @@
                         "in": "body",
                         "name": "body",
                         "required": true,
-                        "description": "User",
+                        "description": "Meeting object",
                         "schema": {
                             "$ref": "#/definitions/Meeting"
                         }
@@ -1672,7 +1672,6 @@
                 }
             }
         },
-
         "/metrics/meetings": {
             "get": {
                 "summary": "List meetings",
@@ -1750,7 +1749,7 @@
                         "$ref": "#/parameters/MeetingId4Metrics"
                     },
                     {
-                        "$ref": "#/parameters/MeetingTypePast2"
+                        "$ref": "#/parameters/MeetingTypePast3"
                     }
                 ],
                 "responses": {
@@ -1776,7 +1775,7 @@
                         "$ref": "#/parameters/MeetingId4Metrics"
                     },
                     {
-                        "$ref": "#/parameters/MeetingTypePast2"
+                        "$ref": "#/parameters/MeetingTypePast3"
                     },
                     {
                         "$ref": "#/parameters/PageSize"
@@ -2987,6 +2986,80 @@
                 }
             }
         },
+        "/report/meetings/{meetingId}": {
+            "get": {
+                "summary": "Retrieve meeting details report",
+                "description": "Retrieve ended meeting details report",
+                "tags": [
+                    "Reports"
+                ],
+                "operationId": "reportMeetingDetails",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/MeetingId4Metrics"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Meeting detail Returned",
+                        "schema": {
+                            "properties": {
+                                "uuid": {
+                                    "type": "string",
+                                    "format": "uuid",
+                                    "description": "Meeting UUID"
+                                },
+                                "id": {
+                                    "type": "integer",
+                                    "description": "Meeting ID"
+                                },
+                                "type": {
+                                    "type": "integer",
+                                    "description": "Meeting type"
+                                },
+                                "topic": {
+                                    "type": "string",
+                                    "description": "Meeting topic"
+                                },
+                                "user_name": {
+                                    "type": "string",
+                                    "description": "User display name"
+                                },
+                                "user_email": {
+                                    "type": "string",
+                                    "description": "User email"
+                                },
+                                "start_time": {
+                                    "type": "string",
+                                    "format": "date-time",
+                                    "description": "Meeting start time"
+                                },
+                                "end_time": {
+                                    "type": "string",
+                                    "format": "date-time",
+                                    "description": "Meeting end time"
+                                },
+                                "duration": {
+                                    "type": "integer",
+                                    "description": "Meeting duration"
+                                },
+                                "total_minutes": {
+                                    "type": "integer",
+                                    "description": "Number of meeting minutes"
+                                },
+                                "participants_count": {
+                                    "type": "integer",
+                                    "description": "Number of meeting participants"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Meeting not found"
+                    }
+                }
+            }
+        },
         "/report/meetings/{meetingId}/participants": {
             "get": {
                 "summary": "Retrieve meeting participants report",
@@ -3057,6 +3130,80 @@
                     },
                     "404": {
                         "description": "Meeting not found"
+                    }
+                }
+            }
+        },
+        "/report/webinars/{webinarId}": {
+            "get": {
+                "summary": "Retrieve webinar details report",
+                "description": "Retrieve ended webinar details report",
+                "tags": [
+                    "Reports"
+                ],
+                "operationId": "reportWebinarDetails",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/WebinarId4Metrics"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Webinar detail Returned",
+                        "schema": {
+                            "properties": {
+                                "uuid": {
+                                    "type": "string",
+                                    "format": "uuid",
+                                    "description": "Meeting UUID"
+                                },
+                                "id": {
+                                    "type": "integer",
+                                    "description": "Meeting ID"
+                                },
+                                "type": {
+                                    "type": "integer",
+                                    "description": "Meeting type"
+                                },
+                                "topic": {
+                                    "type": "string",
+                                    "description": "Meeting topic"
+                                },
+                                "user_name": {
+                                    "type": "string",
+                                    "description": "User display name"
+                                },
+                                "user_email": {
+                                    "type": "string",
+                                    "description": "User email"
+                                },
+                                "start_time": {
+                                    "type": "string",
+                                    "format": "date-time",
+                                    "description": "Meeting start time"
+                                },
+                                "end_time": {
+                                    "type": "string",
+                                    "format": "date-time",
+                                    "description": "Meeting end time"
+                                },
+                                "duration": {
+                                    "type": "integer",
+                                    "description": "Meeting duration"
+                                },
+                                "total_minutes": {
+                                    "type": "integer",
+                                    "description": "Number of meeting minutes"
+                                },
+                                "participants_count": {
+                                    "type": "integer",
+                                    "description": "Number of meeting participants"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Webinar not found"
                     }
                 }
             }
@@ -4935,6 +5082,7 @@
             "name": "type",
             "description": "The meeting type",
             "type": "string",
+            "default" : "live",
             "enum": [
                 "scheduled",
                 "live"
@@ -4952,10 +5100,12 @@
             "default": "live",
             "enum": [
                 "past",
+                "pastOne",
                 "live"
             ],
             "x-enum-descriptions": [
                 "past meetings",
+                "past one user meetings",
                 "live meetings"
             ]
         },
@@ -4971,6 +5121,23 @@
             ],
             "x-enum-descriptions": [
                 "past meeting",
+                "live meeting"
+            ]
+        },
+        "MeetingTypePast3": {
+            "in": "query",
+            "name": "type",
+            "description": "The meeting type",
+            "type": "string",
+            "default": "live",
+            "enum": [
+                "past",
+                "pastOne",
+                "live"
+            ],
+            "x-enum-descriptions": [
+                "past meeting",
+                "past one user meeting",
                 "live meeting"
             ]
         },
@@ -8202,11 +8369,6 @@
                     "description": "Host webinar in India",
                     "default": false
                 },
-                "join_before_host": {
-                    "type": "boolean",
-                    "description": "Join webinar before host start the webinar. Only used for scheduled or recurring webinars",
-                    "default": false
-                },
                 "mute_upon_entry": {
                     "type": "boolean",
                     "description": "Mute participants upon entry",
@@ -8385,10 +8547,6 @@
             "description": "Billing operations"
         },
         {
-            "name": "Cloud Recording",
-            "description": "Cloud Recording operations"
-        },
-        {
             "name": "Users",
             "description": "User operations"
         },
@@ -8407,6 +8565,10 @@
         {
             "name": "IM Groups",
             "description": "IM Group operations"
+        },
+        {
+            "name": "Cloud Recording",
+            "description": "Cloud Recording operations"
         },
         {
             "name": "Reports",
