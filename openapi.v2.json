@@ -4856,7 +4856,10 @@
                         "$ref": "#/parameters/WebinarId"
                     },
                     {
-                        "$ref": "#/parameters/OccurrenceId"
+                        "in": "query",
+                        "name": "occurrence_ids",
+                        "type": "string",
+                        "description": "Occurrence IDs, could get this value from Webinar Get API. Multiple value separated by comma."
                     },
                     {
                         "in": "body",
@@ -6356,6 +6359,14 @@
                 "join_url": {
                     "type": "string",
                     "description": "Join url"
+                },
+                "password": {
+                    "type": "string",
+                    "description": "Meeting password"
+                },
+                "h323_password": {
+                    "type": "string",
+                    "description": "H.323/SIP room system password"
                 },
                 "occurrences": {
                     "$ref": "#/definitions/Occurrences"
