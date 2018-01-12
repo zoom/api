@@ -31,7 +31,7 @@
         "/accounts": {
             "get": {
                 "summary": "List sub accounts",
-                "description": "List all the sub accounts under the master account",
+                "description": "List all the sub accounts under the master account.",
                 "tags": [
                     "Accounts"
                 ],
