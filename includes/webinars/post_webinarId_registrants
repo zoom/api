@@ -67,8 +67,8 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>occurrence_id <em>optional</em></td>
-<td>The meeting occurrence ID</td>
+<td>occurrence_ids <em>optional</em></td>
+<td>Occurrence IDs, could get this value from Webinar Get API. Multiple value separated by comma.</td>
 </tr>
 </tbody></table>
 

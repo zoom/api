@@ -431,8 +431,6 @@
 
           <h1 id="accounts">Accounts</h1>
 
-<p>The account APIs are available to those accounts that are classified as <a href="https://developer.zoom.us/blog/a-brief-look-at-zoom-account-structures/">Master Accounts</a>. They are used to create Sub Accounts under your Master Account. From the Master Account you are able to manage a Sub Account using the <a href="#master-account-apis">Master Account APIs</a></p>
-
 <h2 id="the-account-object">The Account object</h2>
 
 <p>The account object represents an account on zoom. The person who created the account, or who the account was created for, is referred to as the Account owner. You can read more about the Zoom account structure <a href='https://developer.zoom.us/blog/a-brief-look-at-zoom-account-structures/' target='_blank'>here</a>.</p>
@@ -496,7 +494,7 @@
 
           <h2 id="list-sub-accounts">List sub accounts</h2>
 
-<p>List all the sub accounts under the master account</p>
+<p>List all the sub accounts under the master account.</p>
 
 <blockquote>
 <p>Definition</p>
@@ -3510,6 +3508,8 @@
     </span><span class="s2">"agenda"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"start_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"join_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"h323_password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"occurrences"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"occurrence_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
@@ -3708,6 +3708,8 @@
     </span><span class="s2">"agenda"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"start_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"join_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"h323_password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"occurrences"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"occurrence_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
@@ -5487,8 +5489,8 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>occurrence_id <em>optional</em></td>
-<td>The meeting occurrence ID</td>
+<td>occurrence_ids <em>optional</em></td>
+<td>Occurrence IDs, could get this value from Webinar Get API. Multiple value separated by comma.</td>
 </tr>
 </tbody></table>
 
