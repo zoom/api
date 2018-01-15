@@ -1246,7 +1246,7 @@
                         "required": true,
                         "description": "Meeting",
                         "schema": {
-                            "$ref": "#/definitions/Meeting"
+                            "$ref": "#/definitions/MeetingUpdate"
                         }
                     }
                 ],
@@ -4609,7 +4609,7 @@
                         "required": true,
                         "description": "Webinar",
                         "schema": {
-                            "$ref": "#/definitions/Webinar"
+                            "$ref": "#/definitions/WebinarUpdate"
                         }
                     }
                 ],
@@ -4971,7 +4971,185 @@
                     }
                 }
             }
+        },
+        "/webhooks": {
+            "get": {
+                "summary": "List webhooks",
+                "description": "List webinars for a account",
+                "tags": [
+                    "Webhooks"
+                ],
+                "operationId": "webhooks",
+                "parameters": [
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of Webhook objects returned",
+                        "schema": {
+                            "$ref": "#/definitions/WebhookList"
+                        }
+                    },
+                    "404": {
+                        "description": "Webhook not found"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create a webhook",
+                "description": "Create a webhook for a account",
+                "tags": [
+                    "Webhooks"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "description": "Webhook",
+                        "schema": {
+                            "$ref": "#/definitions/Webhook"
+                        }
+                    }
+                ],
+                "operationId": "webhookCreate",
+                "responses": {
+                    "201": {
+                        "description": "Webhook Created",
+                        "headers": {
+                            "Content-Location": {
+                                "description": "Location of created Webhook",
+                                "type": "string"
+                            }
+                        },
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "properties": {
+                                        "webhook_id":{
+                                            "type": "string",
+                                            "description": "Webhook Id."
+                                        }
+                                    }
+                                },
+                                {
+                                    "$ref": "#/definitions/Webhook"
+                                },
+                                {
+                                    "properties": {
+                                        "create_at": {
+                                            "type": "DateTime",
+                                            "description": "Webhook create time"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "404": {
+                        "description": "Account not found"
+                    }
+                }
+            }
+        },
+        "/webhooks/{webhookId}": {
+            "get": {
+                "summary": "Retrieve a webhook",
+                "description": "Retrieve a webhook",
+                "tags": [
+                    "Webhooks"
+                ],
+                "operationId": "webhook",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/WebhookId"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Webhook object returned",
+                        "schema": {
+                            "allOf": [                            
+                                {
+                                    "properties": {
+                                        "webhook_id":{
+                                            "type": "string",
+                                            "description": "Webhook Id."
+                                        }
+                                    }
+                                },
+                                {
+                                    "$ref": "#/definitions/Webhook"
+                                },
+                                {
+                                    "properties": {
+                                        "create_at": {
+                                            "type": "DateTime",
+                                            "description": "Webhook create time"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "404": {
+                        "description": "Webinar not found"
+                    }
+                }
+            },
+            "patch": {
+                "summary": "Update a webhook",
+                "description": "Update a webhook",
+                "tags": [
+                    "Webhooks"
+                ],
+                "operationId": "webhookUpdate",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/WebhookId"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "description": "Webhook",
+                        "schema": {
+                            "$ref": "#/definitions/WebhookUpdate"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Webhook Updated"
+                    },
+                    "404": {
+                        "description": "Webhook not found"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete a webhook",
+                "description": "Delete a webhook",
+                "tags": [
+                    "Webhooks"
+                ],
+                "operationId": "webhookDelete",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/WebhookId"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Webhook deleted"
+                    },
+                    "404": {
+                        "description": "Webhook not found"
+                    }
+                }
+            }
         }
+
+
     },
     "parameters": {
         "AccountId": {
@@ -5289,6 +5467,13 @@
                 "live webinar"
             ]
         },
+        "WebhookId": {
+            "in": "path",
+            "name": "webhookId",
+            "description": "The webhook ID",
+            "type": "integer",
+            "required": true
+        },
         "ZoomRoomId": {
             "in": "path",
             "name": "zoomroomId",
@@ -5296,6 +5481,7 @@
             "type": "integer",
             "required": true
         }
+
     },
     "definitions": {
         "Account": {
@@ -6302,6 +6488,15 @@
             "allOf": [
                 {
                     "$ref": "#/definitions/Session"
+                }
+            ]
+        },
+        "MeetingUpdate": {
+            "type": "object",
+            "description": "Meeting object",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/SessionUpdate"
                 }
             ]
         },
@@ -7492,6 +7687,72 @@
                 }
             }
         },
+        "SessionUpdate": {
+            "type": "object",
+            "description": "Base object for sessions",
+            "properties": {
+                "topic": {
+                    "type": "string",
+                    "description": "Meeting topic"
+                },
+                "type": {
+                    "type": "integer",
+                    "description": "Meeting Type",
+                    "default": 2,
+                    "enum": [
+                        1,
+                        2,
+                        3,
+                        8
+                    ],
+                    "x-enum-descriptions": [
+                        "Instant Meeting",
+                        "Scheduled Meeting",
+                        "Recurring Meeting with no fixed time",
+                        "Recurring Meeting with fixed time"
+                    ]
+                },
+                "start_time": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Meeting start time, in the format \"yyyy-MM-dd'T'HH:mm:ss'Z'\", should be GMT time. In the format \"yyyy-MM-dd'T'HH:mm:ss\", should be local time, need to specify the time zone. Only used for scheduled meeting and recurring meeting with fixed time."
+                },
+                "duration": {
+                    "type": "integer",
+                    "description": "Meeting duration (minutes). Used for scheduled meeting only."
+                },
+                "timezone": {
+                    "type": "string",
+                    "description": "Timezone to format start_time, like \"America/Los_Angeles\". For scheduled meeting only. For this parameter value please refer to the id value in [timezone](#timezones) list."
+                },
+                "password": {
+                    "type": "string",
+                    "description": "Password to join the meeting. Password may only contain the following characters: [a-z A-Z 0-9 @ - _ *]. Max of 10 characters."
+                },
+                "agenda": {
+                    "type": "string",
+                    "description": "Meeting description"
+                },
+                "recurrence": {
+                    "$ref": "#/definitions/Recurrence"
+                },
+                "settings": {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/MeetingSettings"
+                        },
+                        {
+                            "properties": {
+                                "registrants_confirmation_email": {
+                                    "type": "boolean",
+                                    "description": "Send confirmation Email to Registrants"
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        },
         "SessionWebinar": {
             "type": "object",
             "description": "Base webinar object for sessions",
@@ -7541,6 +7802,70 @@
                 },
                 "settings": {
                     "$ref": "#/definitions/WebinarSettings"
+                }
+            }
+        },
+        "SessionWebinarUpdate": {
+            "type": "object",
+            "description": "Base webinar object for sessions",
+            "properties": {
+                "topic": {
+                    "type": "string",
+                    "description": "Webinar topic"
+                },
+                "type": {
+                    "type": "integer",
+                    "description": "Webinar Type",
+                    "default": 5,
+                    "enum": [
+                        5,
+                        6,
+                        9
+                    ],
+                    "x-enum-descriptions": [
+                        "Webinar",
+                        "Recurring Webinar with no fixed time",
+                        "Recurring Webinar with fixed time"
+                    ]
+                },
+                "start_time": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Webinar start time, in the format \"yyyy-MM-dd'T'HH:mm:ss'Z'\", should be GMT time. In the format \"yyyy-MM-dd'T'HH:mm:ss\", should be local time, need to specify the time zone. Only used for scheduled webinar and recurring webinar with fixed time."
+                },
+                "duration": {
+                    "type": "integer",
+                    "description": "Webinar duration (minutes). Used for scheduled webinar only."
+                },
+                "timezone": {
+                    "type": "string",
+                    "description": "Timezone to format start_time, like \"America/Los_Angeles\". For scheduled webinar only. For this parameter value please refer to the id value in [timezone](#timezones) list."
+                },
+                "password": {
+                    "type": "string",
+                    "description": "Webinar password. Password may only contain the following characters: [a-z A-Z 0-9 @ - _ *]. Max of 10 characters."
+                },
+                "agenda": {
+                    "type": "string",
+                    "description": "Webinar description"
+                },
+                "recurrence": {
+                    "$ref": "#/definitions/Recurrence"
+                },
+                "settings": {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/WebinarSettings"
+                        },
+                        {
+                            "properties": {
+                                "registrants_confirmation_email": {
+                                    "type": "boolean",
+                                    "description": "Send confirmation Email to Registrants"
+                                }
+                            }
+                        }
+                    ]
                 }
             }
         },
@@ -8100,6 +8425,15 @@
                 }
             ]
         },
+        "WebinarUpdate": {
+            "type": "object",
+            "description": "Webinar object",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/SessionWebinarUpdate"
+                }
+            ]
+        },
         "WebinarInfo": {
             "type": "object",
             "description": "Webinar object",
@@ -8477,7 +8811,131 @@
                     "type": "boolean",
                     "description": "Allow attendees to join from multiple devices."
                 }
+
             }
+        },
+        "Webhook": {
+            "type": "object",
+            "description": "Webhook base object",
+            "required": [
+                "url",
+                "auth_user",
+                "auth_password",
+                "events"
+            ],
+            "properties": {
+                "url": {
+                    "type": "string",
+                    "description": "Webhook endpoint",
+                    "maxLength":256
+                },
+                "auth_user": {
+                    "type": "string",
+                    "description": "Webhook auth user.",
+                    "maxLength":128
+
+                },
+                "auth_password": {
+                    "type": "string",
+                    "description": "Webhook auth password.",
+                    "maxLength":64
+                },
+                "events": {
+                    "type": "Array",
+                    "description": "List of events objects.",
+                    "enum":["meeting_started", "meeting_ended", "meeting_jbh", "meeting_join", "recording_completed", "participant_joined", "participant_leaved"],
+                    "x-enum-descriptions": [
+                        "The meeting has started.",
+                        "The meeting has ended.",
+                        "Attendee has joined a meeting before the host.",
+                        "Host hasn’t launched the meeting, attendee is waiting.",
+                        "All the Cloud Recordings have completed processing and is available.",
+                        "Participant has joined the meeting.",
+                        "Participant has leaved the meeting."
+                    ]
+                }
+            }
+        },
+        "WebhookUpdate": {
+            "type": "object",
+            "description": "Webhook base object",
+            "properties": {
+                "url": {
+                    "type": "string",
+                    "description": "Webhook endpoint.",
+                    "maxLength":256
+                },
+                "auth_user": {
+                    "type": "string",
+                    "description": "Webhook auth user.",
+                    "maxLength":128
+
+                },
+                "auth_password": {
+                    "type": "string",
+                    "description": "Webhook auth password.",
+                    "maxLength":64
+                },
+                "events": {
+                    "type": "Array",
+                    "description": "List of events objects.",
+                    "enum":["meeting_started", "meeting_ended", "meeting_jbh", "meeting_join", "recording_completed", "participant_joined", "participant_leaved"],
+                    "x-enum-descriptions": [
+                        "The meeting has started.",
+                        "The meeting has ended.",
+                        "Attendee has joined a meeting before the host.",
+                        "Host hasn’t launched the meeting, attendee is waiting.",
+                        "All the Cloud Recordings has completed processing and is available.",
+                        "Participant has joined the meeting.",
+                        "Participant has leaved the meeting."
+                    ]
+
+
+                }
+            }
+        },
+        "WebhookList": {
+            "type": "object",
+            "title": "Webhook List",
+            "description": "List of Webhooks",
+            "allOf": [
+                {
+                    "properties": {
+                        "total_records": {
+                            "type": "integer",
+                            "description": "The number of all records available across pages."
+                        },
+                        "webhooks": {
+                            "type": "array",
+                            "description": "List of Webhook objects.",
+                            "items": {
+                                "allOf": [
+                                    {
+                                        "properties": {
+                                            "webhook_id":{
+                                                "type": "string",
+                                                "description": "Webhook Id."
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "$ref": "#/definitions/Webhook"
+                                    },
+                                    {
+                                        "properties": {
+                                            "create_at": {
+                                                "type": "DateTime",
+                                                "description": "Webhook create time"
+                                            }
+                                        }
+                                    }
+
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
         },
         "ZoomRoom": {
             "type": "object",
@@ -8568,6 +9026,10 @@
         {
             "name": "Webinars",
             "description": "Webinar operations"
+        },
+        {
+            "name": "Webhooks",
+            "description": "Webhook operations"
         },
         {
             "name": "Groups",
