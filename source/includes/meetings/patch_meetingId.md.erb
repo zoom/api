@@ -45,7 +45,8 @@ $ curl https://api.zoom.us/v2/meetings/{meetingId} \
         "auto_recording": "string",
         "enforce_login": "boolean",
         "enforce_login_domains": "string",
-        "alternative_hosts": "string"
+        "alternative_hosts": "string",
+        "registrants_confirmation_email": "boolean"
     }
 }'
 ```
@@ -92,4 +93,5 @@ settings.auto_recording *optional*<div class="default">none</div> | <div class="
 settings.enforce_login *optional* | Only signed-in users can join this meeting
 settings.enforce_login_domains *optional* | Only signed-in users with specified domains can join meetings
 settings.alternative_hosts *optional* | Alternative hosts emails or IDs. Multiple value separated by comma.
+settings.registrants_confirmation_email *optional* | Send confirmation Email to Registrants
 
