@@ -47,7 +47,8 @@ $ curl https://api.zoom.us/v2/webinars/{webinarId} \
         "alternative_hosts": "string",
         "close_registration": "boolean",
         "show_share_button": "boolean",
-        "allow_multiple_devices": "boolean"
+        "allow_multiple_devices": "boolean",
+        "registrants_confirmation_email": "boolean"
     }
 }'
 ```
@@ -96,4 +97,5 @@ settings.alternative_hosts *optional* | Alternative hosts emails or IDs. Multipl
 settings.close_registration *optional* | Close registration after event date.
 settings.show_share_button *optional* | Show social share buttons on registration page.
 settings.allow_multiple_devices *optional* | Allow attendees to join from multiple devices.
+settings.registrants_confirmation_email *optional* | Send confirmation Email to Registrants
 

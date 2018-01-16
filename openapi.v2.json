@@ -31,7 +31,7 @@
         "/accounts": {
             "get": {
                 "summary": "List sub accounts",
-                "description": "List all the sub accounts under the master account",
+                "description": "List all the sub accounts under the master account.",
                 "tags": [
                     "Accounts"
                 ],
@@ -1465,7 +1465,7 @@
                 "tags": [
                     "Cloud Recording"
                 ],
-                "operationId": "recordings",
+                "operationId": "recordingsList",
                 "parameters": [
                     {
                         "$ref": "#/parameters/UserId"
@@ -1509,7 +1509,7 @@
                 "tags": [
                     "Cloud Recording"
                 ],
-                "operationId": "recordings",
+                "operationId": "recordingGet",
                 "parameters": [
                     {
                         "$ref": "#/parameters/MeetingId4Recording"
@@ -1537,7 +1537,7 @@
                 "tags": [
                     "Cloud Recording"
                 ],
-                "operationId": "recordings",
+                "operationId": "recordingDelete",
                 "parameters": [
                     {
                         "$ref": "#/parameters/MeetingId4Recording"
@@ -1563,7 +1563,7 @@
                 "tags": [
                     "Cloud Recording"
                 ],
-                "operationId": "recordings",
+                "operationId": "recordingDeleteOne",
                 "parameters": [
                     {
                         "$ref": "#/parameters/MeetingId4Recording"
@@ -1592,7 +1592,7 @@
                 "tags": [
                     "Cloud Recording"
                 ],
-                "operationId": "recordings",
+                "operationId": "recordingStatusUpdate",
                 "parameters": [
                     {
                         "$ref": "#/parameters/MeetingId4Recording"
@@ -1605,7 +1605,6 @@
                             "properties": {
                                 "action": {
                                     "type": "string",
-                                    "required":true,
                                     "enum": [
                                         "recover"
                                     ],
@@ -1634,7 +1633,7 @@
                 "tags": [
                     "Cloud Recording"
                 ],
-                "operationId": "recordings",
+                "operationId": "recordingStatusUpdateOne",
                 "parameters": [
                     {
                         "$ref": "#/parameters/MeetingId4Recording"
@@ -1650,7 +1649,6 @@
                             "properties": {
                                 "action": {
                                     "type": "string",
-                                    "required":true,
                                     "enum": [
                                         "recover"
                                     ],
@@ -3688,12 +3686,12 @@
                                         },
                                         "first_name": {
                                             "type": "string",
-                                            "description": "User's first name.",
+                                            "description": "User's first name. Cannot contain more than 5 Chinese words.",
                                             "maxLength": 64
                                         },
                                         "last_name": {
                                             "type": "string",
-                                            "description": "User's last name.",
+                                            "description": "User's last name. Cannot contain more than 5 Chinese words.",
                                             "maxLength": 64
                                         },
                                         "password": {
@@ -4856,7 +4854,10 @@
                         "$ref": "#/parameters/WebinarId"
                     },
                     {
-                        "$ref": "#/parameters/OccurrenceId"
+                        "in": "query",
+                        "name": "occurrence_ids",
+                        "type": "string",
+                        "description": "Occurrence IDs, could get this value from Webinar Get API. Multiple value separated by comma."
                     },
                     {
                         "in": "body",
@@ -4968,185 +4969,7 @@
                     }
                 }
             }
-        },
-        "/webhooks": {
-            "get": {
-                "summary": "List webhooks",
-                "description": "List webinars for a account",
-                "tags": [
-                    "Webhooks"
-                ],
-                "operationId": "webhooks",
-                "parameters": [
-                ],
-                "responses": {
-                    "200": {
-                        "description": "List of Webhook objects returned",
-                        "schema": {
-                            "$ref": "#/definitions/WebhookList"
-                        }
-                    },
-                    "404": {
-                        "description": "Webhook not found"
-                    }
-                }
-            },
-            "post": {
-                "summary": "Create a webhook",
-                "description": "Create a webhook for a account",
-                "tags": [
-                    "Webhooks"
-                ],
-                "parameters": [
-                    {
-                        "in": "body",
-                        "name": "body",
-                        "required": true,
-                        "description": "Webhook",
-                        "schema": {
-                            "$ref": "#/definitions/Webhook"
-                        }
-                    }
-                ],
-                "operationId": "webhookCreate",
-                "responses": {
-                    "201": {
-                        "description": "Webhook Created",
-                        "headers": {
-                            "Content-Location": {
-                                "description": "Location of created Webhook",
-                                "type": "string"
-                            }
-                        },
-                        "schema": {
-                            "allOf": [
-                                {
-                                    "properties": {
-                                        "webhook_id":{
-                                            "type": "string",
-                                            "description": "Webhook Id."
-                                        }
-                                    }
-                                },
-                                {
-                                    "$ref": "#/definitions/Webhook"
-                                },
-                                {
-                                    "properties": {
-                                        "create_at": {
-                                            "type": "DateTime",
-                                            "description": "Webhook create time"
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    "404": {
-                        "description": "Account not found"
-                    }
-                }
-            }
-        },
-        "/webhooks/{webhookId}": {
-            "get": {
-                "summary": "Retrieve a webhook",
-                "description": "Retrieve a webhook",
-                "tags": [
-                    "Webhooks"
-                ],
-                "operationId": "webhook",
-                "parameters": [
-                    {
-                        "$ref": "#/parameters/WebhookId"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Webhook object returned",
-                        "schema": {
-                            "allOf": [                            
-                                {
-                                    "properties": {
-                                        "webhook_id":{
-                                            "type": "string",
-                                            "description": "Webhook Id."
-                                        }
-                                    }
-                                },
-                                {
-                                    "$ref": "#/definitions/Webhook"
-                                },
-                                {
-                                    "properties": {
-                                        "create_at": {
-                                            "type": "DateTime",
-                                            "description": "Webhook create time"
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    "404": {
-                        "description": "Webinar not found"
-                    }
-                }
-            },
-            "patch": {
-                "summary": "Update a webhook",
-                "description": "Update a webhook",
-                "tags": [
-                    "Webhooks"
-                ],
-                "operationId": "webhookUpdate",
-                "parameters": [
-                    {
-                        "$ref": "#/parameters/WebhookId"
-                    },
-                    {
-                        "in": "body",
-                        "name": "body",
-                        "required": true,
-                        "description": "Webhook",
-                        "schema": {
-                            "$ref": "#/definitions/WebhookUpdate"
-                        }
-                    }
-                ],
-                "responses": {
-                    "204": {
-                        "description": "Webhook Updated"
-                    },
-                    "404": {
-                        "description": "Webhook not found"
-                    }
-                }
-            },
-            "delete": {
-                "summary": "Delete a webhook",
-                "description": "Delete a webhook",
-                "tags": [
-                    "Webhooks"
-                ],
-                "operationId": "webhookDelete",
-                "parameters": [
-                    {
-                        "$ref": "#/parameters/WebhookId"
-                    }
-                ],
-                "responses": {
-                    "204": {
-                        "description": "Webhook deleted"
-                    },
-                    "404": {
-                        "description": "Webhook not found"
-                    }
-                }
-            }
         }
-
-
     },
     "parameters": {
         "AccountId": {
@@ -5463,13 +5286,6 @@
                 "past webinar",
                 "live webinar"
             ]
-        },
-        "WebhookId": {
-            "in": "path",
-            "name": "webhookId",
-            "description": "The webhook ID",
-            "type": "integer",
-            "required": true
         },
         "ZoomRoomId": {
             "in": "path",
@@ -6552,6 +6368,14 @@
                     "type": "string",
                     "description": "Join url"
                 },
+                "password": {
+                    "type": "string",
+                    "description": "Meeting password"
+                },
+                "h323_password": {
+                    "type": "string",
+                    "description": "H.323/SIP room system password"
+                },
                 "occurrences": {
                     "$ref": "#/definitions/Occurrences"
                 },
@@ -7263,7 +7087,7 @@
                     "description": "The recording file type."
                 },
                 "file_size": {
-                    "type": "long",
+                    "type": "number",
                     "description": "The recording file size."
                 },
                 "play_url": {
@@ -7964,11 +7788,11 @@
             "properties": {
                 "first_name": {
                     "type": "string",
-                    "description": "User's first name."
+                    "description": "User's first name. Cannot contain more than 5 Chinese words."
                 },
                 "last_name": {
                     "type": "string",
-                    "description": "User's last name."
+                    "description": "User's last name. Cannot contain more than 5 Chinese words."
                 },
                 "type": {
                     "type": "integer",
@@ -8803,129 +8627,6 @@
 
             }
         },
-        "Webhook": {
-            "type": "object",
-            "description": "Webhook base object",
-            "required": [
-                "url",
-                "auth_user",
-                "auth_password",
-                "events"
-            ],
-            "properties": {
-                "url": {
-                    "type": "string",
-                    "description": "Webhook endpoint",
-                    "maxLength":256
-                },
-                "auth_user": {
-                    "type": "string",
-                    "description": "Webhook auth user.",
-                    "maxLength":128
-
-                },
-                "auth_password": {
-                    "type": "string",
-                    "description": "Webhook auth password.",
-                    "maxLength":64
-                },
-                "events": {
-                    "type": "Array",
-                    "description": "List of events objects.",
-                    "enum":["meeting_started", "meeting_ended", "meeting_jbh", "meeting_join", "recording_completed", "participant_joined", "participant_leaved"],
-                    "x-enum-descriptions": [
-                        "The meeting has started.",
-                        "The meeting has ended.",
-                        "Attendee has joined a meeting before the host.",
-                        "Host hasn’t launched the meeting, attendee is waiting.",
-                        "All the Cloud Recordings have completed processing and is available.",
-                        "Participant has joined the meeting.",
-                        "Participant has leaved the meeting."
-                    ]
-                }
-            }
-        },
-        "WebhookUpdate": {
-            "type": "object",
-            "description": "Webhook base object",
-            "properties": {
-                "url": {
-                    "type": "string",
-                    "description": "Webhook endpoint.",
-                    "maxLength":256
-                },
-                "auth_user": {
-                    "type": "string",
-                    "description": "Webhook auth user.",
-                    "maxLength":128
-
-                },
-                "auth_password": {
-                    "type": "string",
-                    "description": "Webhook auth password.",
-                    "maxLength":64
-                },
-                "events": {
-                    "type": "Array",
-                    "description": "List of events objects.",
-                    "enum":["meeting_started", "meeting_ended", "meeting_jbh", "meeting_join", "recording_completed", "participant_joined", "participant_leaved"],
-                    "x-enum-descriptions": [
-                        "The meeting has started.",
-                        "The meeting has ended.",
-                        "Attendee has joined a meeting before the host.",
-                        "Host hasn’t launched the meeting, attendee is waiting.",
-                        "All the Cloud Recordings has completed processing and is available.",
-                        "Participant has joined the meeting.",
-                        "Participant has leaved the meeting."
-                    ]
-
-
-                }
-            }
-        },
-        "WebhookList": {
-            "type": "object",
-            "title": "Webhook List",
-            "description": "List of Webhooks",
-            "allOf": [
-                {
-                    "properties": {
-                        "total_records": {
-                            "type": "integer",
-                            "description": "The number of all records available across pages."
-                        },
-                        "webhooks": {
-                            "type": "array",
-                            "description": "List of Webhook objects.",
-                            "items": {
-                                "allOf": [
-                                    {
-                                        "properties": {
-                                            "webhook_id":{
-                                                "type": "string",
-                                                "description": "Webhook Id."
-                                            }
-                                        }
-                                    },
-                                    {
-                                        "$ref": "#/definitions/Webhook"
-                                    },
-                                    {
-                                        "properties": {
-                                            "create_at": {
-                                                "type": "DateTime",
-                                                "description": "Webhook create time"
-                                            }
-                                        }
-                                    }
-
-                                ]
-                            }
-                        }
-                    }
-                }
-            ]
-        },
         "ZoomRoom": {
             "type": "object",
             "title": "Zoom Room",
@@ -9015,10 +8716,6 @@
         {
             "name": "Webinars",
             "description": "Webinar operations"
-        },
-        {
-            "name": "Webhooks",
-            "description": "Webhook operations"
         },
         {
             "name": "Groups",
