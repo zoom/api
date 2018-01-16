@@ -44,7 +44,8 @@
         "auto_recording": "string",
         "enforce_login": "boolean",
         "enforce_login_domains": "string",
-        "alternative_hosts": "string"
+        "alternative_hosts": "string",
+        "registrants_confirmation_email": "boolean"
     }
 }'</span>
 </code></pre>
@@ -190,5 +191,9 @@
 <tr>
 <td>settings.alternative_hosts <em>optional</em></td>
 <td>Alternative hosts emails or IDs. Multiple value separated by comma.</td>
+</tr>
+<tr>
+<td>settings.registrants_confirmation_email <em>optional</em></td>
+<td>Send confirmation Email to Registrants</td>
 </tr>
 </tbody></table>

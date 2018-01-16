@@ -46,7 +46,8 @@
         "alternative_hosts": "string",
         "close_registration": "boolean",
         "show_share_button": "boolean",
-        "allow_multiple_devices": "boolean"
+        "allow_multiple_devices": "boolean",
+        "registrants_confirmation_email": "boolean"
     }
 }'</span>
 </code></pre>
@@ -200,5 +201,9 @@
 <tr>
 <td>settings.allow_multiple_devices <em>optional</em></td>
 <td>Allow attendees to join from multiple devices.</td>
+</tr>
+<tr>
+<td>settings.registrants_confirmation_email <em>optional</em></td>
+<td>Send confirmation Email to Registrants</td>
 </tr>
 </tbody></table>

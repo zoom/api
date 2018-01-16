@@ -2154,11 +2154,11 @@
 </tr>
 <tr>
 <td>user_info.first_name <em>optional</em><div class="maxLength">64</div></td>
-<td>User&rsquo;s first name.</td>
+<td>User&rsquo;s first name. Cannot contain more than 5 Chinese words.</td>
 </tr>
 <tr>
 <td>user_info.last_name <em>optional</em><div class="maxLength">64</div></td>
-<td>User&rsquo;s last name.</td>
+<td>User&rsquo;s last name. Cannot contain more than 5 Chinese words.</td>
 </tr>
 <tr>
 <td>user_info.password <em>optional</em></td>
@@ -2275,11 +2275,11 @@
 </thead><tbody>
 <tr>
 <td>first_name <em>optional</em></td>
-<td>User&rsquo;s first name.</td>
+<td>User&rsquo;s first name. Cannot contain more than 5 Chinese words.</td>
 </tr>
 <tr>
 <td>last_name <em>optional</em></td>
-<td>User&rsquo;s last name.</td>
+<td>User&rsquo;s last name. Cannot contain more than 5 Chinese words.</td>
 </tr>
 <tr>
 <td>type <em>optional</em></td>
@@ -3797,7 +3797,8 @@
         "auto_recording": "string",
         "enforce_login": "boolean",
         "enforce_login_domains": "string",
-        "alternative_hosts": "string"
+        "alternative_hosts": "string",
+        "registrants_confirmation_email": "boolean"
     }
 }'</span>
 </code></pre>
@@ -3943,6 +3944,10 @@
 <tr>
 <td>settings.alternative_hosts <em>optional</em></td>
 <td>Alternative hosts emails or IDs. Multiple value separated by comma.</td>
+</tr>
+<tr>
+<td>settings.registrants_confirmation_email <em>optional</em></td>
+<td>Send confirmation Email to Registrants</td>
 </tr>
 </tbody></table>
 
@@ -4920,7 +4925,8 @@
         "alternative_hosts": "string",
         "close_registration": "boolean",
         "show_share_button": "boolean",
-        "allow_multiple_devices": "boolean"
+        "allow_multiple_devices": "boolean",
+        "registrants_confirmation_email": "boolean"
     }
 }'</span>
 </code></pre>
@@ -5074,6 +5080,10 @@
 <tr>
 <td>settings.allow_multiple_devices <em>optional</em></td>
 <td>Allow attendees to join from multiple devices.</td>
+</tr>
+<tr>
+<td>settings.registrants_confirmation_email <em>optional</em></td>
+<td>Send confirmation Email to Registrants</td>
 </tr>
 </tbody></table>
 
@@ -6481,7 +6491,7 @@
                     </span><span class="s2">"recording_start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"recording_end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"file_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"file_size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"long"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"file_size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"play_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"download_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -6571,7 +6581,7 @@
             </span><span class="s2">"recording_start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"recording_end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"file_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"file_size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"long"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"file_size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"play_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"download_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -6725,7 +6735,7 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>action <strong>required</strong></td>
+<td>action <em>optional</em></td>
 <td><div class="enum"><code class="prettyprint">recover</code> recover meeting recording<br/></div></td>
 </tr>
 </tbody></table>
@@ -6775,7 +6785,7 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>action <strong>required</strong></td>
+<td>action <em>optional</em></td>
 <td><div class="enum"><code class="prettyprint">recover</code> recover meeting recording<br/></div></td>
 </tr>
 </tbody></table>

@@ -54,11 +54,11 @@
 </tr>
 <tr>
 <td>user_info.first_name <em>optional</em><div class="maxLength">64</div></td>
-<td>User&rsquo;s first name.</td>
+<td>User&rsquo;s first name. Cannot contain more than 5 Chinese words.</td>
 </tr>
 <tr>
 <td>user_info.last_name <em>optional</em><div class="maxLength">64</div></td>
-<td>User&rsquo;s last name.</td>
+<td>User&rsquo;s last name. Cannot contain more than 5 Chinese words.</td>
 </tr>
 <tr>
 <td>user_info.password <em>optional</em></td>

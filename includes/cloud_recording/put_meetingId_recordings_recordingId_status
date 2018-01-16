@@ -43,7 +43,7 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>action <strong>required</strong></td>
+<td>action <em>optional</em></td>
 <td><div class="enum"><code class="prettyprint">recover</code> recover meeting recording<br/></div></td>
 </tr>
 </tbody></table>
