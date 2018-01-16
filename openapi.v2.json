@@ -1465,7 +1465,7 @@
                 "tags": [
                     "Cloud Recording"
                 ],
-                "operationId": "recordings",
+                "operationId": "recordingsList",
                 "parameters": [
                     {
                         "$ref": "#/parameters/UserId"
@@ -1509,7 +1509,7 @@
                 "tags": [
                     "Cloud Recording"
                 ],
-                "operationId": "recordings",
+                "operationId": "recordingGet",
                 "parameters": [
                     {
                         "$ref": "#/parameters/MeetingId4Recording"
@@ -1537,7 +1537,7 @@
                 "tags": [
                     "Cloud Recording"
                 ],
-                "operationId": "recordings",
+                "operationId": "recordingDelete",
                 "parameters": [
                     {
                         "$ref": "#/parameters/MeetingId4Recording"
@@ -1563,7 +1563,7 @@
                 "tags": [
                     "Cloud Recording"
                 ],
-                "operationId": "recordings",
+                "operationId": "recordingDeleteOne",
                 "parameters": [
                     {
                         "$ref": "#/parameters/MeetingId4Recording"
@@ -1592,7 +1592,7 @@
                 "tags": [
                     "Cloud Recording"
                 ],
-                "operationId": "recordings",
+                "operationId": "recordingStatusUpdate",
                 "parameters": [
                     {
                         "$ref": "#/parameters/MeetingId4Recording"
@@ -1605,7 +1605,6 @@
                             "properties": {
                                 "action": {
                                     "type": "string",
-                                    "required":true,
                                     "enum": [
                                         "recover"
                                     ],
@@ -1634,7 +1633,7 @@
                 "tags": [
                     "Cloud Recording"
                 ],
-                "operationId": "recordings",
+                "operationId": "recordingStatusUpdateOne",
                 "parameters": [
                     {
                         "$ref": "#/parameters/MeetingId4Recording"
@@ -1650,7 +1649,6 @@
                             "properties": {
                                 "action": {
                                     "type": "string",
-                                    "required":true,
                                     "enum": [
                                         "recover"
                                     ],
@@ -7089,7 +7087,7 @@
                     "description": "The recording file type."
                 },
                 "file_size": {
-                    "type": "long",
+                    "type": "number",
                     "description": "The recording file size."
                 },
                 "play_url": {
