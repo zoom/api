@@ -4941,7 +4941,7 @@
                                         "Deny registrant"
                                     ]
                                 },
-                                "registrant": {
+                                "registrants": {
                                     "type": "array",
                                     "description": "List of registrants",
                                     "maximum": 30,
