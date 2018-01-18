@@ -23,12 +23,9 @@
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"host_video"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"participant_video"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"cn_meeting"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"in_meeting"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"mute_upon_entry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"watermark"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"use_pmi"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"panelists_video"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"practice_session"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"hd_video"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"approval_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"registration_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"audio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -113,28 +110,16 @@
 <td>Start video when host join webinar</td>
 </tr>
 <tr>
-<td>settings.participant_video <em>boolean</em></td>
-<td>Start video when participants join webinar</td>
+<td>settings.panelists_video <em>boolean</em></td>
+<td>Start video when panelists join webinar</td>
 </tr>
 <tr>
-<td>settings.cn_meeting <em>boolean</em></td>
-<td>Host webinar in China</td>
+<td>settings.practice_session <em>boolean</em></td>
+<td>Enable Practice Session</td>
 </tr>
 <tr>
-<td>settings.in_meeting <em>boolean</em></td>
-<td>Host webinar in India</td>
-</tr>
-<tr>
-<td>settings.mute_upon_entry <em>boolean</em></td>
-<td>Mute participants upon entry</td>
-</tr>
-<tr>
-<td>settings.watermark <em>boolean</em></td>
-<td>Enable watermark when viewing the shared screen</td>
-</tr>
-<tr>
-<td>settings.use_pmi <em>boolean</em></td>
-<td>Use Personal Meeting ID. Only used for scheduled webinars and recurring webinars with no fixed time</td>
+<td>settings.hd_video <em>boolean</em></td>
+<td>Default to HD Video</td>
 </tr>
 <tr>
 <td>settings.approval_type <em>integer</em></td>

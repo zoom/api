@@ -31,12 +31,9 @@
     },
     "settings": {
         "host_video": "boolean",
-        "participant_video": "boolean",
-        "cn_meeting": "boolean",
-        "in_meeting": "boolean",
-        "mute_upon_entry": "boolean",
-        "watermark": "boolean",
-        "use_pmi": "boolean",
+        "panelists_video": "boolean",
+        "practice_session": "boolean",
+        "hd_video": "boolean",
         "approval_type": "integer",
         "registration_type": "integer",
         "audio": "string",
@@ -139,28 +136,16 @@
 <td>Start video when host join webinar</td>
 </tr>
 <tr>
-<td>settings.participant_video <em>optional</em></td>
-<td>Start video when participants join webinar</td>
+<td>settings.panelists_video <em>optional</em></td>
+<td>Start video when panelists join webinar</td>
 </tr>
 <tr>
-<td>settings.cn_meeting <em>optional</em><div class="default">false</div></td>
-<td>Host webinar in China</td>
+<td>settings.practice_session <em>optional</em><div class="default">false</div></td>
+<td>Enable Practice Session</td>
 </tr>
 <tr>
-<td>settings.in_meeting <em>optional</em><div class="default">false</div></td>
-<td>Host webinar in India</td>
-</tr>
-<tr>
-<td>settings.mute_upon_entry <em>optional</em><div class="default">false</div></td>
-<td>Mute participants upon entry</td>
-</tr>
-<tr>
-<td>settings.watermark <em>optional</em><div class="default">false</div></td>
-<td>Enable watermark when viewing the shared screen</td>
-</tr>
-<tr>
-<td>settings.use_pmi <em>optional</em><div class="default">false</div></td>
-<td>Use Personal Meeting ID. Only used for scheduled webinars and recurring webinars with no fixed time</td>
+<td>settings.hd_video <em>optional</em><div class="default">false</div></td>
+<td>Default to HD Video</td>
 </tr>
 <tr>
 <td>settings.approval_type <em>optional</em><div class="default">2</div></td>
