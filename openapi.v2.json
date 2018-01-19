@@ -31,7 +31,7 @@
         "/accounts": {
             "get": {
                 "summary": "List sub accounts",
-                "description": "List all the sub accounts under the master account",
+                "description": "List all the sub accounts under the master account.",
                 "tags": [
                     "Accounts"
                 ],
@@ -1246,7 +1246,7 @@
                         "required": true,
                         "description": "Meeting",
                         "schema": {
-                            "$ref": "#/definitions/Meeting"
+                            "$ref": "#/definitions/MeetingUpdate"
                         }
                     }
                 ],
@@ -1458,6 +1458,37 @@
                 }
             }
         },
+        "/meetings/{meetingId}/files": {
+            "post": {
+                "summary": "Upload meeting files",
+                "description": "Upload files for a meeting",
+                "tags": [
+                    "Meetings"
+                ],
+                "operationId": "meetingFilesUpload",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/MeetingId"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/MeetingFiles"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Meeting Files created"
+                    },
+                    "404": {
+                        "description": "Meeting not found"
+                    }
+                }
+            }
+        },
         "/users/{userId}/recordings": {
             "get": {
                 "summary": "List all the recordings",
@@ -1465,7 +1496,7 @@
                 "tags": [
                     "Cloud Recording"
                 ],
-                "operationId": "recordings",
+                "operationId": "recordingsList",
                 "parameters": [
                     {
                         "$ref": "#/parameters/UserId"
@@ -1509,7 +1540,7 @@
                 "tags": [
                     "Cloud Recording"
                 ],
-                "operationId": "recordings",
+                "operationId": "recordingGet",
                 "parameters": [
                     {
                         "$ref": "#/parameters/MeetingId4Recording"
@@ -1537,7 +1568,7 @@
                 "tags": [
                     "Cloud Recording"
                 ],
-                "operationId": "recordings",
+                "operationId": "recordingDelete",
                 "parameters": [
                     {
                         "$ref": "#/parameters/MeetingId4Recording"
@@ -1563,7 +1594,7 @@
                 "tags": [
                     "Cloud Recording"
                 ],
-                "operationId": "recordings",
+                "operationId": "recordingDeleteOne",
                 "parameters": [
                     {
                         "$ref": "#/parameters/MeetingId4Recording"
@@ -1592,7 +1623,7 @@
                 "tags": [
                     "Cloud Recording"
                 ],
-                "operationId": "recordings",
+                "operationId": "recordingStatusUpdate",
                 "parameters": [
                     {
                         "$ref": "#/parameters/MeetingId4Recording"
@@ -1605,7 +1636,6 @@
                             "properties": {
                                 "action": {
                                     "type": "string",
-                                    "required":true,
                                     "enum": [
                                         "recover"
                                     ],
@@ -1634,7 +1664,7 @@
                 "tags": [
                     "Cloud Recording"
                 ],
-                "operationId": "recordings",
+                "operationId": "recordingStatusUpdateOne",
                 "parameters": [
                     {
                         "$ref": "#/parameters/MeetingId4Recording"
@@ -1650,7 +1680,6 @@
                             "properties": {
                                 "action": {
                                     "type": "string",
-                                    "required":true,
                                     "enum": [
                                         "recover"
                                     ],
@@ -3643,7 +3672,7 @@
                         "schema": {
                             "type": "object",
                             "required": [
-                              "action"
+                                "action"
                             ],
                             "properties": {
                                 "action": {
@@ -3688,12 +3717,12 @@
                                         },
                                         "first_name": {
                                             "type": "string",
-                                            "description": "User's first name.",
+                                            "description": "User's first name. Cannot contain more than 5 Chinese words.",
                                             "maxLength": 64
                                         },
                                         "last_name": {
                                             "type": "string",
-                                            "description": "User's last name.",
+                                            "description": "User's last name. Cannot contain more than 5 Chinese words.",
                                             "maxLength": 64
                                         },
                                         "password": {
@@ -4536,6 +4565,9 @@
                                             "description": "ID of the user set as host of Webinar"
                                         }
                                     }
+                                },
+                                {
+                                    "$ref": "#/definitions/WebinarInfo"
                                 }
                             ]
                         }
@@ -4609,7 +4641,7 @@
                         "required": true,
                         "description": "Webinar",
                         "schema": {
-                            "$ref": "#/definitions/Webinar"
+                            "$ref": "#/definitions/WebinarUpdate"
                         }
                     }
                 ],
@@ -4856,7 +4888,10 @@
                         "$ref": "#/parameters/WebinarId"
                     },
                     {
-                        "$ref": "#/parameters/OccurrenceId"
+                        "in": "query",
+                        "name": "occurrence_ids",
+                        "type": "string",
+                        "description": "Occurrence IDs, could get this value from Webinar Get API. Multiple value separated by comma."
                     },
                     {
                         "in": "body",
@@ -4940,7 +4975,7 @@
                                         "Deny registrant"
                                     ]
                                 },
-                                "registrant": {
+                                "registrants": {
                                     "type": "array",
                                     "description": "List of registrants",
                                     "maximum": 30,
@@ -5293,6 +5328,7 @@
             "type": "integer",
             "required": true
         }
+
     },
     "definitions": {
         "Account": {
@@ -6302,6 +6338,15 @@
                 }
             ]
         },
+        "MeetingUpdate": {
+            "type": "object",
+            "description": "Meeting object",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/SessionUpdate"
+                }
+            ]
+        },
         "MeetingInfo": {
             "type": "object",
             "description": "Meeting object",
@@ -6356,6 +6401,14 @@
                 "join_url": {
                     "type": "string",
                     "description": "Join url"
+                },
+                "password": {
+                    "type": "string",
+                    "description": "Meeting password"
+                },
+                "h323_password": {
+                    "type": "string",
+                    "description": "H.323/SIP room system password"
                 },
                 "occurrences": {
                     "$ref": "#/definitions/Occurrences"
@@ -7068,7 +7121,7 @@
                     "description": "The recording file type."
                 },
                 "file_size": {
-                    "type": "long",
+                    "type": "number",
                     "description": "The recording file size."
                 },
                 "play_url": {
@@ -7481,6 +7534,95 @@
                 }
             }
         },
+        "SessionUpdate": {
+            "type": "object",
+            "description": "Base object for sessions",
+            "properties": {
+                "topic": {
+                    "type": "string",
+                    "description": "Meeting topic"
+                },
+                "type": {
+                    "type": "integer",
+                    "description": "Meeting Type",
+                    "default": 2,
+                    "enum": [
+                        1,
+                        2,
+                        3,
+                        8
+                    ],
+                    "x-enum-descriptions": [
+                        "Instant Meeting",
+                        "Scheduled Meeting",
+                        "Recurring Meeting with no fixed time",
+                        "Recurring Meeting with fixed time"
+                    ]
+                },
+                "start_time": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Meeting start time, in the format \"yyyy-MM-dd'T'HH:mm:ss'Z'\", should be GMT time. In the format \"yyyy-MM-dd'T'HH:mm:ss\", should be local time, need to specify the time zone. Only used for scheduled meeting and recurring meeting with fixed time."
+                },
+                "duration": {
+                    "type": "integer",
+                    "description": "Meeting duration (minutes). Used for scheduled meeting only."
+                },
+                "timezone": {
+                    "type": "string",
+                    "description": "Timezone to format start_time, like \"America/Los_Angeles\". For scheduled meeting only. For this parameter value please refer to the id value in [timezone](#timezones) list."
+                },
+                "password": {
+                    "type": "string",
+                    "description": "Password to join the meeting. Password may only contain the following characters: [a-z A-Z 0-9 @ - _ *]. Max of 10 characters."
+                },
+                "agenda": {
+                    "type": "string",
+                    "description": "Meeting description"
+                },
+                "recurrence": {
+                    "$ref": "#/definitions/Recurrence"
+                },
+                "settings": {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/MeetingSettings"
+                        },
+                        {
+                            "properties": {
+                                "registrants_confirmation_email": {
+                                    "type": "boolean",
+                                    "description": "Send confirmation Email to Registrants"
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        "MeetingFiles": {
+            "type": "object",
+            "description": "Meeting files",
+            "properties": {
+                "meeting_files": {
+                    "type": "array",
+                    "description": "List of meeting files",
+                    "maximum": 100,
+                    "items": {
+                        "properties": {
+                            "file_name": {
+                                "type": "string",
+                                "description": "Meeting file name"
+                            },
+                            "file_url": {
+                                "type": "string",
+                                "description": "Meeting file url"
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "SessionWebinar": {
             "type": "object",
             "description": "Base webinar object for sessions",
@@ -7530,6 +7672,70 @@
                 },
                 "settings": {
                     "$ref": "#/definitions/WebinarSettings"
+                }
+            }
+        },
+        "SessionWebinarUpdate": {
+            "type": "object",
+            "description": "Base webinar object for sessions",
+            "properties": {
+                "topic": {
+                    "type": "string",
+                    "description": "Webinar topic"
+                },
+                "type": {
+                    "type": "integer",
+                    "description": "Webinar Type",
+                    "default": 5,
+                    "enum": [
+                        5,
+                        6,
+                        9
+                    ],
+                    "x-enum-descriptions": [
+                        "Webinar",
+                        "Recurring Webinar with no fixed time",
+                        "Recurring Webinar with fixed time"
+                    ]
+                },
+                "start_time": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Webinar start time, in the format \"yyyy-MM-dd'T'HH:mm:ss'Z'\", should be GMT time. In the format \"yyyy-MM-dd'T'HH:mm:ss\", should be local time, need to specify the time zone. Only used for scheduled webinar and recurring webinar with fixed time."
+                },
+                "duration": {
+                    "type": "integer",
+                    "description": "Webinar duration (minutes). Used for scheduled webinar only."
+                },
+                "timezone": {
+                    "type": "string",
+                    "description": "Timezone to format start_time, like \"America/Los_Angeles\". For scheduled webinar only. For this parameter value please refer to the id value in [timezone](#timezones) list."
+                },
+                "password": {
+                    "type": "string",
+                    "description": "Webinar password. Password may only contain the following characters: [a-z A-Z 0-9 @ - _ *]. Max of 10 characters."
+                },
+                "agenda": {
+                    "type": "string",
+                    "description": "Webinar description"
+                },
+                "recurrence": {
+                    "$ref": "#/definitions/Recurrence"
+                },
+                "settings": {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/WebinarSettings"
+                        },
+                        {
+                            "properties": {
+                                "registrants_confirmation_email": {
+                                    "type": "boolean",
+                                    "description": "Send confirmation Email to Registrants"
+                                }
+                            }
+                        }
+                    ]
                 }
             }
         },
@@ -7639,11 +7845,11 @@
             "properties": {
                 "first_name": {
                     "type": "string",
-                    "description": "User's first name."
+                    "description": "User's first name. Cannot contain more than 5 Chinese words."
                 },
                 "last_name": {
                     "type": "string",
-                    "description": "User's last name."
+                    "description": "User's last name. Cannot contain more than 5 Chinese words."
                 },
                 "type": {
                     "type": "integer",
@@ -8089,6 +8295,15 @@
                 }
             ]
         },
+        "WebinarUpdate": {
+            "type": "object",
+            "description": "Webinar object",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/SessionWebinarUpdate"
+                }
+            ]
+        },
         "WebinarInfo": {
             "type": "object",
             "description": "Webinar object",
@@ -8355,33 +8570,18 @@
                     "type": "boolean",
                     "description": "Start video when host join webinar"
                 },
-                "participant_video": {
+                "panelists_video": {
                     "type": "boolean",
-                    "description": "Start video when participants join webinar"
+                    "description": "Start video when panelists join webinar"
                 },
-                "cn_meeting": {
+                "practice_session": {
                     "type": "boolean",
-                    "description": "Host webinar in China",
+                    "description": "Enable Practice Session",
                     "default": false
                 },
-                "in_meeting": {
+                "hd_video": {
                     "type": "boolean",
-                    "description": "Host webinar in India",
-                    "default": false
-                },
-                "mute_upon_entry": {
-                    "type": "boolean",
-                    "description": "Mute participants upon entry",
-                    "default": false
-                },
-                "watermark": {
-                    "type": "boolean",
-                    "description": "Enable watermark when viewing the shared screen",
-                    "default": false
-                },
-                "use_pmi": {
-                    "type": "boolean",
-                    "description": "Use Personal Meeting ID. Only used for scheduled webinars and recurring webinars with no fixed time",
+                    "description": "Default to HD Video",
                     "default": false
                 },
                 "approval_type": {
@@ -8466,6 +8666,7 @@
                     "type": "boolean",
                     "description": "Allow attendees to join from multiple devices."
                 }
+
             }
         },
         "ZoomRoom": {
