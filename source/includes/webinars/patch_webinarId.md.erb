@@ -32,12 +32,9 @@ $ curl https://api.zoom.us/v2/webinars/{webinarId} \
     },
     "settings": {
         "host_video": "boolean",
-        "participant_video": "boolean",
-        "cn_meeting": "boolean",
-        "in_meeting": "boolean",
-        "mute_upon_entry": "boolean",
-        "watermark": "boolean",
-        "use_pmi": "boolean",
+        "panelists_video": "boolean",
+        "practice_session": "boolean",
+        "hd_video": "boolean",
         "approval_type": "integer",
         "registration_type": "integer",
         "audio": "string",
@@ -81,12 +78,9 @@ recurrence.monthly_week_day *optional* | Recurrence Meeting Occurs on the week d
 recurrence.end_times *optional*<div class="default">1</div><div class="maximum">50</div> | Recurrence Meeting End occurrences times
 recurrence.end_date_time *optional* | Recurrence Meeting End Date. Should be UTC time, such as 2017-11-25T12:00:00Z.
 settings.host_video *optional* | Start video when host join webinar
-settings.participant_video *optional* | Start video when participants join webinar
-settings.cn_meeting *optional*<div class="default">false</div> | Host webinar in China
-settings.in_meeting *optional*<div class="default">false</div> | Host webinar in India
-settings.mute_upon_entry *optional*<div class="default">false</div> | Mute participants upon entry
-settings.watermark *optional*<div class="default">false</div> | Enable watermark when viewing the shared screen
-settings.use_pmi *optional*<div class="default">false</div> | Use Personal Meeting ID. Only used for scheduled webinars and recurring webinars with no fixed time
+settings.panelists_video *optional* | Start video when panelists join webinar
+settings.practice_session *optional*<div class="default">false</div> | Enable Practice Session
+settings.hd_video *optional*<div class="default">false</div> | Default to HD Video
 settings.approval_type *optional*<div class="default">2</div> | <div class="enum">`0` Automatically Approve<br/>`1` Manually Approve<br/>`2` No Registration Required<br/></div>
 settings.registration_type *optional*<div class="default">1</div> | Registration type. Used for recurring webinar with fixed time only.<div class="enum">`1` Attendees register once and can attend any of the occurrences<br/>`2` Attendees need to register for each occurrence to attend<br/>`3` Attendees register once and can choose one or more occurrences to attend<br/></div>
 settings.audio *optional*<div class="default">both</div> | Meeting audio options<div class="enum">`both` Both Telephony and VoIP<br/>`telephony` Telephony only<br/>`voip` VoIP only<br/></div>

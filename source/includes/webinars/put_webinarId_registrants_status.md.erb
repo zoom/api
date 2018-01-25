@@ -14,7 +14,7 @@ PUT https://api.zoom.us/v2/webinars/{webinarId}/registrants/status
 $ curl https://api.zoom.us/v2/webinars/{webinarId}/registrants/status \
    -d '{
     "action": "string",
-    "registrant": [
+    "registrants": [
         {
             "id": "string",
             "email": "string"
@@ -40,5 +40,5 @@ occurrence_id *optional* | The meeting occurrence ID
 Body Arguments | &nbsp;
 --- | ---
 action **required** | <div class="enum">`approve` Approve registrant<br/>`cancel` Cancel registrant<br/>`deny` Deny registrant<br/></div>
-registrant *optional*<div class="maximum">30</div> | List of registrants
+registrants *optional*<div class="maximum">30</div> | List of registrants
 

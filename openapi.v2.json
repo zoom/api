@@ -4534,6 +4534,9 @@
                                             "description": "ID of the user set as host of Webinar"
                                         }
                                     }
+                                },
+                                {
+                                    "$ref": "#/definitions/WebinarInfo"
                                 }
                             ]
                         }
@@ -8513,33 +8516,18 @@
                     "type": "boolean",
                     "description": "Start video when host join webinar"
                 },
-                "participant_video": {
+                "panelists_video": {
                     "type": "boolean",
-                    "description": "Start video when participants join webinar"
+                    "description": "Start video when panelists join webinar"
                 },
-                "cn_meeting": {
+                "practice_session": {
                     "type": "boolean",
-                    "description": "Host webinar in China",
+                    "description": "Enable Practice Session",
                     "default": false
                 },
-                "in_meeting": {
+                "hd_video": {
                     "type": "boolean",
-                    "description": "Host webinar in India",
-                    "default": false
-                },
-                "mute_upon_entry": {
-                    "type": "boolean",
-                    "description": "Mute participants upon entry",
-                    "default": false
-                },
-                "watermark": {
-                    "type": "boolean",
-                    "description": "Enable watermark when viewing the shared screen",
-                    "default": false
-                },
-                "use_pmi": {
-                    "type": "boolean",
-                    "description": "Use Personal Meeting ID. Only used for scheduled webinars and recurring webinars with no fixed time",
+                    "description": "Default to HD Video",
                     "default": false
                 },
                 "approval_type": {
