@@ -4283,7 +4283,7 @@
 
           <h2 id="update-a-meeting-registrants-status">Update a meeting registrant&rsquo;s status</h2>
 
-<p>Update  a registrants status for a meeting</p>
+<p>Update a registrants status for a meeting</p>
 
 <blockquote>
 <p>Definition</p>
@@ -4296,7 +4296,7 @@
 <pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/meetings/<span class="o">{</span>meetingId<span class="o">}</span>/registrants/status <span class="se">\</span>
    -d <span class="s1">'{
     "action": "string",
-    "registrant": [
+    "registrants": [
         {
             "id": "string",
             "email": "string"
@@ -4344,7 +4344,7 @@
 <td><div class="enum"><code class="prettyprint">approve</code> Approve registrant<br/><code class="prettyprint">cancel</code> Cancel registrant<br/><code class="prettyprint">deny</code> Deny registrant<br/></div></td>
 </tr>
 <tr>
-<td>registrant <em>optional</em><div class="maximum">30</div></td>
+<td>registrants <em>optional</em><div class="maximum">30</div></td>
 <td>List of registrants</td>
 </tr>
 </tbody></table>
