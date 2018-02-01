@@ -1427,7 +1427,7 @@
         "/meetings/{meetingId}/registrants/status": {
             "put": {
                 "summary": "Update a meeting registrant's status",
-                "description": "Update  a registrants status for a meeting",
+                "description": "Update a registrants status for a meeting",
                 "tags": [
                     "Meetings"
                 ],
@@ -7432,7 +7432,7 @@
                         "Deny registrant"
                     ]
                 },
-                "registrant": {
+                "registrants": {
                     "type": "array",
                     "description": "List of registrants",
                     "maximum": 30,
