@@ -565,6 +565,10 @@ class OpenAPI2Slate {
 		if ( is_object( $schema ) && property_exists( $schema, 'type' ) && $schema->type === 'object' ) {
 			return $this->convert_schema_to_json( $schema->properties, $json_encode, $required_only );
 		}
+		
+		if ( is_object( $schema ) && property_exists( $schema, 'type' ) && $schema->type === 'string' ) {
+            return "string";
+        }
 
 		$tmp = new stdClass();
 

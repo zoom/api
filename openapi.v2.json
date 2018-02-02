@@ -1427,7 +1427,7 @@
         "/meetings/{meetingId}/registrants/status": {
             "put": {
                 "summary": "Update a meeting registrant's status",
-                "description": "Update a registrants status for a meeting",
+                "description": "Update a meeting registrant's status",
                 "tags": [
                     "Meetings"
                 ],
@@ -4972,6 +4972,227 @@
                     }
                 }
             }
+        },
+        "/webhooks/options": {
+            "patch": {
+                "summary": "Switch webhook version",
+                "description": "Switch webhook version",
+                "tags": [
+                    "Webhooks"
+                ],
+                "operationId": "webhookSwitch",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "schema": {
+                            "required": [
+                                "version"
+                            ],
+                            "properties": {
+                                "version": {
+                                    "type": "string",
+                                    "enum": [
+                                        "v1",
+                                        "v2"
+                                    ],
+                                    "x-enum-descriptions": [
+                                        "Version 1",
+                                        "Version 2"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Webhook Subscribe version update"
+                    },
+                    "404": {
+                        "description": "Webhook Subscribe not found"
+                    }
+                }
+            }
+        },
+        "/webhooks": {
+            "get": {
+                "summary": "List webhooks",
+                "description": "List webhooks for a account",
+                "tags": [
+                    "Webhooks"
+                ],
+                "operationId": "webhooks",
+                "parameters": [
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of Webhook objects returned",
+                        "schema": {
+                            "$ref": "#/definitions/WebhookList"
+                        }
+                    },
+                    "404": {
+                        "description": "Webhook not found"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create a webhook",
+                "description": "Create a webhook for a account",
+                "tags": [
+                    "Webhooks"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "description": "Webhook",
+                        "schema": {
+                            "$ref": "#/definitions/Webhook"
+                        }
+                    }
+                ],
+                "operationId": "webhookCreate",
+                "responses": {
+                    "201": {
+                        "description": "Webhook Created",
+                        "headers": {
+                            "Content-Location": {
+                                "description": "Location of created Webhook",
+                                "type": "string"
+                            }
+                        },
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "properties": {
+                                        "webhook_id":{
+                                            "type": "string",
+                                            "description": "Webhook Id."
+                                        }
+                                    }
+                                },
+                                {
+                                    "$ref": "#/definitions/Webhook"
+                                },
+                                {
+                                    "properties": {
+                                        "created_at": {
+                                            "type": "string",
+                                            "format": "date-time",
+                                            "description": "Webhook create time"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "404": {
+                        "description": "Account not found"
+                    }
+                }
+            }
+        },
+        "/webhooks/{webhookId}": {
+            "get": {
+                "summary": "Retrieve a webhook",
+                "description": "Retrieve a webhook",
+                "tags": [
+                    "Webhooks"
+                ],
+                "operationId": "webhook",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/WebhookId"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Webhook object returned",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "properties": {
+                                        "webhook_id":{
+                                            "type": "string",
+                                            "description": "Webhook Id."
+                                        }
+                                    }
+                                },
+                                {
+                                    "$ref": "#/definitions/Webhook"
+                                },
+                                {
+                                    "properties": {
+                                        "created_at": {
+                                            "type": "string",
+                                            "format": "date-time",
+                                            "description": "Webhook create time"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "404": {
+                        "description": "Webinar not found"
+                    }
+                }
+            },
+            "patch": {
+                "summary": "Update a webhook",
+                "description": "Update a webhook",
+                "tags": [
+                    "Webhooks"
+                ],
+                "operationId": "webhookUpdate",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/WebhookId"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "description": "Webhook",
+                        "schema": {
+                            "$ref": "#/definitions/WebhookUpdate"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Webhook Updated"
+                    },
+                    "404": {
+                        "description": "Webhook not found"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete a webhook",
+                "description": "Delete a webhook",
+                "tags": [
+                    "Webhooks"
+                ],
+                "operationId": "webhookDelete",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/WebhookId"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Webhook deleted"
+                    },
+                    "404": {
+                        "description": "Webhook not found"
+                    }
+                }
+            }
         }
     },
     "parameters": {
@@ -5289,6 +5510,13 @@
                 "past webinar",
                 "live webinar"
             ]
+        },
+        "WebhookId": {
+            "in": "path",
+            "name": "webhookId",
+            "description": "The webhook ID",
+            "type": "string",
+            "required": true
         },
         "ZoomRoomId": {
             "in": "path",
@@ -6354,7 +6582,7 @@
                     "type": "string",
                     "description": "Timezone to format start_time"
                 },
-                "create_at": {
+                "created_at": {
                     "type": "string",
                     "format": "date-time",
                     "description": "Create time"
@@ -8290,7 +8518,7 @@
                     "type": "string",
                     "description": "Webinar agenda"
                 },
-                "create_at": {
+                "created_at": {
                     "type": "string",
                     "format": "date-time",
                     "description": "Create time"
@@ -8615,6 +8843,126 @@
 
             }
         },
+        "Webhook": {
+            "type": "object",
+            "description": "Webhook base object, only available for version 2 webhook",
+            "required": [
+                "url",
+                "auth_user",
+                "auth_password",
+                "events"
+            ],
+            "properties": {
+                "url": {
+                    "type": "string",
+                    "description": "Webhook endpoint",
+                    "maxLength":256
+                },
+                "auth_user": {
+                    "type": "string",
+                    "description": "Webhook auth user name.",
+                    "maxLength":128
+
+                },
+                "auth_password": {
+                    "type": "string",
+                    "description": "Webhook auth password.",
+                    "maxLength":64
+                },
+                "events": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of events objects.",
+                    "enum":["meeting_started", "meeting_ended", "meeting_jbh", "meeting_join", "recording_completed", "participant_joined", "participant_left"],
+                    "x-enum-descriptions": [
+                        "The meeting has started.",
+                        "The meeting has ended.",
+                        "Attendee has joined a meeting before the host.",
+                        "Host hasn’t launched the meeting, attendee is waiting.",
+                        "All the Cloud Recordings have completed processing and is available.",
+                        "Participant has joined the meeting.",
+                        "Participant has leaved the meeting."
+                    ]
+                }
+            }
+        },
+        "WebhookUpdate": {
+            "type": "object",
+            "description": "Webhook base object",
+            "properties": {
+                "url": {
+                    "type": "string",
+                    "description": "Webhook endpoint.",
+                    "maxLength":256
+                },
+                "auth_user": {
+                    "type": "string",
+                    "description": "Webhook auth user name.",
+                    "maxLength":128
+
+                },
+                "auth_password": {
+                    "type": "string",
+                    "description": "Webhook auth password.",
+                    "maxLength":64
+                },
+                "events": {
+                    "type": "array",
+                    "description": "List of events objects.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "enum":["meeting_started", "meeting_ended", "meeting_jbh", "meeting_join", "recording_completed", "participant_joined", "participant_left"],
+                    "x-enum-descriptions": [
+                        "The meeting has started.",
+                        "The meeting has ended.",
+                        "Attendee has joined a meeting before the host.",
+                        "Host hasn’t launched the meeting, attendee is waiting.",
+                        "All the Cloud Recordings has completed processing and is available.",
+                        "Participant has joined the meeting.",
+                        "Participant has leaved the meeting."
+                    ]
+
+
+                }
+            }
+        },
+        "WebhookList": {
+            "type": "object",
+            "title": "Webhook List",
+            "description": "List of Webhooks",
+            "allOf": [
+                {
+                    "properties": {
+                        "total_records": {
+                            "type": "integer",
+                            "description": "The number of all records available across pages."
+                        },
+                        "webhooks": {
+                            "type": "array",
+                            "description": "List of Webhook objects.",
+                            "items": {
+                                "allOf": [
+                                    {
+                                        "properties": {
+                                            "webhook_id":{
+                                                "type": "string",
+                                                "description": "Webhook Id."
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "$ref": "#/definitions/Webhook"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        },
         "ZoomRoom": {
             "type": "object",
             "title": "Zoom Room",
@@ -8724,6 +9072,10 @@
         {
             "name": "Dashboards",
             "description": "Dashboard operations"
+        },
+        {
+            "name": "Webhooks",
+            "description": "Webhook operations"
         },
         {
             "name": "TSP",
