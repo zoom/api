@@ -1,0 +1,37 @@
+<h1 id="webhooks">Webhooks</h1>
+
+<h2 id="the-webhook-object">The Webhook object</h2>
+
+<p>Webhook base object, only available for version 2 webhook</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"auth_user"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"auth_password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"events"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"string"</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>url <em>string</em></td>
+<td>Webhook endpoint</td>
+</tr>
+<tr>
+<td>auth_user <em>string</em></td>
+<td>Webhook auth user name.</td>
+</tr>
+<tr>
+<td>auth_password <em>string</em></td>
+<td>Webhook auth password.</td>
+</tr>
+<tr>
+<td>events <em>array</em></td>
+<td>List of events objects.<div class="enum"><code class="prettyprint">meeting_started</code> The meeting has started.<br/><code class="prettyprint">meeting_ended</code> The meeting has ended.<br/><code class="prettyprint">meeting_jbh</code> Attendee has joined a meeting before the host.<br/><code class="prettyprint">meeting_join</code> Host hasn’t launched the meeting, attendee is waiting.<br/><code class="prettyprint">recording_completed</code> All the Cloud Recordings have completed processing and is available.<br/><code class="prettyprint">participant_joined</code> Participant has joined the meeting.<br/><code class="prettyprint">participant_left</code> Participant has leaved the meeting.<br/></div></td>
+</tr>
+</tbody></table>

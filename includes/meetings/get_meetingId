@@ -25,7 +25,7 @@
     </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"create_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"agenda"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"start_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"join_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">

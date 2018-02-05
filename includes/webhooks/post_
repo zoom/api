@@ -1,0 +1,60 @@
+<h2 id="create-a-webhook">Create a webhook</h2>
+
+<p>Create a webhook for a account</p>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>POST https://api.zoom.us/v2/webhooks
+</code></pre>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/webhooks <span class="se">\</span>
+   -d <span class="s1">'{
+    "url": "string",
+    "auth_user": "string",
+    "auth_password": "string",
+    "events": [
+        "string"
+    ]
+}'</span>
+</code></pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>201 Created
+</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"webhook_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"auth_user"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"auth_password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"events"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"string"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Body Arguments</th>
+<th>&nbsp;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>url <strong>required</strong><div class="maxLength">256</div></td>
+<td>Webhook endpoint</td>
+</tr>
+<tr>
+<td>auth_user <strong>required</strong><div class="maxLength">128</div></td>
+<td>Webhook auth user name.</td>
+</tr>
+<tr>
+<td>auth_password <strong>required</strong><div class="maxLength">64</div></td>
+<td>Webhook auth password.</td>
+</tr>
+<tr>
+<td>events <strong>required</strong></td>
+<td>List of events objects.<div class="enum"><code class="prettyprint">meeting_started</code> The meeting has started.<br/><code class="prettyprint">meeting_ended</code> The meeting has ended.<br/><code class="prettyprint">meeting_jbh</code> Attendee has joined a meeting before the host.<br/><code class="prettyprint">meeting_join</code> Host hasn’t launched the meeting, attendee is waiting.<br/><code class="prettyprint">recording_completed</code> All the Cloud Recordings have completed processing and is available.<br/><code class="prettyprint">participant_joined</code> Participant has joined the meeting.<br/><code class="prettyprint">participant_left</code> Participant has leaved the meeting.<br/></div></td>
+</tr>
+</tbody></table>
