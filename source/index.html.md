@@ -140,6 +140,14 @@ includes:
   - dashboards/get_crc
   - dashboards/get_im
 
+  - webhooks/index
+  - webhooks/patch_options
+  - webhooks/get_
+  - webhooks/post_
+  - webhooks/get_webhookId
+  - webhooks/patch_webhookId
+  - webhooks/delete_webhookId
+
   - tsp/index
   - tsp/get_
   - tsp/get_userId_tsp
