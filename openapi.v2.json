@@ -5522,7 +5522,7 @@
             "in": "path",
             "name": "zoomroomId",
             "description": "The Zoom Room ID",
-            "type": "integer",
+            "type": "string",
             "required": true
         }
 
