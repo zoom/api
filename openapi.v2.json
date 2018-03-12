@@ -4435,7 +4435,7 @@
                 "parameters": [
                     {
                         "name": "email",
-                        "description": "User email",
+                        "description": "Zoom work email",
                         "in": "query",
                         "type": "string",
                         "required": true
@@ -7930,22 +7930,27 @@
                     "description": "Leader PIN, numeric value, length is less than 16."
                 },
                 "dial_in_numbers": {
-                    "type": "object",
-                    "description": "Dial In Numbers object",
+                    "type": "array",
+                    "description": "List of Dial In Numbers",
                     "required": [
                         "code",
                         "number"
                     ],
-                    "properties": {
-                        "code": {
-                            "type": "string",
-                            "description": "Country Code"
-                        },
-                        "number": {
-                            "type": "string",
-                            "description": "Dial-in number, length is less than 16."
-                        }
-                    }
+                    "items": {
+                        "allOf": [
+                            {
+                                "properties": {
+                                    "code": {
+                                        "type": "string",
+                                        "description": "Country Code"
+                                    },
+                                    "number": {
+                                        "type": "string",
+                                        "description": "Dial-in number, length is less than 16."
+                                    }
+                                }
+                            }
+                        ]}
                 }
             }
         },

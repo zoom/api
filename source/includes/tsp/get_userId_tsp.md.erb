@@ -26,10 +26,12 @@ $ curl https://api.zoom.us/v2/users/{userId}/tsp
         {
             "conference_code": "string",
             "leader_pin": "string",
-            "dial_in_numbers": {
-                "code": "string",
-                "number": "string"
-            }
+            "dial_in_numbers": [
+                {
+                    "code": "string",
+                    "number": "string"
+                }
+            ]
         }
     ]
 }
