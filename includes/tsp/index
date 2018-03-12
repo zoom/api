@@ -2,14 +2,16 @@
 
 <h2 id="the-tsp-object">The TSP object</h2>
 
-<p>TSP Account object</p>
+<p>List of TSP Accounts</p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"conference_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"leader_pin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"dial_in_numbers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="s2">"dial_in_numbers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <table><thead>
@@ -27,11 +29,7 @@
 <td>Leader PIN, numeric value, length is less than 16.</td>
 </tr>
 <tr>
-<td>dial_in_numbers.code <em>string</em></td>
-<td>Country Code</td>
-</tr>
-<tr>
-<td>dial_in_numbers.number <em>string</em></td>
-<td>Dial-in number, length is less than 16.</td>
+<td>dial_in_numbers <em>array</em></td>
+<td>List of Dial In Numbers</td>
 </tr>
 </tbody></table>
