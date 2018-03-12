@@ -7915,7 +7915,8 @@
         },
         "TSP": {
             "type": "object",
-            "description": "TSP Account object",
+            "title": "TSP Accounts List",
+            "description": "List of TSP Accounts",
             "required": [
                 "conference_code",
                 "leader_pin"
@@ -7937,20 +7938,17 @@
                         "number"
                     ],
                     "items": {
-                        "allOf": [
-                            {
-                                "properties": {
-                                    "code": {
-                                        "type": "string",
-                                        "description": "Country Code"
-                                    },
-                                    "number": {
-                                        "type": "string",
-                                        "description": "Dial-in number, length is less than 16."
-                                    }
-                                }
+                        "properties": {
+                            "code": {
+                                "type": "string",
+                                "description": "Country Code"
+                            },
+                            "number": {
+                                "type": "string",
+                                "description": "Dial-in number, length is less than 16."
                             }
-                        ]}
+                        }
+                    }
                 }
             }
         },
