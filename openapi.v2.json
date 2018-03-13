@@ -1427,7 +1427,7 @@
         "/meetings/{meetingId}/registrants/status": {
             "put": {
                 "summary": "Update a meeting registrant's status",
-                "description": "Update a registrants status for a meeting",
+                "description": "Update a meeting registrant's status",
                 "tags": [
                     "Meetings"
                 ],
@@ -3641,7 +3641,7 @@
                         "schema": {
                             "type": "object",
                             "required": [
-                              "action"
+                                "action"
                             ],
                             "properties": {
                                 "action": {
@@ -4435,7 +4435,7 @@
                 "parameters": [
                     {
                         "name": "email",
-                        "description": "User email",
+                        "description": "Zoom work email",
                         "in": "query",
                         "type": "string",
                         "required": true
@@ -4973,10 +4973,53 @@
                 }
             }
         },
+        "/webhooks/options": {
+            "patch": {
+                "summary": "Switch webhook version",
+                "description": "Switch webhook version",
+                "tags": [
+                    "Webhooks"
+                ],
+                "operationId": "webhookSwitch",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "schema": {
+                            "required": [
+                                "version"
+                            ],
+                            "properties": {
+                                "version": {
+                                    "type": "string",
+                                    "enum": [
+                                        "v1",
+                                        "v2"
+                                    ],
+                                    "x-enum-descriptions": [
+                                        "Version 1",
+                                        "Version 2"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Webhook Subscribe version update"
+                    },
+                    "404": {
+                        "description": "Webhook Subscribe not found"
+                    }
+                }
+            }
+        },
         "/webhooks": {
             "get": {
                 "summary": "List webhooks",
-                "description": "List webinars for a account",
+                "description": "List webhooks for a account",
                 "tags": [
                     "Webhooks"
                 ],
@@ -5037,8 +5080,9 @@
                                 },
                                 {
                                     "properties": {
-                                        "create_at": {
-                                            "type": "DateTime",
+                                        "created_at": {
+                                            "type": "string",
+                                            "format": "date-time",
                                             "description": "Webhook create time"
                                         }
                                     }
@@ -5048,49 +5092,6 @@
                     },
                     "404": {
                         "description": "Account not found"
-                    }
-                }
-            }
-        },
-        "/webhooks/options": {
-            "patch": {
-                "summary": "Switch webhook subscribe version",
-                "description": "Switch webhook subscribe version",
-                "tags": [
-                    "Webhooks"
-                ],
-                "operationId": "webhookSwitch",
-                "parameters": [
-                    {
-                        "in": "body",
-                        "name": "body",
-                        "required": true,
-                        "schema": {
-                            "required": [
-                                "version"
-                            ],
-                            "properties": {
-                                "version": {
-                                    "type": "string",
-                                    "enum": [
-                                        "v1",
-                                        "v2"
-                                    ],
-                                    "x-enum-descriptions": [
-                                        "Version 1",
-                                        "Version 2"
-                                    ]
-                                }
-                            }
-                        }
-                    }
-                ],
-                "responses": {
-                    "204": {
-                        "description": "Webhook Subscribe version update"
-                    },
-                    "404": {
-                        "description": "Webhook Subscribe not found"
                     }
                 }
             }
@@ -5126,8 +5127,9 @@
                                 },
                                 {
                                     "properties": {
-                                        "create_at": {
-                                            "type": "DateTime",
+                                        "created_at": {
+                                            "type": "string",
+                                            "format": "date-time",
                                             "description": "Webhook create time"
                                         }
                                     }
@@ -5192,8 +5194,6 @@
                 }
             }
         }
-
-
     },
     "parameters": {
         "AccountId": {
@@ -5515,14 +5515,14 @@
             "in": "path",
             "name": "webhookId",
             "description": "The webhook ID",
-            "type": "integer",
+            "type": "string",
             "required": true
         },
         "ZoomRoomId": {
             "in": "path",
             "name": "zoomroomId",
             "description": "The Zoom Room ID",
-            "type": "integer",
+            "type": "string",
             "required": true
         }
 
@@ -6582,7 +6582,7 @@
                     "type": "string",
                     "description": "Timezone to format start_time"
                 },
-                "create_at": {
+                "created_at": {
                     "type": "string",
                     "format": "date-time",
                     "description": "Create time"
@@ -7915,7 +7915,8 @@
         },
         "TSP": {
             "type": "object",
-            "description": "TSP Account object",
+            "title": "TSP Accounts List",
+            "description": "List of TSP Accounts",
             "required": [
                 "conference_code",
                 "leader_pin"
@@ -7930,20 +7931,22 @@
                     "description": "Leader PIN, numeric value, length is less than 16."
                 },
                 "dial_in_numbers": {
-                    "type": "object",
-                    "description": "Dial In Numbers object",
+                    "type": "array",
+                    "description": "List of Dial In Numbers",
                     "required": [
                         "code",
                         "number"
                     ],
-                    "properties": {
-                        "code": {
-                            "type": "string",
-                            "description": "Country Code"
-                        },
-                        "number": {
-                            "type": "string",
-                            "description": "Dial-in number, length is less than 16."
+                    "items": {
+                        "properties": {
+                            "code": {
+                                "type": "string",
+                                "description": "Country Code"
+                            },
+                            "number": {
+                                "type": "string",
+                                "description": "Dial-in number, length is less than 16."
+                            }
                         }
                     }
                 }
@@ -8518,7 +8521,7 @@
                     "type": "string",
                     "description": "Webinar agenda"
                 },
-                "create_at": {
+                "created_at": {
                     "type": "string",
                     "format": "date-time",
                     "description": "Create time"
@@ -8845,7 +8848,7 @@
         },
         "Webhook": {
             "type": "object",
-            "description": "Webhook base object",
+            "description": "Webhook base object, only available for version 2 webhook",
             "required": [
                 "url",
                 "auth_user",
@@ -8860,7 +8863,7 @@
                 },
                 "auth_user": {
                     "type": "string",
-                    "description": "Webhook auth user.",
+                    "description": "Webhook auth user name.",
                     "maxLength":128
 
                 },
@@ -8870,9 +8873,12 @@
                     "maxLength":64
                 },
                 "events": {
-                    "type": "Array",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
                     "description": "List of events objects.",
-                    "enum":["meeting_started", "meeting_ended", "meeting_jbh", "meeting_join", "recording_completed", "participant_joined", "participant_leaved"],
+                    "enum":["meeting_started", "meeting_ended", "meeting_jbh", "meeting_join", "recording_completed", "participant_joined", "participant_left"],
                     "x-enum-descriptions": [
                         "The meeting has started.",
                         "The meeting has ended.",
@@ -8896,7 +8902,7 @@
                 },
                 "auth_user": {
                     "type": "string",
-                    "description": "Webhook auth user.",
+                    "description": "Webhook auth user name.",
                     "maxLength":128
 
                 },
@@ -8906,9 +8912,12 @@
                     "maxLength":64
                 },
                 "events": {
-                    "type": "Array",
+                    "type": "array",
                     "description": "List of events objects.",
-                    "enum":["meeting_started", "meeting_ended", "meeting_jbh", "meeting_join", "recording_completed", "participant_joined", "participant_leaved"],
+                    "items": {
+                        "type": "string"
+                    },
+                    "enum":["meeting_started", "meeting_ended", "meeting_jbh", "meeting_join", "recording_completed", "participant_joined", "participant_left"],
                     "x-enum-descriptions": [
                         "The meeting has started.",
                         "The meeting has ended.",
@@ -8949,16 +8958,7 @@
                                     },
                                     {
                                         "$ref": "#/definitions/Webhook"
-                                    },
-                                    {
-                                        "properties": {
-                                            "create_at": {
-                                                "type": "DateTime",
-                                                "description": "Webhook create time"
-                                            }
-                                        }
                                     }
-
                                 ]
                             }
                         }
@@ -9057,10 +9057,6 @@
             "description": "Webinar operations"
         },
         {
-            "name": "Webhooks",
-            "description": "Webhook operations"
-        },
-        {
             "name": "Groups",
             "description": "Group operations"
         },
@@ -9079,6 +9075,10 @@
         {
             "name": "Dashboards",
             "description": "Dashboard operations"
+        },
+        {
+            "name": "Webhooks",
+            "description": "Webhook operations"
         },
         {
             "name": "TSP",
