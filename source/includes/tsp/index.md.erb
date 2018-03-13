@@ -1,16 +1,18 @@
 # TSP
 
 ## The TSP object
-TSP Account object
+List of TSP Accounts
 
 ```json
 {
     "conference_code": "string",
     "leader_pin": "string",
-    "dial_in_numbers": {
-        "code": "string",
-        "number": "string"
-    }
+    "dial_in_numbers": [
+        {
+            "code": "string",
+            "number": "string"
+        }
+    ]
 }
 ```
 
@@ -18,6 +20,5 @@ Property | Description
 --- | ---
 conference_code *string* | Conference code, numeric value, length is less than 16.
 leader_pin *string* | Leader PIN, numeric value, length is less than 16.
-dial_in_numbers.code *string* | Country Code
-dial_in_numbers.number *string* | Dial-in number, length is less than 16.
+dial_in_numbers *array* | List of Dial In Numbers
 
