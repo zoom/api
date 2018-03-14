@@ -4198,7 +4198,7 @@
                         "required": true,
                         "description": "User Settings",
                         "schema": {
-                            "$ref": "#/definitions/UserSettings"
+                            "$ref": "#/definitions/UserSettingsUpdate"
                         }
                     }
                 ],
@@ -8359,6 +8359,30 @@
                 }
             }
         },
+        "UserSettingsUpdate": {
+            "title": "User settings",
+            "type": "object",
+            "properties": {
+                "scheduled_meeting": {
+                    "$ref": "#/definitions/UserSettingsScheduledMeeting"
+                },
+                "in_meeting": {
+                    "$ref": "#/definitions/UserSettingsInMeeting"
+                },
+                "email_notification": {
+                    "$ref": "#/definitions/UserSettingsEmailNotification"
+                },
+                "recording": {
+                    "$ref": "#/definitions/UserSettingsRecording"
+                },
+                "telephony": {
+                    "$ref": "#/definitions/UserSettingsTelephony"
+                },
+                "feature": {
+                    "$ref": "#/definitions/UserSettingsFeatureUpdate"
+                }
+            }
+        },
         "UserSettingsScheduledMeeting": {
             "title": "User settings: Meeting settings",
             "description": "",
@@ -8646,6 +8670,41 @@
             }
         },
         "UserSettingsFeature": {
+            "title": "User settings: Feature settings",
+            "description": "",
+            "type": "object",
+            "properties": {
+                "meeting_capacity": {
+                    "type": "integer",
+                    "description": "User’s meeting capacity."
+                },
+                "large_meeting": {
+                    "type": "boolean",
+                    "description": "Large meting feature"
+                },
+                "large_meeting_capacity": {
+                    "type": "integer",
+                    "description": "Large meeting capacity, can be 100, 200, 300 or 500, depends on if having related large meeting capacity plan subscription or not."
+                },
+                "webinar": {
+                    "type": "boolean",
+                    "description": "Webinar feature"
+                },
+                "webinar_capacity": {
+                    "type": "integer",
+                    "description": "Webinar capacity, can be 100, 500, 1000, 3000, 5000 or 10000, depends on if having related webinar capacity plan subscription or not."
+                },
+                "cn_meeting": {
+                    "type": "boolean",
+                    "description": "CN meeting feature"
+                },
+                "in_meeting": {
+                    "type": "boolean",
+                    "description": "IN meeting feature"
+                }
+            }
+        },
+        "UserSettingsFeatureUpdate": {
             "title": "User settings: Feature settings",
             "description": "",
             "type": "object",
