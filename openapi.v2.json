@@ -6595,14 +6595,14 @@
                 "encryption": {
                     "type": "string",
                     "enum": [
-                        "Auto",
-                        "Yes",
-                        "No"
+                        "auto",
+                        "yes",
+                        "no"
                     ],
                     "x-enum-descriptions": [
-                        "Auto",
-                        "Yes",
-                        "No"
+                        "auto",
+                        "yes",
+                        "no"
                     ],
                     "description": "Device encryption"
                 }
