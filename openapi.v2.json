@@ -7521,7 +7521,7 @@
         },
         "Recording": {
             "type": "object",
-            "description": "RecordingFile Object",
+            "description": "Recording file Object",
             "properties": {
                 "id": {
                     "type": "string",
