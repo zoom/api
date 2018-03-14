@@ -7835,6 +7835,10 @@
                                             "create_time": {
                                                 "type": "string",
                                                 "format": "date-time"
+                                            },
+                                            "join_url": {
+                                                "type": "string",
+                                                "format": "string"
                                             }
                                         }
                                     }
