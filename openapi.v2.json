@@ -26,7 +26,7 @@
     "produces": [
         "application/json",
         "application/xml"
-    ],
+    ], 
     "paths": {
         "/accounts": {
             "get": {
@@ -739,6 +739,122 @@
                     },
                     "404": {
                         "description": "Group or Group member not found"
+                    }
+                }
+            }
+        },
+        "/H323/devices": {
+            "get": {
+                "summary": "List H323 devices",
+                "description": "List H323 devices under your account",
+                "tags": [
+                    "H323 Devices"
+                ],
+                "parameters": [],
+                "operationId": "H323",
+                "responses": {
+                    "200": {
+                        "description": "List of H323 devices returned.",
+                        "schema": {
+                            "$ref": "#/definitions/DeviceList"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create a H323 device",
+                "description": "Create a H323 device",
+                "tags": [
+                    "H323 Devices"
+                ],
+                "operationId": "deviceCreate",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "description": "H323 Device",
+                        "schema": {
+                            "$ref": "#/definitions/Device"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "H323 device created.",
+                        "headers": {
+                            "Content-Location": {
+                                "description": "Location of created device",
+                                "type": "string"
+                            }
+                        },
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "properties": {
+                                        "id": {
+                                            "type": "string",
+                                            "description": "Device ID"
+                                        }
+                                    }
+                                },
+                                {
+                                    "$ref": "#/definitions/Device"
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/H323/devices/{deviceId}": {
+            "patch": {
+                "summary": "Update a H323 device",
+                "description": "Update a H323 device",
+                "tags": [
+                    "H323 Devices"
+                ],
+                "operationId": "deviceUpdate",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/DeviceId"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Device"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "H323 Device updated."
+                    },
+                    "404": {
+                        "description": "H323 Device not found"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete a H323 Device",
+                "description": "Delete a H323 Device",
+                "tags": [
+                    "H323 Devices"
+                ],
+                "operationId": "deviceDelete",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/DeviceId"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "H323 Device deleted."
+                    },
+                    "404": {
+                        "description": "H323 Device not found"
                     }
                 }
             }
@@ -5218,6 +5334,13 @@
             "type": "string",
             "required": true
         },
+        "DeviceId": {
+            "in": "path",
+            "name": "deviceId",
+            "description": "The device ID",
+            "type": "string",
+            "required": true
+        },
         "LoginType": {
             "in": "query",
             "name": "login_type",
@@ -6362,6 +6485,88 @@
                     "description": "End Date"
                 }
             }
+        },
+        "Device": {
+            "type": "object",
+            "title": "The H323 devices object",
+            "description": "The H323 devices object.",
+            "required": [
+                "name",
+                "protocol",
+                "ip",
+                "encryption"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Device name.",
+                    "maxLength": 64
+                },
+                "protocol": {
+                    "type": "string",
+                    "enum": [
+                        "H.323",
+                        "SIP"
+                    ],
+                    "x-enum-descriptions": [
+                        "H.323",
+                        "SIP"
+                    ],
+                    "description": "Device protocol."
+                },
+                "ip": {
+                    "type": "string",
+                    "description": "Device Ip."
+
+                },
+                "encryption": {
+                    "type": "string",
+                    "enum": [
+                        "Auto",
+                        "Yes",
+                        "No"
+                    ],
+                    "x-enum-descriptions": [
+                        "Auto",
+                        "Yes",
+                        "No"
+                    ],
+                    "description": "Device encryption"
+                }
+            }
+        },
+        "DeviceList": {
+            "type": "object",
+            "title": "Device List",
+            "description": "List of Devices",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/Pagination"
+                },
+                {
+                    "properties": {
+                        "devices": {
+                            "type": "array",
+                            "description": "List of Device objects.",
+                            "items": {
+                                "allOf": [
+                                    {
+                                        "properties": {
+                                            "id": {
+                                                "type": "string",
+                                                "description": "Device ID"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "$ref": "#/definitions/Device"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
         },
         "Group": {
             "type": "object",
@@ -9083,6 +9288,10 @@
         {
             "name": "TSP",
             "description": "TSP operations"
+        },
+        {
+            "name": "H323 Devices",
+            "description": "H323 Device operations"
         }
     ],
     "externalDocs": {
