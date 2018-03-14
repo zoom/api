@@ -9303,6 +9303,15 @@
                                     },
                                     {
                                         "$ref": "#/definitions/Webhook"
+                                    },
+                                    {
+                                        "properties": {
+                                            "created_at": {
+                                                "type": "string",
+                                                "format": "date-time",
+                                                "description": "Webhook create time"
+                                            }
+                                        }
                                     }
                                 ]
                             }
