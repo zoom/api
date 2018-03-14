@@ -1609,7 +1609,7 @@
                     "200": {
                         "description": "List of Recording objects returned",
                         "schema": {
-                            "$ref": "#/definitions/RecordingList"
+                            "$ref": "#/definitions/RecordingMeetingList"
                         }
                     },
                     "404": {
@@ -1637,7 +1637,7 @@
                         "schema": {
                             "allOf": [
                                 {
-                                    "$ref": "#/definitions/Recording"
+                                    "$ref": "#/definitions/RecordingMeeting"
                                 }
                             ]
                         }
@@ -7521,58 +7521,6 @@
         },
         "Recording": {
             "type": "object",
-            "description": "The recording meeting object",
-            "allOf":[
-                {
-                    "properties": {
-                        "uuid": {
-                            "type": "string",
-                            "description": "Meeting unique ID"
-                        },
-                        "id": {
-                            "type": "string",
-                            "description": "Meeting ID, also know as meeting number"
-                        },
-                        "account_id": {
-                            "type": "string",
-                            "description": "ID of the user account"
-                        },
-                        "host_id": {
-                            "type": "string",
-                            "description": "ID of the user set as host of meeting"
-                        },
-                        "topic": {
-                            "type": "string",
-                            "description": "Meeting topic"
-                        },
-                        "start_time": {
-                            "type": "string",
-                            "format": "date-time",
-                            "description": "Meeting start time"
-                        },
-                        "duration": {
-                            "type": "integer",
-                            "description": "Meeting duration"
-                        },
-                        "total_size": {
-                            "type": "string",
-                            "description": "Total size"
-                        },
-                        "recording_count": {
-                            "type": "string",
-                            "description": "Recording count"
-                        }
-                    }
-                },
-                {
-                    "$ref": "#/definitions/RecordingFileList"
-                }
-
-            ]
-
-        },
-        "RecordingFile": {
-            "type": "object",
             "description": "RecordingFile Object",
             "properties": {
                 "id": {
@@ -7621,7 +7569,7 @@
                 }
             }
         },
-        "RecordingFileList": {
+        "RecordingList": {
             "type": "object",
             "title": "Recording file List",
             "description": "List of Recording file",
@@ -7635,7 +7583,7 @@
                             "items": {
                                 "allOf": [
                                     {
-                                        "$ref": "#/definitions/RecordingFile"
+                                        "$ref": "#/definitions/Recording"
                                     }
                                 ]
                             }
@@ -7644,7 +7592,59 @@
                 }
             ]
         },
-        "RecordingList": {
+        "RecordingMeeting": {
+            "type": "object",
+            "description": "The recording meeting object",
+            "allOf":[
+                {
+                    "properties": {
+                        "uuid": {
+                            "type": "string",
+                            "description": "Meeting unique ID"
+                        },
+                        "id": {
+                            "type": "string",
+                            "description": "Meeting ID, also know as meeting number"
+                        },
+                        "account_id": {
+                            "type": "string",
+                            "description": "ID of the user account"
+                        },
+                        "host_id": {
+                            "type": "string",
+                            "description": "ID of the user set as host of meeting"
+                        },
+                        "topic": {
+                            "type": "string",
+                            "description": "Meeting topic"
+                        },
+                        "start_time": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Meeting start time"
+                        },
+                        "duration": {
+                            "type": "integer",
+                            "description": "Meeting duration"
+                        },
+                        "total_size": {
+                            "type": "string",
+                            "description": "Total size"
+                        },
+                        "recording_count": {
+                            "type": "string",
+                            "description": "Recording count"
+                        }
+                    }
+                },
+                {
+                    "$ref": "#/definitions/RecordingList"
+                }
+
+            ]
+
+        },
+        "RecordingMeetingList": {
             "type": "object",
             "title": "Recording List",
             "description": "List of Recording",
@@ -7664,7 +7664,7 @@
                             "items": {
                                 "allOf": [
                                     {
-                                        "$ref": "#/definitions/Recording"
+                                        "$ref": "#/definitions/RecordingMeeting"
                                     }
                                 ]
                             }
