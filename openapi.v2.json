@@ -7614,6 +7614,10 @@
                 "deleted_time": {
                     "type": "string",
                     "description": "The recording delete time.Response in trash query"
+                },
+                "recording_type": {
+                    "type": "string",
+                    "description": "The recording file type, active_speaker or gallery_view"
                 }
             }
         },
