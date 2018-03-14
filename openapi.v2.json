@@ -3248,6 +3248,79 @@
                 }
             }
         },
+        "/report/meetings/{meetingId}/polls": {
+            "get": {
+                "summary": "Retrieve meeting polls report",
+                "description": "Retrieve ended meeting polls report",
+                "tags": [
+                    "Reports"
+                ],
+                "operationId": "reportMeetingPolls",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/MeetingId4Metrics"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Meeting Polls Report Returned",
+                        "schema": {
+                            "properties": {
+                                "id": {
+                                    "type": "integer",
+                                    "description": "Meeting ID"
+                                },
+                                "uuid": {
+                                    "type": "string",
+                                    "format": "uuid",
+                                    "description": "Meeting UUID"
+                                },
+                                "start_time": {
+                                    "type": "string",
+                                    "format": "date-time",
+                                    "description": "Meeting start time"
+                                },
+                                "questions": {
+                                    "type": "array",
+                                    "description": "Array of Meeting question objects",
+                                    "items": {
+                                        "properties": {
+                                            "name": {
+                                                "type": "string",
+                                                "description": "Participant display name"
+                                            },
+                                            "email": {
+                                                "type": "string",
+                                                "description": "Participant email"
+                                            },
+                                            "question_details": {
+                                                "type": "array",
+                                                "description": "Array of questions from user",
+                                                "items": {
+                                                    "properties": {
+                                                        "question": {
+                                                            "type": "string",
+                                                            "description": "Asked question"
+                                                        },
+                                                        "answer": {
+                                                            "type": "string",
+                                                            "description": "Given answer"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Meeting not found"
+                    }
+                }
+            }
+        },
         "/report/webinars/{webinarId}": {
             "get": {
                 "summary": "Retrieve webinar details report",
