@@ -120,7 +120,6 @@ includes:
   - reports/get_webinars_webinarId_participants
   - reports/get_webinars_webinarId_polls
   - reports/get_webinars_webinarId_qa
-  - reports/get_telephone
 
   - dashboards/index
   - dashboards/get_meetings
