@@ -143,7 +143,15 @@ class OpenAPI2Slate {
 				fputs( $index, "## The " . $object_name . " object\r\n" );
 				fputs( $index, $tmp->description . "\r\n\r\n" );
 				$this->object_ref($index, $schema);
-			}
+			}else{
+                $tmp_name = $this->openapi->definitions->{substr($object_name, strpos($object_name, " ") + 1)};
+                $tmp_schema = $this->get_schema( $tmp_name );
+                if($tmp_schema){
+                    fputs( $index, "## The " . $object_name . " object\r\n" );
+                    fputs( $index, $tmp_name->description . "\r\n\r\n" );
+                    $this->object_ref($index, $tmp_schema);
+                }
+            }
 
 			fclose( $index );
 

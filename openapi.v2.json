@@ -743,6 +743,122 @@
                 }
             }
         },
+        "/H323/devices": {
+            "get": {
+                "summary": "List H.323/SIP Devices",
+                "description": "List H.323/SIP Devices on your Zoom account.",
+                "tags": [
+                    "Devices"
+                ],
+                "parameters": [],
+                "operationId": "deviceList",
+                "responses": {
+                    "200": {
+                        "description": "List of H.323/SIP Devices returned.",
+                        "schema": {
+                            "$ref": "#/definitions/DeviceList"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create a H.323/SIP Device",
+                "description": "Create a H.323/SIP Device on your Zoom account.",
+                "tags": [
+                    "Devices"
+                ],
+                "operationId": "deviceCreate",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "description": "H.323/SIP Device",
+                        "schema": {
+                            "$ref": "#/definitions/Device"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "H.323/SIP Device created.",
+                        "headers": {
+                            "Content-Location": {
+                                "description": "Location of created device",
+                                "type": "string"
+                            }
+                        },
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "properties": {
+                                        "id": {
+                                            "type": "string",
+                                            "description": "Device ID"
+                                        }
+                                    }
+                                },
+                                {
+                                    "$ref": "#/definitions/Device"
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/H323/devices/{deviceId}": {
+            "patch": {
+                "summary": "Update a H.323/SIP Device",
+                "description": "Update a H.323/SIP Device on your Zoom account.",
+                "tags": [
+                    "Devices"
+                ],
+                "operationId": "deviceUpdate",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/DeviceId"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Device"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "H.323/SIP Device updated."
+                    },
+                    "404": {
+                        "description": "H.323/SIP Device not found"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete a H.323/SIP Device",
+                "description": "Delete a H.323/SIP Device on your Zoom account.",
+                "tags": [
+                    "Devices"
+                ],
+                "operationId": "deviceDelete",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/DeviceId"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "H.323/SIP Device deleted."
+                    },
+                    "404": {
+                        "description": "H.323/SIP Device not found"
+                    }
+                }
+            }
+        },
         "/im/groups": {
             "get": {
                 "summary": "List IM Groups",
@@ -1493,7 +1609,7 @@
                     "200": {
                         "description": "List of Recording objects returned",
                         "schema": {
-                            "$ref": "#/definitions/RecordingList"
+                            "$ref": "#/definitions/RecordingMeetingList"
                         }
                     },
                     "404": {
@@ -1521,7 +1637,7 @@
                         "schema": {
                             "allOf": [
                                 {
-                                    "$ref": "#/definitions/Recording"
+                                    "$ref": "#/definitions/RecordingMeeting"
                                 }
                             ]
                         }
@@ -3132,6 +3248,79 @@
                 }
             }
         },
+        "/report/meetings/{meetingId}/polls": {
+            "get": {
+                "summary": "Retrieve meeting polls report",
+                "description": "Retrieve ended meeting polls report",
+                "tags": [
+                    "Reports"
+                ],
+                "operationId": "reportMeetingPolls",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/MeetingId4Metrics"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Meeting Polls Report Returned",
+                        "schema": {
+                            "properties": {
+                                "id": {
+                                    "type": "integer",
+                                    "description": "Meeting ID"
+                                },
+                                "uuid": {
+                                    "type": "string",
+                                    "format": "uuid",
+                                    "description": "Meeting UUID"
+                                },
+                                "start_time": {
+                                    "type": "string",
+                                    "format": "date-time",
+                                    "description": "Meeting start time"
+                                },
+                                "questions": {
+                                    "type": "array",
+                                    "description": "Array of Meeting question objects",
+                                    "items": {
+                                        "properties": {
+                                            "name": {
+                                                "type": "string",
+                                                "description": "Participant display name"
+                                            },
+                                            "email": {
+                                                "type": "string",
+                                                "description": "Participant email"
+                                            },
+                                            "question_details": {
+                                                "type": "array",
+                                                "description": "Array of questions from user",
+                                                "items": {
+                                                    "properties": {
+                                                        "question": {
+                                                            "type": "string",
+                                                            "description": "Asked question"
+                                                        },
+                                                        "answer": {
+                                                            "type": "string",
+                                                            "description": "Given answer"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Meeting not found"
+                    }
+                }
+            }
+        },
         "/report/webinars/{webinarId}": {
             "get": {
                 "summary": "Retrieve webinar details report",
@@ -4080,7 +4269,7 @@
                         "required": true,
                         "description": "User Settings",
                         "schema": {
-                            "$ref": "#/definitions/UserSettings"
+                            "$ref": "#/definitions/UserSettingsUpdate"
                         }
                     }
                 ],
@@ -5213,6 +5402,13 @@
             "in": "path",
             "name": "groupId",
             "description": "The group ID",
+            "type": "string",
+            "required": true
+        },
+        "DeviceId": {
+            "in": "path",
+            "name": "deviceId",
+            "description": "The device ID",
             "type": "string",
             "required": true
         },
@@ -6361,6 +6557,88 @@
                 }
             }
         },
+        "Device": {
+            "type": "object",
+            "title": "The H.323/SIP device object",
+            "description": "The H.323/SIP device object.",
+            "required": [
+                "name",
+                "protocol",
+                "ip",
+                "encryption"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Device name.",
+                    "maxLength": 64
+                },
+                "protocol": {
+                    "type": "string",
+                    "enum": [
+                        "H.323",
+                        "SIP"
+                    ],
+                    "x-enum-descriptions": [
+                        "H.323",
+                        "SIP"
+                    ],
+                    "description": "Device protocol."
+                },
+                "ip": {
+                    "type": "string",
+                    "description": "Device Ip."
+
+                },
+                "encryption": {
+                    "type": "string",
+                    "enum": [
+                        "auto",
+                        "yes",
+                        "no"
+                    ],
+                    "x-enum-descriptions": [
+                        "auto",
+                        "yes",
+                        "no"
+                    ],
+                    "description": "Device encryption"
+                }
+            }
+        },
+        "DeviceList": {
+            "type": "object",
+            "title": "H.323/SIP Device List",
+            "description": "List of H.323/SIP Devices",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/Pagination"
+                },
+                {
+                    "properties": {
+                        "devices": {
+                            "type": "array",
+                            "description": "List of H.323/SIP Device objects.",
+                            "items": {
+                                "allOf": [
+                                    {
+                                        "properties": {
+                                            "id": {
+                                                "type": "string",
+                                                "description": "Device ID"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "$ref": "#/definitions/Device"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        },
         "Group": {
             "type": "object",
             "description": "Group object",
@@ -7241,6 +7519,79 @@
         },
         "Recording": {
             "type": "object",
+            "description": "Recording file Object",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The recording file ID.Response in general query"
+                },
+                "meeting_id": {
+                    "type": "string",
+                    "description": "The meeting ID. "
+                },
+                "recording_start": {
+                    "type": "string",
+                    "description": "The recording start time."
+                },
+                "recording_end": {
+                    "type": "string",
+                    "description": "The recording end time.Response in general query"
+                },
+                "file_type": {
+                    "type": "string",
+                    "description": "The recording file type."
+                },
+                "file_size": {
+                    "type": "number",
+                    "description": "The recording file size."
+                },
+                "play_url": {
+                    "type": "string",
+                    "description": "The recording file play url.Response in general query"
+                },
+                "download_url": {
+                    "type": "string",
+                    "description": "The recording download url.Response in general query"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "The recording status.Response in general query"
+                },
+                "deleted_time": {
+                    "type": "string",
+                    "description": "The recording delete time.Response in trash query"
+                },
+                "recording_type": {
+                    "type": "string",
+                    "description": "The recording file type, active_speaker or gallery_view"
+                }
+            }
+        },
+        "RecordingList": {
+            "type": "object",
+            "title": "Recording file List",
+            "description": "List of Recording file",
+            "allOf": [
+                {
+                    "properties": {
+                        "recording_files": {
+                            "type": "array",
+                            "title": "Recording file List",
+                            "description": "List of Recording file",
+                            "items": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/definitions/Recording"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "RecordingMeeting": {
+            "type": "object",
             "description": "The recording meeting object",
             "allOf":[
                 {
@@ -7285,82 +7636,13 @@
                     }
                 },
                 {
-                    "$ref": "#/definitions/RecordingFileList"
+                    "$ref": "#/definitions/RecordingList"
                 }
 
             ]
 
         },
-        "RecordingFile": {
-            "type": "object",
-            "description": "RecordingFile Object",
-            "properties": {
-                "id": {
-                    "type": "string",
-                    "description": "The recording file ID.Response in general query"
-                },
-                "meeting_id": {
-                    "type": "string",
-                    "description": "The meeting ID. "
-                },
-                "recording_start": {
-                    "type": "string",
-                    "description": "The recording start time."
-                },
-                "recording_end": {
-                    "type": "string",
-                    "description": "The recording end time.Response in general query"
-                },
-                "file_type": {
-                    "type": "string",
-                    "description": "The recording file type."
-                },
-                "file_size": {
-                    "type": "number",
-                    "description": "The recording file size."
-                },
-                "play_url": {
-                    "type": "string",
-                    "description": "The recording file play url.Response in general query"
-                },
-                "download_url": {
-                    "type": "string",
-                    "description": "The recording download url.Response in general query"
-                },
-                "status": {
-                    "type": "string",
-                    "description": "The recording status.Response in general query"
-                },
-                "deleted_time": {
-                    "type": "string",
-                    "description": "The recording delete time.Response in trash query"
-                }
-            }
-        },
-        "RecordingFileList": {
-            "type": "object",
-            "title": "Recording file List",
-            "description": "List of Recording file",
-            "allOf": [
-                {
-                    "properties": {
-                        "recording_files": {
-                            "type": "array",
-                            "title": "Recording file List",
-                            "description": "List of Recording file",
-                            "items": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/definitions/RecordingFile"
-                                    }
-                                ]
-                            }
-                        }
-                    }
-                }
-            ]
-        },
-        "RecordingList": {
+        "RecordingMeetingList": {
             "type": "object",
             "title": "Recording List",
             "description": "List of Recording",
@@ -7380,7 +7662,7 @@
                             "items": {
                                 "allOf": [
                                     {
-                                        "$ref": "#/definitions/Recording"
+                                        "$ref": "#/definitions/RecordingMeeting"
                                     }
                                 ]
                             }
@@ -7628,6 +7910,10 @@
                                             "create_time": {
                                                 "type": "string",
                                                 "format": "date-time"
+                                            },
+                                            "join_url": {
+                                                "type": "string",
+                                                "format": "string"
                                             }
                                         }
                                     }
@@ -8148,6 +8434,30 @@
                 }
             }
         },
+        "UserSettingsUpdate": {
+            "title": "User settings",
+            "type": "object",
+            "properties": {
+                "scheduled_meeting": {
+                    "$ref": "#/definitions/UserSettingsScheduledMeeting"
+                },
+                "in_meeting": {
+                    "$ref": "#/definitions/UserSettingsInMeeting"
+                },
+                "email_notification": {
+                    "$ref": "#/definitions/UserSettingsEmailNotification"
+                },
+                "recording": {
+                    "$ref": "#/definitions/UserSettingsRecording"
+                },
+                "telephony": {
+                    "$ref": "#/definitions/UserSettingsTelephony"
+                },
+                "feature": {
+                    "$ref": "#/definitions/UserSettingsFeatureUpdate"
+                }
+            }
+        },
         "UserSettingsScheduledMeeting": {
             "title": "User settings: Meeting settings",
             "description": "",
@@ -8435,6 +8745,41 @@
             }
         },
         "UserSettingsFeature": {
+            "title": "User settings: Feature settings",
+            "description": "",
+            "type": "object",
+            "properties": {
+                "meeting_capacity": {
+                    "type": "integer",
+                    "description": "User’s meeting capacity."
+                },
+                "large_meeting": {
+                    "type": "boolean",
+                    "description": "Large meting feature"
+                },
+                "large_meeting_capacity": {
+                    "type": "integer",
+                    "description": "Large meeting capacity, can be 100, 200, 300 or 500, depends on if having related large meeting capacity plan subscription or not."
+                },
+                "webinar": {
+                    "type": "boolean",
+                    "description": "Webinar feature"
+                },
+                "webinar_capacity": {
+                    "type": "integer",
+                    "description": "Webinar capacity, can be 100, 500, 1000, 3000, 5000 or 10000, depends on if having related webinar capacity plan subscription or not."
+                },
+                "cn_meeting": {
+                    "type": "boolean",
+                    "description": "CN meeting feature"
+                },
+                "in_meeting": {
+                    "type": "boolean",
+                    "description": "IN meeting feature"
+                }
+            }
+        },
+        "UserSettingsFeatureUpdate": {
             "title": "User settings: Feature settings",
             "description": "",
             "type": "object",
@@ -8956,6 +9301,15 @@
                                     },
                                     {
                                         "$ref": "#/definitions/Webhook"
+                                    },
+                                    {
+                                        "properties": {
+                                            "created_at": {
+                                                "type": "string",
+                                                "format": "date-time",
+                                                "description": "Webhook create time"
+                                            }
+                                        }
                                     }
                                 ]
                             }
@@ -9081,6 +9435,10 @@
         {
             "name": "TSP",
             "description": "TSP operations"
+        },
+        {
+            "name": "Devices",
+            "description": "H323 Device operations"
         }
     ],
     "externalDocs": {
