@@ -1920,7 +1920,6 @@
                                                     },
                                                     "user_id": {
                                                         "type": "string",
-                                                        "format": "uuid",
                                                         "description": "Participant ID"
                                                     },
                                                     "user_name": {
@@ -2275,7 +2274,6 @@
                                                     },
                                                     "user_id": {
                                                         "type": "string",
-                                                        "format": "uuid",
                                                         "description": "Participant ID"
                                                     },
                                                     "user_name": {
@@ -3208,6 +3206,15 @@
                                             "description": "Array of meeting participant objects",
                                             "items": {
                                                 "properties": {
+                                                    "id": {
+                                                        "type": "string",
+                                                        "format": "uuid",
+                                                        "description": "Participant UUID"
+                                                    },
+                                                    "user_id": {
+                                                        "type": "string",
+                                                        "description": "Participant ID"
+                                                    },
                                                     "name": {
                                                         "type": "string",
                                                         "description": "Participant display name"
@@ -3429,6 +3436,15 @@
                                             "description": "Array of webinar participant objects",
                                             "items": {
                                                 "properties": {
+                                                    "id": {
+                                                        "type": "string",
+                                                        "format": "uuid",
+                                                        "description": "Participant UUID"
+                                                    },
+                                                    "user_id": {
+                                                        "type": "string",
+                                                        "description": "Participant ID"
+                                                    },
                                                     "name": {
                                                         "type": "string",
                                                         "description": "Participant display name"
@@ -4367,6 +4383,39 @@
                 "responses": {
                     "204": {
                         "description": "Password updated"
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                }
+            }
+        },
+        "/users/{userId}/pac": {
+            "get": {
+                "summary": "List user's PAC accounts",
+                "description": "List user's PAC accounts",
+                "tags": [
+                    "PAC"
+                ],
+                "operationId": "userPACs",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/UserId"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "PAC Account list returned",
+                        "schema": {
+                            "properties": {
+                                "tsp_accounts": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/definitions/PAC"
+                                    }
+                                }
+                            }
+                        }
                     },
                     "404": {
                         "description": "User not found"
@@ -5504,11 +5553,13 @@
             "default" : "live",
             "enum": [
                 "scheduled",
-                "live"
+                "live",
+                "upcoming"
             ],
             "x-enum-descriptions": [
                 "all the scheduled meetings",
-                "all the live meetings"
+                "all the live meetings",
+                "all the upcoming meetings"
             ]
         },
         "MeetingTypePast": {
@@ -8236,6 +8287,65 @@
                 }
             }
         },
+        "PAC": {
+            "type": "object",
+            "title": "PAC Accounts List",
+            "description": "List of PAC Accounts",
+            "properties": {
+                "dedicated_dial_in_number": {
+                    "type": "array",
+                    "description": "List of Dedicated Dial In Numbers",
+                    "required": [
+                        "number",
+                        "country"
+                    ],
+                    "items": {
+                        "properties": {
+                            "number": {
+                                "type": "string",
+                                "description": "Dial-in number, length is less than 16."
+                            },
+                            "country": {
+                                "type": "string",
+                                "description": "Country Code"
+                            }
+                        }
+                    }
+                },
+                "global_dial_in_numbers": {
+                    "type": "array",
+                    "description": "List of Global Dial In Numbers",
+                    "required": [
+                        "number",
+                        "country"
+                    ],
+                    "items": {
+                        "properties": {
+                            "number": {
+                                "type": "string",
+                                "description": "Dial-in number, length is less than 16."
+                            },
+                            "country": {
+                                "type": "string",
+                                "description": "Country Code"
+                            }
+                        }
+                    }
+                },
+                "conference_id": {
+                    "type": "integer",
+                    "description": "Conference ID."
+                },
+                "participant_password": {
+                    "type": "string",
+                    "description": "Participant Password, numeric value, length is less than 6."
+                },
+                "listen_only_password": {
+                    "type": "string",
+                    "description": "Listen-Only Password, numeric value, length is less than 6."
+                }
+            }
+        },
         "User": {
             "type": "object",
             "description": "The user object represents a User on Zoom.",
@@ -9435,6 +9545,10 @@
         {
             "name": "TSP",
             "description": "TSP operations"
+        },
+        {
+            "name": "PAC",
+            "description": "PAC operations"
         },
         {
             "name": "Devices",
