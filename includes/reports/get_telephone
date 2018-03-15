@@ -46,7 +46,7 @@
 </thead><tbody>
 <tr>
 <td>type <em>optional</em><div class="default">1</div></td>
-<td>Audio type<div class="enum"><code class="prettyprint">1</code> Toll-free Call-in &amp; Call-out<br/><code class="prettyprint">2</code> Toll<br/></div></td>
+<td>Audio type<div class="enum"><code class="prettyprint">1</code> Toll-free Call-in &amp; Call-out<br/></div></td>
 </tr>
 <tr>
 <td>from <strong>required</strong></td>
