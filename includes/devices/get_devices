@@ -5,12 +5,12 @@
 <blockquote>
 <p>Definition</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>GET https://api.zoom.us/v2/H323/devices
+<pre class="highlight shell tab-shell"><code>GET https://api.zoom.us/v2/h323/devices
 </code></pre>
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/H323/devices
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/h323/devices
 </code></pre>
 <blockquote>
 <p>Example Response</p>

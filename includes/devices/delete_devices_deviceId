@@ -5,12 +5,12 @@
 <blockquote>
 <p>Definition</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>DELETE https://api.zoom.us/v2/H323/devices/<span class="o">{</span>deviceId<span class="o">}</span>
+<pre class="highlight shell tab-shell"><code>DELETE https://api.zoom.us/v2/h323/devices/<span class="o">{</span>deviceId<span class="o">}</span>
 </code></pre>
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/H323/devices/<span class="o">{</span>deviceId<span class="o">}</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/h323/devices/<span class="o">{</span>deviceId<span class="o">}</span> <span class="se">\</span>
     -X DELETE
 </code></pre>
 <blockquote>
