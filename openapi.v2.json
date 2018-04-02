@@ -743,7 +743,7 @@
                 }
             }
         },
-        "/H323/devices": {
+        "/h323/devices": {
             "get": {
                 "summary": "List H.323/SIP Devices",
                 "description": "List H.323/SIP Devices on your Zoom account.",
@@ -807,7 +807,7 @@
                 }
             }
         },
-        "/H323/devices/{deviceId}": {
+        "/h323/devices/{deviceId}": {
             "patch": {
                 "summary": "Update a H.323/SIP Device",
                 "description": "Update a H.323/SIP Device on your Zoom account.",
