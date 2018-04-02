@@ -57,7 +57,7 @@
 </thead><tbody>
 <tr>
 <td>type <em>optional</em><div class="default">live</div></td>
-<td>The meeting type<div class="enum"><code class="prettyprint">scheduled</code> all the scheduled meetings<br/><code class="prettyprint">live</code> all the live meetings<br/></div></td>
+<td>The meeting type<div class="enum"><code class="prettyprint">scheduled</code> all the scheduled meetings<br/><code class="prettyprint">live</code> all the live meetings<br/><code class="prettyprint">upcoming</code> all the upcoming meetings<br/></div></td>
 </tr>
 <tr>
 <td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
