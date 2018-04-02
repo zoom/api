@@ -116,6 +116,7 @@ includes:
   - reports/get_users_userId_meetings
   - reports/get_meetings_meetingId
   - reports/get_meetings_meetingId_participants
+  - reports/get_meetings_meetingId_polls
   - reports/get_webinars_webinarId
   - reports/get_webinars_webinarId_participants
   - reports/get_webinars_webinarId_polls
@@ -155,6 +156,15 @@ includes:
   - tsp/get_userId_tsp_tspId
   - tsp/patch_userId_tsp_tspId
   - tsp/delete_userId_tsp_tspId
+
+  - pac/index
+  - pac/get_userId_pac
+
+  - devices/index
+  - devices/get_devices
+  - devices/post_devices
+  - devices/patch_devices_deviceId
+  - devices/delete_devices_deviceId
 
   - appendix/index
   - appendix/master_account
