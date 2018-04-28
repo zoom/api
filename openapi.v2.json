@@ -4001,6 +4001,9 @@
                                         },
                                         "pic_url": {
                                             "type": "string"
+                                        },
+                                        "cms_user_id": {
+                                            "type": "string"
                                         }
                                     }
                                 }
