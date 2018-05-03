@@ -3871,7 +3871,8 @@
                                     "properties": {
                                         "email": {
                                             "type": "string",
-                                            "description": "User's email address."
+                                            "description": "User's email address.",
+                                            "maxLength": 128
                                         },
                                         "type": {
                                             "type": "integer",
@@ -8288,11 +8289,15 @@
             "properties": {
                 "conference_code": {
                     "type": "string",
-                    "description": "Conference code, numeric value, length is less than 16."
+                    "description": "Conference code, numeric value, length is less than 16.",
+                    "minLength": 1,
+                    "maxLength": 16
                 },
                 "leader_pin": {
                     "type": "string",
-                    "description": "Leader PIN, numeric value, length is less than 16."
+                    "description": "Leader PIN, numeric value, length is less than 16.",
+                    "minLength": 1,
+                    "maxLength": 16
                 },
                 "dial_in_numbers": {
                     "type": "array",
@@ -8305,11 +8310,14 @@
                         "properties": {
                             "code": {
                                 "type": "string",
-                                "description": "Country Code"
+                                "description": "Country Code",
+                                "maxLength": 6
                             },
                             "number": {
                                 "type": "string",
-                                "description": "Dial-in number, length is less than 16."
+                                "description": "Dial-in number, length is less than 16.",
+                                "minLength": 1,
+                                "maxLength": 16
                             }
                         }
                     }
@@ -8445,11 +8453,13 @@
             "properties": {
                 "first_name": {
                     "type": "string",
-                    "description": "User's first name. Cannot contain more than 5 Chinese words."
+                    "description": "User's first name. Cannot contain more than 5 Chinese words.",
+                    "maxLength": 64
                 },
                 "last_name": {
                     "type": "string",
-                    "description": "User's last name. Cannot contain more than 5 Chinese words."
+                    "description": "User's last name. Cannot contain more than 5 Chinese words.",
+                    "maxLength": 64
                 },
                 "type": {
                     "type": "integer",
@@ -8467,7 +8477,9 @@
                 },
                 "pmi": {
                     "type": "string",
-                    "description": "Personal Meeting ID,length must be 10."
+                    "description": "Personal Meeting ID,length must be 10.",
+                    "minLength": 10,
+                    "maxLength": 10
                 },
                 "timezone": {
                     "type": "string",
@@ -8484,7 +8496,9 @@
                 },
                 "host_key": {
                     "type": "string",
-                    "description": "Host Key, should be 6-digit number."
+                    "description": "Host Key, should be 6-digit number.",
+                    "minLength": 6,
+                    "maxLength": 6
                 },
                 "cms_user_id": {
                     "type": "string",
@@ -8859,7 +8873,9 @@
                 "auto_delete_cmr_days": {
                     "type": "integer",
                     "default": false,
-                    "description": "A specified number of days of auto delete cloud recordings"
+                    "description": "A specified number of days of auto delete cloud recordings",
+                    "minimum": 1,
+                    "maximum": 60
                 }
             }
         },
@@ -8875,7 +8891,8 @@
                 "audio_conference_info": {
                     "type": "string",
                     "default": "",
-                    "description": "3rd party audio conference info"
+                    "description": "3rd party audio conference info",
+                    "maxLength":2048
                 },
                 "show_international_numbers_link": {
                     "type": "boolean",
