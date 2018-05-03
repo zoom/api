@@ -8846,7 +8846,7 @@
                     "default": false,
                     "description": "A specified number of days of auto delete cloud recordings",
                     "minimum": 1,
-                    "maximum": 9999
+                    "maximum": 60
                 }
             }
         },
