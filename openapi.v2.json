@@ -8270,11 +8270,6 @@
                     "minLength": 1,
                     "maxLength": 16
                 },
-                "media_url": {
-                    "type": "string",
-                    "description": "Media Url, length is less than 128.",
-                    "maxLength": 128
-                },
                 "dial_in_numbers": {
                     "type": "array",
                     "description": "List of Dial In Numbers",
