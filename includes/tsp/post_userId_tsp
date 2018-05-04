@@ -56,11 +56,11 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>conference_code <strong>required</strong></td>
+<td>conference_code <strong>required</strong><div class="maxLength">16</div></td>
 <td>Conference code, numeric value, length is less than 16.</td>
 </tr>
 <tr>
-<td>leader_pin <strong>required</strong></td>
+<td>leader_pin <strong>required</strong><div class="maxLength">16</div></td>
 <td>Leader PIN, numeric value, length is less than 16.</td>
 </tr>
 <tr>

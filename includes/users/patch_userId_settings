@@ -269,7 +269,7 @@
 <td>Auto delete cloud recordings</td>
 </tr>
 <tr>
-<td>recording.auto_delete_cmr_days <em>optional</em><div class="default">false</div></td>
+<td>recording.auto_delete_cmr_days <em>optional</em><div class="default">false</div><div class="minimum">1</div><div class="maximum">60</div></td>
 <td>A specified number of days of auto delete cloud recordings</td>
 </tr>
 <tr>
@@ -277,7 +277,7 @@
 <td>3rd party audio conference</td>
 </tr>
 <tr>
-<td>telephony.audio_conference_info <em>optional</em></td>
+<td>telephony.audio_conference_info <em>optional</em><div class="maxLength">2048</div></td>
 <td>3rd party audio conference info</td>
 </tr>
 <tr>
