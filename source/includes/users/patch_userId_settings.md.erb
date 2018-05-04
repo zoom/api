@@ -133,9 +133,9 @@ recording.show_timestamp *optional*<div class="default">false</div> | Show times
 recording.recording_audio_transcript *optional* | Audio transcript
 recording.auto_recording *optional*<div class="default">local</div> | Automatic recording<div class="enum">`local` Record on local<br/>`cloud` Record on cloud<br/>`none` Disabled<br/></div>
 recording.auto_delete_cmr *optional*<div class="default">false</div> | Auto delete cloud recordings
-recording.auto_delete_cmr_days *optional*<div class="default">false</div> | A specified number of days of auto delete cloud recordings
+recording.auto_delete_cmr_days *optional*<div class="default">false</div><div class="minimum">1</div><div class="maximum">60</div> | A specified number of days of auto delete cloud recordings
 telephony.third_party_audio *optional* | 3rd party audio conference
-telephony.audio_conference_info *optional* | 3rd party audio conference info
+telephony.audio_conference_info *optional*<div class="maxLength">2048</div> | 3rd party audio conference info
 telephony.show_international_numbers_link *optional* | Show international numbers link on the invitation email
 feature.meeting_capacity *optional* | User’s meeting capacity.
 feature.large_meeting *optional* | Large meting feature
