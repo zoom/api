@@ -51,6 +51,7 @@ includes:
   - users/patch_userId_settings
   - users/put_userId_status
   - users/put_userId_password
+  - users/get_userId_permissions
   - users/get_userId_token
   - users/delete_userId_token
   - users/get_zpk
