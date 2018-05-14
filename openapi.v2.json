@@ -4612,10 +4612,12 @@
                         "type": "string",
                         "enum": [
                             "token",
-                            "zpk"
+                            "zpk",
+                            "zak"
                         ],
                         "x-enum-descriptions": [
                             "Used for starting meeting with client SDK.",
+                            "Used for generating the start meeting url.",
                             "Used for generating the start meeting url."
                         ]
                     }
