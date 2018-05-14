@@ -4002,6 +4002,9 @@
                                         },
                                         "pic_url": {
                                             "type": "string"
+                                        },
+                                        "cms_user_id": {
+                                            "type": "string"
                                         }
                                     }
                                 }
@@ -4391,6 +4394,32 @@
                 }
             }
         },
+        "/users/{userId}/permissions": {
+            "get": {
+                "summary": "Retrieve a user's permissions",
+                "description": "Retrieve a user's permissions",
+                "tags": [
+                    "Users"
+                ],
+                "operationId": "userPermission",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/UserId"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User permissions returned",
+                        "schema": {
+                            "$ref": "#/definitions/UserPermissions"
+                        }
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                }
+            }
+        },
         "/users/{userId}/pac": {
             "get": {
                 "summary": "List user's PAC accounts",
@@ -4583,10 +4612,12 @@
                         "type": "string",
                         "enum": [
                             "token",
-                            "zpk"
+                            "zpk",
+                            "zak"
                         ],
                         "x-enum-descriptions": [
                             "Used for starting meeting with client SDK.",
+                            "Used for generating the start meeting url.",
                             "Used for generating the start meeting url."
                         ]
                     }
@@ -8930,6 +8961,19 @@
                 "webinar_capacity": {
                     "type": "integer",
                     "description": "Webinar capacity, can be 100, 500, 1000, 3000, 5000 or 10000, depends on if having related webinar capacity plan subscription or not."
+                }
+            }
+        },
+        "UserPermissions": {
+            "type": "object",
+            "description": "",
+            "properties": {
+                "permissions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of user permissions."
                 }
             }
         },
