@@ -4617,7 +4617,7 @@
                         ],
                         "x-enum-descriptions": [
                             "Used for starting meeting with client SDK.",
-                            "Used for generating the start meeting url.",
+                            "Used for generating the start meeting url. (Deprecated)",
                             "Used for generating the start meeting url."
                         ]
                     }
@@ -4663,7 +4663,7 @@
         },
         "/users/zpk": {
             "get": {
-                "summary": "Verify a user's zpk",
+                "summary": "Verify a user's zpk (Deprecated)",
                 "description": "Check if the zpk is expired. The zpk is used to authenticate a user.",
                 "tags": [
                     "Users"
