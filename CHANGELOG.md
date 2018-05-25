@@ -1,5 +1,56 @@
 # CHANGELOG
 
+## 2018-06-16
+
+### Added
+
+- IM Chat History API
+    - GET /v2/im/chat/sessions
+    - GET /v2/im/chat/sessions/{sessionId}
+- Get Meeting History API
+    - GET /v2/past_meetings/{meetingUUID}
+	- GET /v2/past_meetings/{meetingUUID}/participants 
+- Ended Webinar occurrences API
+	- GET /v2/webinars/{webinarId}/instances
+- Authorized schedulers API
+	- GET /v2/users/{userId}/schedulers	
+	- DELETE /v2/users/{userId}/schedulers
+	- DELETE /v2/users/{userId}/schedulers/{schedulerId}
+- Webhook Events
+    - New Recording audio transcript completed event - recording_transcript_completed
+    - New Meeting/Webinar registered event - meeting_registered
+
+### Enhancements
+- Force forbid users can't be activated in the following APIs.
+	- PUT /v2/users/{userId}/status
+	- POST /v1/user/activate
+	- POST /v1/user/deactivate
+- Supoprt unanswered questions in the following APIs
+	- POST v1/webinar/questions
+	- GET v2/report/webinar/{webinarId}/qa
+- Support transfer cloud recordings/scheduled meetings via API - "DELETE /v2/users/{userId}"
+- Added new field (group_ids,im_group_ids) to "Get v2/users/{userId}" and "GET v2/users" APIs
+- Support CC and Transcript file in Recording APIs
+	- POST /v1/recording/list
+	- POST /v1/recording/get
+	- GET /v2/users/{userId}/recordings
+    - GET /v2/meetings/{meetingId}/recordings
+- Added new parameters (microphone, speaker, camera, data_center, connection_type) to "/v2/metrics/meetings/{meetingId}/participants" API
+- Added new parameter value (device="Windows + Phone") to "/v2/metrics/meetings/{meetingId}/participants" API
+- Added new parameter value (host_key) to "/v2/users/{userId}" API
+- Extended the expiry time of start_url to 90 days in Meeting/Webinar Create/Get API
+- Added new parameter (calender_name) to "/v2/metrics/zoomrooms" API
+
+### Fixes
+- Rest V1 update webinar API has a error
+- List Zoom Rooms show Calendar Resource name as room_name
+- Not Able to set Audio transcript to True.
+- Zoom Room REST API name with calendar name.
+- Chat List API - No privilege or invalid access token
+- Dashboard Metrics Zoom Room API call does not return an Email
+
+
+
 ## 2017-05-20
 
 ### Added
