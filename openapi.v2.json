@@ -4181,7 +4181,7 @@
                         "schema": {
                             "type": "object",
                             "required": [
-                              "action"
+                                "action"
                             ],
                             "properties": {
                                 "action": {
@@ -4348,6 +4348,18 @@
                                         },
                                         "host_key": {
                                             "type": "string"
+                                        },
+                                        "group_ids": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "im_group_ids": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            }
                                         }
                                     }
                                 }
@@ -4414,6 +4426,18 @@
                             "Disassociate a user",
                             "Permanently delete a user"
                         ]
+                    },
+                    {
+                        "$ref": "#/parameters/TransferEmail"
+                    },
+                    {
+                        "$ref": "#/parameters/TransferMeeting"
+                    },
+                    {
+                        "$ref": "#/parameters/TransferWebinar"
+                    },
+                    {
+                        "$ref": "#/parameters/TransferRecording"
                     }
                 ],
                 "responses": {
@@ -4547,6 +4571,83 @@
                     },
                     "404": {
                         "description": "User or Assistant not found"
+                    }
+                }
+            }
+        },
+        "/users/{userId}/schedulers": {
+            "get": {
+                "summary": "List a user's schedulers",
+                "description": "List a user's schedulers",
+                "tags": [
+                    "Users"
+                ],
+                "operationId": "userSchedulers",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/UserId"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/UserSchedulersList"
+                        }
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete a user's schedulers",
+                "description": "Delete all of a user'schedulers",
+                "tags": [
+                    "Users"
+                ],
+                "operationId": "userSchedulersDelete",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/UserId"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Schedulers deleted."
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                }
+            }
+        },
+        "/users/{userId}/schedulers/{schedulerId}": {
+            "delete": {
+                "summary": "Delete a user's scheduler",
+                "description": "Delete one of a user's scheduler",
+                "tags": [
+                    "Users"
+                ],
+                "operationId": "userSchedulerDelete",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/UserId"
+                    },
+                    {
+                        "name": "schedulerId",
+                        "description": "Scheduler's ID",
+                        "in": "path",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Scheduler deleted."
+                    },
+                    "404": {
+                        "description": "User or Scheduler not found"
                     }
                 }
             }
@@ -5584,6 +5685,32 @@
                 }
             }
         },
+        "/past_webinars/{webinarId}/instances": {
+            "get": {
+                "summary": "List of ended webinar occurrences",
+                "description": "List of ended webinar occurrences",
+                "tags": [
+                    "Webinars"
+                ],
+                "operationId": "webinars",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/WebinarId"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of ended webinar occurrences",
+                        "schema": {
+                            "$ref": "#/definitions/WebinarInstances"
+                        }
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                }
+            }
+        },
         "/webhooks/options": {
             "patch": {
                 "summary": "Switch webhook version",
@@ -6086,6 +6213,35 @@
             "in": "path",
             "type": "string",
             "required": true
+        },
+        "TransferEmail": {
+            "in": "query",
+            "name": "transfer_email",
+            "description": "Transfer email",
+            "type": "string",
+            "format": "date",
+            "required": false
+        },
+        "TransferMeeting": {
+            "in": "query",
+            "name": "transfer_meeting",
+            "description": "Transfer meeting",
+            "type": "boolean",
+            "required": false
+        },
+        "TransferWebinar": {
+            "in": "query",
+            "name": "transfer_webinar",
+            "description": "Transfer webinar",
+            "type": "boolean",
+            "required": false
+        },
+        "TransferRecording": {
+            "in": "query",
+            "name": "transfer_recording",
+            "description": "Transfer recording",
+            "type": "boolean",
+            "required": false
         },
         "UserId": {
             "in": "path",
@@ -8673,6 +8829,27 @@
                     "minLength": 1,
                     "maxLength": 16
                 },
+                "media_number": {
+                    "type": "object",
+                    "description": "Media number settings",
+                    "required": [
+                        "code",
+                        "number"
+                    ],
+                    "properties": {
+                        "code": {
+                            "type": "string",
+                            "description": "Country Code",
+                            "maxLength": 6
+                        },
+                        "number": {
+                            "type": "string",
+                            "description": "Media number, length is less than 16.",
+                            "minLength": 1,
+                            "maxLength": 16
+                        }
+                    }
+                },
                 "dial_in_numbers": {
                     "type": "array",
                     "description": "List of Dial In Numbers",
@@ -8905,6 +9082,22 @@
                                     },
                                     {
                                         "$ref": "#/definitions/User"
+                                    },
+                                    {
+                                        "properties": {
+                                            "group_ids": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "im_group_ids": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
                                     }
                                 ]
                             }
@@ -8921,6 +9114,30 @@
                 "assistants": {
                     "type": "array",
                     "description": "List of User's assistants.",
+                    "maximum": 30,
+                    "items": {
+                        "properties": {
+                            "id": {
+                                "type": "string",
+                                "description": "User ID"
+                            },
+                            "email": {
+                                "type": "string",
+                                "description": "User email address. Must have id or email, if given id, the email is ignored."
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "UserSchedulersList": {
+            "type": "object",
+            "title": "User schedulers List",
+            "description": "List of User's schedulers",
+            "properties": {
+                "assistants": {
+                    "type": "array",
+                    "description": "List of User's schedulers.",
                     "maximum": 30,
                     "items": {
                         "properties": {
@@ -9502,6 +9719,39 @@
                 }
             ]
         },
+        "WebinarInstances": {
+            "type": "object",
+            "title": "Webinar instances",
+            "description": "List of Webinars",
+            "allOf": [
+                {
+                    "properties": {
+                        "webinars": {
+                            "type": "array",
+                            "description": "List of ended webinar occurrences object.",
+                            "items": {
+                                "allOf": [
+                                    {
+                                        "type": "object",
+                                        "properties": {
+                                            "uuid": {
+                                                "type": "string",
+                                                "description": "Webinar unique ID"
+                                            },
+                                            "start_time": {
+                                                "type": "string",
+                                                "format": "date-time",
+                                                "description": "Start time"
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        },
         "WebinarMetric": {
             "type": "object",
             "title": "Webinar Metrics",
@@ -9764,7 +10014,7 @@
                         "type": "string"
                     },
                     "description": "List of events objects.",
-                    "enum":["meeting_started", "meeting_ended", "meeting_jbh", "meeting_join", "recording_completed", "participant_joined", "participant_left"],
+                    "enum":["meeting_started", "meeting_ended", "meeting_jbh", "meeting_join", "recording_completed", "participant_joined", "participant_left", "meeting_registered", "recording_transcript_completed"],
                     "x-enum-descriptions": [
                         "The meeting has started.",
                         "The meeting has ended.",
@@ -9772,7 +10022,9 @@
                         "Host hasn’t launched the meeting, attendee is waiting.",
                         "All the Cloud Recordings have completed processing and is available.",
                         "Participant has joined the meeting.",
-                        "Participant has leaved the meeting."
+                        "Participant has leaved the meeting.",
+                        "Attendee registered for a meeting or webinar.",
+                        "Recording audio transcript have completed processing and are available."
                     ]
                 }
             }
@@ -9803,7 +10055,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "enum":["meeting_started", "meeting_ended", "meeting_jbh", "meeting_join", "recording_completed", "participant_joined", "participant_left"],
+                    "enum":["meeting_started", "meeting_ended", "meeting_jbh", "meeting_join", "recording_completed", "participant_joined", "participant_left", "meeting_registered", "recording_transcript_completed"],
                     "x-enum-descriptions": [
                         "The meeting has started.",
                         "The meeting has ended.",
@@ -9811,7 +10063,9 @@
                         "Host hasn’t launched the meeting, attendee is waiting.",
                         "All the Cloud Recordings has completed processing and is available.",
                         "Participant has joined the meeting.",
-                        "Participant has leaved the meeting."
+                        "Participant has leaved the meeting.",
+                        "Attendee registered for a meeting or webinar.",
+                        "Recording audio transcript have completed processing and are available."
                     ]
 
 
