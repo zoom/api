@@ -1574,6 +1574,141 @@
                 }
             }
         },
+        "/past_meetings/{meetingUUID}": {
+            "get": {
+                "summary": "Retrieve past meeting details",
+                "description": "Retrieve ended meeting details",
+                "tags": [
+                    "Meetings"
+                ],
+                "operationId": "pastMeetingDetails",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/MeetingUUID"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Meeting detail Returned",
+                        "schema": {
+                            "properties": {
+                                "uuid": {
+                                    "type": "string",
+                                    "format": "uuid",
+                                    "description": "Meeting UUID"
+                                },
+                                "id": {
+                                    "type": "integer",
+                                    "description": "Meeting ID"
+                                },
+                                "host_id": {
+                                    "type": "integer",
+                                    "description": "Host ID"
+                                },
+                                "type": {
+                                    "type": "integer",
+                                    "description": "Meeting type"
+                                },
+                                "topic": {
+                                    "type": "string",
+                                    "description": "Meeting topic"
+                                },
+                                "user_name": {
+                                    "type": "string",
+                                    "description": "User display name"
+                                },
+                                "user_email": {
+                                    "type": "string",
+                                    "description": "User email"
+                                },
+                                "start_time": {
+                                    "type": "string",
+                                    "format": "date-time",
+                                    "description": "Meeting start time"
+                                },
+                                "end_time": {
+                                    "type": "string",
+                                    "format": "date-time",
+                                    "description": "Meeting end time"
+                                },
+                                "duration": {
+                                    "type": "integer",
+                                    "description": "Meeting duration"
+                                },
+                                "total_minutes": {
+                                    "type": "integer",
+                                    "description": "Number of meeting minutes"
+                                },
+                                "participants_count": {
+                                    "type": "integer",
+                                    "description": "Number of meeting participants"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Meeting not found"
+                    }
+                }
+            }
+        },
+        "/past_meetings/{meetingUUID}/participants": {
+            "get": {
+                "summary": "Retrieve past meeting participants",
+                "description": "Retrieve ended meeting participants",
+                "tags": [
+                    "Meetings"
+                ],
+                "operationId": "pastMeetingParticipants",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/MeetingUUID"
+                    },
+                    {
+                        "$ref": "#/parameters/PageSize"
+                    },
+                    {
+                        "$ref": "#/parameters/NextPageToken"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Meeting Participants Report Returned",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/PaginationToken"
+                                },
+                                {
+                                    "properties": {
+                                        "participants": {
+                                            "type": "array",
+                                            "description": "Array of meeting participant objects",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "string",
+                                                        "format": "uuid",
+                                                        "description": "Participant UUID"
+                                                    },
+                                                    "name": {
+                                                        "type": "string",
+                                                        "description": "Participant display name"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "404": {
+                        "description": "Meeting not found"
+                    }
+                }
+            }
+        },
         "/users/{userId}/recordings": {
             "get": {
                 "summary": "List all the recordings",
@@ -5573,6 +5708,13 @@
             "in": "path",
             "name": "meetingId",
             "description": "The meeting ID or meeting UUID. If given meeting ID, will take the last meeting instance.",
+            "type": "string",
+            "required": true
+        },
+        "MeetingUUID": {
+            "in": "path",
+            "name": "meetingUUID",
+            "description": "The meeting UUID.",
             "type": "string",
             "required": true
         },
