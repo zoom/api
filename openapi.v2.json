@@ -4625,7 +4625,7 @@
         "/users/{userId}/schedulers/{schedulerId}": {
             "delete": {
                 "summary": "Delete a user's scheduler",
-                "description": "Delete one of a user's scheduler",
+                "description": "Delete one of a user's schedulers",
                 "tags": [
                     "Users"
                 ],
@@ -5687,8 +5687,8 @@
         },
         "/past_webinars/{webinarId}/instances": {
             "get": {
-                "summary": "List of ended webinar occurrences",
-                "description": "List of ended webinar occurrences",
+                "summary": "List of ended webinar instances",
+                "description": "List of ended webinar instances",
                 "tags": [
                     "Webinars"
                 ],
@@ -5700,13 +5700,13 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "List of ended webinar occurrences",
+                        "description": "List of ended webinar instances",
                         "schema": {
                             "$ref": "#/definitions/WebinarInstances"
                         }
                     },
                     "404": {
-                        "description": "User not found"
+                        "description": "Webinar not found"
                     }
                 }
             }
@@ -10023,7 +10023,7 @@
                         "Participant has joined the meeting.",
                         "Participant has leaved the meeting.",
                         "Attendee registered for a meeting or webinar.",
-                        "Recording audio transcript have completed processing and are available."
+                        "Recording audio transcript has processed and is available"
                     ]
                 }
             }
@@ -10064,7 +10064,7 @@
                         "Participant has joined the meeting.",
                         "Participant has leaved the meeting.",
                         "Attendee registered for a meeting or webinar.",
-                        "Recording audio transcript have completed processing and are available."
+                        "Recording audio transcript has processed and is available"
                     ]
 
 
