@@ -9727,7 +9727,7 @@
                     "properties": {
                         "webinars": {
                             "type": "array",
-                            "description": "List of ended webinar occurrences object.",
+                            "description": "List of ended webinar instances.",
                             "items": {
                                 "allOf": [
                                     {
@@ -9735,7 +9735,7 @@
                                         "properties": {
                                             "uuid": {
                                                 "type": "string",
-                                                "description": "Webinar unique ID"
+                                                "description": "WebinarUUID"
                                             },
                                             "start_time": {
                                                 "type": "string",
