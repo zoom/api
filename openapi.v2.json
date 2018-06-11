@@ -5692,7 +5692,7 @@
                 "tags": [
                     "Webinars"
                 ],
-                "operationId": "webinars",
+                "operationId": "pastWebinars",
                 "parameters": [
                     {
                         "$ref": "#/parameters/WebinarId"
@@ -6219,7 +6219,6 @@
             "name": "transfer_email",
             "description": "Transfer email",
             "type": "string",
-            "format": "date",
             "required": false
         },
         "TransferMeeting": {
@@ -8831,7 +8830,7 @@
                 },
                 "media_number": {
                     "type": "object",
-                    "description": "Media number settings",
+                    "description": "Media number.",
                     "required": [
                         "code",
                         "number"
@@ -9147,7 +9146,7 @@
                             },
                             "email": {
                                 "type": "string",
-                                "description": "User email address. Must have id or email, if given id, the email is ignored."
+                                "description": "User email address."
                             }
                         }
                     }
