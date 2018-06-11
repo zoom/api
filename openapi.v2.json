@@ -1240,7 +1240,7 @@
             },
             "post": {
                 "summary": "Create a meeting",
-                "description": "Create a meeting for a user",
+                "description": "Create a meeting for a user <aside>The expiration time of start_url is two hours. But for API users, the expiration time is 90 days.</aside>",
                 "tags": [
                     "Meetings"
                 ],
@@ -4008,6 +4008,9 @@
                                         },
                                         "account_id": {
                                             "type": "string"
+                                        },
+                                        "host_key": {
+                                            "type": "string"
                                         }
                                     }
                                 }
@@ -4621,7 +4624,7 @@
                         "x-enum-descriptions": [
                             "Used for starting meeting with client SDK.",
                             "Used for generating the start meeting url. (Deprecated)",
-                            "Used for generating the start meeting url."
+                            "Used for generating the start meeting url. The expiration time is two hours. For API users, the expiration time is 90 days."
                         ]
                     }
                 ],
@@ -4759,7 +4762,7 @@
             },
             "post": {
                 "summary": "Create a webinar",
-                "description": "Create a webinar for a user",
+                "description": "Create a webinar for a user <aside>The expiration time of start_url is two hours. But for API users, the expiration time is 90 days.</aside>",
                 "tags": [
                     "Webinars"
                 ],
