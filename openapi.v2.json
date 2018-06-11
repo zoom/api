@@ -10023,7 +10023,7 @@
                         "Participant has joined the meeting.",
                         "Participant has leaved the meeting.",
                         "Attendee registered for a meeting or webinar.",
-                        "Recording audio transcript has processed and is available"
+                        "Recording audio transcript files have processed and are available."
                     ]
                 }
             }
@@ -10064,7 +10064,7 @@
                         "Participant has joined the meeting.",
                         "Participant has leaved the meeting.",
                         "Attendee registered for a meeting or webinar.",
-                        "Recording audio transcript has processed and is available"
+                        "Recording audio transcript files have processed and are available."
                     ]
 
 
