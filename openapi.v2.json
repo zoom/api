@@ -9145,7 +9145,7 @@
                 "share_dual_camera": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Share dual camera ((Deprecated))"
+                    "description": "Share dual camera (Deprecated)"
                 },
                 "attention_tracking": {
                     "type": "boolean",
