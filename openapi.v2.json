@@ -1204,6 +1204,176 @@
                 }
             }
         },
+        "/im/chat/sessions": {
+            "get": {
+                "summary": "Retrieve IM Chat sessions",
+                "description": "Retrieve IM Chat sessions for a specified period <aside>This API only supports oauth2.</aside>",
+                "tags": [
+                    "IM Chat"
+                ],
+                "operationId": "imChatSessions",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/FromDate"
+                    },
+                    {
+                        "$ref": "#/parameters/ToDate"
+                    },
+                    {
+                        "$ref": "#/parameters/PageSize"
+                    },
+                    {
+                        "$ref": "#/parameters/NextPageToken"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Archived IM Chat sessions Returned",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "properties": {
+                                        "from": {
+                                            "type": "string",
+                                            "format": "date",
+                                            "description": "Start date"
+                                        },
+                                        "to": {
+                                            "type": "string",
+                                            "format": "date",
+                                            "description": "End date"
+                                        }
+                                    }
+                                },
+                                {
+                                    "$ref": "#/definitions/PaginationToken4IMChat"
+                                },
+                                {
+                                    "properties": {
+                                        "sessions": {
+                                            "type": "array",
+                                            "description": "Array of session objects",
+                                            "items": {
+                                                "properties": {
+                                                    "session_id": {
+                                                        "type": "string",
+                                                        "description": "IM Chat session ID"
+                                                    },
+                                                    "type": {
+                                                        "type": "string",
+                                                        "description": "IM Chat session type"
+                                                    },
+                                                    "name": {
+                                                        "type": "string",
+                                                        "description": "Meeting topic"
+                                                    },
+                                                    "last_message_sent_time": {
+                                                        "type": "string",
+                                                        "format": "date-time",
+                                                        "description": "Last message sent time"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/im/chat/sessions/{sessionId}": {
+            "get": {
+                "summary": "Retrieve IM Chat messages",
+                "description": "Retrieve IM Chat messages for a specified period <aside>This API only supports oauth2.</aside>",
+                "tags": [
+                    "IM Chat"
+                ],
+                "operationId": "imChatMessages",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/SessionId"
+                    },
+                    {
+                        "$ref": "#/parameters/FromDate"
+                    },
+                    {
+                        "$ref": "#/parameters/ToDate"
+                    },
+                    {
+                        "$ref": "#/parameters/PageSize"
+                    },
+                    {
+                        "$ref": "#/parameters/NextPageToken"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Archived IM Chat messages Returned",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "properties": {
+                                        "session_id": {
+                                            "type": "string",
+                                            "description": "IM Chat session ID"
+                                        },
+                                        "from": {
+                                            "type": "string",
+                                            "format": "date",
+                                            "description": "Start date"
+                                        },
+                                        "to": {
+                                            "type": "string",
+                                            "format": "date",
+                                            "description": "End date"
+                                        }
+                                    }
+                                },
+                                {
+                                    "$ref": "#/definitions/PaginationToken4IMChat"
+                                },
+                                {
+                                    "properties": {
+                                        "messages": {
+                                            "type": "array",
+                                            "description": "Array of session objects",
+                                            "items": {
+                                                "properties": {
+                                                    "message": {
+                                                        "type": "string",
+                                                        "description": "IM Chat message content"
+                                                    },
+                                                    "sender": {
+                                                        "type": "string",
+                                                        "description": "IM Chat message sender"
+                                                    },
+                                                    "date_time": {
+                                                        "type": "string",
+                                                        "format": "date-time",
+                                                        "description": "IM Chat message sent time"
+                                                    },
+                                                    "action": {
+                                                        "type": "string",
+                                                        "description": "IM Chat message action"
+                                                    },
+                                                    "action_time": {
+                                                        "type": "string",
+                                                        "format": "date-time",
+                                                        "description": "Action time"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
         "/users/{userId}/meetings": {
             "get": {
                 "summary": "List meetings",
@@ -5949,8 +6119,14 @@
             "description": "The Zoom Room ID",
             "type": "string",
             "required": true
+        },
+        "SessionId": {
+            "in": "path",
+            "name": "sessionId",
+            "description": "IM Chat Session ID",
+            "type": "string",
+            "required": true
         }
-
     },
     "definitions": {
         "Account": {
@@ -7512,6 +7688,22 @@
                     "type": "integer",
                     "format": "int64",
                     "description": "The number of all records available across pages."
+                },
+                "next_page_token": {
+                    "description": "Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.",
+                    "type": "string"
+                }
+            }
+        },
+        "PaginationToken4IMChat": {
+            "type": "object",
+            "description": "Pagination Object",
+            "properties": {
+                "page_size": {
+                    "type": "integer",
+                    "description": "The amount of records returns within a single API call. ",
+                    "default": 30,
+                    "maximum": 300
                 },
                 "next_page_token": {
                     "description": "Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.",
@@ -9734,6 +9926,10 @@
         {
             "name": "IM Groups",
             "description": "IM Group operations"
+        },
+        {
+            "name": "IM Chat",
+            "description": "IM Chat operations"
         },
         {
             "name": "Cloud Recording",
