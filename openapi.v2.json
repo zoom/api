@@ -2247,6 +2247,22 @@
                                                         "type": "string",
                                                         "description": "Participant network type"
                                                     },
+                                                    "microphone": {
+                                                        "type": "string",
+                                                        "description": "Participant microphone"
+                                                    },
+                                                    "speaker": {
+                                                        "type": "string",
+                                                        "description": "Participant speaker"
+                                                    },
+                                                    "data_center": {
+                                                        "type": "string",
+                                                        "description": "Participant data center"
+                                                    },
+                                                    "connection_type": {
+                                                        "type": "string",
+                                                        "description": "Participant connection type"
+                                                    },
                                                     "join_time": {
                                                         "type": "string",
                                                         "format": "date-time",
@@ -2600,6 +2616,22 @@
                                                     "network_type": {
                                                         "type": "string",
                                                         "description": "Participant network type"
+                                                    },
+                                                    "microphone": {
+                                                        "type": "string",
+                                                        "description": "Participant microphone"
+                                                    },
+                                                    "speaker": {
+                                                        "type": "string",
+                                                        "description": "Participant speaker"
+                                                    },
+                                                    "data_center": {
+                                                        "type": "string",
+                                                        "description": "Participant data center"
+                                                    },
+                                                    "connection_type": {
+                                                        "type": "string",
+                                                        "description": "Participant connection type"
                                                     },
                                                     "join_time": {
                                                         "type": "string",
@@ -9113,7 +9145,7 @@
                 "share_dual_camera": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Share dual camera"
+                    "description": "Share dual camera ((Deprecated))"
                 },
                 "attention_tracking": {
                     "type": "boolean",
@@ -9841,6 +9873,10 @@
                 "room_name": {
                     "type": "string",
                     "description": "Zoom Room name"
+                },
+                "calender_name": {
+                    "type": "string",
+                    "description": "Zoom Calendar name"
                 },
                 "email": {
                     "type": "string",
