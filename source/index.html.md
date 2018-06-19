@@ -51,6 +51,7 @@ includes:
   - users/patch_userId_settings
   - users/put_userId_status
   - users/put_userId_password
+  - users/get_userId_permissions
   - users/get_userId_token
   - users/delete_userId_token
   - users/get_zpk
@@ -116,6 +117,7 @@ includes:
   - reports/get_users_userId_meetings
   - reports/get_meetings_meetingId
   - reports/get_meetings_meetingId_participants
+  - reports/get_meetings_meetingId_polls
   - reports/get_webinars_webinarId
   - reports/get_webinars_webinarId_participants
   - reports/get_webinars_webinarId_polls
@@ -155,6 +157,15 @@ includes:
   - tsp/get_userId_tsp_tspId
   - tsp/patch_userId_tsp_tspId
   - tsp/delete_userId_tsp_tspId
+
+  - pac/index
+  - pac/get_userId_pac
+
+  - devices/index
+  - devices/get_devices
+  - devices/post_devices
+  - devices/patch_devices_deviceId
+  - devices/delete_devices_deviceId
 
   - appendix/index
   - appendix/master_account

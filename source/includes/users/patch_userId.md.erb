@@ -37,13 +37,13 @@ userId **required** | The user ID or email address
 
 Body Arguments | &nbsp;
 --- | ---
-first_name *optional* | User's first name. Cannot contain more than 5 Chinese words.
-last_name *optional* | User's last name. Cannot contain more than 5 Chinese words.
+first_name *optional*<div class="maxLength">64</div> | User's first name. Cannot contain more than 5 Chinese words.
+last_name *optional*<div class="maxLength">64</div> | User's last name. Cannot contain more than 5 Chinese words.
 type *optional* | User's type<div class="enum">`1` basic<br/>`2` pro<br/>`3` corp<br/></div>
-pmi *optional* | Personal Meeting ID,length must be 10.
+pmi *optional*<div class="maxLength">10</div> | Personal Meeting ID,length must be 10.
 timezone *optional* | The time zone id for user profile. For this parameter value please refer to the id value in [timezone](#timezones) list.
 dept *optional* | Department for user profile, use for report.
 vanity_name *optional* | Personal meeting room name.
-host_key *optional* | Host Key, should be 6-digit number.
+host_key *optional*<div class="maxLength">6</div> | Host Key, should be 6-digit number.
 cms_user_id *optional* | Kaltura User Id.
 
