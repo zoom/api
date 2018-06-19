@@ -117,47 +117,47 @@
 </thead><tbody>
 <tr>
 <td>contact.first_name <strong>required</strong></td>
-<td>Billing Contact&rsquo;s first name.</td>
+<td>Billing Contact&rsquo;s first name</td>
 </tr>
 <tr>
 <td>contact.last_name <strong>required</strong></td>
-<td>Billing Contact&rsquo;s last name.</td>
+<td>Billing Contact&rsquo;s last name</td>
 </tr>
 <tr>
 <td>contact.email <strong>required</strong></td>
-<td>Billing Contact&rsquo;s email address.</td>
+<td>Billing Contact&rsquo;s email address</td>
 </tr>
 <tr>
 <td>contact.phone_number <strong>required</strong></td>
-<td>Billing Contact&rsquo;s phone number.</td>
+<td>Billing Contact&rsquo;s phone number</td>
 </tr>
 <tr>
 <td>contact.address <strong>required</strong></td>
-<td>Billing Contact&rsquo;s address.</td>
+<td>Billing Contact&rsquo;s address</td>
 </tr>
 <tr>
 <td>contact.apt <em>optional</em></td>
-<td>Billing Contact&rsquo;s apartment/suite.</td>
+<td>Billing Contact&rsquo;s apartment/suite</td>
 </tr>
 <tr>
 <td>contact.city <strong>required</strong></td>
-<td>Billing Contact&rsquo;s city.</td>
+<td>Billing Contact&rsquo;s city</td>
 </tr>
 <tr>
 <td>contact.state <strong>required</strong></td>
-<td>Billing Contact&rsquo;s state.</td>
+<td>Billing Contact&rsquo;s state</td>
 </tr>
 <tr>
 <td>contact.zip <strong>required</strong></td>
-<td>Billing Contact&rsquo;s zip/postal code.</td>
+<td>Billing Contact&rsquo;s zip/postal code</td>
 </tr>
 <tr>
 <td>contact.country <strong>required</strong></td>
-<td>Billing Contact&rsquo;s country.</td>
+<td>Billing Contact&rsquo;s country</td>
 </tr>
 <tr>
 <td>plan_base.type <strong>required</strong></td>
-<td>Account base plan type</td>
+<td>Account base <a href="#plans">plan type</a></td>
 </tr>
 <tr>
 <td>plan_base.hosts <strong>required</strong></td>
@@ -165,7 +165,7 @@
 </tr>
 <tr>
 <td>plan_zoom_rooms.type <em>optional</em></td>
-<td>Account plan type</td>
+<td>Account <a href="#plans">plan type</a></td>
 </tr>
 <tr>
 <td>plan_zoom_rooms.hosts <em>optional</em></td>
@@ -173,7 +173,7 @@
 </tr>
 <tr>
 <td>plan_room_connector.type <em>optional</em></td>
-<td>Account plan type</td>
+<td>Account <a href="#plans">plan type</a></td>
 </tr>
 <tr>
 <td>plan_room_connector.hosts <em>optional</em></td>
@@ -193,7 +193,7 @@
 </tr>
 <tr>
 <td>plan_audio.type <em>optional</em></td>
-<td>Additional Audio Conferencing Plan type</td>
+<td>Additional Audio Conferencing <a href="#plans">plan type</a></td>
 </tr>
 <tr>
 <td>plan_audio.tollfree_countries <em>optional</em></td>

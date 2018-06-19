@@ -1,6 +1,6 @@
 <h2 id="disassociate-an-account">Disassociate an account</h2>
 
-<p>Disassociate a sub account from the master account</p>
+<p>Disassociate a sub account from the master account. This will leave the account intact but the sub account will not longer be associated with the master account.</p>
 
 <blockquote>
 <p>Definition</p>

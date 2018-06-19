@@ -37,14 +37,14 @@
 </tr>
 <tr>
 <td>conference_id <em>integer</em></td>
-<td>Conference ID.</td>
+<td>Conference ID</td>
 </tr>
 <tr>
 <td>participant_password <em>string</em></td>
-<td>Participant Password, numeric value, length is less than 6.</td>
+<td>Participant Password, numeric value, length is less than 6</td>
 </tr>
 <tr>
 <td>listen_only_password <em>string</em></td>
-<td>Listen-Only Password, numeric value, length is less than 6.</td>
+<td>Listen-Only Password, numeric value, length is less than 6</td>
 </tr>
 </tbody></table>

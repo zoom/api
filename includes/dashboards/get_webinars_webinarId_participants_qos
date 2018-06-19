@@ -126,6 +126,6 @@
 </tr>
 <tr>
 <td>next_page_token <em>optional</em></td>
-<td>Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.</td>
+<td>Next page token is used to paginate through large result sets. A next page token will be returned whenever the set of available results exceed the current page size. The expiration period for this token is 15 minutes.</td>
 </tr>
 </tbody></table>

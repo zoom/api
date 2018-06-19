@@ -41,7 +41,7 @@
 </thead><tbody>
 <tr>
 <td>type <strong>required</strong></td>
-<td>Account base plan type</td>
+<td>Account base <a href="#plans">plan type</a></td>
 </tr>
 <tr>
 <td>hosts <strong>required</strong></td>

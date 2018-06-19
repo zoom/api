@@ -1,6 +1,6 @@
 <h2 id="retrieve-crc-port-usage">Retrieve CRC Port Usage</h2>
 
-<p>Get CRC Port usage hour by hour for a specified time period <aside class='notice'>We will report a maximum of one month. For example, if &ldquo;from&rdquo; is set to &ldquo;2017-08-05&rdquo; and &ldquo;to&rdquo; is &ldquo;2017-10-10&rdquo; we will adjust &ldquo;from&rdquo; to &ldquo;2017-09-10&rdquo;</aside></p>
+<p>Get CRC Port usage hour by hour for a specified time period <aside class='notice'>We will report a maximum of one month. For example, if &ldquo;from&rdquo; is set to &ldquo;2017-08-05&rdquo; and &ldquo;to&rdquo; is &ldquo;2017-10-10&rdquo; we will adjust &ldquo;from&rdquo; to &ldquo;2017-09-10&rdquo;</aside>.</p>
 
 <blockquote>
 <p>Definition</p>

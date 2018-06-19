@@ -49,6 +49,6 @@
 </thead><tbody>
 <tr>
 <td>assistants <em>optional</em><div class="maximum">30</div></td>
-<td>List of User&rsquo;s assistants.</td>
+<td>List of User&rsquo;s assistants</td>
 </tr>
 </tbody></table>

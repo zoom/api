@@ -1,6 +1,6 @@
 <h2 id="retrieve-a-sub-account">Retrieve a sub account</h2>
 
-<p>Retrieve a sub account under the master account <aside>Your account must be a master account and have this privilege to get sub account. Zoom only assign this privilege to trusted partner</aside></p>
+<p>Retrieve a sub account under the master account. <aside>Your account must be a master account and have this privilege to read sub accounts. Zoom only assigns this privilege to trusted partners</aside>.</p>
 
 <blockquote>
 <p>Definition</p>

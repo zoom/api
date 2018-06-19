@@ -1,6 +1,6 @@
 <h2 id="retrieve-telephone-report">Retrieve telephone report</h2>
 
-<p>Retrieve telephone report for a specified period <aside>Toll Report option would be removed.</aside></p>
+<p>Retrieve telephone report for a specified period <aside>Toll Report option would be removed.</aside>.</p>
 
 <blockquote>
 <p>Definition</p>
@@ -58,10 +58,10 @@
 </tr>
 <tr>
 <td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
-<td>The amount of records returns within a single API call.</td>
+<td>The number of records returned within a single API call</td>
 </tr>
 <tr>
 <td>page_number <em>optional</em><div class="default">1</div></td>
-<td>Current page number of returned records.</td>
+<td>Current page number of returned records</td>
 </tr>
 </tbody></table>

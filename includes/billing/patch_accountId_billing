@@ -49,42 +49,42 @@
 </thead><tbody>
 <tr>
 <td>first_name <em>optional</em></td>
-<td>Billing Contact&rsquo;s first name.</td>
+<td>Billing Contact&rsquo;s first name</td>
 </tr>
 <tr>
 <td>last_name <em>optional</em></td>
-<td>Billing Contact&rsquo;s last name.</td>
+<td>Billing Contact&rsquo;s last name</td>
 </tr>
 <tr>
 <td>email <em>optional</em></td>
-<td>Billing Contact&rsquo;s email address.</td>
+<td>Billing Contact&rsquo;s email address</td>
 </tr>
 <tr>
 <td>phone_number <em>optional</em></td>
-<td>Billing Contact&rsquo;s phone number.</td>
+<td>Billing Contact&rsquo;s phone number</td>
 </tr>
 <tr>
 <td>address <em>optional</em></td>
-<td>Billing Contact&rsquo;s address.</td>
+<td>Billing Contact&rsquo;s address</td>
 </tr>
 <tr>
 <td>apt <em>optional</em></td>
-<td>Billing Contact&rsquo;s apartment/suite.</td>
+<td>Billing Contact&rsquo;s apartment/suite</td>
 </tr>
 <tr>
 <td>city <em>optional</em></td>
-<td>Billing Contact&rsquo;s city.</td>
+<td>Billing Contact&rsquo;s city</td>
 </tr>
 <tr>
 <td>state <em>optional</em></td>
-<td>Billing Contact&rsquo;s state.</td>
+<td>Billing Contact&rsquo;s state</td>
 </tr>
 <tr>
 <td>zip <em>optional</em></td>
-<td>Billing Contact&rsquo;s zip/postal code.</td>
+<td>Billing Contact&rsquo;s zip/postal code</td>
 </tr>
 <tr>
 <td>country <em>optional</em></td>
-<td>Billing Contact&rsquo;s country.</td>
+<td>Billing Contact&rsquo;s country</td>
 </tr>
 </tbody></table>

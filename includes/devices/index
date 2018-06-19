@@ -18,15 +18,15 @@
 </thead><tbody>
 <tr>
 <td>name <em>string</em></td>
-<td>Device name.</td>
+<td>Device name</td>
 </tr>
 <tr>
 <td>protocol <em>string</em></td>
-<td>Device protocol.<div class="enum"><code class="prettyprint">H.323</code> H.323<br/><code class="prettyprint">SIP</code> SIP<br/></div></td>
+<td>Device protocol<div class="enum"><code class="prettyprint">H.323</code> H.323<br/><code class="prettyprint">SIP</code> SIP<br/></div></td>
 </tr>
 <tr>
 <td>ip <em>string</em></td>
-<td>Device Ip.</td>
+<td>Device Ip</td>
 </tr>
 <tr>
 <td>encryption <em>string</em></td>

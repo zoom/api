@@ -6,6 +6,10 @@
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"conference_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"leader_pin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"media_number"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="s2">"dial_in_numbers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -22,11 +26,19 @@
 </thead><tbody>
 <tr>
 <td>conference_code <em>string</em></td>
-<td>Conference code, numeric value, length is less than 16.</td>
+<td>Conference code, numeric value, length is less than 16</td>
 </tr>
 <tr>
 <td>leader_pin <em>string</em></td>
-<td>Leader PIN, numeric value, length is less than 16.</td>
+<td>Leader PIN, numeric value, length is less than 16</td>
+</tr>
+<tr>
+<td>media_number.code <em>string</em></td>
+<td>Country Code</td>
+</tr>
+<tr>
+<td>media_number.number <em>string</em></td>
+<td>Media number, length is less than 16.</td>
 </tr>
 <tr>
 <td>dial_in_numbers <em>array</em></td>

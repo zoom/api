@@ -20,6 +20,6 @@
 </tr>
 <tr>
 <td>total_members <em>integer</em></td>
-<td>Total number of members in this group.</td>
+<td>Total number of members in this group</td>
 </tr>
 </tbody></table>

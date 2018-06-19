@@ -2,7 +2,7 @@
 
 <h2 id="the-user-object">The User object</h2>
 
-<p>The user object represents a User on Zoom.</p>
+<p>The user object represents a User on Zoom</p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -24,15 +24,15 @@
 </thead><tbody>
 <tr>
 <td>first_name <em>string</em></td>
-<td>User&rsquo;s first name.</td>
+<td>User&rsquo;s first name</td>
 </tr>
 <tr>
 <td>last_name <em>string</em></td>
-<td>User&rsquo;s last name.</td>
+<td>User&rsquo;s last name</td>
 </tr>
 <tr>
 <td>email <em>string</em></td>
-<td>User&rsquo;s email address.</td>
+<td>User&rsquo;s email address</td>
 </tr>
 <tr>
 <td>type <em>integer</em></td>

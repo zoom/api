@@ -144,27 +144,27 @@
 </thead><tbody>
 <tr>
 <td>schedule_meting.host_video <em>optional</em></td>
-<td>Host Video</td>
+<td>Start meetings with host video on</td>
 </tr>
 <tr>
 <td>schedule_meting.participant_video <em>optional</em></td>
-<td>Participants Video</td>
+<td>Start meetings with participant video on. Participants can change this during the meeting.</td>
 </tr>
 <tr>
 <td>schedule_meting.audio_type <em>optional</em><div class="default">both</div></td>
-<td>Audio Type<div class="enum"><code class="prettyprint">both</code> Telephony and VoIP<br/><code class="prettyprint">telephony</code> Audio PSTN telephony only<br/><code class="prettyprint">voip</code> VoIP only<br/><code class="prettyprint">thirdParty</code> 3rd party audio conference<br/></div></td>
+<td>Determine how participants can join the audio portion of the meeting<div class="enum"><code class="prettyprint">both</code> Telephony and VoIP<br/><code class="prettyprint">telephony</code> Audio PSTN telephony only<br/><code class="prettyprint">voip</code> VoIP only<br/><code class="prettyprint">thirdParty</code> 3rd party audio conference<br/></div></td>
 </tr>
 <tr>
 <td>schedule_meting.join_before_host <em>optional</em></td>
-<td>Join Before Host</td>
+<td>Allow participants to join the meeting before the host arrives</td>
 </tr>
 <tr>
 <td>schedule_meting.enforce_login <em>optional</em></td>
-<td>Only signed-in users can join meetings</td>
+<td>Only signed-in (Zoom users) users can join meetings</td>
 </tr>
 <tr>
 <td>schedule_meting.enforce_login_with_domains <em>optional</em></td>
-<td>Only signed-in users with a specified domains can join meetings</td>
+<td>Only signed-in users with a specific domain can join meetings</td>
 </tr>
 <tr>
 <td>schedule_meting.enforce_login_domains <em>optional</em></td>
@@ -180,43 +180,43 @@
 </tr>
 <tr>
 <td>in_meeting.e2e_encryption <em>optional</em></td>
-<td>End-to-End Encryption</td>
+<td>Require that all meetings are encrypted using AES</td>
 </tr>
 <tr>
 <td>in_meeting.chat <em>optional</em></td>
-<td>Chat</td>
+<td>Allow meeting participants to send a message visible to all participants</td>
 </tr>
 <tr>
 <td>in_meeting.private_chat <em>optional</em></td>
-<td>Private Chat</td>
+<td>Allow meeting participants to send a private 1:1 message to another participants</td>
 </tr>
 <tr>
 <td>in_meeting.auto_saving_chat <em>optional</em></td>
-<td>Auto Saving Chats</td>
+<td>Automatically save all in-meeting chats so that hosts do not need to manually save the text of the chat after the meeting starts</td>
 </tr>
 <tr>
 <td>in_meeting.file_transfer <em>optional</em></td>
-<td>File transfer</td>
+<td>Hosts and participants can send files through the in-meeting chat</td>
 </tr>
 <tr>
 <td>in_meeting.feedback <em>optional</em></td>
-<td>Feedback to Zoom</td>
+<td>Add a Feedback tab to the Windows Settings or Mac Preferences dialog, and also enable users to provide feedback to Zoom at the end of the meeting</td>
 </tr>
 <tr>
 <td>in_meeting.post_meeting_feedback <em>optional</em></td>
-<td>Display end-of-meeting experience feedback survey</td>
+<td>Display a thumbs up/down survey at the end of each meeting</td>
 </tr>
 <tr>
 <td>in_meeting.co_host <em>optional</em></td>
-<td>Co-Host</td>
+<td>Allow the host to add co-hosts</td>
 </tr>
 <tr>
 <td>in_meeting.polling <em>optional</em></td>
-<td>Polling</td>
+<td>Add &lsquo;Polls&rsquo; to the meeting controls.</td>
 </tr>
 <tr>
 <td>in_meeting.attendee_on_hold <em>optional</em></td>
-<td>Allow host to put attendee on hold</td>
+<td>Allow hosts to temporarily remove an attendee from the meeting</td>
 </tr>
 <tr>
 <td>in_meeting.show_meeting_control_toolbar <em>optional</em></td>
@@ -224,15 +224,15 @@
 </tr>
 <tr>
 <td>in_meeting.allow_show_zoom_windows <em>optional</em></td>
-<td>Allow to share Zoom windows in desktop sharing</td>
+<td>Show Zoom Desktop application when sharing screen</td>
 </tr>
 <tr>
 <td>in_meeting.annotation <em>optional</em></td>
-<td>Annotation</td>
+<td>Allow participants to use annotation tools to add information to shared screens</td>
 </tr>
 <tr>
 <td>in_meeting.whiteboard <em>optional</em></td>
-<td>Whiteboard</td>
+<td>Allow participants to share a whiteboard that includes annotation tools</td>
 </tr>
 <tr>
 <td>in_meeting.webinar_question_answer <em>optional</em></td>
@@ -244,23 +244,23 @@
 </tr>
 <tr>
 <td>in_meeting.breakout_room <em>optional</em></td>
-<td>Breakout room</td>
+<td>Allow host to split meeting participants into separate, smaller rooms</td>
 </tr>
 <tr>
 <td>in_meeting.closed_caption <em>optional</em></td>
-<td>Closed caption</td>
+<td>Allow host to type closed captions or assign a participant/third party device to add closed captions</td>
 </tr>
 <tr>
 <td>in_meeting.far_end_camera_control <em>optional</em></td>
-<td>Far end camera control</td>
+<td>Allow another user to take control of your camera during a meeting</td>
 </tr>
 <tr>
 <td>in_meeting.group_hd <em>optional</em></td>
-<td>Group HD video</td>
+<td>Activate higher quality video for host and participants. (This will use more bandwidth.)</td>
 </tr>
 <tr>
 <td>in_meeting.virtual_background <em>optional</em></td>
-<td>Virtual background</td>
+<td>Allow users to replace their background with any selected image. Choose or upload an image in the Zoom Desktop application settings.</td>
 </tr>
 <tr>
 <td>in_meeting.watermark <em>optional</em></td>
@@ -272,19 +272,19 @@
 </tr>
 <tr>
 <td>in_meeting.auto_answer <em>optional</em></td>
-<td>Enable Auto Answer Group</td>
+<td>Enable users to see and add contacts to &lsquo;auto-answer group&rsquo; in the contact list on chat. Any call from members of this group will be automatically answered.</td>
 </tr>
 <tr>
 <td>in_meeting.p2p_connetion <em>optional</em></td>
-<td>Peer to Peer connection while only 2 people in a meeting</td>
+<td>Peer to Peer connection while only 2 people are in a meeting</td>
 </tr>
 <tr>
 <td>in_meeting.p2p_ports <em>optional</em></td>
-<td>Listening ports range</td>
+<td>P2P listening ports range</td>
 </tr>
 <tr>
 <td>in_meeting.ports_range <em>optional</em></td>
-<td>Listening ports range, separated by comma (ex 55,56). The ports range is between 1 to 65535</td>
+<td>Listening ports range, separated by comma (ex 55,56). The ports range must be between 1 to 65535.</td>
 </tr>
 <tr>
 <td>in_meeting.sending_default_email_invites <em>optional</em></td>
@@ -316,35 +316,35 @@
 </tr>
 <tr>
 <td>in_meeting.screen_sharing <em>optional</em></td>
-<td>Screen sharing</td>
+<td>Allow screen sharing</td>
 </tr>
 <tr>
 <td>in_meeting.remote_control <em>optional</em></td>
-<td>Remote control</td>
+<td>Allow users to request remote control</td>
 </tr>
 <tr>
 <td>in_meeting.attention_tracking <em>optional</em></td>
-<td>Attention tracking</td>
+<td>Lets the host see an indicator in the participant panel if a meeting/webinar attendee does not have Zoom in focus during screen sharing</td>
 </tr>
 <tr>
 <td>email_notification.cloud_recording_avaliable_reminder <em>optional</em></td>
-<td>Allow keep recording from being automatically deleted</td>
+<td>Notify host when cloud recording is available</td>
 </tr>
 <tr>
 <td>email_notification.jbh_reminder <em>optional</em></td>
-<td>When attendees join meeting before host</td>
+<td>Notify host when participants join the meeting before them</td>
 </tr>
 <tr>
 <td>email_notification.cancel_meeting_reminder <em>optional</em></td>
-<td>When a meeting is cancelled</td>
+<td>Notify host and participants when the meeting is cancelled</td>
 </tr>
 <tr>
 <td>email_notification.low_host_count_reminder <em>optional</em></td>
-<td>When host licenses are running low</td>
+<td>Notify when host licenses are running low</td>
 </tr>
 <tr>
 <td>email_notification.alternative_host_reminder <em>optional</em></td>
-<td>When an alternative host is set or removed from a meeting</td>
+<td>Notify when an alternative host is set or removed from a meeting</td>
 </tr>
 <tr>
 <td>zoom_rooms.upcoming_meeting_alert <em>optional</em></td>
@@ -384,7 +384,7 @@
 </tr>
 <tr>
 <td>zoom_rooms.auto_start_stop_scheduled_meetings <em>optional</em></td>
-<td>Automatic start/stop scheduled meetings</td>
+<td>Automatic start/stop for scheduled meetings</td>
 </tr>
 <tr>
 <td>security.admin_change_name_pic <em>optional</em></td>
@@ -400,19 +400,19 @@
 </tr>
 <tr>
 <td>recording.local_recording <em>optional</em></td>
-<td>Local recording</td>
+<td>Allow hosts and participants to record the meeting to a local file</td>
 </tr>
 <tr>
 <td>recording.cloud_recording <em>optional</em></td>
-<td>Cloud recording</td>
+<td>Allow hosts to record and save the meeting in the cloud</td>
 </tr>
 <tr>
 <td>recording.record_speaker_view <em>optional</em></td>
-<td>Record the active speaker view</td>
+<td>Record active speaker with shared screen</td>
 </tr>
 <tr>
 <td>recording.record_gallery_view <em>optional</em></td>
-<td>Record the gallery view</td>
+<td>Record gallery view with shared screen</td>
 </tr>
 <tr>
 <td>recording.record_audio_file <em>optional</em></td>
@@ -424,15 +424,15 @@
 </tr>
 <tr>
 <td>recording.show_timestamp <em>optional</em></td>
-<td>Show timestamp on video</td>
+<td>Add a timestamp to the recording</td>
 </tr>
 <tr>
 <td>recording.recording_audio_transcript <em>optional</em></td>
-<td>Audio transcript</td>
+<td>Automatically transcribe the audio of the meeting or webinar to the cloud</td>
 </tr>
 <tr>
 <td>recording.auto_recording <em>optional</em></td>
-<td>Automatic recording<div class="enum"><code class="prettyprint">local</code> Record on local<br/><code class="prettyprint">cloud</code> Record on cloud<br/><code class="prettyprint">none</code> Disabled<br/></div></td>
+<td>Record meetings automatically as they start<div class="enum"><code class="prettyprint">local</code> Record on local<br/><code class="prettyprint">cloud</code> Record on cloud<br/><code class="prettyprint">none</code> Disabled<br/></div></td>
 </tr>
 <tr>
 <td>recording.cloud_recording_download <em>optional</em></td>
@@ -444,19 +444,19 @@
 </tr>
 <tr>
 <td>recording.account_user_access_recording <em>optional</em></td>
-<td>Only users on my account can access cloud recordings</td>
+<td>Cloud recordings are only accessible to account members. People outside of your organization cannot open links that provide access to cloud recordings.</td>
 </tr>
 <tr>
 <td>recording.auto_delete_cmr <em>optional</em></td>
-<td>Auto delete cloud recordings after days</td>
+<td>Allow Zoom to automatically delete recordings permanently after a specified number of days</td>
 </tr>
 <tr>
 <td>recording.auto_delete_cmr_days <em>optional</em></td>
-<td>A specified number of days of auto delete cloud recordings</td>
+<td>When <code class="prettyprint">auto_delete_cmr</code> is &lsquo;true&rsquo; this value will set the number of days before auto deletion of cloud recordings</td>
 </tr>
 <tr>
 <td>telephony.third_party_audio <em>optional</em></td>
-<td>3rd party audio conference</td>
+<td>Users can join the meeting using the existing 3rd party audio configuration</td>
 </tr>
 <tr>
 <td>telephony.audio_conference_info <em>optional</em></td>
@@ -464,30 +464,30 @@
 </tr>
 <tr>
 <td>integration.google_calendar <em>optional</em></td>
-<td>Google Calendar</td>
+<td>Enables meetings to be scheduled using Google Calendars</td>
 </tr>
 <tr>
 <td>integration.google_drive <em>optional</em></td>
-<td>Google Drive</td>
+<td>Enables users who join a meeting from their mobile device to share content from their Google Drive</td>
 </tr>
 <tr>
 <td>integration.dropbox <em>optional</em></td>
-<td>Dropbox</td>
+<td>Enables users who join a meeting from their mobile device to share content from their Dropbox account</td>
 </tr>
 <tr>
 <td>integration.box <em>optional</em></td>
-<td>Box</td>
+<td>Enables users who join a meeting from their mobile device to share content from their Box account</td>
 </tr>
 <tr>
 <td>integration.microsoft_one_drive <em>optional</em></td>
-<td>Microsoft OneDrive</td>
+<td>Enables users who join a meeting from their mobile device to share content from their Microsoft OneDrive account</td>
 </tr>
 <tr>
 <td>integration.kubi <em>optional</em></td>
-<td>Kubi</td>
+<td>Enables users to control a connected Kubi device from within a Zoom meeting</td>
 </tr>
 <tr>
 <td>feature.meeting_capacity <em>optional</em><div class="default">100</div></td>
-<td>Meeting capacity</td>
+<td>Set the maximum number of participants this user can have in a single meeting</td>
 </tr>
 </tbody></table>

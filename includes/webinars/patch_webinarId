@@ -85,11 +85,11 @@
 </tr>
 <tr>
 <td>duration <em>optional</em></td>
-<td>Webinar duration (minutes). Used for scheduled webinar only.</td>
+<td>Webinar duration (minutes). Used for scheduled webinar only</td>
 </tr>
 <tr>
 <td>timezone <em>optional</em></td>
-<td>Timezone to format start_time, like &ldquo;America/Los_Angeles&rdquo;. For scheduled webinar only. For this parameter value please refer to the id value in <a href="#timezones">timezone</a> list.</td>
+<td>Timezone to format start_time. For example, &ldquo;America/Los_Angeles&rdquo;. For scheduled meetings only. Please reference our <a href="#timezones">timezone</a> list for supported timezones and their formats.</td>
 </tr>
 <tr>
 <td>password <em>optional</em></td>
@@ -105,35 +105,35 @@
 </tr>
 <tr>
 <td>recurrence.repeat_interval <em>optional</em></td>
-<td>Recurrence meeting repeat interval. For a Daily Meeting, max of 90. For a Weekly Meeting, max of 12. For a Monthly Meeting, max of 3.</td>
+<td>At which interval should the meeting repeat? For a daily meeting, max of 90 days. For a weekly meeting, max of 12 weeks. For a monthly meeting, max of 3 months.</td>
 </tr>
 <tr>
 <td>recurrence.weekly_days <em>optional</em></td>
-<td>Recurrence Meeting Occurs on week days, multiple value separated by comma<div class="enum"><code class="prettyprint">1</code> Sunday<br/><code class="prettyprint">2</code> Monday<br/><code class="prettyprint">3</code> Tuesday<br/><code class="prettyprint">4</code> Wednesday<br/><code class="prettyprint">5</code> Thursday<br/><code class="prettyprint">6</code> Friday<br/><code class="prettyprint">7</code> Saturday<br/></div></td>
+<td>Days of the week the meeting should repeat, multiple values separated by comma<div class="enum"><code class="prettyprint">1</code> Sunday<br/><code class="prettyprint">2</code> Monday<br/><code class="prettyprint">3</code> Tuesday<br/><code class="prettyprint">4</code> Wednesday<br/><code class="prettyprint">5</code> Thursday<br/><code class="prettyprint">6</code> Friday<br/><code class="prettyprint">7</code> Saturday<br/></div></td>
 </tr>
 <tr>
 <td>recurrence.monthly_day <em>optional</em></td>
-<td>Recurrence Meeting Occurs on a month day. The value range is from 1 to 31</td>
+<td>Day of the month for the meeting to be scheduled. The value range is from 1 to 31.</td>
 </tr>
 <tr>
 <td>recurrence.monthly_week <em>optional</em></td>
-<td>Recurrence Meeting Occurs on the week of a month.<div class="enum"><code class="prettyprint">-1</code> Last week<br/><code class="prettyprint">1</code> First week<br/><code class="prettyprint">2</code> Second week<br/><code class="prettyprint">3</code> Third week<br/><code class="prettyprint">4</code> Fourth week<br/></div></td>
+<td>Week for which the meeting should recur each month,<div class="enum"><code class="prettyprint">-1</code> Last week<br/><code class="prettyprint">1</code> First week<br/><code class="prettyprint">2</code> Second week<br/><code class="prettyprint">3</code> Third week<br/><code class="prettyprint">4</code> Fourth week<br/></div></td>
 </tr>
 <tr>
 <td>recurrence.monthly_week_day <em>optional</em></td>
-<td>Recurrence Meeting Occurs on the week day of a month<div class="enum"><code class="prettyprint">1</code> Sunday<br/><code class="prettyprint">2</code> Monday<br/><code class="prettyprint">3</code> Tuesday<br/><code class="prettyprint">4</code> Wednesday<br/><code class="prettyprint">5</code> Thursday<br/><code class="prettyprint">6</code> Friday<br/><code class="prettyprint">7</code> Saturday<br/></div></td>
+<td>Day for which the meeting should recur each month<div class="enum"><code class="prettyprint">1</code> Sunday<br/><code class="prettyprint">2</code> Monday<br/><code class="prettyprint">3</code> Tuesday<br/><code class="prettyprint">4</code> Wednesday<br/><code class="prettyprint">5</code> Thursday<br/><code class="prettyprint">6</code> Friday<br/><code class="prettyprint">7</code> Saturday<br/></div></td>
 </tr>
 <tr>
 <td>recurrence.end_times <em>optional</em><div class="default">1</div><div class="maximum">50</div></td>
-<td>Recurrence Meeting End occurrences times</td>
+<td>Select how many times the meeting will occur before it is canceled. (Cannot be used with &ldquo;end_date_time&rdquo;.)</td>
 </tr>
 <tr>
 <td>recurrence.end_date_time <em>optional</em></td>
-<td>Recurrence Meeting End Date. Should be UTC time, such as 2017-11-25T12:00:00Z.</td>
+<td>Select a date the meeting will occur before it is canceled.. Should be UTC time, such as 2017-11-25T12:00:00Z. (Cannot be used with &ldquo;end_times&rdquo;.)</td>
 </tr>
 <tr>
 <td>settings.host_video <em>optional</em></td>
-<td>Start video when host join webinar</td>
+<td>Start video when host joins webinar</td>
 </tr>
 <tr>
 <td>settings.panelists_video <em>optional</em></td>
@@ -157,7 +157,7 @@
 </tr>
 <tr>
 <td>settings.audio <em>optional</em><div class="default">both</div></td>
-<td>Meeting audio options<div class="enum"><code class="prettyprint">both</code> Both Telephony and VoIP<br/><code class="prettyprint">telephony</code> Telephony only<br/><code class="prettyprint">voip</code> VoIP only<br/></div></td>
+<td>Determine how participants can join the audio portion of the meeting<div class="enum"><code class="prettyprint">both</code> Both Telephony and VoIP<br/><code class="prettyprint">telephony</code> Telephony only<br/><code class="prettyprint">voip</code> VoIP only<br/></div></td>
 </tr>
 <tr>
 <td>settings.auto_recording <em>optional</em><div class="default">none</div></td>
@@ -173,19 +173,19 @@
 </tr>
 <tr>
 <td>settings.alternative_hosts <em>optional</em></td>
-<td>Alternative hosts emails or IDs. Multiple value separated by comma.</td>
+<td>Alternative hosts emails or IDs. Multiple values separated by comma.</td>
 </tr>
 <tr>
 <td>settings.close_registration <em>optional</em></td>
-<td>Close registration after event date.</td>
+<td>Close registration after event date</td>
 </tr>
 <tr>
 <td>settings.show_share_button <em>optional</em></td>
-<td>Show social share buttons on registration page.</td>
+<td>Show social share buttons on registration page</td>
 </tr>
 <tr>
 <td>settings.allow_multiple_devices <em>optional</em></td>
-<td>Allow attendees to join from multiple devices.</td>
+<td>Allow attendees to join from multiple devices</td>
 </tr>
 <tr>
 <td>settings.registrants_confirmation_email <em>optional</em></td>

@@ -47,14 +47,14 @@
 </tr>
 <tr>
 <td>auth_user <strong>required</strong><div class="maxLength">128</div></td>
-<td>Webhook auth user name.</td>
+<td>Webhook auth user name</td>
 </tr>
 <tr>
 <td>auth_password <strong>required</strong><div class="maxLength">64</div></td>
-<td>Webhook auth password.</td>
+<td>Webhook auth password</td>
 </tr>
 <tr>
 <td>events <strong>required</strong></td>
-<td>List of events objects.<div class="enum"><code class="prettyprint">meeting_started</code> The meeting has started.<br/><code class="prettyprint">meeting_ended</code> The meeting has ended.<br/><code class="prettyprint">meeting_jbh</code> Attendee has joined a meeting before the host.<br/><code class="prettyprint">meeting_join</code> Host hasn’t launched the meeting, attendee is waiting.<br/><code class="prettyprint">recording_completed</code> All the Cloud Recordings have completed processing and is available.<br/><code class="prettyprint">participant_joined</code> Participant has joined the meeting.<br/><code class="prettyprint">participant_left</code> Participant has leaved the meeting.<br/></div></td>
+<td>List of events objects.<div class="enum"><code class="prettyprint">meeting_started</code> The meeting has started.<br/><code class="prettyprint">meeting_ended</code> The meeting has ended.<br/><code class="prettyprint">meeting_jbh</code> Attendee has joined a meeting before the host.<br/><code class="prettyprint">meeting_join</code> Host hasn’t launched the meeting, attendee is waiting.<br/><code class="prettyprint">recording_completed</code> All the Cloud Recordings have completed processing and is available.<br/><code class="prettyprint">participant_joined</code> Participant has joined the meeting.<br/><code class="prettyprint">participant_left</code> Participant has leaved the meeting.<br/><code class="prettyprint">meeting_registered</code> Attendee registered for a meeting or webinar.<br/><code class="prettyprint">recording_transcript_completed</code> Recording audio transcript files have processed and are available.<br/></div></td>
 </tr>
 </tbody></table>

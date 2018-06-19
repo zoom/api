@@ -102,7 +102,7 @@
 </tr>
 <tr>
 <td>participantId <strong>required</strong></td>
-<td>The participant ID, such as 16778240</td>
+<td>Participant ID</td>
 </tr>
 </tbody></table>
 

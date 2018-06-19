@@ -110,7 +110,7 @@
 </tr>
 <tr>
 <td>scheduled_meeting.audio_type <em>optional</em><div class="default">voip</div></td>
-<td>Meeting audio<div class="enum"><code class="prettyprint">both</code> Telephony and VoIP<br/><code class="prettyprint">telephony</code> Audio PSTN telephony only<br/><code class="prettyprint">voip</code> VoIP only<br/><code class="prettyprint">thirdParty</code> 3rd party audio conference<br/></div></td>
+<td>Determine how participants can join the audio portion of the meeting<div class="enum"><code class="prettyprint">both</code> Telephony and VoIP<br/><code class="prettyprint">telephony</code> Audio PSTN telephony only<br/><code class="prettyprint">voip</code> VoIP only<br/><code class="prettyprint">thirdParty</code> 3rd party audio conference<br/></div></td>
 </tr>
 <tr>
 <td>scheduled_meeting.join_before_host <em>optional</em></td>
@@ -206,7 +206,7 @@
 </tr>
 <tr>
 <td>in_meeting.share_dual_camera <em>optional</em><div class="default">false</div></td>
-<td>Share dual camera</td>
+<td>Share dual camera (Deprecated)</td>
 </tr>
 <tr>
 <td>in_meeting.attention_tracking <em>optional</em><div class="default">false</div></td>
@@ -286,7 +286,7 @@
 </tr>
 <tr>
 <td>feature.meeting_capacity <em>optional</em></td>
-<td>User’s meeting capacity.</td>
+<td>User’s meeting capacity</td>
 </tr>
 <tr>
 <td>feature.large_meeting <em>optional</em></td>
@@ -294,7 +294,7 @@
 </tr>
 <tr>
 <td>feature.large_meeting_capacity <em>optional</em></td>
-<td>Large meeting capacity, can be 100, 200, 300 or 500, depends on if having related large meeting capacity plan subscription or not.</td>
+<td>Large meeting capacity, can be 100, 200, 300 or 500, depends on if having related large meeting capacity plan subscription or not</td>
 </tr>
 <tr>
 <td>feature.webinar <em>optional</em></td>
@@ -302,6 +302,6 @@
 </tr>
 <tr>
 <td>feature.webinar_capacity <em>optional</em></td>
-<td>Webinar capacity, can be 100, 500, 1000, 3000, 5000 or 10000, depends on if having related webinar capacity plan subscription or not.</td>
+<td>Webinar capacity, can be 100, 500, 1000, 3000, 5000 or 10000, depends on if having related webinar capacity plan subscription or not</td>
 </tr>
 </tbody></table>

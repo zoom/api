@@ -60,7 +60,7 @@
 </tr>
 <tr>
 <td>pmi <em>optional</em><div class="maxLength">10</div></td>
-<td>Personal Meeting ID,length must be 10.</td>
+<td>Personal Meeting ID,length must be 10</td>
 </tr>
 <tr>
 <td>timezone <em>optional</em></td>
@@ -68,18 +68,18 @@
 </tr>
 <tr>
 <td>dept <em>optional</em></td>
-<td>Department for user profile, use for report.</td>
+<td>Department for user profile, use for report</td>
 </tr>
 <tr>
 <td>vanity_name <em>optional</em></td>
-<td>Personal meeting room name.</td>
+<td>Personal meeting room name</td>
 </tr>
 <tr>
 <td>host_key <em>optional</em><div class="maxLength">6</div></td>
-<td>Host Key, should be 6-digit number.</td>
+<td>Host Key, should be 6-digit number</td>
 </tr>
 <tr>
 <td>cms_user_id <em>optional</em></td>
-<td>Kaltura User Id.</td>
+<td>Kaltura User Id</td>
 </tr>
 </tbody></table>

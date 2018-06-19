@@ -49,6 +49,6 @@
 </thead><tbody>
 <tr>
 <td>panelists <em>optional</em></td>
-<td>List of Panelist objects.</td>
+<td>List of Panelist objects</td>
 </tr>
 </tbody></table>

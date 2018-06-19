@@ -24,11 +24,11 @@
 </tr>
 <tr>
 <td>total_members <em>integer</em></td>
-<td>Total number of members in this group.</td>
+<td>Total number of members in this group</td>
 </tr>
 <tr>
 <td>type <em>string</em></td>
-<td>IM Group type<div class="enum"><code class="prettyprint">normal</code> Only members can see the group automatically. Other people can search members in the group<br/><code class="prettyprint">shared</code> All people in the account can see the group and members automatically<br/><code class="prettyprint">restricted</code> Nobody can see the group or search members except the members in the group<br/></div></td>
+<td>IM Group type<div class="enum"><code class="prettyprint">normal</code> Only members can see the group automatically. Other people can search members in the group.<br/><code class="prettyprint">shared</code> All people in the account can see the group and members automatically<br/><code class="prettyprint">restricted</code> Nobody can see the group or search members except the members in the group<br/></div></td>
 </tr>
 <tr>
 <td>search_by_domain <em>boolean</em></td>

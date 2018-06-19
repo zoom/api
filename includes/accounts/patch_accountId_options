@@ -44,22 +44,22 @@
 </thead><tbody>
 <tr>
 <td>share_rc <em>optional</em><div class="default">false</div></td>
-<td>Enable Share Virtual Room Connector.</td>
+<td>Enable Share Virtual Room Connector</td>
 </tr>
 <tr>
 <td>room_connectors <em>optional</em></td>
-<td>Virtual Room Connector, multiple value separated by comma.</td>
+<td>Virtual Room Connector, multiple value separated by comma</td>
 </tr>
 <tr>
 <td>share_mc <em>optional</em><div class="default">false</div></td>
-<td>Enable Share Meeting Connector.</td>
+<td>Enable Share Meeting Connector</td>
 </tr>
 <tr>
 <td>meeting_connectors <em>optional</em></td>
-<td>Meeting Connector, multiple value separated by comma.</td>
+<td>Meeting Connector, multiple values separated by comma</td>
 </tr>
 <tr>
 <td>pay_mode <em>optional</em><div class="default">master</div></td>
-<td>Payee<div class="enum"><code class="prettyprint">master</code> Master Account holder pays<br/><code class="prettyprint">sub</code> Sub Account holders pays<br/></div></td>
+<td>Payee<div class="enum"><code class="prettyprint">master</code> Master account holder pays<br/><code class="prettyprint">sub</code> Sub account holder pays<br/></div></td>
 </tr>
 </tbody></table>

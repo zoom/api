@@ -25,7 +25,7 @@
 </thead><tbody>
 <tr>
 <td>id <em>string</em></td>
-<td>The recording file ID.Response in general query</td>
+<td>The recording file ID.Response in general query.</td>
 </tr>
 <tr>
 <td>meeting_id <em>string</em></td>
@@ -33,35 +33,35 @@
 </tr>
 <tr>
 <td>recording_start <em>string</em></td>
-<td>The recording start time.</td>
+<td>The recording start time</td>
 </tr>
 <tr>
 <td>recording_end <em>string</em></td>
-<td>The recording end time.Response in general query</td>
+<td>The recording end time. Response in general query.</td>
 </tr>
 <tr>
 <td>file_type <em>string</em></td>
-<td>The recording file type.</td>
+<td>The recording file type</td>
 </tr>
 <tr>
 <td>file_size <em>number</em></td>
-<td>The recording file size.</td>
+<td>The recording file size</td>
 </tr>
 <tr>
 <td>play_url <em>string</em></td>
-<td>The recording file play url.Response in general query</td>
+<td>The recording file play url. Response in general query.</td>
 </tr>
 <tr>
 <td>download_url <em>string</em></td>
-<td>The recording download url.Response in general query</td>
+<td>The recording download url. Response in general query.</td>
 </tr>
 <tr>
 <td>status <em>string</em></td>
-<td>The recording status.Response in general query</td>
+<td>The recording status. Response in general query.</td>
 </tr>
 <tr>
 <td>deleted_time <em>string</em></td>
-<td>The recording delete time.Response in trash query</td>
+<td>The recording delete time. Response in trash query.</td>
 </tr>
 <tr>
 <td>recording_type <em>string</em></td>

@@ -14,6 +14,10 @@
    -d <span class="s1">'{
     "conference_code": "string",
     "leader_pin": "string",
+    "media_number": {
+        "code": "string",
+        "number": "string"
+    },
     "dial_in_numbers": [
         {
             "code": "string",
@@ -51,11 +55,19 @@
 </thead><tbody>
 <tr>
 <td>conference_code <strong>required</strong><div class="maxLength">16</div></td>
-<td>Conference code, numeric value, length is less than 16.</td>
+<td>Conference code, numeric value, length is less than 16</td>
 </tr>
 <tr>
 <td>leader_pin <strong>required</strong><div class="maxLength">16</div></td>
-<td>Leader PIN, numeric value, length is less than 16.</td>
+<td>Leader PIN, numeric value, length is less than 16</td>
+</tr>
+<tr>
+<td>media_number.code <strong>required</strong><div class="maxLength">6</div></td>
+<td>Country Code</td>
+</tr>
+<tr>
+<td>media_number.number <strong>required</strong><div class="maxLength">16</div></td>
+<td>Media number, length is less than 16.</td>
 </tr>
 <tr>
 <td>dial_in_numbers <strong>required</strong></td>

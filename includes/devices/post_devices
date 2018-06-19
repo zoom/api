@@ -1,6 +1,6 @@
 <h2 id="create-a-h-323-sip-device">Create a H.323/SIP Device</h2>
 
-<p>Create a H.323/SIP Device on your Zoom account.</p>
+<p>Create a H.323/SIP Device on your Zoom account</p>
 
 <blockquote>
 <p>Definition</p>
@@ -38,15 +38,15 @@
 </thead><tbody>
 <tr>
 <td>name <strong>required</strong><div class="maxLength">64</div></td>
-<td>Device name.</td>
+<td>Device name</td>
 </tr>
 <tr>
 <td>protocol <strong>required</strong></td>
-<td>Device protocol.<div class="enum"><code class="prettyprint">H.323</code> H.323<br/><code class="prettyprint">SIP</code> SIP<br/></div></td>
+<td>Device protocol<div class="enum"><code class="prettyprint">H.323</code> H.323<br/><code class="prettyprint">SIP</code> SIP<br/></div></td>
 </tr>
 <tr>
 <td>ip <strong>required</strong></td>
-<td>Device Ip.</td>
+<td>Device Ip</td>
 </tr>
 <tr>
 <td>encryption <strong>required</strong></td>

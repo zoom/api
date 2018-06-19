@@ -1,16 +1,16 @@
-<h2 id="retrieve-meeting-participants-report">Retrieve meeting participants report</h2>
+<h2 id="retrieve-past-meeting-participants">Retrieve past meeting participants</h2>
 
-<p>Retrieve ended meeting participants report</p>
+<p>Retrieve ended meeting participants</p>
 
 <blockquote>
 <p>Definition</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>GET https://api.zoom.us/v2/report/meetings/<span class="o">{</span>meetingId<span class="o">}</span>/participants
+<pre class="highlight shell tab-shell"><code>GET https://api.zoom.us/v2/past_meetings/<span class="o">{</span>meetingUUID<span class="o">}</span>/participants
 </code></pre>
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/report/meetings/<span class="o">{</span>meetingId<span class="o">}</span>/participants
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.zoom.us/v2/past_meetings/<span class="o">{</span>meetingUUID<span class="o">}</span>/participants
 </code></pre>
 <blockquote>
 <p>Example Response</p>
@@ -24,13 +24,7 @@
     </span><span class="s2">"participants"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [uuid]"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"user_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"join_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"leave_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string [date-time]"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"attentiveness_score"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -42,8 +36,8 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>meetingId <strong>required</strong></td>
-<td>The meeting ID or meeting UUID. If given meeting ID, will take the last meeting instance.</td>
+<td>meetingUUID <strong>required</strong></td>
+<td>The meeting UUID.</td>
 </tr>
 </tbody></table>
 

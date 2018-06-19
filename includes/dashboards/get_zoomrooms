@@ -25,6 +25,7 @@
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"room_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"calender_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"account_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -45,10 +46,10 @@
 </thead><tbody>
 <tr>
 <td>page_size <em>optional</em><div class="default">30</div><div class="maximum">300</div></td>
-<td>The amount of records returns within a single API call.</td>
+<td>The number of records returned within a single API call</td>
 </tr>
 <tr>
 <td>page_number <em>optional</em><div class="default">1</div></td>
-<td>Current page number of returned records.</td>
+<td>Current page number of returned records</td>
 </tr>
 </tbody></table>
