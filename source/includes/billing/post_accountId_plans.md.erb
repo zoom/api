@@ -109,26 +109,26 @@ accountId **required** | The account ID
 
 Body Arguments | &nbsp;
 --- | ---
-contact.first_name **required** | Billing Contact's first name.
-contact.last_name **required** | Billing Contact's last name.
-contact.email **required** | Billing Contact's email address.
-contact.phone_number **required** | Billing Contact's phone number.
-contact.address **required** | Billing Contact's address.
-contact.apt *optional* | Billing Contact's apartment/suite.
-contact.city **required** | Billing Contact's city.
-contact.state **required** | Billing Contact's state.
-contact.zip **required** | Billing Contact's zip/postal code.
-contact.country **required** | Billing Contact's country.
-plan_base.type **required** | Account base plan type
+contact.first_name **required** | Billing Contact's first name
+contact.last_name **required** | Billing Contact's last name
+contact.email **required** | Billing Contact's email address
+contact.phone_number **required** | Billing Contact's phone number
+contact.address **required** | Billing Contact's address
+contact.apt *optional* | Billing Contact's apartment/suite
+contact.city **required** | Billing Contact's city
+contact.state **required** | Billing Contact's state
+contact.zip **required** | Billing Contact's zip/postal code
+contact.country **required** | Billing Contact's country
+plan_base.type **required** | Account base <a href="#plans">plan type</a>
 plan_base.hosts **required** | Account base plan number of hosts. For a Pro Plan, please select a value between 1 and 9. For a Business Plan, please select a value between 10 and 49. For a Education Plan, please select a value between 20 and 149. For a Free Trial Plan, please select a value between 1 and 9999.
-plan_zoom_rooms.type *optional* | Account plan type
+plan_zoom_rooms.type *optional* | Account <a href="#plans">plan type</a>
 plan_zoom_rooms.hosts *optional* | Account plan number of hosts
-plan_room_connector.type *optional* | Account plan type
+plan_room_connector.type *optional* | Account <a href="#plans">plan type</a>
 plan_room_connector.hosts *optional* | Account plan number of hosts
 plan_large_meeting *optional* | Additional Large Meeting Plans
 plan_webinar *optional* | Additional Webinar Plans
 plan_recording *optional* | Additional Cloud Recording Plan
-plan_audio.type *optional* | Additional Audio Conferencing Plan type
+plan_audio.type *optional* | Additional Audio Conferencing <a href="#plans">plan type</a>
 plan_audio.tollfree_countries *optional* | Toll-free countries, multiple value separated by comma
 plan_audio.premium_countries *optional* | Premium countries, multiple value separated by comma
 plan_audio.callout_countries *optional* | Call-out countries, multiple value separated by comma

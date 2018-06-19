@@ -46,6 +46,9 @@ includes:
   - users/post_userId_assistants
   - users/delete_userId_assistants
   - users/delete_userId_assistants_assistantId
+  - users/get_userId_schedulers
+  - users/delete_userId_schedulers
+  - users/delete_userId_schedulers_schedulerId
   - users/post_userId_picture
   - users/get_userId_settings
   - users/patch_userId_settings
@@ -67,6 +70,8 @@ includes:
   - meetings/get_meetingId_registrants
   - meetings/post_meetingId_registrants
   - meetings/put_meetingId_registrants_status
+  - meetings/get_meetingUUID
+  - meetings/get_meetingUUID_participants
 
   - webinars/index
   - webinars/get_userId_webinars
@@ -82,6 +87,7 @@ includes:
   - webinars/get_webinarId_registrants
   - webinars/post_webinarId_registrants
   - webinars/put_webinarId_registrants_status
+  - webinars/get_webinarId_instances
 
   - groups/index
   - groups/get_
@@ -102,6 +108,10 @@ includes:
   - im_groups/get_groups_groupId_members
   - im_groups/post_groups_groupId_members
   - im_groups/delete_groups_groupId_members_memberId
+
+  - im_chat/index
+  - im_chat/get_chat_sessions
+  - im_chat/get_chat_sessions_sessionId
 
   - cloud_recording/index
   - cloud_recording/get_userId_recordings

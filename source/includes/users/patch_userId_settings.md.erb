@@ -93,7 +93,7 @@ Body Arguments | &nbsp;
 --- | ---
 scheduled_meeting.host_video *optional* | Host video
 scheduled_meeting.participants_video *optional* | Participants video
-scheduled_meeting.audio_type *optional*<div class="default">voip</div> | Meeting audio<div class="enum">`both` Telephony and VoIP<br/>`telephony` Audio PSTN telephony only<br/>`voip` VoIP only<br/>`thirdParty` 3rd party audio conference<br/></div>
+scheduled_meeting.audio_type *optional*<div class="default">voip</div> | Determine how participants can join the audio portion of the meeting<div class="enum">`both` Telephony and VoIP<br/>`telephony` Audio PSTN telephony only<br/>`voip` VoIP only<br/>`thirdParty` 3rd party audio conference<br/></div>
 scheduled_meeting.join_before_host *optional* | Join before host
 scheduled_meeting.force_pmi_jbh_password *optional* | Require a password for Personal Meetings if attendees can join before host
 scheduled_meeting.pstn_password_protected *optional* | Generate and require password for participants joining by phone
@@ -117,7 +117,7 @@ in_meeting.closed_caption *optional*<div class="default">false</div> | Closed ca
 in_meeting.group_hd *optional*<div class="default">false</div> | Group HD video
 in_meeting.virtual_background *optional*<div class="default">false</div> | Virtual background
 in_meeting.far_end_camera_control *optional*<div class="default">false</div> | Far end camera control
-in_meeting.share_dual_camera *optional*<div class="default">false</div> | Share dual camera
+in_meeting.share_dual_camera *optional*<div class="default">false</div> | Share dual camera (Deprecated)
 in_meeting.attention_tracking *optional*<div class="default">false</div> | Attention tracking
 in_meeting.waiting_room *optional*<div class="default">false</div> | Waiting room
 email_notification.jbh_reminder *optional*<div class="default">false</div> | When attendees join meeting before host
@@ -137,9 +137,9 @@ recording.auto_delete_cmr_days *optional*<div class="default">false</div><div cl
 telephony.third_party_audio *optional* | 3rd party audio conference
 telephony.audio_conference_info *optional*<div class="maxLength">2048</div> | 3rd party audio conference info
 telephony.show_international_numbers_link *optional* | Show international numbers link on the invitation email
-feature.meeting_capacity *optional* | User’s meeting capacity.
+feature.meeting_capacity *optional* | User’s meeting capacity
 feature.large_meeting *optional* | Large meting feature
-feature.large_meeting_capacity *optional* | Large meeting capacity, can be 100, 200, 300 or 500, depends on if having related large meeting capacity plan subscription or not.
+feature.large_meeting_capacity *optional* | Large meeting capacity, can be 100, 200, 300 or 500, depends on if having related large meeting capacity plan subscription or not
 feature.webinar *optional* | Webinar feature
-feature.webinar_capacity *optional* | Webinar capacity, can be 100, 500, 1000, 3000, 5000 or 10000, depends on if having related webinar capacity plan subscription or not.
+feature.webinar_capacity *optional* | Webinar capacity, can be 100, 500, 1000, 3000, 5000 or 10000, depends on if having related webinar capacity plan subscription or not
 
