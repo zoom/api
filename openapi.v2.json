@@ -1204,6 +1204,176 @@
                 }
             }
         },
+        "/im/chat/sessions": {
+            "get": {
+                "summary": "Retrieve IM Chat sessions",
+                "description": "Retrieve IM Chat sessions for a specified period <aside>This API only supports oauth2.</aside>",
+                "tags": [
+                    "IM Chat"
+                ],
+                "operationId": "imChatSessions",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/FromDate"
+                    },
+                    {
+                        "$ref": "#/parameters/ToDate"
+                    },
+                    {
+                        "$ref": "#/parameters/PageSize"
+                    },
+                    {
+                        "$ref": "#/parameters/NextPageToken"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Archived IM Chat sessions Returned",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "properties": {
+                                        "from": {
+                                            "type": "string",
+                                            "format": "date",
+                                            "description": "Start date"
+                                        },
+                                        "to": {
+                                            "type": "string",
+                                            "format": "date",
+                                            "description": "End date"
+                                        }
+                                    }
+                                },
+                                {
+                                    "$ref": "#/definitions/PaginationToken4IMChat"
+                                },
+                                {
+                                    "properties": {
+                                        "sessions": {
+                                            "type": "array",
+                                            "description": "Array of session objects",
+                                            "items": {
+                                                "properties": {
+                                                    "session_id": {
+                                                        "type": "string",
+                                                        "description": "IM Chat session ID"
+                                                    },
+                                                    "type": {
+                                                        "type": "string",
+                                                        "description": "IM Chat session type"
+                                                    },
+                                                    "name": {
+                                                        "type": "string",
+                                                        "description": "Meeting topic"
+                                                    },
+                                                    "last_message_sent_time": {
+                                                        "type": "string",
+                                                        "format": "date-time",
+                                                        "description": "Last message sent time"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/im/chat/sessions/{sessionId}": {
+            "get": {
+                "summary": "Retrieve IM Chat messages",
+                "description": "Retrieve IM Chat messages for a specified period <aside>This API only supports oauth2.</aside>",
+                "tags": [
+                    "IM Chat"
+                ],
+                "operationId": "imChatMessages",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/SessionId"
+                    },
+                    {
+                        "$ref": "#/parameters/FromDate"
+                    },
+                    {
+                        "$ref": "#/parameters/ToDate"
+                    },
+                    {
+                        "$ref": "#/parameters/PageSize"
+                    },
+                    {
+                        "$ref": "#/parameters/NextPageToken"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Archived IM Chat messages Returned",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "properties": {
+                                        "session_id": {
+                                            "type": "string",
+                                            "description": "IM Chat session ID"
+                                        },
+                                        "from": {
+                                            "type": "string",
+                                            "format": "date",
+                                            "description": "Start date"
+                                        },
+                                        "to": {
+                                            "type": "string",
+                                            "format": "date",
+                                            "description": "End date"
+                                        }
+                                    }
+                                },
+                                {
+                                    "$ref": "#/definitions/PaginationToken4IMChat"
+                                },
+                                {
+                                    "properties": {
+                                        "messages": {
+                                            "type": "array",
+                                            "description": "Array of session objects",
+                                            "items": {
+                                                "properties": {
+                                                    "message": {
+                                                        "type": "string",
+                                                        "description": "IM Chat message content"
+                                                    },
+                                                    "sender": {
+                                                        "type": "string",
+                                                        "description": "IM Chat message sender"
+                                                    },
+                                                    "date_time": {
+                                                        "type": "string",
+                                                        "format": "date-time",
+                                                        "description": "IM Chat message sent time"
+                                                    },
+                                                    "action": {
+                                                        "type": "string",
+                                                        "description": "IM Chat message action"
+                                                    },
+                                                    "action_time": {
+                                                        "type": "string",
+                                                        "format": "date-time",
+                                                        "description": "Action time"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
         "/users/{userId}/meetings": {
             "get": {
                 "summary": "List meetings",
@@ -1240,7 +1410,7 @@
             },
             "post": {
                 "summary": "Create a meeting",
-                "description": "Create a meeting for a user",
+                "description": "Create a meeting for a user <aside>The expiration time of start_url is two hours. But for API users, the expiration time is 90 days.</aside>",
                 "tags": [
                     "Meetings"
                 ],
@@ -1570,6 +1740,141 @@
                     },
                     "404": {
                         "description": "Meeting or Registrant not found"
+                    }
+                }
+            }
+        },
+        "/past_meetings/{meetingUUID}": {
+            "get": {
+                "summary": "Retrieve past meeting details",
+                "description": "Retrieve ended meeting details",
+                "tags": [
+                    "Meetings"
+                ],
+                "operationId": "pastMeetingDetails",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/MeetingUUID"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Meeting detail Returned",
+                        "schema": {
+                            "properties": {
+                                "uuid": {
+                                    "type": "string",
+                                    "format": "uuid",
+                                    "description": "Meeting UUID"
+                                },
+                                "id": {
+                                    "type": "integer",
+                                    "description": "Meeting ID"
+                                },
+                                "host_id": {
+                                    "type": "integer",
+                                    "description": "Host ID"
+                                },
+                                "type": {
+                                    "type": "integer",
+                                    "description": "Meeting type"
+                                },
+                                "topic": {
+                                    "type": "string",
+                                    "description": "Meeting topic"
+                                },
+                                "user_name": {
+                                    "type": "string",
+                                    "description": "User display name"
+                                },
+                                "user_email": {
+                                    "type": "string",
+                                    "description": "User email"
+                                },
+                                "start_time": {
+                                    "type": "string",
+                                    "format": "date-time",
+                                    "description": "Meeting start time"
+                                },
+                                "end_time": {
+                                    "type": "string",
+                                    "format": "date-time",
+                                    "description": "Meeting end time"
+                                },
+                                "duration": {
+                                    "type": "integer",
+                                    "description": "Meeting duration"
+                                },
+                                "total_minutes": {
+                                    "type": "integer",
+                                    "description": "Number of meeting minutes"
+                                },
+                                "participants_count": {
+                                    "type": "integer",
+                                    "description": "Number of meeting participants"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Meeting not found"
+                    }
+                }
+            }
+        },
+        "/past_meetings/{meetingUUID}/participants": {
+            "get": {
+                "summary": "Retrieve past meeting participants",
+                "description": "Retrieve ended meeting participants",
+                "tags": [
+                    "Meetings"
+                ],
+                "operationId": "pastMeetingParticipants",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/MeetingUUID"
+                    },
+                    {
+                        "$ref": "#/parameters/PageSize"
+                    },
+                    {
+                        "$ref": "#/parameters/NextPageToken"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Meeting Participants Report Returned",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/PaginationToken"
+                                },
+                                {
+                                    "properties": {
+                                        "participants": {
+                                            "type": "array",
+                                            "description": "Array of meeting participant objects",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "string",
+                                                        "format": "uuid",
+                                                        "description": "Participant UUID"
+                                                    },
+                                                    "name": {
+                                                        "type": "string",
+                                                        "description": "Participant display name"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "404": {
+                        "description": "Meeting not found"
                     }
                 }
             }
@@ -1942,6 +2247,22 @@
                                                         "type": "string",
                                                         "description": "Participant network type"
                                                     },
+                                                    "microphone": {
+                                                        "type": "string",
+                                                        "description": "Participant microphone"
+                                                    },
+                                                    "speaker": {
+                                                        "type": "string",
+                                                        "description": "Participant speaker"
+                                                    },
+                                                    "data_center": {
+                                                        "type": "string",
+                                                        "description": "Participant data center"
+                                                    },
+                                                    "connection_type": {
+                                                        "type": "string",
+                                                        "description": "Participant connection type"
+                                                    },
                                                     "join_time": {
                                                         "type": "string",
                                                         "format": "date-time",
@@ -2295,6 +2616,22 @@
                                                     "network_type": {
                                                         "type": "string",
                                                         "description": "Participant network type"
+                                                    },
+                                                    "microphone": {
+                                                        "type": "string",
+                                                        "description": "Participant microphone"
+                                                    },
+                                                    "speaker": {
+                                                        "type": "string",
+                                                        "description": "Participant speaker"
+                                                    },
+                                                    "data_center": {
+                                                        "type": "string",
+                                                        "description": "Participant data center"
+                                                    },
+                                                    "connection_type": {
+                                                        "type": "string",
+                                                        "description": "Participant connection type"
                                                     },
                                                     "join_time": {
                                                         "type": "string",
@@ -3844,7 +4181,7 @@
                         "schema": {
                             "type": "object",
                             "required": [
-                              "action"
+                                "action"
                             ],
                             "properties": {
                                 "action": {
@@ -4008,6 +4345,21 @@
                                         },
                                         "account_id": {
                                             "type": "string"
+                                        },
+                                        "host_key": {
+                                            "type": "string"
+                                        },
+                                        "group_ids": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "im_group_ids": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            }
                                         }
                                     }
                                 }
@@ -4074,6 +4426,18 @@
                             "Disassociate a user",
                             "Permanently delete a user"
                         ]
+                    },
+                    {
+                        "$ref": "#/parameters/TransferEmail"
+                    },
+                    {
+                        "$ref": "#/parameters/TransferMeeting"
+                    },
+                    {
+                        "$ref": "#/parameters/TransferWebinar"
+                    },
+                    {
+                        "$ref": "#/parameters/TransferRecording"
                     }
                 ],
                 "responses": {
@@ -4207,6 +4571,83 @@
                     },
                     "404": {
                         "description": "User or Assistant not found"
+                    }
+                }
+            }
+        },
+        "/users/{userId}/schedulers": {
+            "get": {
+                "summary": "List a user's schedulers",
+                "description": "List a user's schedulers",
+                "tags": [
+                    "Users"
+                ],
+                "operationId": "userSchedulers",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/UserId"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/UserSchedulersList"
+                        }
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete a user's schedulers",
+                "description": "Delete all of a user'schedulers",
+                "tags": [
+                    "Users"
+                ],
+                "operationId": "userSchedulersDelete",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/UserId"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Schedulers deleted."
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                }
+            }
+        },
+        "/users/{userId}/schedulers/{schedulerId}": {
+            "delete": {
+                "summary": "Delete a user's scheduler",
+                "description": "Delete one of a user's schedulers",
+                "tags": [
+                    "Users"
+                ],
+                "operationId": "userSchedulerDelete",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/UserId"
+                    },
+                    {
+                        "name": "schedulerId",
+                        "description": "Scheduler's ID",
+                        "in": "path",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Scheduler deleted."
+                    },
+                    "404": {
+                        "description": "User or Scheduler not found"
                     }
                 }
             }
@@ -4619,9 +5060,10 @@
                             "zak"
                         ],
                         "x-enum-descriptions": [
-                            "Used for starting meeting with client SDK",
-                            "Used for generating the start meeting url. (Deprecated).",
-                            "Used for generating the start meeting url"
+                            "Used for starting meeting with client SDK.",
+                            "Used for generating the start meeting url. (Deprecated)",
+                            "Used for generating the start meeting url. The expiration time is two hours. For API users, the expiration time is 90 days."
+
                         ]
                     }
                 ],
@@ -4759,7 +5201,7 @@
             },
             "post": {
                 "summary": "Create a webinar",
-                "description": "Create a webinar for a user",
+                "description": "Create a webinar for a user <aside>The expiration time of start_url is two hours. But for API users, the expiration time is 90 days.</aside>",
                 "tags": [
                     "Webinars"
                 ],
@@ -5244,6 +5686,32 @@
                 }
             }
         },
+        "/past_webinars/{webinarId}/instances": {
+            "get": {
+                "summary": "List of ended webinar instances",
+                "description": "List of ended webinar instances",
+                "tags": [
+                    "Webinars"
+                ],
+                "operationId": "pastWebinars",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/WebinarId"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of ended webinar instances",
+                        "schema": {
+                            "$ref": "#/definitions/WebinarInstances"
+                        }
+                    },
+                    "404": {
+                        "description": "Webinar not found"
+                    }
+                }
+            }
+        },
         "/webhooks/options": {
             "patch": {
                 "summary": "Switch webhook version",
@@ -5573,6 +6041,13 @@
             "type": "string",
             "required": true
         },
+        "MeetingUUID": {
+            "in": "path",
+            "name": "meetingUUID",
+            "description": "The meeting UUID.",
+            "type": "string",
+            "required": true
+        },
         "MeetingId4Recording": {
             "in": "path",
             "name": "meetingId",
@@ -5740,6 +6215,34 @@
             "type": "string",
             "required": true
         },
+        "TransferEmail": {
+            "in": "query",
+            "name": "transfer_email",
+            "description": "Transfer email",
+            "type": "string",
+            "required": false
+        },
+        "TransferMeeting": {
+            "in": "query",
+            "name": "transfer_meeting",
+            "description": "Transfer meeting",
+            "type": "boolean",
+            "required": false
+        },
+        "TransferWebinar": {
+            "in": "query",
+            "name": "transfer_webinar",
+            "description": "Transfer webinar",
+            "type": "boolean",
+            "required": false
+        },
+        "TransferRecording": {
+            "in": "query",
+            "name": "transfer_recording",
+            "description": "Transfer recording",
+            "type": "boolean",
+            "required": false
+        },
         "UserId": {
             "in": "path",
             "name": "userId",
@@ -5804,8 +6307,14 @@
             "description": "The Zoom Room ID",
             "type": "string",
             "required": true
+        },
+        "SessionId": {
+            "in": "path",
+            "name": "sessionId",
+            "description": "IM Chat Session ID",
+            "type": "string",
+            "required": true
         }
-
     },
     "definitions": {
         "Account": {
@@ -7374,6 +7883,22 @@
                 }
             }
         },
+        "PaginationToken4IMChat": {
+            "type": "object",
+            "description": "Pagination Object",
+            "properties": {
+                "page_size": {
+                    "type": "integer",
+                    "description": "The amount of records returns within a single API call. ",
+                    "default": 30,
+                    "maximum": 300
+                },
+                "next_page_token": {
+                    "description": "Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.",
+                    "type": "string"
+                }
+            }
+        },
         "Panelist": {
             "type": "object",
             "description": "Panelist base object",
@@ -8304,6 +8829,27 @@
                     "minLength": 1,
                     "maxLength": 16
                 },
+                "media_number": {
+                    "type": "object",
+                    "description": "Media number.",
+                    "required": [
+                        "code",
+                        "number"
+                    ],
+                    "properties": {
+                        "code": {
+                            "type": "string",
+                            "description": "Country Code",
+                            "maxLength": 6
+                        },
+                        "number": {
+                            "type": "string",
+                            "description": "Media number, length is less than 16.",
+                            "minLength": 1,
+                            "maxLength": 16
+                        }
+                    }
+                },
                 "dial_in_numbers": {
                     "type": "array",
                     "description": "List of Dial In Numbers",
@@ -8536,6 +9082,22 @@
                                     },
                                     {
                                         "$ref": "#/definitions/User"
+                                    },
+                                    {
+                                        "properties": {
+                                            "group_ids": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "im_group_ids": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
                                     }
                                 ]
                             }
@@ -8562,6 +9124,30 @@
                             "email": {
                                 "type": "string",
                                 "description": "User email address. Must have id or email, if given id, the email is ignored."
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "UserSchedulersList": {
+            "type": "object",
+            "title": "User schedulers List",
+            "description": "List of User's schedulers",
+            "properties": {
+                "assistants": {
+                    "type": "array",
+                    "description": "List of User's schedulers.",
+                    "maximum": 30,
+                    "items": {
+                        "properties": {
+                            "id": {
+                                "type": "string",
+                                "description": "User ID"
+                            },
+                            "email": {
+                                "type": "string",
+                                "description": "User email address."
                             }
                         }
                     }
@@ -8776,7 +9362,7 @@
                 "share_dual_camera": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Share dual camera"
+                    "description": "Share dual camera (Deprecated)"
                 },
                 "attention_tracking": {
                     "type": "boolean",
@@ -9133,6 +9719,39 @@
                 }
             ]
         },
+        "WebinarInstances": {
+            "type": "object",
+            "title": "Webinar instances",
+            "description": "List of Webinars",
+            "allOf": [
+                {
+                    "properties": {
+                        "webinars": {
+                            "type": "array",
+                            "description": "List of ended webinar instances.",
+                            "items": {
+                                "allOf": [
+                                    {
+                                        "type": "object",
+                                        "properties": {
+                                            "uuid": {
+                                                "type": "string",
+                                                "description": "WebinarUUID"
+                                            },
+                                            "start_time": {
+                                                "type": "string",
+                                                "format": "date-time",
+                                                "description": "Start time"
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        },
         "WebinarMetric": {
             "type": "object",
             "title": "Webinar Metrics",
@@ -9394,16 +10013,18 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of events objects",
-                    "enum":["meeting_started", "meeting_ended", "meeting_jbh", "meeting_join", "recording_completed", "participant_joined", "participant_left"],
+                    "description": "List of events objects.",
+                    "enum":["meeting_started", "meeting_ended", "meeting_jbh", "meeting_join", "recording_completed", "participant_joined", "participant_left", "meeting_registered", "recording_transcript_completed"],
                     "x-enum-descriptions": [
-                        "The meeting has started",
-                        "The meeting has ended",
-                        "Attendee has joined a meeting before the host",
-                        "Host hasn’t launched the meeting, attendee is waiting",
-                        "All the Cloud Recordings have completed processing and is available",
-                        "Participant has joined the meeting",
-                        "Participant has leaved the meeting"
+                        "The meeting has started.",
+                        "The meeting has ended.",
+                        "Attendee has joined a meeting before the host.",
+                        "Host hasn’t launched the meeting, attendee is waiting.",
+                        "All the Cloud Recordings have completed processing and is available.",
+                        "Participant has joined the meeting.",
+                        "Participant has leaved the meeting.",
+                        "Attendee registered for a meeting or webinar.",
+                        "Recording audio transcript files have processed and are available."
                     ]
                 }
             }
@@ -9434,15 +10055,17 @@
                     "items": {
                         "type": "string"
                     },
-                    "enum":["meeting_started", "meeting_ended", "meeting_jbh", "meeting_join", "recording_completed", "participant_joined", "participant_left"],
+                    "enum":["meeting_started", "meeting_ended", "meeting_jbh", "meeting_join", "recording_completed", "participant_joined", "participant_left", "meeting_registered", "recording_transcript_completed"],
                     "x-enum-descriptions": [
-                        "The meeting has started",
-                        "The meeting has ended",
-                        "Attendee has joined a meeting before the host",
-                        "Host hasn’t launched the meeting, attendee is waiting",
-                        "All the Cloud Recordings has completed processing and is available",
-                        "Participant has joined the meeting",
-                        "Participant has leaved the meeting"
+                        "The meeting has started.",
+                        "The meeting has ended.",
+                        "Attendee has joined a meeting before the host.",
+                        "Host hasn’t launched the meeting, attendee is waiting.",
+                        "All the Cloud Recordings has completed processing and is available.",
+                        "Participant has joined the meeting.",
+                        "Participant has leaved the meeting.",
+                        "Attendee registered for a meeting or webinar.",
+                        "Recording audio transcript files have processed and are available."
                     ]
 
 
@@ -9504,6 +10127,10 @@
                 "room_name": {
                     "type": "string",
                     "description": "Zoom Room name"
+                },
+                "calender_name": {
+                    "type": "string",
+                    "description": "Zoom Calendar name"
                 },
                 "email": {
                     "type": "string",
@@ -9589,6 +10216,10 @@
         {
             "name": "IM Groups",
             "description": "IM Group operations"
+        },
+        {
+            "name": "IM Chat",
+            "description": "IM Chat operations"
         },
         {
             "name": "Cloud Recording",
