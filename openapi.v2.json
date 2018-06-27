@@ -1,5 +1,6 @@
 {
     "swagger": "2.0",
+    "x-explorer-enabled": false,
     "info": {
         "title": "Zoom API",
         "description": "API Description",
