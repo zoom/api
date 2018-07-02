@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## For the latest Changelog in our APIs please see our developer site
+- https://marketplace.zoom.us/docs/recent-changes
+
 ## 2017-05-20
 
 ### Added
