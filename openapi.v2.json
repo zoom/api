@@ -8820,42 +8820,20 @@
             "properties": {
                 "conference_code": {
                     "type": "string",
-                    "description": "Conference code, numeric value, length is less than 16",
+                    "description": "Conference code, numeric value, length is less than 16.",
                     "minLength": 1,
                     "maxLength": 16
                 },
                 "leader_pin": {
                     "type": "string",
-                    "description": "Leader PIN, numeric value, length is less than 16",
+                    "description": "Leader PIN, numeric value, length is less than 16.",
                     "minLength": 1,
                     "maxLength": 16
-                },
-                "media_number": {
-                    "type": "object",
-                    "description": "Media number.",
-                    "required": [
-                        "code",
-                        "number"
-                    ],
-                    "properties": {
-                        "code": {
-                            "type": "string",
-                            "description": "Country Code",
-                            "maxLength": 6
-                        },
-                        "number": {
-                            "type": "string",
-                            "description": "Media number, length is less than 16.",
-                            "minLength": 1,
-                            "maxLength": 16
-                        }
-                    }
                 },
                 "dial_in_numbers": {
                     "type": "array",
                     "description": "List of Dial In Numbers",
                     "required": [
-                        "code",
                         "number"
                     ],
                     "items": {
@@ -8867,9 +8845,21 @@
                             },
                             "number": {
                                 "type": "string",
-                                "description": "Dial-in number, length is less than 16",
+                                "description": "Dial-in number, length is less than 16.",
                                 "minLength": 1,
                                 "maxLength": 16
+                            },
+                            "type": {
+                                "type": "string",
+                                "description": "Dial-in number type.",
+                                "enum": [
+                                    "toll",
+                                    "tollfree"
+                                ],
+                                "x-enum-descriptions": [
+                                    "Toll number <br/>",
+                                    "Toll free number <br/>"
+                                ]
                             }
                         }
                     }
