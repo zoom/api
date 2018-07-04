@@ -9623,14 +9623,11 @@
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"conference_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"leader_pin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"media_number"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
     </span><span class="s2">"dial_in_numbers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+            </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -9643,23 +9640,27 @@
 </thead><tbody>
 <tr>
 <td>conference_code <em>string</em></td>
-<td>Conference code, numeric value, length is less than 16</td>
+<td>Conference code, numeric value, length is less than 16.</td>
 </tr>
 <tr>
 <td>leader_pin <em>string</em></td>
-<td>Leader PIN, numeric value, length is less than 16</td>
-</tr>
-<tr>
-<td>media_number.code <em>string</em></td>
-<td>Country Code</td>
-</tr>
-<tr>
-<td>media_number.number <em>string</em></td>
-<td>Media number, length is less than 16.</td>
+<td>Leader PIN, numeric value, length is less than 16.</td>
 </tr>
 <tr>
 <td>dial_in_numbers <em>array</em></td>
 <td>List of Dial In Numbers</td>
+</tr>
+<tr>
+<td>dial_in_numbers[0].code <strong>required</strong><div class="maxLength">6</div></td>
+<td>Country Code</td>
+</tr>
+<tr>
+<td>dial_in_numbers[0].number <strong>required</strong><div class="maxLength">16</div></td>
+<td>Dial-in number, length is less than 16.</td>
+</tr>
+<tr>
+<td>dial_in_numbers[0].type <em>optional</em></td>
+<td>Number type<div class="enum"><code class="prettyprint">toll</code> Toll number<br/><code class="prettyprint">tollfree</code> Toll free number<br/></div></td>
 </tr>
 </tbody></table>
 
@@ -9715,14 +9716,11 @@
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"conference_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"leader_pin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"media_number"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
             </span><span class="s2">"dial_in_numbers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+                    </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
         </span><span class="p">}</span><span class="w">
@@ -9757,14 +9755,11 @@
    -d <span class="s1">'{
     "conference_code": "string",
     "leader_pin": "string",
-    "media_number": {
-        "code": "string",
-        "number": "string"
-    },
     "dial_in_numbers": [
         {
             "code": "string",
-            "number": "string"
+            "number": "string",
+            "type": "string"
         }
     ]
 }'</span>
@@ -9776,14 +9771,11 @@
 </code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"conference_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"leader_pin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"media_number"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
     </span><span class="s2">"dial_in_numbers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+            </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -9808,23 +9800,27 @@
 </thead><tbody>
 <tr>
 <td>conference_code <strong>required</strong><div class="maxLength">16</div></td>
-<td>Conference code, numeric value, length is less than 16</td>
+<td>Conference code, numeric value, length is less than 16.</td>
 </tr>
 <tr>
 <td>leader_pin <strong>required</strong><div class="maxLength">16</div></td>
-<td>Leader PIN, numeric value, length is less than 16</td>
-</tr>
-<tr>
-<td>media_number.code <strong>required</strong><div class="maxLength">6</div></td>
-<td>Country Code</td>
-</tr>
-<tr>
-<td>media_number.number <strong>required</strong><div class="maxLength">16</div></td>
-<td>Media number, length is less than 16.</td>
+<td>Leader PIN, numeric value, length is less than 16.</td>
 </tr>
 <tr>
 <td>dial_in_numbers <strong>required</strong></td>
 <td>List of Dial In Numbers</td>
+</tr>
+<tr>
+<td>dial_in_numbers[0].code <strong>required</strong><div class="maxLength">6</div></td>
+<td>Country Code</td>
+</tr>
+<tr>
+<td>dial_in_numbers[0].number <strong>required</strong><div class="maxLength">16</div></td>
+<td>Dial-in number, length is less than 16.</td>
+</tr>
+<tr>
+<td>dial_in_numbers[0].type <em>optional</em></td>
+<td>Number type<div class="enum"><code class="prettyprint">toll</code> Toll number<br/><code class="prettyprint">tollfree</code> Toll free number<br/></div></td>
 </tr>
 </tbody></table>
 
@@ -9849,14 +9845,11 @@
 </code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"conference_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"leader_pin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"media_number"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
     </span><span class="s2">"dial_in_numbers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+            </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -9893,14 +9886,11 @@
    -d <span class="s1">'{
     "conference_code": "string",
     "leader_pin": "string",
-    "media_number": {
-        "code": "string",
-        "number": "string"
-    },
     "dial_in_numbers": [
         {
             "code": "string",
-            "number": "string"
+            "number": "string",
+            "type": "string"
         }
     ]
 }'</span>
@@ -9934,23 +9924,27 @@
 </thead><tbody>
 <tr>
 <td>conference_code <strong>required</strong><div class="maxLength">16</div></td>
-<td>Conference code, numeric value, length is less than 16</td>
+<td>Conference code, numeric value, length is less than 16.</td>
 </tr>
 <tr>
 <td>leader_pin <strong>required</strong><div class="maxLength">16</div></td>
-<td>Leader PIN, numeric value, length is less than 16</td>
-</tr>
-<tr>
-<td>media_number.code <strong>required</strong><div class="maxLength">6</div></td>
-<td>Country Code</td>
-</tr>
-<tr>
-<td>media_number.number <strong>required</strong><div class="maxLength">16</div></td>
-<td>Media number, length is less than 16.</td>
+<td>Leader PIN, numeric value, length is less than 16.</td>
 </tr>
 <tr>
 <td>dial_in_numbers <strong>required</strong></td>
 <td>List of Dial In Numbers</td>
+</tr>
+<tr>
+<td>dial_in_numbers[0].code <strong>required</strong><div class="maxLength">6</div></td>
+<td>Country Code</td>
+</tr>
+<tr>
+<td>dial_in_numbers[0].number <strong>required</strong><div class="maxLength">16</div></td>
+<td>Dial-in number, length is less than 16.</td>
+</tr>
+<tr>
+<td>dial_in_numbers[0].type <em>optional</em></td>
+<td>Number type<div class="enum"><code class="prettyprint">toll</code> Toll number<br/><code class="prettyprint">tollfree</code> Toll free number<br/></div></td>
 </tr>
 </tbody></table>
 
