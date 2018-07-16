@@ -59,6 +59,7 @@ includes:
   - users/delete_userId_token
   - users/get_zpk
   - users/get_email
+  - users/get_vanity_name
 
   - meetings/index
   - meetings/get_userId_meetings
