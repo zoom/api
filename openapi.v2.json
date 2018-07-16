@@ -4334,6 +4334,9 @@
                                         "vanity_url": {
                                             "type": "string"
                                         },
+                                        "personal_meeting_url": {
+                                            "type": "string"
+                                        },
                                         "verified": {
                                             "type": "integer"
                                         },
@@ -5160,6 +5163,37 @@
                         "schema": {
                             "properties": {
                                 "existed_email": {
+                                    "type": "boolean"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/users/vanity_name": {
+            "get": {
+                "summary": "Check a user's personal meeting room name",
+                "description": "Check if the user's personal meeting room name exists",
+                "tags": [
+                    "Users"
+                ],
+                "operationId": "userVanityName",
+                "parameters": [
+                    {
+                        "name": "vanity_name",
+                        "description": "Personal meeting room name",
+                        "in": "query",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "properties": {
+                                "existed": {
                                     "type": "boolean"
                                 }
                             }
@@ -8853,11 +8887,13 @@
                                 "description": "Dial-in number type.",
                                 "enum": [
                                     "toll",
-                                    "tollfree"
+                                    "tollfree",
+                                    "media_link"
                                 ],
                                 "x-enum-descriptions": [
                                     "Toll number <br/>",
-                                    "Toll free number <br/>"
+                                    "Toll free number <br/>",
+                                    "Media link phone number <br/>"
                                 ]
                             }
                         }
