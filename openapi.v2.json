@@ -1,6 +1,6 @@
 {
   "swagger": "2.0",
-  "x-explorer-enabled": true,
+  "x-explorer-enabled": false,
   "info": {
     "version": "1.0",
     "title": "Zoom API",
@@ -64,14 +64,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "page_size",
@@ -255,14 +247,6 @@
             "description": "Type is always 'application/json'."
           },
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
-          },
-          {
             "name": "accountId",
             "in": "path",
             "required": true,
@@ -321,14 +305,6 @@
             "description": "Type is always 'application/json'."
           },
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
-          },
-          {
             "name": "accountId",
             "in": "path",
             "required": true,
@@ -370,14 +346,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "accountId",
@@ -465,14 +433,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "accountId",
@@ -620,14 +580,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "accountId",
@@ -1386,14 +1338,6 @@
             "description": "Type is always 'application/json'."
           },
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
-          },
-          {
             "name": "accountId",
             "in": "path",
             "required": true,
@@ -1444,14 +1388,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "accountId",
@@ -1571,14 +1507,6 @@
             "description": "Type is always 'application/json'."
           },
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
-          },
-          {
             "name": "accountId",
             "in": "path",
             "required": true,
@@ -1651,14 +1579,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "accountId",
@@ -1737,14 +1657,6 @@
             "description": "Type is always 'application/json'."
           },
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
-          },
-          {
             "name": "accountId",
             "in": "path",
             "required": true,
@@ -1818,14 +1730,6 @@
             "description": "Type is always 'application/json'."
           },
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
-          },
-          {
             "name": "accountId",
             "in": "path",
             "required": true,
@@ -1892,14 +1796,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "accountId",
@@ -1973,14 +1869,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "status",
@@ -2066,14 +1954,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "Body",
@@ -2191,14 +2071,6 @@
             "description": "Type is always 'application/json'."
           },
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
-          },
-          {
             "name": "login_type",
             "in": "query",
             "required": false,
@@ -2269,14 +2141,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "action",
@@ -2353,14 +2217,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "userId",
@@ -2474,14 +2330,6 @@
             "description": "Type is always 'application/json'."
           },
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
-          },
-          {
             "name": "userId",
             "in": "path",
             "required": true,
@@ -2528,14 +2376,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "userId",
@@ -2636,14 +2476,6 @@
             "description": "Type is always 'application/json'."
           },
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
-          },
-          {
             "name": "userId",
             "in": "path",
             "required": true,
@@ -2685,14 +2517,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "userId",
@@ -2745,14 +2569,6 @@
             "description": "Type is always 'application/json'."
           },
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
-          },
-          {
             "name": "userId",
             "in": "path",
             "required": true,
@@ -2801,14 +2617,6 @@
             "description": "Type is always 'application/json'."
           },
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
-          },
-          {
             "name": "userId",
             "in": "path",
             "required": true,
@@ -2850,14 +2658,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "userId",
@@ -2913,14 +2713,6 @@
             "description": "Type is always 'application/json'."
           },
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
-          },
-          {
             "name": "userId",
             "in": "path",
             "required": true,
@@ -2966,14 +2758,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "login_type",
@@ -3088,14 +2872,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "userId",
@@ -3572,14 +3348,6 @@
             "description": "Type is always 'application/json'."
           },
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
-          },
-          {
             "name": "userId",
             "in": "path",
             "required": true,
@@ -3644,14 +3412,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "userId",
@@ -3720,14 +3480,6 @@
             "description": "Type is always 'application/json'."
           },
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
-          },
-          {
             "name": "userId",
             "in": "path",
             "required": true,
@@ -3773,14 +3525,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "type",
@@ -3833,14 +3577,6 @@
             "description": "Type is always 'application/json'."
           },
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
-          },
-          {
             "name": "userId",
             "in": "path",
             "required": true,
@@ -3882,14 +3618,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "zpk",
@@ -3937,14 +3665,6 @@
             "description": "Type is always 'application/json'."
           },
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
-          },
-          {
             "name": "email",
             "in": "query",
             "required": false,
@@ -3988,14 +3708,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "page_size",
@@ -4074,14 +3786,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "userId",
@@ -4389,14 +4093,6 @@
             "description": "Type is always 'application/json'."
           },
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
-          },
-          {
             "name": "type",
             "in": "query",
             "required": false,
@@ -4481,14 +4177,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "userId",
@@ -4806,14 +4494,6 @@
             "description": "Type is always 'application/json'."
           },
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
-          },
-          {
             "name": "meetingId",
             "in": "path",
             "required": true,
@@ -4895,14 +4575,6 @@
             "description": "Type is always 'application/json'."
           },
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
-          },
-          {
             "name": "occurrence_id",
             "in": "query",
             "required": false,
@@ -4949,14 +4621,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "meetingId",
@@ -5241,14 +4905,6 @@
             "description": "Type is always 'application/json'."
           },
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
-          },
-          {
             "name": "meetingId",
             "in": "path",
             "required": true,
@@ -5345,14 +5001,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "occurrence_id",
@@ -5462,14 +5110,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "occurrence_ids",
@@ -5683,14 +5323,6 @@
             "description": "Type is always 'application/json'."
           },
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
-          },
-          {
             "name": "occurrence_id",
             "in": "query",
             "required": false,
@@ -5804,14 +5436,6 @@
             "description": "Type is always 'application/json'."
           },
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
-          },
-          {
             "name": "meetingUUID",
             "in": "path",
             "required": true,
@@ -5866,14 +5490,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "page_size",
@@ -5945,14 +5561,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "webinarId",
@@ -6033,14 +5641,6 @@
             "description": "Type is always 'application/json'."
           },
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
-          },
-          {
             "name": "occurrence_id",
             "in": "query",
             "required": false,
@@ -6087,14 +5687,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "webinarId",
@@ -6407,14 +5999,6 @@
             "description": "Type is always 'application/json'."
           },
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
-          },
-          {
             "name": "webinarId",
             "in": "path",
             "required": true,
@@ -6478,14 +6062,6 @@
             "description": "Type is always 'application/json'."
           },
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
-          },
-          {
             "name": "webinarId",
             "in": "path",
             "required": true,
@@ -6535,14 +6111,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "webinarId",
@@ -6643,14 +6211,6 @@
             "description": "Type is always 'application/json'."
           },
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
-          },
-          {
             "name": "webinarId",
             "in": "path",
             "required": true,
@@ -6692,14 +6252,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "webinarId",
@@ -6750,14 +6302,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "occurrence_id",
@@ -6865,14 +6409,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "occurrence_ids",
@@ -7086,14 +6622,6 @@
             "description": "Type is always 'application/json'."
           },
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
-          },
-          {
             "name": "occurrence_id",
             "in": "query",
             "required": false,
@@ -7207,14 +6735,6 @@
             "description": "Type is always 'application/json'."
           },
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
-          },
-          {
             "name": "webinarId",
             "in": "path",
             "required": true,
@@ -7263,14 +6783,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           }
         ],
         "responses": {
@@ -7314,14 +6826,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "Body",
@@ -7387,14 +6891,6 @@
             "description": "Type is always 'application/json'."
           },
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
-          },
-          {
             "name": "groupId",
             "in": "path",
             "required": true,
@@ -7440,14 +6936,6 @@
             "description": "Type is always 'application/json'."
           },
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
-          },
-          {
             "name": "groupId",
             "in": "path",
             "required": true,
@@ -7487,14 +6975,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "groupId",
@@ -7561,14 +7041,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "page_size",
@@ -7643,14 +7115,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "groupId",
@@ -7753,14 +7217,6 @@
             "description": "Type is always 'application/json'."
           },
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
-          },
-          {
             "name": "groupId",
             "in": "path",
             "required": true,
@@ -7809,14 +7265,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           }
         ],
         "responses": {
@@ -7867,14 +7315,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "Body",
@@ -7965,14 +7405,6 @@
             "description": "Type is always 'application/json'."
           },
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
-          },
-          {
             "name": "groupId",
             "in": "path",
             "required": true,
@@ -8022,14 +7454,6 @@
             "description": "Type is always 'application/json'."
           },
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
-          },
-          {
             "name": "groupId",
             "in": "path",
             "required": true,
@@ -8069,14 +7493,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "groupId",
@@ -8167,14 +7583,6 @@
             "description": "Type is always 'application/json'."
           },
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
-          },
-          {
             "name": "page_size",
             "in": "query",
             "required": false,
@@ -8247,14 +7655,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "groupId",
@@ -8357,14 +7757,6 @@
             "description": "Type is always 'application/json'."
           },
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
-          },
-          {
             "name": "groupId",
             "in": "path",
             "required": true,
@@ -8413,14 +7805,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "from",
@@ -8501,14 +7885,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "from",
@@ -8598,14 +7974,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "from",
@@ -8731,14 +8099,6 @@
             "description": "Type is always 'application/json'."
           },
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
-          },
-          {
             "name": "meetingId",
             "in": "path",
             "required": true,
@@ -8805,14 +8165,6 @@
             "description": "Type is always 'application/json'."
           },
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
-          },
-          {
             "name": "action",
             "in": "query",
             "required": false,
@@ -8861,14 +8213,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "action",
@@ -8926,14 +8270,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "meetingId",
@@ -8997,14 +8333,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "meetingId",
@@ -9077,14 +8405,6 @@
             "description": "Type is always 'application/json'."
           },
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
-          },
-          {
             "name": "year",
             "in": "query",
             "required": false,
@@ -9145,14 +8465,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "in": "query",
@@ -9259,14 +8571,6 @@
             "description": "Type is always 'application/json'."
           },
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
-          },
-          {
             "name": "from",
             "in": "query",
             "required": true,
@@ -9363,14 +8667,6 @@
             "description": "Type is always 'application/json'."
           },
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
-          },
-          {
             "name": "meetingId",
             "in": "path",
             "required": true,
@@ -9424,14 +8720,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "page_size",
@@ -9511,14 +8799,6 @@
             "description": "Type is always 'application/json'."
           },
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
-          },
-          {
             "name": "meetingId",
             "in": "path",
             "required": true,
@@ -9578,14 +8858,6 @@
             "description": "Type is always 'application/json'."
           },
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
-          },
-          {
             "name": "webinarId",
             "in": "path",
             "required": true,
@@ -9639,14 +8911,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "page_size",
@@ -9726,14 +8990,6 @@
             "description": "Type is always 'application/json'."
           },
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
-          },
-          {
             "name": "webinarId",
             "in": "path",
             "required": true,
@@ -9793,14 +9049,6 @@
             "description": "Type is always 'application/json'."
           },
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
-          },
-          {
             "name": "webinarId",
             "in": "path",
             "required": true,
@@ -9858,14 +9106,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "type",
@@ -9962,14 +9202,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "type",
@@ -10074,14 +9306,6 @@
             "description": "Type is always 'application/json'."
           },
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
-          },
-          {
             "name": "type",
             "in": "query",
             "required": false,
@@ -10148,14 +9372,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "type",
@@ -10254,14 +9470,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "type",
@@ -10391,14 +9599,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "type",
@@ -10548,14 +9748,6 @@
             "description": "Type is always 'application/json'."
           },
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
-          },
-          {
             "name": "type",
             "in": "query",
             "required": false,
@@ -10640,14 +9832,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "type",
@@ -10752,14 +9936,6 @@
             "description": "Type is always 'application/json'."
           },
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
-          },
-          {
             "name": "type",
             "in": "query",
             "required": false,
@@ -10826,14 +10002,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "type",
@@ -10932,14 +10100,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "type",
@@ -11069,14 +10229,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "type",
@@ -11226,14 +10378,6 @@
             "description": "Type is always 'application/json'."
           },
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
-          },
-          {
             "name": "type",
             "in": "query",
             "required": false,
@@ -11320,14 +10464,6 @@
             "description": "Type is always 'application/json'."
           },
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
-          },
-          {
             "name": "page_size",
             "in": "query",
             "required": false,
@@ -11400,14 +10536,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "from",
@@ -11544,14 +10672,6 @@
             "description": "Type is always 'application/json'."
           },
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
-          },
-          {
             "name": "from",
             "in": "query",
             "required": true,
@@ -11615,14 +10735,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "from",
@@ -11722,14 +10834,6 @@
             "description": "Type is always 'application/json'."
           },
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
-          },
-          {
             "name": "Body",
             "in": "body",
             "required": false,
@@ -11787,14 +10891,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           }
         ],
         "responses": {
@@ -11843,14 +10939,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "Body",
@@ -11949,14 +11037,6 @@
             "description": "Type is always 'application/json'."
           },
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
-          },
-          {
             "name": "webhookId",
             "in": "path",
             "required": true,
@@ -12007,14 +11087,6 @@
             "description": "Type is always 'application/json'."
           },
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
-          },
-          {
             "name": "webhookId",
             "in": "path",
             "required": true,
@@ -12054,14 +11126,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "webhookId",
@@ -12150,14 +11214,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           }
         ],
         "responses": {
@@ -12203,14 +11259,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "userId",
@@ -12269,14 +11317,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "userId",
@@ -12435,14 +11475,6 @@
             "description": "Type is always 'application/json'."
           },
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
-          },
-          {
             "name": "userId",
             "in": "path",
             "required": true,
@@ -12504,14 +11536,6 @@
             "description": "Type is always 'application/json'."
           },
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
-          },
-          {
             "name": "userId",
             "in": "path",
             "required": true,
@@ -12558,14 +11582,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "userId",
@@ -12718,14 +11734,6 @@
             "description": "Type is always 'application/json'."
           },
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
-          },
-          {
             "name": "userId",
             "in": "path",
             "required": true,
@@ -12787,14 +11795,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           }
         ],
         "responses": {
@@ -12843,14 +11843,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "Body",
@@ -12939,14 +11931,6 @@
             "description": "Type is always 'application/json'."
           },
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
-          },
-          {
             "name": "deviceId",
             "in": "path",
             "required": true,
@@ -12986,14 +11970,6 @@
             "type": "string",
             "default": "application/json",
             "description": "Type is always 'application/json'."
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "default": "Bearer {{Your Token}}",
-            "description": "Uses JWT generated using client ID and Secret."
           },
           {
             "name": "deviceId",
