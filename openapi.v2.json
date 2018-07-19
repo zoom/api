@@ -1,12 +1,12 @@
 {
   "swagger": "2.0",
-  "x-explorer-enabled": false,
+  "x-explorer-enabled": true,
   "info": {
     "version": "1.0",
     "title": "Zoom API",
     "description": "API Description"
   },
-  "host": "api.zoom.us",
+  "host": "dev.zoom.us",
   "basePath": "/v2",
   "securityDefinitions": {
     "API Auth": {
