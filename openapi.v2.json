@@ -1871,22 +1871,11 @@
             "description": "Type is always 'application/json'."
           },
           {
+            "name": "status",
             "in": "query",
             "required": false,
-            "name": "status",
-            "description": "User status",
             "type": "string",
-            "default": "active",
-            "enum": [
-              "active",
-              "inactive",
-              "pending"
-            ],
-            "x-enum-descriptions": [
-              "users with active status",
-              "users with inactive status",
-              "users with pending status"
-            ]
+            "description": ""
           },
           {
             "name": "page_size",
@@ -7344,26 +7333,15 @@
               "type": "object",
               "properties": {
                 "name": {
-                  "description": "Group name, must be unique in one account",
-                  "example": "string",
-                  "type": "string",
-                  "maxLength": 128
-                },
-                "type": {
-                  "type": "string",
-                  "example": "string",
                   "description": "IM Group type",
                   "default": "normal",
-                  "enum": [
-                    "normal",
-                    "shared",
-                    "restricted"
-                  ],
-                  "x-enum-descriptions": [
-                    "Only members can see the group automatically. Other people can search members in the group.",
-                    "All people in the account can see the group and members automatically",
-                    "Nobody can see the group or search members except the members in the group"
-                  ]
+                  "example": "string",
+                  "type": "string"
+                },
+                "type": {
+                  "description": "",
+                  "example": "string",
+                  "type": "string"
                 },
                 "search_by_domain": {
                   "description": "",
@@ -7540,26 +7518,15 @@
               "type": "object",
               "properties": {
                 "name": {
-                  "description": "Group name, must be unique in one account",
+                  "description": "",
                   "example": "string",
                   "type": "string",
-                  "maxLength": 128
+                  "maxLength": 20
                 },
                 "type": {
-                  "type": "string",
+                  "description": "",
                   "example": "string",
-                  "description": "IM Group type",
-                  "default": "normal",
-                  "enum": [
-                    "normal",
-                    "shared",
-                    "restricted"
-                  ],
-                  "x-enum-descriptions": [
-                    "Only members can see the group automatically. Other people can search members in the group.",
-                    "All people in the account can see the group and members automatically",
-                    "Nobody can see the group or search members except the members in the group"
-                  ]
+                  "type": "string"
                 },
                 "search_by_domain": {
                   "description": "",
@@ -9141,17 +9108,12 @@
             "description": "Type is always 'application/json'."
           },
           {
-            "in": "query",
             "name": "type",
-            "description": "Audio type",
-            "type": "string",
-            "enum": [
-              1
-            ],
-            "x-enum-descriptions": [
-              "Toll-free Call-in & Call-out"
-            ],
-            "default": 1
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
           },
           {
             "name": "from",
