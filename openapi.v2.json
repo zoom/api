@@ -1,7 +1,6 @@
 {
   "swagger": "2.0",
   "x-explorer-enabled": false,
-  "x-send-defaults": true,
   "info": {
     "title": "Zoom API",
     "description": "API Description",
@@ -1851,6 +1850,7 @@
                 },
                 "protocol": {
                   "type": "string",
+                  "description": "\n`H.323` \n`SIP`",
                   "enum": [
                     "H.323",
                     "SIP"
@@ -1867,6 +1867,7 @@
                 },
                 "encryption": {
                   "type": "string",
+                  "description": "\n`auto` \n`yes` \n`no`",
                   "enum": [
                     "auto",
                     "yes",
@@ -1937,6 +1938,7 @@
                 },
                 "protocol": {
                   "type": "string",
+                  "description": "\n`H.323` \n`SIP`",
                   "enum": [
                     "H.323",
                     "SIP"
@@ -1953,6 +1955,7 @@
                 },
                 "encryption": {
                   "type": "string",
+                  "description": "\n`auto` \n`yes` \n`no`",
                   "enum": [
                     "auto",
                     "yes",
@@ -2059,7 +2062,7 @@
                 },
                 "type": {
                   "type": "string",
-                  "description": "IM Group type",
+                  "description": "IM Group type \n`normal` Only members can see the group automatically. Other people can search members in the group. \n`shared` All people in the account can see the group and members automatically \n`restricted` Nobody can see the group or search members except the members in the group",
                   "default": "normal",
                   "enum": [
                     "normal",
@@ -2170,7 +2173,7 @@
                 },
                 "type": {
                   "type": "string",
-                  "description": "IM Group type",
+                  "description": "IM Group type \n`normal` Only members can see the group automatically. Other people can search members in the group. \n`shared` All people in the account can see the group and members automatically \n`restricted` Nobody can see the group or search members except the members in the group",
                   "enum": [
                     "normal",
                     "shared",
@@ -2839,7 +2842,7 @@
                     },
                     "audio": {
                       "type": "string",
-                      "description": "Determine how participants can join the audio portion of the meeting",
+                      "description": "Determine how participants can join the audio portion of the meeting \n`both` Both Telephony and VoIP \n`telephony` Telephony only \n`voip` VoIP only",
                       "default": "both",
                       "enum": [
                         "both",
@@ -2854,6 +2857,7 @@
                     },
                     "auto_recording": {
                       "type": "string",
+                      "description": "Record meetings automatically as they start \n`local` Record on local \n`cloud` Record on cloud \n`none` Disabled.",
                       "default": "none",
                       "enum": [
                         "local",
@@ -3251,7 +3255,7 @@
                     },
                     "audio": {
                       "type": "string",
-                      "description": "Determine how participants can join the audio portion of the meeting",
+                      "description": "Determine how participants can join the audio portion of the meeting \n`both` Both Telephony and VoIP \n`telephony` Telephony only \n`voip` VoIP only",
                       "default": "both",
                       "enum": [
                         "both",
@@ -3266,6 +3270,7 @@
                     },
                     "auto_recording": {
                       "type": "string",
+                      "description": "Record meetings automatically as they start \n`local` Record on local \n`cloud` Record on cloud \n`none` Disabled.",
                       "default": "none",
                       "enum": [
                         "local",
@@ -3411,7 +3416,7 @@
           {
             "in": "query",
             "name": "status",
-            "description": "The registrant status",
+            "description": "The registrant status \n`pending` registrants status is pending \n`approved` registrants status is approved \n`denied` registrants status is denied",
             "type": "string",
             "default": "approved",
             "enum": [
@@ -3683,6 +3688,7 @@
               "properties": {
                 "action": {
                   "type": "string",
+                  "description": "`approve` Approve registrant \n`cancel` Cancel registrant \n`deny` Deny registrant",
                   "enum": [
                     "approve",
                     "cancel",
@@ -4002,7 +4008,7 @@
           {
             "in": "query",
             "name": "action",
-            "description": "The recording delete action",
+            "description": "The recording delete action \n`trash` move recording to trash \n`delete` delete recording permanently",
             "type": "string",
             "default": "trash",
             "enum": [
@@ -4051,7 +4057,7 @@
           {
             "in": "query",
             "name": "action",
-            "description": "The recording delete action",
+            "description": "The recording delete action \n`trash` move recording to trash \n`delete` delete recording permanently",
             "type": "string",
             "default": "trash",
             "enum": [
@@ -4098,6 +4104,7 @@
               "properties": {
                 "action": {
                   "type": "string",
+                  "description": "`recover` recover meeting recording",
                   "enum": [
                     "recover"
                   ],
@@ -4150,6 +4157,7 @@
               "properties": {
                 "action": {
                   "type": "string",
+                  "description": "`recover` recover meeting recording",
                   "enum": [
                     "recover"
                   ],
@@ -4761,7 +4769,7 @@
           {
             "in": "query",
             "name": "type",
-            "description": "The webinar type",
+            "description": "The webinar type \n`past` past webinars \n`live` live webinars",
             "type": "string",
             "default": "live",
             "enum": [
@@ -4861,7 +4869,7 @@
           {
             "in": "query",
             "name": "type",
-            "description": "The webinar type",
+            "description": "The webinar type \n`past` past webinars \n`live` live webinars",
             "type": "string",
             "default": "live",
             "enum": [
@@ -4921,7 +4929,7 @@
           {
             "in": "query",
             "name": "type",
-            "description": "The webinar type",
+            "description": "The webinar type \n`past` past webinars \n`live` live webinars",
             "type": "string",
             "default": "live",
             "enum": [
@@ -5015,7 +5023,7 @@
           {
             "in": "query",
             "name": "type",
-            "description": "The webinar type",
+            "description": "The webinar type \n`past` past webinars \n`live` live webinars",
             "type": "string",
             "default": "live",
             "enum": [
@@ -5129,7 +5137,7 @@
           {
             "in": "query",
             "name": "type",
-            "description": "The webinar type",
+            "description": "The webinar type \n`past` past webinars \n`live` live webinars",
             "type": "string",
             "default": "live",
             "enum": [
@@ -5257,7 +5265,7 @@
           {
             "in": "query",
             "name": "type",
-            "description": "The webinar type",
+            "description": "The webinar type \n`past` past webinars \n`live` live webinars",
             "type": "string",
             "default": "live",
             "enum": [
@@ -5673,7 +5681,7 @@
           {
             "in": "query",
             "name": "type",
-            "description": "Active hosts or inactive hosts",
+            "description": "Active hosts or inactive hosts \n`active` Active hosts \n`inactive` Inactive hosts",
             "type": "string",
             "enum": [
               "active",
@@ -6186,7 +6194,7 @@
           {
             "in": "query",
             "name": "type",
-            "description": "Audio type",
+            "description": "Audio type \n`1` Toll-free Call-in & Call-out",
             "type": "string",
             "enum": [
               1
@@ -6298,7 +6306,7 @@
           {
             "in": "query",
             "name": "status",
-            "description": "User status",
+            "description": "User status \n`active` users with active status \n`inactive` users with inactive status \n`pending` users with pending status",
             "type": "string",
             "default": "active",
             "enum": [
@@ -6384,7 +6392,7 @@
               "properties": {
                 "action": {
                   "type": "string",
-                  "description": "Specify how to create the new user",
+                  "description": "Specify how to create the new user \n`create` User will get an email sent from Zoom. There is a confirmation link in this email. User will then need to click this link to activate their account to the Zoom service. The user can set or change their password in Zoom. \n`autoCreate` This action is provided for enterprise customer who has a managed domain. This feature is disabled by default because of the security risk involved in creating a user who does not belong to your domain without notifying the user.  \n`custCreate` This action is provided for API partner only. User created in this way has no password and is not able to log into the Zoom web site or client. \n`ssoCreate This action is provided for enabled \"Pre-provisioning SSO User\" option. User created in this way has no password. If it is not a basic user, will generate a Personal Vanity URL using user name (no domain) of the provisioning email. If user name or pmi is invalid or occupied, will use random number/random personal vanity URL.",
                   "enum": [
                     "create",
                     "autoCreate",
@@ -6411,6 +6419,7 @@
                     },
                     "type": {
                       "type": "integer",
+                      "description": "\n`1` basic \n`2` pro \n`3` corp",
                       "enum": [
                         1,
                         2,
@@ -6577,6 +6586,7 @@
                 },
                 "type": {
                   "type": "integer",
+                  "description": "\n`1` basic \n`2` pro \n`3` corp",
                   "enum": [
                     1,
                     2,
@@ -6649,7 +6659,7 @@
           {
             "in": "query",
             "name": "action",
-            "description": "Delete action type",
+            "description": "Delete action type \n`disassociate` Disassociate a user \n`delete` Permanently delete a user",
             "type": "string",
             "default": "disassociate",
             "enum": [
@@ -7502,7 +7512,7 @@
               "properties": {
                 "action": {
                   "type": "string",
-                  "description": "The action type",
+                  "description": "The action type \n`activate` set users status to active \n`deactivate` set users status to inactive",
                   "enum": [
                     "activate",
                     "deactivate"
@@ -7763,16 +7773,16 @@
                       },
                       "type": {
                         "type": "string",
-                        "description": "Dial-in number type.",
+                        "description": "Dial-in number type. \n`toll` Toll number \n`tollfree` Toll free number \n`media_link` Media link phone number",
                         "enum": [
                           "toll",
                           "tollfree",
                           "media_link"
                         ],
                         "x-enum-descriptions": [
-                          "Toll number <br/>",
-                          "Toll free number <br/>",
-                          "Media link phone number <br/>"
+                          "Toll number",
+                          "Toll free number",
+                          "Media link phone number"
                         ]
                       }
                     }
@@ -7920,16 +7930,16 @@
                       },
                       "type": {
                         "type": "string",
-                        "description": "Dial-in number type.",
+                        "description": "Dial-in number type. \n`toll` Toll number \n`tollfree` Toll free number \n`media_link` Media link phone number",
                         "enum": [
                           "toll",
                           "tollfree",
                           "media_link"
                         ],
                         "x-enum-descriptions": [
-                          "Toll number <br/>",
-                          "Toll free number <br/>",
-                          "Media link phone number <br/>"
+                          "Toll number",
+                          "Toll free number",
+                          "Media link phone number"
                         ]
                       }
                     }
@@ -7994,7 +8004,7 @@
           {
             "in": "query",
             "name": "type",
-            "description": "User token type",
+            "description": "User token type \n`token` Used for starting meeting with client SDK. \n`zpk` Used for generating the start meeting url. (Deprecated) \n`zak` Used for generating the start meeting url. The expiration time is two hours. For API users, the expiration time is 90 days.",
             "type": "string",
             "enum": [
               "token",
@@ -8226,7 +8236,7 @@
                 },
                 "type": {
                   "type": "integer",
-                  "description": "Webinar Type",
+                  "description": "Webinar Type \n`5` Webinar \n`6` Recurring Webinar with no fixed time \n`9` Recurring Webinar with fixed time",
                   "default": 5,
                   "enum": [
                     5,
@@ -8415,7 +8425,7 @@
                     },
                     "audio": {
                       "type": "string",
-                      "description": "Determine how participants can join the audio portion of the meeting",
+                      "description": "Determine how participants can join the audio portion of the meeting \n`both` Both Telephony and VoIP \n`telephony` Telephony only \n`voip` VoIP only",
                       "default": "both",
                       "enum": [
                         "both",
@@ -8430,6 +8440,7 @@
                     },
                     "auto_recording": {
                       "type": "string",
+                      "description": "Record meetings automatically as they start \n`local` Record on local \n`cloud` Record on cloud \n`none` Disabled.",
                       "default": "none",
                       "enum": [
                         "local",
@@ -8625,7 +8636,7 @@
                 },
                 "type": {
                   "type": "integer",
-                  "description": "Webinar Type",
+                  "description": "Webinar Type \n`5` Webinar \n`6` Recurring Webinar with no fixed time \n`9` Recurring Webinar with fixed time",
                   "default": 5,
                   "enum": [
                     5,
@@ -8812,7 +8823,7 @@
                     },
                     "audio": {
                       "type": "string",
-                      "description": "Determine how participants can join the audio portion of the meeting",
+                      "description": "Determine how participants can join the audio portion of the meeting \n`both` Both Telephony and VoIP \n`telephony` Telephony only \n`voip` VoIP only",
                       "default": "both",
                       "enum": [
                         "both",
@@ -8827,6 +8838,7 @@
                     },
                     "auto_recording": {
                       "type": "string",
+                      "description": "Record meetings automatically as they start \n`local` Record on local \n`cloud` Record on cloud \n`none` Disabled.",
                       "default": "none",
                       "enum": [
                         "local",
@@ -8938,6 +8950,7 @@
               "properties": {
                 "status": {
                   "type": "string",
+                  "description": "`end` end a webinar",
                   "enum": [
                     "end"
                   ],
@@ -9141,7 +9154,7 @@
           {
             "in": "query",
             "name": "status",
-            "description": "The registrant status",
+            "description": "The registrant status \n`pending` registrants status is pending \n`approved` registrants status is approved \n`denied` registrants status is denied",
             "type": "string",
             "default": "approved",
             "enum": [
@@ -9411,6 +9424,7 @@
               "properties": {
                 "action": {
                   "type": "string",
+                  "description": "`approve` Approve registrant \n`cancel` Cancel registrant \n`deny` Deny registrant",
                   "enum": [
                     "approve",
                     "cancel",
@@ -9508,6 +9522,7 @@
               "properties": {
                 "version": {
                   "type": "string",
+                  "description": "\n`v1` Version 1 \n`v2` Version 2",
                   "enum": [
                     "v1",
                     "v2"
@@ -9608,7 +9623,7 @@
                   "items": {
                     "type": "string"
                   },
-                  "description": "List of events objects.",
+                  "description": "List of events objects. \n`meeting_started` The meeting has started. \n`meeting_ended` The meeting has ended. \n`meeting_jbh` Attendee has joined a meeting before the host. \n`meeting_join` Host hasn’t launched the meeting, attendee is waiting. \n`recording_completed` All the Cloud Recordings have completed processing and is available. \n`participant_joined` Participant has joined the meeting. \n`participant_left` Participant has leaved the meeting. \n`meeting_registered` Attendee registered for a meeting or webinar. \n`recording_transcript_completed` Recording audio transcript files have processed and are available.",
                   "enum": [
                     "meeting_started",
                     "meeting_ended",
@@ -9744,7 +9759,7 @@
                 },
                 "events": {
                   "type": "array",
-                  "description": "List of events objects",
+                  "description": "List of events objects. \n`meeting_started` The meeting has started. \n`meeting_ended` The meeting has ended. \n`meeting_jbh` Attendee has joined a meeting before the host. \n`meeting_join` Host hasn’t launched the meeting, attendee is waiting. \n`recording_completed` All the Cloud Recordings have completed processing and is available. \n`participant_joined` Participant has joined the meeting. \n`participant_left` Participant has leaved the meeting. \n`meeting_registered` Attendee registered for a meeting or webinar. \n`recording_transcript_completed` Recording audio transcript files have processed and are available.",
                   "items": {
                     "type": "string"
                   },
@@ -9899,7 +9914,7 @@
     "RecordingDeleteAction": {
       "in": "query",
       "name": "action",
-      "description": "The recording delete action",
+      "description": "The recording delete action \n`trash` move recording to trash \n`delete` delete recording permanently",
       "type": "string",
       "default": "trash",
       "enum": [
@@ -10063,7 +10078,7 @@
     "RegistrantStatus": {
       "in": "query",
       "name": "status",
-      "description": "The registrant status",
+      "description": "The registrant status \n`pending` registrants status is pending \n`approved` registrants status is approved \n`denied` registrants status is denied",
       "type": "string",
       "default": "approved",
       "enum": [
@@ -10144,7 +10159,7 @@
     "WebinarTypePast": {
       "in": "query",
       "name": "type",
-      "description": "The webinar type",
+      "description": "The webinar type \n`past` past webinars \n`live` live webinars",
       "type": "string",
       "default": "live",
       "enum": [
@@ -10159,7 +10174,7 @@
     "WebinarTypePast2": {
       "in": "query",
       "name": "type",
-      "description": "The webinar type",
+      "description": "The webinar type \n`past` past webinars \n`live` live webinars",
       "type": "string",
       "default": "live",
       "enum": [
