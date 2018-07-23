@@ -1121,188 +1121,177 @@
             "name": "body",
             "required": true,
             "schema": {
-              "allOf": [
-                {
+              "properties": {
+                "contact": {
                   "type": "object",
+                  "description": "Billing Contact object",
+                  "required": [
+                    "first_name",
+                    "last_name",
+                    "email",
+                    "phone_number",
+                    "address",
+                    "city",
+                    "state",
+                    "zip",
+                    "country"
+                  ],
                   "properties": {
-                    "contact": {
-                      "type": "object",
-                      "description": "Billing Contact object",
-                      "required": [
-                        "first_name",
-                        "last_name",
-                        "email",
-                        "phone_number",
-                        "address",
-                        "city",
-                        "state",
-                        "zip",
-                        "country"
-                      ],
-                      "properties": {
-                        "first_name": {
-                          "type": "string",
-                          "description": "Billing Contact's first name"
-                        },
-                        "last_name": {
-                          "type": "string",
-                          "description": "Billing Contact's last name"
-                        },
-                        "email": {
-                          "type": "string",
-                          "description": "Billing Contact's email address"
-                        },
-                        "phone_number": {
-                          "type": "string",
-                          "description": "Billing Contact's phone number"
-                        },
-                        "address": {
-                          "type": "string",
-                          "description": "Billing Contact's address"
-                        },
-                        "apt": {
-                          "type": "string",
-                          "description": "Billing Contact's apartment/suite"
-                        },
-                        "city": {
-                          "type": "string",
-                          "description": "Billing Contact's city"
-                        },
-                        "state": {
-                          "type": "string",
-                          "description": "Billing Contact's state"
-                        },
-                        "zip": {
-                          "type": "string",
-                          "description": "Billing Contact's zip/postal code"
-                        },
-                        "country": {
-                          "type": "string",
-                          "description": "Billing Contact's country"
-                        }
+                    "first_name": {
+                      "type": "string",
+                      "description": "Billing Contact's first name"
+                    },
+                    "last_name": {
+                      "type": "string",
+                      "description": "Billing Contact's last name"
+                    },
+                    "email": {
+                      "type": "string",
+                      "description": "Billing Contact's email address"
+                    },
+                    "phone_number": {
+                      "type": "string",
+                      "description": "Billing Contact's phone number"
+                    },
+                    "address": {
+                      "type": "string",
+                      "description": "Billing Contact's address"
+                    },
+                    "apt": {
+                      "type": "string",
+                      "description": "Billing Contact's apartment/suite"
+                    },
+                    "city": {
+                      "type": "string",
+                      "description": "Billing Contact's city"
+                    },
+                    "state": {
+                      "type": "string",
+                      "description": "Billing Contact's state"
+                    },
+                    "zip": {
+                      "type": "string",
+                      "description": "Billing Contact's zip/postal code"
+                    },
+                    "country": {
+                      "type": "string",
+                      "description": "Billing Contact's country"
+                    }
+                  }
+                },
+                "plan_base": {
+                  "type": "object",
+                  "description": "Account base plan object",
+                  "required": [
+                    "type",
+                    "hosts"
+                  ],
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "description": "Account base <a href=\"#plans\">plan type</a>"
+                    },
+                    "hosts": {
+                      "type": "integer",
+                      "description": "Account base plan number of hosts. For a Pro Plan, please select a value between 1 and 9. For a Business Plan, please select a value between 10 and 49. For a Education Plan, please select a value between 20 and 149. For a Free Trial Plan, please select a value between 1 and 9999."
+                    }
+                  }
+                },
+                "plan_zoom_rooms": {
+                  "type": "object",
+                  "description": "Account plan object",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "description": "Account <a href=\"#plans\">plan type</a>"
+                    },
+                    "hosts": {
+                      "type": "integer",
+                      "description": "Account plan number of hosts"
+                    }
+                  }
+                },
+                "plan_room_connector": {
+                  "type": "object",
+                  "description": "Account plan object",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "description": "Account <a href=\"#plans\">plan type</a>"
+                    },
+                    "hosts": {
+                      "type": "integer",
+                      "description": "Account plan number of hosts"
+                    }
+                  }
+                },
+                "plan_large_meeting": {
+                  "type": "array",
+                  "description": "Additional Large Meeting Plans",
+                  "items": {
+                    "type": "object",
+                    "description": "Account plan object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "description": "Account <a href=\"#plans\">plan type</a>"
+                      },
+                      "hosts": {
+                        "type": "integer",
+                        "description": "Account plan number of hosts"
                       }
                     }
                   }
                 },
-                {
-                  "type": "object",
-                  "description": "Account Plans object",
-                  "properties": {
-                    "plan_base": {
-                      "type": "object",
-                      "description": "Account base plan object",
-                      "required": [
-                        "type",
-                        "hosts"
-                      ],
-                      "properties": {
-                        "type": {
-                          "type": "string",
-                          "description": "Account base <a href=\"#plans\">plan type</a>"
-                        },
-                        "hosts": {
-                          "type": "integer",
-                          "description": "Account base plan number of hosts. For a Pro Plan, please select a value between 1 and 9. For a Business Plan, please select a value between 10 and 49. For a Education Plan, please select a value between 20 and 149. For a Free Trial Plan, please select a value between 1 and 9999."
-                        }
-                      }
-                    },
-                    "plan_zoom_rooms": {
-                      "type": "object",
-                      "description": "Account plan object",
-                      "properties": {
-                        "type": {
-                          "type": "string",
-                          "description": "Account <a href=\"#plans\">plan type</a>"
-                        },
-                        "hosts": {
-                          "type": "integer",
-                          "description": "Account plan number of hosts"
-                        }
-                      }
-                    },
-                    "plan_room_connector": {
-                      "type": "object",
-                      "description": "Account plan object",
-                      "properties": {
-                        "type": {
-                          "type": "string",
-                          "description": "Account <a href=\"#plans\">plan type</a>"
-                        },
-                        "hosts": {
-                          "type": "integer",
-                          "description": "Account plan number of hosts"
-                        }
-                      }
-                    },
-                    "plan_large_meeting": {
-                      "type": "array",
-                      "description": "Additional Large Meeting Plans",
-                      "items": {
-                        "type": "object",
-                        "description": "Account plan object",
-                        "properties": {
-                          "type": {
-                            "type": "string",
-                            "description": "Account <a href=\"#plans\">plan type</a>"
-                          },
-                          "hosts": {
-                            "type": "integer",
-                            "description": "Account plan number of hosts"
-                          }
-                        }
-                      }
-                    },
-                    "plan_webinar": {
-                      "type": "array",
-                      "description": "Additional Webinar Plans",
-                      "items": {
-                        "type": "object",
-                        "description": "Account plan object",
-                        "properties": {
-                          "type": {
-                            "type": "string",
-                            "description": "Account <a href=\"#plans\">plan type</a>"
-                          },
-                          "hosts": {
-                            "type": "integer",
-                            "description": "Account plan number of hosts"
-                          }
-                        }
-                      }
-                    },
-                    "plan_recording": {
-                      "type": "string",
-                      "description": "Additional Cloud Recording Plan"
-                    },
-                    "plan_audio": {
-                      "type": "object",
-                      "description": "Additional Audio Conferencing <a href=\"#plans\">plan type</a>",
-                      "properties": {
-                        "type": {
-                          "type": "string",
-                          "description": "Additional Audio Conferencing <a href=\"#plans\">plan type</a>"
-                        },
-                        "tollfree_countries": {
-                          "type": "string",
-                          "description": "Toll-free countries, multiple value separated by comma"
-                        },
-                        "premium_countries": {
-                          "type": "string",
-                          "description": "Premium countries, multiple value separated by comma"
-                        },
-                        "callout_countries": {
-                          "type": "string",
-                          "description": "Call-out countries, multiple value separated by comma"
-                        },
-                        "ddi_numbers": {
-                          "type": "integer",
-                          "description": "Dedicated Dial-In Numbers"
-                        }
+                "plan_webinar": {
+                  "type": "array",
+                  "description": "Additional Webinar Plans",
+                  "items": {
+                    "type": "object",
+                    "description": "Account plan object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "description": "Account <a href=\"#plans\">plan type</a>"
+                      },
+                      "hosts": {
+                        "type": "integer",
+                        "description": "Account plan number of hosts"
                       }
                     }
                   }
+                },
+                "plan_recording": {
+                  "type": "string",
+                  "description": "Additional Cloud Recording Plan"
+                },
+                "plan_audio": {
+                  "type": "object",
+                  "description": "Additional Audio Conferencing <a href=\"#plans\">plan type</a>",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "description": "Additional Audio Conferencing <a href=\"#plans\">plan type</a>"
+                    },
+                    "tollfree_countries": {
+                      "type": "string",
+                      "description": "Toll-free countries, multiple value separated by comma"
+                    },
+                    "premium_countries": {
+                      "type": "string",
+                      "description": "Premium countries, multiple value separated by comma"
+                    },
+                    "callout_countries": {
+                      "type": "string",
+                      "description": "Call-out countries, multiple value separated by comma"
+                    },
+                    "ddi_numbers": {
+                      "type": "integer",
+                      "description": "Dedicated Dial-In Numbers"
+                    }
+                  }
                 }
-              ]
+              }
             }
           }
         ],
@@ -2631,271 +2620,265 @@
             "schema": {
               "type": "object",
               "description": "Meeting object",
-              "allOf": [
-                {
+              "properties": {
+                "topic": {
+                  "type": "string",
+                  "description": "Meeting topic"
+                },
+                "type": {
+                  "type": "integer",
+                  "description": "Meeting Type",
+                  "default": 2,
+                  "enum": [
+                    1,
+                    2,
+                    3,
+                    8
+                  ],
+                  "x-enum-descriptions": [
+                    "Instant Meeting",
+                    "Scheduled Meeting",
+                    "Recurring Meeting with no fixed time",
+                    "Recurring Meeting with fixed time"
+                  ]
+                },
+                "start_time": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "Meeting start time. When using a format like \"yyyy-MM-dd'T'HH:mm:ss'Z'\", always use GMT time. When using a format like \"yyyy-MM-dd'T'HH:mm:ss\", you should use local time and you will need to specify the time zone. Only used for scheduled meetings and recurring meetings with fixed time."
+                },
+                "duration": {
+                  "type": "integer",
+                  "description": "Meeting duration (minutes). Used for scheduled meetings only"
+                },
+                "timezone": {
+                  "type": "string",
+                  "description": "Timezone to format start_time. For example, \"America/Los_Angeles\". For scheduled meetings only. Please reference our [timezone](#timezones) list for supported timezones and their formats."
+                },
+                "password": {
+                  "type": "string",
+                  "description": "Password to join the meeting. Password may only contain the following characters: [a-z A-Z 0-9 @ - _ *]. Max of 10 characters."
+                },
+                "agenda": {
+                  "type": "string",
+                  "description": "Meeting description"
+                },
+                "recurrence": {
                   "type": "object",
-                  "description": "Base object for sessions",
+                  "description": "Recurrence object",
                   "properties": {
-                    "topic": {
-                      "type": "string",
-                      "description": "Meeting topic"
-                    },
                     "type": {
                       "type": "integer",
-                      "description": "Meeting Type",
-                      "default": 2,
+                      "description": "Recurrence meeting type",
+                      "enum": [
+                        1,
+                        2,
+                        3
+                      ],
+                      "x-enum-descriptions": [
+                        "Daily",
+                        "Weekly",
+                        "Monthly"
+                      ]
+                    },
+                    "repeat_interval": {
+                      "type": "integer",
+                      "description": "At which interval should the meeting repeat? For a daily meeting, max of 90 days. For a weekly meeting, max of 12 weeks. For a monthly meeting, max of 3 months."
+                    },
+                    "weekly_days": {
+                      "type": "integer",
+                      "description": "Days of the week the meeting should repeat, multiple values separated by comma",
                       "enum": [
                         1,
                         2,
                         3,
-                        8
+                        4,
+                        5,
+                        6,
+                        7
                       ],
                       "x-enum-descriptions": [
-                        "Instant Meeting",
-                        "Scheduled Meeting",
-                        "Recurring Meeting with no fixed time",
-                        "Recurring Meeting with fixed time"
+                        "Sunday",
+                        "Monday",
+                        "Tuesday",
+                        "Wednesday",
+                        "Thursday",
+                        "Friday",
+                        "Saturday"
                       ]
                     },
-                    "start_time": {
-                      "type": "string",
-                      "format": "date-time",
-                      "description": "Meeting start time. When using a format like \"yyyy-MM-dd'T'HH:mm:ss'Z'\", always use GMT time. When using a format like \"yyyy-MM-dd'T'HH:mm:ss\", you should use local time and you will need to specify the time zone. Only used for scheduled meetings and recurring meetings with fixed time."
-                    },
-                    "duration": {
+                    "monthly_day": {
                       "type": "integer",
-                      "description": "Meeting duration (minutes). Used for scheduled meetings only"
+                      "description": "Day of the month for the meeting to be scheduled. The value range is from 1 to 31."
                     },
-                    "timezone": {
+                    "monthly_week": {
+                      "type": "integer",
+                      "description": "Week for which the meeting should recur each month,",
+                      "enum": [
+                        -1,
+                        1,
+                        2,
+                        3,
+                        4
+                      ],
+                      "x-enum-descriptions": [
+                        "Last week",
+                        "First week",
+                        "Second week",
+                        "Third week",
+                        "Fourth week"
+                      ]
+                    },
+                    "monthly_week_day": {
+                      "type": "integer",
+                      "description": "Day for which the meeting should recur each month",
+                      "enum": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7
+                      ],
+                      "x-enum-descriptions": [
+                        "Sunday",
+                        "Monday",
+                        "Tuesday",
+                        "Wednesday",
+                        "Thursday",
+                        "Friday",
+                        "Saturday"
+                      ]
+                    },
+                    "end_times": {
+                      "type": "integer",
+                      "description": "Select how many times the meeting will occur before it is canceled. (Cannot be used with \"end_date_time\".)",
+                      "default": 1,
+                      "maximum": 50
+                    },
+                    "end_date_time": {
                       "type": "string",
-                      "description": "Timezone to format start_time. For example, \"America/Los_Angeles\". For scheduled meetings only. Please reference our [timezone](#timezones) list for supported timezones and their formats."
+                      "description": "Select a date the meeting will occur before it is canceled.. Should be UTC time, such as 2017-11-25T12:00:00Z. (Cannot be used with \"end_times\".)",
+                      "format": "date-time"
+                    }
+                  }
+                },
+                "settings": {
+                  "type": "object",
+                  "description": "Meeting Settings",
+                  "properties": {
+                    "host_video": {
+                      "type": "boolean",
+                      "description": "Start video when host joins meeting"
                     },
-                    "password": {
+                    "participant_video": {
+                      "type": "boolean",
+                      "description": "Start video when participants join meeting"
+                    },
+                    "cn_meeting": {
+                      "type": "boolean",
+                      "description": "Host meeting in China",
+                      "default": false
+                    },
+                    "in_meeting": {
+                      "type": "boolean",
+                      "description": "Host meeting in India",
+                      "default": false
+                    },
+                    "join_before_host": {
+                      "type": "boolean",
+                      "description": "Allow participants to join the meeting before the host starts the meeting. Only used for scheduled or recurring meetings.",
+                      "default": false
+                    },
+                    "mute_upon_entry": {
+                      "type": "boolean",
+                      "description": "Mute participants upon entry",
+                      "default": false
+                    },
+                    "watermark": {
+                      "type": "boolean",
+                      "description": "Add watermark when viewing shared screen",
+                      "default": false
+                    },
+                    "use_pmi": {
+                      "type": "boolean",
+                      "description": "Use Personal Meeting ID. Only used for scheduled meetings and recurring meetings with no fixed time.",
+                      "default": false
+                    },
+                    "approval_type": {
+                      "type": "integer",
+                      "default": 2,
+                      "enum": [
+                        0,
+                        1,
+                        2
+                      ],
+                      "x-enum-descriptions": [
+                        "Automatically Approve",
+                        "Manually Approve",
+                        "No Registration Required"
+                      ]
+                    },
+                    "registration_type": {
+                      "type": "integer",
+                      "description": "Registration type. Used for recurring meeting with fixed time only.",
+                      "default": 1,
+                      "enum": [
+                        1,
+                        2,
+                        3
+                      ],
+                      "x-enum-descriptions": [
+                        "Attendees register once and can attend any of the occurrences",
+                        "Attendees need to register for each occurrence to attend",
+                        "Attendees register once and can choose one or more occurrences to attend"
+                      ]
+                    },
+                    "audio": {
                       "type": "string",
-                      "description": "Password to join the meeting. Password may only contain the following characters: [a-z A-Z 0-9 @ - _ *]. Max of 10 characters."
+                      "description": "Determine how participants can join the audio portion of the meeting",
+                      "default": "both",
+                      "enum": [
+                        "both",
+                        "telephony",
+                        "voip"
+                      ],
+                      "x-enum-descriptions": [
+                        "Both Telephony and VoIP",
+                        "Telephony only",
+                        "VoIP only"
+                      ]
                     },
-                    "agenda": {
+                    "auto_recording": {
                       "type": "string",
-                      "description": "Meeting description"
+                      "default": "none",
+                      "enum": [
+                        "local",
+                        "cloud",
+                        "none"
+                      ],
+                      "x-enum-descriptions": [
+                        "Record to local device",
+                        "Record to cloud",
+                        "No Recording"
+                      ]
                     },
-                    "recurrence": {
-                      "type": "object",
-                      "description": "Recurrence object",
-                      "properties": {
-                        "type": {
-                          "type": "integer",
-                          "description": "Recurrence meeting type",
-                          "enum": [
-                            1,
-                            2,
-                            3
-                          ],
-                          "x-enum-descriptions": [
-                            "Daily",
-                            "Weekly",
-                            "Monthly"
-                          ]
-                        },
-                        "repeat_interval": {
-                          "type": "integer",
-                          "description": "At which interval should the meeting repeat? For a daily meeting, max of 90 days. For a weekly meeting, max of 12 weeks. For a monthly meeting, max of 3 months."
-                        },
-                        "weekly_days": {
-                          "type": "integer",
-                          "description": "Days of the week the meeting should repeat, multiple values separated by comma",
-                          "enum": [
-                            1,
-                            2,
-                            3,
-                            4,
-                            5,
-                            6,
-                            7
-                          ],
-                          "x-enum-descriptions": [
-                            "Sunday",
-                            "Monday",
-                            "Tuesday",
-                            "Wednesday",
-                            "Thursday",
-                            "Friday",
-                            "Saturday"
-                          ]
-                        },
-                        "monthly_day": {
-                          "type": "integer",
-                          "description": "Day of the month for the meeting to be scheduled. The value range is from 1 to 31."
-                        },
-                        "monthly_week": {
-                          "type": "integer",
-                          "description": "Week for which the meeting should recur each month,",
-                          "enum": [
-                            -1,
-                            1,
-                            2,
-                            3,
-                            4
-                          ],
-                          "x-enum-descriptions": [
-                            "Last week",
-                            "First week",
-                            "Second week",
-                            "Third week",
-                            "Fourth week"
-                          ]
-                        },
-                        "monthly_week_day": {
-                          "type": "integer",
-                          "description": "Day for which the meeting should recur each month",
-                          "enum": [
-                            1,
-                            2,
-                            3,
-                            4,
-                            5,
-                            6,
-                            7
-                          ],
-                          "x-enum-descriptions": [
-                            "Sunday",
-                            "Monday",
-                            "Tuesday",
-                            "Wednesday",
-                            "Thursday",
-                            "Friday",
-                            "Saturday"
-                          ]
-                        },
-                        "end_times": {
-                          "type": "integer",
-                          "description": "Select how many times the meeting will occur before it is canceled. (Cannot be used with \"end_date_time\".)",
-                          "default": 1,
-                          "maximum": 50
-                        },
-                        "end_date_time": {
-                          "type": "string",
-                          "description": "Select a date the meeting will occur before it is canceled.. Should be UTC time, such as 2017-11-25T12:00:00Z. (Cannot be used with \"end_times\".)",
-                          "format": "date-time"
-                        }
-                      }
+                    "enforce_login": {
+                      "type": "boolean",
+                      "description": "Only signed-in users can join this meeting"
                     },
-                    "settings": {
-                      "type": "object",
-                      "description": "Meeting Settings",
-                      "properties": {
-                        "host_video": {
-                          "type": "boolean",
-                          "description": "Start video when host joins meeting"
-                        },
-                        "participant_video": {
-                          "type": "boolean",
-                          "description": "Start video when participants join meeting"
-                        },
-                        "cn_meeting": {
-                          "type": "boolean",
-                          "description": "Host meeting in China",
-                          "default": false
-                        },
-                        "in_meeting": {
-                          "type": "boolean",
-                          "description": "Host meeting in India",
-                          "default": false
-                        },
-                        "join_before_host": {
-                          "type": "boolean",
-                          "description": "Allow participants to join the meeting before the host starts the meeting. Only used for scheduled or recurring meetings.",
-                          "default": false
-                        },
-                        "mute_upon_entry": {
-                          "type": "boolean",
-                          "description": "Mute participants upon entry",
-                          "default": false
-                        },
-                        "watermark": {
-                          "type": "boolean",
-                          "description": "Add watermark when viewing shared screen",
-                          "default": false
-                        },
-                        "use_pmi": {
-                          "type": "boolean",
-                          "description": "Use Personal Meeting ID. Only used for scheduled meetings and recurring meetings with no fixed time.",
-                          "default": false
-                        },
-                        "approval_type": {
-                          "type": "integer",
-                          "default": 2,
-                          "enum": [
-                            0,
-                            1,
-                            2
-                          ],
-                          "x-enum-descriptions": [
-                            "Automatically Approve",
-                            "Manually Approve",
-                            "No Registration Required"
-                          ]
-                        },
-                        "registration_type": {
-                          "type": "integer",
-                          "description": "Registration type. Used for recurring meeting with fixed time only.",
-                          "default": 1,
-                          "enum": [
-                            1,
-                            2,
-                            3
-                          ],
-                          "x-enum-descriptions": [
-                            "Attendees register once and can attend any of the occurrences",
-                            "Attendees need to register for each occurrence to attend",
-                            "Attendees register once and can choose one or more occurrences to attend"
-                          ]
-                        },
-                        "audio": {
-                          "type": "string",
-                          "description": "Determine how participants can join the audio portion of the meeting",
-                          "default": "both",
-                          "enum": [
-                            "both",
-                            "telephony",
-                            "voip"
-                          ],
-                          "x-enum-descriptions": [
-                            "Both Telephony and VoIP",
-                            "Telephony only",
-                            "VoIP only"
-                          ]
-                        },
-                        "auto_recording": {
-                          "type": "string",
-                          "default": "none",
-                          "enum": [
-                            "local",
-                            "cloud",
-                            "none"
-                          ],
-                          "x-enum-descriptions": [
-                            "Record to local device",
-                            "Record to cloud",
-                            "No Recording"
-                          ]
-                        },
-                        "enforce_login": {
-                          "type": "boolean",
-                          "description": "Only signed-in users can join this meeting"
-                        },
-                        "enforce_login_domains": {
-                          "type": "string",
-                          "description": "Only signed-in users with specified domains can join meetings"
-                        },
-                        "alternative_hosts": {
-                          "type": "string",
-                          "description": "Alternative hosts emails or IDs. Multiple value separated by comma."
-                        }
-                      }
+                    "enforce_login_domains": {
+                      "type": "string",
+                      "description": "Only signed-in users with specified domains can join meetings"
+                    },
+                    "alternative_hosts": {
+                      "type": "string",
+                      "description": "Alternative hosts emails or IDs. Multiple value separated by comma."
                     }
                   }
                 }
-              ]
+              }
             }
           }
         ],
@@ -3050,283 +3033,267 @@
             "schema": {
               "type": "object",
               "description": "Meeting object",
-              "allOf": [
-                {
+              "properties": {
+                "topic": {
+                  "type": "string",
+                  "description": "Meeting topic"
+                },
+                "type": {
+                  "type": "integer",
+                  "description": "Meeting Type",
+                  "default": 2,
+                  "enum": [
+                    1,
+                    2,
+                    3,
+                    8
+                  ],
+                  "x-enum-descriptions": [
+                    "Instant Meeting",
+                    "Scheduled Meeting",
+                    "Recurring Meeting with no fixed time",
+                    "Recurring Meeting with fixed time"
+                  ]
+                },
+                "start_time": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "Meeting start time. When using a format like \"yyyy-MM-dd'T'HH:mm:ss'Z'\", always use GMT time. When using a format like \"yyyy-MM-dd'T'HH:mm:ss\", you should use local time and you will need to specify the time zone. Only used for scheduled meetings and recurring meetings with fixed time."
+                },
+                "duration": {
+                  "type": "integer",
+                  "description": "Meeting duration (minutes). Used for scheduled meetings only"
+                },
+                "timezone": {
+                  "type": "string",
+                  "description": "Timezone to format start_time. For example, \"America/Los_Angeles\". For scheduled meetings only. Please reference our [timezone](#timezones) list for supported timezones and their formats."
+                },
+                "password": {
+                  "type": "string",
+                  "description": "Password to join the meeting. Password may only contain the following characters: [a-z A-Z 0-9 @ - _ *]. Max of 10 characters."
+                },
+                "agenda": {
+                  "type": "string",
+                  "description": "Meeting description"
+                },
+                "recurrence": {
                   "type": "object",
-                  "description": "Base object for sessions",
+                  "description": "Recurrence object",
                   "properties": {
-                    "topic": {
-                      "type": "string",
-                      "description": "Meeting topic"
-                    },
                     "type": {
                       "type": "integer",
-                      "description": "Meeting Type",
-                      "default": 2,
+                      "description": "Recurrence meeting type",
+                      "enum": [
+                        1,
+                        2,
+                        3
+                      ],
+                      "x-enum-descriptions": [
+                        "Daily",
+                        "Weekly",
+                        "Monthly"
+                      ]
+                    },
+                    "repeat_interval": {
+                      "type": "integer",
+                      "description": "At which interval should the meeting repeat? For a daily meeting, max of 90 days. For a weekly meeting, max of 12 weeks. For a monthly meeting, max of 3 months."
+                    },
+                    "weekly_days": {
+                      "type": "integer",
+                      "description": "Days of the week the meeting should repeat, multiple values separated by comma",
                       "enum": [
                         1,
                         2,
                         3,
-                        8
+                        4,
+                        5,
+                        6,
+                        7
                       ],
                       "x-enum-descriptions": [
-                        "Instant Meeting",
-                        "Scheduled Meeting",
-                        "Recurring Meeting with no fixed time",
-                        "Recurring Meeting with fixed time"
+                        "Sunday",
+                        "Monday",
+                        "Tuesday",
+                        "Wednesday",
+                        "Thursday",
+                        "Friday",
+                        "Saturday"
                       ]
                     },
-                    "start_time": {
-                      "type": "string",
-                      "format": "date-time",
-                      "description": "Meeting start time. When using a format like \"yyyy-MM-dd'T'HH:mm:ss'Z'\", always use GMT time. When using a format like \"yyyy-MM-dd'T'HH:mm:ss\", you should use local time and you will need to specify the time zone. Only used for scheduled meetings and recurring meetings with fixed time."
-                    },
-                    "duration": {
+                    "monthly_day": {
                       "type": "integer",
-                      "description": "Meeting duration (minutes). Used for scheduled meetings only"
+                      "description": "Day of the month for the meeting to be scheduled. The value range is from 1 to 31."
                     },
-                    "timezone": {
-                      "type": "string",
-                      "description": "Timezone to format start_time. For example, \"America/Los_Angeles\". For scheduled meetings only. Please reference our [timezone](#timezones) list for supported timezones and their formats."
-                    },
-                    "password": {
-                      "type": "string",
-                      "description": "Password to join the meeting. Password may only contain the following characters: [a-z A-Z 0-9 @ - _ *]. Max of 10 characters."
-                    },
-                    "agenda": {
-                      "type": "string",
-                      "description": "Meeting description"
-                    },
-                    "recurrence": {
-                      "type": "object",
-                      "description": "Recurrence object",
-                      "properties": {
-                        "type": {
-                          "type": "integer",
-                          "description": "Recurrence meeting type",
-                          "enum": [
-                            1,
-                            2,
-                            3
-                          ],
-                          "x-enum-descriptions": [
-                            "Daily",
-                            "Weekly",
-                            "Monthly"
-                          ]
-                        },
-                        "repeat_interval": {
-                          "type": "integer",
-                          "description": "At which interval should the meeting repeat? For a daily meeting, max of 90 days. For a weekly meeting, max of 12 weeks. For a monthly meeting, max of 3 months."
-                        },
-                        "weekly_days": {
-                          "type": "integer",
-                          "description": "Days of the week the meeting should repeat, multiple values separated by comma",
-                          "enum": [
-                            1,
-                            2,
-                            3,
-                            4,
-                            5,
-                            6,
-                            7
-                          ],
-                          "x-enum-descriptions": [
-                            "Sunday",
-                            "Monday",
-                            "Tuesday",
-                            "Wednesday",
-                            "Thursday",
-                            "Friday",
-                            "Saturday"
-                          ]
-                        },
-                        "monthly_day": {
-                          "type": "integer",
-                          "description": "Day of the month for the meeting to be scheduled. The value range is from 1 to 31."
-                        },
-                        "monthly_week": {
-                          "type": "integer",
-                          "description": "Week for which the meeting should recur each month,",
-                          "enum": [
-                            -1,
-                            1,
-                            2,
-                            3,
-                            4
-                          ],
-                          "x-enum-descriptions": [
-                            "Last week",
-                            "First week",
-                            "Second week",
-                            "Third week",
-                            "Fourth week"
-                          ]
-                        },
-                        "monthly_week_day": {
-                          "type": "integer",
-                          "description": "Day for which the meeting should recur each month",
-                          "enum": [
-                            1,
-                            2,
-                            3,
-                            4,
-                            5,
-                            6,
-                            7
-                          ],
-                          "x-enum-descriptions": [
-                            "Sunday",
-                            "Monday",
-                            "Tuesday",
-                            "Wednesday",
-                            "Thursday",
-                            "Friday",
-                            "Saturday"
-                          ]
-                        },
-                        "end_times": {
-                          "type": "integer",
-                          "description": "Select how many times the meeting will occur before it is canceled. (Cannot be used with \"end_date_time\".)",
-                          "default": 1,
-                          "maximum": 50
-                        },
-                        "end_date_time": {
-                          "type": "string",
-                          "description": "Select a date the meeting will occur before it is canceled.. Should be UTC time, such as 2017-11-25T12:00:00Z. (Cannot be used with \"end_times\".)",
-                          "format": "date-time"
-                        }
-                      }
-                    },
-                    "settings": {
-                      "allOf": [
-                        {
-                          "type": "object",
-                          "description": "Meeting Settings",
-                          "properties": {
-                            "host_video": {
-                              "type": "boolean",
-                              "description": "Start video when host joins meeting"
-                            },
-                            "participant_video": {
-                              "type": "boolean",
-                              "description": "Start video when participants join meeting"
-                            },
-                            "cn_meeting": {
-                              "type": "boolean",
-                              "description": "Host meeting in China",
-                              "default": false
-                            },
-                            "in_meeting": {
-                              "type": "boolean",
-                              "description": "Host meeting in India",
-                              "default": false
-                            },
-                            "join_before_host": {
-                              "type": "boolean",
-                              "description": "Allow participants to join the meeting before the host starts the meeting. Only used for scheduled or recurring meetings.",
-                              "default": false
-                            },
-                            "mute_upon_entry": {
-                              "type": "boolean",
-                              "description": "Mute participants upon entry",
-                              "default": false
-                            },
-                            "watermark": {
-                              "type": "boolean",
-                              "description": "Add watermark when viewing shared screen",
-                              "default": false
-                            },
-                            "use_pmi": {
-                              "type": "boolean",
-                              "description": "Use Personal Meeting ID. Only used for scheduled meetings and recurring meetings with no fixed time.",
-                              "default": false
-                            },
-                            "approval_type": {
-                              "type": "integer",
-                              "default": 2,
-                              "enum": [
-                                0,
-                                1,
-                                2
-                              ],
-                              "x-enum-descriptions": [
-                                "Automatically Approve",
-                                "Manually Approve",
-                                "No Registration Required"
-                              ]
-                            },
-                            "registration_type": {
-                              "type": "integer",
-                              "description": "Registration type. Used for recurring meeting with fixed time only.",
-                              "default": 1,
-                              "enum": [
-                                1,
-                                2,
-                                3
-                              ],
-                              "x-enum-descriptions": [
-                                "Attendees register once and can attend any of the occurrences",
-                                "Attendees need to register for each occurrence to attend",
-                                "Attendees register once and can choose one or more occurrences to attend"
-                              ]
-                            },
-                            "audio": {
-                              "type": "string",
-                              "description": "Determine how participants can join the audio portion of the meeting",
-                              "default": "both",
-                              "enum": [
-                                "both",
-                                "telephony",
-                                "voip"
-                              ],
-                              "x-enum-descriptions": [
-                                "Both Telephony and VoIP",
-                                "Telephony only",
-                                "VoIP only"
-                              ]
-                            },
-                            "auto_recording": {
-                              "type": "string",
-                              "default": "none",
-                              "enum": [
-                                "local",
-                                "cloud",
-                                "none"
-                              ],
-                              "x-enum-descriptions": [
-                                "Record to local device",
-                                "Record to cloud",
-                                "No Recording"
-                              ]
-                            },
-                            "enforce_login": {
-                              "type": "boolean",
-                              "description": "Only signed-in users can join this meeting"
-                            },
-                            "enforce_login_domains": {
-                              "type": "string",
-                              "description": "Only signed-in users with specified domains can join meetings"
-                            },
-                            "alternative_hosts": {
-                              "type": "string",
-                              "description": "Alternative hosts emails or IDs. Multiple value separated by comma."
-                            }
-                          }
-                        },
-                        {
-                          "properties": {
-                            "registrants_confirmation_email": {
-                              "type": "boolean",
-                              "description": "Send confirmation Email to Registrants"
-                            }
-                          }
-                        }
+                    "monthly_week": {
+                      "type": "integer",
+                      "description": "Week for which the meeting should recur each month,",
+                      "enum": [
+                        -1,
+                        1,
+                        2,
+                        3,
+                        4
+                      ],
+                      "x-enum-descriptions": [
+                        "Last week",
+                        "First week",
+                        "Second week",
+                        "Third week",
+                        "Fourth week"
                       ]
+                    },
+                    "monthly_week_day": {
+                      "type": "integer",
+                      "description": "Day for which the meeting should recur each month",
+                      "enum": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7
+                      ],
+                      "x-enum-descriptions": [
+                        "Sunday",
+                        "Monday",
+                        "Tuesday",
+                        "Wednesday",
+                        "Thursday",
+                        "Friday",
+                        "Saturday"
+                      ]
+                    },
+                    "end_times": {
+                      "type": "integer",
+                      "description": "Select how many times the meeting will occur before it is canceled. (Cannot be used with \"end_date_time\".)",
+                      "default": 1,
+                      "maximum": 50
+                    },
+                    "end_date_time": {
+                      "type": "string",
+                      "description": "Select a date the meeting will occur before it is canceled.. Should be UTC time, such as 2017-11-25T12:00:00Z. (Cannot be used with \"end_times\".)",
+                      "format": "date-time"
+                    }
+                  }
+                },
+                "settings": {
+                  "properties": {
+                    "host_video": {
+                      "type": "boolean",
+                      "description": "Start video when host joins meeting"
+                    },
+                    "participant_video": {
+                      "type": "boolean",
+                      "description": "Start video when participants join meeting"
+                    },
+                    "cn_meeting": {
+                      "type": "boolean",
+                      "description": "Host meeting in China",
+                      "default": false
+                    },
+                    "in_meeting": {
+                      "type": "boolean",
+                      "description": "Host meeting in India",
+                      "default": false
+                    },
+                    "join_before_host": {
+                      "type": "boolean",
+                      "description": "Allow participants to join the meeting before the host starts the meeting. Only used for scheduled or recurring meetings.",
+                      "default": false
+                    },
+                    "mute_upon_entry": {
+                      "type": "boolean",
+                      "description": "Mute participants upon entry",
+                      "default": false
+                    },
+                    "watermark": {
+                      "type": "boolean",
+                      "description": "Add watermark when viewing shared screen",
+                      "default": false
+                    },
+                    "use_pmi": {
+                      "type": "boolean",
+                      "description": "Use Personal Meeting ID. Only used for scheduled meetings and recurring meetings with no fixed time.",
+                      "default": false
+                    },
+                    "approval_type": {
+                      "type": "integer",
+                      "default": 2,
+                      "enum": [
+                        0,
+                        1,
+                        2
+                      ],
+                      "x-enum-descriptions": [
+                        "Automatically Approve",
+                        "Manually Approve",
+                        "No Registration Required"
+                      ]
+                    },
+                    "registration_type": {
+                      "type": "integer",
+                      "description": "Registration type. Used for recurring meeting with fixed time only.",
+                      "default": 1,
+                      "enum": [
+                        1,
+                        2,
+                        3
+                      ],
+                      "x-enum-descriptions": [
+                        "Attendees register once and can attend any of the occurrences",
+                        "Attendees need to register for each occurrence to attend",
+                        "Attendees register once and can choose one or more occurrences to attend"
+                      ]
+                    },
+                    "audio": {
+                      "type": "string",
+                      "description": "Determine how participants can join the audio portion of the meeting",
+                      "default": "both",
+                      "enum": [
+                        "both",
+                        "telephony",
+                        "voip"
+                      ],
+                      "x-enum-descriptions": [
+                        "Both Telephony and VoIP",
+                        "Telephony only",
+                        "VoIP only"
+                      ]
+                    },
+                    "auto_recording": {
+                      "type": "string",
+                      "default": "none",
+                      "enum": [
+                        "local",
+                        "cloud",
+                        "none"
+                      ],
+                      "x-enum-descriptions": [
+                        "Record to local device",
+                        "Record to cloud",
+                        "No Recording"
+                      ]
+                    },
+                    "enforce_login": {
+                      "type": "boolean",
+                      "description": "Only signed-in users can join this meeting"
+                    },
+                    "enforce_login_domains": {
+                      "type": "string",
+                      "description": "Only signed-in users with specified domains can join meetings"
+                    },
+                    "alternative_hosts": {
+                      "type": "string",
+                      "description": "Alternative hosts emails or IDs. Multiple value separated by comma."
+                    },
+                    "registrants_confirmation_email": {
+                      "type": "boolean",
+                      "description": "Send confirmation Email to Registrants"
                     }
                   }
                 }
-              ]
+              }
             }
           }
         ],
@@ -3546,122 +3513,116 @@
             "schema": {
               "type": "object",
               "description": "Meeting registrant",
-              "allOf": [
-                {
-                  "type": "object",
-                  "description": "Registrant base object",
-                  "required": [
-                    "email",
-                    "first_name",
-                    "last_name"
-                  ],
-                  "properties": {
-                    "email": {
-                      "type": "string",
-                      "description": "A valid email address"
-                    },
-                    "first_name": {
-                      "type": "string",
-                      "description": "User’s first name"
-                    },
-                    "last_name": {
-                      "type": "string",
-                      "description": "User’s last name"
-                    },
-                    "address": {
-                      "type": "string",
-                      "description": "Address"
-                    },
-                    "city": {
-                      "type": "string",
-                      "description": "City"
-                    },
-                    "country": {
-                      "type": "string",
-                      "description": "Country"
-                    },
-                    "zip": {
-                      "type": "string",
-                      "description": "Zip/Postal Code"
-                    },
-                    "state": {
-                      "type": "string",
-                      "description": "State/Province"
-                    },
-                    "phone": {
-                      "type": "string",
-                      "description": "Phone"
-                    },
-                    "industry": {
-                      "type": "string",
-                      "description": "Industry"
-                    },
-                    "org": {
-                      "type": "string",
-                      "description": "Organization"
-                    },
-                    "job_title": {
-                      "type": "string",
-                      "description": "Job Title"
-                    },
-                    "purchasing_time_frame": {
-                      "type": "string",
-                      "description": "Purchasing Time Frame",
-                      "enum": [
-                        "Within a month",
-                        "1-3 months",
-                        "4-6 months",
-                        "More than 6 months",
-                        "No timeframe"
-                      ]
-                    },
-                    "role_in_purchase_process": {
-                      "type": "string",
-                      "description": "Role in Purchase Process",
-                      "enum": [
-                        "Decision Maker",
-                        "Evaluator/Recommender",
-                        "Influencer",
-                        "Not involved"
-                      ]
-                    },
-                    "no_of_employees": {
-                      "type": "string",
-                      "description": "Number of Employees",
-                      "enum": [
-                        "1-20",
-                        "21-50",
-                        "51-100",
-                        "101-500",
-                        "500-1,000",
-                        "1,001-5,000",
-                        "5,001-10,000",
-                        "More than 10,000"
-                      ]
-                    },
-                    "comments": {
-                      "type": "string",
-                      "description": "Questions & Comments"
-                    },
-                    "custom_questions": {
-                      "type": "array",
-                      "description": "Custom Questions",
-                      "items": {
-                        "type": "object",
-                        "description": "Custom Question",
-                        "properties": {
-                          "title": {
-                            "type": "string"
-                          },
-                          "value": {
-                            "type": "string"
-                          }
-                        }
+              "required": [
+                "email",
+                "first_name",
+                "last_name"
+              ],
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "description": "A valid email address"
+                },
+                "first_name": {
+                  "type": "string",
+                  "description": "User’s first name"
+                },
+                "last_name": {
+                  "type": "string",
+                  "description": "User’s last name"
+                },
+                "address": {
+                  "type": "string",
+                  "description": "Address"
+                },
+                "city": {
+                  "type": "string",
+                  "description": "City"
+                },
+                "country": {
+                  "type": "string",
+                  "description": "Country"
+                },
+                "zip": {
+                  "type": "string",
+                  "description": "Zip/Postal Code"
+                },
+                "state": {
+                  "type": "string",
+                  "description": "State/Province"
+                },
+                "phone": {
+                  "type": "string",
+                  "description": "Phone"
+                },
+                "industry": {
+                  "type": "string",
+                  "description": "Industry"
+                },
+                "org": {
+                  "type": "string",
+                  "description": "Organization"
+                },
+                "job_title": {
+                  "type": "string",
+                  "description": "Job Title"
+                },
+                "purchasing_time_frame": {
+                  "type": "string",
+                  "description": "Purchasing Time Frame",
+                  "enum": [
+                    "Within a month",
+                    "1-3 months",
+                    "4-6 months",
+                    "More than 6 months",
+                    "No timeframe"
+                  ]
+                },
+                "role_in_purchase_process": {
+                  "type": "string",
+                  "description": "Role in Purchase Process",
+                  "enum": [
+                    "Decision Maker",
+                    "Evaluator/Recommender",
+                    "Influencer",
+                    "Not involved"
+                  ]
+                },
+                "no_of_employees": {
+                  "type": "string",
+                  "description": "Number of Employees",
+                  "enum": [
+                    "1-20",
+                    "21-50",
+                    "51-100",
+                    "101-500",
+                    "500-1,000",
+                    "1,001-5,000",
+                    "5,001-10,000",
+                    "More than 10,000"
+                  ]
+                },
+                "comments": {
+                  "type": "string",
+                  "description": "Questions & Comments"
+                },
+                "custom_questions": {
+                  "type": "array",
+                  "description": "Custom Questions",
+                  "items": {
+                    "type": "object",
+                    "description": "Custom Question",
+                    "properties": {
+                      "title": {
+                        "type": "string"
+                      },
+                      "value": {
+                        "type": "string"
                       }
                     }
                   }
                 }
-              ]
+              }
             }
           }
         ],
@@ -8253,261 +8214,255 @@
             "schema": {
               "type": "object",
               "description": "Webinar object",
-              "allOf": [
-                {
+              "properties": {
+                "topic": {
+                  "type": "string",
+                  "description": "Webinar topic"
+                },
+                "type": {
+                  "type": "integer",
+                  "description": "Webinar Type",
+                  "default": 5,
+                  "enum": [
+                    5,
+                    6,
+                    9
+                  ],
+                  "x-enum-descriptions": [
+                    "Webinar",
+                    "Recurring Webinar with no fixed time",
+                    "Recurring Webinar with fixed time"
+                  ]
+                },
+                "start_time": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "Webinar start time, in the format \"yyyy-MM-dd'T'HH:mm:ss'Z'\", should be GMT time. In the format \"yyyy-MM-dd'T'HH:mm:ss\", should be local time, need to specify the time zone. Only used for scheduled webinar and recurring webinar with fixed time."
+                },
+                "duration": {
+                  "type": "integer",
+                  "description": "Webinar duration (minutes). Used for scheduled webinar only"
+                },
+                "timezone": {
+                  "type": "string",
+                  "description": "Timezone to format start_time. For example, \"America/Los_Angeles\". For scheduled meetings only. Please reference our [timezone](#timezones) list for supported timezones and their formats."
+                },
+                "password": {
+                  "type": "string",
+                  "description": "Webinar password. Password may only contain the following characters: [a-z A-Z 0-9 @ - _ *]. Max of 10 characters."
+                },
+                "agenda": {
+                  "type": "string",
+                  "description": "Webinar description"
+                },
+                "recurrence": {
                   "type": "object",
-                  "description": "Base webinar object for sessions",
+                  "description": "Recurrence object",
                   "properties": {
-                    "topic": {
-                      "type": "string",
-                      "description": "Webinar topic"
-                    },
                     "type": {
                       "type": "integer",
-                      "description": "Webinar Type",
-                      "default": 5,
+                      "description": "Recurrence meeting type",
                       "enum": [
-                        5,
-                        6,
-                        9
+                        1,
+                        2,
+                        3
                       ],
                       "x-enum-descriptions": [
-                        "Webinar",
-                        "Recurring Webinar with no fixed time",
-                        "Recurring Webinar with fixed time"
+                        "Daily",
+                        "Weekly",
+                        "Monthly"
                       ]
                     },
-                    "start_time": {
-                      "type": "string",
-                      "format": "date-time",
-                      "description": "Webinar start time, in the format \"yyyy-MM-dd'T'HH:mm:ss'Z'\", should be GMT time. In the format \"yyyy-MM-dd'T'HH:mm:ss\", should be local time, need to specify the time zone. Only used for scheduled webinar and recurring webinar with fixed time."
-                    },
-                    "duration": {
+                    "repeat_interval": {
                       "type": "integer",
-                      "description": "Webinar duration (minutes). Used for scheduled webinar only"
+                      "description": "At which interval should the meeting repeat? For a daily meeting, max of 90 days. For a weekly meeting, max of 12 weeks. For a monthly meeting, max of 3 months."
                     },
-                    "timezone": {
+                    "weekly_days": {
+                      "type": "integer",
+                      "description": "Days of the week the meeting should repeat, multiple values separated by comma",
+                      "enum": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7
+                      ],
+                      "x-enum-descriptions": [
+                        "Sunday",
+                        "Monday",
+                        "Tuesday",
+                        "Wednesday",
+                        "Thursday",
+                        "Friday",
+                        "Saturday"
+                      ]
+                    },
+                    "monthly_day": {
+                      "type": "integer",
+                      "description": "Day of the month for the meeting to be scheduled. The value range is from 1 to 31."
+                    },
+                    "monthly_week": {
+                      "type": "integer",
+                      "description": "Week for which the meeting should recur each month,",
+                      "enum": [
+                        -1,
+                        1,
+                        2,
+                        3,
+                        4
+                      ],
+                      "x-enum-descriptions": [
+                        "Last week",
+                        "First week",
+                        "Second week",
+                        "Third week",
+                        "Fourth week"
+                      ]
+                    },
+                    "monthly_week_day": {
+                      "type": "integer",
+                      "description": "Day for which the meeting should recur each month",
+                      "enum": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7
+                      ],
+                      "x-enum-descriptions": [
+                        "Sunday",
+                        "Monday",
+                        "Tuesday",
+                        "Wednesday",
+                        "Thursday",
+                        "Friday",
+                        "Saturday"
+                      ]
+                    },
+                    "end_times": {
+                      "type": "integer",
+                      "description": "Select how many times the meeting will occur before it is canceled. (Cannot be used with \"end_date_time\".)",
+                      "default": 1,
+                      "maximum": 50
+                    },
+                    "end_date_time": {
                       "type": "string",
-                      "description": "Timezone to format start_time. For example, \"America/Los_Angeles\". For scheduled meetings only. Please reference our [timezone](#timezones) list for supported timezones and their formats."
+                      "description": "Select a date the meeting will occur before it is canceled.. Should be UTC time, such as 2017-11-25T12:00:00Z. (Cannot be used with \"end_times\".)",
+                      "format": "date-time"
+                    }
+                  }
+                },
+                "settings": {
+                  "type": "object",
+                  "description": "Webinar Settings",
+                  "properties": {
+                    "host_video": {
+                      "type": "boolean",
+                      "description": "Start video when host joins webinar"
                     },
-                    "password": {
+                    "panelists_video": {
+                      "type": "boolean",
+                      "description": "Start video when panelists join webinar"
+                    },
+                    "practice_session": {
+                      "type": "boolean",
+                      "description": "Enable Practice Session",
+                      "default": false
+                    },
+                    "hd_video": {
+                      "type": "boolean",
+                      "description": "Default to HD Video",
+                      "default": false
+                    },
+                    "approval_type": {
+                      "type": "integer",
+                      "default": 2,
+                      "enum": [
+                        0,
+                        1,
+                        2
+                      ],
+                      "x-enum-descriptions": [
+                        "Automatically Approve",
+                        "Manually Approve",
+                        "No Registration Required"
+                      ]
+                    },
+                    "registration_type": {
+                      "type": "integer",
+                      "description": "Registration type. Used for recurring webinar with fixed time only.",
+                      "default": 1,
+                      "enum": [
+                        1,
+                        2,
+                        3
+                      ],
+                      "x-enum-descriptions": [
+                        "Attendees register once and can attend any of the occurrences",
+                        "Attendees need to register for each occurrence to attend",
+                        "Attendees register once and can choose one or more occurrences to attend"
+                      ]
+                    },
+                    "audio": {
                       "type": "string",
-                      "description": "Webinar password. Password may only contain the following characters: [a-z A-Z 0-9 @ - _ *]. Max of 10 characters."
+                      "description": "Determine how participants can join the audio portion of the meeting",
+                      "default": "both",
+                      "enum": [
+                        "both",
+                        "telephony",
+                        "voip"
+                      ],
+                      "x-enum-descriptions": [
+                        "Both Telephony and VoIP",
+                        "Telephony only",
+                        "VoIP only"
+                      ]
                     },
-                    "agenda": {
+                    "auto_recording": {
                       "type": "string",
-                      "description": "Webinar description"
+                      "default": "none",
+                      "enum": [
+                        "local",
+                        "cloud",
+                        "none"
+                      ],
+                      "x-enum-descriptions": [
+                        "Record to local device",
+                        "Record to cloud",
+                        "No Recording"
+                      ]
                     },
-                    "recurrence": {
-                      "type": "object",
-                      "description": "Recurrence object",
-                      "properties": {
-                        "type": {
-                          "type": "integer",
-                          "description": "Recurrence meeting type",
-                          "enum": [
-                            1,
-                            2,
-                            3
-                          ],
-                          "x-enum-descriptions": [
-                            "Daily",
-                            "Weekly",
-                            "Monthly"
-                          ]
-                        },
-                        "repeat_interval": {
-                          "type": "integer",
-                          "description": "At which interval should the meeting repeat? For a daily meeting, max of 90 days. For a weekly meeting, max of 12 weeks. For a monthly meeting, max of 3 months."
-                        },
-                        "weekly_days": {
-                          "type": "integer",
-                          "description": "Days of the week the meeting should repeat, multiple values separated by comma",
-                          "enum": [
-                            1,
-                            2,
-                            3,
-                            4,
-                            5,
-                            6,
-                            7
-                          ],
-                          "x-enum-descriptions": [
-                            "Sunday",
-                            "Monday",
-                            "Tuesday",
-                            "Wednesday",
-                            "Thursday",
-                            "Friday",
-                            "Saturday"
-                          ]
-                        },
-                        "monthly_day": {
-                          "type": "integer",
-                          "description": "Day of the month for the meeting to be scheduled. The value range is from 1 to 31."
-                        },
-                        "monthly_week": {
-                          "type": "integer",
-                          "description": "Week for which the meeting should recur each month,",
-                          "enum": [
-                            -1,
-                            1,
-                            2,
-                            3,
-                            4
-                          ],
-                          "x-enum-descriptions": [
-                            "Last week",
-                            "First week",
-                            "Second week",
-                            "Third week",
-                            "Fourth week"
-                          ]
-                        },
-                        "monthly_week_day": {
-                          "type": "integer",
-                          "description": "Day for which the meeting should recur each month",
-                          "enum": [
-                            1,
-                            2,
-                            3,
-                            4,
-                            5,
-                            6,
-                            7
-                          ],
-                          "x-enum-descriptions": [
-                            "Sunday",
-                            "Monday",
-                            "Tuesday",
-                            "Wednesday",
-                            "Thursday",
-                            "Friday",
-                            "Saturday"
-                          ]
-                        },
-                        "end_times": {
-                          "type": "integer",
-                          "description": "Select how many times the meeting will occur before it is canceled. (Cannot be used with \"end_date_time\".)",
-                          "default": 1,
-                          "maximum": 50
-                        },
-                        "end_date_time": {
-                          "type": "string",
-                          "description": "Select a date the meeting will occur before it is canceled.. Should be UTC time, such as 2017-11-25T12:00:00Z. (Cannot be used with \"end_times\".)",
-                          "format": "date-time"
-                        }
-                      }
+                    "enforce_login": {
+                      "type": "boolean",
+                      "description": "Only signed-in users can join this meeting"
                     },
-                    "settings": {
-                      "type": "object",
-                      "description": "Webinar Settings",
-                      "properties": {
-                        "host_video": {
-                          "type": "boolean",
-                          "description": "Start video when host joins webinar"
-                        },
-                        "panelists_video": {
-                          "type": "boolean",
-                          "description": "Start video when panelists join webinar"
-                        },
-                        "practice_session": {
-                          "type": "boolean",
-                          "description": "Enable Practice Session",
-                          "default": false
-                        },
-                        "hd_video": {
-                          "type": "boolean",
-                          "description": "Default to HD Video",
-                          "default": false
-                        },
-                        "approval_type": {
-                          "type": "integer",
-                          "default": 2,
-                          "enum": [
-                            0,
-                            1,
-                            2
-                          ],
-                          "x-enum-descriptions": [
-                            "Automatically Approve",
-                            "Manually Approve",
-                            "No Registration Required"
-                          ]
-                        },
-                        "registration_type": {
-                          "type": "integer",
-                          "description": "Registration type. Used for recurring webinar with fixed time only.",
-                          "default": 1,
-                          "enum": [
-                            1,
-                            2,
-                            3
-                          ],
-                          "x-enum-descriptions": [
-                            "Attendees register once and can attend any of the occurrences",
-                            "Attendees need to register for each occurrence to attend",
-                            "Attendees register once and can choose one or more occurrences to attend"
-                          ]
-                        },
-                        "audio": {
-                          "type": "string",
-                          "description": "Determine how participants can join the audio portion of the meeting",
-                          "default": "both",
-                          "enum": [
-                            "both",
-                            "telephony",
-                            "voip"
-                          ],
-                          "x-enum-descriptions": [
-                            "Both Telephony and VoIP",
-                            "Telephony only",
-                            "VoIP only"
-                          ]
-                        },
-                        "auto_recording": {
-                          "type": "string",
-                          "default": "none",
-                          "enum": [
-                            "local",
-                            "cloud",
-                            "none"
-                          ],
-                          "x-enum-descriptions": [
-                            "Record to local device",
-                            "Record to cloud",
-                            "No Recording"
-                          ]
-                        },
-                        "enforce_login": {
-                          "type": "boolean",
-                          "description": "Only signed-in users can join this meeting"
-                        },
-                        "enforce_login_domains": {
-                          "type": "string",
-                          "description": "Only signed-in users with specified domains can join meetings"
-                        },
-                        "alternative_hosts": {
-                          "type": "string",
-                          "description": "Alternative hosts emails or IDs. Multiple values separated by comma."
-                        },
-                        "close_registration": {
-                          "type": "boolean",
-                          "description": "Close registration after event date"
-                        },
-                        "show_share_button": {
-                          "type": "boolean",
-                          "description": "Show social share buttons on registration page"
-                        },
-                        "allow_multiple_devices": {
-                          "type": "boolean",
-                          "description": "Allow attendees to join from multiple devices"
-                        }
-                      }
+                    "enforce_login_domains": {
+                      "type": "string",
+                      "description": "Only signed-in users with specified domains can join meetings"
+                    },
+                    "alternative_hosts": {
+                      "type": "string",
+                      "description": "Alternative hosts emails or IDs. Multiple values separated by comma."
+                    },
+                    "close_registration": {
+                      "type": "boolean",
+                      "description": "Close registration after event date"
+                    },
+                    "show_share_button": {
+                      "type": "boolean",
+                      "description": "Show social share buttons on registration page"
+                    },
+                    "allow_multiple_devices": {
+                      "type": "boolean",
+                      "description": "Allow attendees to join from multiple devices"
                     }
                   }
                 }
-              ]
+              }
             }
           }
         ],
@@ -8657,273 +8612,257 @@
             "schema": {
               "type": "object",
               "description": "Webinar object",
-              "allOf": [
-                {
+              "properties": {
+                "topic": {
+                  "type": "string",
+                  "description": "Webinar topic"
+                },
+                "type": {
+                  "type": "integer",
+                  "description": "Webinar Type",
+                  "default": 5,
+                  "enum": [
+                    5,
+                    6,
+                    9
+                  ],
+                  "x-enum-descriptions": [
+                    "Webinar",
+                    "Recurring Webinar with no fixed time",
+                    "Recurring Webinar with fixed time"
+                  ]
+                },
+                "start_time": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "Webinar start time, in the format \"yyyy-MM-dd'T'HH:mm:ss'Z'\", should be GMT time. In the format \"yyyy-MM-dd'T'HH:mm:ss\", should be local time, need to specify the time zone. Only used for scheduled webinar and recurring webinar with fixed time."
+                },
+                "duration": {
+                  "type": "integer",
+                  "description": "Webinar duration (minutes). Used for scheduled webinar only"
+                },
+                "timezone": {
+                  "type": "string",
+                  "description": "Timezone to format start_time. For example, \"America/Los_Angeles\". For scheduled meetings only. Please reference our [timezone](#timezones) list for supported timezones and their formats."
+                },
+                "password": {
+                  "type": "string",
+                  "description": "Webinar password. Password may only contain the following characters: [a-z A-Z 0-9 @ - _ *]. Max of 10 characters."
+                },
+                "agenda": {
+                  "type": "string",
+                  "description": "Webinar description"
+                },
+                "recurrence": {
                   "type": "object",
-                  "description": "Base webinar object for sessions",
+                  "description": "Recurrence object",
                   "properties": {
-                    "topic": {
-                      "type": "string",
-                      "description": "Webinar topic"
-                    },
                     "type": {
                       "type": "integer",
-                      "description": "Webinar Type",
-                      "default": 5,
+                      "description": "Recurrence meeting type",
                       "enum": [
-                        5,
-                        6,
-                        9
+                        1,
+                        2,
+                        3
                       ],
                       "x-enum-descriptions": [
-                        "Webinar",
-                        "Recurring Webinar with no fixed time",
-                        "Recurring Webinar with fixed time"
+                        "Daily",
+                        "Weekly",
+                        "Monthly"
                       ]
                     },
-                    "start_time": {
-                      "type": "string",
-                      "format": "date-time",
-                      "description": "Webinar start time, in the format \"yyyy-MM-dd'T'HH:mm:ss'Z'\", should be GMT time. In the format \"yyyy-MM-dd'T'HH:mm:ss\", should be local time, need to specify the time zone. Only used for scheduled webinar and recurring webinar with fixed time."
-                    },
-                    "duration": {
+                    "repeat_interval": {
                       "type": "integer",
-                      "description": "Webinar duration (minutes). Used for scheduled webinar only"
+                      "description": "At which interval should the meeting repeat? For a daily meeting, max of 90 days. For a weekly meeting, max of 12 weeks. For a monthly meeting, max of 3 months."
                     },
-                    "timezone": {
-                      "type": "string",
-                      "description": "Timezone to format start_time. For example, \"America/Los_Angeles\". For scheduled meetings only. Please reference our [timezone](#timezones) list for supported timezones and their formats."
-                    },
-                    "password": {
-                      "type": "string",
-                      "description": "Webinar password. Password may only contain the following characters: [a-z A-Z 0-9 @ - _ *]. Max of 10 characters."
-                    },
-                    "agenda": {
-                      "type": "string",
-                      "description": "Webinar description"
-                    },
-                    "recurrence": {
-                      "type": "object",
-                      "description": "Recurrence object",
-                      "properties": {
-                        "type": {
-                          "type": "integer",
-                          "description": "Recurrence meeting type",
-                          "enum": [
-                            1,
-                            2,
-                            3
-                          ],
-                          "x-enum-descriptions": [
-                            "Daily",
-                            "Weekly",
-                            "Monthly"
-                          ]
-                        },
-                        "repeat_interval": {
-                          "type": "integer",
-                          "description": "At which interval should the meeting repeat? For a daily meeting, max of 90 days. For a weekly meeting, max of 12 weeks. For a monthly meeting, max of 3 months."
-                        },
-                        "weekly_days": {
-                          "type": "integer",
-                          "description": "Days of the week the meeting should repeat, multiple values separated by comma",
-                          "enum": [
-                            1,
-                            2,
-                            3,
-                            4,
-                            5,
-                            6,
-                            7
-                          ],
-                          "x-enum-descriptions": [
-                            "Sunday",
-                            "Monday",
-                            "Tuesday",
-                            "Wednesday",
-                            "Thursday",
-                            "Friday",
-                            "Saturday"
-                          ]
-                        },
-                        "monthly_day": {
-                          "type": "integer",
-                          "description": "Day of the month for the meeting to be scheduled. The value range is from 1 to 31."
-                        },
-                        "monthly_week": {
-                          "type": "integer",
-                          "description": "Week for which the meeting should recur each month,",
-                          "enum": [
-                            -1,
-                            1,
-                            2,
-                            3,
-                            4
-                          ],
-                          "x-enum-descriptions": [
-                            "Last week",
-                            "First week",
-                            "Second week",
-                            "Third week",
-                            "Fourth week"
-                          ]
-                        },
-                        "monthly_week_day": {
-                          "type": "integer",
-                          "description": "Day for which the meeting should recur each month",
-                          "enum": [
-                            1,
-                            2,
-                            3,
-                            4,
-                            5,
-                            6,
-                            7
-                          ],
-                          "x-enum-descriptions": [
-                            "Sunday",
-                            "Monday",
-                            "Tuesday",
-                            "Wednesday",
-                            "Thursday",
-                            "Friday",
-                            "Saturday"
-                          ]
-                        },
-                        "end_times": {
-                          "type": "integer",
-                          "description": "Select how many times the meeting will occur before it is canceled. (Cannot be used with \"end_date_time\".)",
-                          "default": 1,
-                          "maximum": 50
-                        },
-                        "end_date_time": {
-                          "type": "string",
-                          "description": "Select a date the meeting will occur before it is canceled.. Should be UTC time, such as 2017-11-25T12:00:00Z. (Cannot be used with \"end_times\".)",
-                          "format": "date-time"
-                        }
-                      }
-                    },
-                    "settings": {
-                      "allOf": [
-                        {
-                          "type": "object",
-                          "description": "Webinar Settings",
-                          "properties": {
-                            "host_video": {
-                              "type": "boolean",
-                              "description": "Start video when host joins webinar"
-                            },
-                            "panelists_video": {
-                              "type": "boolean",
-                              "description": "Start video when panelists join webinar"
-                            },
-                            "practice_session": {
-                              "type": "boolean",
-                              "description": "Enable Practice Session",
-                              "default": false
-                            },
-                            "hd_video": {
-                              "type": "boolean",
-                              "description": "Default to HD Video",
-                              "default": false
-                            },
-                            "approval_type": {
-                              "type": "integer",
-                              "default": 2,
-                              "enum": [
-                                0,
-                                1,
-                                2
-                              ],
-                              "x-enum-descriptions": [
-                                "Automatically Approve",
-                                "Manually Approve",
-                                "No Registration Required"
-                              ]
-                            },
-                            "registration_type": {
-                              "type": "integer",
-                              "description": "Registration type. Used for recurring webinar with fixed time only.",
-                              "default": 1,
-                              "enum": [
-                                1,
-                                2,
-                                3
-                              ],
-                              "x-enum-descriptions": [
-                                "Attendees register once and can attend any of the occurrences",
-                                "Attendees need to register for each occurrence to attend",
-                                "Attendees register once and can choose one or more occurrences to attend"
-                              ]
-                            },
-                            "audio": {
-                              "type": "string",
-                              "description": "Determine how participants can join the audio portion of the meeting",
-                              "default": "both",
-                              "enum": [
-                                "both",
-                                "telephony",
-                                "voip"
-                              ],
-                              "x-enum-descriptions": [
-                                "Both Telephony and VoIP",
-                                "Telephony only",
-                                "VoIP only"
-                              ]
-                            },
-                            "auto_recording": {
-                              "type": "string",
-                              "default": "none",
-                              "enum": [
-                                "local",
-                                "cloud",
-                                "none"
-                              ],
-                              "x-enum-descriptions": [
-                                "Record to local device",
-                                "Record to cloud",
-                                "No Recording"
-                              ]
-                            },
-                            "enforce_login": {
-                              "type": "boolean",
-                              "description": "Only signed-in users can join this meeting"
-                            },
-                            "enforce_login_domains": {
-                              "type": "string",
-                              "description": "Only signed-in users with specified domains can join meetings"
-                            },
-                            "alternative_hosts": {
-                              "type": "string",
-                              "description": "Alternative hosts emails or IDs. Multiple values separated by comma."
-                            },
-                            "close_registration": {
-                              "type": "boolean",
-                              "description": "Close registration after event date"
-                            },
-                            "show_share_button": {
-                              "type": "boolean",
-                              "description": "Show social share buttons on registration page"
-                            },
-                            "allow_multiple_devices": {
-                              "type": "boolean",
-                              "description": "Allow attendees to join from multiple devices"
-                            }
-                          }
-                        },
-                        {
-                          "properties": {
-                            "registrants_confirmation_email": {
-                              "type": "boolean",
-                              "description": "Send confirmation Email to Registrants"
-                            }
-                          }
-                        }
+                    "weekly_days": {
+                      "type": "integer",
+                      "description": "Days of the week the meeting should repeat, multiple values separated by comma",
+                      "enum": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7
+                      ],
+                      "x-enum-descriptions": [
+                        "Sunday",
+                        "Monday",
+                        "Tuesday",
+                        "Wednesday",
+                        "Thursday",
+                        "Friday",
+                        "Saturday"
                       ]
+                    },
+                    "monthly_day": {
+                      "type": "integer",
+                      "description": "Day of the month for the meeting to be scheduled. The value range is from 1 to 31."
+                    },
+                    "monthly_week": {
+                      "type": "integer",
+                      "description": "Week for which the meeting should recur each month,",
+                      "enum": [
+                        -1,
+                        1,
+                        2,
+                        3,
+                        4
+                      ],
+                      "x-enum-descriptions": [
+                        "Last week",
+                        "First week",
+                        "Second week",
+                        "Third week",
+                        "Fourth week"
+                      ]
+                    },
+                    "monthly_week_day": {
+                      "type": "integer",
+                      "description": "Day for which the meeting should recur each month",
+                      "enum": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7
+                      ],
+                      "x-enum-descriptions": [
+                        "Sunday",
+                        "Monday",
+                        "Tuesday",
+                        "Wednesday",
+                        "Thursday",
+                        "Friday",
+                        "Saturday"
+                      ]
+                    },
+                    "end_times": {
+                      "type": "integer",
+                      "description": "Select how many times the meeting will occur before it is canceled. (Cannot be used with \"end_date_time\".)",
+                      "default": 1,
+                      "maximum": 50
+                    },
+                    "end_date_time": {
+                      "type": "string",
+                      "description": "Select a date the meeting will occur before it is canceled.. Should be UTC time, such as 2017-11-25T12:00:00Z. (Cannot be used with \"end_times\".)",
+                      "format": "date-time"
+                    }
+                  }
+                },
+                "settings": {
+                  "properties": {
+                    "host_video": {
+                      "type": "boolean",
+                      "description": "Start video when host joins webinar"
+                    },
+                    "panelists_video": {
+                      "type": "boolean",
+                      "description": "Start video when panelists join webinar"
+                    },
+                    "practice_session": {
+                      "type": "boolean",
+                      "description": "Enable Practice Session",
+                      "default": false
+                    },
+                    "hd_video": {
+                      "type": "boolean",
+                      "description": "Default to HD Video",
+                      "default": false
+                    },
+                    "approval_type": {
+                      "type": "integer",
+                      "default": 2,
+                      "enum": [
+                        0,
+                        1,
+                        2
+                      ],
+                      "x-enum-descriptions": [
+                        "Automatically Approve",
+                        "Manually Approve",
+                        "No Registration Required"
+                      ]
+                    },
+                    "registration_type": {
+                      "type": "integer",
+                      "description": "Registration type. Used for recurring webinar with fixed time only.",
+                      "default": 1,
+                      "enum": [
+                        1,
+                        2,
+                        3
+                      ],
+                      "x-enum-descriptions": [
+                        "Attendees register once and can attend any of the occurrences",
+                        "Attendees need to register for each occurrence to attend",
+                        "Attendees register once and can choose one or more occurrences to attend"
+                      ]
+                    },
+                    "audio": {
+                      "type": "string",
+                      "description": "Determine how participants can join the audio portion of the meeting",
+                      "default": "both",
+                      "enum": [
+                        "both",
+                        "telephony",
+                        "voip"
+                      ],
+                      "x-enum-descriptions": [
+                        "Both Telephony and VoIP",
+                        "Telephony only",
+                        "VoIP only"
+                      ]
+                    },
+                    "auto_recording": {
+                      "type": "string",
+                      "default": "none",
+                      "enum": [
+                        "local",
+                        "cloud",
+                        "none"
+                      ],
+                      "x-enum-descriptions": [
+                        "Record to local device",
+                        "Record to cloud",
+                        "No Recording"
+                      ]
+                    },
+                    "enforce_login": {
+                      "type": "boolean",
+                      "description": "Only signed-in users can join this meeting"
+                    },
+                    "enforce_login_domains": {
+                      "type": "string",
+                      "description": "Only signed-in users with specified domains can join meetings"
+                    },
+                    "alternative_hosts": {
+                      "type": "string",
+                      "description": "Alternative hosts emails or IDs. Multiple values separated by comma."
+                    },
+                    "close_registration": {
+                      "type": "boolean",
+                      "description": "Close registration after event date"
+                    },
+                    "show_share_button": {
+                      "type": "boolean",
+                      "description": "Show social share buttons on registration page"
+                    },
+                    "allow_multiple_devices": {
+                      "type": "boolean",
+                      "description": "Allow attendees to join from multiple devices"
+                    },
+                    "registrants_confirmation_email": {
+                      "type": "boolean",
+                      "description": "Send confirmation Email to Registrants"
                     }
                   }
                 }
-              ]
+              }
             }
           }
         ],
@@ -9079,22 +9018,16 @@
                   "type": "array",
                   "description": "List of Panelist objects",
                   "items": {
-                    "allOf": [
-                      {
-                        "type": "object",
-                        "description": "Panelist base object",
-                        "properties": {
-                          "name": {
-                            "type": "string",
-                            "description": "Panelist's full name"
-                          },
-                          "email": {
-                            "type": "string",
-                            "description": "Panelist's email"
-                          }
-                        }
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "description": "Panelist's full name"
+                      },
+                      "email": {
+                        "type": "string",
+                        "description": "Panelist's email"
                       }
-                    ]
+                    }
                   }
                 }
               }
@@ -9306,122 +9239,116 @@
             "schema": {
               "type": "object",
               "description": "Webianr registrant",
-              "allOf": [
-                {
-                  "type": "object",
-                  "description": "Registrant base object",
-                  "required": [
-                    "email",
-                    "first_name",
-                    "last_name"
-                  ],
-                  "properties": {
-                    "email": {
-                      "type": "string",
-                      "description": "A valid email address"
-                    },
-                    "first_name": {
-                      "type": "string",
-                      "description": "User’s first name"
-                    },
-                    "last_name": {
-                      "type": "string",
-                      "description": "User’s last name"
-                    },
-                    "address": {
-                      "type": "string",
-                      "description": "Address"
-                    },
-                    "city": {
-                      "type": "string",
-                      "description": "City"
-                    },
-                    "country": {
-                      "type": "string",
-                      "description": "Country"
-                    },
-                    "zip": {
-                      "type": "string",
-                      "description": "Zip/Postal Code"
-                    },
-                    "state": {
-                      "type": "string",
-                      "description": "State/Province"
-                    },
-                    "phone": {
-                      "type": "string",
-                      "description": "Phone"
-                    },
-                    "industry": {
-                      "type": "string",
-                      "description": "Industry"
-                    },
-                    "org": {
-                      "type": "string",
-                      "description": "Organization"
-                    },
-                    "job_title": {
-                      "type": "string",
-                      "description": "Job Title"
-                    },
-                    "purchasing_time_frame": {
-                      "type": "string",
-                      "description": "Purchasing Time Frame",
-                      "enum": [
-                        "Within a month",
-                        "1-3 months",
-                        "4-6 months",
-                        "More than 6 months",
-                        "No timeframe"
-                      ]
-                    },
-                    "role_in_purchase_process": {
-                      "type": "string",
-                      "description": "Role in Purchase Process",
-                      "enum": [
-                        "Decision Maker",
-                        "Evaluator/Recommender",
-                        "Influencer",
-                        "Not involved"
-                      ]
-                    },
-                    "no_of_employees": {
-                      "type": "string",
-                      "description": "Number of Employees",
-                      "enum": [
-                        "1-20",
-                        "21-50",
-                        "51-100",
-                        "101-500",
-                        "500-1,000",
-                        "1,001-5,000",
-                        "5,001-10,000",
-                        "More than 10,000"
-                      ]
-                    },
-                    "comments": {
-                      "type": "string",
-                      "description": "Questions & Comments"
-                    },
-                    "custom_questions": {
-                      "type": "array",
-                      "description": "Custom Questions",
-                      "items": {
-                        "type": "object",
-                        "description": "Custom Question",
-                        "properties": {
-                          "title": {
-                            "type": "string"
-                          },
-                          "value": {
-                            "type": "string"
-                          }
-                        }
+              "required": [
+                "email",
+                "first_name",
+                "last_name"
+              ],
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "description": "A valid email address"
+                },
+                "first_name": {
+                  "type": "string",
+                  "description": "User’s first name"
+                },
+                "last_name": {
+                  "type": "string",
+                  "description": "User’s last name"
+                },
+                "address": {
+                  "type": "string",
+                  "description": "Address"
+                },
+                "city": {
+                  "type": "string",
+                  "description": "City"
+                },
+                "country": {
+                  "type": "string",
+                  "description": "Country"
+                },
+                "zip": {
+                  "type": "string",
+                  "description": "Zip/Postal Code"
+                },
+                "state": {
+                  "type": "string",
+                  "description": "State/Province"
+                },
+                "phone": {
+                  "type": "string",
+                  "description": "Phone"
+                },
+                "industry": {
+                  "type": "string",
+                  "description": "Industry"
+                },
+                "org": {
+                  "type": "string",
+                  "description": "Organization"
+                },
+                "job_title": {
+                  "type": "string",
+                  "description": "Job Title"
+                },
+                "purchasing_time_frame": {
+                  "type": "string",
+                  "description": "Purchasing Time Frame",
+                  "enum": [
+                    "Within a month",
+                    "1-3 months",
+                    "4-6 months",
+                    "More than 6 months",
+                    "No timeframe"
+                  ]
+                },
+                "role_in_purchase_process": {
+                  "type": "string",
+                  "description": "Role in Purchase Process",
+                  "enum": [
+                    "Decision Maker",
+                    "Evaluator/Recommender",
+                    "Influencer",
+                    "Not involved"
+                  ]
+                },
+                "no_of_employees": {
+                  "type": "string",
+                  "description": "Number of Employees",
+                  "enum": [
+                    "1-20",
+                    "21-50",
+                    "51-100",
+                    "101-500",
+                    "500-1,000",
+                    "1,001-5,000",
+                    "5,001-10,000",
+                    "More than 10,000"
+                  ]
+                },
+                "comments": {
+                  "type": "string",
+                  "description": "Questions & Comments"
+                },
+                "custom_questions": {
+                  "type": "array",
+                  "description": "Custom Questions",
+                  "items": {
+                    "type": "object",
+                    "description": "Custom Question",
+                    "properties": {
+                      "title": {
+                        "type": "string"
+                      },
+                      "value": {
+                        "type": "string"
                       }
                     }
                   }
                 }
-              ]
+              }
             }
           }
         ],
