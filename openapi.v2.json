@@ -3370,6 +3370,7 @@
               "properties": {
                 "action": {
                   "type": "string",
+                  "description": "`end` end a meeting",
                   "enum": [
                     "end"
                   ],
