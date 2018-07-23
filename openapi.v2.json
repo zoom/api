@@ -491,7 +491,7 @@
                     },
                     "audio_type": {
                       "type": "string",
-                      "description": "Determine how participants can join the audio portion of the meeting \n`both` Telephony and VoIP \n`telephony` Audio PSTN telephony only \n`voip` VoIP only \n`thirdParty` 3rd party audio conference",
+                      "description": "Determine how participants can join the audio portion of the meeting\n`both` Telephony and VoIP\n`telephony` Audio PSTN telephony only\n`voip` VoIP only\n`thirdParty` 3rd party audio conference",
                       "default": "both",
                       "enum": [
                         "both",
@@ -819,7 +819,7 @@
                     },
                     "auto_recording": {
                       "type": "string",
-                      "description": "Record meetings automatically as they start \n`local` Record on local \n`cloud` Record on cloud \n`none` Disabled.",
+                      "description": "Record meetings automatically as they start\n`local` Record on local\n`cloud` Record on cloud\n`none` Disabled.",
                       "enum": [
                         "local",
                         "cloud",
@@ -1850,7 +1850,7 @@
                 },
                 "protocol": {
                   "type": "string",
-                  "description": "\n`H.323` \n`SIP`",
+                  "description": "\n`H.323`\n`SIP`",
                   "enum": [
                     "H.323",
                     "SIP"
@@ -1866,7 +1866,7 @@
                 },
                 "encryption": {
                   "type": "string",
-                  "description": "\n`auto` \n`yes` \n`no`",
+                  "description": "\n`auto`\n`yes`\n`no`",
                   "enum": [
                     "auto",
                     "yes",
@@ -1936,7 +1936,7 @@
                 },
                 "protocol": {
                   "type": "string",
-                  "description": "\n`H.323` \n`SIP`",
+                  "description": "\n`H.323`\n`SIP`",
                   "enum": [
                     "H.323",
                     "SIP"
@@ -1952,7 +1952,7 @@
                 },
                 "encryption": {
                   "type": "string",
-                  "description": "\n`auto` \n`yes` \n`no`",
+                  "description": "\n`auto`\n`yes`\n`no`",
                   "enum": [
                     "auto",
                     "yes",
@@ -2058,7 +2058,7 @@
                 },
                 "type": {
                   "type": "string",
-                  "description": "IM Group type \n`normal` Only members can see the group automatically. Other people can search members in the group. \n`shared` All people in the account can see the group and members automatically \n`restricted` Nobody can see the group or search members except the members in the group",
+                  "description": "IM Group type\n`normal` Only members can see the group automatically. Other people can search members in the group.\n`shared` All people in the account can see the group and members automatically\n`restricted` Nobody can see the group or search members except the members in the group",
                   "default": "normal",
                   "enum": [
                     "normal",
@@ -2169,7 +2169,7 @@
                 },
                 "type": {
                   "type": "string",
-                  "description": "IM Group type \n`normal` Only members can see the group automatically. Other people can search members in the group. \n`shared` All people in the account can see the group and members automatically \n`restricted` Nobody can see the group or search members except the members in the group",
+                  "description": "IM Group type\n`normal` Only members can see the group automatically. Other people can search members in the group.\n`shared` All people in the account can see the group and members automatically\n`restricted` Nobody can see the group or search members except the members in the group",
                   "enum": [
                     "normal",
                     "shared",
@@ -2536,7 +2536,7 @@
           {
             "in": "query",
             "name": "type",
-            "description": "The meeting type \n`scheduled` all the scheduled meetings \n`live` all the live meetings \n`upcoming` all the upcoming meetings",
+            "description": "The meeting type\n`scheduled` all the scheduled meetings\n`live` all the live meetings\n`upcoming` all the upcoming meetings",
             "type": "string",
             "default": "live",
             "enum": [
@@ -2627,7 +2627,7 @@
                 },
                 "type": {
                   "type": "integer",
-                  "description": "Meeting Type \n`1` Instant Meeting \n`2` Scheduled Meeting \n`3` Recurring Meeting with no fixed time \n`8` Recurring Meeting with no fixed time",
+                  "description": "Meeting Type\n`1` Instant Meeting\n`2` Scheduled Meeting\n`3` Recurring Meeting with no fixed time\n`8` Recurring Meeting with no fixed time",
                   "default": 2,
                   "enum": [
                     1,
@@ -2669,7 +2669,7 @@
                   "properties": {
                     "type": {
                       "type": "integer",
-                      "description": "Recurrence meeting type \n`1` Daily \n`2` Weekly \n`3` Monthly",
+                      "description": "Recurrence meeting type\n`1` Daily\n`2` Weekly\n`3` Monthly",
                       "enum": [
                         1,
                         2,
@@ -2687,7 +2687,7 @@
                     },
                     "weekly_days": {
                       "type": "integer",
-                      "description": "Days of the week the meeting should repeat, multiple values separated by comma \n`1` Sunday \n`2` Monday \n`3` Tuesday \n`4` Wednesday \n`5` Thursday \n`6` Friday \n`7` Saturday",
+                      "description": "Days of the week the meeting should repeat, multiple values separated by comma\n`1` Sunday\n`2` Monday\n`3` Tuesday\n`4` Wednesday\n`5` Thursday\n`6` Friday\n`7` Saturday",
                       "enum": [
                         1,
                         2,
@@ -2713,7 +2713,7 @@
                     },
                     "monthly_week": {
                       "type": "integer",
-                      "description": "Week for which the meeting should recur each month, \n`-1` Last week \n`1` First week \n`2` Second week \n`3` Third week \n`4` Fourth week.",
+                      "description": "Week for which the meeting should recur each month,\n`-1` Last week\n`1` First week\n`2` Second week\n`3` Third week\n`4` Fourth week.",
                       "enum": [
                         -1,
                         1,
@@ -2731,7 +2731,7 @@
                     },
                     "monthly_week_day": {
                       "type": "integer",
-                      "description": "Day for which the meeting should recur each month \n`1` Sunday \n`2` Monday \n`3` Tuesday \n`4` Wednesday \n`5` Thursday \n`6` Friday \n`7` Saturday.",
+                      "description": "Day for which the meeting should recur each month\n`1` Sunday\n`2` Monday\n`3` Tuesday\n`4` Wednesday\n`5` Thursday\n`6` Friday\n`7` Saturday.",
                       "enum": [
                         1,
                         2,
@@ -2808,7 +2808,7 @@
                     },
                     "approval_type": {
                       "type": "integer",
-                      "description": "\n`0` Automatically Approve \n`1` Manually Approve \n`2` No Registration Required",
+                      "description": "\n`0` Automatically Approve\n`1` Manually Approve\n`2` No Registration Required",
                       "default": 2,
                       "enum": [
                         0,
@@ -2823,7 +2823,7 @@
                     },
                     "registration_type": {
                       "type": "integer",
-                      "description": "Registration type. Used for recurring meeting with fixed time only. \n`1` Attendees register once and can attend any of the occurrences \n`2` Attendees need to register for each occurrence to attend\n `3` Attendees register once and can choose one or more occurrences to attend",
+                      "description": "Registration type. Used for recurring meeting with fixed time only.\n`1` Attendees register once and can attend any of the occurrences\n`2` Attendees need to register for each occurrence to attend\n `3` Attendees register once and can choose one or more occurrences to attend",
                       "default": 1,
                       "enum": [
                         1,
@@ -2838,7 +2838,7 @@
                     },
                     "audio": {
                       "type": "string",
-                      "description": "Determine how participants can join the audio portion of the meeting \n`both` Both Telephony and VoIP \n`telephony` Telephony only \n`voip` VoIP only",
+                      "description": "Determine how participants can join the audio portion of the meeting\n`both` Both Telephony and VoIP\n`telephony` Telephony only\n`voip` VoIP only",
                       "default": "both",
                       "enum": [
                         "both",
@@ -2853,7 +2853,7 @@
                     },
                     "auto_recording": {
                       "type": "string",
-                      "description": "Record meetings automatically as they start \n`local` Record on local \n`cloud` Record on cloud \n`none` Disabled.",
+                      "description": "Record meetings automatically as they start\n`local` Record on local\n`cloud` Record on cloud\n`none` Disabled.",
                       "default": "none",
                       "enum": [
                         "local",
@@ -3042,7 +3042,7 @@
                 },
                 "type": {
                   "type": "integer",
-                  "description": "Meeting Type \n`1` Instant Meeting \n`2` Scheduled Meeting \n`3` Recurring Meeting with no fixed time \n`8` Recurring Meeting with no fixed time",
+                  "description": "Meeting Type\n`1` Instant Meeting\n`2` Scheduled Meeting\n`3` Recurring Meeting with no fixed time\n`8` Recurring Meeting with no fixed time",
                   "default": 2,
                   "enum": [
                     1,
@@ -3084,7 +3084,7 @@
                   "properties": {
                     "type": {
                       "type": "integer",
-                      "description": "Recurrence meeting type \n`1` Daily \n`2` Weekly \n`3` Monthly",
+                      "description": "Recurrence meeting type\n`1` Daily\n`2` Weekly\n`3` Monthly",
                       "enum": [
                         1,
                         2,
@@ -3102,7 +3102,7 @@
                     },
                     "weekly_days": {
                       "type": "integer",
-                      "description": "Days of the week the meeting should repeat, multiple values separated by comma \n`1` Sunday \n`2` Monday \n`3` Tuesday \n`4` Wednesday \n`5` Thursday \n`6` Friday \n`7` Saturday",
+                      "description": "Days of the week the meeting should repeat, multiple values separated by comma\n`1` Sunday\n`2` Monday\n`3` Tuesday\n`4` Wednesday\n`5` Thursday\n`6` Friday\n`7` Saturday",
                       "enum": [
                         1,
                         2,
@@ -3128,7 +3128,7 @@
                     },
                     "monthly_week": {
                       "type": "integer",
-                      "description": "Week for which the meeting should recur each month, \n`-1` Last week \n`1` First week \n`2` Second week \n`3` Third week \n`4` Fourth week.",
+                      "description": "Week for which the meeting should recur each month,\n`-1` Last week\n`1` First week\n`2` Second week\n`3` Third week\n`4` Fourth week.",
                       "enum": [
                         -1,
                         1,
@@ -3146,7 +3146,7 @@
                     },
                     "monthly_week_day": {
                       "type": "integer",
-                      "description": "Day for which the meeting should recur each month \n`1` Sunday \n`2` Monday \n`3` Tuesday \n`4` Wednesday \n`5` Thursday \n`6` Friday \n`7` Saturday.",
+                      "description": "Day for which the meeting should recur each month\n`1` Sunday\n`2` Monday\n`3` Tuesday\n`4` Wednesday\n`5` Thursday\n`6` Friday\n`7` Saturday.",
                       "enum": [
                         1,
                         2,
@@ -3221,7 +3221,7 @@
                     },
                     "approval_type": {
                       "type": "integer",
-                      "description": "\n`0` Automatically Approve \n`1` Manually Approve \n`2` No Registration Required",
+                      "description": "\n`0` Automatically Approve\n`1` Manually Approve\n`2` No Registration Required",
                       "default": 2,
                       "enum": [
                         0,
@@ -3236,7 +3236,7 @@
                     },
                     "registration_type": {
                       "type": "integer",
-                      "description": "Registration type. Used for recurring meeting with fixed time only. \n`1` Attendees register once and can attend any of the occurrences \n`2` Attendees need to register for each occurrence to attend\n `3` Attendees register once and can choose one or more occurrences to attend",
+                      "description": "Registration type. Used for recurring meeting with fixed time only.\n`1` Attendees register once and can attend any of the occurrences\n`2` Attendees need to register for each occurrence to attend\n `3` Attendees register once and can choose one or more occurrences to attend",
                       "default": 1,
                       "enum": [
                         1,
@@ -3251,7 +3251,7 @@
                     },
                     "audio": {
                       "type": "string",
-                      "description": "Determine how participants can join the audio portion of the meeting \n`both` Both Telephony and VoIP \n`telephony` Telephony only \n`voip` VoIP only",
+                      "description": "Determine how participants can join the audio portion of the meeting\n`both` Both Telephony and VoIP\n`telephony` Telephony only\n`voip` VoIP only",
                       "default": "both",
                       "enum": [
                         "both",
@@ -3266,7 +3266,7 @@
                     },
                     "auto_recording": {
                       "type": "string",
-                      "description": "Record meetings automatically as they start \n`local` Record on local \n`cloud` Record on cloud \n`none` Disabled.",
+                      "description": "Record meetings automatically as they start\n`local` Record on local\n`cloud` Record on cloud\n`none` Disabled.",
                       "default": "none",
                       "enum": [
                         "local",
@@ -3413,7 +3413,7 @@
           {
             "in": "query",
             "name": "status",
-            "description": "The registrant status \n`pending` registrants status is pending \n`approved` registrants status is approved \n`denied` registrants status is denied",
+            "description": "The registrant status\n`pending` registrants status is pending\n`approved` registrants status is approved\n`denied` registrants status is denied",
             "type": "string",
             "default": "approved",
             "enum": [
@@ -3574,7 +3574,7 @@
                 },
                 "purchasing_time_frame": {
                   "type": "string",
-                  "description": "Purchasing Time Frame \n `Within a month` \n `1-3 months` \n `4-6 months` \n `More than 6 months` \n `No timeframe`",
+                  "description": "Purchasing Time Frame\n `Within a month`\n `1-3 months`\n `4-6 months`\n `More than 6 months`\n `No timeframe`",
                   "enum": [
                     "Within a month",
                     "1-3 months",
@@ -3585,7 +3585,7 @@
                 },
                 "role_in_purchase_process": {
                   "type": "string",
-                  "description": "Role in Purchase Process \n`Decision Maker` \n`Evaluator/Recommender`  \n`Influencer` \n`Not involved` ",
+                  "description": "Role in Purchase Process\n`Decision Maker`\n`Evaluator/Recommender`\n`Influencer`\n`Not involved` ",
                   "enum": [
                     "Decision Maker",
                     "Evaluator/Recommender",
@@ -3595,7 +3595,7 @@
                 },
                 "no_of_employees": {
                   "type": "string",
-                  "description": "Number of Employees \n`1-20` \n`21-50` \n`51-100` \n`101-500` \n`500-1,000` \n`1,001-5,000` \n`5,001-10,000` \n`More than 10,000` ",
+                  "description": "Number of Employees\n`1-20`\n`21-50`\n`51-100`\n`101-500`\n`500-1,000`\n`1,001-5,000`\n`5,001-10,000`\n`More than 10,000` ",
                   "enum": [
                     "1-20",
                     "21-50",
@@ -3685,7 +3685,7 @@
               "properties": {
                 "action": {
                   "type": "string",
-                  "description": "`approve` Approve registrant \n`cancel` Cancel registrant \n`deny` Deny registrant",
+                  "description": "`approve` Approve registrant\n`cancel` Cancel registrant\n`deny` Deny registrant",
                   "enum": [
                     "approve",
                     "cancel",
@@ -4005,7 +4005,7 @@
           {
             "in": "query",
             "name": "action",
-            "description": "The recording delete action \n`trash` move recording to trash \n`delete` delete recording permanently",
+            "description": "The recording delete action\n`trash` move recording to trash\n`delete` delete recording permanently",
             "type": "string",
             "default": "trash",
             "enum": [
@@ -4054,7 +4054,7 @@
           {
             "in": "query",
             "name": "action",
-            "description": "The recording delete action \n`trash` move recording to trash \n`delete` delete recording permanently",
+            "description": "The recording delete action\n`trash` move recording to trash\n`delete` delete recording permanently",
             "type": "string",
             "default": "trash",
             "enum": [
@@ -4188,7 +4188,7 @@
           {
             "in": "query",
             "name": "type",
-            "description": "The meeting type \n`scheduled` all the scheduled meetings \n`live` all the live meetings \n`upcoming` all the upcoming meetings",
+            "description": "The meeting type\n`scheduled` all the scheduled meetings\n`live` all the live meetings\n`upcoming` all the upcoming meetings",
             "type": "string",
             "default": "live",
             "enum": [
@@ -4290,7 +4290,7 @@
           {
             "in": "query",
             "name": "type",
-            "description": "The meeting type \n`scheduled` all the scheduled meeting \n`live` all the live meeting \n`upcoming` all the upcoming meeting",
+            "description": "The meeting type\n`scheduled` all the scheduled meeting\n`live` all the live meeting\n`upcoming` all the upcoming meeting",
             "type": "string",
             "default": "live",
             "enum": [
@@ -4352,7 +4352,7 @@
           {
             "in": "query",
             "name": "type",
-            "description": "The meeting type \n`scheduled` all the scheduled meeting \n`live` all the live meeting \n`upcoming` all the upcoming meeting",
+            "description": "The meeting type\n`scheduled` all the scheduled meeting\n`live` all the live meeting\n`upcoming` all the upcoming meeting",
             "type": "string",
             "default": "live",
             "enum": [
@@ -4448,7 +4448,7 @@
           {
             "in": "query",
             "name": "type",
-            "description": "The meeting type \n`past` past meeting \n`pastOne` past one user meeting \n`live` live meeting",
+            "description": "The meeting type\n`past` past meeting\n`pastOne` past one user meeting\n`live` live meeting",
             "type": "string",
             "default": "live",
             "enum": [
@@ -4562,7 +4562,7 @@
           {
             "in": "query",
             "name": "type",
-            "description": "The meeting type \n`past` past meetings \n`live` live meetings",
+            "description": "The meeting type\n`past` past meetings\n`live` live meetings",
             "type": "string",
             "default": "live",
             "enum": [
@@ -4698,7 +4698,7 @@
           {
             "in": "query",
             "name": "type",
-            "description": "The meeting type \n`past` past meeting \n`live` live meeting",
+            "description": "The meeting type\n`past` past meeting\n`live` live meeting",
             "type": "string",
             "default": "live",
             "enum": [
@@ -4766,7 +4766,7 @@
           {
             "in": "query",
             "name": "type",
-            "description": "The webinar type \n`past` past webinars \n`live` live webinars",
+            "description": "The webinar type\n`past` past webinars\n`live` live webinars",
             "type": "string",
             "default": "live",
             "enum": [
@@ -4866,7 +4866,7 @@
           {
             "in": "query",
             "name": "type",
-            "description": "The webinar type \n`past` past webinars \n`live` live webinars",
+            "description": "The webinar type\n`past` past webinars\n`live` live webinars",
             "type": "string",
             "default": "live",
             "enum": [
@@ -4926,7 +4926,7 @@
           {
             "in": "query",
             "name": "type",
-            "description": "The webinar type \n`past` past webinars \n`live` live webinars",
+            "description": "The webinar type\n`past` past webinars\n`live` live webinars",
             "type": "string",
             "default": "live",
             "enum": [
@@ -5020,7 +5020,7 @@
           {
             "in": "query",
             "name": "type",
-            "description": "The webinar type \n`past` past webinars \n`live` live webinars",
+            "description": "The webinar type\n`past` past webinars\n`live` live webinars",
             "type": "string",
             "default": "live",
             "enum": [
@@ -5134,7 +5134,7 @@
           {
             "in": "query",
             "name": "type",
-            "description": "The webinar type \n`past` past webinars \n`live` live webinars",
+            "description": "The webinar type\n`past` past webinars\n`live` live webinars",
             "type": "string",
             "default": "live",
             "enum": [
@@ -5262,7 +5262,7 @@
           {
             "in": "query",
             "name": "type",
-            "description": "The webinar type \n`past` past webinars \n`live` live webinars",
+            "description": "The webinar type\n`past` past webinars\n`live` live webinars",
             "type": "string",
             "default": "live",
             "enum": [
@@ -5678,7 +5678,7 @@
           {
             "in": "query",
             "name": "type",
-            "description": "Active hosts or inactive hosts \n`active` Active hosts \n`inactive` Inactive hosts",
+            "description": "Active hosts or inactive hosts\n`active` Active hosts\n`inactive` Inactive hosts",
             "type": "string",
             "enum": [
               "active",
@@ -6191,7 +6191,7 @@
           {
             "in": "query",
             "name": "type",
-            "description": "Audio type \n`1` Toll-free Call-in & Call-out",
+            "description": "Audio type\n`1` Toll-free Call-in & Call-out",
             "type": "string",
             "enum": [
               1
@@ -6303,7 +6303,7 @@
           {
             "in": "query",
             "name": "status",
-            "description": "User status \n`active` users with active status \n`inactive` users with inactive status \n`pending` users with pending status",
+            "description": "User status\n`active` users with active status\n`inactive` users with inactive status\n`pending` users with pending status",
             "type": "string",
             "default": "active",
             "enum": [
@@ -6389,7 +6389,7 @@
               "properties": {
                 "action": {
                   "type": "string",
-                  "description": "Specify how to create the new user \n`create` User will get an email sent from Zoom. There is a confirmation link in this email. User will then need to click this link to activate their account to the Zoom service. The user can set or change their password in Zoom. \n`autoCreate` This action is provided for enterprise customer who has a managed domain. This feature is disabled by default because of the security risk involved in creating a user who does not belong to your domain without notifying the user.  \n`custCreate` This action is provided for API partner only. User created in this way has no password and is not able to log into the Zoom web site or client. \n`ssoCreate This action is provided for enabled \"Pre-provisioning SSO User\" option. User created in this way has no password. If it is not a basic user, will generate a Personal Vanity URL using user name (no domain) of the provisioning email. If user name or pmi is invalid or occupied, will use random number/random personal vanity URL.",
+                  "description": "Specify how to create the new user\n`create` User will get an email sent from Zoom. There is a confirmation link in this email. User will then need to click this link to activate their account to the Zoom service. The user can set or change their password in Zoom.\n`autoCreate` This action is provided for enterprise customer who has a managed domain. This feature is disabled by default because of the security risk involved in creating a user who does not belong to your domain without notifying the user.\n`custCreate` This action is provided for API partner only. User created in this way has no password and is not able to log into the Zoom web site or client.\n`ssoCreate This action is provided for enabled \"Pre-provisioning SSO User\" option. User created in this way has no password. If it is not a basic user, will generate a Personal Vanity URL using user name (no domain) of the provisioning email. If user name or pmi is invalid or occupied, will use random number/random personal vanity URL.",
                   "enum": [
                     "create",
                     "autoCreate",
@@ -6397,10 +6397,10 @@
                     "ssoCreate"
                   ],
                   "x-enum-descriptions": [
-                    "User will get an email sent from Zoom. There is a confirmation link in this email. User will then need to click this link to activate their account to the Zoom service. The user can set or change their password in Zoom. <br/>.",
-                    "This action is provided for enterprise customer who has a managed domain. This feature is disabled by default because of the security risk involved in creating a user who does not belong to your domain without notifying the user. <br/>",
-                    "This action is provided for API partner only. User created in this way has no password and is not able to log into the Zoom web site or client. <br/>",
-                    "This action is provided for enabled \"Pre-provisioning SSO User\" option. User created in this way has no password. If it is not a basic user, will generate a Personal Vanity URL using user name (no domain) of the provisioning email. If user name or pmi is invalid or occupied, will use random number/random personal vanity URL. <br/>"
+                    "User will get an email sent from Zoom. There is a confirmation link in this email. User will then need to click this link to activate their account to the Zoom service. The user can set or change their password in Zoom.",
+                    "This action is provided for enterprise customer who has a managed domain. This feature is disabled by default because of the security risk involved in creating a user who does not belong to your domain without notifying the user.",
+                    "This action is provided for API partner only. User created in this way has no password and is not able to log into the Zoom web site or client.",
+                    "This action is provided for enabled \"Pre-provisioning SSO User\" option. User created in this way has no password. If it is not a basic user, will generate a Personal Vanity URL using user name (no domain) of the provisioning email. If user name or pmi is invalid or occupied, will use random number/random personal vanity URL. "
                   ]
                 },
                 "user_info": {
@@ -6416,7 +6416,7 @@
                     },
                     "type": {
                       "type": "integer",
-                      "description": "\n`1` basic \n`2` pro \n`3` corp",
+                      "description": "\n`1` basic\n`2` pro\n`3` corp",
                       "enum": [
                         1,
                         2,
@@ -6582,7 +6582,7 @@
                 },
                 "type": {
                   "type": "integer",
-                  "description": "\n`1` basic \n`2` pro \n`3` corp",
+                  "description": "\n`1` basic\n`2` pro\n`3` corp",
                   "enum": [
                     1,
                     2,
@@ -6654,7 +6654,7 @@
           {
             "in": "query",
             "name": "action",
-            "description": "Delete action type \n`disassociate` Disassociate a user \n`delete` Permanently delete a user",
+            "description": "Delete action type\n`disassociate` Disassociate a user\n`delete` Permanently delete a user",
             "type": "string",
             "default": "disassociate",
             "enum": [
@@ -7163,7 +7163,7 @@
                     "audio_type": {
                       "type": "string",
                       "default": "voip",
-                      "description": "Determine how participants can join the audio portion of the meeting \n`both` Telephony and VoIP \n`telephony` Audio PSTN telephony only \n`voip` VoIP only \n`thirdParty` 3rd party audio conference",
+                      "description": "Determine how participants can join the audio portion of the meeting\n`both` Telephony and VoIP\n`telephony` Audio PSTN telephony only\n`voip` VoIP only\n`thirdParty` 3rd party audio conference",
                       "enum": [
                         "both",
                         "telephony",
@@ -7218,7 +7218,7 @@
                     "entry_exit_chime": {
                       "type": "string",
                       "default": "a''",
-                      "description": "Play sound on join/leave \n`host` when host joins/leaves \n`all` when any participant joins/leaves \n`none` no join/leave sound.",
+                      "description": "Play sound on join/leave\n`host` when host joins/leaves\n`all` when any participant joins/leaves\n`none` no join/leave sound.",
                       "enum": [
                         "host",
                         "all",
@@ -7389,7 +7389,7 @@
                     "auto_recording": {
                       "type": "string",
                       "default": "local",
-                      "description": "Record meetings automatically as they start \n`local` Record on local \n`cloud` Record on cloud \n`none` Disabled.",
+                      "description": "Record meetings automatically as they start\n`local` Record on local\n`cloud` Record on cloud\n`none` Disabled.",
                       "enum": [
                         "local",
                         "cloud",
@@ -7507,7 +7507,7 @@
               "properties": {
                 "action": {
                   "type": "string",
-                  "description": "The action type \n`activate` set users status to active \n`deactivate` set users status to inactive",
+                  "description": "The action type\n`activate` set users status to active\n`deactivate` set users status to inactive",
                   "enum": [
                     "activate",
                     "deactivate"
@@ -7768,7 +7768,7 @@
                       },
                       "type": {
                         "type": "string",
-                        "description": "Dial-in number type. \n`toll` Toll number \n`tollfree` Toll free number \n`media_link` Media link phone number",
+                        "description": "Dial-in number type.\n`toll` Toll number\n`tollfree` Toll free number\n`media_link` Media link phone number",
                         "enum": [
                           "toll",
                           "tollfree",
@@ -7925,7 +7925,7 @@
                       },
                       "type": {
                         "type": "string",
-                        "description": "Dial-in number type. \n`toll` Toll number \n`tollfree` Toll free number \n`media_link` Media link phone number",
+                        "description": "Dial-in number type.\n`toll` Toll number\n`tollfree` Toll free number\n`media_link` Media link phone number",
                         "enum": [
                           "toll",
                           "tollfree",
@@ -7999,7 +7999,7 @@
           {
             "in": "query",
             "name": "type",
-            "description": "User token type \n`token` Used for starting meeting with client SDK. \n`zpk` Used for generating the start meeting url. (Deprecated) \n`zak` Used for generating the start meeting url. The expiration time is two hours. For API users, the expiration time is 90 days.",
+            "description": "User token type\n`token` Used for starting meeting with client SDK.\n`zpk` Used for generating the start meeting url. (Deprecated)\n`zak` Used for generating the start meeting url. The expiration time is two hours. For API users, the expiration time is 90 days.",
             "type": "string",
             "enum": [
               "token",
@@ -8231,7 +8231,7 @@
                 },
                 "type": {
                   "type": "integer",
-                  "description": "Webinar Type \n`5` Webinar \n`6` Recurring Webinar with no fixed time \n`9` Recurring Webinar with fixed time",
+                  "description": "Webinar Type\n`5` Webinar\n`6` Recurring Webinar with no fixed time\n`9` Recurring Webinar with fixed time",
                   "default": 5,
                   "enum": [
                     5,
@@ -8271,7 +8271,7 @@
                   "properties": {
                     "type": {
                       "type": "integer",
-                      "description": "Recurrence meeting type \n`1` Daily \n`2` Weekly \n`3` Monthly",
+                      "description": "Recurrence meeting type\n`1` Daily\n`2` Weekly\n`3` Monthly",
                       "enum": [
                         1,
                         2,
@@ -8289,7 +8289,7 @@
                     },
                     "weekly_days": {
                       "type": "integer",
-                      "description": "Days of the week the meeting should repeat, multiple values separated by comma \n`1` Sunday \n`2` Monday \n`3` Tuesday \n`4` Wednesday \n`5` Thursday \n`6` Friday \n`7` Saturday",
+                      "description": "Days of the week the meeting should repeat, multiple values separated by comma\n`1` Sunday\n`2` Monday\n`3` Tuesday\n`4` Wednesday\n`5` Thursday\n`6` Friday\n`7` Saturday",
                       "enum": [
                         1,
                         2,
@@ -8315,7 +8315,7 @@
                     },
                     "monthly_week": {
                       "type": "integer",
-                      "description": "Week for which the meeting should recur each month, \n`-1` Last week \n`1` First week \n`2` Second week \n`3` Third week \n`4` Fourth week.",
+                      "description": "Week for which the meeting should recur each month,\n`-1` Last week\n`1` First week\n`2` Second week\n`3` Third week\n`4` Fourth week.",
                       "enum": [
                         -1,
                         1,
@@ -8333,7 +8333,7 @@
                     },
                     "monthly_week_day": {
                       "type": "integer",
-                      "description": "Day for which the meeting should recur each month \n`1` Sunday \n`2` Monday \n`3` Tuesday \n`4` Wednesday \n`5` Thursday \n`6` Friday \n`7` Saturday.",
+                      "description": "Day for which the meeting should recur each month\n`1` Sunday\n`2` Monday\n`3` Tuesday\n`4` Wednesday\n`5` Thursday\n`6` Friday\n`7` Saturday.",
                       "enum": [
                         1,
                         2,
@@ -8390,7 +8390,7 @@
                     },
                     "approval_type": {
                       "type": "integer",
-                      "description": "\n`0` Automatically Approve \n`1` Manually Approve \n`2` No Registration Required",
+                      "description": "\n`0` Automatically Approve\n`1` Manually Approve\n`2` No Registration Required",
                       "default": 2,
                       "enum": [
                         0,
@@ -8405,7 +8405,7 @@
                     },
                     "registration_type": {
                       "type": "integer",
-                      "description": "Registration type. Used for recurring meeting with fixed time only. \n`1` Attendees register once and can attend any of the occurrences \n`2` Attendees need to register for each occurrence to attend\n `3` Attendees register once and can choose one or more occurrences to attend",
+                      "description": "Registration type. Used for recurring meeting with fixed time only.\n`1` Attendees register once and can attend any of the occurrences\n`2` Attendees need to register for each occurrence to attend\n `3` Attendees register once and can choose one or more occurrences to attend",
                       "default": 1,
                       "enum": [
                         1,
@@ -8420,7 +8420,7 @@
                     },
                     "audio": {
                       "type": "string",
-                      "description": "Determine how participants can join the audio portion of the meeting \n`both` Both Telephony and VoIP \n`telephony` Telephony only \n`voip` VoIP only",
+                      "description": "Determine how participants can join the audio portion of the meeting\n`both` Both Telephony and VoIP\n`telephony` Telephony only\n`voip` VoIP only",
                       "default": "both",
                       "enum": [
                         "both",
@@ -8435,7 +8435,7 @@
                     },
                     "auto_recording": {
                       "type": "string",
-                      "description": "Record meetings automatically as they start \n`local` Record on local \n`cloud` Record on cloud \n`none` Disabled.",
+                      "description": "Record meetings automatically as they start\n`local` Record on local\n`cloud` Record on cloud\n`none` Disabled.",
                       "default": "none",
                       "enum": [
                         "local",
@@ -8631,7 +8631,7 @@
                 },
                 "type": {
                   "type": "integer",
-                  "description": "Webinar Type \n`5` Webinar \n`6` Recurring Webinar with no fixed time \n`9` Recurring Webinar with fixed time",
+                  "description": "Webinar Type\n`5` Webinar\n`6` Recurring Webinar with no fixed time\n`9` Recurring Webinar with fixed time",
                   "default": 5,
                   "enum": [
                     5,
@@ -8671,7 +8671,7 @@
                   "properties": {
                     "type": {
                       "type": "integer",
-                      "description": "Recurrence meeting type \n`1` Daily \n`2` Weekly \n`3` Monthly",
+                      "description": "Recurrence meeting type\n`1` Daily\n`2` Weekly\n`3` Monthly",
                       "enum": [
                         1,
                         2,
@@ -8689,7 +8689,7 @@
                     },
                     "weekly_days": {
                       "type": "integer",
-                      "description": "Days of the week the meeting should repeat, multiple values separated by comma \n`1` Sunday \n`2` Monday \n`3` Tuesday \n`4` Wednesday \n`5` Thursday \n`6` Friday \n`7` Saturday",
+                      "description": "Days of the week the meeting should repeat, multiple values separated by comma\n`1` Sunday\n`2` Monday\n`3` Tuesday\n`4` Wednesday\n`5` Thursday\n`6` Friday\n`7` Saturday",
                       "enum": [
                         1,
                         2,
@@ -8715,7 +8715,7 @@
                     },
                     "monthly_week": {
                       "type": "integer",
-                      "description": "Week for which the meeting should recur each month, \n`-1` Last week \n`1` First week \n`2` Second week \n`3` Third week \n`4` Fourth week.",
+                      "description": "Week for which the meeting should recur each month,\n`-1` Last week\n`1` First week\n`2` Second week\n`3` Third week\n`4` Fourth week.",
                       "enum": [
                         -1,
                         1,
@@ -8733,7 +8733,7 @@
                     },
                     "monthly_week_day": {
                       "type": "integer",
-                      "description": "Day for which the meeting should recur each month \n`1` Sunday \n`2` Monday \n`3` Tuesday \n`4` Wednesday \n`5` Thursday \n`6` Friday \n`7` Saturday.",
+                      "description": "Day for which the meeting should recur each month\n`1` Sunday\n`2` Monday\n`3` Tuesday\n`4` Wednesday\n`5` Thursday\n`6` Friday\n`7` Saturday.",
                       "enum": [
                         1,
                         2,
@@ -8788,7 +8788,7 @@
                     },
                     "approval_type": {
                       "type": "integer",
-                      "description": "\n`0` Automatically Approve \n`1` Manually Approve \n`2` No Registration Required",
+                      "description": "\n`0` Automatically Approve\n`1` Manually Approve\n`2` No Registration Required",
                       "default": 2,
                       "enum": [
                         0,
@@ -8803,7 +8803,7 @@
                     },
                     "registration_type": {
                       "type": "integer",
-                      "description": "Registration type. Used for recurring meeting with fixed time only. \n`1` Attendees register once and can attend any of the occurrences \n`2` Attendees need to register for each occurrence to attend\n `3` Attendees register once and can choose one or more occurrences to attend",
+                      "description": "Registration type. Used for recurring meeting with fixed time only.\n`1` Attendees register once and can attend any of the occurrences\n`2` Attendees need to register for each occurrence to attend\n `3` Attendees register once and can choose one or more occurrences to attend",
                       "default": 1,
                       "enum": [
                         1,
@@ -8818,7 +8818,7 @@
                     },
                     "audio": {
                       "type": "string",
-                      "description": "Determine how participants can join the audio portion of the meeting \n`both` Both Telephony and VoIP \n`telephony` Telephony only \n`voip` VoIP only",
+                      "description": "Determine how participants can join the audio portion of the meeting\n`both` Both Telephony and VoIP\n`telephony` Telephony only\n`voip` VoIP only",
                       "default": "both",
                       "enum": [
                         "both",
@@ -8833,7 +8833,7 @@
                     },
                     "auto_recording": {
                       "type": "string",
-                      "description": "Record meetings automatically as they start \n`local` Record on local \n`cloud` Record on cloud \n`none` Disabled.",
+                      "description": "Record meetings automatically as they start\n`local` Record on local\n`cloud` Record on cloud\n`none` Disabled.",
                       "default": "none",
                       "enum": [
                         "local",
@@ -9149,7 +9149,7 @@
           {
             "in": "query",
             "name": "status",
-            "description": "The registrant status \n`pending` registrants status is pending \n`approved` registrants status is approved \n`denied` registrants status is denied",
+            "description": "The registrant status\n`pending` registrants status is pending\n`approved` registrants status is approved\n`denied` registrants status is denied",
             "type": "string",
             "default": "approved",
             "enum": [
@@ -9310,7 +9310,7 @@
                 },
                 "purchasing_time_frame": {
                   "type": "string",
-                  "description": "Purchasing Time Frame \n `Within a month` \n `1-3 months` \n `4-6 months` \n `More than 6 months` \n `No timeframe`",
+                  "description": "Purchasing Time Frame\n `Within a month`\n `1-3 months`\n `4-6 months`\n `More than 6 months`\n `No timeframe`",
                   "enum": [
                     "Within a month",
                     "1-3 months",
@@ -9321,7 +9321,7 @@
                 },
                 "role_in_purchase_process": {
                   "type": "string",
-                  "description": "Role in Purchase Process \n`Decision Maker` \n`Evaluator/Recommender`  \n`Influencer` \n`Not involved` ",
+                  "description": "Role in Purchase Process\n`Decision Maker`\n`Evaluator/Recommender`\n`Influencer`\n`Not involved` ",
                   "enum": [
                     "Decision Maker",
                     "Evaluator/Recommender",
@@ -9331,7 +9331,7 @@
                 },
                 "no_of_employees": {
                   "type": "string",
-                  "description": "Number of Employees \n`1-20` \n`21-50` \n`51-100` \n`101-500` \n`500-1,000` \n`1,001-5,000` \n`5,001-10,000` \n`More than 10,000` ",
+                  "description": "Number of Employees\n`1-20`\n`21-50`\n`51-100`\n`101-500`\n`500-1,000`\n`1,001-5,000`\n`5,001-10,000`\n`More than 10,000` ",
                   "enum": [
                     "1-20",
                     "21-50",
@@ -9419,7 +9419,7 @@
               "properties": {
                 "action": {
                   "type": "string",
-                  "description": "`approve` Approve registrant \n`cancel` Cancel registrant \n`deny` Deny registrant",
+                  "description": "`approve` Approve registrant\n`cancel` Cancel registrant\n`deny` Deny registrant",
                   "enum": [
                     "approve",
                     "cancel",
@@ -9517,7 +9517,7 @@
               "properties": {
                 "version": {
                   "type": "string",
-                  "description": "\n`v1` Version 1 \n`v2` Version 2",
+                  "description": "\n`v1` Version 1\n`v2` Version 2",
                   "enum": [
                     "v1",
                     "v2"
@@ -9618,7 +9618,7 @@
                   "items": {
                     "type": "string"
                   },
-                  "description": "List of events objects. \n`meeting_started` The meeting has started. \n`meeting_ended` The meeting has ended. \n`meeting_jbh` Attendee has joined a meeting before the host. \n`meeting_join` Host hasn’t launched the meeting, attendee is waiting. \n`recording_completed` All the Cloud Recordings have completed processing and is available. \n`participant_joined` Participant has joined the meeting. \n`participant_left` Participant has leaved the meeting. \n`meeting_registered` Attendee registered for a meeting or webinar. \n`recording_transcript_completed` Recording audio transcript files have processed and are available.",
+                  "description": "List of events objects.\n`meeting_started` The meeting has started.\n`meeting_ended` The meeting has ended.\n`meeting_jbh` Attendee has joined a meeting before the host.\n`meeting_join` Host hasn’t launched the meeting, attendee is waiting.\n`recording_completed` All the Cloud Recordings have completed processing and is available.\n`participant_joined` Participant has joined the meeting.\n`participant_left` Participant has leaved the meeting.\n`meeting_registered` Attendee registered for a meeting or webinar.\n`recording_transcript_completed` Recording audio transcript files have processed and are available.",
                   "enum": [
                     "meeting_started",
                     "meeting_ended",
@@ -9754,7 +9754,7 @@
                 },
                 "events": {
                   "type": "array",
-                  "description": "List of events objects. \n`meeting_started` The meeting has started. \n`meeting_ended` The meeting has ended. \n`meeting_jbh` Attendee has joined a meeting before the host. \n`meeting_join` Host hasn’t launched the meeting, attendee is waiting. \n`recording_completed` All the Cloud Recordings have completed processing and is available. \n`participant_joined` Participant has joined the meeting. \n`participant_left` Participant has leaved the meeting. \n`meeting_registered` Attendee registered for a meeting or webinar. \n`recording_transcript_completed` Recording audio transcript files have processed and are available.",
+                  "description": "List of events objects.\n`meeting_started` The meeting has started.\n`meeting_ended` The meeting has ended.\n`meeting_jbh` Attendee has joined a meeting before the host.\n`meeting_join` Host hasn’t launched the meeting, attendee is waiting.\n`recording_completed` All the Cloud Recordings have completed processing and is available.\n`participant_joined` Participant has joined the meeting.\n`participant_left` Participant has leaved the meeting.\n`meeting_registered` Attendee registered for a meeting or webinar.\n`recording_transcript_completed` Recording audio transcript files have processed and are available.",
                   "items": {
                     "type": "string"
                   },
@@ -9909,7 +9909,7 @@
     "RecordingDeleteAction": {
       "in": "query",
       "name": "action",
-      "description": "The recording delete action \n`trash` move recording to trash \n`delete` delete recording permanently",
+      "description": "The recording delete action\n`trash` move recording to trash\n`delete` delete recording permanently",
       "type": "string",
       "default": "trash",
       "enum": [
@@ -9945,7 +9945,7 @@
     "MeetingType": {
       "in": "query",
       "name": "type",
-      "description": "The meeting type \n`scheduled` all the scheduled meetings \n`live` all the live meetings \n`upcoming` all the upcoming meetings",
+      "description": "The meeting type\n`scheduled` all the scheduled meetings\n`live` all the live meetings\n`upcoming` all the upcoming meetings",
       "type": "string",
       "default": "live",
       "enum": [
@@ -9962,7 +9962,7 @@
     "MeetingTypePast": {
       "in": "query",
       "name": "type",
-      "description": "The meeting type \n`past` past meetings \n`pastOne` past one user meetings \n`live` live meetings",
+      "description": "The meeting type\n`past` past meetings\n`pastOne` past one user meetings\n`live` live meetings",
       "type": "string",
       "default": "live",
       "enum": [
@@ -9979,7 +9979,7 @@
     "MeetingTypePast2": {
       "in": "query",
       "name": "type",
-      "description": "The meeting type \n`past` past meetings \n`live` live meetings",
+      "description": "The meeting type\n`past` past meetings\n`live` live meetings",
       "type": "string",
       "default": "live",
       "enum": [
@@ -9994,7 +9994,7 @@
     "MeetingTypePast3": {
       "in": "query",
       "name": "type",
-      "description": "The meeting type \n`past` past meetings \n`pastOne` past one user meetings \n`live` live meetings",
+      "description": "The meeting type\n`past` past meetings\n`pastOne` past one user meetings\n`live` live meetings",
       "type": "string",
       "default": "live",
       "enum": [
@@ -10073,7 +10073,7 @@
     "RegistrantStatus": {
       "in": "query",
       "name": "status",
-      "description": "The registrant status \n`pending` registrants status is pending \n`approved` registrants status is approved \n`denied` registrants status is denied",
+      "description": "The registrant status\n`pending` registrants status is pending\n`approved` registrants status is approved\n`denied` registrants status is denied",
       "type": "string",
       "default": "approved",
       "enum": [
@@ -10154,7 +10154,7 @@
     "WebinarTypePast": {
       "in": "query",
       "name": "type",
-      "description": "The webinar type \n`past` past webinars \n`live` live webinars",
+      "description": "The webinar type\n`past` past webinars\n`live` live webinars",
       "type": "string",
       "default": "live",
       "enum": [
@@ -10169,7 +10169,7 @@
     "WebinarTypePast2": {
       "in": "query",
       "name": "type",
-      "description": "The webinar type \n`past` past webinars \n`live` live webinars",
+      "description": "The webinar type\n`past` past webinars\n`live` live webinars",
       "type": "string",
       "default": "live",
       "enum": [
