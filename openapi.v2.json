@@ -1,6 +1,6 @@
 {
   "swagger": "2.0",
-  "x-explorer-enabled": true,
+  "x-explorer-enabled": false,
   "x-send-defaults": true,
   "info": {
     "title": "Zoom API",
