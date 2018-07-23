@@ -2536,7 +2536,7 @@
           {
             "in": "query",
             "name": "type",
-            "description": "The meeting type",
+            "description": "The meeting type \n`scheduled` all the scheduled meetings \n`live` all the live meetings \n`upcoming` all the upcoming meetings",
             "type": "string",
             "default": "live",
             "enum": [
@@ -2627,7 +2627,7 @@
                 },
                 "type": {
                   "type": "integer",
-                  "description": "Meeting Type",
+                  "description": "Meeting Type \n`1` Instant Meeting \n`2` Scheduled Meeting \n`3` Recurring Meeting with no fixed time \n`8` Recurring Meeting with no fixed time",
                   "default": 2,
                   "enum": [
                     1,
@@ -2639,7 +2639,7 @@
                     "Instant Meeting",
                     "Scheduled Meeting",
                     "Recurring Meeting with no fixed time",
-                    "Recurring Meeting with fixed time"
+                    "Recurring Meeting with no fixed time"
                   ]
                 },
                 "start_time": {
@@ -2669,7 +2669,7 @@
                   "properties": {
                     "type": {
                       "type": "integer",
-                      "description": "Recurrence meeting type",
+                      "description": "Recurrence meeting type \n`1` Daily \n`2` Weekly \n`3` Monthly",
                       "enum": [
                         1,
                         2,
@@ -3041,7 +3041,7 @@
                 },
                 "type": {
                   "type": "integer",
-                  "description": "Meeting Type",
+                  "description": "Meeting Type \n`1` Instant Meeting \n`2` Scheduled Meeting \n`3` Recurring Meeting with no fixed time \n`8` Recurring Meeting with no fixed time",
                   "default": 2,
                   "enum": [
                     1,
@@ -3083,7 +3083,7 @@
                   "properties": {
                     "type": {
                       "type": "integer",
-                      "description": "Recurrence meeting type",
+                      "description": "Recurrence meeting type \n`1` Daily \n`2` Weekly \n`3` Monthly",
                       "enum": [
                         1,
                         2,
@@ -4182,7 +4182,7 @@
           {
             "in": "query",
             "name": "type",
-            "description": "The meeting type",
+            "description": "The meeting type \n`scheduled` all the scheduled meetings \n`live` all the live meetings \n`upcoming` all the upcoming meetings",
             "type": "string",
             "default": "live",
             "enum": [
@@ -4284,7 +4284,7 @@
           {
             "in": "query",
             "name": "type",
-            "description": "The meeting type",
+            "description": "The meeting type \n`scheduled` all the scheduled meeting \n`live` all the live meeting \n`upcoming` all the upcoming meeting",
             "type": "string",
             "default": "live",
             "enum": [
@@ -4346,7 +4346,7 @@
           {
             "in": "query",
             "name": "type",
-            "description": "The meeting type",
+            "description": "The meeting type \n`scheduled` all the scheduled meeting \n`live` all the live meeting \n`upcoming` all the upcoming meeting",
             "type": "string",
             "default": "live",
             "enum": [
@@ -4442,7 +4442,7 @@
           {
             "in": "query",
             "name": "type",
-            "description": "The meeting type",
+            "description": "The meeting type \n`past` past meeting \n`pastOne` past one user meeting \n`live` live meeting",
             "type": "string",
             "default": "live",
             "enum": [
@@ -4556,7 +4556,7 @@
           {
             "in": "query",
             "name": "type",
-            "description": "The meeting type",
+            "description": "The meeting type \n`past` past meetings \n`live` live meetings",
             "type": "string",
             "default": "live",
             "enum": [
@@ -4692,7 +4692,7 @@
           {
             "in": "query",
             "name": "type",
-            "description": "The meeting type",
+            "description": "The meeting type \n`past` past meeting \n`live` live meeting",
             "type": "string",
             "default": "live",
             "enum": [
@@ -8265,7 +8265,7 @@
                   "properties": {
                     "type": {
                       "type": "integer",
-                      "description": "Recurrence meeting type",
+                      "description": "Recurrence meeting type \n`1` Daily \n`2` Weekly \n`3` Monthly",
                       "enum": [
                         1,
                         2,
@@ -8664,7 +8664,7 @@
                   "properties": {
                     "type": {
                       "type": "integer",
-                      "description": "Recurrence meeting type",
+                      "description": "Recurrence meeting type \n`1` Daily \n`2` Weekly \n`3` Monthly",
                       "enum": [
                         1,
                         2,
@@ -9934,7 +9934,7 @@
     "MeetingType": {
       "in": "query",
       "name": "type",
-      "description": "The meeting type",
+      "description": "The meeting type \n`scheduled` all the scheduled meetings \n`live` all the live meetings \n`upcoming` all the upcoming meetings",
       "type": "string",
       "default": "live",
       "enum": [
@@ -9951,7 +9951,7 @@
     "MeetingTypePast": {
       "in": "query",
       "name": "type",
-      "description": "The meeting type",
+      "description": "The meeting type \n`past` past meetings \n`pastOne` past one user meetings \n`live` live meetings",
       "type": "string",
       "default": "live",
       "enum": [
@@ -9968,7 +9968,7 @@
     "MeetingTypePast2": {
       "in": "query",
       "name": "type",
-      "description": "The meeting type",
+      "description": "The meeting type \n`past` past meetings \n`live` live meetings",
       "type": "string",
       "default": "live",
       "enum": [
@@ -9983,7 +9983,7 @@
     "MeetingTypePast3": {
       "in": "query",
       "name": "type",
-      "description": "The meeting type",
+      "description": "The meeting type \n`past` past meetings \n`pastOne` past one user meetings \n`live` live meetings",
       "type": "string",
       "default": "live",
       "enum": [
