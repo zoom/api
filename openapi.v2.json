@@ -143,7 +143,7 @@
                     },
                     "pay_mode": {
                       "type": "string",
-                      "description": "Payee",
+                      "description": "Payee\n`master` Master account holder pays\n`sub` Sub account holder pays",
                       "enum": [
                         "master",
                         "sub"
@@ -294,7 +294,7 @@
                 },
                 "pay_mode": {
                   "type": "string",
-                  "description": "Payee",
+                  "description": "Payee\n`master` Master account holder pays\n`sub` Sub account holder pays",
                   "enum": [
                     "master",
                     "sub"
@@ -491,7 +491,7 @@
                     },
                     "audio_type": {
                       "type": "string",
-                      "description": "Determine how participants can join the audio portion of the meeting",
+                      "description": "Determine how participants can join the audio portion of the meeting \n`both` Telephony and VoIP \n`telephony` Audio PSTN telephony only \n`voip` VoIP only \n`thirdParty` 3rd party audio conference",
                       "default": "both",
                       "enum": [
                         "both",
@@ -819,7 +819,7 @@
                     },
                     "auto_recording": {
                       "type": "string",
-                      "description": "Record meetings automatically as they start",
+                      "description": "Record meetings automatically as they start \n`local` Record on local \n`cloud` Record on cloud \n`none` Disabled.",
                       "enum": [
                         "local",
                         "cloud",
@@ -2687,7 +2687,7 @@
                     },
                     "weekly_days": {
                       "type": "integer",
-                      "description": "Days of the week the meeting should repeat, multiple values separated by comma",
+                      "description": "Days of the week the meeting should repeat, multiple values separated by comma \n`1` Sunday \n`2` Monday \n`3` Tuesday \n`4` Wednesday \n`5` Thursday \n`6` Friday \n`7` Saturday",
                       "enum": [
                         1,
                         2,
@@ -2713,7 +2713,7 @@
                     },
                     "monthly_week": {
                       "type": "integer",
-                      "description": "Week for which the meeting should recur each month,",
+                      "description": "Week for which the meeting should recur each month, \n`-1` Last week \n`1` First week \n`2` Second week \n`3` Third week \n`4` Fourth week.",
                       "enum": [
                         -1,
                         1,
@@ -2731,7 +2731,7 @@
                     },
                     "monthly_week_day": {
                       "type": "integer",
-                      "description": "Day for which the meeting should recur each month",
+                      "description": "Day for which the meeting should recur each month \n`1` Sunday \n`2` Monday \n`3` Tuesday \n`4` Wednesday \n`5` Thursday \n`6` Friday \n`7` Saturday.",
                       "enum": [
                         1,
                         2,
@@ -2808,6 +2808,7 @@
                     },
                     "approval_type": {
                       "type": "integer",
+                      "description": "\n`0` Automatically Approve \n`1` Manually Approve \n`2` No Registration Required",
                       "default": 2,
                       "enum": [
                         0,
@@ -2822,7 +2823,7 @@
                     },
                     "registration_type": {
                       "type": "integer",
-                      "description": "Registration type. Used for recurring meeting with fixed time only.",
+                      "description": "Registration type. Used for recurring meeting with fixed time only. \n`1` Attendees register once and can attend any of the occurrences \n`2` Attendees need to register for each occurrence to attend\n `3` Attendees register once and can choose one or more occurrences to attend",
                       "default": 1,
                       "enum": [
                         1,
@@ -3100,7 +3101,7 @@
                     },
                     "weekly_days": {
                       "type": "integer",
-                      "description": "Days of the week the meeting should repeat, multiple values separated by comma",
+                      "description": "Days of the week the meeting should repeat, multiple values separated by comma \n`1` Sunday \n`2` Monday \n`3` Tuesday \n`4` Wednesday \n`5` Thursday \n`6` Friday \n`7` Saturday",
                       "enum": [
                         1,
                         2,
@@ -3126,7 +3127,7 @@
                     },
                     "monthly_week": {
                       "type": "integer",
-                      "description": "Week for which the meeting should recur each month,",
+                      "description": "Week for which the meeting should recur each month, \n`-1` Last week \n`1` First week \n`2` Second week \n`3` Third week \n`4` Fourth week.",
                       "enum": [
                         -1,
                         1,
@@ -3144,7 +3145,7 @@
                     },
                     "monthly_week_day": {
                       "type": "integer",
-                      "description": "Day for which the meeting should recur each month",
+                      "description": "Day for which the meeting should recur each month \n`1` Sunday \n`2` Monday \n`3` Tuesday \n`4` Wednesday \n`5` Thursday \n`6` Friday \n`7` Saturday.",
                       "enum": [
                         1,
                         2,
@@ -3219,6 +3220,7 @@
                     },
                     "approval_type": {
                       "type": "integer",
+                      "description": "\n`0` Automatically Approve \n`1` Manually Approve \n`2` No Registration Required",
                       "default": 2,
                       "enum": [
                         0,
@@ -3233,7 +3235,7 @@
                     },
                     "registration_type": {
                       "type": "integer",
-                      "description": "Registration type. Used for recurring meeting with fixed time only.",
+                      "description": "Registration type. Used for recurring meeting with fixed time only. \n`1` Attendees register once and can attend any of the occurrences \n`2` Attendees need to register for each occurrence to attend\n `3` Attendees register once and can choose one or more occurrences to attend",
                       "default": 1,
                       "enum": [
                         1,
@@ -3569,7 +3571,7 @@
                 },
                 "purchasing_time_frame": {
                   "type": "string",
-                  "description": "Purchasing Time Frame",
+                  "description": "Purchasing Time Frame \n `Within a month` \n `1-3 months` \n `4-6 months` \n `More than 6 months` \n `No timeframe`",
                   "enum": [
                     "Within a month",
                     "1-3 months",
@@ -3580,7 +3582,7 @@
                 },
                 "role_in_purchase_process": {
                   "type": "string",
-                  "description": "Role in Purchase Process",
+                  "description": "Role in Purchase Process \n`Decision Maker` \n`Evaluator/Recommender`  \n`Influencer` \n`Not involved` ",
                   "enum": [
                     "Decision Maker",
                     "Evaluator/Recommender",
@@ -3590,7 +3592,7 @@
                 },
                 "no_of_employees": {
                   "type": "string",
-                  "description": "Number of Employees",
+                  "description": "Number of Employees \n`1-20` \n`21-50` \n`51-100` \n`101-500` \n`500-1,000` \n`1,001-5,000` \n`5,001-10,000` \n`More than 10,000` ",
                   "enum": [
                     "1-20",
                     "21-50",
@@ -6485,6 +6487,7 @@
             "in": "query",
             "name": "login_type",
             "type": "string",
+            "description": "`0` Facebook\n`1` Google\n`99` API\n`100` Zoom\n`101` SSO",
             "enum": [
               0,
               1,
@@ -7018,6 +7021,7 @@
           {
             "in": "query",
             "name": "login_type",
+            "description": "`0` Facebook\n`1` Google\n`99` API\n`100` Zoom\n`101` SSO",
             "type": "string",
             "enum": [
               0,
@@ -7153,7 +7157,7 @@
                     "audio_type": {
                       "type": "string",
                       "default": "voip",
-                      "description": "Determine how participants can join the audio portion of the meeting",
+                      "description": "Determine how participants can join the audio portion of the meeting \n`both` Telephony and VoIP \n`telephony` Audio PSTN telephony only \n`voip` VoIP only \n`thirdParty` 3rd party audio conference",
                       "enum": [
                         "both",
                         "telephony",
@@ -7208,7 +7212,7 @@
                     "entry_exit_chime": {
                       "type": "string",
                       "default": "a''",
-                      "description": "Play sound on join/leave",
+                      "description": "Play sound on join/leave \n`host` when host joins/leaves \n`all` when any participant joins/leaves \n`none` no join/leave sound.",
                       "enum": [
                         "host",
                         "all",
@@ -7379,7 +7383,7 @@
                     "auto_recording": {
                       "type": "string",
                       "default": "local",
-                      "description": "Automatic recording",
+                      "description": "Record meetings automatically as they start \n`local` Record on local \n`cloud` Record on cloud \n`none` Disabled.",
                       "enum": [
                         "local",
                         "cloud",
@@ -8279,7 +8283,7 @@
                     },
                     "weekly_days": {
                       "type": "integer",
-                      "description": "Days of the week the meeting should repeat, multiple values separated by comma",
+                      "description": "Days of the week the meeting should repeat, multiple values separated by comma \n`1` Sunday \n`2` Monday \n`3` Tuesday \n`4` Wednesday \n`5` Thursday \n`6` Friday \n`7` Saturday",
                       "enum": [
                         1,
                         2,
@@ -8305,7 +8309,7 @@
                     },
                     "monthly_week": {
                       "type": "integer",
-                      "description": "Week for which the meeting should recur each month,",
+                      "description": "Week for which the meeting should recur each month, \n`-1` Last week \n`1` First week \n`2` Second week \n`3` Third week \n`4` Fourth week.",
                       "enum": [
                         -1,
                         1,
@@ -8323,7 +8327,7 @@
                     },
                     "monthly_week_day": {
                       "type": "integer",
-                      "description": "Day for which the meeting should recur each month",
+                      "description": "Day for which the meeting should recur each month \n`1` Sunday \n`2` Monday \n`3` Tuesday \n`4` Wednesday \n`5` Thursday \n`6` Friday \n`7` Saturday.",
                       "enum": [
                         1,
                         2,
@@ -8380,6 +8384,7 @@
                     },
                     "approval_type": {
                       "type": "integer",
+                      "description": "\n`0` Automatically Approve \n`1` Manually Approve \n`2` No Registration Required",
                       "default": 2,
                       "enum": [
                         0,
@@ -8394,7 +8399,7 @@
                     },
                     "registration_type": {
                       "type": "integer",
-                      "description": "Registration type. Used for recurring webinar with fixed time only.",
+                      "description": "Registration type. Used for recurring meeting with fixed time only. \n`1` Attendees register once and can attend any of the occurrences \n`2` Attendees need to register for each occurrence to attend\n `3` Attendees register once and can choose one or more occurrences to attend",
                       "default": 1,
                       "enum": [
                         1,
@@ -8677,7 +8682,7 @@
                     },
                     "weekly_days": {
                       "type": "integer",
-                      "description": "Days of the week the meeting should repeat, multiple values separated by comma",
+                      "description": "Days of the week the meeting should repeat, multiple values separated by comma \n`1` Sunday \n`2` Monday \n`3` Tuesday \n`4` Wednesday \n`5` Thursday \n`6` Friday \n`7` Saturday",
                       "enum": [
                         1,
                         2,
@@ -8703,7 +8708,7 @@
                     },
                     "monthly_week": {
                       "type": "integer",
-                      "description": "Week for which the meeting should recur each month,",
+                      "description": "Week for which the meeting should recur each month, \n`-1` Last week \n`1` First week \n`2` Second week \n`3` Third week \n`4` Fourth week.",
                       "enum": [
                         -1,
                         1,
@@ -8721,7 +8726,7 @@
                     },
                     "monthly_week_day": {
                       "type": "integer",
-                      "description": "Day for which the meeting should recur each month",
+                      "description": "Day for which the meeting should recur each month \n`1` Sunday \n`2` Monday \n`3` Tuesday \n`4` Wednesday \n`5` Thursday \n`6` Friday \n`7` Saturday.",
                       "enum": [
                         1,
                         2,
@@ -8776,6 +8781,7 @@
                     },
                     "approval_type": {
                       "type": "integer",
+                      "description": "\n`0` Automatically Approve \n`1` Manually Approve \n`2` No Registration Required",
                       "default": 2,
                       "enum": [
                         0,
@@ -8790,7 +8796,7 @@
                     },
                     "registration_type": {
                       "type": "integer",
-                      "description": "Registration type. Used for recurring webinar with fixed time only.",
+                      "description": "Registration type. Used for recurring meeting with fixed time only. \n`1` Attendees register once and can attend any of the occurrences \n`2` Attendees need to register for each occurrence to attend\n `3` Attendees register once and can choose one or more occurrences to attend",
                       "default": 1,
                       "enum": [
                         1,
@@ -9295,7 +9301,7 @@
                 },
                 "purchasing_time_frame": {
                   "type": "string",
-                  "description": "Purchasing Time Frame",
+                  "description": "Purchasing Time Frame \n `Within a month` \n `1-3 months` \n `4-6 months` \n `More than 6 months` \n `No timeframe`",
                   "enum": [
                     "Within a month",
                     "1-3 months",
@@ -9306,7 +9312,7 @@
                 },
                 "role_in_purchase_process": {
                   "type": "string",
-                  "description": "Role in Purchase Process",
+                  "description": "Role in Purchase Process \n`Decision Maker` \n`Evaluator/Recommender`  \n`Influencer` \n`Not involved` ",
                   "enum": [
                     "Decision Maker",
                     "Evaluator/Recommender",
@@ -9316,7 +9322,7 @@
                 },
                 "no_of_employees": {
                   "type": "string",
-                  "description": "Number of Employees",
+                  "description": "Number of Employees \n`1-20` \n`21-50` \n`51-100` \n`101-500` \n`500-1,000` \n`1,001-5,000` \n`5,001-10,000` \n`More than 10,000` ",
                   "enum": [
                     "1-20",
                     "21-50",
@@ -9837,6 +9843,7 @@
     "LoginType": {
       "in": "query",
       "name": "login_type",
+      "description": "`0` Facebook\n`1` Google\n`99` API\n`100` Zoom\n`101` SSO",
       "type": "string",
       "enum": [
         0,
