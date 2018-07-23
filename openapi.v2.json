@@ -1859,7 +1859,6 @@
                     "H.323",
                     "SIP"
                   ],
-                  "description": "Device protocol"
                 },
                 "ip": {
                   "type": "string",
@@ -1878,7 +1877,6 @@
                     "yes",
                     "no"
                   ],
-                  "description": "Device encryption"
                 }
               }
             }
@@ -1947,7 +1945,6 @@
                     "H.323",
                     "SIP"
                   ],
-                  "description": "Device protocol"
                 },
                 "ip": {
                   "type": "string",
@@ -1966,7 +1963,6 @@
                     "yes",
                     "no"
                   ],
-                  "description": "Device encryption"
                 }
               }
             }
@@ -6431,7 +6427,6 @@
                         "pro",
                         "corp"
                       ],
-                      "description": "User's type"
                     },
                     "first_name": {
                       "type": "string",
@@ -6598,7 +6593,6 @@
                     "pro",
                     "corp"
                   ],
-                  "description": "User's type"
                 },
                 "pmi": {
                   "type": "string",
