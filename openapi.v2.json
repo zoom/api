@@ -2582,7 +2582,7 @@
                 },
                 "content": {
                   "type": "string",
-                  "description": "JSON template for displaying the message. [Please look here for available templates.](ref:send-message-templates)"
+                  "description": "JSON template for displaying the message. [See our message templates in the appendix below.](ref:send-message-templates)"
                 }
               }
             }
