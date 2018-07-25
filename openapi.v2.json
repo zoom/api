@@ -2517,6 +2517,96 @@
         }
       }
     },
+    "/im/users/{userId}/channels": {
+      "get": {
+        "summary": "List chat channels",
+        "description": "List chat channels for a user",
+        "tags": [
+          "IM Chat"
+        ],
+        "operationId": "listChannels",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "userId",
+            "description": "The user ID or email address",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of channel objects returned",
+            "examples": {
+              "application/json": {
+                "group_jid": "string",
+                "name": "string",
+                "type": "integer",
+                "created_time": "string [date-time]",
+                "modified_time": "string [date-time]"
+              }
+            }
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/im/chat/messages": {
+      "post": {
+        "summary": "Send bot message",
+        "description": "Send a bot message to a specific channel.",
+        "tags": [
+          "IM Chat"
+        ],
+        "operationId": "sendBotMessage",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "robot_jid": {
+                  "type": "string",
+                  "description": "Unique bot JID from the marketplace."
+                },
+                "to_jid": {
+                  "type": "string",
+                  "description": "Unique id for user or group receving the message."
+                },
+                "account_id": {
+                  "type": "string",
+                  "description": "Unique id for the authroizing user."
+                },
+                "content": {
+                  "type": "string",
+                  "description": "JSON template for displaying the message. [Please look here for available templates.]()"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of channel objects returned",
+            "examples": {
+              "application/json": {
+                "group_jid": "string",
+                "name": "string",
+                "type": "integer",
+                "created_time": "string [date-time]",
+                "modified_time": "string [date-time]"
+              }
+            }
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
     "/users/{userId}/meetings": {
       "get": {
         "summary": "List meetings",
@@ -6979,9 +7069,9 @@
             "required": true
           },
           {
-            "name": "pic_file",
-            "description": "User picture file, must be a jpg/jpeg file",
             "in": "formData",
+            "name": "pic_file",
+            "description": "User picture file, must be a",
             "type": "file",
             "required": true
           }
@@ -9610,31 +9700,31 @@
                 "events": {
                   "type": "array",
                   "items": {
-                    "type": "string"
-                  },
-                  "description": "List of events objects.\n`meeting_started` The meeting has started.\n`meeting_ended` The meeting has ended.\n`meeting_jbh` Attendee has joined a meeting before the host.\n`meeting_join` Host hasn’t launched the meeting, attendee is waiting.\n`recording_completed` All the Cloud Recordings have completed processing and is available.\n`participant_joined` Participant has joined the meeting.\n`participant_left` Participant has leaved the meeting.\n`meeting_registered` Attendee registered for a meeting or webinar.\n`recording_transcript_completed` Recording audio transcript files have processed and are available.",
-                  "enum": [
-                    "meeting_started",
-                    "meeting_ended",
-                    "meeting_jbh",
-                    "meeting_join",
-                    "recording_completed",
-                    "participant_joined",
-                    "participant_left",
-                    "meeting_registered",
-                    "recording_transcript_completed"
-                  ],
-                  "x-enum-descriptions": [
-                    "The meeting has started.",
-                    "The meeting has ended.",
-                    "Attendee has joined a meeting before the host.",
-                    "Host hasn’t launched the meeting, attendee is waiting.",
-                    "All the Cloud Recordings have completed processing and is available.",
-                    "Participant has joined the meeting.",
-                    "Participant has leaved the meeting.",
-                    "Attendee registered for a meeting or webinar.",
-                    "Recording audio transcript files have processed and are available."
-                  ]
+                    "type": "string",
+                    "description": "List of events objects.\n`meeting_started` The meeting has started.\n`meeting_ended` The meeting has ended.\n`meeting_jbh` Attendee has joined a meeting before the host.\n`meeting_join` Host hasn’t launched the meeting, attendee is waiting.\n`recording_completed` All the Cloud Recordings have completed processing and is available.\n`participant_joined` Participant has joined the meeting.\n`participant_left` Participant has leaved the meeting.\n`meeting_registered` Attendee registered for a meeting or webinar.\n`recording_transcript_completed` Recording audio transcript files have processed and are available.",
+                    "enum": [
+                      "meeting_started",
+                      "meeting_ended",
+                      "meeting_jbh",
+                      "meeting_join",
+                      "recording_completed",
+                      "participant_joined",
+                      "participant_left",
+                      "meeting_registered",
+                      "recording_transcript_completed"
+                    ],
+                    "x-enum-descriptions": [
+                      "The meeting has started.",
+                      "The meeting has ended.",
+                      "Attendee has joined a meeting before the host.",
+                      "Host hasn’t launched the meeting, attendee is waiting.",
+                      "All the Cloud Recordings have completed processing and is available.",
+                      "Participant has joined the meeting.",
+                      "Participant has leaved the meeting.",
+                      "Attendee registered for a meeting or webinar.",
+                      "Recording audio transcript files have processed and are available."
+                    ]
+                  }
                 }
               }
             }
