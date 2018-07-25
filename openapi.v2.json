@@ -10356,8 +10356,8 @@
   "securityDefinitions": {
     "global": {
       "type": "apiKey",
-      "name": "access_token",
-      "in": "query"
+      "name": "Authorization",
+      "in": "header"
     }
   },
   "security": [
