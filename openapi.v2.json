@@ -9701,29 +9701,7 @@
                   "type": "array",
                   "items": {
                     "type": "string",
-                    "description": "List of events objects.\n`meeting_started` The meeting has started.\n`meeting_ended` The meeting has ended.\n`meeting_jbh` Attendee has joined a meeting before the host.\n`meeting_join` Host hasn’t launched the meeting, attendee is waiting.\n`recording_completed` All the Cloud Recordings have completed processing and is available.\n`participant_joined` Participant has joined the meeting.\n`participant_left` Participant has leaved the meeting.\n`meeting_registered` Attendee registered for a meeting or webinar.\n`recording_transcript_completed` Recording audio transcript files have processed and are available.",
-                    "enum": [
-                      "meeting_started",
-                      "meeting_ended",
-                      "meeting_jbh",
-                      "meeting_join",
-                      "recording_completed",
-                      "participant_joined",
-                      "participant_left",
-                      "meeting_registered",
-                      "recording_transcript_completed"
-                    ],
-                    "x-enum-descriptions": [
-                      "The meeting has started.",
-                      "The meeting has ended.",
-                      "Attendee has joined a meeting before the host.",
-                      "Host hasn’t launched the meeting, attendee is waiting.",
-                      "All the Cloud Recordings have completed processing and is available.",
-                      "Participant has joined the meeting.",
-                      "Participant has leaved the meeting.",
-                      "Attendee registered for a meeting or webinar.",
-                      "Recording audio transcript files have processed and are available."
-                    ]
+                    "description": "List of events objects.\n`meeting_started` The meeting has started.\n`meeting_ended` The meeting has ended.\n`meeting_jbh` Attendee has joined a meeting before the host.\n`meeting_join` Host hasn’t launched the meeting, attendee is waiting.\n`recording_completed` All the Cloud Recordings have completed processing and is available.\n`participant_joined` Participant has joined the meeting.\n`participant_left` Participant has leaved the meeting.\n`meeting_registered` Attendee registered for a meeting or webinar.\n`recording_transcript_completed` Recording audio transcript files have processed and are available."
                   }
                 }
               }
