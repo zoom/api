@@ -10943,7 +10943,7 @@
             "$ref": "#/components/schemas/ApprovalType"
           },
           "registration_type": {
-            "description": "Registration type. Used for recurring webinar with fixed time only.",
+            "description": "Registration type. Used for recurring webinar with fixed time only.\n`1` Attendees register once and can attend any of the occurrences\n`2` Attendees need to register for each occurrence to attend\n`3` Attendees register once and can choose one or more occurrences to attend",
             "example": "1",
             "$ref": "#/components/schemas/RegistrationType"
           },
@@ -11054,7 +11054,7 @@
             "$ref": "#/components/schemas/ApprovalType"
           },
           "registration_type": {
-            "description": "Registration type. Used for recurring webinar with fixed time only.",
+            "description": "Registration type. Used for recurring webinar with fixed time only.\n`1` Attendees register once and can attend any of the occurrences\n`2` Attendees need to register for each occurrence to attend\n`3` Attendees register once and can choose one or more occurrences to attend",
             "example": "1",
             "$ref": "#/components/schemas/RegistrationType"
           },
