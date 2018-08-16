@@ -172,13 +172,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       },
       "post": {
         "tags": [
@@ -319,13 +313,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/accounts/{accountId}": {
@@ -456,13 +444,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       },
       "delete": {
         "tags": [
@@ -498,13 +480,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/accounts/{accountId}/options": {
@@ -594,13 +570,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/accounts/{accountId}/settings": {
@@ -1225,13 +1195,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       },
       "patch": {
         "tags": [
@@ -1748,13 +1712,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/accounts/{accountId}/billing": {
@@ -1868,13 +1826,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       },
       "patch": {
         "tags": [
@@ -1965,13 +1917,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/accounts/{accountId}/plans": {
@@ -2170,13 +2116,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       },
       "post": {
         "tags": [
@@ -2566,13 +2506,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/accounts/{accountId}/plans/base": {
@@ -2635,13 +2569,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/accounts/{accountId}/plans/addons": {
@@ -2704,13 +2632,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       },
       "post": {
         "tags": [
@@ -2771,13 +2693,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/users": {
@@ -3020,13 +2936,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       },
       "post": {
         "tags": [
@@ -3215,13 +3125,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/users/{userId}": {
@@ -3447,13 +3351,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       },
       "delete": {
         "tags": [
@@ -3556,13 +3454,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       },
       "patch": {
         "tags": [
@@ -3677,13 +3569,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/users/{userId}/assistants": {
@@ -3760,13 +3646,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       },
       "post": {
         "tags": [
@@ -3860,13 +3740,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       },
       "delete": {
         "tags": [
@@ -3902,13 +3776,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/users/{userId}/assistants/{assistantId}": {
@@ -3957,13 +3825,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/users/{userId}/schedulers": {
@@ -4040,13 +3902,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       },
       "delete": {
         "tags": [
@@ -4082,13 +3938,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/users/{userId}/schedulers/{schedulerId}": {
@@ -4137,13 +3987,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/users/{userId}/picture": {
@@ -4201,13 +4045,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/users/{userId}/settings": {
@@ -4719,13 +4557,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       },
       "patch": {
         "tags": [
@@ -5121,13 +4953,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/users/{userId}/status": {
@@ -5203,13 +5029,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/users/{userId}/password": {
@@ -5269,13 +5089,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/users/{userId}/permissions": {
@@ -5338,13 +5152,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/users/{userId}/token": {
@@ -5428,13 +5236,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       },
       "delete": {
         "tags": [
@@ -5470,13 +5272,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/users/zpk": {
@@ -5531,13 +5327,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/users/email": {
@@ -5591,13 +5381,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/users/vanity_name": {
@@ -5646,13 +5430,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/users/{userId}/meetings": {
@@ -5884,13 +5662,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       },
       "post": {
         "tags": [
@@ -6659,13 +6431,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/meetings/{meetingId}": {
@@ -7030,13 +6796,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       },
       "delete": {
         "tags": [
@@ -7083,13 +6843,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       },
       "patch": {
         "tags": [
@@ -7536,13 +7290,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/meetings/{meetingId}/status": {
@@ -7600,13 +7348,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/meetings/{meetingId}/registrants": {
@@ -7807,13 +7549,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       },
       "post": {
         "tags": [
@@ -8105,13 +7841,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/meetings/{meetingId}/registrants/status": {
@@ -8219,13 +7949,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/past_meetings/{meetingUUID}": {
@@ -8347,13 +8071,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/past_meetings/{meetingUUID}/participants": {
@@ -8480,13 +8198,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/users/{userId}/webinars": {
@@ -8675,13 +8387,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       },
       "post": {
         "tags": [
@@ -9413,13 +9119,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/webinars/{webinarId}": {
@@ -9760,13 +9460,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       },
       "delete": {
         "tags": [
@@ -9813,13 +9507,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       },
       "patch": {
         "tags": [
@@ -10253,13 +9941,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/webinars/{webinarId}/status": {
@@ -10317,13 +9999,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/webinars/{webinarId}/panelists": {
@@ -10417,13 +10093,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       },
       "post": {
         "tags": [
@@ -10519,13 +10189,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       },
       "delete": {
         "tags": [
@@ -10562,13 +10226,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/webinars/{webinarId}/panelists/{panelistId}": {
@@ -10619,13 +10277,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/webinars/{webinarId}/registrants": {
@@ -10826,13 +10478,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       },
       "post": {
         "tags": [
@@ -11124,13 +10770,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/webinars/{webinarId}/registrants/status": {
@@ -11237,13 +10877,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/past_webinars/{webinarId}/instances": {
@@ -11322,13 +10956,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/groups": {
@@ -11402,13 +11030,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       },
       "post": {
         "tags": [
@@ -11478,13 +11100,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/groups/{groupId}": {
@@ -11553,13 +11169,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       },
       "delete": {
         "tags": [
@@ -11595,13 +11205,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       },
       "patch": {
         "tags": [
@@ -11655,13 +11259,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/groups/{groupId}/members": {
@@ -11809,13 +11407,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       },
       "post": {
         "tags": [
@@ -11907,13 +11499,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/groups/{groupId}/members/{memberId}": {
@@ -11962,13 +11548,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/im/groups": {
@@ -12058,13 +11638,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       },
       "post": {
         "tags": [
@@ -12187,13 +11761,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/im/groups/{groupId}": {
@@ -12257,13 +11825,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       },
       "delete": {
         "tags": [
@@ -12299,13 +11861,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       },
       "patch": {
         "tags": [
@@ -12397,13 +11953,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/im/groups/{groupId}/members": {
@@ -12551,13 +12101,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       },
       "post": {
         "tags": [
@@ -12649,13 +12193,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/im/groups/{groupId}/members/{memberId}": {
@@ -12704,13 +12242,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/im/chat/sessions": {
@@ -12857,13 +12389,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/im/chat/sessions/{sessionId}": {
@@ -13032,13 +12558,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/users/{userId}/recordings": {
@@ -13277,13 +12797,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/meetings/{meetingId}/recordings": {
@@ -13398,13 +12912,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       },
       "delete": {
         "tags": [
@@ -13467,13 +12975,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/meetings/{meetingId}/recordings/{recordingId}": {
@@ -13549,13 +13051,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/meetings/{meetingId}/recordings/status": {
@@ -13612,13 +13108,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/meetings/{meetingId}/recordings/{recordingId}/status": {
@@ -13686,13 +13176,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/report/daily": {
@@ -13809,13 +13293,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/report/users": {
@@ -14047,13 +13525,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/report/users/{userId}/meetings": {
@@ -14268,13 +13740,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/report/meetings/{meetingId}": {
@@ -14390,13 +13856,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/report/meetings/{meetingId}/participants": {
@@ -14557,13 +14017,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/report/meetings/{meetingId}/polls": {
@@ -14682,13 +14136,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/report/webinars/{webinarId}": {
@@ -14804,13 +14252,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/report/webinars/{webinarId}/participants": {
@@ -14970,13 +14412,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/report/webinars/{webinarId}/polls": {
@@ -15095,13 +14531,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/report/webinars/{webinarId}/qa": {
@@ -15220,13 +14650,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/report/telephone": {
@@ -15433,13 +14857,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/metrics/meetings": {
@@ -15694,13 +15112,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/metrics/meetings/{meetingId}": {
@@ -15866,13 +15278,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/metrics/meetings/{meetingId}/participants": {
@@ -16131,13 +15537,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/metrics/meetings/{meetingId}/participants/{participantId}/qos": {
@@ -16576,13 +15976,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/metrics/meetings/{meetingId}/participants/qos": {
@@ -17074,13 +16468,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/metrics/meetings/{meetingId}/participants/sharing": {
@@ -17265,13 +16653,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/metrics/webinars": {
@@ -17521,13 +16903,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/metrics/webinars/{webinarId}": {
@@ -17688,13 +17064,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/metrics/webinars/{webinarId}/participants": {
@@ -17948,13 +17318,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/metrics/webinars/{webinarId}/participants/{participantId}/qos": {
@@ -18393,13 +17757,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/metrics/webinars/{webinarId}/participants/qos": {
@@ -18891,13 +18249,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/metrics/webinars/{webinarId}/participants/sharing": {
@@ -19082,13 +18434,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/metrics/zoomrooms": {
@@ -19251,13 +18597,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/metrics/zoomrooms/{zoomroomId}": {
@@ -19648,13 +18988,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/metrics/crc": {
@@ -19776,13 +19110,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/metrics/im": {
@@ -20015,13 +19343,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/webhooks/options": {
@@ -20084,13 +19406,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/webhooks": {
@@ -20244,13 +19560,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       },
       "post": {
         "tags": [
@@ -20473,13 +19783,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/webhooks/{webhookId}": {
@@ -20625,13 +19929,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       },
       "delete": {
         "tags": [
@@ -20667,13 +19965,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       },
       "patch": {
         "tags": [
@@ -20794,13 +20086,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/tsp": {
@@ -20870,13 +20156,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/users/{userId}/tsp": {
@@ -21018,13 +20298,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       },
       "post": {
         "tags": [
@@ -21223,13 +20497,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/users/{userId}/tsp/{tspId}": {
@@ -21348,13 +20616,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       },
       "delete": {
         "tags": [
@@ -21398,13 +20660,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       },
       "patch": {
         "tags": [
@@ -21525,13 +20781,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/users/{userId}/pac": {
@@ -21663,13 +20913,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/h323/devices": {
@@ -21817,13 +21061,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       },
       "post": {
         "tags": [
@@ -22003,13 +21241,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     },
     "/h323/devices/{deviceId}": {
@@ -22047,13 +21279,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       },
       "patch": {
         "tags": [
@@ -22164,13 +21390,7 @@
             "header_authorization": [],
             "query_string_auth": []
           }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
-        }
+        ]
       }
     }
   },
