@@ -12000,75 +12000,7 @@
         },
         "responses": {
           "200": {
-            "description": "Message sent",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "description": "Archived IM Chat messages Returned",
-                  "title": "imChatMessagesResponse",
-                  "type": "object",
-                  "properties": {
-                    "session_id": {
-                      "type": "string",
-                      "description": "IM Chat session ID"
-                    },
-                    "from": {
-                      "type": "string",
-                      "description": "Start date",
-                      "format": "date"
-                    },
-                    "to": {
-                      "type": "string",
-                      "description": "End date",
-                      "format": "date"
-                    },
-                    "page_size": {
-                      "maximum": 300,
-                      "type": "integer",
-                      "description": "The amount of records returns within a single API call.\n**default:** 30\n**maximum:** 300",
-                      "format": "int32",
-                      "example": 30
-                    },
-                    "next_page_token": {
-                      "type": "string",
-                      "description": "Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes."
-                    },
-                    "messages": {
-                      "type": "array",
-                      "items": {
-                        "title": "Message",
-                        "type": "object",
-                        "properties": {
-                          "message": {
-                            "type": "string",
-                            "description": "IM Chat message content"
-                          },
-                          "sender": {
-                            "type": "string",
-                            "description": "IM Chat message sender"
-                          },
-                          "date_time": {
-                            "type": "string",
-                            "description": "IM Chat message sent time",
-                            "format": "date-time"
-                          },
-                          "action": {
-                            "type": "string",
-                            "description": "IM Chat message action"
-                          },
-                          "action_time": {
-                            "type": "string",
-                            "description": "Action time",
-                            "format": "date-time"
-                          }
-                        }
-                      },
-                      "description": "Array of session objects"
-                    }
-                  }
-                }
-              }
-            }
+            "description": "Message sent"
           }
         },
         "deprecated": false,
