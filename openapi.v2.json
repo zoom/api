@@ -4601,6 +4601,7 @@
         "summary": "Send chat messages as a bot",
         "description": "Send messages from your app as a bot",
         "operationId": "ImChatSendMessages",
+        "parameters": [],
         "requestBody": {
           "description": "",
           "content": {
