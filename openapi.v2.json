@@ -8387,39 +8387,39 @@
         "type": "object",
         "properties": {
           "schedule_meting": {
-            "description": "Account Settings: Schedule Meeting",
+            "description": "",
             "$ref": "#/components/schemas/AccountSettingsScheduleMeeting"
           },
           "in_meeting": {
-            "description": "Account Settings: In Meeting",
+            "description": "",
             "$ref": "#/components/schemas/AccountSettingsInMeeting"
           },
           "email_notification": {
-            "description": "Account Settings: Notification",
+            "description": "",
             "$ref": "#/components/schemas/AccountSettingsEmailNotification"
           },
           "zoom_rooms": {
-            "description": "Account Settings: Zoom Rooms",
+            "description": "",
             "$ref": "#/components/schemas/AccountSettingsZoomRooms"
           },
           "security": {
-            "description": "Account Settings: Security",
+            "description": "",
             "$ref": "#/components/schemas/AccountSettingsSecurity"
           },
           "recording": {
-            "description": "Account Settings: Recording",
+            "description": "",
             "$ref": "#/components/schemas/AccountSettingsRecording"
           },
           "telephony": {
-            "description": "Account Settings: Telephony",
+            "description": "",
             "$ref": "#/components/schemas/AccountSettingsTelephony"
           },
           "integration": {
-            "description": "Account Settings: Integration",
+            "description": "",
             "$ref": "#/components/schemas/AccountSettingsIntegration"
           },
           "feature": {
-            "description": "Account Settings: Feature",
+            "description": "",
             "$ref": "#/components/schemas/AccountSettingsFeature"
           }
         }
