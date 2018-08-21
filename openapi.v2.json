@@ -9,12 +9,12 @@
   "host": "api.zoom.us",
   "basePath": "/v2",
   "securityDefinitions": {
-        "global": {
-            "type": "apiKey",
-            "name": "access_token",
-            "in": "query"
-        }
-    },
+    "global": {
+      "type": "apiKey",
+      "name": "access_token",
+      "in": "query"
+    }
+  },
   "schemes": [
     "https"
   ],
@@ -25,10 +25,10 @@
     "application/json"
   ],
   "security": [
-        {
-            "global": []
-        }
-    ],
+    {
+      "global": []
+    }
+  ],
   "paths": {
     "/accounts": {
       "get": {
