@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "x-explorer-enabled": false,
-  "x-send-defaults": false,
+  "x-send-defaults": true,
   "info": {
     "title": "Zoom API",
     "description": "API Description",
