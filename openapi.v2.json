@@ -8,7 +8,13 @@
   },
   "host": "api.zoom.us",
   "basePath": "/v2",
-  "securityDefinitions": {},
+  "securityDefinitions": {
+        "global": {
+            "type": "apiKey",
+            "name": "access_token",
+            "in": "query"
+        }
+    },
   "schemes": [
     "https"
   ],
@@ -18,6 +24,11 @@
   "produces": [
     "application/json"
   ],
+  "security": [
+        {
+            "global": []
+        }
+    ],
   "paths": {
     "/accounts": {
       "get": {
@@ -136,32 +147,6 @@
               }
             }
           }
-        },
-        "x-unitTests": [
-          {
-            "request": {
-              "method": "GET",
-              "uri": "/accounts?page_size=30&page_number=1"
-            },
-            "expectedResponse": {
-              "x-allowExtraHeaders": true,
-              "x-bodyMatchMode": "NONE",
-              "x-arrayOrderedMatching": false,
-              "x-arrayCheckCount": false,
-              "x-matchResponseSchema": true,
-              "headers": {}
-            },
-            "x-testShouldPass": true,
-            "x-testEnabled": true,
-            "x-testName": "Test List accounts",
-            "x-testDescription": "List all the sub accounts under the master account"
-          }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       },
       "post": {
@@ -285,13 +270,6 @@
             "description": "Account with that email already exists",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -390,13 +368,6 @@
             "description": "User not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       },
       "delete": {
@@ -426,13 +397,6 @@
             "description": "Account not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -513,13 +477,6 @@
             "description": "Account not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -1014,13 +971,6 @@
             "description": "Account not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       },
       "patch": {
@@ -1519,13 +1469,6 @@
             "description": "Account not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -1615,13 +1558,6 @@
             "description": "Account not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       },
       "patch": {
@@ -1704,13 +1640,6 @@
             "description": "Account not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -1859,13 +1788,6 @@
             "description": "Account not fond",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       },
       "post": {
@@ -2196,13 +2118,6 @@
               }
             }
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -2255,13 +2170,6 @@
           "204": {
             "description": "Account plans updated"
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -2315,13 +2223,6 @@
           "204": {
             "description": "Account plans updated"
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       },
       "post": {
@@ -2373,13 +2274,6 @@
           "201": {
             "description": "Account plans updated"
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -2576,32 +2470,6 @@
               }
             }
           }
-        },
-        "x-unitTests": [
-          {
-            "request": {
-              "method": "GET",
-              "uri": "/users?page_size=30&page_number=1"
-            },
-            "expectedResponse": {
-              "x-allowExtraHeaders": true,
-              "x-bodyMatchMode": "NONE",
-              "x-arrayOrderedMatching": false,
-              "x-arrayCheckCount": false,
-              "x-matchResponseSchema": true,
-              "headers": {}
-            },
-            "x-testShouldPass": true,
-            "x-testEnabled": true,
-            "x-testName": "Test Get users",
-            "x-testDescription": "List users on your account"
-          }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       },
       "post": {
@@ -2621,7 +2489,7 @@
             "required": true,
             "description": "User",
             "schema": {
-              "title": "body258",
+              "title": "body",
               "description": "User",
               "type": "object",
               "properties": {
@@ -2773,13 +2641,6 @@
             "description": "User with that email already exists",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -2970,13 +2831,6 @@
             "description": "User not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       },
       "delete": {
@@ -3055,13 +2909,6 @@
             "description": "User not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       },
       "patch": {
@@ -3168,13 +3015,6 @@
             "description": "User not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -3231,13 +3071,6 @@
             "description": "User not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       },
       "post": {
@@ -3314,13 +3147,6 @@
             "description": "User not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       },
       "delete": {
@@ -3350,13 +3176,6 @@
             "description": "User not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -3395,13 +3214,6 @@
             "description": "User or Assistant not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -3458,13 +3270,6 @@
             "description": "User not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       },
       "delete": {
@@ -3494,13 +3299,6 @@
             "description": "User not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -3539,13 +3337,6 @@
             "description": "User or Scheduler not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -3588,13 +3379,6 @@
             "description": "User not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -4019,13 +3803,6 @@
             "description": "User not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       },
       "patch": {
@@ -4410,13 +4187,6 @@
             "description": "User not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -4445,7 +4215,7 @@
             "required": true,
             "description": "User status",
             "schema": {
-              "title": "body270",
+              "title": "body",
               "description": "User status",
               "type": "object",
               "properties": {
@@ -4483,13 +4253,6 @@
             "description": "User not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -4518,7 +4281,7 @@
             "required": true,
             "description": "User password",
             "schema": {
-              "title": "body272",
+              "title": "body",
               "description": "User password",
               "type": "object",
               "properties": {
@@ -4541,13 +4304,6 @@
             "description": "User not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -4593,13 +4349,6 @@
             "description": "User not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -4668,13 +4417,6 @@
             "description": "User not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       },
       "delete": {
@@ -4704,13 +4446,6 @@
             "description": "User not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -4750,13 +4485,6 @@
               }
             }
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -4795,13 +4523,6 @@
               }
             }
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -4840,13 +4561,6 @@
               }
             }
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -5036,13 +4750,6 @@
             "description": "User not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       },
       "post": {
@@ -5749,13 +5456,6 @@
             "description": "User not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -6066,13 +5766,6 @@
             "description": "Meeting not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       },
       "delete": {
@@ -6112,13 +5805,6 @@
             "description": "Meeting not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       },
       "patch": {
@@ -6556,13 +6242,6 @@
             "description": "Meeting not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -6594,7 +6273,7 @@
             "required": true,
             "description": "",
             "schema": {
-              "title": "body190",
+              "title": "body",
               "description": "`recover` recover meeting recording",
               "type": "object",
               "properties": {
@@ -6615,13 +6294,6 @@
             "description": "Meeting not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -6767,13 +6439,6 @@
             "description": "Meeting not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       },
       "post": {
@@ -7042,13 +6707,6 @@
             "description": "Meeting not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -7148,13 +6806,6 @@
             "description": "Meeting or Registrant not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -7250,13 +6901,6 @@
             "description": "Meeting not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -7354,13 +6998,6 @@
             "description": "Meeting not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -7514,13 +7151,6 @@
             "description": "User not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       },
       "post": {
@@ -8193,13 +7823,6 @@
             "description": "User not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -8489,13 +8112,6 @@
             "description": "Webinar not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       },
       "delete": {
@@ -8535,13 +8151,6 @@
             "description": "Webinar not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       },
       "patch": {
@@ -8966,13 +8575,6 @@
             "description": "Webinar not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -9004,7 +8606,7 @@
             "required": true,
             "description": "",
             "schema": {
-              "title": "body284",
+              "title": "body",
               "description": "`end` end a webinar",
               "type": "object",
               "properties": {
@@ -9025,13 +8627,6 @@
             "description": "Webinar not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -9104,13 +8699,6 @@
             "description": "Webinar not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       },
       "post": {
@@ -9190,13 +8778,6 @@
             "description": "Webinar not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       },
       "delete": {
@@ -9229,13 +8810,6 @@
             "description": "Webinar not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -9280,13 +8854,6 @@
             "description": "Webinar or Panelist not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -9432,13 +8999,6 @@
             "description": "Webinar not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       },
       "post": {
@@ -9707,13 +9267,6 @@
             "description": "Webinar not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -9745,7 +9298,7 @@
             "required": true,
             "description": "",
             "schema": {
-              "title": "body288",
+              "title": "body",
               "type": "object",
               "properties": {
                 "action": {
@@ -9812,13 +9365,6 @@
             "description": "Webinar or Registrant not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -9879,13 +9425,6 @@
             "description": "Webinar not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -9940,32 +9479,6 @@
               }
             }
           }
-        },
-        "x-unitTests": [
-          {
-            "request": {
-              "method": "GET",
-              "uri": "/groups"
-            },
-            "expectedResponse": {
-              "x-allowExtraHeaders": true,
-              "x-bodyMatchMode": "NONE",
-              "x-arrayOrderedMatching": false,
-              "x-arrayCheckCount": false,
-              "x-matchResponseSchema": true,
-              "headers": {}
-            },
-            "x-testShouldPass": true,
-            "x-testEnabled": true,
-            "x-testName": "Test Get groups",
-            "x-testDescription": "List groups under your account"
-          }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       },
       "post": {
@@ -9985,7 +9498,7 @@
             "required": true,
             "description": "",
             "schema": {
-              "title": "body162",
+              "title": "body",
               "type": "object",
               "properties": {
                 "name": {
@@ -10020,13 +9533,6 @@
               }
             }
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -10078,13 +9584,6 @@
             "description": "Group not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       },
       "delete": {
@@ -10114,13 +9613,6 @@
             "description": "Group not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       },
       "patch": {
@@ -10147,7 +9639,7 @@
             "required": true,
             "description": "",
             "schema": {
-              "title": "body162",
+              "title": "body",
               "type": "object",
               "properties": {
                 "name": {
@@ -10166,13 +9658,6 @@
             "description": "Group not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -10289,13 +9774,6 @@
             "description": "Group not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       },
       "post": {
@@ -10322,7 +9800,7 @@
             "required": true,
             "description": "",
             "schema": {
-              "title": "body166",
+              "title": "body",
               "type": "object",
               "properties": {
                 "members": {
@@ -10371,13 +9849,6 @@
             "description": "Group not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -10416,13 +9887,6 @@
             "description": "Group or Group member not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -10486,32 +9950,6 @@
               }
             }
           }
-        },
-        "x-unitTests": [
-          {
-            "request": {
-              "method": "GET",
-              "uri": "/im/groups"
-            },
-            "expectedResponse": {
-              "x-allowExtraHeaders": true,
-              "x-bodyMatchMode": "NONE",
-              "x-arrayOrderedMatching": false,
-              "x-arrayCheckCount": false,
-              "x-matchResponseSchema": true,
-              "headers": {}
-            },
-            "x-testShouldPass": true,
-            "x-testEnabled": true,
-            "x-testName": "Test Get IM Groups",
-            "x-testDescription": "List IM groups under your account"
-          }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       },
       "post": {
@@ -10531,7 +9969,7 @@
             "required": true,
             "description": "",
             "schema": {
-              "title": "body172",
+              "title": "body",
               "type": "object",
               "properties": {
                 "name": {
@@ -10615,13 +10053,6 @@
               }
             }
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -10664,13 +10095,6 @@
             "description": "IM Group not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       },
       "delete": {
@@ -10700,13 +10124,6 @@
             "description": "IM Group not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       },
       "patch": {
@@ -10733,7 +10150,7 @@
             "required": true,
             "description": "",
             "schema": {
-              "title": "body172",
+              "title": "body",
               "type": "object",
               "properties": {
                 "name": {
@@ -10789,13 +10206,6 @@
             "description": "IM Group not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -10912,13 +10322,6 @@
             "description": "IM Group not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       },
       "post": {
@@ -10945,7 +10348,7 @@
             "required": true,
             "description": "",
             "schema": {
-              "title": "body166",
+              "title": "body",
               "type": "object",
               "properties": {
                 "members": {
@@ -10994,13 +10397,6 @@
             "description": "IM Group not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -11039,13 +10435,6 @@
             "description": "IM Group or IM Group member not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -11156,13 +10545,6 @@
               }
             }
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -11211,13 +10593,6 @@
           "200": {
             "description": "Message sent"
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -11344,13 +10719,6 @@
               }
             }
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -11520,13 +10888,6 @@
             "description": "User not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -11603,13 +10964,6 @@
             "description": "Meeting recording not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       },
       "delete": {
@@ -11660,13 +11014,6 @@
             "description": "Meeting recording not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -11726,13 +11073,6 @@
             "description": "Meeting recording file not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -11761,7 +11101,7 @@
             "required": true,
             "description": "",
             "schema": {
-              "title": "body190",
+              "title": "body",
               "description": "`recover` recover meeting recording",
               "type": "object",
               "properties": {
@@ -11782,13 +11122,6 @@
             "description": "Meeting recording not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -11824,7 +11157,7 @@
             "required": true,
             "description": "",
             "schema": {
-              "title": "body190",
+              "title": "body",
               "description": "`recover` recover meeting recording",
               "type": "object",
               "properties": {
@@ -11845,13 +11178,6 @@
             "description": "Meeting recording not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -11944,32 +11270,6 @@
               }
             }
           }
-        },
-        "x-unitTests": [
-          {
-            "request": {
-              "method": "GET",
-              "uri": "/report/daily"
-            },
-            "expectedResponse": {
-              "x-allowExtraHeaders": true,
-              "x-bodyMatchMode": "NONE",
-              "x-arrayOrderedMatching": false,
-              "x-arrayCheckCount": false,
-              "x-matchResponseSchema": true,
-              "headers": {}
-            },
-            "x-testShouldPass": true,
-            "x-testEnabled": true,
-            "x-testName": "Test Daily report",
-            "x-testDescription": "Retrieve daily report for one month, can only get daily report for recent 6 months"
-          }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -12152,13 +11452,6 @@
               }
             }
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -12325,13 +11618,6 @@
             "description": "User not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -12422,13 +11708,6 @@
             "description": "Meeting not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -12554,13 +11833,6 @@
             "description": "Meeting not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -12650,13 +11922,6 @@
             "description": "Meeting not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -12747,13 +12012,6 @@
             "description": "Webinar not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -12878,13 +12136,6 @@
             "description": "Webinar not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -12974,13 +12225,6 @@
             "description": "Webinar not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -13070,13 +12314,6 @@
             "description": "Webinar not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -13243,13 +12480,6 @@
               }
             }
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -13453,13 +12683,6 @@
               }
             }
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -13593,13 +12816,6 @@
               }
             }
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -13801,13 +13017,6 @@
               }
             }
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -14142,13 +13351,6 @@
               }
             }
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -14527,13 +13729,6 @@
               }
             }
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -14673,13 +13868,6 @@
               }
             }
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -14878,13 +14066,6 @@
               }
             }
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -15013,13 +14194,6 @@
               }
             }
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -15216,13 +14390,6 @@
               }
             }
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -15557,13 +14724,6 @@
               }
             }
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -15942,13 +15102,6 @@
               }
             }
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -16088,13 +15241,6 @@
               }
             }
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -16223,32 +15369,6 @@
               }
             }
           }
-        },
-        "x-unitTests": [
-          {
-            "request": {
-              "method": "GET",
-              "uri": "/metrics/zoomrooms?page_size=30&page_number=1"
-            },
-            "expectedResponse": {
-              "x-allowExtraHeaders": true,
-              "x-bodyMatchMode": "NONE",
-              "x-arrayOrderedMatching": false,
-              "x-arrayCheckCount": false,
-              "x-matchResponseSchema": true,
-              "headers": {}
-            },
-            "x-testShouldPass": true,
-            "x-testEnabled": true,
-            "x-testName": "Test Zoom Rooms dashboard",
-            "x-testDescription": "List all zoom rooms on account"
-          }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -16567,13 +15687,6 @@
               }
             }
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -16665,13 +15778,6 @@
               }
             }
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -16867,13 +15973,6 @@
               }
             }
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -16895,7 +15994,7 @@
             "required": true,
             "description": "",
             "schema": {
-              "title": "body293",
+              "title": "body",
               "description": "`v1` Version 1\n`v2` Version 2",
               "type": "object",
               "properties": {
@@ -16933,13 +16032,6 @@
             "description": "Webhook Subscribe not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -17069,32 +16161,6 @@
             "description": "Webhook not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [
-          {
-            "request": {
-              "method": "GET",
-              "uri": "/webhooks"
-            },
-            "expectedResponse": {
-              "x-allowExtraHeaders": true,
-              "x-bodyMatchMode": "NONE",
-              "x-arrayOrderedMatching": false,
-              "x-arrayCheckCount": false,
-              "x-matchResponseSchema": true,
-              "headers": {}
-            },
-            "x-testShouldPass": true,
-            "x-testEnabled": true,
-            "x-testName": "Test Get webhooks",
-            "x-testDescription": "List webhooks for a account"
-          }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       },
       "post": {
@@ -17296,13 +16362,6 @@
             "description": "Account not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -17425,13 +16484,6 @@
             "description": "Webinar not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       },
       "delete": {
@@ -17461,13 +16513,6 @@
             "description": "Webhook not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       },
       "patch": {
@@ -17579,13 +16624,6 @@
             "description": "Webhook not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -17638,32 +16676,6 @@
               }
             }
           }
-        },
-        "x-unitTests": [
-          {
-            "request": {
-              "method": "GET",
-              "uri": "/tsp"
-            },
-            "expectedResponse": {
-              "x-allowExtraHeaders": true,
-              "x-bodyMatchMode": "NONE",
-              "x-arrayOrderedMatching": false,
-              "x-arrayCheckCount": false,
-              "x-matchResponseSchema": true,
-              "headers": {}
-            },
-            "x-testShouldPass": true,
-            "x-testEnabled": true,
-            "x-testName": "Test Get TSP numbers",
-            "x-testDescription": "List TSP dial-in numbers under account"
-          }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -17774,13 +16786,6 @@
             "description": "User not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       },
       "post": {
@@ -17948,13 +16953,6 @@
               ]
             }
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -18057,13 +17055,6 @@
               ]
             }
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       },
       "delete": {
@@ -18096,13 +17087,6 @@
           "204": {
             "description": "TSP Account deleted"
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       },
       "patch": {
@@ -18209,13 +17193,6 @@
           "204": {
             "description": "TSP Account updated"
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -18314,13 +17291,6 @@
             "description": "User not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -18442,32 +17412,6 @@
               }
             }
           }
-        },
-        "x-unitTests": [
-          {
-            "request": {
-              "method": "GET",
-              "uri": "/h323/devices"
-            },
-            "expectedResponse": {
-              "x-allowExtraHeaders": true,
-              "x-bodyMatchMode": "NONE",
-              "x-arrayOrderedMatching": false,
-              "x-arrayCheckCount": false,
-              "x-matchResponseSchema": true,
-              "headers": {}
-            },
-            "x-testShouldPass": true,
-            "x-testEnabled": true,
-            "x-testName": "Test Get devices",
-            "x-testDescription": "List H.323/SIP Devices on your Zoom account."
-          }
-        ],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       },
       "post": {
@@ -18626,13 +17570,6 @@
               ]
             }
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -18664,13 +17601,6 @@
             "description": "H.323/SIP Device not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       },
       "patch": {
@@ -18771,13 +17701,6 @@
             "description": "H.323/SIP Device not found",
             "schema": {}
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     }
@@ -20891,7 +19814,7 @@
       ]
     },
     "Body258": {
-      "title": "body258",
+      "title": "body",
       "description": "User",
       "type": "object",
       "properties": {
@@ -22554,7 +21477,7 @@
       }
     },
     "Body270": {
-      "title": "body270",
+      "title": "body",
       "description": "User status",
       "type": "object",
       "properties": {
@@ -22602,7 +21525,7 @@
       ]
     },
     "Body272": {
-      "title": "body272",
+      "title": "body",
       "description": "User password",
       "type": "object",
       "properties": {
@@ -24998,7 +23921,7 @@
       }
     },
     "Body190": {
-      "title": "body190",
+      "title": "body",
       "description": "`recover` recover meeting recording",
       "type": "object",
       "properties": {
@@ -27441,7 +26364,7 @@
       }
     },
     "Body284": {
-      "title": "body284",
+      "title": "body",
       "description": "`end` end a webinar",
       "type": "object",
       "properties": {
@@ -27597,7 +26520,7 @@
       }
     },
     "Body288": {
-      "title": "body288",
+      "title": "body",
       "type": "object",
       "properties": {
         "action": {
@@ -27743,7 +26666,7 @@
       }
     },
     "Body162": {
-      "title": "body162",
+      "title": "body",
       "type": "object",
       "properties": {
         "name": {
@@ -27883,7 +26806,7 @@
       }
     },
     "Body166": {
-      "title": "body166",
+      "title": "body",
       "type": "object",
       "properties": {
         "members": {
@@ -27991,7 +26914,7 @@
       }
     },
     "Body172": {
-      "title": "body172",
+      "title": "body",
       "type": "object",
       "properties": {
         "name": {
@@ -32349,7 +31272,7 @@
       }
     },
     "Body293": {
-      "title": "body293",
+      "title": "body",
       "description": "`v1` Version 1\n`v2` Version 2",
       "type": "object",
       "properties": {
