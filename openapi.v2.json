@@ -2423,6 +2423,59 @@
         }
       }
     },
+    "/meetings/{meetingId}/invitation": {
+      "get": {
+        "tags": [
+          "Meetings"
+        ],
+        "summary": "Get meeting invitation details",
+        "description": "Retrieve a meeting's invitation details",
+        "operationId": "MeetingInvitation",
+        "parameters": [
+          {
+            "name": "meetingId",
+            "in": "path",
+            "description": "The meeting ID",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Meeting invitation object returned",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Meeting invitation object returned",
+                  "$ref": "#/components/schemas/MeetingInvitation"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Meeting invitation not found"
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "header_authorization": [],
+            "query_string_auth": []
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
     "/meetings/{meetingId}/registrants": {
       "get": {
         "tags": [
@@ -9728,6 +9781,16 @@
           "alternative_hosts": {
             "type": "string",
             "description": "Alternative hosts emails or IDs. Multiple value separated by comma."
+          }
+        }
+      },
+      "MeetingInvitation": {
+        "title": "meetingInvitation",
+        "type": "object",
+        "properties": {
+          "invitation": {
+            "type": "string",
+            "description": "Meeting invitation detail."
           }
         }
       },
