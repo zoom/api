@@ -1612,6 +1612,29 @@
                 }
             }
         },
+        "/meetings/{meetingId}/invitation": {
+            "get": {
+                "summary": "Retrieve meeting invitation",
+                "description": "Retrieve a meeting invitation",
+                "tags": [
+                    "Meetings"
+                ],
+                "operationId": "meetingInvitation",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/MeetingId"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Meeting invitation Returned",
+                        "schema": {
+                            "$ref": "#/definitions/MeetingInvitation"
+                        }
+                    }
+                }
+            }
+        },
         "/meetings/{meetingId}/registrants": {
             "get": {
                 "summary": "List a meeting's registrants",
@@ -7677,6 +7700,17 @@
                 "has_sip": {
                     "type": "boolean",
                     "description": ""
+                }
+            }
+        },
+        "MeetingInvitation": {
+            "type": "object",
+            "title": "Meeting Invitation",
+            "description": "Meeting invitation details",
+            "properties": {
+                "invitation": {
+                    "type": "string",
+                    "description": "Meeting invitation"
                 }
             }
         },
