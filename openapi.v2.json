@@ -11634,8 +11634,7 @@
           },
           "use_pmi": {
             "type": "boolean",
-            "description": "Use Personal Meeting ID for instant meetings.",
-            "example": false
+            "description": "Use Personal Meeting ID for instant meetings."
           },
           "timezone": {
             "type": "string",
