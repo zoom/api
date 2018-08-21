@@ -392,6 +392,58 @@
         }
       }
     },
+    "/accounts/{accountId}/managed_domains": {
+      "get": {
+        "tags": [
+          "Accounts"
+        ],
+        "summary": "Get account managed domains",
+        "description": "Retrieve a sub account's managed domains under the master account",
+        "operationId": "AccountManagedDomains",
+        "parameters": [
+          {
+            "name": "accountId",
+            "in": "path",
+            "description": "The account ID",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Account managed domains returned",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Account managed domains returned",
+                  "$ref": "#/components/schemas/DomainList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Account not found"
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "header_authorization": [],
+            "query_string_auth": []
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
     "/accounts/{accountId}/billing": {
       "get": {
         "tags": [
@@ -8943,6 +8995,39 @@
           }
         }
       },
+      "DomainList": {
+        "title": "DomainList",
+        "type": "object",
+        "properties": {
+          "total_records": {
+            "type": "integer",
+            "description": "Total records",
+            "format": "int32"
+          },
+          "domains": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Domain"
+            },
+            "description": "List of Domains objects"
+          }
+        },
+        "description": "List of Domains"
+      },
+      "Domain": {
+        "title": "Domain",
+        "type": "object",
+        "properties": {
+          "domain": {
+            "type": "string",
+            "description": "Domain name"
+          },
+          "status": {
+            "type": "string",
+            "description": "Domain status"
+          }
+        }
+      },
       "BillingContact": {
         "title": "BillingContact",
         "type": "object",
@@ -11546,6 +11631,11 @@
             "minLength": 10,
             "type": "string",
             "description": "Personal Meeting ID,length must be 10\n**min length:** 10\n**max length:** 10"
+          },
+          "use_pmi": {
+            "type": "boolean",
+            "description": "Use Personal Meeting ID for instant meetings.",
+            "example": false
           },
           "timezone": {
             "type": "string",
@@ -15135,6 +15225,10 @@
           "pmi": {
             "type": "string",
             "description": "Personal Meeting ID"
+          },
+          "use_pmi": {
+            "type": "boolean",
+            "description": "Use Personal Meeting ID for instant meetings"
           },
           "timezone": {
             "type": "string",
