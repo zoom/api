@@ -11960,7 +11960,7 @@
         }
       },
       "UserSettings:FeatureSettings": {
-        "title": "User settings: Feature settings",
+        "title": "",
         "type": "object",
         "properties": {
           "meeting_capacity": {
@@ -11997,7 +11997,7 @@
         }
       },
       "UserSettings137": {
-        "title": "User settings137",
+        "title": "User settings object",
         "type": "object",
         "properties": {
           "scheduled_meeting": {
@@ -15167,7 +15167,7 @@
         }
       },
       "Body270": {
-        "title": "body270",
+        "title": "",
         "required": [
           "action"
         ],
