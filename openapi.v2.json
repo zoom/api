@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "x-explorer-enabled": false,
-  "x-send-defaults": true,
+  "x-send-defaults": false,
   "info": {
     "title": "Zoom API",
     "description": "API Description",
@@ -253,8 +253,8 @@
             }
           }
         ],
-        "requestBody": \{
-          "description": "Request Body",
+        "requestBody": {
+          "description": "",
           "content": {
             "application/json": {
               "schema": {
@@ -358,8 +358,8 @@
             }
           }
         ],
-        "requestBody": \{
-          "description": "Request Body",
+        "requestBody": {
+          "description": "",
           "content": {
             "application/json": {
               "schema": {
@@ -463,8 +463,8 @@
             }
           }
         ],
-        "requestBody": \{
-          "description": "Request Body",
+        "requestBody": {
+          "description": "",
           "content": {
             "application/json": {
               "schema": {
@@ -568,8 +568,8 @@
             }
           }
         ],
-        "requestBody": \{
-          "description": "Request Body",
+        "requestBody": {
+          "description": "",
           "content": {
             "application/json": {
               "schema": {
@@ -628,8 +628,8 @@
             }
           }
         ],
-        "requestBody": \{
-          "description": "Request Body",
+        "requestBody": {
+          "description": "",
           "content": {
             "application/json": {
               "schema": {
@@ -680,8 +680,8 @@
             }
           }
         ],
-        "requestBody": \{
-          "description": "Request Body",
+        "requestBody": {
+          "description": "",
           "content": {
             "application/json": {
               "schema": {
@@ -730,8 +730,8 @@
             }
           }
         ],
-        "requestBody": \{
-          "description": "Request Body",
+        "requestBody": {
+          "description": "",
           "content": {
             "application/json": {
               "schema": {
@@ -1169,8 +1169,8 @@
             }
           }
         ],
-        "requestBody": \{
-          "description": "Request Body",
+        "requestBody": {
+          "description": "User assistant",
           "content": {
             "application/json": {
               "schema": {
@@ -1603,8 +1603,8 @@
             }
           }
         ],
-        "requestBody": \{
-          "description": "Request Body",
+        "requestBody": {
+          "description": "User Settings",
           "content": {
             "application/json": {
               "schema": {
@@ -2389,8 +2389,8 @@
             }
           }
         ],
-        "requestBody": \{
-          "description": "Request Body",
+        "requestBody": {
+          "description": "",
           "content": {
             "application/json": {
               "schema": {
@@ -2555,8 +2555,8 @@
             }
           }
         ],
-        "requestBody": \{
-          "description": "Request Body",
+        "requestBody": {
+          "description": "",
           "content": {
             "application/json": {
               "schema": {
@@ -2629,8 +2629,8 @@
             }
           }
         ],
-        "requestBody": \{
-          "description": "Request Body",
+        "requestBody": {
+          "description": "",
           "content": {
             "application/json": {
               "schema": {
@@ -3115,8 +3115,8 @@
             }
           }
         ],
-        "requestBody": \{
-          "description": "Request Body",
+        "requestBody": {
+          "description": "",
           "content": {
             "application/json": {
               "schema": {
@@ -3222,8 +3222,8 @@
             }
           }
         ],
-        "requestBody": \{
-          "description": "Request Body",
+        "requestBody": {
+          "description": "",
           "content": {
             "application/json": {
               "schema": {
@@ -3496,8 +3496,8 @@
             }
           }
         ],
-        "requestBody": \{
-          "description": "Request Body",
+        "requestBody": {
+          "description": "",
           "content": {
             "application/json": {
               "schema": {
@@ -3570,8 +3570,8 @@
             }
           }
         ],
-        "requestBody": \{
-          "description": "Request Body",
+        "requestBody": {
+          "description": "",
           "content": {
             "application/json": {
               "schema": {
@@ -3701,8 +3701,8 @@
         "description": "Create a group under your account",
         "operationId": "GroupCreate",
         "parameters": [],
-        "requestBody": \{
-          "description": "Request Body",
+        "requestBody": {
+          "description": "",
           "content": {
             "application/json": {
               "schema": {
@@ -3853,8 +3853,8 @@
             }
           }
         ],
-        "requestBody": \{
-          "description": "Request Body",
+        "requestBody": {
+          "description": "",
           "content": {
             "application/json": {
               "schema": {
@@ -3985,8 +3985,8 @@
             }
           }
         ],
-        "requestBody": \{
-          "description": "Request Body",
+        "requestBody": {
+          "description": "",
           "content": {
             "application/json": {
               "schema": {
@@ -4126,8 +4126,8 @@
         "description": "Create a IM Group under your account",
         "operationId": "ImGroupCreate",
         "parameters": [],
-        "requestBody": \{
-          "description": "Request Body",
+        "requestBody": {
+          "description": "",
           "content": {
             "application/json": {
               "schema": {
@@ -4278,8 +4278,8 @@
             }
           }
         ],
-        "requestBody": \{
-          "description": "Request Body",
+        "requestBody": {
+          "description": "",
           "content": {
             "application/json": {
               "schema": {
@@ -4410,8 +4410,8 @@
             }
           }
         ],
-        "requestBody": \{
-          "description": "Request Body",
+        "requestBody": {
+          "description": "",
           "content": {
             "application/json": {
               "schema": {
@@ -4602,8 +4602,8 @@
         "description": "Send messages from your app as a bot",
         "operationId": "ImChatSendMessages",
         "parameters": [],
-        "requestBody": \{
-          "description": "Request Body",
+        "requestBody": {
+          "description": "",
           "content": {
             "application/json": {
               "schema": {
@@ -5048,8 +5048,8 @@
             }
           }
         ],
-        "requestBody": \{
-          "description": "Request Body",
+        "requestBody": {
+          "description": "",
           "content": {
             "application/json": {
               "schema": {
@@ -5114,8 +5114,8 @@
             }
           }
         ],
-        "requestBody": \{
-          "description": "Request Body",
+        "requestBody": {
+          "description": "",
           "content": {
             "application/json": {
               "schema": {
@@ -7217,8 +7217,8 @@
         "description": "Switch webhook version",
         "operationId": "WebhookSwitch",
         "parameters": [],
-        "requestBody": \{
-          "description": "Request Body",
+        "requestBody": {
+          "description": "",
           "content": {
             "application/json": {
               "schema": {
@@ -8008,8 +8008,8 @@
             }
           }
         ],
-        "requestBody": \{
-          "description": "Request Body",
+        "requestBody": {
+          "description": "",
           "content": {
             "application/json": {
               "schema": {
@@ -8072,7 +8072,7 @@
             "description": "User's password"
           },
           "options": {
-            "description": "",
+            "description": "Account options object",
             "$ref": "#/components/schemas/AccountOptions"
           }
         },
@@ -8292,7 +8292,7 @@
             "format": "int32"
           }
         },
-        "description": ""
+        "description": "Account base plan object"
       },
       "AccountPlanRequired": {
         "title": "AccountPlanRequired",
@@ -8319,7 +8319,7 @@
         "type": "object",
         "properties": {
           "plan_base": {
-            "description": "",
+            "description": "Account base plan object",
             "$ref": "#/components/schemas/AccountPlanBaseRequired"
           },
           "plan_zoom_rooms": {
@@ -8387,39 +8387,39 @@
         "type": "object",
         "properties": {
           "schedule_meting": {
-            "description": "",
+            "description": "Account Settings: Schedule Meeting",
             "$ref": "#/components/schemas/AccountSettingsScheduleMeeting"
           },
           "in_meeting": {
-            "description": "",
+            "description": "Account Settings: In Meeting",
             "$ref": "#/components/schemas/AccountSettingsInMeeting"
           },
           "email_notification": {
-            "description": "",
+            "description": "Account Settings: Notification",
             "$ref": "#/components/schemas/AccountSettingsEmailNotification"
           },
           "zoom_rooms": {
-            "description": "",
+            "description": "Account Settings: Zoom Rooms",
             "$ref": "#/components/schemas/AccountSettingsZoomRooms"
           },
           "security": {
-            "description": "",
+            "description": "Account Settings: Security",
             "$ref": "#/components/schemas/AccountSettingsSecurity"
           },
           "recording": {
-            "description": "",
+            "description": "Account Settings: Recording",
             "$ref": "#/components/schemas/AccountSettingsRecording"
           },
           "telephony": {
-            "description": "",
+            "description": "Account Settings: Telephony",
             "$ref": "#/components/schemas/AccountSettingsTelephony"
           },
           "integration": {
-            "description": "",
+            "description": "Account Settings: Integration",
             "$ref": "#/components/schemas/AccountSettingsIntegration"
           },
           "feature": {
-            "description": "",
+            "description": "Account Settings: Feature",
             "$ref": "#/components/schemas/AccountSettingsFeature"
           }
         }
@@ -8935,7 +8935,7 @@
             "description": "Billing Contact's country"
           }
         },
-        "description": ""
+        "description": "Billing Contact object"
       },
       "BillingContactRequired": {
         "title": "contact",
@@ -8993,7 +8993,7 @@
             "description": "Billing Contact's apartment/suite"
           }
         },
-        "description": ""
+        "description": "Billing Contact object"
       },
       "CustomQuestion": {
         "title": "custom_questions",
@@ -11461,7 +11461,7 @@
         "description": "The user object represents a User on Zoom"
       },
       "UserUpdate": {
-        "title": "user",
+        "title": "UserUpdate",
         "type": "object",
         "properties": {
           "first_name": {
@@ -11662,7 +11662,7 @@
         "description": "List of User's schedulers"
       },
       "UserSettings": {
-        "title": "user",
+        "title": "User settings",
         "type": "object",
         "properties": {
           "scheduled_meeting": {
@@ -11997,7 +11997,7 @@
         }
       },
       "UserSettings137": {
-        "title": "user",
+        "title": "User settings137",
         "type": "object",
         "properties": {
           "scheduled_meeting": {
@@ -12618,7 +12618,7 @@
             "format": "date-time"
           },
           "options": {
-            "description": "",
+            "description": "Account options object",
             "$ref": "#/components/schemas/AccountOptions"
           }
         }
@@ -12628,11 +12628,11 @@
         "type": "object",
         "properties": {
           "contact": {
-            "description": "",
+            "description": "Billing Contact object",
             "$ref": "#/components/schemas/BillingContactRequired"
           },
           "plan_base": {
-            "description": "",
+            "description": "Account base plan object",
             "$ref": "#/components/schemas/AccountPlanBaseRequired"
           },
           "plan_zoom_rooms": {
@@ -12668,7 +12668,7 @@
         }
       },
       "Body162": {
-        "title": "body",
+        "title": "body162",
         "type": "object",
         "properties": {
           "name": {
@@ -12716,7 +12716,7 @@
         }
       },
       "Body166": {
-        "title": "body",
+        "title": "body166",
         "type": "object",
         "properties": {
           "members": {
@@ -12789,7 +12789,7 @@
         }
       },
       "Body172": {
-        "title": "body",
+        "title": "body172",
         "type": "object",
         "properties": {
           "name": {
@@ -13172,7 +13172,7 @@
         }
       },
       "Body190": {
-        "title": "body",
+        "title": "body190",
         "description": "`recover` recover meeting recording",
         "type": "object",
         "properties": {
@@ -14874,7 +14874,7 @@
         ]
       },
       "Body258": {
-        "title": "body",
+        "title": "body258",
         "required": [
           "action"
         ],
@@ -15167,7 +15167,7 @@
         }
       },
       "Body270": {
-        "title": "body",
+        "title": "body270",
         "required": [
           "action"
         ],
@@ -15200,7 +15200,7 @@
         ]
       },
       "Body272": {
-        "title": "body",
+        "title": "body272",
         "required": [
           "password"
         ],
@@ -15439,7 +15439,7 @@
         }
       },
       "Body284": {
-        "title": "body",
+        "title": "body284",
         "description": "`end` end a webinar",
         "type": "object",
         "properties": {
@@ -15491,7 +15491,7 @@
         }
       },
       "Body288": {
-        "title": "body",
+        "title": "body288",
         "required": [
           "action"
         ],
@@ -15510,7 +15510,7 @@
         }
       },
       "Body293": {
-        "title": "body",
+        "title": "body293",
         "description": "`v1` Version 1\n`v2` Version 2",
         "required": [
           "version"
