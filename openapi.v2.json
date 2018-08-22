@@ -392,6 +392,58 @@
         }
       }
     },
+    "/accounts/{accountId}/managed_domains": {
+      "get": {
+        "tags": [
+          "Accounts"
+        ],
+        "summary": "Get account managed domains",
+        "description": "Retrieve a sub account's managed domains under the master account",
+        "operationId": "AccountManagedDomains",
+        "parameters": [
+          {
+            "name": "accountId",
+            "in": "path",
+            "description": "The account ID",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Account managed domains returned",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Account managed domains returned",
+                  "$ref": "#/components/schemas/DomainList"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Account not found"
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "header_authorization": [],
+            "query_string_auth": []
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
     "/accounts/{accountId}/billing": {
       "get": {
         "tags": [
@@ -2406,6 +2458,59 @@
           },
           "404": {
             "description": "Meeting not found"
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "header_authorization": [],
+            "query_string_auth": []
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/meetings/{meetingId}/invitation": {
+      "get": {
+        "tags": [
+          "Meetings"
+        ],
+        "summary": "Get meeting invitation details",
+        "description": "Retrieve a meeting's invitation details",
+        "operationId": "MeetingInvitation",
+        "parameters": [
+          {
+            "name": "meetingId",
+            "in": "path",
+            "description": "The meeting ID",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Meeting invitation object returned",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Meeting invitation object returned",
+                  "$ref": "#/components/schemas/MeetingInvitation"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Meeting invitation not found"
           }
         },
         "deprecated": false,
@@ -8890,6 +8995,39 @@
           }
         }
       },
+      "DomainList": {
+        "title": "DomainList",
+        "type": "object",
+        "properties": {
+          "total_records": {
+            "type": "integer",
+            "description": "Total records",
+            "format": "int32"
+          },
+          "domains": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Domain"
+            },
+            "description": "List of Domains objects"
+          }
+        },
+        "description": "List of Domains"
+      },
+      "Domain": {
+        "title": "Domain",
+        "type": "object",
+        "properties": {
+          "domain": {
+            "type": "string",
+            "description": "Domain name"
+          },
+          "status": {
+            "type": "string",
+            "description": "Domain status"
+          }
+        }
+      },
       "BillingContact": {
         "title": "BillingContact",
         "type": "object",
@@ -9728,6 +9866,16 @@
           "alternative_hosts": {
             "type": "string",
             "description": "Alternative hosts emails or IDs. Multiple value separated by comma."
+          }
+        }
+      },
+      "MeetingInvitation": {
+        "title": "meetingInvitation",
+        "type": "object",
+        "properties": {
+          "invitation": {
+            "type": "string",
+            "description": "Meeting invitation detail."
           }
         }
       },
@@ -11483,6 +11631,10 @@
             "minLength": 10,
             "type": "string",
             "description": "Personal Meeting ID,length must be 10\n**min length:** 10\n**max length:** 10"
+          },
+          "use_pmi": {
+            "type": "boolean",
+            "description": "Use Personal Meeting ID for instant meetings."
           },
           "timezone": {
             "type": "string",
@@ -15072,6 +15224,10 @@
           "pmi": {
             "type": "string",
             "description": "Personal Meeting ID"
+          },
+          "use_pmi": {
+            "type": "boolean",
+            "description": "Use Personal Meeting ID for instant meetings"
           },
           "timezone": {
             "type": "string",
