@@ -9185,8 +9185,8 @@
             "title": "User settings",
             "type": "object",
             "properties": {
-                "scheduled_meeting": {
-                    "$ref": "#/definitions/UserSettingsScheduledMeeting"
+                "schedule_meeting": {
+                    "$ref": "#/definitions/UserSettingsScheduleMeeting"
                 },
                 "in_meeting": {
                     "$ref": "#/definitions/UserSettingsInMeeting"
@@ -9209,8 +9209,8 @@
             "title": "User settings",
             "type": "object",
             "properties": {
-                "scheduled_meeting": {
-                    "$ref": "#/definitions/UserSettingsScheduledMeeting"
+                "schedule_meeting": {
+                    "$ref": "#/definitions/UserSettingsScheduleMeeting"
                 },
                 "in_meeting": {
                     "$ref": "#/definitions/UserSettingsInMeeting"
@@ -9229,7 +9229,7 @@
                 }
             }
         },
-        "UserSettingsScheduledMeeting": {
+        "UserSettingsScheduleMeeting": {
             "title": "User settings: Meeting settings",
             "description": "",
             "type": "object",
