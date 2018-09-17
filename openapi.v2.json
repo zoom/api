@@ -262,6 +262,32 @@
                 }
             }
         },
+      "/accounts/{accountId}/managed_domains": {
+        "get": {
+          "summary": "Retrieve a sub account's managed domains",
+          "description": "Retrieve a sub account's managed domains under the master account",
+          "tags": [
+            "Accounts"
+          ],
+          "operationId": "accountManagedDomain",
+          "parameters": [
+            {
+              "$ref": "#/parameters/AccountId"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Account managed domains returned",
+              "schema": {
+                "$ref": "#/definitions/DomainsList"
+              }
+            },
+            "404": {
+              "description": "Account not found"
+            }
+          }
+        }
+      },
         "/accounts/{accountId}/billing": {
             "get": {
                 "summary": "Retrieve billing information for a sub account",
@@ -1608,6 +1634,29 @@
                     },
                     "404": {
                         "description": "Meeting not found"
+                    }
+                }
+            }
+        },
+        "/meetings/{meetingId}/invitation": {
+            "get": {
+                "summary": "Retrieve meeting invitation",
+                "description": "Retrieve a meeting invitation",
+                "tags": [
+                    "Meetings"
+                ],
+                "operationId": "meetingInvitation",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/MeetingId"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Meeting invitation Returned",
+                        "schema": {
+                            "$ref": "#/definitions/MeetingInvitation"
+                        }
                     }
                 }
             }
@@ -4353,6 +4402,9 @@
                                         "host_key": {
                                             "type": "string"
                                         },
+                                        "use_pmi": {
+                                            "type": "boolean"
+                                        },
                                         "group_ids": {
                                             "type": "array",
                                             "items": {
@@ -7056,6 +7108,36 @@
                 }
             }
         },
+        "DomainsList": {
+          "type": "object",
+          "description": "List of Managed Domains",
+          "properties": {
+            "total_records": {
+              "type": "integer",
+              "description": "Total records"
+            },
+            "domains": {
+              "type": "array",
+              "description": "List of Managed Domains objects",
+              "items": {
+                "allOf": [
+                  {
+                    "properties": {
+                      "domain": {
+                        "type": "string",
+                        "description": "Domain Name"
+                      },
+                      "status": {
+                        "type": "string",
+                        "description": "Domain Status"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        },
         "BillingContact": {
             "type": "object",
             "description": "Billing Contact object",
@@ -7677,6 +7759,17 @@
                 "has_sip": {
                     "type": "boolean",
                     "description": ""
+                }
+            }
+        },
+        "MeetingInvitation": {
+            "type": "object",
+            "title": "Meeting Invitation",
+            "description": "Meeting invitation details",
+            "properties": {
+                "invitation": {
+                    "type": "string",
+                    "description": "Meeting invitation"
                 }
             }
         },
@@ -9058,6 +9151,11 @@
                     "description": "Personal Meeting ID,length must be 10",
                     "minLength": 10,
                     "maxLength": 10
+                },
+                "use_pmi": {
+                  "type": "boolean",
+                  "description": "Use Personal Meeting ID for instant meetings.",
+                  "default": false
                 },
                 "timezone": {
                     "type": "string",
