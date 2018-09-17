@@ -262,6 +262,32 @@
                 }
             }
         },
+        "/accounts/{accountId}/managed_domains": {
+        "get": {
+          "summary": "Retrieve a sub account's managed domains",
+          "description": "Retrieve a sub account's managed domains under the master account",
+          "tags": [
+            "Accounts"
+          ],
+          "operationId": "accountManagedDomain",
+          "parameters": [
+            {
+              "$ref": "#/parameters/AccountId"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Account managed domains returned",
+              "schema": {
+                "$ref": "#/definitions/DomainsList"
+              }
+            },
+            "404": {
+              "description": "Account not found"
+            }
+          }
+        }
+      },
         "/accounts/{accountId}/billing": {
             "get": {
                 "summary": "Retrieve billing information for a sub account",
@@ -1612,6 +1638,29 @@
                 }
             }
         },
+        "/meetings/{meetingId}/invitation": {
+            "get": {
+                "summary": "Retrieve meeting invitation",
+                "description": "Retrieve a meeting invitation",
+                "tags": [
+                    "Meetings"
+                ],
+                "operationId": "meetingInvitation",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/MeetingId"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Meeting invitation Returned",
+                        "schema": {
+                            "$ref": "#/definitions/MeetingInvitation"
+                        }
+                    }
+                }
+            }
+        },
         "/meetings/{meetingId}/registrants": {
             "get": {
                 "summary": "List a meeting's registrants",
@@ -1741,6 +1790,70 @@
                     },
                     "404": {
                         "description": "Meeting or Registrant not found"
+                    }
+                }
+            }
+        },
+        "/meetings/{meetingId}/livestream": {
+            "patch": {
+                "summary": "Update a meeting live stream",
+                "description": "Update a meeting's live stream",
+                "tags": [
+                    "Meetings"
+                ],
+                "operationId": "meetingLiveStreamUpdate",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/MeetingId"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "description": "Meeting",
+                        "schema": {
+                            "$ref": "#/definitions/MeetingLiveStream"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Meeting live stream Updated"
+                    },
+                    "404": {
+                        "description": "Meeting not found"
+                    }
+                }
+            }
+        },
+        "/meetings/{meetingId}/livestream/status": {
+            "patch": {
+                "summary": "Update a meeting live stream status",
+                "description": "Update a meeting's live stream status",
+                "tags": [
+                    "Meetings"
+                ],
+                "operationId": "meetingLiveStreamStatusUpdate",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/MeetingId"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "description": "Meeting",
+                        "schema": {
+                            "$ref": "#/definitions/MeetingLiveStreamStatus"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Meeting live stream Updated"
+                    },
+                    "404": {
+                        "description": "Meeting not found"
                     }
                 }
             }
@@ -3500,6 +3613,22 @@
                                 "participants_count": {
                                     "type": "integer",
                                     "description": "Number of meeting participants"
+                                },
+                                "tracking_fields": {
+                                    "type": "array",
+                                    "description": "Tracking fields",
+                                    "items": {
+                                          "properties": {
+                                              "field": {
+                                                "type": "string",
+                                                "description": "Tracking fields type"
+                                              },
+                                              "value": {
+                                                "type": "string",
+                                                "description": "Tracking fields value"
+                                              }
+                                          }
+                                    }
                                 }
                             }
                         }
@@ -3730,6 +3859,22 @@
                                 "participants_count": {
                                     "type": "integer",
                                     "description": "Number of meeting participants"
+                                },
+                                "tracking_fields": {
+                                    "type": "array",
+                                    "description": "Tracking fields",
+                                    "items": {
+                                        "properties": {
+                                            "field": {
+                                              "type": "string",
+                                              "description": "Tracking fields type"
+                                            },
+                                            "value": {
+                                              "type": "string",
+                                              "description": "Tracking fields value"
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -4070,6 +4215,18 @@
                                                     "total": {
                                                         "type": "number",
                                                         "description": "Total"
+                                                    },
+                                                    "country_name": {
+                                                        "type": "string",
+                                                        "description": "Country Name"
+                                                    },
+                                                    "meeting_type": {
+                                                        "type": "string",
+                                                        "description": "Meeting Type"
+                                                    },
+                                                    "call_in_number": {
+                                                        "type": "string",
+                                                        "description": "Call in number"
                                                     }
                                                 }
                                             }
@@ -4352,6 +4509,9 @@
                                         },
                                         "host_key": {
                                             "type": "string"
+                                        },
+                                        "use_pmi": {
+                                            "type": "boolean"
                                         },
                                         "group_ids": {
                                             "type": "array",
@@ -5109,6 +5269,48 @@
                     }
                 }
             }
+        },
+        "/users/{userId}/email": {
+            "put": {
+                "summary": "Update a user's email",
+                "description": "Update a user's email",
+                "tags": [
+                    "Users"
+                ],
+                "operationId": "userEmailUpdate",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/UserId"
+                    },
+                    {
+                        "name": "body",
+                        "description": "User email",
+                        "required": true,
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "required": [
+                                "email"
+                            ],
+                            "properties": {
+                                "email": {
+                                    "type": "string",
+                                    "description": "User’s email. Character length is less than 128."
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "email updated"
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                }
+            }
+
         },
         "/users/zpk": {
             "get": {
@@ -6836,6 +7038,22 @@
                 "attention_tracking": {
                     "type": "boolean",
                     "description": "Lets the host see an indicator in the participant panel if a meeting/webinar attendee does not have Zoom in focus during screen sharing"
+                },
+                "allow_live_streaming": {
+                    "type": "boolean",
+                    "description": "Allow live streaming"
+                },
+                "workplace_by_facebook": {
+                    "type": "boolean",
+                    "description": "Workplace by facebook"
+                },
+                "custom_live_streaming": {
+                    "type": "boolean",
+                    "description": "Custom live streaming"
+                },
+                "custom_service_instructions": {
+                    "type": "string",
+                    "description": "Custom service instructions"
                 }
             }
         },
@@ -7055,6 +7273,36 @@
                     "default": 100
                 }
             }
+        },
+        "DomainsList": {
+          "type": "object",
+          "description": "List of Managed Domains",
+          "properties": {
+            "total_records": {
+              "type": "integer",
+              "description": "Total records"
+            },
+            "domains": {
+              "type": "array",
+              "description": "List of Managed Domains objects",
+              "items": {
+                "allOf": [
+                  {
+                    "properties": {
+                      "domain": {
+                        "type": "string",
+                        "description": "Domain Name"
+                      },
+                      "status": {
+                        "type": "string",
+                        "description": "Domain Status"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
         },
         "BillingContact": {
             "type": "object",
@@ -7680,6 +7928,17 @@
                 }
             }
         },
+        "MeetingInvitation": {
+            "type": "object",
+            "title": "Meeting Invitation",
+            "description": "Meeting invitation details",
+            "properties": {
+                "invitation": {
+                    "type": "string",
+                    "description": "Meeting invitation"
+                }
+            }
+        },
         "MeetingSettings": {
             "type": "object",
             "description": "Meeting Settings",
@@ -7813,6 +8072,67 @@
                 }
             ]
         },
+        "MeetingLiveStream": {
+            "type": "object",
+            "description": "Meeting Live Stream",
+            "required":[
+              "stream_url", 
+              "stream_key"
+            ],
+            "properties": {
+                "stream_url": {
+                    "type": "string",
+                    "maxLength":1024,
+                    "description": "Server URL."
+                },
+                "stream_key": {
+                    "type": "string",
+                    "maxLength":512,
+                    "description": "Stream name/key."
+                },
+                "page_url": {
+                    "type": "string",
+                    "maxLength":1024,
+                    "description": "View URL."
+                }
+            }
+        },
+        "MeetingLiveStreamStatus": {
+            "type": "object",
+            "description": "Meeting Live Stream Status",
+            "properties": {
+                "action": {
+                    "type": "string",
+                    "description": "Action",
+                    "enum": [
+                        "start",
+                        "stop"
+                    ],
+                    "x-enum-descriptions": [
+                        "Start a meeting live stream.",
+                        "Stop a meeting live stream."
+                    ]
+                },
+                "settings": {
+                    "type": "object",
+                    "properties": {
+                        "active_speaker_name": {
+                            "type": "boolean",
+                            "description": "Live stream active speaker name."
+                        },
+                        "display_name": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 50,
+                            "description": "Live stream display name."
+                        }
+                    }
+                        
+                    
+                }
+            }
+        },
+
         "Occurrence": {
             "type": "object",
             "description": "Occurence object",
@@ -9059,6 +9379,11 @@
                     "minLength": 10,
                     "maxLength": 10
                 },
+                "use_pmi": {
+                  "type": "boolean",
+                  "description": "Use Personal Meeting ID for instant meetings.",
+                  "default": false
+                },
                 "timezone": {
                     "type": "string",
                     "description": "The time zone id for user profile. For this parameter value please refer to the id value in [timezone](#timezones) list.",
@@ -9400,6 +9725,22 @@
                     "type": "boolean",
                     "default": false,
                     "description": "Waiting room"
+                },
+                "allow_live_streaming": {
+                    "type": "boolean",
+                    "description": "Allow live streaming"
+                },
+                "workplace_by_facebook": {
+                    "type": "boolean",
+                    "description": "Workplace by facebook"
+                },
+                "custom_live_streaming": {
+                    "type": "boolean",
+                    "description": "Custom live streaming"
+                },
+                "custom_service_instructions": {
+                    "type": "string",
+                    "description": "Custom service instructions"
                 }
             }
         },
