@@ -3616,9 +3616,18 @@
                                 },
                                 "tracking_fields": {
                                     "type": "array",
+                                    "description": "Tracking fields",
                                     "items": {
-                                        "field": "string",
-                                        "value": "string"
+                                          "properties": {
+                                              "field": {
+                                                "type": "string",
+                                                "description": "Tracking fields type"
+                                              },
+                                              "value": {
+                                                "type": "string",
+                                                "description": "Tracking fields value"
+                                              }
+                                          }
                                     }
                                 }
                             }
@@ -3853,9 +3862,18 @@
                                 },
                                 "tracking_fields": {
                                     "type": "array",
+                                    "description": "Tracking fields",
                                     "items": {
-                                        "field": "string",
-                                        "value": "string"
+                                        "properties": {
+                                            "field": {
+                                              "type": "string",
+                                              "description": "Tracking fields type"
+                                            },
+                                            "value": {
+                                              "type": "string",
+                                              "description": "Tracking fields value"
+                                            }
+                                        }
                                     }
                                 }
                             }
