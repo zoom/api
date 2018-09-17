@@ -3549,6 +3549,13 @@
                                 "participants_count": {
                                     "type": "integer",
                                     "description": "Number of meeting participants"
+                                },
+                                "tracking_fields": {
+                                    "type": "array",
+                                    "items": {
+                                        "field": "string",
+                                        "value": "string"
+                                    }
                                 }
                             }
                         }
@@ -3779,6 +3786,13 @@
                                 "participants_count": {
                                     "type": "integer",
                                     "description": "Number of meeting participants"
+                                },
+                                "tracking_fields": {
+                                    "type": "array",
+                                    "items": {
+                                        "field": "string",
+                                        "value": "string"
+                                    }
                                 }
                             }
                         }
@@ -4119,6 +4133,18 @@
                                                     "total": {
                                                         "type": "number",
                                                         "description": "Total"
+                                                    },
+                                                    "country_name": {
+                                                        "type": "string",
+                                                        "description": "Country Name"
+                                                    },
+                                                    "meeting_type": {
+                                                        "type": "string",
+                                                        "description": "Meeting Type"
+                                                    },
+                                                    "call_in_number": {
+                                                        "type": "string",
+                                                        "description": "Call in number"
                                                     }
                                                 }
                                             }
