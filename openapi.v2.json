@@ -5259,7 +5259,7 @@
                 "tags": [
                     "Users"
                 ],
-                "operationId": "userEmail",
+                "operationId": "userEmailUpdate",
                 "parameters": [
                     {
                         "$ref": "#/parameters/UserId"
