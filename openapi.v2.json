@@ -262,7 +262,7 @@
                 }
             }
         },
-      "/accounts/{accountId}/managed_domains": {
+        "/accounts/{accountId}/managed_domains": {
         "get": {
           "summary": "Retrieve a sub account's managed domains",
           "description": "Retrieve a sub account's managed domains under the master account",
@@ -1790,6 +1790,70 @@
                     },
                     "404": {
                         "description": "Meeting or Registrant not found"
+                    }
+                }
+            }
+        },
+        "/meetings/{meetingId}/livestream": {
+            "patch": {
+                "summary": "Update a meeting live stream",
+                "description": "Update a meeting's live stream",
+                "tags": [
+                    "Meetings"
+                ],
+                "operationId": "meetingLiveStreamUpdate",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/MeetingId"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "description": "Meeting",
+                        "schema": {
+                            "$ref": "#/definitions/MeetingLiveStream"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Meeting live stream Updated"
+                    },
+                    "404": {
+                        "description": "Meeting not found"
+                    }
+                }
+            }
+        },
+        "/meetings/{meetingId}/livestream/status": {
+            "patch": {
+                "summary": "Update a meeting live stream status",
+                "description": "Update a meeting's live stream status",
+                "tags": [
+                    "Meetings"
+                ],
+                "operationId": "meetingLiveStreamStatusUpdate",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/MeetingId"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "description": "Meeting",
+                        "schema": {
+                            "$ref": "#/definitions/MeetingLiveStreamStatus"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Meeting live stream Updated"
+                    },
+                    "404": {
+                        "description": "Meeting not found"
                     }
                 }
             }
@@ -5188,6 +5252,48 @@
                 }
             }
         },
+        "/users/{userId}/email": {
+            "put": {
+                "summary": "Update a user's email",
+                "description": "Update a user's email",
+                "tags": [
+                    "Users"
+                ],
+                "operationId": "userEmail",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/UserId"
+                    },
+                    {
+                        "name": "body",
+                        "description": "User email",
+                        "required": true,
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "required": [
+                                "email"
+                            ],
+                            "properties": {
+                                "email": {
+                                    "type": "string",
+                                    "description": "User’s email. Character length is less than 128."
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "email updated"
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                }
+            }
+
+        },
         "/users/zpk": {
             "get": {
                 "summary": "Verify a user's zpk (Deprecated",
@@ -6914,6 +7020,22 @@
                 "attention_tracking": {
                     "type": "boolean",
                     "description": "Lets the host see an indicator in the participant panel if a meeting/webinar attendee does not have Zoom in focus during screen sharing"
+                },
+                "allow_live_streaming": {
+                    "type": "boolean",
+                    "description": "Allow live streaming"
+                },
+                "workplace_by_facebook": {
+                    "type": "boolean",
+                    "description": "Workplace by facebook"
+                },
+                "custom_live_streaming": {
+                    "type": "boolean",
+                    "description": "Custom live streaming"
+                },
+                "custom_service_instructions": {
+                    "type": "string",
+                    "description": "Custom service instructions"
                 }
             }
         },
@@ -7932,6 +8054,67 @@
                 }
             ]
         },
+        "MeetingLiveStream": {
+            "type": "object",
+            "description": "Meeting Live Stream",
+            "required":[
+              "stream_url", 
+              "stream_key"
+            ],
+            "properties": {
+                "stream_url": {
+                    "type": "string",
+                    "maxLength":1024,
+                    "description": "Server URL."
+                },
+                "stream_key": {
+                    "type": "string",
+                    "maxLength":512,
+                    "description": "Stream name/key."
+                },
+                "page_url": {
+                    "type": "string",
+                    "maxLength":1024,
+                    "description": "View URL."
+                }
+            }
+        },
+        "MeetingLiveStreamStatus": {
+            "type": "object",
+            "description": "Meeting Live Stream Status",
+            "properties": {
+                "action": {
+                    "type": "string",
+                    "description": "Action",
+                    "enum": [
+                        "start",
+                        "stop"
+                    ],
+                    "x-enum-descriptions": [
+                        "Start a meeting live stream.",
+                        "Stop a meeting live stream."
+                    ]
+                },
+                "settings": {
+                    "type": "object",
+                    "properties": {
+                        "active_speaker_name": {
+                            "type": "boolean",
+                            "description": "Live stream active speaker name."
+                        },
+                        "display_name": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 50,
+                            "description": "Live stream display name."
+                        }
+                    }
+                        
+                    
+                }
+            }
+        },
+
         "Occurrence": {
             "type": "object",
             "description": "Occurence object",
@@ -9524,6 +9707,22 @@
                     "type": "boolean",
                     "default": false,
                     "description": "Waiting room"
+                },
+                "allow_live_streaming": {
+                    "type": "boolean",
+                    "description": "Allow live streaming"
+                },
+                "workplace_by_facebook": {
+                    "type": "boolean",
+                    "description": "Workplace by facebook"
+                },
+                "custom_live_streaming": {
+                    "type": "boolean",
+                    "description": "Custom live streaming"
+                },
+                "custom_service_instructions": {
+                    "type": "string",
+                    "description": "Custom service instructions"
                 }
             }
         },
