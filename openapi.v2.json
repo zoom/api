@@ -15,7 +15,7 @@
         },
         "version": "2.0.0"
     },
-    "host": "api.zoom.us",
+    "host": "api.zoomgov.com",
     "basePath": "/v2",
     "schemes": [
         "https"
