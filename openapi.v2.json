@@ -8849,7 +8849,7 @@
             "description": "List of Users",
             "allOf": [
                 {
-                    "$ref": "#/definitions/PaginationToken"
+                    "$ref": "#/definitions/Pagination"
                 },
                 {
                     "properties": {
