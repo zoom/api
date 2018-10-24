@@ -5616,7 +5616,7 @@
                         "required": true,
                         "schema": {
                             "properties": {
-                                "status": {
+                                "action": {
                                     "type": "string",
                                     "enum": [
                                         "end"
