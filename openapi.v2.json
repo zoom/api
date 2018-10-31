@@ -6509,11 +6509,13 @@
             "default": "live",
             "enum": [
                 "past",
+                "pastOne",
                 "live"
             ],
             "x-enum-descriptions": [
-                "past webinars",
-                "live webinars"
+                "past meetings",
+                "past one user meetings",
+                "live meetings"
             ]
         },
         "WebinarTypePast2": {
