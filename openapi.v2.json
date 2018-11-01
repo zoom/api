@@ -145,6 +145,10 @@
                                 },
                                 "options": {
                                     "$ref": "#/definitions/AccountOptions"
+                                },
+                                "vanity_url": {
+                                    "type": "string",
+                                    "description": "Account Vanity URL"
                                 }
                             }
                         }
@@ -1452,7 +1456,20 @@
                         "required": true,
                         "description": "Meeting object",
                         "schema": {
-                            "$ref": "#/definitions/Meeting"
+                        	"allOf": [
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "schedule_for": {
+                                            "type": "string",
+                                            "description": "Email or userId if you want to schedule meeting for another user."
+                                        }
+                                    }
+                                },
+                                {
+                                    "$ref": "#/definitions/Meeting"
+                                }
+                            ]
                         }
                     }
                 ],
@@ -1492,6 +1509,12 @@
                     },
                     "404": {
                         "description": "User not found"
+                    },
+                    "1001": {
+                    	"description": "User {userId} not exist or not belong to this account"
+                    },
+                    "1110": {
+                    	"description": "Not assigned scheduler"
                     }
                 }
             }
@@ -1559,7 +1582,20 @@
                         "required": true,
                         "description": "Meeting",
                         "schema": {
-                            "$ref": "#/definitions/MeetingUpdate"
+                        	"allOf": [
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "schedule_for": {
+                                            "type": "string",
+                                            "description": "Email or userId if you want to schedule meeting for another user."
+                                        }
+                                    }
+                                },
+                                {
+                                    "$ref": "#/definitions/MeetingUpdate"
+                                }
+                            ]
                         }
                     }
                 ],
@@ -1569,6 +1605,12 @@
                     },
                     "404": {
                         "description": "Meeting not found"
+                    },
+                    "1001": {
+                    	"description": "User {userId} not exist or not belong to this account"
+                    },
+                    "1110": {
+                    	"description": "Not assigned scheduler"
                     }
                 }
             },
@@ -4239,10 +4281,53 @@
                 }
             }
         },
+        "/report/cloud_recording": {
+            "get": {
+                "summary": "Retrieve cloud recording usage report",
+                "description": "Retrieve cloud recording usage report for a specified period. You can only get cloud recording reports for the most recent period of 6 months. The date gap between from and to dates should be smaller or equal to 30 days.",
+                "tags": [
+                    "Reports"
+                ],
+                "operationId": "reportCloudRecording",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/FromDate"
+                    },
+                    {
+                        "$ref": "#/parameters/ToDate"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Telephone Report Returned",
+                        "schema": {
+                            "properties": {
+                                "date": {
+                                    "type": "string",
+                                    "format": "date-time"
+                                },
+                                "usage": {
+                                    "type": "string"
+                                },
+                                "plan_usage": {
+                                    "type": "string"
+                                },
+                                "free_usage": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "300": {
+                        "description": "Only provide report in recent 6 months"
+                    }
+                }
+            }
+        },
         "/tsp": {
             "get": {
-                "summary": "List TSP dial-in numbers",
-                "description": "List TSP dial-in numbers under account",
+                "summary": "Retrieve account's TSP information",
+                "description": "Retrieve TSP information on account level",
                 "tags": [
                     "TSP"
                 ],
@@ -4251,11 +4336,16 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "TSP dial-in numbers returned",
+                        "description": "TSP account detail returned",
                         "schema": {
                             "properties": {
                                 "tsp_provider": {
-                                    "type": "string"
+                                    "type": "string",
+                                    "description": "3rd party audio conferencing provider"
+                                },
+                                "enable": {
+                                    "type": "boolean",
+                                    "description": "Enable 3rd party audio conferencing for account users"
                                 },
                                 "dial_in_numbers": {
                                     "type": "array",
@@ -4277,6 +4367,42 @@
                                 }
                             }
                         }
+                    }
+                }
+            },
+            "patch": {
+                "summary": "Update account's TSP information",
+                "description": "Update TSP information on account level",
+                "tags": [
+                    "TSP"
+                ],
+                "operationId": "tsp",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "description": "TSP Account",
+                        "schema": {
+                            "properties": {
+                                "tsp_provider": {
+                                    "type": "string",
+                                    "description": "3rd party audio conferencing provider"
+                                },
+                                "enable": {
+                                    "type": "boolean",
+                                    "description": "Enable 3rd party audio conferencing for account users"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "TSP Account updated"
+                    },
+                    "2024": {
+                    	"description": "Account not enable TSP"
                     }
                 }
             }
@@ -4907,6 +5033,12 @@
                     },
                     "404": {
                         "description": "User not found"
+                    },
+                    "1120": {
+                    	"description": "Invite not exist"
+                    },
+                    "1122": {
+                    	"description": "Only Pro or Corp user can enable {Webinar/Large Meeting} feature"
                     }
                 }
             }
@@ -9218,6 +9350,11 @@
                                     "Toll free number <br/>",
                                     "Media link phone number <br/>"
                                 ]
+                            },
+                            "country_label": {
+                            	"type": "string",
+                            	"description": "Country Label, if passed, will display in place of code.",
+                            	"maxLength": 10
                             }
                         }
                     }
