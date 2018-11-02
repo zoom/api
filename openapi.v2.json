@@ -1509,12 +1509,6 @@
                     },
                     "404": {
                         "description": "User not found"
-                    },
-                    "1001": {
-                    	"description": "User {userId} not exist or not belong to this account"
-                    },
-                    "1110": {
-                    	"description": "Not assigned scheduler"
                     }
                 }
             }
@@ -1605,12 +1599,6 @@
                     },
                     "404": {
                         "description": "Meeting not found"
-                    },
-                    "1001": {
-                    	"description": "User {userId} not exist or not belong to this account"
-                    },
-                    "1110": {
-                    	"description": "Not assigned scheduler"
                     }
                 }
             },
@@ -4299,7 +4287,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Telephone Report Returned",
+                        "description": "Cloud Recording Report Returned",
                         "schema": {
                             "properties": {
                                 "date": {
@@ -4376,7 +4364,7 @@
                 "tags": [
                     "TSP"
                 ],
-                "operationId": "tsp",
+                "operationId": "tspUpdate",
                 "parameters": [
                     {
                         "in": "body",
@@ -4400,9 +4388,6 @@
                 "responses": {
                     "204": {
                         "description": "TSP Account updated"
-                    },
-                    "2024": {
-                    	"description": "Account not enable TSP"
                     }
                 }
             }
@@ -5033,12 +5018,6 @@
                     },
                     "404": {
                         "description": "User not found"
-                    },
-                    "1120": {
-                    	"description": "Invite not exist"
-                    },
-                    "1122": {
-                    	"description": "Only Pro or Corp user can enable {Webinar/Large Meeting} feature"
                     }
                 }
             }
