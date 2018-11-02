@@ -890,6 +890,130 @@
                 }
             }
         },
+      "/v2/tracking_fields": {
+        "get": {
+          "summary": "List Tracking Fields.",
+          "description": "List Tracking Fields on your Zoom account.",
+          "tags": [
+            "TrackingField"
+          ],
+          "parameters": [],
+          "operationId": "trackingfieldList",
+          "responses": {
+            "200": {
+              "description": "List of Tracking Fields returned.",
+              "schema": {
+                "$ref": "#/definitions/TrackingFieldList"
+              }
+            }
+          }
+        },
+        "post": {
+          "summary": "Create a Tracking Field",
+          "description": "Create a Tracking Field on your Zoom account",
+          "tags": [
+            "TrackingField"
+          ],
+          "operationId": "trackingfieldCreate",
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "required": true,
+              "description": "Tracking Field",
+              "schema": {
+                "$ref": "#/definitions/TrackingField"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Tracking Field created",
+              "headers": {
+                "Content-Location": {
+                  "description": "Location of created tracking field",
+                  "type": "string"
+                }
+              },
+              "schema": {
+                "allOf": [
+                  {
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "description": "Tracking Field ID"
+                      }
+                    }
+                  },
+                  {
+                    "$ref": "#/definitions/TrackingField"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "/v2/tracking_fields/{fieldId}": {
+        "patch": {
+          "summary": "Update a Tracking Field",
+          "description": "Update a Tracking Field on your Zoom account",
+          "tags": [
+            "TrackingField"
+          ],
+          "operationId": "trackingfieldUpdate",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "fieldId",
+              "description": "The Tracking Field ID",
+              "type": "string",
+              "required": true
+            },
+            {
+              "in": "body",
+              "name": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/TrackingField"
+              }
+            }
+          ],
+          "responses": {
+            "204": {
+              "description": "Tracking Field updated"
+            },
+            "404": {
+              "description": "Tracking Field not found"
+            }
+          }
+        },
+        "delete": {
+          "summary": "Delete a Tracking Field",
+          "description": "Delete a Tracking Field on your Zoom account",
+          "tags": [
+            "TrackingField"
+          ],
+          "operationId": "trackingfieldDelete",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "fieldId",
+              "description": "The Tracking Field ID",
+              "type": "string",
+              "required": true
+            }
+          ],
+          "responses": {
+            "204": {
+              "description": "Tracking Field deleted"
+            },
+            "404": {
+              "description": "Tracking Field not found"
+            }
+          }
+        }
+      },
         "/im/groups": {
             "get": {
                 "summary": "List IM Groups",
@@ -2023,6 +2147,235 @@
                 }
             }
         },
+      "/meetings/{meetingId}/polls": {
+          "get": {
+                "summary": "List a meeting's polls ",
+                "description": "List polls of a meeting",
+                "tags": [
+                  "Meetings"
+                ],
+                "operationId": "meetingPolls",
+                "parameters": [
+                  {
+                    "$ref": "#/parameters/MeetingId"
+                  }
+                ],
+                "responses": {
+                  "200": {
+                    "description": "List polls of a Meeting  returned",
+                    "schema": {
+                      "$ref": "#/definitions/PollList"
+                    }
+                  },
+                  "404": {
+                    "description": "Meeting not found"
+                  }
+                }
+              },
+              "post": {
+                "summary": "Create a meeting's poll",
+                "description": "Create a poll for a meeting",
+                "tags": [
+                  "Meetings"
+                ],
+                "operationId": "meetingPollCreate",
+                "parameters": [
+                  {
+                    "$ref": "#/parameters/MeetingId"
+                  },
+                  {
+                    "in": "body",
+                    "name": "body",
+                    "required": true,
+                    "description": "Meeting poll object",
+                    "schema": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/Poll"
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "responses": {
+                  "201": {
+                    "description": "Meeting Poll Created",
+                    "headers": {
+                      "Content-Location": {
+                        "description": "Location of created Meeting Poll",
+                        "type": "string"
+                      }
+                    },
+                    "schema": {
+                      "allOf": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "description": "Meeting Poll ID"
+                            },
+                            "status": {
+                              "type": "string",
+                              "description": "Status of the Meeting Poll",
+                              "enum": [
+                                "notstart",
+                                "started",
+                                "ended",
+                                "sharing"
+                              ],
+                              "x-enum-descriptions": [
+                                "Poll not start",
+                                "Poll started",
+                                "Poll ended",
+                                "Poll is sharing"
+                              ]
+                            }
+                          }
+                        },
+                        {
+                          "$ref": "#/definitions/Poll"
+                        }
+                      ]
+                    }
+                  },
+                  "404": {
+                    "description": "Meeting not found"
+                  }
+                }
+              }
+        },
+      "/meetings/{meetingId}/polls/{pollId}": {
+        "get": {
+          "summary": "Retrieve a meeting's poll",
+          "description": "Retrieve a meeting's poll",
+          "tags": [
+            "Meetings"
+          ],
+          "operationId": "meetingPollGet",
+          "parameters": [
+            {
+              "$ref": "#/parameters/MeetingId"
+            },
+            {
+              "in": "path",
+              "name": "pollId",
+              "description": "The poll ID",
+              "type": "string",
+              "required": true
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Meeting Poll object returned",
+              "schema": {
+                "allOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "description": "Meeting Poll ID"
+                      },
+                      "status": {
+                        "type": "string",
+                        "description": "Status of the Meeting Poll",
+                        "enum": [
+                          "notstart",
+                          "started",
+                          "ended",
+                          "sharing"
+                        ],
+                        "x-enum-descriptions": [
+                          "Poll not start",
+                          "Poll started",
+                          "Poll ended",
+                          "Poll is sharing"
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "$ref": "#/definitions/Poll"
+                  }
+                ]
+              }
+            },
+            "404": {
+              "description": "Meeting Poll not found"
+            }
+          }
+        },
+        "put": {
+          "summary": "Update a meeting's poll",
+          "description": "Update a meeting's poll",
+          "tags": [
+            "Meetings"
+          ],
+          "operationId": "meetingPollUpdate",
+          "parameters": [
+            {
+              "$ref": "#/parameters/MeetingId"
+            },
+            {
+              "in": "path",
+              "name": "pollId",
+              "description": "The poll ID",
+              "type": "string",
+              "required": true
+            },
+            {
+              "in": "body",
+              "name": "body",
+              "required": true,
+              "description": "Meeting Poll",
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/definitions/Poll"
+                  }
+                ]
+              }
+            }
+          ],
+          "responses": {
+            "204": {
+              "description": "Meeting Poll Updated"
+            },
+            "404": {
+              "description": "Meeting Poll not found"
+            }
+          }
+        },
+        "delete": {
+          "summary": "Delete a meeting's Poll",
+          "description": "Delete a meeting's Poll",
+          "tags": [
+            "Meetings"
+          ],
+          "operationId": "meetingPollDelete",
+          "parameters": [
+            {
+              "$ref": "#/parameters/MeetingId"
+            },
+            {
+              "in": "path",
+              "name": "pollId",
+              "description": "The poll ID",
+              "type": "string",
+              "required": true
+            }
+          ],
+          "responses": {
+            "204": {
+              "description": "Meeting Poll deleted"
+            },
+            "404": {
+              "description": "Meeting Poll not found"
+            }
+          }
+        }
+      },
         "/users/{userId}/recordings": {
             "get": {
                 "summary": "List all the recordings",
@@ -6060,6 +6413,235 @@
                 }
             }
         },
+        "/webinars/{webinarId}/polls": {
+            "get": {
+              "summary": "List a webinar's polls ",
+              "description": "List polls of a webinar",
+              "tags": [
+                "Webinars"
+              ],
+              "operationId": "webinarPolls",
+              "parameters": [
+                {
+                  "$ref": "#/parameters/WebinarId"
+                }
+              ],
+              "responses": {
+                "200": {
+                  "description": "List polls of a Webinar  returned",
+                  "schema": {
+                    "$ref": "#/definitions/PollList"
+                  }
+                },
+                "404": {
+                  "description": "Webinar not found"
+                }
+              }
+            },
+            "post": {
+              "summary": "Create a webinar's poll",
+              "description": "Create a poll for a webinar",
+              "tags": [
+                "Webinars"
+              ],
+              "operationId": "webinarPollCreate",
+              "parameters": [
+                {
+                  "$ref": "#/parameters/WebinarId"
+                },
+                {
+                  "in": "body",
+                  "name": "body",
+                  "required": true,
+                  "description": "Webinar poll object",
+                  "schema": {
+                    "allOf": [
+                      {
+                        "$ref": "#/definitions/Poll"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "responses": {
+                "201": {
+                  "description": "Webinar Poll Created",
+                  "headers": {
+                    "Content-Location": {
+                      "description": "Location of created Webinar Poll",
+                      "type": "string"
+                    }
+                  },
+                  "schema": {
+                    "allOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "Webinar Poll ID"
+                          },
+                          "status": {
+                            "type": "string",
+                            "description": "Status of the Webinar Poll",
+                            "enum": [
+                              "notstart",
+                              "started",
+                              "ended",
+                              "sharing"
+                            ],
+                            "x-enum-descriptions": [
+                              "Poll not start",
+                              "Poll started",
+                              "Poll ended",
+                              "Poll is sharing"
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "$ref": "#/definitions/Poll"
+                      }
+                    ]
+                  }
+                },
+                "404": {
+                  "description": "Webinar not found"
+                }
+              }
+            }
+        },
+        "/webinars/{webinarId}/polls/{pollId}": {
+            "get": {
+              "summary": "Retrieve a webinar's poll",
+              "description": "Retrieve a webinar's poll",
+              "tags": [
+                "Webinars"
+              ],
+              "operationId": "webinarPollGet",
+              "parameters": [
+                {
+                  "$ref": "#/parameters/WebinarId"
+                },
+                {
+                  "in": "path",
+                  "name": "pollId",
+                  "description": "The poll ID",
+                  "type": "string",
+                  "required": true
+                }
+              ],
+              "responses": {
+                "200": {
+                  "description": "Webinar Poll object returned",
+                  "schema": {
+                    "allOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "Webinar Poll ID"
+                          },
+                          "status": {
+                            "type": "string",
+                            "description": "Status of the Webinar Poll",
+                            "enum": [
+                              "notstart",
+                              "started",
+                              "ended",
+                              "sharing"
+                            ],
+                            "x-enum-descriptions": [
+                              "Poll not start",
+                              "Poll started",
+                              "Poll ended",
+                              "Poll is sharing"
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "$ref": "#/definitions/Poll"
+                      }
+                    ]
+                  }
+                },
+                "404": {
+                  "description": "Webinar Poll not found"
+                }
+              }
+            },
+            "put": {
+              "summary": "Update a webinar's poll",
+              "description": "Update a webinar's poll",
+              "tags": [
+                "Webinars"
+              ],
+              "operationId": "webinarPollUpdate",
+              "parameters": [
+                {
+                  "$ref": "#/parameters/WebinarId"
+                },
+                {
+                  "in": "path",
+                  "name": "pollId",
+                  "description": "The poll ID",
+                  "type": "string",
+                  "required": true
+                },
+                {
+                  "in": "body",
+                  "name": "body",
+                  "required": true,
+                  "description": "Webinar Poll",
+                  "schema": {
+                    "allOf": [
+                      {
+                        "$ref": "#/definitions/Poll"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "responses": {
+                "204": {
+                  "description": "Webinar Poll Updated"
+                },
+                "404": {
+                  "description": "Webinar Poll not found"
+                }
+              }
+            },
+            "delete": {
+              "summary": "Delete a webinar's Poll",
+              "description": "Delete a webinar's Poll",
+              "tags": [
+                "Webinars"
+              ],
+              "operationId": "webinarPollDelete",
+              "parameters": [
+                {
+                  "$ref": "#/parameters/WebinarId"
+                },
+                {
+                  "in": "path",
+                  "name": "pollId",
+                  "description": "The poll ID",
+                  "type": "string",
+                  "required": true
+                }
+              ],
+              "responses": {
+                "204": {
+                  "description": "Webinar Poll deleted"
+                },
+                "404": {
+                  "description": "Webinar Poll not found"
+                }
+              }
+            }
+        },
         "/webhooks/options": {
             "patch": {
                 "summary": "Switch webhook version",
@@ -7874,6 +8456,22 @@
                     "type": "string",
                     "description": "H.323/SIP room system password"
                 },
+                "tracking_fields": {
+                    "type": "array",
+                    "description": "Tracking fields",
+                    "items": {
+                        "properties": {
+                            "field": {
+                                "type": "string",
+                                "description": "Tracking fields type"
+                            },
+                            "value": {
+                                "type": "string",
+                                "description": "Tracking fields value"
+                            }
+                        }
+                    }
+                },
                 "occurrences": {
                     "$ref": "#/definitions/Occurrences"
                 },
@@ -8163,6 +8761,16 @@
                 "alternative_hosts": {
                     "type": "string",
                     "description": "Alternative hosts emails or IDs. Multiple value separated by comma."
+                },
+                "close_registration": {
+                  "type": "boolean",
+                  "description": "Close registration after event date",
+                  "default": false
+                },
+                "waiting_room": {
+                  "type": "boolean",
+                  "description": "Enable waiting room",
+                  "default": false
                 }
             }
         },
@@ -8189,7 +8797,7 @@
             "type": "object",
             "description": "Meeting Live Stream",
             "required":[
-              "stream_url", 
+              "stream_url",
               "stream_key"
             ],
             "properties": {
@@ -8240,8 +8848,8 @@
                             "description": "Live stream display name."
                         }
                     }
-                        
-                    
+
+
                 }
             }
         },
@@ -9086,6 +9694,22 @@
                     "type": "string",
                     "description": "Meeting description"
                 },
+                "tracking_fields": {
+                    "type": "array",
+                    "description": "Tracking fields",
+                    "items": {
+                        "properties": {
+                            "field": {
+                              "type": "string",
+                              "description": "Tracking fields type"
+                            },
+                            "value": {
+                              "type": "string",
+                              "description": "Tracking fields value"
+                            }
+                        }
+                    }
+                },
                 "recurrence": {
                     "$ref": "#/definitions/Recurrence"
                 },
@@ -9139,6 +9763,22 @@
                 "agenda": {
                     "type": "string",
                     "description": "Meeting description"
+                },
+                "tracking_fields": {
+                    "type": "array",
+                    "description": "Tracking fields",
+                    "items": {
+                        "properties": {
+                            "field": {
+                              "type": "string",
+                              "description": "Tracking fields type"
+                            },
+                            "value": {
+                              "type": "string",
+                              "description": "Tracking fields value"
+                            }
+                        }
+                    }
                 },
                 "recurrence": {
                     "$ref": "#/definitions/Recurrence"
@@ -9204,6 +9844,22 @@
                     "type": "string",
                     "description": "Webinar description"
                 },
+                "tracking_fields": {
+                    "type": "array",
+                    "description": "Tracking fields",
+                    "items": {
+                        "properties": {
+                            "field": {
+                              "type": "string",
+                              "description": "Tracking fields type"
+                            },
+                            "value": {
+                              "type": "string",
+                              "description": "Tracking fields value"
+                            }
+                        }
+                    }
+                },
                 "recurrence": {
                     "$ref": "#/definitions/Recurrence"
                 },
@@ -9255,6 +9911,22 @@
                 "agenda": {
                     "type": "string",
                     "description": "Webinar description"
+                },
+                "tracking_fields": {
+                    "type": "array",
+                    "description": "Tracking fields",
+                    "items": {
+                        "properties": {
+                            "field": {
+                              "type": "string",
+                              "description": "Tracking fields type"
+                            },
+                            "value": {
+                              "type": "string",
+                              "description": "Tracking fields value"
+                            }
+                        }
+                    }
                 },
                 "recurrence": {
                     "$ref": "#/definitions/Recurrence"
@@ -10123,6 +10795,22 @@
                     "type": "string",
                     "description": "Join url"
                 },
+                "tracking_fields": {
+                    "type": "array",
+                    "description": "Tracking fields",
+                    "items": {
+                        "properties": {
+                            "field": {
+                              "type": "string",
+                              "description": "Tracking fields type"
+                            },
+                            "value": {
+                              "type": "string",
+                              "description": "Tracking fields value"
+                            }
+                        }
+                    }
+                },
                 "occurrences": {
                     "$ref": "#/definitions/Occurrences"
                 },
@@ -10464,6 +11152,11 @@
                 "allow_multiple_devices": {
                     "type": "boolean",
                     "description": "Allow attendees to join from multiple devices"
+                },
+                "on_demand": {
+                  "type": "boolean",
+                  "description": "Make the webinar on-demand",
+                  "default": false
                 }
 
             }
@@ -10672,7 +11365,156 @@
                     }
                 }
             ]
+        },
+      "PollList": {
+        "type": "object",
+        "title": "Poll List",
+        "description": "Poll List",
+        "allOf": [
+          {
+            "properties": {
+              "total_records": {
+                "type": "integer",
+                "description": "The number of all records available across pages"
+              },
+              "polls": {
+                "type": "array",
+                "description": "Array of Polls",
+                "items": {
+                  "allOf": [
+                    {
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "description": "ID of Poll"
+                        },
+                        "status": {
+                          "type": "string",
+                          "description": "Status of Poll",
+                          "enum": [
+                            "notstart",
+                            "started",
+                            "ended",
+                            "sharing"
+                          ],
+                          "x-enum-descriptions": [
+                            "Poll not start",
+                            "Poll started",
+                            "Poll ended",
+                            "Poll is sharing"
+                          ]
+                        }
+                      }
+                    },
+                    {"$ref": "#/definitions/Poll"}
+                    ]
+
+                }
+              }
+            }
+          }
+        ]
+      },
+      "Poll": {
+        "type": "object",
+        "title": "Poll",
+        "description": "Poll",
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "Poll Title"
+          },
+          "questions": {
+            "type": "array",
+            "description": "Array of Polls",
+            "items": {
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Question name"
+                },
+                "type": {
+                  "type": "string",
+                  "description": "Question type",
+                  "enum": [
+                    "single",
+                    "multiple"
+                  ],
+                  "x-enum-descriptions": [
+                    "single answer",
+                    "multiple answer"
+                  ]
+                },
+                "answers": {
+                  "type": "array",
+                  "description": "Question answers",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
         }
+      },
+      "TrackingFieldList": {
+        "type": "object",
+        "title": "Tracking Field List",
+        "description": "Tracking Field List",
+        "allOf": [
+          {
+            "properties": {
+              "total_records": {
+                "type": "integer",
+                "description": "The number of all records available across pages"
+              },
+              "tracking_fields": {
+                "type": "array",
+                "description": "Array of Tracking Fields",
+                "items": {
+                  "allOf": [
+                    {
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "description": "ID of Tracking Field"
+                        }
+                      }
+                    },
+                    {"$ref": "#/definitions/TrackingField"}
+                  ]
+                }
+              }
+            }
+          }
+        ]
+      },
+      "TrackingField": {
+        "type": "object",
+        "title": "Tracking Field",
+        "description": "Tracking Field",
+        "properties": {
+          "field": {
+            "type": "string",
+            "description": "Tracking Field Name"
+          },
+          "required": {
+            "type": "boolean",
+            "description": "Tracking Field Required"
+          },
+          "visible": {
+            "type": "boolean",
+            "description": "Tracking Field Visible"
+          },
+          "recommended_values": {
+            "type": "array",
+            "description": "Array of recommended values",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
     },
     "tags": [
         {
@@ -10734,6 +11576,10 @@
         {
             "name": "Devices",
             "description": "H323 Device operations"
+        },
+        {
+          "name": "TrackingField",
+          "description": "Tracking Field operations"
         }
     ],
     "externalDocs": {
