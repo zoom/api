@@ -955,6 +955,46 @@
         }
       },
       "/v2/tracking_fields/{fieldId}": {
+        "get": {
+          "summary": "Retrieve a tracking field",
+          "description": "Retrieve a tracking field",
+          "tags": [
+            "TrackingField"
+          ],
+          "operationId": "trackingfieldGet",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "fieldId",
+              "description": "The Tracking Field ID",
+              "type": "string",
+              "required": true
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Tracking Field object returned",
+              "schema": {
+                "allOf": [
+                  {
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "description": "Tracking Field ID"
+                      }
+                    }
+                  },
+                  {
+                    "$ref": "#/definitions/TrackingField"
+                  }
+                ]
+              }
+            },
+            "404": {
+              "description": "Tracking Field not found"
+            }
+          }
+        },
         "patch": {
           "summary": "Update a Tracking Field",
           "description": "Update a Tracking Field on your Zoom account",
