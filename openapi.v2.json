@@ -11014,6 +11014,7 @@
                 "panelists": {
                     "type": "array",
                     "description": "List of Panelist objects",
+                    "maximum": 30,
                     "items": {
                         "allOf": [
                             {
