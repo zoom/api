@@ -4289,21 +4289,47 @@
                     "200": {
                         "description": "Cloud Recording Report Returned",
                         "schema": {
-                            "properties": {
-                                "date": {
-                                    "type": "string",
-                                    "format": "date-time"
+                            "allOf": [
+                                {
+                                    "properties": {
+                                        "from": {
+                                            "type": "string",
+                                            "format": "date",
+                                            "description": "Start date for this report"
+                                        },
+                                        "to": {
+                                            "type": "string",
+                                            "format": "date",
+                                            "description": "End date for this report"
+                                        }
+                                    }
                                 },
-                                "usage": {
-                                    "type": "string"
-                                },
-                                "plan_usage": {
-                                    "type": "string"
-                                },
-                                "free_usage": {
-                                    "type": "string"
+                                {
+                                    "properties": {
+                                        "cloud_recording_storage": {
+                                            "type": "array",
+                                            "description": "Array of cloud usage objects",
+                                            "items": {
+                                                "properties": {
+                                                    "date": {
+                                                    "type": "string",
+                                                    "format": "date-time"
+                                                    },
+                                                    "usage": {
+                                                        "type": "string"
+                                                    },
+                                                    "plan_usage": {
+                                                        "type": "string"
+                                                    },
+                                                    "free_usage": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
                                 }
-                            }
+                            ]
                         }
                     },
                     "300": {
