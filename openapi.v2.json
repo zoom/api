@@ -4859,7 +4859,8 @@
                                         },
                                         "password": {
                                             "type": "string",
-                                            "description": "User’s password. Only for \"autoCreate\" action."
+                                            "description": "User’s password. Only for \"autoCreate\" action.",
+                                            "minimum": 8
                                         }
                                     }
                                 }
@@ -5450,7 +5451,8 @@
                             "properties": {
                                 "password": {
                                     "type": "string",
-                                    "description": "User’s password. Character length is less than 32,"
+                                    "description": "User’s password. Character length is less than 32,",
+                                    "minimum": 8
                                 }
                             }
                         }
@@ -7273,7 +7275,8 @@
                 },
                 "password": {
                     "type": "string",
-                    "description": "User's password"
+                    "description": "User's password",
+                    "minimum": 8
                 },
                 "options": {
                     "$ref": "#/definitions/AccountOptions"
