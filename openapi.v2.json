@@ -890,7 +890,7 @@
                 }
             }
         },
-      "/v2/tracking_fields": {
+        "/v2/tracking_fields": {
         "get": {
           "summary": "List Tracking Fields.",
           "description": "List Tracking Fields on your Zoom account.",
@@ -954,7 +954,7 @@
           }
         }
       },
-      "/v2/tracking_fields/{fieldId}": {
+        "/v2/tracking_fields/{fieldId}": {
         "get": {
           "summary": "Retrieve a tracking field",
           "description": "Retrieve a tracking field",
@@ -2187,7 +2187,33 @@
                 }
             }
         },
-      "/meetings/{meetingId}/polls": {
+        "/past_meetings/{meetingId}/instances": {
+            "get": {
+                "summary": "List of ended meeting instances",
+                "description": "List of ended meeting instances",
+                "tags": [
+                    "Meetings"
+                ],
+                "operationId": "pastMeetings",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/MeetingId"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of ended meeting instances",
+                        "schema": {
+                            "$ref": "#/definitions/MeetingInstances"
+                        }
+                    },
+                    "404": {
+                        "description": "Meeting not found"
+                    }
+                }
+            }
+        },
+        "/meetings/{meetingId}/polls": {
           "get": {
                 "summary": "List a meeting's polls ",
                 "description": "List polls of a meeting",
@@ -2285,7 +2311,7 @@
                 }
               }
         },
-      "/meetings/{meetingId}/polls/{pollId}": {
+        "/meetings/{meetingId}/polls/{pollId}": {
         "get": {
           "summary": "Retrieve a meeting's poll",
           "description": "Retrieve a meeting's poll",
@@ -2624,6 +2650,183 @@
                     },
                     "404": {
                         "description": "Meeting recording not found"
+                    }
+                }
+            }
+        },
+        "/meetings/{meetingId}/recordings/settings": {
+            "get": {
+                "summary": "Retrieve a meeting recording's settings",
+                "description": "Retrieve a meeting recording's settings",
+                "tags": [
+                    "Cloud Recording"
+                ],
+                "operationId": "recordingSettingUpdate",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/MeetingId4Recording"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Meeting recording settings returned",
+                        "schema": {
+                            "$ref": "#/definitions/RecordingSettings"
+                        }
+                    },
+                    "404": {
+                        "description": "Meeting recording not found"
+                    }
+                }
+            },
+            "patch": {
+                "summary": "Update a meeting recording's settings",
+                "description": "Update a meeting recording's settings",
+                "tags": [
+                    "Cloud Recording"
+                ],
+                "operationId": "recordingSettingsUpdate",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/MeetingId4Recording"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "description": "Meeting recording Settings",
+                        "schema": {
+                            "$ref": "#/definitions/RecordingSettings"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Meeting recording setting's updated"
+                    },
+                    "404": {
+                        "description": "Meeting recording not found"
+                    }
+                }
+            }
+        },
+        "/meetings/{meetingId}/recordings/registrants": {
+            "get": {
+                "summary": "List a meeting recording's registrants",
+                "description": "List registrants of a meeting recording",
+                "tags": [
+                    "Cloud Recording"
+                ],
+                "operationId": "meetingRecordingRegistrants",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/MeetingId"
+                    },
+                    {
+                        "$ref": "#/parameters/RegistrantStatus"
+                    },
+                    {
+                        "$ref": "#/parameters/PageSize"
+                    },
+                    {
+                        "$ref": "#/parameters/PageNumber"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/MeetingRecordingRegistrantList"
+                        }
+                    },
+                    "404": {
+                        "description": "Meeting recording not found"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Add a meeting recording registrant",
+                "description": "Register a participant for a meeting recording",
+                "tags": [
+                    "Cloud Recording"
+                ],
+                "operationId": "meetingRecordingRegistrantCreate",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/MeetingId"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/MeetingRegistrant"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Registration created",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "registrant_id": {
+                                    "type": "string",
+                                    "description": "Registrant ID"
+                                },
+                                "id": {
+                                    "type": "string",
+                                    "description": "Registrant ID"
+                                },
+                                "topic": {
+                                    "type": "string",
+                                    "description": "Topic"
+                                },
+                                "start_time": {
+                                    "type": "string",
+                                    "format": "date-time",
+                                    "description": "Start time"
+                                },
+                                "join_url": {
+                                    "type": "string",
+                                    "description": "Join URL for this registrant"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Meeting recording not found"
+                    }
+                }
+            }
+        },
+        "/meetings/{meetingId}/recordings/registrants/status": {
+            "put": {
+                "summary": "Update a meeting recording registrant's status",
+                "description": "Update a meeting recording registrant's status",
+                "tags": [
+                    "Cloud Recording"
+                ],
+                "operationId": "meetingRecordingRegistrantStatus",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/MeetingId"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/RecordingRegistrantStatus"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Registrant status updated"
+                    },
+                    "404": {
+                        "description": "Meeting recording or Registrant not found"
                     }
                 }
             }
@@ -5020,6 +5223,9 @@
                                 },
                                 {
                                     "properties": {
+                                        "language": {
+                                            "type": "string"
+                                        },
                                         "vanity_url": {
                                             "type": "string"
                                         },
@@ -8862,6 +9068,17 @@
                 }
             ]
         },
+        "MeetingRecordingRegistrantList": {
+            "type": "object",
+            "title": "Registration List",
+            "description": "List of meeting recording registrant",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/RecordingRegistrantList"
+                }
+            ]
+        },
+
         "MeetingLiveStream": {
             "type": "object",
             "description": "Meeting Live Stream",
@@ -8922,7 +9139,39 @@
                 }
             }
         },
-
+        "MeetingInstances": {
+            "type": "object",
+            "title": "Meeting instances",
+            "description": "List of Meetings",
+            "allOf": [
+                {
+                    "properties": {
+                        "meetings": {
+                            "type": "array",
+                            "description": "List of ended meeting instances.",
+                            "items": {
+                                "allOf": [
+                                    {
+                                        "type": "object",
+                                        "properties": {
+                                            "uuid": {
+                                                "type": "string",
+                                                "description": "MeetingUUID"
+                                            },
+                                            "start_time": {
+                                                "type": "string",
+                                                "format": "date-time",
+                                                "description": "Start time"
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        },
         "Occurrence": {
             "type": "object",
             "description": "Occurence object",
@@ -9287,7 +9536,7 @@
                 },
                 "recording_start": {
                     "type": "string",
-                    "description": "The recording start time"
+                    "description": "The recording start time."
                 },
                 "recording_end": {
                     "type": "string",
@@ -9295,11 +9544,11 @@
                 },
                 "file_type": {
                     "type": "string",
-                    "description": "The recording file type"
+                    "description": "The recording file type."
                 },
                 "file_size": {
                     "type": "number",
-                    "description": "The recording file size"
+                    "description": "The recording file size."
                 },
                 "play_url": {
                     "type": "string",
@@ -9319,7 +9568,7 @@
                 },
                 "recording_type": {
                     "type": "string",
-                    "description": "The recording file type, active_speaker or gallery_view"
+                    "description": "The recording file type."
                 }
             }
         },
@@ -9427,6 +9676,93 @@
                 }
             ]
         },
+        "RecordingSettings": {
+            "title": "Recording settings",
+            "type": "object",
+            "properties": {
+                "share_recording": {
+                    "type": "string",
+                    "description": "Determine if the meeting recording is shared",
+                    "enum": [
+                        "publicly",
+                        "internally",
+                        "none"
+                    ],
+                    "x-enum-descriptions": [
+                        "Publicly",
+                        "Internally(account members only)",
+                        "None"
+                    ]
+                },
+                "viewer_download": {
+                    "type": "boolean",
+                    "description": "Host video"
+                },
+                "password": {
+                    "type": "string",
+                    "description": "Password protect"
+                },
+                "on_demand": {
+                    "type": "boolean",
+                    "description": "Registration required"
+                },
+                "approval_type": {
+                    "type": "integer",
+                    "description": "Approval type",
+                    "enum": [
+                        0,
+                        1,
+                        2
+                    ],
+                    "x-enum-descriptions": [
+                        "Registrants can watch the recording directly after registration",
+                        "Registrants will receive emails then watch the recording after you approve the registration",
+                        "Disabled"
+                    ]
+                },
+                "send_email_to_host": {
+                    "type": "boolean",
+                    "description": "Send an email to host when someone registers"
+                },
+                "show_social_share_buttons": {
+                    "type": "boolean",
+                    "description": "Show social share buttons on registration page"
+                }
+            }
+        },
+        "RecordingRegistrantStatus": {
+            "type": "object",
+            "description": "Registrant Status",
+            "required": [
+                "action"
+            ],
+            "properties": {
+                "action": {
+                    "type": "string",
+                    "enum": [
+                        "approve",
+                        "deny"
+                    ],
+                    "x-enum-descriptions": [
+                        "Approve registrant",
+                        "Deny registrant"
+                    ]
+                },
+                "registrants": {
+                    "type": "array",
+                    "description": "List of registrants",
+                    "maximum": 30,
+                    "items": {
+                        "properties": {
+                            "id": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+
         "Recurrence": {
             "type": "object",
             "description": "Recurrence object",
@@ -9672,6 +10008,38 @@
                                                 "format": "string"
                                             }
                                         }
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "RecordingRegistrantList": {
+            "type": "object",
+            "title": "Recording Registration List",
+            "description": "List of Recording Registration",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/Pagination"
+                },
+                {
+                    "properties": {
+                        "registrants": {
+                            "type": "array",
+                            "description": "List of Registrant objects",
+                            "items": {
+                                "allOf": [
+                                    {
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "$ref": "#/definitions/MeetingRegistrant"
                                     }
                                 ]
                             }
@@ -10247,6 +10615,10 @@
                     "type": "string",
                     "description": "The time zone id for user profile. For this parameter value please refer to the id value in [timezone](#timezones) list.",
                     "format": "date-time"
+                },
+                "language": {
+                    "type": "string",
+                    "description": "language"
                 },
                 "dept": {
                     "type": "string",
