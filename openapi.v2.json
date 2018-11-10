@@ -2710,186 +2710,70 @@
                 }
             }
         },
-//        "/meetings/{meetingId}/recordings/registrants": {
-//            "get": {
-//                "summary": "List a meeting recording's registrants",
-//                "description": "List registrants of a meeting recording",
-//                "tags": [
-//                    "Cloud Recording"
-//                ],
-//                "operationId": "meetingRecordingRegistrants",
-//                "parameters": [
-//                    {
-//                        "$ref": "#/parameters/MeetingId"
-//                    },
-//                    {
-//                        "$ref": "#/parameters/RegistrantStatus"
-//                    },
-//                    {
-//                        "$ref": "#/parameters/PageSize"
-//                    },
-//                    {
-//                        "$ref": "#/parameters/PageNumber"
-//                    }
-//                ],
-//                "responses": {
-//                    "200": {
-//                        "description": "Success",
-//                        "schema": {
-//                            "$ref": "#/definitions/MeetingRecordingRegistrantList"
-//                        }
-//                    },
-//                    "404": {
-//                        "description": "Meeting recording not found"
-//                    }
-//                }
-//            },
-//            "post": {
-//                "summary": "Add a meeting recording registrant",
-//                "description": "Register a participant for a meeting recording",
-//                "tags": [
-//                    "Cloud Recording"
-//                ],
-//                "operationId": "meetingRecordingRegistrantCreate",
-//                "parameters": [
-//                    {
-//                        "$ref": "#/parameters/MeetingId"
-//                    },
-//                    {
-//                        "in": "body",
-//                        "name": "body",
-//                        "required": true,
-//                        "schema": {
-//                            "$ref": "#/definitions/MeetingRegistrant"
-//                        }
-//                    }
-//                ],
-//                "responses": {
-//                    "201": {
-//                        "description": "Registration created",
-//                        "schema": {
-//                            "type": "object",
-//                            "properties": {
-//                                "registrant_id": {
-//                                    "type": "string",
-//                                    "description": "Registrant ID"
-//                                },
-//                                "id": {
-//                                    "type": "string",
-//                                    "description": "Registrant ID"
-//                                },
-//                                "topic": {
-//                                    "type": "string",
-//                                    "description": "Topic"
-//                                },
-//                                "share_url": {
-//                                    "type": "string",
-//                                    "description": "Share Url for this registrant"
-//                                }
-//                            }
-//                        }
-//                    },
-//                    "404": {
-//                        "description": "Meeting recording not found"
-//                    }
-//                }
-//            }
-//        },
-//        "/meetings/{meetingId}/recordings/registrants/status": {
-//            "put": {
-//                "summary": "Update a meeting recording registrant's status",
-//                "description": "Update a meeting recording registrant's status",
-//                "tags": [
-//                    "Cloud Recording"
-//                ],
-//                "operationId": "meetingRecordingRegistrantStatus",
-//                "parameters": [
-//                    {
-//                        "$ref": "#/parameters/MeetingId"
-//                    },
-//                    {
-//                        "in": "body",
-//                        "name": "body",
-//                        "required": true,
-//                        "schema": {
-//                            "$ref": "#/definitions/RecordingRegistrantStatus"
-//                        }
-//                    }
-//                ],
-//                "responses": {
-//                    "204": {
-//                        "description": "Registrant status updated"
-//                    },
-//                    "404": {
-//                        "description": "Meeting recording or Registrant not found"
-//                    }
-//                }
-//            }
-//        },
-//        "/metrics/meetings": {
-//            "get": {
-//                "summary": "List meetings",
-//                "description": "List live meetings or past meetings for a specified period",
-//                "tags": [
-//                    "Dashboards"
-//                ],
-//                "operationId": "dashboardMeetings",
-//                "parameters": [
-//                    {
-//                        "$ref": "#/parameters/MeetingTypePast"
-//                    },
-//                    {
-//                        "$ref": "#/parameters/FromDate"
-//                    },
-//                    {
-//                        "$ref": "#/parameters/ToDate"
-//                    },
-//                    {
-//                        "$ref": "#/parameters/PageSize"
-//                    },
-//                    {
-//                        "$ref": "#/parameters/NextPageToken"
-//                    }
-//                ],
-//                "responses": {
-//                    "200": {
-//                        "description": "Meetings Returned",
-//                        "schema": {
-//                            "allOf": [
-//                                {
-//                                    "properties": {
-//                                        "from": {
-//                                            "type": "string",
-//                                            "format": "date",
-//                                            "description": "Start date for this report"
-//                                        },
-//                                        "to": {
-//                                            "type": "string",
-//                                            "format": "date",
-//                                            "description": "End date for this report"
-//                                        }
-//                                    }
-//                                },
-//                                {
-//                                    "$ref": "#/definitions/PaginationToken"
-//                                },
-//                                {
-//                                    "properties": {
-//                                        "meetings": {
-//                                            "type": "array",
-//                                            "description": "Array of meeting objects",
-//                                            "items": {
-//                                                "$ref": "#/definitions/MeetingMetric"
-//                                            }
-//                                        }
-//                                    }
-//                                }
-//                            ]
-//                        }
-//                    }
-//                }
-//            }
-//        },
+        "/metrics/meetings": {
+            "get": {
+                "summary": "List meetings",
+                "description": "List live meetings or past meetings for a specified period",
+                "tags": [
+                    "Dashboards"
+                ],
+                "operationId": "dashboardMeetings",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/MeetingTypePast"
+                    },
+                    {
+                        "$ref": "#/parameters/FromDate"
+                    },
+                    {
+                        "$ref": "#/parameters/ToDate"
+                    },
+                    {
+                        "$ref": "#/parameters/PageSize"
+                    },
+                    {
+                        "$ref": "#/parameters/NextPageToken"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Meetings Returned",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "properties": {
+                                        "from": {
+                                            "type": "string",
+                                            "format": "date",
+                                            "description": "Start date for this report"
+                                        },
+                                        "to": {
+                                            "type": "string",
+                                            "format": "date",
+                                            "description": "End date for this report"
+                                        }
+                                    }
+                                },
+                                {
+                                    "$ref": "#/definitions/PaginationToken"
+                                },
+                                {
+                                    "properties": {
+                                        "meetings": {
+                                            "type": "array",
+                                            "description": "Array of meeting objects",
+                                            "items": {
+                                                "$ref": "#/definitions/MeetingMetric"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
         "/metrics/meetings/{meetingId}": {
             "get": {
                 "summary": "Retrieve meeting detail",
