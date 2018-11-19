@@ -4862,7 +4862,7 @@
         },
         "/report/cloud_recording": {
             "get": {
-                "summary": "Retrieve cloud recording usage report",
+                "summary": "Retrieve Cloud Recording Usage Report",
                 "description": "Retrieve cloud recording usage report for a specified period. You can only get cloud recording reports for the most recent period of 6 months. The date gap between from and to dates should be smaller or equal to 30 days.",
                 "tags": [
                     "Reports"
@@ -4903,17 +4903,21 @@
                                             "items": {
                                                 "properties": {
                                                     "date": {
-                                                    "type": "string",
-                                                    "format": "date-time"
+                                                        "type": "string",
+                                                        "format": "date-time",
+                                                        "description": "Date of the usage"
                                                     },
                                                     "usage": {
-                                                        "type": "string"
+                                                        "type": "string",
+                                                        "description": "Storage used on the date"
                                                     },
                                                     "plan_usage": {
-                                                        "type": "string"
+                                                        "type": "string",
+                                                        "description": "Paid storage"
                                                     },
                                                     "free_usage": {
-                                                        "type": "string"
+                                                        "type": "string",
+                                                        "description": "Free storage"
                                                     }
                                                 }
                                             }
