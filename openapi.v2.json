@@ -890,7 +890,7 @@
                 }
             }
         },
-        "/v2/tracking_fields": {
+        "/tracking_fields": {
         "get": {
           "summary": "List Tracking Fields.",
           "description": "List Tracking Fields on your Zoom account.",
@@ -954,7 +954,7 @@
           }
         }
       },
-        "/v2/tracking_fields/{fieldId}": {
+        "/tracking_fields/{fieldId}": {
         "get": {
           "summary": "Retrieve a tracking field",
           "description": "Retrieve a tracking field",
