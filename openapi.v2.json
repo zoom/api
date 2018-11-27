@@ -1713,7 +1713,7 @@
                                     }
                                 },
                                 {
-                                    "$ref": "#/definitions/MeetingInfo"
+                                    "$ref": "#/definitions/MeetingInfoGet"
                                 }
                             ]
                         }
@@ -4933,6 +4933,128 @@
                 }
             }
         },
+        "/roles": {
+            "get": {
+                "summary": "List Roles",
+                "description": "List Roles on your account",
+                "tags": [
+                    "Roles"
+                ],
+                "operationId": "roles",
+                "responses": {
+                    "200": {
+                        "description": "Role list returned",
+                        "schema": {
+                            "$ref": "#/definitions/RoleList"
+                        }
+                    }
+                }
+            }
+        },
+        "/roles/{roleId}/members": {
+            "get": {
+                "summary": "List a role's members",
+                "description": "List a role's members",
+                "tags": [
+                    "Roles"
+                ],
+                "operationId": "roleMembers",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/RoleId"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/RoleMembersList"
+                        }
+                    },
+                    "404": {
+                        "description": "Role not found"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Add a role members",
+                "description": "Add a role members",
+                "tags": [
+                    "Roles"
+                ],
+                "operationId": "AddRoleMembers",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/RoleId"
+                    },
+                    {
+                        "name": "body",
+                        "description": "Role members",
+                        "required": true,
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/RoleMembersAdd"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Members Added",
+                        "headers": {
+                            "Content-Location": {
+                                "description": "Location of created members",
+                                "type": "string"
+                            }
+                        },
+                        "schema": {
+                            "properties": {
+                                "ids": {
+                                    "type": "string",
+                                    "description": "User ID"
+                                },
+                                "add_at": {
+                                    "type": "string",
+                                    "format": "date-time"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Role not found"
+                    }
+                }
+            }
+        },
+        "/roles/{roleId}/members/{memberId}": {
+            "delete": {
+                "summary": "Delete a role's member",
+                "description": "Delete one of a role's member",
+                "tags": [
+                    "Roles"
+                ],
+                "operationId": "roleMemberDelete",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/RoleId"
+                    },
+                    {
+                        "name": "memberId",
+                        "description": "Member's ID",
+                        "in": "path",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Member deleted"
+                    },
+                    "404": {
+                        "description": "Role or Member not found"
+                    }
+                }
+            }
+        },
         "/tsp": {
             "get": {
                 "summary": "Retrieve account's TSP information",
@@ -5223,6 +5345,12 @@
                                 {
                                     "properties": {
                                         "language": {
+                                            "type": "string"
+                                        },
+                                        "phone_country": {
+                                            "type": "string"
+                                        },
+                                        "phone_number": {
                                             "type": "string"
                                         },
                                         "vanity_url": {
@@ -7453,6 +7581,13 @@
             "type": "string",
             "required": true
         },
+        "RoleId": {
+            "in": "path",
+            "name": "roleId",
+            "description": "The role ID",
+            "type": "string",
+            "required": true
+        },
         "WebinarId": {
             "in": "path",
             "name": "webinarId",
@@ -8690,6 +8825,107 @@
                         "Scheduled Meeting",
                         "Recurring Meeting with no fixed time",
                         "Recurring Meeting with fixed time"
+                    ]
+                },
+                "start_time": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Meeting start time"
+                },
+                "duration": {
+                    "type": "integer",
+                    "description": "Meeting duration"
+                },
+                "timezone": {
+                    "type": "string",
+                    "description": "Timezone to format start_time"
+                },
+                "created_at": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Create time"
+                },
+                "agenda": {
+                    "type": "string",
+                    "description": "Agenda"
+                },
+                "start_url": {
+                    "type": "string",
+                    "description": "Start url"
+                },
+                "join_url": {
+                    "type": "string",
+                    "description": "Join url"
+                },
+                "password": {
+                    "type": "string",
+                    "description": "Meeting password"
+                },
+                "h323_password": {
+                    "type": "string",
+                    "description": "H.323/SIP room system password"
+                },
+                "tracking_fields": {
+                    "type": "array",
+                    "description": "Tracking fields",
+                    "items": {
+                        "properties": {
+                            "field": {
+                                "type": "string",
+                                "description": "Tracking fields type"
+                            },
+                            "value": {
+                                "type": "string",
+                                "description": "Tracking fields value"
+                            }
+                        }
+                    }
+                },
+                "occurrences": {
+                    "$ref": "#/definitions/Occurrences"
+                },
+                "settings": {
+                    "$ref": "#/definitions/MeetingSettings"
+                }
+            }
+        },
+        "MeetingInfoGet": {
+            "type": "object",
+            "description": "Meeting object",
+            "properties": {
+                "topic": {
+                    "type": "string",
+                    "description": "Meeting topic"
+                },
+                "type": {
+                    "type": "integer",
+                    "description": "Meeting Type",
+                    "default": 2,
+                    "enum": [
+                        1,
+                        2,
+                        3,
+                        8
+                    ],
+                    "x-enum-descriptions": [
+                        "Instant Meeting",
+                        "Scheduled Meeting",
+                        "Recurring Meeting with no fixed time",
+                        "Recurring Meeting with fixed time"
+                    ]
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Meeting status",
+                    "enum": [
+                        "waiting",
+                        "started",
+                        "finished"
+                    ],
+                    "x-enum-descriptions": [
+                        "Waiting",
+                        "Started",
+                        "Finished"
                     ]
                 },
                 "start_time": {
@@ -10082,6 +10318,124 @@
                 }
             }
         },
+        "RoleList": {
+            "type": "object",
+            "title": "Role List",
+            "description": "List of Roles",
+            "allOf": [
+                {
+                    "properties": {
+                        "total_records": {
+                            "type": "integer",
+                            "description": "The number of all records available across pages"
+                        },
+                        "roles": {
+                            "type": "array",
+                            "description": "List of Roles objects",
+                            "items": {
+                                "allOf": [
+                                    {
+                                        "properties": {
+                                            "id":{
+                                                "type": "string",
+                                                "description": "Role Id"
+                                            },
+                                            "name":{
+                                                "type": "string",
+                                                "description": "Role Name"
+                                            },
+                                            "description":{
+                                                "type": "string",
+                                                "description": "Role Description"
+                                            },
+                                            "total_members":{
+                                                "type": "integer",
+                                                "description": "Total members in this role"
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "RoleMembersList": {
+            "type": "object",
+            "title": "Role Members List",
+            "description": "List of a Role Members",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/Pagination"
+                },
+                {
+                    "properties": {
+                        "members": {
+                            "type": "array",
+                            "description": "List of a Role Members",
+                            "items": {
+                                "allOf": [
+                                    {
+                                        "properties": {
+                                            "id": {
+                                                "type": "string",
+                                                "description": "Member ID"
+                                            },
+                                            "email": {
+                                                "type": "string",
+                                                "description": "Member Email"
+                                            },
+                                            "first_name": {
+                                                "type": "string",
+                                                "description": "Member First Name"
+                                            },
+                                            "last_name": {
+                                                "type": "string",
+                                                "description": "Member Last Name"
+                                            },
+                                            "type": {
+                                                "type": "integer",
+                                                "description": "Member Type"
+                                            },
+                                            "department": {
+                                                "type": "string",
+                                                "description": "Member Department"
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "RoleMembersAdd": {
+            "type": "object",
+            "title": "Add Role Members",
+            "description": "Add Role Members",
+            "properties": {
+                "members": {
+                    "type": "array",
+                    "description": "List of Role's members",
+                    "maximum": 30,
+                    "items": {
+                        "properties": {
+                            "id": {
+                                "type": "string",
+                                "description": "User ID"
+                            },
+                            "email": {
+                                "type": "string",
+                                "description": "User email address. Must have id or email, if given id, the email is ignored."
+                            }
+                        }
+                    }
+                }
+            }
+        },
+
         "Session": {
             "type": "object",
             "description": "Base object for sessions",
@@ -10616,6 +10970,14 @@
                 "language": {
                     "type": "string",
                     "description": "language"
+                },
+                "phone_country": {
+                    "type": "string",
+                    "description": "phone_country"
+                },
+                "phone_number": {
+                    "type": "string",
+                    "description": "phone_number"
                 },
                 "dept": {
                     "type": "string",
@@ -11991,6 +12353,10 @@
         {
             "name": "Cloud Recording",
             "description": "Cloud Recording operations"
+        },
+        {
+            "name": "Roles",
+            "description": "Role operations"
         },
         {
             "name": "Reports",
