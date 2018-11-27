@@ -292,6 +292,40 @@
           }
         }
       },
+      "/accounts/{accountId}/trusted_domains": {
+        "get": {
+          "summary": "Retrieve a sub account's trusted domains",
+          "description": "Retrieve a sub account's trusted domains under the master account",
+          "tags": [
+            "Accounts"
+          ],
+          "operationId": "accountTrustedDomain",
+          "parameters": [
+            {
+              "$ref": "#/parameters/AccountId"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Account trusted domains returned",
+              "schema": {
+                "properties": {
+                    "trusted_domains": {
+                        "type": "array",
+                        "description": "List of trusted domains",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                }
+              }
+            },
+            "404": {
+              "description": "Account not found"
+            }
+          }
+        }
+      },
         "/accounts/{accountId}/billing": {
             "get": {
                 "summary": "Retrieve billing information for a sub account",
@@ -1688,6 +1722,12 @@
                 "parameters": [
                     {
                         "$ref": "#/parameters/MeetingId"
+                    },
+                    {
+                        "in": "query",
+                        "name": "occurrence_id",
+                        "description": "Meeting occurrence id",
+                        "type": "string"
                     }
                 ],
                 "responses": {
@@ -1755,6 +1795,12 @@
                                 }
                             ]
                         }
+                    },
+                    {
+                        "in": "query",
+                        "name": "occurrence_id",
+                        "description": "Meeting occurrence id. Support change of agenda, start_time, duration, settings: {host_video, participant_video, join_before_host, mute_upon_entry, waiting_room, watermark, auto_recording}",
+                        "type": "string"
                     }
                 ],
                 "responses": {
@@ -5846,6 +5892,19 @@
                                         "use_pmi": {
                                             "type": "boolean"
                                         },
+                                        "status": {
+                                            "type": "string",
+                                            "enum": [
+                                                "pending",
+                                                "active",
+                                                "inactive"
+                                            ],
+                                            "x-enum-descriptions": [
+                                                "Pending User",
+                                                "Active User",
+                                                "Inactive User"
+                                            ]
+                                        }, 
                                         "group_ids": {
                                             "type": "array",
                                             "items": {
@@ -6842,6 +6901,12 @@
                 "parameters": [
                     {
                         "$ref": "#/parameters/WebinarId"
+                    },
+                    {
+                        "in": "query",
+                        "name": "occurrence_id",
+                        "description": "Webinar occurrence id",
+                        "type": "string"
                     }
                 ],
                 "responses": {
@@ -6896,6 +6961,12 @@
                         "schema": {
                             "$ref": "#/definitions/WebinarUpdate"
                         }
+                    },
+                    {
+                        "in": "query",
+                        "name": "occurrence_id",
+                        "description": "Webinar occurrence id. Support change of agenda, start_time, duration, settings: {host_video, panelist_video, hd_video, watermark, auto_recording}",
+                        "type": "string"
                     }
                 ],
                 "responses": {
@@ -9814,6 +9885,25 @@
                   "type": "boolean",
                   "description": "Enable waiting room",
                   "default": false
+                },
+                "contact_name": {
+                    "type": "string",
+                    "description": "The contact name that attendees can use if they have questions about the meeting."
+                },
+                "contact_email": {
+                    "type": "string",
+                    "description": "The contact email that attendees can use if they have questions about the meeting."
+                },
+                "registrants_confirmation_email": {
+                  "type": "boolean",
+                  "description": "Send confirmation email to registrants"
+                },
+                "global_dial_in_countries": {
+                    "type": "array",
+                    "description": "Global dial-in countries/regions. Uses country ids such as US and PR.",
+                    "items": {
+                        "type": "string"
+                    }
                 }
             }
         },
