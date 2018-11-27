@@ -2900,7 +2900,7 @@
           "operationId": "recordingRegistrantsQuestionsGet",
           "parameters": [
             {
-              "$ref": "#/parameters/MeetingId"
+              "$ref": "#/parameters/MeetingId4Recording"
             }
           ],
           "responses": {
@@ -2928,7 +2928,7 @@
           "operationId": "recordingRegistrantQuestionUpdate",
           "parameters": [
             {
-              "$ref": "#/parameters/MeetingId"
+              "$ref": "#/parameters/MeetingId4Recording"
             },
             {
               "in": "body",
