@@ -12,3 +12,6 @@ The Zoom API helps manage the pre-meeting experience such as creating, editing a
 
 # For recent changes to our API, please visit our developer site. 
 - https://devdocs.zoom.us/guides/welcome/recent-updates
+
+## Support
+For any questions or issues, please visit our new Community Support Forum at https://devforum.zoom.us/
