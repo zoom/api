@@ -5916,6 +5916,9 @@
                                             "items": {
                                                 "type": "string"
                                             }
+                                        },
+                                        "jid": {
+                                            "type": "string" 
                                         }
                                     }
                                 }
