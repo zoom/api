@@ -292,6 +292,40 @@
           }
         }
       },
+      "/accounts/{accountId}/trusted_domains": {
+        "get": {
+          "summary": "Retrieve a sub account's trusted domains",
+          "description": "Retrieve a sub account's trusted domains under the master account",
+          "tags": [
+            "Accounts"
+          ],
+          "operationId": "accountTrustedDomain",
+          "parameters": [
+            {
+              "$ref": "#/parameters/AccountId"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Account trusted domains returned",
+              "schema": {
+                "properties": {
+                    "trusted_domains": {
+                        "type": "array",
+                        "description": "List of trusted domains",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                }
+              }
+            },
+            "404": {
+              "description": "Account not found"
+            }
+          }
+        }
+      },
         "/accounts/{accountId}/billing": {
             "get": {
                 "summary": "Retrieve billing information for a sub account",
@@ -890,7 +924,7 @@
                 }
             }
         },
-        "/v2/tracking_fields": {
+        "/tracking_fields": {
         "get": {
           "summary": "List Tracking Fields.",
           "description": "List Tracking Fields on your Zoom account.",
@@ -954,7 +988,7 @@
           }
         }
       },
-        "/v2/tracking_fields/{fieldId}": {
+        "/tracking_fields/{fieldId}": {
         "get": {
           "summary": "Retrieve a tracking field",
           "description": "Retrieve a tracking field",
@@ -1688,6 +1722,12 @@
                 "parameters": [
                     {
                         "$ref": "#/parameters/MeetingId"
+                    },
+                    {
+                        "in": "query",
+                        "name": "occurrence_id",
+                        "description": "Meeting occurrence id",
+                        "type": "string"
                     }
                 ],
                 "responses": {
@@ -1713,7 +1753,7 @@
                                     }
                                 },
                                 {
-                                    "$ref": "#/definitions/MeetingInfo"
+                                    "$ref": "#/definitions/MeetingInfoGet"
                                 }
                             ]
                         }
@@ -1755,6 +1795,12 @@
                                 }
                             ]
                         }
+                    },
+                    {
+                        "in": "query",
+                        "name": "occurrence_id",
+                        "description": "Meeting occurrence id. Support change of agenda, start_time, duration, settings: {host_video, participant_video, join_before_host, mute_upon_entry, waiting_room, watermark, auto_recording}",
+                        "type": "string"
                     }
                 ],
                 "responses": {
@@ -2442,6 +2488,70 @@
           }
         }
       },
+      "/meetings/{meetingId}/registrants/questions": {
+        "get": {
+          "summary": "Retrieve a meeting's registrant questions",
+          "description": "Retrieve a meeting's registrant questions",
+          "tags": [
+            "Meetings"
+          ],
+          "operationId": "meetingRegistrantsQuestionsGet",
+          "parameters": [
+            {
+              "$ref": "#/parameters/MeetingId"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Meeting Registrant Question object returned",
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/definitions/MeetingRegistrantQuestions"
+                  }
+                ]
+              }
+            },
+            "404": {
+              "description": "Meeting not found"
+            }
+          }
+        },
+        "patch": {
+          "summary": "Update a meeting's registrant questions",
+          "description": "Update a meeting's registrant questions",
+          "tags": [
+            "Meetings"
+          ],
+          "operationId": "meetingRegistrantQuestionUpdate",
+          "parameters": [
+            {
+              "$ref": "#/parameters/MeetingId"
+            },
+            {
+              "in": "body",
+              "name": "body",
+              "required": true,
+              "description": "Meeting Registrant Questions",
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/definitions/MeetingRegistrantQuestions"
+                  }
+                ]
+              }
+            }
+          ],
+          "responses": {
+            "204": {
+              "description": "Meeting Registrant Questions Updated"
+            },
+            "404": {
+              "description": "Meeting not found"
+            }
+          }
+        }
+      },
         "/users/{userId}/recordings": {
             "get": {
                 "summary": "List all the recordings",
@@ -2710,6 +2820,186 @@
                 }
             }
         },
+        "/meetings/{meetingId}/recordings/registrants": {
+            "get": {
+                "summary": "List a meeting recording's registrants",
+                "description": "List registrants of a meeting recording",
+                "tags": [
+                    "Cloud Recording"
+                ],
+                "operationId": "meetingRecordingRegistrants",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/MeetingId"
+                    },
+                    {
+                        "$ref": "#/parameters/RegistrantStatus"
+                    },
+                    {
+                        "$ref": "#/parameters/PageSize"
+                    },
+                    {
+                        "$ref": "#/parameters/PageNumber"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/MeetingRecordingRegistrantList"
+                        }
+                    },
+                    "404": {
+                        "description": "Meeting recording not found"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Add a meeting recording registrant",
+                "description": "Register a participant for a meeting recording",
+                "tags": [
+                    "Cloud Recording"
+                ],
+                "operationId": "meetingRecordingRegistrantCreate",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/MeetingId"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/MeetingRegistrant"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Registration created",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "registrant_id": {
+                                    "type": "string",
+                                    "description": "Registrant ID"
+                                },
+                                "id": {
+                                    "type": "string",
+                                    "description": "Registrant ID"
+                                },
+                                "topic": {
+                                    "type": "string",
+                                    "description": "Topic"
+                                },
+                                "share_url": {
+                                    "type": "string",
+                                    "description": "Share Url for this registrant"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Meeting recording not found"
+                    }
+                }
+            }
+        },
+        "/meetings/{meetingId}/recordings/registrants/status": {
+            "put": {
+                "summary": "Update a meeting recording registrant's status",
+                "description": "Update a meeting recording registrant's status",
+                "tags": [
+                    "Cloud Recording"
+                ],
+                "operationId": "meetingRecordingRegistrantStatus",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/MeetingId"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/RecordingRegistrantStatus"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Registrant status updated"
+                    },
+                    "404": {
+                        "description": "Meeting recording or Registrant not found"
+                    }
+                }
+            }
+        },
+      "/meetings/{meetingId}/recordings/registrants/questions": {
+        "get": {
+          "summary": "Retrieve a recording's registrant questions",
+          "description": "Retrieve a recording's registrant questions",
+          "tags": [
+            "Cloud Recording"
+          ],
+          "operationId": "recordingRegistrantsQuestionsGet",
+          "parameters": [
+            {
+              "$ref": "#/parameters/MeetingId4Recording"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Recording Registrant Question object returned",
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/definitions/RecordingRegistrantQuestions"
+                  }
+                ]
+              }
+            },
+            "404": {
+              "description": "Meeting recording or Registrant not found"
+            }
+          }
+        },
+        "patch": {
+          "summary": "Update a recording's registrant questions",
+          "description": "Update a recording's registrant questions",
+          "tags": [
+            "Cloud Recording"
+          ],
+          "operationId": "recordingRegistrantQuestionUpdate",
+          "parameters": [
+            {
+              "$ref": "#/parameters/MeetingId4Recording"
+            },
+            {
+              "in": "body",
+              "name": "body",
+              "required": true,
+              "description": "Recording Registrant Questions",
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/definitions/RecordingRegistrantQuestions"
+                  }
+                ]
+              }
+            }
+          ],
+          "responses": {
+            "204": {
+              "description": "Recording Registrant Questions Updated"
+            },
+            "404": {
+              "description": "Meeting recording or Registrant not found"
+            }
+          }
+        }
+      },
         "/metrics/meetings": {
             "get": {
                 "summary": "List meetings",
@@ -3748,6 +4038,275 @@
                 }
             }
         },
+      "/metrics/client/feedback": {
+        "get": {
+          "summary": "Retrieve Zoom Meetings Client Feedback",
+          "description": "Retrieve Zoom Meetings Client Feedback",
+          "tags": [
+            "Dashboards"
+          ],
+          "operationId": "dashboardClientFeedback",
+          "parameters": [
+            {
+              "$ref": "#/parameters/FromDate"
+            },
+            {
+              "$ref": "#/parameters/ToDate"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Client Feedback details returned",
+              "schema": {
+                "allOf": [
+                  {
+                    "properties": {
+                      "from": {
+                        "type": "string",
+                        "format": "date",
+                        "description": "Start date for this report"
+                      },
+                      "to": {
+                        "type": "string",
+                        "format": "date",
+                        "description": "End date for this report"
+                      },
+                      "total_records": {
+                        "type": "integer",
+                        "description": "The number of all records available across pages"
+                      }
+                    }
+                  },
+                  {
+                    "properties": {
+                      "client_feedbacks": {
+                        "type": "array",
+                        "items": {
+                          "properties": {
+                            "feedback_name": {
+                              "type": "string",
+                              "description": "Feedback Name"
+                            },
+                            "participants_count": {
+                              "type": "integer",
+                              "description": "Participants Count of Feedback"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "/metrics/zoomrooms/issues": {
+        "get": {
+          "summary": "Retrieve Top 25 issues of Zoom Rooms",
+          "description": "Retrieve Top 25 issues of Zoom Rooms",
+          "tags": [
+            "Dashboards"
+          ],
+          "operationId": "dashboardZoomRoomIssue",
+          "parameters": [
+            {
+              "$ref": "#/parameters/FromDate"
+            },
+            {
+              "$ref": "#/parameters/ToDate"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Zoom Room Issue details returned",
+              "schema": {
+                "allOf": [
+                  {
+                    "properties": {
+                      "from": {
+                        "type": "string",
+                        "format": "date",
+                        "description": "Start date for this report"
+                      },
+                      "to": {
+                        "type": "string",
+                        "format": "date",
+                        "description": "End date for this report"
+                      },
+                      "total_records": {
+                        "type": "integer",
+                        "description": "The number of all records available across pages"
+                      }
+                    }
+                  },
+                  {
+                    "properties": {
+                      "issues": {
+                        "type": "array",
+                        "items": {
+                          "properties": {
+                            "issue_name": {
+                              "type": "string",
+                              "description": "Issue Name"
+                            },
+                            "zoom_rooms_count": {
+                              "type": "integer",
+                              "description": "Zoom Room Count of Issue"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "/metrics/issues/zoomrooms": {
+        "get": {
+          "summary": "Retrieve Top 25 Zoom Rooms with issues",
+          "description": "Retrieve Top 25 Zoom Rooms with issues",
+          "tags": [
+            "Dashboards"
+          ],
+          "operationId": "dashboardIssueZoomRoom",
+          "parameters": [
+            {
+              "$ref": "#/parameters/FromDate"
+            },
+            {
+              "$ref": "#/parameters/ToDate"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Zoom Room with issue details returned",
+              "schema": {
+                "allOf": [
+                  {
+                    "properties": {
+                      "from": {
+                        "type": "string",
+                        "format": "date",
+                        "description": "Start date for this report"
+                      },
+                      "to": {
+                        "type": "string",
+                        "format": "date",
+                        "description": "End date for this report"
+                      },
+                      "total_records": {
+                        "type": "integer",
+                        "description": "The number of all records available across pages"
+                      }
+                    }
+                  },
+                  {
+                    "properties": {
+                      "zoom_rooms": {
+                        "type": "array",
+                        "items": {
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "description": "Zoom Room ID"
+                            },
+                            "room_name": {
+                              "type": "string",
+                              "description": "Zoom Room Name"
+                            },
+                            "issues_count": {
+                              "type": "integer",
+                              "description": "Issue Count of Zoom Room"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "/metrics/issues/zoomrooms/{zoomroomId}": {
+        "get": {
+          "summary": "Retrieve Issue detail of Top 25 Zoom Rooms with issues",
+          "description": "Retrieve Issue detail of Top 25 Zoom Rooms with issues",
+          "tags": [
+            "Dashboards"
+          ],
+          "operationId": "dashboardIssueDetailZoomRoom",
+          "parameters": [
+            {
+              "$ref": "#/parameters/ZoomRoomId"
+            },
+            {
+              "$ref": "#/parameters/FromDate"
+            },
+            {
+              "$ref": "#/parameters/ToDate"
+            },
+            {
+              "$ref": "#/parameters/PageSize"
+            },
+            {
+              "$ref": "#/parameters/NextPageToken"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Zoom Room with issue details returned",
+              "schema": {
+                "allOf": [
+                  {
+                    "properties": {
+                      "from": {
+                        "type": "string",
+                        "format": "date",
+                        "description": "Start date for this report"
+                      },
+                      "to": {
+                        "type": "string",
+                        "format": "date",
+                        "description": "End date for this report"
+                      }
+                    }
+                  },
+                  {
+                    "$ref": "#/definitions/PaginationToken"
+                  },
+                  {
+                    "properties": {
+                      "issue_details": {
+                        "type": "array",
+                        "items": {
+                          "properties": {
+                            "issue": {
+                              "type": "string",
+                              "description": "Zoom Room Issue Detail"
+                            },
+                            "time": {
+                              "type": "string",
+                              "format": "date-time",
+                              "description": "Issue Time"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
         "/report/daily": {
             "get": {
                 "summary": "Retrieve daily report",
@@ -4746,7 +5305,7 @@
         },
         "/report/cloud_recording": {
             "get": {
-                "summary": "Retrieve cloud recording usage report",
+                "summary": "Retrieve Cloud Recording Usage Report",
                 "description": "Retrieve cloud recording usage report for a specified period. You can only get cloud recording reports for the most recent period of 6 months. The date gap between from and to dates should be smaller or equal to 30 days.",
                 "tags": [
                     "Reports"
@@ -4787,17 +5346,21 @@
                                             "items": {
                                                 "properties": {
                                                     "date": {
-                                                    "type": "string",
-                                                    "format": "date-time"
+                                                        "type": "string",
+                                                        "format": "date-time",
+                                                        "description": "Date of the usage"
                                                     },
                                                     "usage": {
-                                                        "type": "string"
+                                                        "type": "string",
+                                                        "description": "Storage used on the date"
                                                     },
                                                     "plan_usage": {
-                                                        "type": "string"
+                                                        "type": "string",
+                                                        "description": "Paid storage"
                                                     },
                                                     "free_usage": {
-                                                        "type": "string"
+                                                        "type": "string",
+                                                        "description": "Free storage"
                                                     }
                                                 }
                                             }
@@ -4809,6 +5372,200 @@
                     },
                     "300": {
                         "description": "Only provide report in recent 6 months"
+                    }
+                }
+            }
+        },
+        "/report/operationlogs": {
+          "get": {
+            "summary": "Retrieve operation logs report",
+            "description": "Retrieve operation logs report",
+            "tags": [
+              "Reports"
+            ],
+            "operationId": "reportOperationLogs",
+            "parameters": [
+              {
+                "$ref": "#/parameters/FromDate"
+              },
+              {
+                "$ref": "#/parameters/ToDate"
+              },
+              {
+                "$ref": "#/parameters/PageSize"
+              },
+              {
+                "$ref": "#/parameters/NextPageToken"
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "Operation Logs Report Returned",
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/definitions/PaginationToken4IMChat"
+                    },
+                    {
+                      "properties": {
+                        "operation_logs": {
+                          "type": "array",
+                          "description": "Array of operation log objects",
+                          "items": {
+                            "properties": {
+                              "time": {
+                                "type": "string",
+                                "format": "date-time",
+                                "description": "operation time"
+                              },
+                              "operator": {
+                                "type": "string",
+                                "description": "operator user"
+                              },
+                              "category_type": {
+                                "type": "string",
+                                "description": "Category type"
+                              },
+                              "action": {
+                                "type": "string",
+                                "description": "Action"
+                              },
+                              "operation_detail": {
+                                "type": "string",
+                                "description": "Operation detail"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "300": {
+                "description": "Only provide report in recent 6 months"
+              }
+            }
+          }
+        },
+        "/roles": {
+            "get": {
+                "summary": "List Roles",
+                "description": "List Roles on your account",
+                "tags": [
+                    "Roles"
+                ],
+                "operationId": "roles",
+                "responses": {
+                    "200": {
+                        "description": "Role list returned",
+                        "schema": {
+                            "$ref": "#/definitions/RoleList"
+                        }
+                    }
+                }
+            }
+        },
+        "/roles/{roleId}/members": {
+            "get": {
+                "summary": "List a role's members",
+                "description": "List a role's members",
+                "tags": [
+                    "Roles"
+                ],
+                "operationId": "roleMembers",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/RoleId"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/RoleMembersList"
+                        }
+                    },
+                    "404": {
+                        "description": "Role not found"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Add a role members",
+                "description": "Add a role members",
+                "tags": [
+                    "Roles"
+                ],
+                "operationId": "AddRoleMembers",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/RoleId"
+                    },
+                    {
+                        "name": "body",
+                        "description": "Role members",
+                        "required": true,
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/RoleMembersAdd"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Members Added",
+                        "headers": {
+                            "Content-Location": {
+                                "description": "Location of created members",
+                                "type": "string"
+                            }
+                        },
+                        "schema": {
+                            "properties": {
+                                "ids": {
+                                    "type": "string",
+                                    "description": "User ID"
+                                },
+                                "add_at": {
+                                    "type": "string",
+                                    "format": "date-time"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Role not found"
+                    }
+                }
+            }
+        },
+        "/roles/{roleId}/members/{memberId}": {
+            "delete": {
+                "summary": "Delete a role's member",
+                "description": "Delete one of a role's member",
+                "tags": [
+                    "Roles"
+                ],
+                "operationId": "roleMemberDelete",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/RoleId"
+                    },
+                    {
+                        "name": "memberId",
+                        "description": "Member's ID",
+                        "in": "path",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Member deleted"
+                    },
+                    "404": {
+                        "description": "Role or Member not found"
                     }
                 }
             }
@@ -5105,6 +5862,12 @@
                                         "language": {
                                             "type": "string"
                                         },
+                                        "phone_country": {
+                                            "type": "string"
+                                        },
+                                        "phone_number": {
+                                            "type": "string"
+                                        },
                                         "vanity_url": {
                                             "type": "string"
                                         },
@@ -5129,6 +5892,19 @@
                                         "use_pmi": {
                                             "type": "boolean"
                                         },
+                                        "status": {
+                                            "type": "string",
+                                            "enum": [
+                                                "pending",
+                                                "active",
+                                                "inactive"
+                                            ],
+                                            "x-enum-descriptions": [
+                                                "Pending User",
+                                                "Active User",
+                                                "Inactive User"
+                                            ]
+                                        }, 
                                         "group_ids": {
                                             "type": "array",
                                             "items": {
@@ -5140,6 +5916,9 @@
                                             "items": {
                                                 "type": "string"
                                             }
+                                        },
+                                        "jid": {
+                                            "type": "string" 
                                         }
                                     }
                                 }
@@ -6125,6 +6904,12 @@
                 "parameters": [
                     {
                         "$ref": "#/parameters/WebinarId"
+                    },
+                    {
+                        "in": "query",
+                        "name": "occurrence_id",
+                        "description": "Webinar occurrence id",
+                        "type": "string"
                     }
                 ],
                 "responses": {
@@ -6179,6 +6964,12 @@
                         "schema": {
                             "$ref": "#/definitions/WebinarUpdate"
                         }
+                    },
+                    {
+                        "in": "query",
+                        "name": "occurrence_id",
+                        "description": "Webinar occurrence id. Support change of agenda, start_time, duration, settings: {host_video, panelist_video, hd_video, watermark, auto_recording}",
+                        "type": "string"
                     }
                 ],
                 "responses": {
@@ -6795,6 +7586,70 @@
               }
             }
         },
+      "/webinars/{webinarId}/registrants/questions": {
+        "get": {
+          "summary": "Retrieve a webinar's registrant questions",
+          "description": "Retrieve a webinar's registrant questions",
+          "tags": [
+            "Webinars"
+          ],
+          "operationId": "webinarRegistrantsQuestionsGet",
+          "parameters": [
+            {
+              "$ref": "#/parameters/WebinarId"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Webinar Registrant Question object returned",
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/definitions/WebinarRegistrantQuestions"
+                  }
+                ]
+              }
+            },
+            "404": {
+              "description": "Webinar not found"
+            }
+          }
+        },
+        "patch": {
+          "summary": "Update a webinar's registrant questions",
+          "description": "Update a webinar's registrant questions",
+          "tags": [
+            "Webinars"
+          ],
+          "operationId": "webinarRegistrantQuestionUpdate",
+          "parameters": [
+            {
+              "$ref": "#/parameters/WebinarId"
+            },
+            {
+              "in": "body",
+              "name": "body",
+              "required": true,
+              "description": "Webinar Registrant Questions",
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/definitions/WebinarRegistrantQuestions"
+                  }
+                ]
+              }
+            }
+          ],
+          "responses": {
+            "204": {
+              "description": "Webinar Registrant Questions Updated"
+            },
+            "404": {
+              "description": "Webinar not found"
+            }
+          }
+        }
+      },
         "/webhooks/options": {
             "patch": {
                 "summary": "Switch webhook version",
@@ -7330,6 +8185,13 @@
             "in": "path",
             "name": "userId",
             "description": "The user ID or email address",
+            "type": "string",
+            "required": true
+        },
+        "RoleId": {
+            "in": "path",
+            "name": "roleId",
+            "description": "The role ID",
             "type": "string",
             "required": true
         },
@@ -8634,6 +9496,107 @@
                 }
             }
         },
+        "MeetingInfoGet": {
+            "type": "object",
+            "description": "Meeting object",
+            "properties": {
+                "topic": {
+                    "type": "string",
+                    "description": "Meeting topic"
+                },
+                "type": {
+                    "type": "integer",
+                    "description": "Meeting Type",
+                    "default": 2,
+                    "enum": [
+                        1,
+                        2,
+                        3,
+                        8
+                    ],
+                    "x-enum-descriptions": [
+                        "Instant Meeting",
+                        "Scheduled Meeting",
+                        "Recurring Meeting with no fixed time",
+                        "Recurring Meeting with fixed time"
+                    ]
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Meeting status",
+                    "enum": [
+                        "waiting",
+                        "started",
+                        "finished"
+                    ],
+                    "x-enum-descriptions": [
+                        "Waiting",
+                        "Started",
+                        "Finished"
+                    ]
+                },
+                "start_time": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Meeting start time"
+                },
+                "duration": {
+                    "type": "integer",
+                    "description": "Meeting duration"
+                },
+                "timezone": {
+                    "type": "string",
+                    "description": "Timezone to format start_time"
+                },
+                "created_at": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Create time"
+                },
+                "agenda": {
+                    "type": "string",
+                    "description": "Agenda"
+                },
+                "start_url": {
+                    "type": "string",
+                    "description": "Start url"
+                },
+                "join_url": {
+                    "type": "string",
+                    "description": "Join url"
+                },
+                "password": {
+                    "type": "string",
+                    "description": "Meeting password"
+                },
+                "h323_password": {
+                    "type": "string",
+                    "description": "H.323/SIP room system password"
+                },
+                "tracking_fields": {
+                    "type": "array",
+                    "description": "Tracking fields",
+                    "items": {
+                        "properties": {
+                            "field": {
+                                "type": "string",
+                                "description": "Tracking fields type"
+                            },
+                            "value": {
+                                "type": "string",
+                                "description": "Tracking fields value"
+                            }
+                        }
+                    }
+                },
+                "occurrences": {
+                    "$ref": "#/definitions/Occurrences"
+                },
+                "settings": {
+                    "$ref": "#/definitions/MeetingSettings"
+                }
+            }
+        },
         "MeetingList": {
             "type": "object",
             "title": "Group List",
@@ -8925,6 +9888,25 @@
                   "type": "boolean",
                   "description": "Enable waiting room",
                   "default": false
+                },
+                "contact_name": {
+                    "type": "string",
+                    "description": "The contact name that attendees can use if they have questions about the meeting."
+                },
+                "contact_email": {
+                    "type": "string",
+                    "description": "The contact email that attendees can use if they have questions about the meeting."
+                },
+                "registrants_confirmation_email": {
+                  "type": "boolean",
+                  "description": "Send confirmation email to registrants"
+                },
+                "global_dial_in_countries": {
+                    "type": "array",
+                    "description": "Global dial-in countries/regions. Uses country ids such as US and PR.",
+                    "items": {
+                        "type": "string"
+                    }
                 }
             }
         },
@@ -8957,7 +9939,6 @@
                 }
             ]
         },
-
         "MeetingLiveStream": {
             "type": "object",
             "description": "Meeting Live Stream",
@@ -9641,7 +10622,6 @@
                 }
             }
         },
-
         "Recurrence": {
             "type": "object",
             "description": "Recurrence object",
@@ -9964,6 +10944,124 @@
                 }
             }
         },
+        "RoleList": {
+            "type": "object",
+            "title": "Role List",
+            "description": "List of Roles",
+            "allOf": [
+                {
+                    "properties": {
+                        "total_records": {
+                            "type": "integer",
+                            "description": "The number of all records available across pages"
+                        },
+                        "roles": {
+                            "type": "array",
+                            "description": "List of Roles objects",
+                            "items": {
+                                "allOf": [
+                                    {
+                                        "properties": {
+                                            "id":{
+                                                "type": "string",
+                                                "description": "Role Id"
+                                            },
+                                            "name":{
+                                                "type": "string",
+                                                "description": "Role Name"
+                                            },
+                                            "description":{
+                                                "type": "string",
+                                                "description": "Role Description"
+                                            },
+                                            "total_members":{
+                                                "type": "integer",
+                                                "description": "Total members in this role"
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "RoleMembersList": {
+            "type": "object",
+            "title": "Role Members List",
+            "description": "List of a Role Members",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/Pagination"
+                },
+                {
+                    "properties": {
+                        "members": {
+                            "type": "array",
+                            "description": "List of a Role Members",
+                            "items": {
+                                "allOf": [
+                                    {
+                                        "properties": {
+                                            "id": {
+                                                "type": "string",
+                                                "description": "Member ID"
+                                            },
+                                            "email": {
+                                                "type": "string",
+                                                "description": "Member Email"
+                                            },
+                                            "first_name": {
+                                                "type": "string",
+                                                "description": "Member First Name"
+                                            },
+                                            "last_name": {
+                                                "type": "string",
+                                                "description": "Member Last Name"
+                                            },
+                                            "type": {
+                                                "type": "integer",
+                                                "description": "Member Type"
+                                            },
+                                            "department": {
+                                                "type": "string",
+                                                "description": "Member Department"
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "RoleMembersAdd": {
+            "type": "object",
+            "title": "Add Role Members",
+            "description": "Add Role Members",
+            "properties": {
+                "members": {
+                    "type": "array",
+                    "description": "List of Role's members",
+                    "maximum": 30,
+                    "items": {
+                        "properties": {
+                            "id": {
+                                "type": "string",
+                                "description": "User ID"
+                            },
+                            "email": {
+                                "type": "string",
+                                "description": "User email address. Must have id or email, if given id, the email is ignored."
+                            }
+                        }
+                    }
+                }
+            }
+        },
+
         "Session": {
             "type": "object",
             "description": "Base object for sessions",
@@ -10498,6 +11596,14 @@
                 "language": {
                     "type": "string",
                     "description": "language"
+                },
+                "phone_country": {
+                    "type": "string",
+                    "description": "phone_country"
+                },
+                "phone_number": {
+                    "type": "string",
+                    "description": "phone_number"
                 },
                 "dept": {
                     "type": "string",
@@ -11663,6 +12769,17 @@
                 "last_start_time": {
                     "type": "string",
                     "description": "Zoom Room last start time"
+                },
+                "health": {
+                  "type": "string",
+                  "description": "Zoom Room health"
+                },
+                "issues": {
+                  "type": "array",
+                  "description": "Zoom Room issues",
+                  "items": {
+                    "type": "string"
+                  }
                 }
             }
         },
@@ -11778,6 +12895,280 @@
           }
         }
       },
+      "MeetingRegistrantQuestions": {
+        "type": "object",
+        "title": "Meeting Registrant Questions",
+        "description": "Meeting Registrant Questions",
+        "properties": {
+          "questions": {
+            "type": "array",
+            "description": "Array of Registrant Questions",
+            "items": {
+              "properties": {
+                "field_name": {
+                  "type": "string",
+                  "description": "field name of question",
+                  "enum": [
+                    "address",
+                    "city",
+                    "country",
+                    "zip",
+                    "state",
+                    "phone",
+                    "industry",
+                    "org",
+                    "job_title",
+                    "purchasing_time_frame",
+                    "role_in_purchase_process",
+                    "no_of_employees",
+                    "comments"
+                  ],
+                  "x-enum-descriptions": [
+                    "Address",
+                    "City",
+                    "Country/Region",
+                    "Zip/Postal Code",
+                    "State/Province",
+                    "Phone",
+                    "Industry",
+                    "Organization",
+                    "Job Title",
+                    "Purchasing Time Frame",
+                    "Role in Purchase Process",
+                    "Number of Employees",
+                    "Questions & Comments"
+                  ]
+                },
+                "required": {
+                  "type": "boolean",
+                  "description": "field name required"
+                }
+              }
+            }
+          },
+          "custom_questions": {
+            "type": "array",
+            "description": "Array of Registrant Custom Questions",
+            "items": {
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "description": "question title"
+                },
+                "type": {
+                  "type": "string",
+                  "description": "question type",
+                  "enum": [
+                    "short",
+                    "single"
+                  ],
+                  "x-enum-descriptions": [
+                    "Short Answer",
+                    "Single Answer"
+                  ]
+                },
+                "required": {
+                  "type": "boolean",
+                  "description": "custom question required"
+                },
+                "answers": {
+                  "type": "array",
+                  "description": "Question answers. Can't Used for Short Answer Type.",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "WebinarRegistrantQuestions": {
+        "type": "object",
+        "title": "Webinar Registrant Questions",
+        "description": "Webinar Registrant Questions",
+        "properties": {
+          "questions": {
+            "type": "array",
+            "description": "Array of Registrant Questions",
+            "items": {
+              "properties": {
+                "field_name": {
+                  "type": "string",
+                  "description": "field name of question",
+                  "enum": [
+                    "last_name",
+                    "address",
+                    "city",
+                    "country",
+                    "zip",
+                    "state",
+                    "phone",
+                    "industry",
+                    "org",
+                    "job_title",
+                    "purchasing_time_frame",
+                    "role_in_purchase_process",
+                    "no_of_employees",
+                    "comments"
+                  ],
+                  "x-enum-descriptions": [
+                    "Last Name",
+                    "Address",
+                    "City",
+                    "Country/Region",
+                    "Zip/Postal Code",
+                    "State/Province",
+                    "Phone",
+                    "Industry",
+                    "Organization",
+                    "Job Title",
+                    "Purchasing Time Frame",
+                    "Role in Purchase Process",
+                    "Number of Employees",
+                    "Questions & Comments"
+                  ]
+                },
+                "required": {
+                  "type": "boolean",
+                  "description": "field name required"
+                }
+              }
+            }
+          },
+          "custom_questions": {
+            "type": "array",
+            "description": "Array of Registrant Custom Questions",
+            "items": {
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "description": "question title"
+                },
+                "type": {
+                  "type": "string",
+                  "description": "question type",
+                  "enum": [
+                    "short",
+                    "single_radio",
+                    "single_dropdown",
+                    "multiple"
+                  ],
+                  "x-enum-descriptions": [
+                    "Short Answer",
+                    "Single Radio Answer",
+                    "Single Dropdown Answer",
+                    "Multiple Answer"
+                  ]
+                },
+                "required": {
+                  "type": "boolean",
+                  "description": "custom question required"
+                },
+                "answers": {
+                  "type": "array",
+                  "description": "Question answers. Can't Used for Short Answer Type.",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "RecordingRegistrantQuestions": {
+        "type": "object",
+        "title": "Recording Registrant Questions",
+        "description": "Recording Registrant Questions",
+        "properties": {
+          "questions": {
+            "type": "array",
+            "description": "Array of Registrant Questions",
+            "items": {
+              "properties": {
+                "field_name": {
+                  "type": "string",
+                  "description": "field name of question",
+                  "enum": [
+                    "last_name",
+                    "address",
+                    "city",
+                    "country",
+                    "zip",
+                    "state",
+                    "phone",
+                    "industry",
+                    "org",
+                    "job_title",
+                    "purchasing_time_frame",
+                    "role_in_purchase_process",
+                    "no_of_employees",
+                    "comments"
+                  ],
+                  "x-enum-descriptions": [
+                    "Last Name",
+                    "Address",
+                    "City",
+                    "Country/Region",
+                    "Zip/Postal Code",
+                    "State/Province",
+                    "Phone",
+                    "Industry",
+                    "Organization",
+                    "Job Title",
+                    "Purchasing Time Frame",
+                    "Role in Purchase Process",
+                    "Number of Employees",
+                    "Questions & Comments"
+                  ]
+                },
+                "required": {
+                  "type": "boolean",
+                  "description": "field name required"
+                }
+              }
+            }
+          },
+          "custom_questions": {
+            "type": "array",
+            "description": "Array of Registrant Custom Questions",
+            "items": {
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "description": "question title"
+                },
+                "type": {
+                  "type": "string",
+                  "description": "question type",
+                  "enum": [
+                    "short",
+                    "single",
+                    "multiple"
+                  ],
+                  "x-enum-descriptions": [
+                    "Short Answer",
+                    "Single Answer",
+                    "Multiple Answer"
+                  ]
+                },
+                "required": {
+                  "type": "boolean",
+                  "description": "custom question required"
+                },
+                "answers": {
+                  "type": "array",
+                  "description": "Question answers. Can't Used for Short Answer Type.",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
       "TrackingFieldList": {
         "type": "object",
         "title": "Tracking Field List",
@@ -11873,6 +13264,10 @@
         {
             "name": "Cloud Recording",
             "description": "Cloud Recording operations"
+        },
+        {
+            "name": "Roles",
+            "description": "Role operations"
         },
         {
             "name": "Reports",
