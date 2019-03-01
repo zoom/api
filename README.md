@@ -1,3 +1,5 @@
+### This definition is no longer being maintained. Please visit our [new documentation](https://marketplace.zoom.us/docs/api-reference/introduction) to get started using the Zoom API. 
+
 # Zoom API Version 2
 
 This repo is the source code for our documentation. You can view the documentation [here](https://zoom.github.io/api).
