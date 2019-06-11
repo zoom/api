@@ -13,7 +13,7 @@ The Zoom API provides the ability for developers to easily add Video, Voice and 
 The Zoom API helps manage the pre-meeting experience such as creating, editing and deleting resources like users, meetings and webinars. It also provides access to post-meeting information for tasks such as reporting and analytics. It does not provide access to the in-meeting experience such as current attendee list, who is current speaker or ability to mute participants; if you seek these features please have a look at our SDKs.
 
 # For recent changes to our API, please visit our developer site. 
-- https://devdocs.zoom.us/guides/welcome/recent-updates
+- https://marketplace.zoom.us/docs/changelog
 
 ## Support
 For any questions or issues, please visit our new Community Support Forum at https://devforum.zoom.us/
