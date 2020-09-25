@@ -11909,10 +11909,12 @@
     },
     "securityDefinitions": {
         "global": {
-            "type": "apiKey",
-            "name": "access_token",
-            "in": "query"
-        }
+            "type":"oauth2",
+            "tokenUrl":"https://zoom.us/oauth/token"
+            ,"authorizationUrl":"https://zoom.us/oauth/authorize"
+            ,"flow":"accessCode"
+            ,"scopes": null
+            }
     },
     "security": [
         {
